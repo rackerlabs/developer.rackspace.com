@@ -17,204 +17,48 @@ title: Rackspace Developer Center
 
     <div class="bodyitem shieldboxes sixup">
         <ul class="shields clearfix">
-            <li class="java">
-                <a href="#java">
-                    <span class="title">Java</span>
+          {% for sdk_hash in site.data.sdks %}
+            {% assign sdk_name = sdk_hash[0] %}
+            {% assign sdk = sdk_hash[1] %}
+            <li class="{{ sdk['programming_language'] }}">
+                <a href="#{{ sdk['programming_language'] }}">
+                    <span class="title">{{ sdk['programming_language'] }}</span>
                 </a>
             </li>
-            <li class="dotnet">
-                <a href="#dotnet">
-                    <span class="title">.NET</span>
-                </a>
-            </li>
-            <li class="node">
-                <a href="#node">
-                    <span class="title">node.js</span>
-                </a>
-            </li>
-            <li class="php">
-                <a href="#php">
-                    <span class="title">PHP</span>
-                </a>
-            </li>
-            <li class="python">
-                <a href="#python">
-                    <span class="title">Python</span>
-                </a>
-            </li>
-            <li class="ruby">
-                <a href="#ruby">
-                    <span class="title">Ruby</span>
-                </a>
-            </li>
-        </ul>
+          {% endfor %}
     </div>
 
-            <a name="java"></a>
+    {% for sdk_hash in site.data.sdks %}
+      {% assign sdk_name = sdk_hash[0] %}
+      {% assign sdk = sdk_hash[1] %}
+    <a name="{{ sdk['programming_language'] }}"></a>
 
-
-    
     <div class="bodyitem sdktable">
-
-        <div class="lang clearfix">
-            <div class="col">
-                <h2>Java</h2>
-                <a href="#" class="cta">Get the SDK</a>
-            </div>
-            <div class="col">
-                <span class="colheader">Supported SDK</span>
-                <p><a href="#">jclouds</a></p>
-            </div>
-            <div class="col">
-                <span class="colheader">Docs and Resources</span>
-                <p><a href="#">Getting Started Guide</a></p>
-                <p><a href="#">API Reference Manual</a></p>
-                <p><a href="#">SDK Release Notes</a></p>
-                <p><a href="#">Examples</a></p>
-            </div>
-            <div class="col">
-                <span class="colheader">Community Links</span>
-                <p>IRC: <a href="#">#rackspace</a> on irc.freenode.net</p>
-                <p>Got Questions?<a href="#"> sdk-support@rackspace.com</a></p>
-                <p>Report Issues on <a href="#">Github</a></p>
-            </div>
-            <a name="dotnet"></a>
-
+      <div class="lang clearfix">
+        <div class="col">
+          <h2>{{ sdk['programming_language'] }}</h2>
+          <a href="{{ sdk['download_page'] }}" class="cta">Get the SDK</a>
         </div>
-
-
-
-        <div class="lang clearfix">
-            <div class="col">
-                <h2>.NET</h2>
-                <a href="#" class="cta">Get the SDK</a>
-            </div>
-            <div class="col">
-                <span class="colheader">Supported SDK</span>
-                <a href="#">jclouds</a>
-            </div>
-            <div class="col">
-                <span class="colheader">Docs and Resources</span>
-                <p><a href="#">Getting Started Guide</a></p>
-                <p><a href="#">API Reference Manual</a></p>
-                <p><a href="#">SDK Release Notes</a></p>
-                <p><a href="#">Examples</a></p>
-            </div>
-            <div class="col">
-                <span class="colheader">Community Links</span>
-                IRC: <a href="#">#rackspace</a> on irc.freenode.net<br />
-                Got Questions?<a href="#"> sdk-support@rackspace.com</a><br />
-                Report Issues: <a href="#">Github</a><br />
-            </div>
-            <a name="node"></a>
-
+        <div class="col">
+          <span class="colheader">Supported SDK</span>
+          <p><a href="{{ sdk['homepage'] }}">{{ sdk_name }}</a></p>
         </div>
-
-
-        <div class="lang clearfix">
-            <div class="col">
-                <h2>node.js</h2>
-                <a href="#" class="cta">Get the SDK</a>
-            </div>
-            <div class="col">
-                <span class="colheader">Supported SDK</span>
-                <a href="#">jclouds</a>
-            </div>
-            <div class="col">
-                <span class="colheader">Docs and Resources</span>
-                <p><a href="#">Getting Started Guide</a></p>
-                <p><a href="#">API Reference Manual</a></p>
-                <p><a href="#">SDK Release Notes</a></p>
-                <p><a href="#">Examples</a></p>
-            </div>
-            <div class="col">
-                <span class="colheader">Community Links</span>
-                IRC: <a href="#">#rackspace</a> on irc.freenode.net<br />
-                Got Questions?<a href="#"> sdk-support@rackspace.com</a><br />
-                Report Issues: <a href="#">Github</a><br />
-            </div>
-            <a name="php"></a>
-
+        <div class="col">
+          <span class="colheader">Docs and Resources</span>
+          <p><a href="#">Getting Started Guide</a></p>
+          <p><a href="#">API Reference Manual</a></p>
+          <p><a href="#">SDK Release Notes</a></p>
+          <p><a href="#">Examples</a></p>
         </div>
-
-
-        <div class="lang clearfix">
-            <div class="col">
-                <h2>PHP</h2>
-                <a href="#" class="cta">Get the SDK</a>
-            </div>
-            <div class="col">
-                <span class="colheader">Supported SDK</span>
-                <a href="#">jclouds</a>
-            </div>
-            <div class="col">
-                <span class="colheader">Docs and Resources</span>
-                <p><a href="#">Getting Started Guide</a></p>
-                <p><a href="#">API Reference Manual</a></p>
-                <p><a href="#">SDK Release Notes</a></p>
-                <p><a href="#">Examples</a></p>
-            </div>
-            <div class="col">
-                <span class="colheader">Community Links</span>
-                IRC: <a href="#">#rackspace</a> on irc.freenode.net<br />
-                Got Questions?<a href="#"> sdk-support@rackspace.com</a><br />
-                Report Issues: <a href="#">Github</a><br />
-            </div>
-        <a name="python"></a>
+        <div class="col">
+          <span class="colheader">Community Links</span>
+          <p>IRC: <a href="#">#rackspace</a> on irc.freenode.net</p>
+          <p>Got Questions?<a href="{{ sdk['mailing_list'] }}"> {{ sdk['mailing_list'] }}</a></p>
+          <p>Report Issues on <a href="{{ sdk['bug_database'] }}">Github</a></p>
         </div>
-
-        <div class="lang clearfix">
-            <div class="col">
-                <h2>Python</h2>
-                <a href="#" class="cta">Get the SDK</a>
-            </div>
-            <div class="col">
-                <span class="colheader">Supported SDK</span>
-                <a href="#">jclouds</a>
-            </div>
-            <div class="col">
-                <span class="colheader">Docs and Resources</span>
-                <p><a href="#">Getting Started Guide</a></p>
-                <p><a href="#">API Reference Manual</a></p>
-                <p><a href="#">SDK Release Notes</a></p>
-                <p><a href="#">Examples</a></p>
-            </div>
-            <div class="col">
-                <span class="colheader">Community Links</span>
-                IRC: <a href="#">#rackspace</a> on irc.freenode.net<br />
-                Got Questions?<a href="#"> sdk-support@rackspace.com</a><br />
-                Report Issues: <a href="#">Github</a><br />
-            </div>
-        <a name="ruby"></a>
-
-        </div>
-
-        <div class="lang clearfix">
-            <div class="col">
-                <h2>Ruby</h2>
-                <a href="#" class="cta">Get the SDK</a>
-            </div>
-            <div class="col">
-                <span class="colheader">Supported SDK</span>
-                <a href="#">jclouds</a>
-            </div>
-            <div class="col">
-                <span class="colheader">Docs and Resources</span>
-                <p><a href="#">Getting Started Guide</a></p>
-                <p><a href="#">API Reference Manual</a></p>
-                <p><a href="#">SDK Release Notes</a></p>
-                <p><a href="#">Examples</a></p>
-            </div>
-            <div class="col">
-                <span class="colheader">Community Links</span>
-                IRC: <a href="#">#rackspace</a> on irc.freenode.net<br />
-                Got Questions?<a href="#"> sdk-support@rackspace.com</a><br />
-                Report Issues: <a href="#">Github</a><br />
-            </div>
-
-        </div>
-
+      </div>
     </div>
+    {% endfor %}
 
 	{% include looking_for_more.html %}
 

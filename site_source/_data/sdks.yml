@@ -1,0 +1,33 @@
+---
+Apache jclouds:
+  homepage: http://jclouds.apache.org/
+  programming_language: Java
+  download_page: https://github.com/jclouds/jclouds
+fog:
+  homepage: https://github.com/fog/fog
+  programming_language: Ruby
+  description: The Ruby cloud services library.
+  download_page: https://github.com/fog/fog/downloads
+  bug_database: https://github.com/fog/fog/issues
+openstack.net:
+  homepage: https://github.com/rackspace/openstack.net
+  programming_language: C#
+  description: The Microsoft .NET SDK for the Rackspace Cloud
+  download_page: https://github.com/rackspace/openstack.net/downloads
+php-opencloud:
+  homepage: https://github.com/rackspace/php-opencloud
+  programming_language: PHP
+  description: The PHP SDK for OpenStack clouds
+  download_page: https://github.com/rackspace/php-opencloud/downloads
+  bug_database: https://github.com/rackspace/php-opencloud/issues
+pkgcloud:
+  homepage: https://github.com/pkgcloud/pkgcloud
+  programming_language: JavaScript
+  description: pkgcloud is a standard library for node.js that abstracts away differences
+    among multiple cloud providers.
+  download_page: https://github.com/pkgcloud/pkgcloud/downloads
+  bug_database: https://github.com/pkgcloud/pkgcloud/issues
+pyrax:
+  homepage: https://github.com/rackspace/pyrax
+  programming_language: Python
+  download_page: https://github.com/rackspace/pyrax/downloads
