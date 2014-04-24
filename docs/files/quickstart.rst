@@ -35,7 +35,7 @@ Unset Container as CDN
 
 If you no longer wish to have your container set as CDN, you may do as as described in the code below:
 
-  .. include:: samples/unset_container_as_cdn.rst
+.. include:: samples/unset_container_as_cdn.rst
 
 
 Delete Container

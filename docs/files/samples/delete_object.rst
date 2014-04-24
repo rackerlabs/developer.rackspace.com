@@ -2,4 +2,4 @@
 
 .. code-block:: python
 
-   pyrax.cloudfiles.delete_object("gallery", "thumbnail")
+   obj.delete()
