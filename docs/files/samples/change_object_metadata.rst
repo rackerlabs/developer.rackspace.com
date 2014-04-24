@@ -1,3 +1,10 @@
+.. code-block:: java
+
+  Map<String, String> metadata = ImmutableMap.of("metaKey1", "metaValue1", "metaKey2", "metaValue2");
+
+  ObjectApi objectApi = cloudFilesApi.getObjectApiForRegionAndContainer("{region}", "{container}");
+  objectApi.updateMetadata("{object}", metadata));
+
 .. code-block:: javascript
 
     file.metadata = {

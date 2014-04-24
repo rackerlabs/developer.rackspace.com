@@ -1,3 +1,9 @@
+.. code-block:: java
+
+  CloudFilesApi cloudFilesApi = ContextBuilder.newBuilder("rackspace-cloudfiles-us")
+                .credentials("{username}", "{apiKey}")
+                .buildApi(CloudFilesApi.class);
+
 .. code-block:: javascript
 
    pkgcloud = require('pkgcloud');

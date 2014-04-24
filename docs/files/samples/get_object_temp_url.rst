@@ -1,3 +1,16 @@
+.. code-block:: java
+
+  // Access the AccountApi and update the TempURL key
+  AccountApi accountApi = cloudFilesApi.getAccountApiForRegion("{region}");
+  accountApi.updateTemporaryUrlKey("{tempUrlKey}")
+
+  // Get the object and sign the request
+  SwiftObject object = api.getObjectApiForRegionAndContainer("{region}", "{container}").head("{object}");
+
+  long expires = 3600;
+  String signature = TemporaryUrlSigner.checkApiEvery(accountApi, 10).sign("GET", object.getUri().getPath(), 3600);
+  URI signed = URI.create(format("%s?temp_url_sig=%s&temp_url_expires=%s", object.getUri(), signature, expires));
+
 .. code-block:: javascript
 
   // this is not supported with pkgcloud at this time

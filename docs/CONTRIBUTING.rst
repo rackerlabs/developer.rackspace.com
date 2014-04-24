@@ -36,6 +36,13 @@ Authentication - all services
 ``{username}``
 ``{apiKey}``
 ``{region}``
+``{tenantId}``
+
+Block Storage
+
+``{volumeId}``
+``{volumeTypeId}``
+``{snapshotId}``
 
 Databases
 
@@ -45,4 +52,18 @@ Databases
 ``{instanceId}``
 ``{instanceName}``
 ``{flavorId}``
+
+Files
+
+``{account}``
+``{container}``
+``{object}``
+``{tempUrlKey}``
+
+Images
+
+``{imageId}``
+``{memberId}``
+``{tag}``
+``{taskId}``
 

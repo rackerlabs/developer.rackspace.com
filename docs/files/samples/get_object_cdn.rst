@@ -1,3 +1,8 @@
+.. code-block:: java
+
+  CDNApi cdnApi = cloudFilesApi.getCDNApiForRegion("{region}");
+  URI cdnUri = cdnApi.get("{container}").getUri();
+
 .. code-block:: javascript
 
   var cdnUrl = container.cdnUri + '/' + encodeURIComponent(file.name);

@@ -1,3 +1,7 @@
+.. code-block:: java
+
+  cloudFilesApi.getCDNApiForRegion("{region}").disable("{container}");
+
 .. code-block:: javascript
 
   container.disableCdn(function(err) {

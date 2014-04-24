@@ -1,3 +1,13 @@
+.. code-block:: java
+
+  ObjectApi objectApi = cloudFilesApi.getObjectApiForRegionAndContainer("{region}", "{container}");
+
+  // Create a Payload from a ByteSource and upload the object
+  ByteSource data = ByteSource.wrap("objectData".getBytes());
+  Payload payload = Payloads.newByteSourcePayload(data);
+
+  objectApi.put("{object}", payload, ImmutableMap.<String, String> of());
+
 .. code-block:: javascript
 
   // we need to use the fs module to access the local disk

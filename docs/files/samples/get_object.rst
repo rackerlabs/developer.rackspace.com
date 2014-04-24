@@ -1,3 +1,8 @@
+.. code-block:: java
+
+  ObjectApi objectApi = cloudFilesApi.getContainerApiForRegion("{region}");
+  SwiftObject object = objectApi.get("{object}");
+
 .. code-block:: javascript
 
   // we need to use the fs module to access the local disk
