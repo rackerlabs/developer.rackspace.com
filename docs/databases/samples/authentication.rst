@@ -26,3 +26,12 @@
     rackspace_username => RACKSPACE_USERNAME,
     rackspace_api_key => RACKSPACE_API_KEY,
     rackspace_region => RACKSPACE_REGION
+
+.. code-block:: java
+
+TroveApi troveApi;
+
+// The TroveApi will provide access to all database features, such as Instances or Users.
+troveApi = ContextBuilder.newBuilder("rackspace-clouddatabases-us")
+            .credentials(username, apiKey) // Your username and api key are provided here.
+            .buildApi(TroveApi.class);
