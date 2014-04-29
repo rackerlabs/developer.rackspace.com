@@ -4,20 +4,24 @@ require 'erb'
 require 'fileutils'
 require 'json'
 
-Language = Struct.new(:syntax, :ext, :build, :executable)
+Language = Struct.new(:name, :syntax, :ext, :build, :executable)
 
 # Collected knowledge about supported programming languages.
 #
-LANGUAGES = {
-  'C#' => Language.new('csharp', 'cs', 'gcs', 'mono'),
-  'Java' => Language.new('java', 'java', 'javac', 'java'),
-  'JavaScript' => Language.new('javascript', 'js', nil, 'node'),
-  'PHP' => Language.new('php', 'php', nil, 'php'),
-  'Python' => Language.new('python', 'py', nil, 'python'),
-  'Ruby' => Language.new('ruby', 'rb', nil, 'ruby'),
-}
+LANGUAGES = [
+  Language.new('C#', 'csharp', 'cs', 'gcs', 'mono'),
+  Language.new('Java', 'java', 'java', 'javac', 'java'),
+  Language.new('JavaScript', 'javascript', 'js', nil, 'node'),
+  Language.new('PHP', 'php', 'php', nil, 'php'),
+  Language.new('Python', 'python', 'py', nil, 'python'),
+  Language.new('Ruby', 'ruby', 'rb', nil, 'ruby'),
+]
 
 ROOT = File.join __dir__, '..'
+
+# Data structure to capture output and progress.
+#
+Outcome = Struct.new(:service, :language, :output, :kind)
 
 # Exceptions to catch.
 
@@ -62,7 +66,7 @@ def assemble(credentials, service, language)
   @template_path = File.join __dir__, 'templates', "#{@service}.#{@language.ext}.erb"
 
   unless File.exist? @template_path
-    $stderr.puts "Missing template for #{@service} and #{@language.ext}."
+    $stderr.puts "Missing template for #{@service} and #{@language.name}."
     $stderr.puts "Expected path: #{@template_path}"
     raise MissingError.new
   end
@@ -75,12 +79,18 @@ def assemble(credentials, service, language)
   out_path
 end
 
-# Execute the named file with the interpreter associated with it. Return `true`
-# if everything went well, or `false` if something is broken.
+# Execute the named file with the interpreter associated with it. Create and
+# return an Outcome object.
 #
-def execute(path, settings)
-  system settings.executable, path
-  $?.success?
+def execute(service, language, path)
+  outcome = Outcome.new(service, language)
+
+  IO.popen([language.executable, path], err: [:child, :out]) do |io|
+    outcome.output = io.read
+  end
+  outcome.kind = ($?.success? ? :success : :failure)
+
+  outcome
 end
 
 ## Template utilities
@@ -130,17 +140,55 @@ end
 ## All together now.
 
 @credentials = credentials
+@outcomes = []
 
 services.each do |service|
-  LANGUAGES.each do |lname, language|
-    puts ">> beginning: #{service} @ #{lname}"
+  LANGUAGES.each do |language|
+    puts ">> #{service} in #{language.name} ..."
+
     begin
       path = assemble(@credentials, service, language)
-      result = execute(path, language)
-      puts ".. #{result ? 'succeeded' : 'failed'}"
+      result = execute(service, language, path)
+      @outcomes << result
+      if result.kind == :success
+        puts '<< succeeded'
+      else
+        puts result.output
+        puts '<< failed'
+      end
     rescue MissingError => e
-      puts '!! failed'
+      puts '<< missing'
+
+      @outcomes << Outcome.new(service, language, '', :missing)
     end
-    puts "<< complete: #{lname}"
   end
 end
+
+last_service = nil
+success_count, failure_count, missing_count = 0, 0, 0
+@outcomes.each do |outcome|
+  if outcome.service != last_service
+    $stdout.flush
+    print "\n#{outcome.service.rjust(15)}: "
+    last_service = outcome.service
+  end
+
+  print "#{outcome.language.name} "
+  case outcome.kind
+  when :success
+    success_count += 1
+    print '. '
+  when :failure
+    failure_count += 1
+    print 'x '
+  when :missing
+    missing_count += 1
+    print '? '
+  else
+    raise RuntimeError.new("Unexpected Outcome kind: #{outcome.kind.inspect}")
+  end
+end
+
+puts
+puts
+puts "Total: #{success_count} succeeded / #{failure_count} failed / #{missing_count} missing"
