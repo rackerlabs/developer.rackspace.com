@@ -4,15 +4,19 @@ require 'erb'
 require 'fileutils'
 require 'json'
 
-LanguageSettings = Struct.new(:syntax, :ext, :executable)
+Language = Struct.new(:syntax, :ext, :executable)
 
 # Collected knowledge about supported programming languages.
 #
 LANGUAGES = {
-  ruby: LanguageSettings.new('ruby', 'rb', 'ruby')
+  ruby: Language.new('ruby', 'rb', 'ruby')
 }
 
 ROOT = File.join __dir__, '..'
+
+# Exceptions to catch.
+
+class MissingError < RuntimeError ; end
 
 # Enumerate the services that are documented.
 #
@@ -43,23 +47,23 @@ end
 # into a single file, ready to be built (if necessary) and executed. Return the
 # path of the templated file.
 #
-def assemble(credentials, service, lang_ext)
+def assemble(credentials, service, language)
   FileUtils.mkdir_p File.join(__dir__, 'assembled')
 
   # Initialize state that's used by #inject.
-  @service, @lang_ext = service, lang_ext
+  @service, @language = service, language
 
   b = binding
-  @template_path = File.join __dir__, 'templates', "#{@service}.#{@lang_ext}.erb"
+  @template_path = File.join __dir__, 'templates', "#{@service}.#{@language.ext}.erb"
 
   unless File.exist? @template_path
-    $stderr.puts "Missing template for #{@service} and #{@lang_ext}."
+    $stderr.puts "Missing template for #{@service} and #{@language.ext}."
     $stderr.puts "Expected path: #{@template_path}"
-    return
+    raise MissingError.new
   end
 
   template = File.read(@template_path)
-  out_path = File.join(__dir__, 'assembled', "#{@service}.#{@lang_ext}")
+  out_path = File.join(__dir__, 'assembled', "#{@service}.#{@language.ext}")
 
   ERB.new(template, 0, "", "@output").result b
   File.write(out_path, @output)
@@ -69,8 +73,8 @@ end
 # Execute the named file with the interpreter associated with it. Return `true`
 # if everything went well, or `false` if something is broken.
 #
-def execute(executable, path)
-  system executable, path
+def execute(path, settings)
+  system settings.executable, path
   $?.success?
 end
 
@@ -88,21 +92,19 @@ def inject(name)
   unless File.exists?(sample_path)
     $stderr.puts "The template #{@template_file} references a missing code sample."
     $stderr.puts "  Sample name: #{name} path: #{sample_path}"
-    return
+    return ''
   end
 
   sample = File.read(sample_path)
-  ruby_section = sample[/.. code-block:: ruby\n(.+)$/m, 1]
+  ruby_section = sample[/.. code-block:: #{@language.syntax}\n(.+)/m, 1]
 
   unless ruby_section
-    $stderr.puts "The #{@service} sample for #{@lang_ext} is missing a code block for #{@lang_ext}."
-    return
+    $stderr.puts "The #{@service} sample for #{name} is missing a code block for #{@language.ext}."
+    return ''
   end
 
   # Inject credentials into the rendered code.
-  credentials.each do |key, value|
-    ruby_section.gsub!("{#{key}}", value)
-  end
+  credentials.each { |key, value| ruby_section.gsub!("{#{key}}", value) }
 
   ruby_section
 end
@@ -112,15 +114,15 @@ end
 @credentials = credentials
 
 services.each do |service|
-  LANGUAGES.each do |lang, settings|
-    puts ">> beginning: #{service} @ #{lang}"
-    path = assemble(@credentials, service, settings.ext)
-    if path
-      result = execute(settings.executable, path)
+  LANGUAGES.each do |lname, language|
+    puts ">> beginning: #{service} @ #{lname}"
+    begin
+      path = assemble(@credentials, service, language)
+      result = execute(path, language)
       puts ".. #{result ? 'succeeded' : 'failed'}"
-    else
+    rescue MissingError => e
       puts '!! failed'
     end
-    puts "<< complete: #{lang}"
+    puts "<< complete: #{lname}"
   end
 end
