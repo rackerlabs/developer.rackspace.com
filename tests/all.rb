@@ -4,10 +4,12 @@ require 'erb'
 require 'fileutils'
 require 'json'
 
-# Execute assembled files with a certain extension with the matching executable.
+LanguageSettings = Struct.new(:syntax, :ext, :executable)
+
+# Collected knowledge about supported programming languages.
 #
 LANGUAGES = {
-  rb: 'ruby'
+  ruby: LanguageSettings.new('ruby', 'rb', 'ruby')
 }
 
 ROOT = File.join __dir__, '..'
@@ -67,16 +69,7 @@ end
 # Execute the named file with the interpreter associated with it. Return `true`
 # if everything went well, or `false` if something is broken.
 #
-def execute(path)
-  ext = File.extname(path)
-  ext = ext[1..-1] if ext[0] == '.'
-  executable = LANGUAGES[ext.to_sym]
-  unless executable
-    $stderr.puts "I don't know how to execute #{ext} source!"
-    $stderr.puts "You'll need to add it to the LANGUAGES Hash in #{__FILE__}."
-    raise RuntimeError.new('Missing executable')
-  end
-
+def execute(executable, path)
   system executable, path
   $?.success?
 end
@@ -119,15 +112,15 @@ end
 @credentials = credentials
 
 services.each do |service|
-  LANGUAGES.keys.each do |lang_ext|
-    puts ">> beginning: #{service} @ #{lang_ext}"
-    path = assemble(@credentials, service, lang_ext)
+  LANGUAGES.each do |lang, settings|
+    puts ">> beginning: #{service} @ #{lang}"
+    path = assemble(@credentials, service, settings.ext)
     if path
-      result = execute(path)
+      result = execute(settings.executable, path)
       puts ".. #{result ? 'succeeded' : 'failed'}"
     else
       puts '!! failed'
     end
-    puts "<< complete: #{lang_ext}"
+    puts "<< complete: #{lang}"
   end
 end
