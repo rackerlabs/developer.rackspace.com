@@ -4,13 +4,17 @@ require 'erb'
 require 'fileutils'
 require 'json'
 
-Language = Struct.new(:syntax, :ext, :executable)
+Language = Struct.new(:syntax, :ext, :build, :executable)
 
 # Collected knowledge about supported programming languages.
 #
 LANGUAGES = {
-  ruby: Language.new('ruby', 'rb', 'ruby'),
-  python: Language.new('python', 'py', 'python'),
+  'C#' => Language.new('csharp', 'cs', 'gcs', 'mono'),
+  'Java' => Language.new('java', 'java', 'javac', 'java'),
+  'JavaScript' => Language.new('javascript', 'js', nil, 'node'),
+  'PHP' => Language.new('php', 'php', nil, 'php'),
+  'Python' => Language.new('python', 'py', nil, 'python'),
+  'Ruby' => Language.new('ruby', 'rb', nil, 'ruby'),
 }
 
 ROOT = File.join __dir__, '..'
@@ -96,18 +100,31 @@ def inject(name)
     return ''
   end
 
-  sample = File.read(sample_path)
-  ruby_section = sample[/.. code-block:: #{@language.syntax}\n(.+)/m, 1]
+  relevant_lines = []
+  in_section, indent = false, nil
 
-  unless ruby_section
+  File.readlines(sample_path).each do |line|
+    if line =~ /^.. code-block:: #{@language.syntax}$/
+      in_section = true
+    elsif line =~ /^.. code-block::.*$/
+      in_section = false
+    elsif in_section
+      indent = line.index /\S/ if indent.nil?
+      relevant_lines << (indent.nil? ? line : line[indent..-1])
+    end
+  end
+
+  if relevant_lines.empty?
     $stderr.puts "The #{@service} sample for #{name} is missing a code block for #{@language.ext}."
     return ''
   end
 
-  # Inject credentials into the rendered code.
-  credentials.each { |key, value| ruby_section.gsub!("{#{key}}", value) }
+  relevant_section = relevant_lines.join
 
-  ruby_section
+  # Inject credentials into the rendered code.
+  credentials.each { |key, value| relevant_section.gsub!("{#{key}}", value) }
+
+  relevant_section
 end
 
 ## All together now.
