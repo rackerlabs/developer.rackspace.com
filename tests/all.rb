@@ -4,6 +4,8 @@ require 'erb'
 require 'fileutils'
 require 'json'
 
+require 'rainbow'
+
 Language = Struct.new(:name, :syntax, :ext, :build, :executable)
 
 # Collected knowledge about supported programming languages.
@@ -144,20 +146,22 @@ end
 
 services.each do |service|
   LANGUAGES.each do |language|
-    puts ">> #{service} in #{language.name} ..."
+    puts unless @outcomes.empty?
+
+    puts Rainbow(" #{service} in #{language.name}".rjust 80, '>').bright
 
     begin
       path = assemble(@credentials, service, language)
       result = execute(service, language, path)
       @outcomes << result
       if result.kind == :success
-        puts '<< succeeded'
+        puts Rainbow('succeeded '.ljust 80, '<').green.bright
       else
         puts result.output
-        puts '<< failed'
+        puts Rainbow('failed '.ljust 80, '<').red.bright
       end
     rescue MissingError => e
-      puts '<< missing'
+      puts Rainbow('missing '.ljust 80, '<').yellow.bright
 
       @outcomes << Outcome.new(service, language, '', :missing)
     end
@@ -173,17 +177,16 @@ success_count, failure_count, missing_count = 0, 0, 0
     last_service = outcome.service
   end
 
-  print "#{outcome.language.name} "
   case outcome.kind
   when :success
     success_count += 1
-    print '. '
+    print Rainbow("[#{outcome.language.name} .] ").green.bright
   when :failure
     failure_count += 1
-    print 'x '
+    print Rainbow("[#{outcome.language.name} x] ").red.bright
   when :missing
     missing_count += 1
-    print '? '
+    print Rainbow("[#{outcome.language.name} ?] ").yellow.bright
   else
     raise RuntimeError.new("Unexpected Outcome kind: #{outcome.kind.inspect}")
   end
@@ -191,4 +194,11 @@ end
 
 puts
 puts
-puts "Total: #{success_count} succeeded / #{failure_count} failed / #{missing_count} missing"
+print "Total: #{success_count + failure_count + missing_count} / "
+
+parts = []
+parts << "#{success_count} succeeded" if success_count > 0
+parts << "#{failure_count} failed" if failure_count > 0
+parts << "#{missing_count} missing" if missing_count > 0
+
+puts parts.join(" / ")
