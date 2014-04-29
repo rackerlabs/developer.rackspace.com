@@ -9,7 +9,8 @@ Language = Struct.new(:syntax, :ext, :executable)
 # Collected knowledge about supported programming languages.
 #
 LANGUAGES = {
-  ruby: Language.new('ruby', 'rb', 'ruby')
+  ruby: Language.new('ruby', 'rb', 'ruby'),
+  python: Language.new('python', 'py', 'python'),
 }
 
 ROOT = File.join __dir__, '..'
