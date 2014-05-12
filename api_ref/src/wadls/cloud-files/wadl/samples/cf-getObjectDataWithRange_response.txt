@@ -1,0 +1,10 @@
+HTTP/1.1 206 Partial Content
+Date: Wed, 14 Jul 2010 19:37:41 GMT
+Last-Modified: Mon, 12 Jun 2010 13:40:18 GMT
+ETag: b0dffe8254d152d8fd28f3c5e0404a10
+Content-Type: application/octet-stream
+Accept-Ranges: bytes
+Content-Range: bytes 4-6/10
+Content-Length: 3
+
+456

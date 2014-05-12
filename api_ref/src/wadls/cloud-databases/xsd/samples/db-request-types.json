@@ -1,0 +1,10 @@
+
+{
+    "instance": {
+        "name": "'my_instance_name'",
+        "flavorRef": "https://ord.databases.api.rackspacecloud.com/v1.0/1234/flavors/1",
+        "volume": {
+            "size": "2"
+        }
+    }
+}

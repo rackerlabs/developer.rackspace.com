@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE application [<!ENTITY % common SYSTEM "../../common/common.ent">
+%common;]>
+<chapter xmlns="http://docbook.org/ns/docbook"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:xi="http://www.w3.org/2001/XInclude" 
+   xmlns:svg="http://www.w3.org/2000/svg"
+         xml:id="exchange_API_concepts">
+   <title>Exchange API Concepts</title>
+   <para>
+      This API enables interaction with 
+      <link xlink:href="http://www.rackspace.com/email-hosting/hosted-exchange/">Microsoft Hosted Exchange</link>. 
+      To understand the API, you must also understand Exchange.
+   </para>
+      <?dbhtml stop-chunking?>
+      <section xml:id="Exchange_Data_Models">
+         <title>Exchange Data Models</title>
+         <para>
+            Exchange uses separate data models for mailboxes, errors, and serialization.
+         </para>
+         <section xml:id="Exchange_Data_Model_Mailbox">
+            <title>Exchange Data Model: Mailbox</title>
+            <para>Required for Create*</para>
+            <informaltable>
+               <col width="225px"/>
+               <col width="11%"/>
+               <col width="13%"/>
+               <col width="58%"/>
+               <tbody>
+                  <tr>
+                     <td rowspan="1" colspan="1"><emphasis role="bold"
+                           >Field Name</emphasis></td>
+                     <td rowspan="1" colspan="1"><emphasis role="bold"
+                           >Data Type</emphasis></td>
+                     <td rowspan="1" colspan="1"><emphasis role="bold"
+                           >Verbs</emphasis></td>
+                     <td rowspan="1" colspan="1"><emphasis role="bold"
+                           >Description</emphasis></td>
+                  </tr>
+                  <tr>
+                     <td rowspan="1" colspan="1">Common Name*</td>
+                     <td rowspan="1" colspan="1">String</td>
+                     <td rowspan="1" colspan="1">GET, POST</td>
+                     <td rowspan="1" colspan="1">The resource's
+                        username</td>
+                  </tr>
+                  <tr>
+                     <td rowspan="1" colspan="1">Display Name*</td>
+                     <td rowspan="1" colspan="1">String</td>
+                     <td rowspan="1" colspan="1">GET, POST, PUT</td>
+                     <td rowspan="1" colspan="1">The resource's
+                        display name</td>
+                  </tr>
+                  <tr>
+                     <td rowspan="1" colspan="1">Alias</td>
+                     <td rowspan="1" colspan="1">String</td>
+                     <td rowspan="1" colspan="1">GET, POST, PUT</td>
+                     <td rowspan="1" colspan="1">Ready only</td>
+                  </tr>
+                  <tr>
+                     <td rowspan="1" colspan="1"
+                        >IsHiddenFromAddressList</td>
+                     <td rowspan="1" colspan="1">Boolean</td>
+                     <td rowspan="1" colspan="1">GET, POST, PUT</td>
+                     <td rowspan="1" colspan="1">If true, not
+                        displayed in public address book.</td>
+                  </tr>
+                  <tr>
+                     <td rowspan="1" colspan="1">Status</td>
+                     <td rowspan="1" colspan="1">String</td>
+                     <td rowspan="1" colspan="1">GET</td>
+                     <td rowspan="1" colspan="1">Current status of
+                        resource. (See <link
+                           xmlns:xlink="http://www.w3.org/1999/xlink"
+                           xlink:href="http://docs.adminrestapi.apiary.io/#exapi.asyncstatus"
+                           >Asynchronous Statuses</link>)</td>
+                  </tr>
+                  <tr>
+                     <td rowspan="1" colspan="1">Error</td>
+                     <td rowspan="1" colspan="1"><link
+                           xmlns:xlink="http://www.w3.org/1999/xlink"
+                           xlink:href="http://docs.adminrestapi.apiary.io/#datamodel.error"
+                           >Error</link></td>
+                     <td rowspan="1" colspan="1">GET</td>
+                     <td rowspan="1" colspan="1">Returns error
+                        information about the latest operation on the
+                        resource. (See <link
+                           xmlns:xlink="http://www.w3.org/1999/xlink"
+                           xlink:href="http://docs.adminrestapi.apiary.io/#exapi.asyncerror"
+                           >Asynchronous Errors</link>)</td>
+                  </tr>
+               </tbody>
+            </informaltable>
+         </section>
+         <section xml:id="Exchange_Data_Model_Error">
+            <title>Exchange Data Model: Error</title>
+            <para>(See <link
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  xlink:href="http://docs.adminrestapi.apiary.io/#exapi.asyncerror"
+                  >Asynchronous Errors</link>)</para>
+            <informaltable>
+               <col width="12%"/>
+               <col width="20%"/>
+               <col width="9%"/>
+               <col width="59%"/>
+               <tbody>
+                  <tr>
+                     <td rowspan="1" colspan="1"><emphasis role="bold"
+                           >Field Name</emphasis></td>
+                     <td rowspan="1" colspan="1"><emphasis role="bold"
+                           >Data Type</emphasis></td>
+                     <td rowspan="1" colspan="1"><emphasis role="bold"
+                           >Verbs</emphasis></td>
+                     <td rowspan="1" colspan="1"><emphasis role="bold"
+                           >Description</emphasis></td>
+                  </tr>
+                  <tr>
+                     <td rowspan="1" colspan="1">Action</td>
+                     <td rowspan="1" colspan="1"
+                        >"get","post","put","delete"</td>
+                     <td rowspan="1" colspan="1">GET</td>
+                     <td rowspan="1" colspan="1"/>
+                  </tr>
+                  <tr>
+                     <td rowspan="1" colspan="1">Message</td>
+                     <td rowspan="1" colspan="1">String</td>
+                     <td rowspan="1" colspan="1">GET</td>
+                     <td rowspan="1" colspan="1"/>
+                  </tr>
+                  <tr>
+                     <td rowspan="1" colspan="1">Details</td>
+                     <td rowspan="1" colspan="1">String</td>
+                     <td rowspan="1" colspan="1">GET</td>
+                     <td rowspan="1" colspan="1"/>
+                  </tr>
+                  <tr>
+                     <td rowspan="1" colspan="1">Code</td>
+                     <td rowspan="1" colspan="1">Integer</td>
+                     <td rowspan="1" colspan="1">GET</td>
+                     <td rowspan="1" colspan="1"/>
+                  </tr>
+                  <tr>
+                     <td rowspan="1" colspan="1">Uri</td>
+                     <td rowspan="1" colspan="1">Uri</td>
+                     <td rowspan="1" colspan="1">GET</td>
+                     <td rowspan="1" colspan="1">URI to GET to
+                        retrieve full detail</td>
+                  </tr>
+               </tbody>
+            </informaltable>
+         </section>
+         <section xml:id="Exchange_Data_Model_Serialization">
+            <title>Exchange Data Model: Serialization</title>
+            <itemizedlist>
+               <listitem>
+                  <para>XML and JSON are supported.</para>
+               </listitem>
+               <listitem>
+                  <para>For XML, fields called "Value" are represented
+                     by the inner XML of a node.</para>
+               </listitem>
+            </itemizedlist>
+         </section>
+      </section>
+      <section xml:id="Exchange_Data_Model_Listings">
+         <title>Exchange Data Model: Listings</title>
+         <para>Query parameters for listings:</para>
+         <informaltable>
+            <col width="12%"/>
+            <col width="10%"/>
+            <col width="78%"/>
+            <tbody>
+               <tr>
+                  <td rowspan="1" colspan="1"><emphasis role="bold"
+                        >Field Name</emphasis></td>
+                  <td rowspan="1" colspan="1"><emphasis role="bold"
+                        >Data Type</emphasis></td>
+                  <td rowspan="1" colspan="1"><emphasis role="bold"
+                        >Description</emphasis></td>
+               </tr>
+               <tr>
+                  <td rowspan="1" colspan="1">Search</td>
+                  <td rowspan="1" colspan="1">String</td>
+                  <td rowspan="1" colspan="1">A value to filter the
+                     list by Common Name and Display Name.</td>
+               </tr>
+               <tr>
+                  <td rowspan="1" colspan="1">Marker</td>
+                  <td rowspan="1" colspan="1">String</td>
+                  <td rowspan="1" colspan="1">The common name of the
+                     last item from the previous listing call. Use
+                     this to get the next page of data.</td>
+               </tr>
+               <tr>
+                  <td rowspan="1" colspan="1">Limit</td>
+                  <td rowspan="1" colspan="1">Integer</td>
+                  <td rowspan="1" colspan="1">The maximum number of
+                     items to return.</td>
+               </tr>
+               <tr>
+                  <td rowspan="1" colspan="1">Sort</td>
+                  <td rowspan="1" colspan="1">String</td>
+                  <td rowspan="1" colspan="1">The value to sort by;
+                     must be "CN" or "DisplayName" for primary
+                     resources like Distribution Lists and
+                     Resources</td>
+               </tr>
+               <tr>
+                  <td rowspan="1" colspan="1">Order</td>
+                  <td rowspan="1" colspan="1">String</td>
+                  <td rowspan="1" colspan="1">asc or desc, to specify
+                     which way to order the data</td>
+               </tr>
+               <tr>
+                  <td rowspan="1" colspan="1">PreviousPage</td>
+                  <td rowspan="1" colspan="1">Boolean</td>
+                  <td rowspan="1" colspan="1">Returns the previous
+                     page based on Marker. If Marker is not specified,
+                     then the last page is returned.</td>
+               </tr>
+               <tr>
+                  <td rowspan="1" colspan="1">ExportTo</td>
+                  <td rowspan="1" colspan="1">String</td>
+                  <td rowspan="1" colspan="1">For listings that
+                     support exporting, this value can be a valid
+                     email address. An email will be sent containing a
+                     link to a CSV file of the requested data.</td>
+               </tr>
+            </tbody>
+         </informaltable>
+         <para>Listings use markers for pagination. To get the next
+            page of data, set the marker parameter to common name of
+            the last item of the list that was most recently returned.
+            To get the previous page of data, set the marker to the
+            common name of the first item of the list that was most
+            recently returned, and set PreviousPage to true.</para>
+      </section>
+      <section xml:id="Asynchronous_Statuses">
+         <title>Asynchronous Statuses</title>
+         <para>POST, PUT, and DELETE operations are asynchronous. That
+            means that submitting a request will return a success code
+            (204 No Content), but the request itself is not processed
+            immediately. Rather, the request is added to a queue to be
+            completed by another worker. POST, PUT, and DELETE
+            requests will not be accepted unless the resource's status
+            is Ready.</para>
+         <informaltable>
+            <col width="10%"/>
+            <col width="90%"/>
+            <tbody>
+               <tr>
+                  <td rowspan="1" colspan="1"><emphasis role="bold"
+                        >Status</emphasis></td>
+                  <td rowspan="1" colspan="1"><emphasis role="bold"
+                        >Description</emphasis></td>
+               </tr>
+               <tr>
+                  <td rowspan="1" colspan="1">Creating</td>
+                  <td rowspan="1" colspan="1">A POST request is being
+                     processed.</td>
+               </tr>
+               <tr>
+                  <td rowspan="1" colspan="1">Updating</td>
+                  <td rowspan="1" colspan="1">A PUT request is being
+                     processed.</td>
+               </tr>
+               <tr>
+                  <td rowspan="1" colspan="1">Deleting</td>
+                  <td rowspan="1" colspan="1">A DELETE request is
+                     being processed.</td>
+               </tr>
+               <tr>
+                  <td rowspan="1" colspan="1">Ready</td>
+                  <td rowspan="1" colspan="1">The last request for the
+                     resource was successful.</td>
+               </tr>
+               <tr>
+                  <td rowspan="1" colspan="1">Error</td>
+                  <td rowspan="1" colspan="1">The last request for the
+                     resource failed.</td>
+               </tr>
+            </tbody>
+         </informaltable>
+         <para>The following annotated HTTP requests and responses
+            demonstrate all of the statuses except for Error. For a
+            demonstration of the Error status, see <link
+               xmlns:xlink="http://www.w3.org/1999/xlink"
+               xlink:href="http://docs.adminrestapi.apiary.io/#exapi.asyncerrors"
+               >Asynchronous Errors</link></para>
+      </section>
+      <section xml:id="Asynchronous_Errors">
+         <title>Asynchronous Errors</title>
+         <para>A mailbox enters an Error state if an error
+            occurs after the initial request was accepted when
+            creating, updating, or deleting a mailbox. This means that
+            the mailbox will have a status of "Error" and will contain
+            an Error property.</para>
+         <para><emphasis role="bold">Error URI</emphasis></para>
+         <itemizedlist>
+            <listitem>
+               <para>The Error property has a URI field that contains
+                  the location of the error details</para>
+            </listitem>
+            <listitem>
+               <para>A &GET; on the location returns additional details
+                  about the error</para>
+            </listitem>
+            <listitem>
+               <para>A &DELETE; on the location will clear the Error <itemizedlist>
+                     <listitem>
+                        <para>If the error occurred after a &POST;,
+                           deleting the error will also remove the
+                           associated mailbox</para>
+                     </listitem>
+                     <listitem>
+                        <para>If the error occurred after a &PUT; or
+                           &DELETE;, deleting the error will return the
+                           mailbox to its previous state before the
+                           error occurred</para>
+                     </listitem>
+                  </itemizedlist></para>
+            </listitem>
+         </itemizedlist>
+      </section>
+</chapter>

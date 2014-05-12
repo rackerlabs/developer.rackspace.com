@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xmlns="http://docbook.org/ns/docbook"
+    xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0"
+    xmlns:raxm="http://docs.rackspace.com/api/metadata"
+    xml:id="api_operations_nova">
+    <title>Nova-network</title>
+    <para>So what are Nova operations and why use them?</para>
+    <section xml:id="api_networks_nova">
+        <title>Networks</title>
+        <para>This section describes the API operations for
+            networks.</para>
+        <!--- this section comes from these WADLs: networksnova.wadl -->
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <!-- list networks -->
+            <wadl:resource
+                href="https://raw2.github.com/catlook/networks2/master/src/wadl/networksnova.wadl#networksnova">
+                <wadl:method href="#listNetworks"/>
+            </wadl:resource>
+            <!-- create networks -->
+            <wadl:resource
+                href="https://raw2.github.com/catlook/networks2/master/src/wadl/networksnova.wadl#networksnova">
+                <wadl:method href="#createNetworks"/>
+            </wadl:resource>
+            <!-- provision server and attach networks -->
+            <wadl:resource
+                href="https://raw2.github.com/catlook/networks2/master/src/wadl/networksnova.wadl#serversnova">
+                <wadl:method href="#attachNetworks"/>
+            </wadl:resource>
+            <!-- show network -->
+            <wadl:resource
+                href="https://raw2.github.com/catlook/networks2/master/src/wadl/networksnova.wadl#networkID">
+                <wadl:method href="#showNetwork"/>
+            </wadl:resource>
+            <!-- delete network -->
+            <wadl:resource
+                href="https://raw2.github.com/catlook/networks2/master/src/wadl/networksnova.wadl#networkID">
+                <wadl:method href="#deleteNetwork"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+</chapter>

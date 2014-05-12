@@ -1,0 +1,85 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <!-- POM Build file for api.openstack.org/api-ref.html -->
+  <!-- ################################################ -->
+  <!-- USE "mvn clean generate-sources" to run this POM -->
+  <!-- ################################################ -->
+  <parent>
+    <groupId>api.rackspace.com</groupId>
+    <artifactId>parent-pom</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <relativePath>../pom.xml</relativePath>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>rackspace-api-ref</artifactId>
+  <packaging>jar</packaging>
+  <name>Rackspace API Complete Reference</name>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>com.rackspace.cloud.api</groupId>
+        <artifactId>clouddocs-maven-plugin</artifactId>
+        <!-- version is set in ../pom.xml file -->
+        <executions>
+          <execution>
+            <id>g1</id>
+            <goals>
+              <goal>generate-html</goal>
+            </goals>
+            <phase>generate-sources</phase>
+            <configuration>
+              <includes> api-ref.xml, <!-- comprehensive -->
+                api-ref-auto-scale.xml, <!--,      auto scale -->
+                api-ref-backup.xml, <!-- backup -->
+                api-ref-big-data.xml, <!-- big data -->
+                api-ref-blockstorage.xml, <!-- block storage -->
+                 api-ref-databases.xml,<!-- databases -->
+                <!--api-ref-dns.xml,--> <!-- dns --> 
+                api-ref-email-and-apps.xml, <!-- email and apps -->
+             <!--    api-ref-feeds.xml,  <!-\- feeds  -\->-->
+                api-ref-files.xml, <!-- files -->
+                api-ref-identity.xml, <!-- identity -->
+                api-ref-images.xml, <!-- images -->
+                <!--api-ref-load-balancers.xml,--> <!-- load balancers --> 
+                api-ref-monitoring.xml, <!-- monitoring --> 
+                api-ref-networks.xml, <!-- networks --> 
+                api-ref-orchestration.xml, <!-- orchestration --> 
+                api-ref-queues.xml, <!-- queues -->
+              <!--   api-ref-servers.xml, <!-\-  servers  - moved to api-ref.xml as main page -\->-->
+                api-ref-servers-ext.xml <!-- servers extensions -->
+              </includes>
+              <profileSecurity>reviewer</profileSecurity>
+              <highlightSource>false</highlightSource>
+              <enableGoogleAnalytics>1</enableGoogleAnalytics>
+              <googleAnalyticsId>UA-17511903-1</googleAnalyticsId>
+              <branding>rackspace</branding>
+            </configuration>
+          </execution>
+        </executions>
+        <configuration>
+          <!-- These parameters apply to pdf and webhelp -->
+          <generateToc> appendix toc,title 
+            article/appendix nop
+            article toc,title 
+            book toc,title 
+            chapter toc,title 
+            section toc,title 
+            part toc,title 
+            qandadiv toc 
+            qandaset toc
+            reference toc,title 
+            set toc,title </generateToc>
+          <xincludeSupported>true</xincludeSupported>
+          <sourceDirectory>src/docbkx</sourceDirectory>
+          <branding>rackspace</branding>
+          <trimWadlUriCount>1</trimWadlUriCount>
+          <showXslMessages>true</showXslMessages>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

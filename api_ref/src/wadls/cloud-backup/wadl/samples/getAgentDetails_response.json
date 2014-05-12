@@ -1,0 +1,24 @@
+{
+    "AgentVersion": "1.05.005848",
+    "Architecture": "64-bit",
+    "Flavor": "RaxCloudServer",
+    "BackupVaultSize": "35.3 MB",
+    "CleanupAllowed": true,
+    "Datacenter": "DFW",
+    "IPAddress": "192.168.1.1",
+    "IsDisabled": false,
+    "IsEncrypted": true,
+    "MachineAgentId": 213564,
+    "MachineName": "Web Server",
+    "OperatingSystem": "Windows Server 2012",
+    "OperatingSystemVersion": "",
+    "PublicKey": {
+        "ModulusHex": "a5261939156948bb7a58dffe5ff89e65f0498f9175f5a 98288810b8975871e99af3b5dd94057b0fc07535f5f97444504fa35169d4 61d0d30cf0192e307727c065168c788771c561a9400fb61975e9e6aa4e23 fe11af69e9412dd23b0cb6684c4c2429bce139e848ab26d0829073351f4a cd36074eafd036a5eb83359d2a698d0",
+        "ExponentHex": "09528"
+    },
+    "Status": "Online",
+    "TimeOfLastSuccessfulBackup": "\/Date(1357817400000)\/",
+    "UseServiceNet": true,
+    
+    "HostServerId" :  "87c3b6e1-fb1a-41f9-91e5-313ae35a5a06"    
+}

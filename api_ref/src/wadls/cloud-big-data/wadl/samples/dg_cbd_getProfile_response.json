@@ -1,0 +1,25 @@
+{
+   "profile":{
+      "username":"john.doe",
+      "user_id":"12346",
+      "tenant_id":"123456",
+      "sshkeys":[
+         {
+            "name":"t@test"
+         }
+      ],
+      "cloudCredentials":{
+
+      },
+      "links":[
+         {
+            "rel":"self",
+            "href":"https://dfw.bigdata.api.rackspacecloud.com/v1.0/123456/profile"
+         },
+         {
+            "rel":"bookmark",
+            "href":"https://dfw.bigdata.api.rackspacecloud.com/123456/profile"
+         }
+      ]
+   }
+}

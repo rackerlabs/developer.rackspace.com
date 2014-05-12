@@ -1,0 +1,779 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- (C) 2011-2013 OpenStack Foundation, All Rights Reserved -->
+<!--*******************************************************-->
+<!--         Import Common XML Entities                    -->
+<!--                                                       -->
+<!--     You can resolve the entites with xmllint          -->
+<!--                                                       -->
+<!--        xmllint -noent RAX-KSKEY-admin.wadl             -->
+<!--*******************************************************-->
+<wadl:application xmlns="http://docbook.org/ns/docbook"
+                  xmlns:wadl="http://wadl.dev.java.net/2009/02"
+                  xmlns:rax="http://docs.rackspace.com/api"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <wadl:grammars xmlns:db="http://docbook.org/ns/docbook"
+                  xmlns="http://wadl.dev.java.net/2009/02">
+      <wadl:include href="33043-RAX-KSKEY-admin-xsd-1.xsd"/>
+      <wadl:include href="33043-RAX-KSKEY-admin-xsd-2.xsd"/>
+      <wadl:include href="33043-RAX-KSKEY-admin-xsd-3.xsd"/>
+   </wadl:grammars>
+    <!--*******************************************************-->
+    <!--             All Resources                             -->
+    <!--*******************************************************-->
+    <!-- We should use SSL in production -->
+    <resources xmlns:identity="http://docs.openstack.org/identity/api/v2.0"
+              xmlns:HP-IDM="http://docs.openstack.org/identity/api/ext/HP-IDM/v1.0"
+              xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+              xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+              xmlns="http://wadl.dev.java.net/2009/02"
+              base="http://localhost:35357"
+              xml:id="RAX-KSKEY-admin-v2.0">
+        <resource id="userCredentials"
+                path="/v2.0/users/{userId}/OS-RAX-KSKEY/credentials">
+         <param name="X-Auth-Token"
+                style="header"
+                type="xsd:string"
+                required="true">
+                <doc>A valid authentication token for an
+                    administrative user.</doc>
+            </param>
+         <param name="userId"
+                style="template"
+                required="true"
+                type="xsd:string">
+                        <doc>The user ID.</doc>
+                    </param>
+         <method name="POST" rax:id="addUserCredential">
+            <doc xml:lang="EN" title="Add user Credential">
+               <p xmlns="http://www.w3.org/1999/xhtml" class="shortdesc">Adds a credential to a user.</p>
+            </doc>
+            <request>
+               <representation mediaType="application/xml" element="apiKeyCredentials">
+                  <doc xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting xmlns="http://docbook.org/ns/docbook" language="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;apiKeyCredentials
+    xmlns="http://docs.rackspace.com/identity/api/ext/RAX-KSKEY/v1.0"
+    username="testuser"
+    apiKey="aaaaa-bbbbb-ccccc-12345678"/&gt;
+</programlisting>
+                     </xsdxt:code>
+                  </doc>
+               </representation>
+               <representation mediaType="application/json">
+                  <doc xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting xmlns="http://docbook.org/ns/docbook" language="javascript">{
+    "RAX-KSKEY:apiKeyCredentials": {
+        "username": "test_user",
+        "apiKey": "aaaaa-bbbbb-ccccc-12345678"
+    }
+}</programlisting>
+                     </xsdxt:code>
+                  </doc>
+               </representation>
+            </request>
+            <response status="201">
+               <representation mediaType="application/xml" element="apiKeyCredentials">
+                  <doc xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting xmlns="http://docbook.org/ns/docbook" language="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;apiKeyCredentials
+    xmlns="http://docs.rackspace.com/identity/api/ext/RAX-KSKEY/v1.0"
+    username="testuser"
+    apiKey="aaaaa-bbbbb-ccccc-12345678"/&gt;
+</programlisting>
+                     </xsdxt:code>
+                  </doc>
+               </representation>
+               <representation mediaType="application/json">
+                  <doc xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting xmlns="http://docbook.org/ns/docbook" language="javascript">{
+    "RAX-KSKEY:apiKeyCredentials": {
+        "username": "test_user",
+        "apiKey": "aaaaa-bbbbb-ccccc-12345678"
+    }
+}</programlisting>
+                     </xsdxt:code>
+                  </doc>
+               </representation>
+            </response> 
+            <response>
+               <representation mediaType="application/xml" element="identity:identityFault"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="400">
+               <representation mediaType="application/xml" element="identity:badRequest"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="401">
+               <representation mediaType="application/xml" element="identity:unauthorized"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="403">
+               <representation mediaType="application/xml" element="identity:forbidden"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="405">
+               <representation mediaType="application/xml" element="identity:badMethod"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="413">
+               <representation mediaType="application/xml" element="identity:overLimit"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="503">
+               <representation mediaType="application/xml" element="identity:serviceUnavailable"/>
+               <representation mediaType="application/json"/>
+            </response>
+            
+            <response status="415">
+               <representation mediaType="application/xml" element="identity:badMediaType"/>
+               <representation mediaType="application/json"/>
+            </response>
+            
+            <response status="404">
+               <representation mediaType="application/xml" element="identity:itemNotFound"/>
+               <representation mediaType="application/json"/>
+            </response>
+            </method>
+      </resource>
+                            
+                            <resource id="tenants" path="/v2.0/users/{userId}/OS-RAX-KSKEY/credentials/">
+         <param name="X-Auth-Token"
+                style="header"
+                type="xsd:string"
+                required="true">
+                <doc>A valid authentication token for an
+                    administrative user.</doc>
+            </param>
+         <param name="userId"
+                style="template"
+                required="true"
+                type="xsd:string">
+                        <doc>The user ID.</doc>
+                    </param>
+         <param name="X-Auth-Token"
+                style="header"
+                type="xsd:string"
+                required="true">
+                                   <doc>A valid authentication token
+                                   for an administrative user.</doc>
+                                </param>
+         <param name="marker" style="query" required="false" type="xsd:string">
+                                   <doc>The ID of the last item in the
+                                   previous list.</doc>
+                                </param>
+         <param name="limit" style="query" required="false" type="xsd:int">
+                                   <doc>The page size. </doc>
+                                </param>
+         <method name="GET" rax:id="listCredentials">
+            <doc xml:lang="EN" title="List Credentials">
+               <p xmlns="http://www.w3.org/1999/xhtml" class="shortdesc">Lists credentials.</p>
+            </doc>
+            <response status="200 203">
+               <representation mediaType="application/xml" element="identity:credentials">
+                  <doc xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting xmlns="http://docbook.org/ns/docbook" language="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;credentials xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://docs.openstack.org/identity/api/v2.0"&gt;
+    &lt;passwordCredentials username="test_user" password="test"/&gt;
+    &lt;apiKeyCredentials
+    xmlns="http://docs.rackspace.com/identity/api/ext/RAX-KSKEY/v1.0"
+    username="testuser"
+    apiKey="aaaaa-bbbbb-ccccc-12345678"/&gt;
+&lt;/credentials&gt;
+</programlisting>
+                     </xsdxt:code>
+                  </doc>
+               </representation>
+               <representation mediaType="application/json">
+                  <doc xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting xmlns="http://docbook.org/ns/docbook" language="javascript">{
+    "credentials": [
+        {
+            "passwordCredentials": {
+                "username": "test_user",
+                "password": "mypass"
+            }
+        },
+        {
+            "RAX-KSKEY:apiKeyCredentials": {
+                "username": "test_user",
+                "apiKey": "aaaaa-bbbbb-ccccc-12345678"
+            }
+        }
+    ],
+    "credentials_links": []
+}</programlisting>
+                     </xsdxt:code>
+                  </doc>
+               </representation>
+            </response> 
+            <response>
+               <representation mediaType="application/xml" element="identity:identityFault"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="400">
+               <representation mediaType="application/xml" element="identity:badRequest"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="401">
+               <representation mediaType="application/xml" element="identity:unauthorized"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="403">
+               <representation mediaType="application/xml" element="identity:forbidden"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="405">
+               <representation mediaType="application/xml" element="identity:badMethod"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="413">
+               <representation mediaType="application/xml" element="identity:overLimit"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="503">
+               <representation mediaType="application/xml" element="identity:serviceUnavailable"/>
+               <representation mediaType="application/json"/>
+            </response>
+            
+            <response status="404">
+               <representation mediaType="application/xml" element="identity:itemNotFound"/>
+               <representation mediaType="application/json"/>
+            </response>
+            </method>
+      </resource>
+                                
+                                
+                                
+                                
+                            
+                            <resource id="userCredentialsByType"
+                path="/v2.0/users/{userId}/OS-RAX-KSKEY/credentials/RAX-KSKEY:apiKeyCredentials">
+         <param name="X-Auth-Token"
+                style="header"
+                type="xsd:string"
+                required="true">
+                <doc>A valid authentication token for an
+                    administrative user.</doc>
+            </param>
+         <param name="userId"
+                style="template"
+                required="true"
+                type="xsd:string">
+                        <doc>The user ID.</doc>
+                    </param>
+         <method name="POST" rax:id="updateUserCredential">
+            <doc xml:lang="EN" title="Update User Credentials">
+               <p xmlns="http://www.w3.org/1999/xhtml" class="shortdesc">Updates credentials.</p>
+            </doc>
+            <request>
+               <representation mediaType="application/xml" element="apiKeyCredentials">
+                  <doc xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting xmlns="http://docbook.org/ns/docbook" language="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;apiKeyCredentials
+    xmlns="http://docs.rackspace.com/identity/api/ext/RAX-KSKEY/v1.0"
+    username="testuser"
+    apiKey="aaaaa-bbbbb-ccccc-12345678"/&gt;
+</programlisting>
+                     </xsdxt:code>
+                  </doc>
+               </representation>
+               <representation mediaType="application/json">
+                  <doc xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting xmlns="http://docbook.org/ns/docbook" language="javascript">{
+    "RAX-KSKEY:apiKeyCredentials": {
+        "username": "test_user",
+        "apiKey": "aaaaa-bbbbb-ccccc-12345678"
+    }
+}</programlisting>
+                     </xsdxt:code>
+                  </doc>
+               </representation>
+            </request>
+            <response status="200">
+               <representation mediaType="application/xml" element="apiKeyCredentials">
+                  <doc xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting xmlns="http://docbook.org/ns/docbook" language="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;apiKeyCredentials
+    xmlns="http://docs.rackspace.com/identity/api/ext/RAX-KSKEY/v1.0"
+    username="testuser"
+    apiKey="aaaaa-bbbbb-ccccc-12345678"/&gt;
+</programlisting>
+                     </xsdxt:code>
+                  </doc>
+               </representation>
+               <representation mediaType="application/json">
+                  <doc xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting xmlns="http://docbook.org/ns/docbook" language="javascript">{
+    "RAX-KSKEY:apiKeyCredentials": {
+        "username": "test_user",
+        "apiKey": "aaaaa-bbbbb-ccccc-12345678"
+    }
+}</programlisting>
+                     </xsdxt:code>
+                  </doc>
+               </representation>
+            </response> 
+            <response>
+               <representation mediaType="application/xml" element="identity:identityFault"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="400">
+               <representation mediaType="application/xml" element="identity:badRequest"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="401">
+               <representation mediaType="application/xml" element="identity:unauthorized"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="403">
+               <representation mediaType="application/xml" element="identity:forbidden"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="405">
+               <representation mediaType="application/xml" element="identity:badMethod"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="413">
+               <representation mediaType="application/xml" element="identity:overLimit"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="503">
+               <representation mediaType="application/xml" element="identity:serviceUnavailable"/>
+               <representation mediaType="application/json"/>
+            </response>
+            
+            <response status="415">
+               <representation mediaType="application/xml" element="identity:badMediaType"/>
+               <representation mediaType="application/json"/>
+            </response>
+            
+            <response status="404">
+               <representation mediaType="application/xml" element="identity:itemNotFound"/>
+               <representation mediaType="application/json"/>
+            </response>
+            </method>
+         <method name="DELETE" rax:id="deleteUserCredential">
+            <doc xml:lang="EN" title="Delete User Credentials">
+               <p xmlns="http://www.w3.org/1999/xhtml" class="shortdesc">Deletes user credentials.</p>
+            </doc>
+            <response status="204"/> 
+            <response>
+               <representation mediaType="application/xml" element="identity:identityFault"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="400">
+               <representation mediaType="application/xml" element="identity:badRequest"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="401">
+               <representation mediaType="application/xml" element="identity:unauthorized"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="403">
+               <representation mediaType="application/xml" element="identity:forbidden"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="405">
+               <representation mediaType="application/xml" element="identity:badMethod"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="413">
+               <representation mediaType="application/xml" element="identity:overLimit"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="503">
+               <representation mediaType="application/xml" element="identity:serviceUnavailable"/>
+               <representation mediaType="application/json"/>
+            </response>
+            
+            <response status="415">
+               <representation mediaType="application/xml" element="identity:badMediaType"/>
+               <representation mediaType="application/json"/>
+            </response>
+           
+        
+            <response status="404">
+               <representation mediaType="application/xml" element="identity:itemNotFound"/>
+               <representation mediaType="application/json"/>
+            </response>
+            </method>
+         <method name="GET" rax:id="getUserCredential">
+            <doc xml:lang="EN" title="Get User Credentials">
+               <p xmlns="http://www.w3.org/1999/xhtml" class="shortdesc">Gets user credentials.</p>
+            </doc>
+            <response status="200 203">
+               <representation mediaType="application/xml" element="apiKeyCredentials">
+                  <doc xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting xmlns="http://docbook.org/ns/docbook" language="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;apiKeyCredentials
+    xmlns="http://docs.rackspace.com/identity/api/ext/RAX-KSKEY/v1.0"
+    username="testuser"
+    apiKey="aaaaa-bbbbb-ccccc-12345678"/&gt;
+</programlisting>
+                     </xsdxt:code>
+                  </doc>
+               </representation>
+               <representation mediaType="application/json">
+                  <doc xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting xmlns="http://docbook.org/ns/docbook" language="javascript">{
+    "RAX-KSKEY:apiKeyCredentials": {
+        "username": "test_user",
+        "apiKey": "aaaaa-bbbbb-ccccc-12345678"
+    }
+}</programlisting>
+                     </xsdxt:code>
+                  </doc>
+               </representation>
+            </response> 
+            <response>
+               <representation mediaType="application/xml" element="identity:identityFault"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="400">
+               <representation mediaType="application/xml" element="identity:badRequest"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="401">
+               <representation mediaType="application/xml" element="identity:unauthorized"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="403">
+               <representation mediaType="application/xml" element="identity:forbidden"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="405">
+               <representation mediaType="application/xml" element="identity:badMethod"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="413">
+               <representation mediaType="application/xml" element="identity:overLimit"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="503">
+               <representation mediaType="application/xml" element="identity:serviceUnavailable"/>
+               <representation mediaType="application/json"/>
+            </response>
+            
+            <response status="404">
+               <representation mediaType="application/xml" element="identity:itemNotFound"/>
+               <representation mediaType="application/json"/>
+            </response>
+            </method>
+      </resource>
+                                
+                                
+                                
+                            
+                        
+    </resources>
+
+    <!--*******************************************************-->
+    <!--               All Methods                             -->
+    <!--*******************************************************-->
+
+    <!-- User Credentials-->
+    <method xmlns:identity="http://docs.openstack.org/identity/api/v2.0"
+           xmlns:HP-IDM="http://docs.openstack.org/identity/api/ext/HP-IDM/v1.0"
+           xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="POST"
+           id="addUserCredential">
+        
+        <request>
+            <representation mediaType="application/xml" element="apiKeyCredentials">
+                
+            </representation>
+            <representation mediaType="application/json">
+                
+            </representation>
+        </request>
+        <response status="201">
+            <representation mediaType="application/xml" element="apiKeyCredentials">
+                
+            </representation>
+            <representation mediaType="application/json">
+                
+            </representation>
+        </response> 
+        <response>
+            <representation mediaType="application/xml" element="identity:identityFault"/>
+            <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+            <representation mediaType="application/xml" element="identity:badRequest"/>
+            <representation mediaType="application/json"/>
+        </response>
+        <response status="401">
+            <representation mediaType="application/xml" element="identity:unauthorized"/>
+            <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+            <representation mediaType="application/xml" element="identity:forbidden"/>
+            <representation mediaType="application/json"/>
+        </response>
+        <response status="405">
+            <representation mediaType="application/xml" element="identity:badMethod"/>
+            <representation mediaType="application/json"/>
+        </response>
+        <response status="413">
+            <representation mediaType="application/xml" element="identity:overLimit"/>
+            <representation mediaType="application/json"/>
+        </response>
+        <response status="503">
+            <representation mediaType="application/xml" element="identity:serviceUnavailable"/>
+            <representation mediaType="application/json"/>
+        </response>
+            
+        <response status="415">
+            <representation mediaType="application/xml" element="identity:badMediaType"/>
+            <representation mediaType="application/json"/>
+        </response>
+            
+        <response status="404">
+            <representation mediaType="application/xml" element="identity:itemNotFound"/>
+            <representation mediaType="application/json"/>
+        </response>
+            </method>
+
+    <method xmlns:identity="http://docs.openstack.org/identity/api/v2.0"
+           xmlns:HP-IDM="http://docs.openstack.org/identity/api/ext/HP-IDM/v1.0"
+           xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="GET"
+           id="listCredentials">
+        
+        <response status="200 203">
+            <representation mediaType="application/xml" element="identity:credentials">
+                
+            </representation>
+            <representation mediaType="application/json">
+                
+            </representation>
+        </response> 
+        <response>
+            <representation mediaType="application/xml" element="identity:identityFault"/>
+            <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+            <representation mediaType="application/xml" element="identity:badRequest"/>
+            <representation mediaType="application/json"/>
+        </response>
+        <response status="401">
+            <representation mediaType="application/xml" element="identity:unauthorized"/>
+            <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+            <representation mediaType="application/xml" element="identity:forbidden"/>
+            <representation mediaType="application/json"/>
+        </response>
+        <response status="405">
+            <representation mediaType="application/xml" element="identity:badMethod"/>
+            <representation mediaType="application/json"/>
+        </response>
+        <response status="413">
+            <representation mediaType="application/xml" element="identity:overLimit"/>
+            <representation mediaType="application/json"/>
+        </response>
+        <response status="503">
+            <representation mediaType="application/xml" element="identity:serviceUnavailable"/>
+            <representation mediaType="application/json"/>
+        </response>
+            
+        <response status="404">
+            <representation mediaType="application/xml" element="identity:itemNotFound"/>
+            <representation mediaType="application/json"/>
+        </response>
+            </method>
+
+    <method xmlns:identity="http://docs.openstack.org/identity/api/v2.0"
+           xmlns:HP-IDM="http://docs.openstack.org/identity/api/ext/HP-IDM/v1.0"
+           xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="POST"
+           id="updateUserCredential">
+        
+        <request>
+            <representation mediaType="application/xml" element="apiKeyCredentials">
+                
+            </representation>
+            <representation mediaType="application/json">
+                
+            </representation>
+        </request>
+        <response status="200">
+            <representation mediaType="application/xml" element="apiKeyCredentials">
+                
+            </representation>
+            <representation mediaType="application/json">
+                
+            </representation>
+        </response> 
+        <response>
+            <representation mediaType="application/xml" element="identity:identityFault"/>
+            <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+            <representation mediaType="application/xml" element="identity:badRequest"/>
+            <representation mediaType="application/json"/>
+        </response>
+        <response status="401">
+            <representation mediaType="application/xml" element="identity:unauthorized"/>
+            <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+            <representation mediaType="application/xml" element="identity:forbidden"/>
+            <representation mediaType="application/json"/>
+        </response>
+        <response status="405">
+            <representation mediaType="application/xml" element="identity:badMethod"/>
+            <representation mediaType="application/json"/>
+        </response>
+        <response status="413">
+            <representation mediaType="application/xml" element="identity:overLimit"/>
+            <representation mediaType="application/json"/>
+        </response>
+        <response status="503">
+            <representation mediaType="application/xml" element="identity:serviceUnavailable"/>
+            <representation mediaType="application/json"/>
+        </response>
+            
+        <response status="415">
+            <representation mediaType="application/xml" element="identity:badMediaType"/>
+            <representation mediaType="application/json"/>
+        </response>
+            
+        <response status="404">
+            <representation mediaType="application/xml" element="identity:itemNotFound"/>
+            <representation mediaType="application/json"/>
+        </response>
+            </method>
+
+    <method xmlns:identity="http://docs.openstack.org/identity/api/v2.0"
+           xmlns:HP-IDM="http://docs.openstack.org/identity/api/ext/HP-IDM/v1.0"
+           xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="DELETE"
+           id="deleteUserCredential">
+        
+        <response status="204"/> 
+        <response>
+            <representation mediaType="application/xml" element="identity:identityFault"/>
+            <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+            <representation mediaType="application/xml" element="identity:badRequest"/>
+            <representation mediaType="application/json"/>
+        </response>
+        <response status="401">
+            <representation mediaType="application/xml" element="identity:unauthorized"/>
+            <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+            <representation mediaType="application/xml" element="identity:forbidden"/>
+            <representation mediaType="application/json"/>
+        </response>
+        <response status="405">
+            <representation mediaType="application/xml" element="identity:badMethod"/>
+            <representation mediaType="application/json"/>
+        </response>
+        <response status="413">
+            <representation mediaType="application/xml" element="identity:overLimit"/>
+            <representation mediaType="application/json"/>
+        </response>
+        <response status="503">
+            <representation mediaType="application/xml" element="identity:serviceUnavailable"/>
+            <representation mediaType="application/json"/>
+        </response>
+            
+        <response status="415">
+            <representation mediaType="application/xml" element="identity:badMediaType"/>
+            <representation mediaType="application/json"/>
+        </response>
+           
+        
+        <response status="404">
+            <representation mediaType="application/xml" element="identity:itemNotFound"/>
+            <representation mediaType="application/json"/>
+        </response>
+            </method>
+
+    <method xmlns:identity="http://docs.openstack.org/identity/api/v2.0"
+           xmlns:HP-IDM="http://docs.openstack.org/identity/api/ext/HP-IDM/v1.0"
+           xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="GET"
+           id="getUserCredential">
+        
+        <response status="200 203">
+            <representation mediaType="application/xml" element="apiKeyCredentials">
+                
+            </representation>
+            <representation mediaType="application/json">
+                
+            </representation>
+        </response> 
+        <response>
+            <representation mediaType="application/xml" element="identity:identityFault"/>
+            <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+            <representation mediaType="application/xml" element="identity:badRequest"/>
+            <representation mediaType="application/json"/>
+        </response>
+        <response status="401">
+            <representation mediaType="application/xml" element="identity:unauthorized"/>
+            <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+            <representation mediaType="application/xml" element="identity:forbidden"/>
+            <representation mediaType="application/json"/>
+        </response>
+        <response status="405">
+            <representation mediaType="application/xml" element="identity:badMethod"/>
+            <representation mediaType="application/json"/>
+        </response>
+        <response status="413">
+            <representation mediaType="application/xml" element="identity:overLimit"/>
+            <representation mediaType="application/json"/>
+        </response>
+        <response status="503">
+            <representation mediaType="application/xml" element="identity:serviceUnavailable"/>
+            <representation mediaType="application/json"/>
+        </response>
+            
+        <response status="404">
+            <representation mediaType="application/xml" element="identity:itemNotFound"/>
+            <representation mediaType="application/json"/>
+        </response>
+            </method>
+</wadl:application>

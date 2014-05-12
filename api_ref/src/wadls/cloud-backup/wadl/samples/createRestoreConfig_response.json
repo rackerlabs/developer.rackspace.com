@@ -1,0 +1,31 @@
+{
+    "RestoreId": 1394,
+    "BackupId": 133599,
+    "DestinationMachineId": 156751,
+    "OverwriteFiles": true,
+    "BackupConfigurationId": 6265,
+    "BackupConfigurationName": "Restore_Backup",
+    "BackupRestorePoint": "\/Date(1357151359000)\/",
+    "BackupMachineId": 5,
+    "BackupMachineName": "BALAJIMBP",
+    "BackupFlavor": "RaxCloudServer",
+    "DestinationMachineName": "BILLS-TEST-WIN",
+    "DestinationPath": "C:\\FolderPathForRestore\\",
+    "IsEncrypted": false,
+    "EncryptedPassword": null,
+    "PublicKey": {
+        "ModulusHex": "CA759606B13DC5350A3FAE3F851C76F260DC
+        CD1EFF2DB7510AE74E00B4B2B6025422757493B2EC09B2C71DF
+        ACFF4901E4ADAA3C9F2E6BDE9392E80FEED6F1F81BFD1D3AD9F
+        9080646F46632C30A94275C85859C1EFCD21BF911F311841914
+        BC719B1397FD3B95BE7657495903936E3345E6F083922F37761
+        0CBB6EB67C62B719770B25C9AB17521C2AB51B75871ED5F04F9
+        65C5402443ABCD05EE5E4A5201641309B8BA1100A04C62210B2
+        900CDEAA40F6EBF267B73634E471DB1420FF67CE41940D8ED8F
+        4B6C199CF5D023B410C386C58037546D34102D245AF068E891B
+        B80F1799DDC4C9C85C6FF73DA1E45AEC98792BCC1C2DE3AAD3F
+        92F50F1661A4FFDC1",
+        "ExponentHex": 10001
+    },
+    "RestoreStateId": 0
+}

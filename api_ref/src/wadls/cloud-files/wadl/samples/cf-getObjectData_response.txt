@@ -1,0 +1,8 @@
+HTTP/1.1 200 OK
+Date: Wed, 14 Jul 2010 19:37:41 GMT
+Last-Modified: Mon, 12 Jun 2010 13:40:18 GMT
+ETag: b0dffe8254d152d8fd28f3c5e0404a10
+Content-Type: text/html
+Content-Length: 512000
+
+[ ...object content... ]

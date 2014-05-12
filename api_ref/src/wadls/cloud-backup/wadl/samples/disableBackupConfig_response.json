@@ -1,0 +1,54 @@
+{
+    "BackupConfigurationId": 148325,
+    "MachineAgentId": 156953,
+    "MachineName": "Web Server",
+    "Flavor": "RaxCloudServer",
+    "IsEncrypted": false,
+    "BackupConfigurationName": "Weekly Website Backup",
+    "IsActive": true,
+    "IsDeleted": false,
+    "VersionRetention": 60,
+    "BackupConfigurationScheduleId": 145406,
+    "MissedBackupActionId": 1,
+    "Frequency": "Weekly",
+    "StartTimeHour": 11,
+    "StartTimeMinute": 30,
+    "StartTimeAmPm": "AM",
+    "DayOfWeekId": 4,
+    "HourInterval": null,
+    "TimeZoneId": "Eastern Standard Time",
+    "NextScheduledRunTime": "\/Date(1357817400000)\/",
+    "LastRunTime": null,
+    "LastRunBackupReportId": null,
+    "NotifyRecipients": "raxtestaddress@rackspace.com",
+    "NotifySuccess": false,
+    "NotifyFailure": false,
+    "Inclusions": [
+        {
+            "FilePath": "C:\\backed_up_folder",
+            "ParentId": 148325,
+            "FileItemType": "Folder",
+            "FileId": 35000
+        },
+        {
+            "FilePath": "C:\\backup_up_file.txt",
+            "ParentId": 148325,
+            "FileItemType": "File",
+            "FileId": 34999
+        }
+    ],
+    "Exclusions":[
+        {
+            "FilePath": "C:\\backed_up_folder\\excluded_folder",
+            "ParentId": 148325,
+            "FileItemType": "Folder",
+            "FileId": 35002
+        },
+        {
+            "FilePath": "C:\\backed_up_folder\\excluded_file.txt",
+            "ParentId": 148325,
+            "FileItemType": "File",
+            "FileId": 35001
+        }
+    ]
+}

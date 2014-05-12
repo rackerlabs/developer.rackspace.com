@@ -1,0 +1,7 @@
+POST '/customers/12345678/domains/example.com/emaileveryone', 'text/xml',    
+{    
+    'fromName' => 'John Doe',    
+    'fromAddress' => 'john.doe@example.com',    
+    'subject' => 'Hi All',    
+    'body' => 'Hello World.',    
+}" });

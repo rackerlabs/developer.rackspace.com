@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<book xmlns="http://docbook.org/ns/docbook"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  xmlns:xi="http://www.w3.org/2001/XInclude"
+  xmlns:svg="http://www.w3.org/2000/svg"
+  version="5.0-extension RaxBook-2.0"
+  xmlns:wadl="http://wadl.dev.java.net/2009/02"
+  xml:id="emailapps-devguide">
+  <!-- make url.base match published URL for this PDF -->
+  <?rax canonical.url.base="http://docs.rackspace.com/hostedemail/api/v1/ea-devguide/content"?>
+  <title>Hosted Email Admin Developer Guide</title>
+  <titleabbrev>Email Admin Dev Guide</titleabbrev>
+  <info>
+    <copyright>
+      <year>2013-2014</year>
+      <holder>Rackspace US, Inc.</holder>
+    </copyright>
+    <releaseinfo>API v1</releaseinfo>
+    <productname>Hosted Email</productname>
+    <!--Note that the <productname> text matches the first few words of the title. The build system splits the title into productname + rest of title on the pdf cover.-->
+    <!--If you leave the <pubdate> element empty, the build system inserts today's date automatically. -->
+    <pubdate/>
+    <abstract>
+      <para>This document is intended for software developers
+        interested in developing applications using the Application
+        Programming Interface (<abbrev>API</abbrev>) to administer
+        Hosted Email (also known as Email and Apps). </para>
+    </abstract>
+    <revhistory>
+      <revision>
+        <date>2014-03-04</date>
+        <revdescription>
+          <para>First draft internal publication of DevGuide for API
+            v1.</para>
+        </revdescription>
+      </revision>
+    </revhistory>
+    <legalnotice role="rs-api">
+      <annotation>
+        <remark>Copyright details are filled in by the build
+          system.</remark>
+      </annotation>
+    </legalnotice>
+    <!-- 
+       The values in raxm:metadata are used to control where the content appears on the landing page in docs.rackspace.com.
+       Work with the Cloud Doc Tools team to find out what to put here. Once established, you should not change these
+       values without first consulting with the CDT team.
+    -->
+    <raxm:metadata xmlns:raxm="http://docs.rackspace.com/api/metadata">
+      <raxm:displayname>API Developer Guide</raxm:displayname>
+      <raxm:product version="v1">hostedemail</raxm:product>
+      <raxm:priority>20</raxm:priority>
+    </raxm:metadata>
+  </info>
+  <xi:include href="chapters/overview.xml"/>
+  <xi:include href="chapters/concepts.xml"/>
+  <xi:include href="chapters/examples.xml"/>
+  <xi:include href="chapters/generalinfo.xml"/>
+  <!-- <xi:include href="chapters/apiref-operations.xml"/>-->
+  <chapter xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns="http://docbook.org/ns/docbook" xml:id="api-operations"
+    xmlns:wadl="http://wadl.dev.java.net/2009/02" role="api-reference">
+    <title>API Operations</title>
+    <xi:include href="chapters/apiref-customers.xml"/>
+    <xi:include href="chapters/apiref-admins.xml"/>
+    <xi:include href="chapters/apiref-domain.xml"/>
+    <xi:include href="chapters/apiref-domain-spam-settings.xml"/>
+    <xi:include href="chapters/apiref-rackspace.xml"/>
+    <xi:include href="chapters/apiref-exchange.xml"/>
+    <xi:include href="chapters/apiref-sharepoint.xml"/>
+  </chapter>
+</book>

@@ -1,0 +1,104 @@
+using System;
+using System.IO;
+using System.Net;
+using System.Security.Cryptography;
+using System.Text;
+
+namespace RestApiClient
+{
+public class RestApiClient
+{
+private HttpWebRequest request;
+private HttpWebResponse response;
+private string baseUrl;
+private string apiKey;
+private string secretKey;
+
+public RestApiClient(string baseUrl, string apiKey, string secretKey)
+{
+this.baseUrl = baseUrl;
+this.apiKey = apiKey;
+this.secretKey = secretKey;
+}
+
+public HttpWebResponse Get(string url, string format)
+{
+this.request = (System.Net.HttpWebRequest)HttpWebRequest.Create(this.baseUrl + url);
+request.Method = "GET";
+SignMessage();
+AssignFormat(format);
+return GetResponseContent();
+}
+
+public HttpWebResponse Post(string url, string data, string format)
+{
+this.request = (System.Net.HttpWebRequest)HttpWebRequest.Create(this.baseUrl + url);
+request.Method = "POST";
+SignMessage();
+AssignFormat(format);
+SendFormData(data);
+return GetResponseContent();
+}
+
+public HttpWebResponse Put(string url, string data, string format)
+{
+this.request = (System.Net.HttpWebRequest)HttpWebRequest.Create(this.baseUrl + url);
+request.Method = "PUT";
+SignMessage();
+AssignFormat(format);
+SendFormData(data);
+return GetResponseContent();
+}
+
+public HttpWebResponse Delete(string url, string format)
+{
+this.request = (System.Net.HttpWebRequest)HttpWebRequest.Create(this.baseUrl + url);
+request.Method = "DELETE";
+SignMessage();
+AssignFormat(format);
+return GetResponseContent();
+}
+
+private void SendFormData(string data)
+{
+UTF8Encoding encoding = new UTF8Encoding();
+byte[] byteData = encoding.GetBytes(data);
+this.request.ContentType = "application/x-www-form-urlencoded";
+request.ContentLength = byteData.Length;
+Stream requestStream = request.GetRequestStream();
+requestStream.Write(byteData, 0, byteData.Length);
+requestStream.Close();
+}
+
+private HttpWebResponse GetResponseContent()
+{
+try
+{
+return (HttpWebResponse)request.GetResponse();
+}
+catch (WebException e)
+{
+return (HttpWebResponse)e.Response;
+}
+
+}
+
+private void SignMessage()
+{
+var userAgent = "C# Client Library";
+this.request.UserAgent = userAgent;
+var dateTime = DateTime.UtcNow.ToString("yyyyMMddHHmmss");
+var dataToSign = apiKey + userAgent + dateTime + secretKey;
+var hash = SHA1.Create();
+var signedBytes = hash.ComputeHash(Encoding.UTF8.GetBytes(dataToSign));
+var signature = Convert.ToBase64String(signedBytes);
+
+request.Headers["X-Api-User-Signature"] = apiKey + ":" + dateTime + ":" + signature;
+}
+
+private void AssignFormat(string format)
+{
+this.request.Accept = format;
+}
+}
+}

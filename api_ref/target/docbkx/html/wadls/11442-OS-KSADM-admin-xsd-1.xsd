@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+                    Flattened from: http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v2.0/xsd/OS-KSADM.xsd-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:rax="http://docs.rackspace.com/api"
+            xmlns:db="http://docbook.org/ns/docbook"
+            xmlns:identity="http://docs.openstack.org/identity/api/v2.0"
+            xmlns:OS-KSADM="http://docs.openstack.org/identity/api/ext/OS-KSADM/v1.0"
+            xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
+            xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+            xmlns:atom="http://www.w3.org/2005/Atom"
+            xmlns:html="http://www.w3.org/1999/xhtml"
+            xmlns:xs="http://www.w3.org/2001/XMLSchema"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            elementFormDefault="qualified"
+            attributeFormDefault="unqualified"
+            targetNamespace="http://docs.openstack.org/identity/api/ext/OS-KSADM/v1.0">
+   <import xmlns="http://www.w3.org/2001/XMLSchema"
+           vc:minVersion="1.1"
+           namespace="http://www.w3.org/2005/Atom"
+           schemaLocation="OS-KSADM-admin-xsd-2.xsd"/>
+   <import xmlns="http://www.w3.org/2001/XMLSchema"
+           namespace="http://docs.openstack.org/identity/api/v2.0"
+           schemaLocation="OS-KSADM-admin-xsd-4.xsd"/>
+   <!-- Import ATOM specific schema definitions -->
+   <import xmlns="http://www.w3.org/2001/XMLSchema"
+           namespace="http://docs.openstack.org/identity/api/v2.0"
+           schemaLocation="OS-KSADM-admin-xsd-4.xsd"/>
+   <!-- Attribute -->
+   <attribute xmlns="http://www.w3.org/2001/XMLSchema"
+              name="password"
+              type="xsd:string">
+        <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                <p>
+                    A password attribute used when creating users.
+                </p>
+            </xsd:documentation>
+        </annotation>
+    </attribute>
+   <!-- Elements -->
+   <!-- Complex Types -->
+   <!-- Complex Types -->
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="services"
+            type="OS-KSADM:ServiceList">
+        <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                <p>
+                    A list of services.
+                </p>
+            </xsd:documentation>
+        </annotation>
+    </element>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="service"
+            type="OS-KSADM:Service">
+        <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                <p>
+                    A service.
+                </p>
+            </xsd:documentation>
+        </annotation>
+    </element>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="extensibleCredentialsType"
+            type="OS-KSADM:ExtensibleCredentialsType">
+        <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                <p>
+                    An extensible credentials type.
+                </p>
+            </xsd:documentation>
+        </annotation>
+     </element>
+   <simpleType xmlns="http://www.w3.org/2001/XMLSchema" name="PasswordCredentialsType">
+        <restriction base="xsd:string">
+            <enumeration value="password"/>
+        </restriction>
+    </simpleType>
+   <simpleType xmlns="http://www.w3.org/2001/XMLSchema" name="ExtensionCredentialsType">
+        <restriction base="xsd:string">
+            <pattern value="(\w|-)+(-|:)\w+"/>
+        </restriction>
+    </simpleType>
+   <simpleType xmlns="http://www.w3.org/2001/XMLSchema" name="ExtensibleCredentialsType">
+        <union memberTypes="OS-KSADM:PasswordCredentialsType OS-KSADM:ExtensionCredentialsType"/>
+    </simpleType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="Service">
+        <attribute name="id" type="xsd:string" use="required"/>
+        <attribute name="name" type="xsd:string" use="required"/>
+        <attribute name="type" type="identity:ExtensibleServiceType" use="required"/>
+        <attribute name="description" type="xsd:string" use="optional"/>
+        <anyAttribute namespace="##other" processContents="lax"/>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="ServiceList">
+        <sequence>
+            <element name="service"
+                  type="OS-KSADM:Service"
+                  minOccurs="0"
+                  maxOccurs="unbounded"/>
+            <element vc:minVersion="1.1"
+                  ref="atom:link"
+                  minOccurs="0"
+                  maxOccurs="unbounded"/>
+            <any namespace="##other"
+              processContents="lax"
+              minOccurs="0"
+              maxOccurs="unbounded"/>
+        </sequence>
+        <anyAttribute namespace="##other" processContents="lax"/>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="UserWithOnlyEnabled">
+        <complexContent>
+            <restriction base="identity:User">
+                <attribute name="id" type="xsd:string" use="prohibited"/>
+                <attribute name="email" type="xsd:string" use="prohibited"/>
+                <attribute name="username" type="xsd:string" use="prohibited"/>
+                <attribute name="enabled" type="xsd:boolean" use="required"/>
+            </restriction>
+        </complexContent>
+    </complexType>
+</xsd:schema>

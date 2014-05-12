@@ -1,0 +1,5 @@
+PUT '/customers/12345678/domains/example.com/splitdomainrouting', 'text/xml',    
+{    
+    'externalServer' => 'email.example.org',    
+    'verificationAddress' => 'externalaccount@example.com',    
+}" });

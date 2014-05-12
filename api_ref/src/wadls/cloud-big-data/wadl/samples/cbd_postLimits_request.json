@@ -1,0 +1,11 @@
+{
+  "limits": {
+    "tenantId": 1234567,
+    "absolute": {
+       "nodeCount": 10,
+       "ram": 10000,
+       "disk": 10000,
+       "vcpus": 10
+    } 
+  }
+} 

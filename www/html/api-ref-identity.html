@@ -1,0 +1,1738 @@
+
+<!DOCTYPE html>
+<html lang="en"><head>
+   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+      <meta charset="UTF-8">
+         <title>developer.rackspace.com</title>
+         
+         <link href="developer.rackspace.com_files/css.css" rel="stylesheet" type="text/css"/>
+         
+         <link rel="stylesheet" href="developer.rackspace.com_files/reset.css"/>
+         <link rel="stylesheet" href="developer.rackspace.com_files/style.css"/>
+         <link href="apiref/css/bootstrap.min.css" rel="stylesheet"></link> 
+         <link href="apiref/css/main.css" rel="stylesheet" type="text/css"></link>      
+</head>
+   <body>
+      <!--  Top Nav Bar -->
+      <div class="header">
+         <div class="inner clearfix">
+            <a class="title" href="http://awesomemonster.com/devsite/index.html">Rackspace Developer Center</a>
+            <ul>
+               <li><a href="http://awesomemonster.com/devsite/main-sdks.html">SDKs</a></li>
+               <li><a href="http://awesomemonster.com/devsite/main-services.html">Services</a></li>
+               <li><a href="http://awesomemonster.com/devsite/blog-list.html">DevOps Blog</a></li>
+               <li><a href="#">Sign Up</a></li>
+               <li><form action="search">
+                  <input name="" id="" placeholder="Search our docs" type="search">
+                     <input name="" value="Search" type="submit">
+               </form></li>
+            </ul>
+         </div>
+      </div>   
+      
+      <div class="container">
+         <div class="rowtop">
+            <div class="col-md-3">
+               <div class="api-sidebar" data-offset-bottom="0" data-offset-top="1000" data-spy="affix">
+                  <ul class="nav api-sidenav">
+                     <li><a class="smallcapped" href="#identity-v2">Cloud&nbsp;Identity&nbsp;API&nbsp;v2.0</a></li>
+                     <li class="divider"></li>
+                     <li>
+                        <ul class="nav active">
+                           <li><a href="api-ref-auto-scale.html">Auto Scale
+                                 API</a></li>
+                           <li><a href="api-ref-backup.html">Cloud Backup
+                                 API</a></li>
+                           <li><a href="api-ref-big-data.html">Cloud Big Data
+                                 API</a></li>
+                           <li><a href="api-ref-blockstorage.html">Cloud Block
+                                 Storage API</a></li>
+                           <li><a href="api-ref-databases.html">Cloud
+                                 Databases API</a></li>
+                           <li><a href="api-ref-email-and-apps.html">Email
+                                 &amp; Apps API</a></li>
+                           <li><a href="api-ref-files.html">Cloud Files
+                                 API</a></li>
+                           <li><a href="api-ref-identity.html">Cloud Identity
+                                 API</a></li>
+                           <li><a href="api-ref-images.html">Cloud Images
+                                 API</a></li>
+                           <li><a href="api-ref-monitoring.html">Cloud
+                                 Monitoring API</a></li>
+                           <li><a href="api-ref-networks.html">Cloud Networks
+                                 API</a></li>
+                           <li><a href="api-ref-orchestration.html">Cloud
+                                 Orchestration API</a></li>
+                           <li><a href="api-ref-queues.html">Cloud Queues
+                                 API</a></li>
+                           <li><a href="api-ref.html">Cloud Servers
+                                 API</a></li>
+                           <li><a href="api-ref-servers-ext.html">Cloud
+                                 Servers API extensions</a></li>
+                        </ul>
+                     </li>
+                  </ul>
+                  <div class="row">
+                     <div class="col-md-7"><label class="sr-only" for="search-box">Search on this page</label><input class="form-control" id="search-box" placeholder="Search this page" type="text"></input></div>
+                     <div class="col-md-5"><button class="btn btn-default" id="search-btn">Search</button></div>
+                  </div>
+               </div>
+            </div>
+            <div class="col-md-9 api-documentation">
+               
+               
+               <div id="identity-v2">
+                  <div class="subhead">
+                     <h2>Cloud Identity API v2.0<a class="headerlink" href="#identity-v2" title="Permalink to this headline"><span class="glyphicon glyphicon-link"></span></a></h2>
+                  </div>
+                  
+                  
+                  <div id="User_Calls">
+                     <div class="subhead">
+                        <h3>Users<a class="headerlink" href="#User_Calls" title="Permalink to this headline"><span class="glyphicon glyphicon-link"></span></a></h3>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d241e154">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v2.0/users</div>
+                           <div class="col-md-5">
+                              <p>Lists users.</p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d241e154" data-toggle="collapse" id="detail-d241e154-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d241e154">
+                           <div class="col-md-12">
+                              <div></div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>200</returnvalue>, 
+                                    <returnvalue>203</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">identityFault (400, 500, &#8230;),
+                                    badRequest (400),
+                                    unauthorized (401),
+                                    forbidden (403),
+                                    badMethod (405),
+                                    overLimit (413),
+                                    serviceUnavailable (503),
+                                    itemNotFound (404)
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><select class="example-select form-control">
+                                       <option data-target="#resp-json-d241e154" selected="selected" value="json">JSON Response</option>
+                                       <option data-target="#resp-xml-d241e154" value="xml">XML Response</option></select></div>
+                              </div>
+                              <div class="tab-content">
+                                 <div class="tab-pane example active" id="resp-json-d241e154">
+                                    <div class="example">
+                                       <pre>{
+    "users":[{
+            "id": "u1000",
+            "name": "jqsmith",
+            "email": "john.smith@example.org",
+            "enabled": true
+        },
+        {
+            "id": "u1001",
+            "name": "jqsmith",
+            "email": "john.smith@example.org",
+            "enabled": true
+        }
+    ],
+    "users_links":[]
+}
+</pre>
+                                       </div>
+                                 </div>
+                                 <div class="tab-pane example" id="resp-xml-d241e154">
+                                    <div class="example">
+                                       <pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;users xmlns="http://docs.openstack.org/identity/api/v2.0"&gt;
+    &lt;user xmlns="http://docs.openstack.org/identity/api/v2.0"
+          enabled="true" email="john.smith@example.org"
+          name="jqsmith" id="u1000"/&gt;
+    &lt;user xmlns="http://docs.openstack.org/identity/api/v2.0"
+          enabled="true" email="john.smith@example.org"
+          name="jqsmith" id="u1001"/&gt;
+&lt;/users&gt;
+</pre>
+                                       </div>
+                                 </div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d241e253">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v2.0/users/&#8203;{user_id}&#8203;</div>
+                           <div class="col-md-5">
+                              <p>Gets detailed information about a
+                                 specified user by user ID.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d241e253" data-toggle="collapse" id="detail-d241e253-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d241e253">
+                           <div class="col-md-12">
+                              <div></div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>200</returnvalue>, 
+                                    <returnvalue>203</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">identityFault (400, 500, &#8230;),
+                                    badRequest (400),
+                                    unauthorized (401),
+                                    forbidden (403),
+                                    badMethod (405),
+                                    overLimit (413),
+                                    serviceUnavailable (503),
+                                    itemNotFound (404)
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><select class="example-select form-control">
+                                       <option data-target="#resp-json-d241e253" selected="selected" value="json">JSON Response</option>
+                                       <option data-target="#resp-xml-d241e253" value="xml">XML Response</option></select></div>
+                              </div>
+                              <div class="tab-content">
+                                 <div class="tab-pane example active" id="resp-json-d241e253">
+                                    <div class="example">
+                                       <pre>{
+   "user":{
+      "id":"u1000",
+      "name":"jqsmith",
+      "email":"john.smith@example.org",
+      "enabled":true
+   }
+}
+</pre>
+                                       </div>
+                                 </div>
+                                 <div class="tab-pane example" id="resp-xml-d241e253">
+                                    <div class="example">
+                                       <pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;user xmlns="http://docs.openstack.org/identity/api/v2.0"
+      enabled="true" email="john.smith@example.org" name="jqsmith"
+      id="u1000"/&gt;
+</pre>
+                                       </div>
+                                 </div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d241e351">
+                           <div class="col-md-1"><span class="label label-success">POST</span></div>
+                           <div class="col-md-5">v2.0/users</div>
+                           <div class="col-md-5">
+                              <p>Adds a user.</p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d241e351" data-toggle="collapse" id="detail-d241e351-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d241e351">
+                           <div class="col-md-12">
+                              <div></div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>201</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">identityFault (400, 500, &#8230;),
+                                    badRequest (400),
+                                    unauthorized (401),
+                                    forbidden (403),
+                                    badMethod (405),
+                                    overLimit (413),
+                                    serviceUnavailable (503),
+                                    itemNotFound (404),
+                                    badMediaType (415)
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"><b>Request parameters</b><table class="table table-bordered table-striped">
+                                       <thead>
+                                          <tr>
+                                             <th>Parameter</th>
+                                             <th>Style</th>
+                                             <th>Type</th>
+                                             <th>Description</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          <tr>
+                                             <td>name (Optional)</td>
+                                             <td>plain</td>
+                                             <td>String</td>
+                                             <td>The user name.</td>
+                                          </tr>
+                                       </tbody>
+                                    </table>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><select class="example-select form-control">
+                                       <option data-target="#req-json-d241e351" selected="selected" value="json">JSON Request</option>
+                                       <option data-target="#req-xml-d241e351" value="xml">XML Request</option></select></div>
+                              </div>
+                              <div class="tab-content">
+                                 <div class="tab-pane example active" id="req-json-d241e351">
+                                    <div class="example">
+                                       <pre>{
+  "user": {
+    "name": "jqsmith",
+    "email": "john.smith@example.org",
+    "enabled": true,
+    "OS-KSADM:password": "secrete"
+  }
+}
+</pre>
+                                       </div>
+                                 </div>
+                                 <div class="tab-pane example" id="req-xml-d241e351">
+                                    <div class="example">
+                                       <pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;user xmlns="http://docs.openstack.org/identity/api/v2.0"
+      xmlns:OS-KSADM="http://docs.openstack.org/identity/api/ext/OS-KSADM/v1.0"
+      enabled="true" email="john.smith@example.org"
+      name="jqsmith"
+      OS-KSADM:password="secrete"/&gt;
+</pre>
+                                       </div>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><select class="example-select form-control">
+                                       <option data-target="#resp-json-d241e351" selected="selected" value="json">JSON Response</option>
+                                       <option data-target="#resp-xml-d241e351" value="xml">XML Response</option></select></div>
+                              </div>
+                              <div class="tab-content">
+                                 <div class="tab-pane example active" id="resp-json-d241e351">
+                                    <div class="example">
+                                       <pre>{
+  "user": {
+    "id": "u1000",
+    "name": "jqsmith",
+    "email": "john.smith@example.org",
+    "enabled": true
+  }
+}
+</pre>
+                                       </div>
+                                 </div>
+                                 <div class="tab-pane example" id="resp-xml-d241e351">
+                                    <div class="example">
+                                       <pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;user xmlns="http://docs.openstack.org/identity/api/v2.0"
+      enabled="true" email="john.smith@example.org"
+      name="jqsmith" id="u1000"/&gt;
+</pre>
+                                       </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d241e489">
+                           <div class="col-md-1"><span class="label label-success">PUT</span></div>
+                           <div class="col-md-5">v2.0/users/&#8203;{userId}&#8203;</div>
+                           <div class="col-md-5">
+                              <p>Updates a user.</p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d241e489" data-toggle="collapse" id="detail-d241e489-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d241e489">
+                           <div class="col-md-12">
+                              <div></div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>200</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">identityFault (400, 500, &#8230;),
+                                    badRequest (400),
+                                    unauthorized (401),
+                                    forbidden (403),
+                                    badMethod (405),
+                                    overLimit (413),
+                                    serviceUnavailable (503),
+                                    badMediaType (415),
+                                    itemNotFound (404)
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><select class="example-select form-control">
+                                       <option data-target="#req-json-d241e489" selected="selected" value="json">JSON Request</option>
+                                       <option data-target="#req-xml-d241e489" value="xml">XML Request</option></select></div>
+                              </div>
+                              <div class="tab-content">
+                                 <div class="tab-pane example active" id="req-json-d241e489">
+                                    <div class="example">
+                                       <pre>{
+  "user": {
+    "id": "u1000",
+    "name": "jqsmith",
+    "email": "john.smith@example.org",
+    "enabled": true
+  }
+}
+</pre>
+                                       </div>
+                                 </div>
+                                 <div class="tab-pane example" id="req-xml-d241e489">
+                                    <div class="example">
+                                       <pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;user xmlns="http://docs.openstack.org/identity/api/v2.0"
+      enabled="true" email="john.smith@example.org"
+      name="jqsmith" id="u1000"/&gt;
+</pre>
+                                       </div>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><select class="example-select form-control">
+                                       <option data-target="#resp-json-d241e489" selected="selected" value="json">JSON Response</option>
+                                       <option data-target="#resp-xml-d241e489" value="xml">XML Response</option></select></div>
+                              </div>
+                              <div class="tab-content">
+                                 <div class="tab-pane example active" id="resp-json-d241e489">
+                                    <div class="example">
+                                       <pre>{
+  "user": {
+    "id": "u1000",
+    "name": "jqsmith",
+    "email": "john.smith@example.org",
+    "enabled": true
+  }
+}
+</pre>
+                                       </div>
+                                 </div>
+                                 <div class="tab-pane example" id="resp-xml-d241e489">
+                                    <div class="example">
+                                       <pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;user xmlns="http://docs.openstack.org/identity/api/v2.0"
+      enabled="true" email="john.smith@example.org"
+      name="jqsmith" id="u1000"/&gt;
+</pre>
+                                       </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d241e620">
+                           <div class="col-md-1"><span class="label label-success">DELETE</span></div>
+                           <div class="col-md-5">v2.0/users/&#8203;{userId}&#8203;</div>
+                           <div class="col-md-5">
+                              <p>Deletes a user.</p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d241e620" data-toggle="collapse" id="detail-d241e620-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d241e620">
+                           <div class="col-md-12">
+                              <div></div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>204</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">identityFault (400, 500, &#8230;),
+                                    badRequest (400),
+                                    unauthorized (401),
+                                    forbidden (403),
+                                    badMethod (405),
+                                    overLimit (413),
+                                    serviceUnavailable (503),
+                                    itemNotFound (404)
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body and does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d241e696">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v2.0/users/&#8203;{userId}&#8203;/OS-RAX-KSKEY/credentials/RAX-KSKEY:apiKeyCredentials</div>
+                           <div class="col-md-5">
+                              <p class="shortdesc">Gets user credentials.</p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d241e696" data-toggle="collapse" id="detail-d241e696-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d241e696">
+                           <div class="col-md-12">
+                              <div>
+                                 <p class="shortdesc">Gets user credentials.</p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>200</returnvalue>, 
+                                    <returnvalue>203</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">identityFault (400, 500, &#8230;),
+                                    badRequest (400),
+                                    unauthorized (401),
+                                    forbidden (403),
+                                    badMethod (405),
+                                    overLimit (413),
+                                    serviceUnavailable (503),
+                                    itemNotFound (404)
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><select class="example-select form-control">
+                                       <option data-target="#resp-json-d241e696" selected="selected" value="json">JSON Response</option>
+                                       <option data-target="#resp-xml-d241e696" value="xml">XML Response</option></select></div>
+                              </div>
+                              <div class="tab-content">
+                                 <div class="tab-pane example active" id="resp-json-d241e696">
+                                    <div class="example">
+                                       <pre>{
+    "RAX-KSKEY:apiKeyCredentials":{
+        "username": "test_user",
+        "apiKey": "aaaaa-bbbbb-ccccc-12345678"
+    }
+}
+</pre>
+                                       </div>
+                                 </div>
+                                 <div class="tab-pane example" id="resp-xml-d241e696">
+                                    <div class="example">
+                                       <pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;apiKeyCredentials
+    xmlns="http://docs.rackspace.com/identity/api/ext/RAX-KSKEY/v1.0"
+    username="testuser"
+    apiKey="aaaaa-bbbbb-ccccc-12345678"/&gt;
+</pre>
+                                       </div>
+                                 </div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d241e792">
+                           <div class="col-md-1"><span class="label label-success">POST</span></div>
+                           <div class="col-md-5">v2.0/users/&#8203;{userId}&#8203;/OS-KSADM/credentials/RAX-KSKEY:apiKeyCredentials/RAX-AUTH/reset</div>
+                           <div class="col-md-5">
+                              <p> Reset a user's API Key </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d241e792" data-toggle="collapse" id="detail-d241e792-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d241e792">
+                           <div class="col-md-12">
+                              <div>
+                                 <p> We recommend that you routinely reset passwords and API keys. This API
+                                    key reset call will return the new API key for the user account. Unlike updating the password, the API key
+                                    reset does not revoke existing tokens. The <a href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide-external/content/DELETE_revokeToken_v2.0_tokens__tokenId__.html"> "Revoke Token"</a> call can be used to revoke a token. 
+                                 </p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>200</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">identityFault (400, 500, &#8230;),
+                                    badRequest (400),
+                                    unauthorized (401),
+                                    forbidden (403),
+                                    badMethod (405),
+                                    conflict (409),
+                                    overLimit (413),
+                                    serviceUnavailable (503),
+                                    itemNotFound (404),
+                                    badMediaType (415)
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><select class="example-select form-control">
+                                       <option data-target="#resp-json-d241e792" selected="selected" value="json">JSON Response</option>
+                                       <option data-target="#resp-xml-d241e792" value="xml">XML Response</option></select></div>
+                              </div>
+                              <div class="tab-content">
+                                 <div class="tab-pane example active" id="resp-json-d241e792">
+                                    <div class="example">
+                                       <pre>{
+  "RAX-KSKEY:apiKeyCredentials": {
+    "username": "jqsmith",
+    "apiKey": "aaaaa-bbbbb-ccccc-12345678"
+  }
+}</pre>
+                                       </div>
+                                 </div>
+                                 <div class="tab-pane example" id="resp-xml-d241e792">
+                                    <div class="example">
+                                       <pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;apiKeyCredentials apiKey="aaaaa-bbbbb-ccccc-12345678"
+     username="jqsmith"
+     xmlns="http://docs.rackspace.com/identity/api/ext/RAX-KSKEY/v1.0"
+     xmlns:OS-KSADM="http://docs.openstack.org/identity/api/ext/OS-KSADM/v1.0"
+     xmlns:atom="http://www.w3.org/2005/Atom" 
+     xmlns:identity="http://docs.openstack.org/identity/api/v2.0"/&gt;</pre>
+                                       </div>
+                                 </div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body.</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  
+                  <div id="Role_Calls">
+                     <div class="subhead">
+                        <h3>roles-v2.0<a class="headerlink" href="#Role_Calls" title="Permalink to this headline"><span class="glyphicon glyphicon-link"></span></a></h3>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d241e919">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v2.0/OS-KSADM/roles/&#8203;{roleId}&#8203;</div>
+                           <div class="col-md-5">
+                              <p>Gets information for a specified
+                                 role.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d241e919" data-toggle="collapse" id="detail-d241e919-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d241e919">
+                           <div class="col-md-12">
+                              <div></div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>200</returnvalue>, 
+                                    <returnvalue>203</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">identityFault (400, 500, &#8230;),
+                                    badRequest (400),
+                                    unauthorized (401),
+                                    forbidden (403),
+                                    badMethod (405),
+                                    overLimit (413),
+                                    serviceUnavailable (503),
+                                    badMediaType (415),
+                                    itemNotFound (404)
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"><b>Response parameters</b><table class="table table-bordered table-striped">
+                                       <thead>
+                                          <tr>
+                                             <th>Parameter</th>
+                                             <th>Style</th>
+                                             <th>Type</th>
+                                             <th>Description</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          <tr>
+                                             <td>id</td>
+                                             <td>plain</td>
+                                             <td>xsd:int</td>
+                                             <td>
+                                                
+                                                <p>The role
+                                                   ID.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>name</td>
+                                             <td>plain</td>
+                                             <td>xsd:string</td>
+                                             <td>
+                                                
+                                                <p>The role
+                                                   name.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>description</td>
+                                             <td>plain</td>
+                                             <td>xsd:string</td>
+                                             <td>
+                                                
+                                                <p>The role
+                                                   description.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>Location (Optional)</td>
+                                             <td>header</td>
+                                             <td>xsd:anyURI</td>
+                                             <td>The location.</td>
+                                          </tr>
+                                       </tbody>
+                                    </table>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><select class="example-select form-control">
+                                       <option data-target="#resp-json-d241e919" selected="selected" value="json">JSON Response</option>
+                                       <option data-target="#resp-xml-d241e919" value="xml">XML Response</option></select></div>
+                              </div>
+                              <div class="tab-content">
+                                 <div class="tab-pane example active" id="resp-json-d241e919">
+                                    <div class="example">
+                                       <pre>{
+  "role": {
+    "id": "123",
+    "name": "Guest",
+    "description": "Guest Access"
+  }
+}
+</pre>
+                                       </div>
+                                 </div>
+                                 <div class="tab-pane example" id="resp-xml-d241e919">
+                                    <div class="example">
+                                       <pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+
+&lt;role xmlns="http://docs.openstack.org/identity/api/v2.0"
+  id="123" name="Admin" description="All Access" /&gt;
+</pre>
+                                       </div>
+                                 </div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d241e1057">
+                           <div class="col-md-1"><span class="label label-success">PUT</span></div>
+                           <div class="col-md-5">v2.0/users/&#8203;{userId}&#8203;/roles/OS-KSADM/&#8203;{roleId}&#8203;</div>
+                           <div class="col-md-5">
+                              <p>Adds a specific global role to a
+                                 user.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d241e1057" data-toggle="collapse" id="detail-d241e1057-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d241e1057">
+                           <div class="col-md-12">
+                              <div></div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>201</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">identityFault (400, 500, &#8230;),
+                                    badRequest (400),
+                                    unauthorized (401),
+                                    forbidden (403),
+                                    badMethod (405),
+                                    overLimit (413),
+                                    serviceUnavailable (503),
+                                    badMediaType (415),
+                                    itemNotFound (404)
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body and does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d241e1135">
+                           <div class="col-md-1"><span class="label label-success">DELETE</span></div>
+                           <div class="col-md-5">v2.0/users/&#8203;{userId}&#8203;/roles/OS-KSADM/&#8203;{roleId}&#8203;</div>
+                           <div class="col-md-5">
+                              <p>Deletes a specific global role from
+                                 a user.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d241e1135" data-toggle="collapse" id="detail-d241e1135-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d241e1135">
+                           <div class="col-md-12">
+                              <div></div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>204</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">identityFault (400, 500, &#8230;),
+                                    badRequest (400),
+                                    unauthorized (401),
+                                    forbidden (403),
+                                    badMethod (405),
+                                    overLimit (413),
+                                    serviceUnavailable (503),
+                                    itemNotFound (404)
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body and does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  
+                  <div id="Token_Calls">
+                     <div class="subhead">
+                        <h3>Tokens<a class="headerlink" href="#Token_Calls" title="Permalink to this headline"><span class="glyphicon glyphicon-link"></span></a></h3>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d241e1214">
+                           <div class="col-md-1"><span class="label label-success">POST</span></div>
+                           <div class="col-md-5">v2.0/tokens</div>
+                           <div class="col-md-5">
+                              <p>Authenticates and generates a
+                                 token.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d241e1214" data-toggle="collapse" id="detail-d241e1214-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d241e1214">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>Client authentication is provided through a ReST
+                                    interface by using the POST method with v2.0/tokens
+                                    supplied as the path. Include a payload of credentials
+                                    in the body.
+                                 </p>
+                                 <p>The Identity Service is a ReSTful web service. It is
+                                    the entry point to all service APIs. To access the
+                                    Identity Service, you must know the URL of the
+                                    Identity Service.
+                                 </p>
+                                 <p>Each ReST request against the Identity Service
+                                    requires the X-Auth-Token header. Clients obtain this
+                                    token, along with the URL to other service APIs, by
+                                    first authenticating against the Identity Service with
+                                    valid credentials.
+                                 </p>
+                                 <p>If the authentication token has expired, a
+                                    
+                                    <errorcode xmlns="http://docbook.org/ns/docbook">401</errorcode> response code is
+                                    returned.
+                                 </p>
+                                 <p>If the token specified in the request body has
+                                    expired, this call returns a
+                                    
+                                    <errorcode xmlns="http://docbook.org/ns/docbook">404</errorcode> response code.
+                                 </p>
+                                 <p>The Identity Service treats expired tokens as
+                                    invalid tokens.
+                                 </p>
+                                 <p>The deployment determines how long expired tokens
+                                    are stored.
+                                 </p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>200</returnvalue>, 
+                                    <returnvalue>203</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">identityFault (400, 500, &#8230;),
+                                    userDisabled (403),
+                                    badRequest (400),
+                                    unauthorized (401),
+                                    forbidden (403),
+                                    badMethod (405),
+                                    overLimit (413),
+                                    serviceUnavailable (503),
+                                    itemNotFound (404)
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"><b>Request parameters</b><table class="table table-bordered table-striped">
+                                       <thead>
+                                          <tr>
+                                             <th>Parameter</th>
+                                             <th>Style</th>
+                                             <th>Type</th>
+                                             <th>Description</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          <tr>
+                                             <td>tenantName (Optional)</td>
+                                             <td>plain</td>
+                                             <td>xsd:string</td>
+                                             <td>
+                                                
+                                                <p>The tenant name. Both the
+                                                   <code>tenantId</code> and
+                                                   <code>tenantName</code> attributes are
+                                                   optional, but should not be specified
+                                                   together. If both attributes are specified,
+                                                   the server responds with a <code>400</code>
+                                                   <code>Bad Request</code>.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>tenantId (Optional)</td>
+                                             <td>plain</td>
+                                             <td>capi:UUID</td>
+                                             <td>
+                                                
+                                                <p>The tenant ID. Both the
+                                                   <code>tenantId</code> and
+                                                   <code>tenantName</code> attributes are
+                                                   optional, but should not be specified
+                                                   together. If both attributes are specified,
+                                                   the server responds with a <code>400</code>
+                                                   <code>Bad Request</code>.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>passwordCredentials (Optional)</td>
+                                             <td>plain</td>
+                                             <td>xsd:string</td>
+                                             <td>
+                                                
+                                                <p>A <code>passwordCredentials</code>
+                                                   object. To authenticate, you must provide
+                                                   either a user ID and password or a
+                                                   token.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>username (Optional)</td>
+                                             <td>plain</td>
+                                             <td>xsd:string</td>
+                                             <td>
+                                                
+                                                <p>The user name. Required if you include
+                                                   the <code>passwordCredentials</code> object.
+                                                   If you do not provide a password credentials,
+                                                   you must provide a token.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>password (Optional)</td>
+                                             <td>plain</td>
+                                             <td>xsd:string</td>
+                                             <td>
+                                                
+                                                <p>The password of the user. Required if
+                                                   you include the
+                                                   <code>passwordCredentials</code> object.
+                                                   If you do not provide a password credentials,
+                                                   you must provide a token.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>token (Optional)</td>
+                                             <td>plain</td>
+                                             <td>xsd:string</td>
+                                             <td>
+                                                
+                                                <p>A token. Required if you do not provide
+                                                   password credentials.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                       </tbody>
+                                    </table><b>Response parameters</b><table class="table table-bordered table-striped">
+                                       <thead>
+                                          <tr>
+                                             <th>Parameter</th>
+                                             <th>Style</th>
+                                             <th>Type</th>
+                                             <th>Description</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          <tr>
+                                             <td>access</td>
+                                             <td>plain</td>
+                                             <td>xsd:string</td>
+                                             <td>
+                                                
+                                                <p>An <code>access</code>
+                                                   object.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>token</td>
+                                             <td>plain</td>
+                                             <td>xsd:string</td>
+                                             <td>
+                                                
+                                                <p>A <code>token</code>
+                                                   object.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>issued_at</td>
+                                             <td>plain</td>
+                                             <td>xsd:string</td>
+                                             <td>
+                                                
+                                                <p>A timestamp that indicates when the
+                                                   token was issued.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>expires</td>
+                                             <td>plain</td>
+                                             <td>xsd:string</td>
+                                             <td>
+                                                
+                                                <p>A timestamp that indicates when the
+                                                   token expires.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>id</td>
+                                             <td>plain</td>
+                                             <td>xsd:string</td>
+                                             <td>
+                                                
+                                                <p>The authentication token. In the
+                                                   example, the token is
+                                                   <code>my_id</code>.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>tenant</td>
+                                             <td>plain</td>
+                                             <td>xsd:string</td>
+                                             <td>
+                                                
+                                                <p>A <code>tenant</code>
+                                                   object.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>description</td>
+                                             <td>plain</td>
+                                             <td>xsd:string</td>
+                                             <td>
+                                                
+                                                <p>The description of the tenant. If not
+                                                   set, this value is
+                                                   <code>null</code>.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>enabled</td>
+                                             <td>plain</td>
+                                             <td>xsd:boolean</td>
+                                             <td>
+                                                
+                                                <p>Indicates whether the tenant is enabled
+                                                   or disabled.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>id</td>
+                                             <td>plain</td>
+                                             <td>xsd:string</td>
+                                             <td>
+                                                
+                                                <p>The tenant ID.</p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>name</td>
+                                             <td>plain</td>
+                                             <td>xsd:string</td>
+                                             <td>
+                                                
+                                                <p>The tenant name.</p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>serviceCatalog</td>
+                                             <td>plain</td>
+                                             <td>xsd:string</td>
+                                             <td>
+                                                
+                                                <p>A <code>serviceCatalog</code>
+                                                   object.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>endpoints</td>
+                                             <td>plain</td>
+                                             <td>xsd:string</td>
+                                             <td>
+                                                
+                                                <p>One or more <code>endpoints</code>
+                                                   objects. Each object shows the
+                                                   <code>adminURL</code>,
+                                                   <code>region</code>, <code>internalURL</code>,
+                                                   <code>id</code>, and
+                                                   <code>publicURL</code> for the
+                                                   endpoint.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>endpoints_links</td>
+                                             <td>plain</td>
+                                             <td>xsd:string</td>
+                                             <td>
+                                                
+                                                <p>Links for the
+                                                   endpoint.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>type</td>
+                                             <td>plain</td>
+                                             <td>xsd:string</td>
+                                             <td>
+                                                
+                                                <p>Endpoint type.</p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>name</td>
+                                             <td>plain</td>
+                                             <td>xsd:string</td>
+                                             <td>
+                                                
+                                                <p>Endpoint name.</p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>user</td>
+                                             <td>plain</td>
+                                             <td>xsd:string</td>
+                                             <td>
+                                                
+                                                <p>A <code>user</code> object, which shows
+                                                   the <code>username</code>,
+                                                   <code>roles_links</code>, <code>id</code>,
+                                                   <code>roles</code>, and
+                                                   <code>name</code>.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>metadata</td>
+                                             <td>plain</td>
+                                             <td>xsd:string</td>
+                                             <td>
+                                                
+                                                <p>A <code>metadata</code> object.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                       </tbody>
+                                    </table>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><select class="example-select form-control">
+                                       <option data-target="#req-json-d241e1214" selected="selected" value="json">JSON Request</option>
+                                       <option data-target="#req-xml-d241e1214" value="xml">XML Request</option></select></div>
+                              </div>
+                              <div class="tab-content">
+                                 <div class="tab-pane example active" id="req-json-d241e1214">
+                                    <div class="example">
+                                       <pre>{
+   "auth":{
+      "tenantName":"admin",
+      "passwordCredentials":{
+         "username":"admin",
+         "password":"devstack"
+      }
+   }
+}</pre>
+                                       </div>
+                                 </div>
+                                 <div class="tab-pane example" id="req-xml-d241e1214">
+                                    <div class="example">
+                                       <pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;auth xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://docs.openstack.org/identity/api/v2.0"
+  tenantName="admin"&gt;
+  &lt;passwordCredentials username="admin" password="devstack"/&gt;
+&lt;/auth&gt;
+</pre>
+                                       </div>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><select class="example-select form-control">
+                                       <option data-target="#resp-json-d241e1214" selected="selected" value="json">JSON Response</option>
+                                       <option data-target="#resp-xml-d241e1214" value="xml">XML Response</option></select></div>
+                              </div>
+                              <div class="tab-content">
+                                 <div class="tab-pane example active" id="resp-json-d241e1214">
+                                    <div class="example">
+                                       <pre>{
+   "access":{
+      "token":{
+         "issued_at":"2014-01-30T17:09:57.647795",
+         "expires":"2014-01-31T17:09:57Z",
+         "id":"admin_id",
+         "tenant":{
+            "description":null,
+            "enabled":true,
+            "id":"73f0aa26640f4971864919d0eb0f0880",
+            "name":"admin"
+         }
+      },
+      "serviceCatalog":[
+         {
+            "endpoints":[
+               {
+                  "adminURL":"http://23.253.72.207:8774/v2/73f0aa26640f4971864919d0eb0f0880",
+                  "region":"RegionOne",
+                  "internalURL":"http://23.253.72.207:8774/v2/73f0aa26640f4971864919d0eb0f0880",
+                  "id":"2dad48f09e2a447a9bf852bcd93548ef",
+                  "publicURL":"http://23.253.72.207:8774/v2/73f0aa26640f4971864919d0eb0f0880"
+               }
+            ],
+            "endpoints_links":[
+
+            ],
+            "type":"compute",
+            "name":"nova"
+         },
+         {
+            "endpoints":[
+               {
+                  "adminURL":"http://23.253.72.207:9696/",
+                  "region":"RegionOne",
+                  "internalURL":"http://23.253.72.207:9696/",
+                  "id":"97c526db8d7a4c88bbb8d68db1bdcdb8",
+                  "publicURL":"http://23.253.72.207:9696/"
+               }
+            ],
+            "endpoints_links":[
+
+            ],
+            "type":"network",
+            "name":"neutron"
+         },
+         {
+            "endpoints":[
+               {
+                  "adminURL":"http://23.253.72.207:8776/v2/73f0aa26640f4971864919d0eb0f0880",
+                  "region":"RegionOne",
+                  "internalURL":"http://23.253.72.207:8776/v2/73f0aa26640f4971864919d0eb0f0880",
+                  "id":"93f86dfcbba143a39a33d0c2cd424870",
+                  "publicURL":"http://23.253.72.207:8776/v2/73f0aa26640f4971864919d0eb0f0880"
+               }
+            ],
+            "endpoints_links":[
+
+            ],
+            "type":"volumev2",
+            "name":"cinder"
+         },
+         {
+            "endpoints":[
+               {
+                  "adminURL":"http://23.253.72.207:8774/v3",
+                  "region":"RegionOne",
+                  "internalURL":"http://23.253.72.207:8774/v3",
+                  "id":"3eb274b12b1d47b2abc536038d87339e",
+                  "publicURL":"http://23.253.72.207:8774/v3"
+               }
+            ],
+            "endpoints_links":[
+
+            ],
+            "type":"computev3",
+            "name":"nova"
+         },
+         {
+            "endpoints":[
+               {
+                  "adminURL":"http://23.253.72.207:3333",
+                  "region":"RegionOne",
+                  "internalURL":"http://23.253.72.207:3333",
+                  "id":"957f1e54afc64d33a62099faa5e980a2",
+                  "publicURL":"http://23.253.72.207:3333"
+               }
+            ],
+            "endpoints_links":[
+
+            ],
+            "type":"s3",
+            "name":"s3"
+         },
+         {
+            "endpoints":[
+               {
+                  "adminURL":"http://23.253.72.207:9292",
+                  "region":"RegionOne",
+                  "internalURL":"http://23.253.72.207:9292",
+                  "id":"27d5749f36864c7d96bebf84a5ec9767",
+                  "publicURL":"http://23.253.72.207:9292"
+               }
+            ],
+            "endpoints_links":[
+
+            ],
+            "type":"image",
+            "name":"glance"
+         },
+         {
+            "endpoints":[
+               {
+                  "adminURL":"http://23.253.72.207:8776/v1/73f0aa26640f4971864919d0eb0f0880",
+                  "region":"RegionOne",
+                  "internalURL":"http://23.253.72.207:8776/v1/73f0aa26640f4971864919d0eb0f0880",
+                  "id":"37c83a2157f944f1972e74658aa0b139",
+                  "publicURL":"http://23.253.72.207:8776/v1/73f0aa26640f4971864919d0eb0f0880"
+               }
+            ],
+            "endpoints_links":[
+
+            ],
+            "type":"volume",
+            "name":"cinder"
+         },
+         {
+            "endpoints":[
+               {
+                  "adminURL":"http://23.253.72.207:8773/services/Admin",
+                  "region":"RegionOne",
+                  "internalURL":"http://23.253.72.207:8773/services/Cloud",
+                  "id":"289b59289d6048e2912b327e5d3240ca",
+                  "publicURL":"http://23.253.72.207:8773/services/Cloud"
+               }
+            ],
+            "endpoints_links":[
+
+            ],
+            "type":"ec2",
+            "name":"ec2"
+         },
+         {
+            "endpoints":[
+               {
+                  "adminURL":"http://23.253.72.207:8080",
+                  "region":"RegionOne",
+                  "internalURL":"http://23.253.72.207:8080/v1/AUTH_73f0aa26640f4971864919d0eb0f0880",
+                  "id":"16b76b5e5b7d48039a6e4cc3129545f3",
+                  "publicURL":"http://23.253.72.207:8080/v1/AUTH_73f0aa26640f4971864919d0eb0f0880"
+               }
+            ],
+            "endpoints_links":[
+
+            ],
+            "type":"object-store",
+            "name":"swift"
+         },
+         {
+            "endpoints":[
+               {
+                  "adminURL":"http://23.253.72.207:35357/v2.0",
+                  "region":"RegionOne",
+                  "internalURL":"http://23.253.72.207:5000/v2.0",
+                  "id":"26af053673df4ef3a2340c4239e21ea2",
+                  "publicURL":"http://23.253.72.207:5000/v2.0"
+               }
+            ],
+            "endpoints_links":[
+
+            ],
+            "type":"identity",
+            "name":"keystone"
+         }
+      ],
+      "user":{
+         "username":"admin",
+         "roles_links":[
+
+         ],
+         "id":"1f568815cb8148688e6ee9b2f7527dcc",
+         "roles":[
+            {
+               "name":"service"
+            },
+            {
+               "name":"admin"
+            }
+         ],
+         "name":"admin"
+      },
+      "metadata":{
+         "is_admin":0,
+         "roles":[
+            "8341d3603a1d4d5985bff09f10704d4d",
+            "2e66d57df76946fdbe034bc4da6fdec0"
+         ]
+      }
+   }
+}</pre>
+                                       </div>
+                                 </div>
+                                 <div class="tab-pane example" id="resp-xml-d241e1214">
+                                    <div class="example">
+                                       <pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;access xmlns="http://docs.openstack.org/identity/api/v2.0"&gt;
+        &lt;token issued_at="2014-01-30T15:49:11.054709"
+                expires="2014-01-31T15:49:11Z" id="admin_id"&gt;
+                &lt;tenant enabled="true" name="admin"
+                        id="fc394f2ab2df4114bde39905f800dc57"/&gt;
+        &lt;/token&gt;
+        &lt;serviceCatalog&gt;
+                &lt;service type="compute" name="nova"&gt;
+                        &lt;endpoints_links/&gt;
+                        &lt;endpoint
+                                adminURL="http://23.253.72.207:8774/v2/fc394f2ab2df4114bde39905f800dc57"
+                                region="RegionOne"
+                                publicURL="http://23.253.72.207:8774/v2/fc394f2ab2df4114bde39905f800dc57"
+                                internalURL="http://23.253.72.207:8774/v2/fc394f2ab2df4114bde39905f800dc57"
+                                id="2dad48f09e2a447a9bf852bcd93548ef"
+                        /&gt;
+                &lt;/service&gt;
+                &lt;service type="network" name="neutron"&gt;
+                        &lt;endpoints_links/&gt;
+                        &lt;endpoint
+                                adminURL="http://23.253.72.207:9696/"
+                                region="RegionOne"
+                                publicURL="http://23.253.72.207:9696/"
+                                internalURL="http://23.253.72.207:9696/"
+                                id="97c526db8d7a4c88bbb8d68db1bdcdb8"
+                        /&gt;
+                &lt;/service&gt;
+                &lt;service type="volumev2" name="cinder"&gt;
+                        &lt;endpoints_links/&gt;
+                        &lt;endpoint
+                                adminURL="http://23.253.72.207:8776/v2/fc394f2ab2df4114bde39905f800dc57"
+                                region="RegionOne"
+                                publicURL="http://23.253.72.207:8776/v2/fc394f2ab2df4114bde39905f800dc57"
+                                internalURL="http://23.253.72.207:8776/v2/fc394f2ab2df4114bde39905f800dc57"
+                                id="93f86dfcbba143a39a33d0c2cd424870"
+                        /&gt;
+                &lt;/service&gt;
+                &lt;service type="computev3" name="nova"&gt;
+                        &lt;endpoints_links/&gt;
+                        &lt;endpoint
+                                adminURL="http://23.253.72.207:8774/v3"
+                                region="RegionOne"
+                                publicURL="http://23.253.72.207:8774/v3"
+                                internalURL="http://23.253.72.207:8774/v3"
+                                id="3eb274b12b1d47b2abc536038d87339e"
+                        /&gt;
+                &lt;/service&gt;
+                &lt;service type="s3" name="s3"&gt;
+                        &lt;endpoints_links/&gt;
+                        &lt;endpoint adminURL="http://23.253.72.207:3333"
+                                region="RegionOne"
+                                publicURL="http://23.253.72.207:3333"
+                                internalURL="http://23.253.72.207:3333"
+                                id="957f1e54afc64d33a62099faa5e980a2"
+                        /&gt;
+                &lt;/service&gt;
+                &lt;service type="image" name="glance"&gt;
+                        &lt;endpoints_links/&gt;
+                        &lt;endpoint adminURL="http://23.253.72.207:9292"
+                                region="RegionOne"
+                                publicURL="http://23.253.72.207:9292"
+                                internalURL="http://23.253.72.207:9292"
+                                id="27d5749f36864c7d96bebf84a5ec9767"
+                        /&gt;
+                &lt;/service&gt;
+                &lt;service type="volume" name="cinder"&gt;
+                        &lt;endpoints_links/&gt;
+                        &lt;endpoint
+                                adminURL="http://23.253.72.207:8776/v1/fc394f2ab2df4114bde39905f800dc57"
+                                region="RegionOne"
+                                publicURL="http://23.253.72.207:8776/v1/fc394f2ab2df4114bde39905f800dc57"
+                                internalURL="http://23.253.72.207:8776/v1/fc394f2ab2df4114bde39905f800dc57"
+                                id="37c83a2157f944f1972e74658aa0b139"
+                        /&gt;
+                &lt;/service&gt;
+                &lt;service type="ec2" name="ec2"&gt;
+                        &lt;endpoints_links/&gt;
+                        &lt;endpoint
+                                adminURL="http://23.253.72.207:8773/services/Admin"
+                                region="RegionOne"
+                                publicURL="http://23.253.72.207:8773/services/Cloud"
+                                internalURL="http://23.253.72.207:8773/services/Cloud"
+                                id="289b59289d6048e2912b327e5d3240ca"
+                        /&gt;
+                &lt;/service&gt;
+                &lt;service type="object-store" name="swift"&gt;
+                        &lt;endpoints_links/&gt;
+                        &lt;endpoint adminURL="http://23.253.72.207:8080"
+                                region="RegionOne"
+                                publicURL="http://23.253.72.207:8080/v1/AUTH_fc394f2ab2df4114bde39905f800dc57"
+                                internalURL="http://23.253.72.207:8080/v1/AUTH_fc394f2ab2df4114bde39905f800dc57"
+                                id="16b76b5e5b7d48039a6e4cc3129545f3"
+                        /&gt;
+                &lt;/service&gt;
+                &lt;service type="identity" name="keystone"&gt;
+                        &lt;endpoints_links/&gt;
+                        &lt;endpoint
+                                adminURL="http://23.253.72.207:35357/v2.0"
+                                region="RegionOne"
+                                publicURL="http://23.253.72.207:5000/v2.0"
+                                internalURL="http://23.253.72.207:5000/v2.0"
+                                id="26af053673df4ef3a2340c4239e21ea2"
+                        /&gt;
+                &lt;/service&gt;
+        &lt;/serviceCatalog&gt;
+        &lt;user username="admin" id="9a6590b2ab024747bc2167c4e064d00d"
+                name="admin"&gt;
+                &lt;roles_links/&gt;
+                &lt;role name="Member"/&gt;
+                &lt;role name="anotherrole"/&gt;
+        &lt;/user&gt;
+        &lt;metadata is_admin="0"&gt;
+                &lt;roles&gt;
+                        &lt;role&gt;7598ac3c634d4c3da4b9126a5f67ca2b&lt;/role&gt;
+                        &lt;role&gt;f95c0ab82d6045d9805033ee1fbc80d4&lt;/role&gt;
+                &lt;/roles&gt;
+        &lt;/metadata&gt;
+&lt;/access&gt;
+</pre>
+                                       </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  
+                  <div id="Tenant_Calls">
+                     <div class="subhead">
+                        <h3>Tenants<a class="headerlink" href="#Tenant_Calls" title="Permalink to this headline"><span class="glyphicon glyphicon-link"></span></a></h3>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d241e1692">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v2.0/tenants</div>
+                           <div class="col-md-5">
+                              <p>Lists all tenants.</p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d241e1692" data-toggle="collapse" id="detail-d241e1692-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d241e1692">
+                           <div class="col-md-12">
+                              <div></div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>200</returnvalue>, 
+                                    <returnvalue>203</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">identityFault (400, 500, &#8230;),
+                                    badRequest (400),
+                                    unauthorized (401),
+                                    forbidden (403),
+                                    badMethod (405),
+                                    overLimit (413),
+                                    serviceUnavailable (503),
+                                    itemNotFound (404)
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><select class="example-select form-control">
+                                       <option data-target="#resp-json-d241e1692" selected="selected" value="json">JSON Response</option>
+                                       <option data-target="#resp-xml-d241e1692" value="xml">XML Response</option></select></div>
+                              </div>
+                              <div class="tab-content">
+                                 <div class="tab-pane example active" id="resp-json-d241e1692">
+                                    <div class="example">
+                                       <pre>{
+   "tenants":[
+      {
+         "id":"1234",
+         "name":"ACME Corp",
+         "description":"A description ...",
+         "enabled":true
+      },
+      {
+         "id":"3456",
+         "name":"Iron Works",
+         "description":"A description ...",
+         "enabled":true
+      }
+   ],
+   "tenants_links":[
+
+   ]
+}</pre>
+                                       </div>
+                                 </div>
+                                 <div class="tab-pane example" id="resp-xml-d241e1692">
+                                    <div class="example">
+                                       <pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;tenants xmlns="http://docs.openstack.org/identity/api/v2.0"&gt;
+    &lt;tenant enabled="true" id="1234" name="ACME Corp"&gt;
+        &lt;description&gt;A description...&lt;/description&gt;
+    &lt;/tenant&gt;
+    &lt;tenant enabled="true" id="3645" name="Iron Works"&gt;
+        &lt;description&gt;A description...&lt;/description&gt;
+    &lt;/tenant&gt;
+&lt;/tenants&gt;
+</pre>
+                                       </div>
+                                 </div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body.</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-9" id="footer">
+               <p>The OpenStack project is provided under the Apache 2.0 license.</p>
+            </div>
+         </div>
+      </div><script src="apiref/js/jquery-1.10.2.min.js" type="text/javascript"></script><script src="apiref/js/bootstrap.min.js" type="text/javascript"></script><script src="apiref/js/api-site.js" type="text/javascript"></script><script type="text/javascript">
+                  var _gaq = _gaq || [];
+                  _gaq.push(['_setAccount', 'UA-17511903-1']);
+		  _gaq.push(['_setDomainName', '.openstack.org']);
+                  _gaq.push(['_trackPageview']);
+                  (function () {
+                    var ga = document.createElement('script');
+                    ga.type = 'text/javascript';
+                    ga.async = true;
+                    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                    var s = document.getElementsByTagName('script')[0];
+                    s.parentNode.insertBefore(ga, s);\
+                  })();
+                </script></body>
+</html>

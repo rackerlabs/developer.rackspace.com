@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE application [<!ENTITY % common SYSTEM "../../common/common.ent">
+%common;]>
+<chapter xmlns="http://docbook.org/ns/docbook"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:xi="http://www.w3.org/2001/XInclude" 
+   xmlns:svg="http://www.w3.org/2000/svg"
+         xml:id="overview">
+   <title>Overview</title>
+      <para>The Email Administration API supports several kinds of activities related to Hosted Email:
+         <itemizedlist>
+            <listitem><para>management of customer and administrator accounts</para></listitem>
+            <listitem><para>administration of domains</para></listitem>
+            <listitem><para>administration of Rackspace Hosted Email</para></listitem>
+            <listitem><para>administration of Exchange</para></listitem>
+            <listitem><para>administration of SharePoint</para></listitem>
+         </itemizedlist>
+         You can use the API to perform administrative functions such as 
+         adding new customer accountd and adding mailboxes.
+      </para>
+   <para>
+      The Email Admininistration API is implemented using a RESTful web service interface.
+      You can create 
+      <link linkend="examples">applications in your preferred language</link>
+       to interact with the API.
+   </para>
+   <section xml:id="quickstart">
+      <title>Quick Start</title>
+      <para>
+         <emphasis role="bold">What you need</emphasis>
+         <itemizedlist>
+            <listitem>
+               <para> an administrative account on the <link
+                     xlink:href="http://apps.rackspace.com/">Rackspace
+                     Email &amp; Apps Control Panel</link>
+               </para>
+            </listitem>
+            <listitem>
+               <para>
+                  an HTTP class library that supports Transport Layer Security (TLS) and the HTTP &GET;, &POST;, &PUT;, &DELETE; methods
+               </para>
+            </listitem>
+         </itemizedlist>
+      </para>
+      <para>
+         <emphasis role="bold">FIRST CALL: a Show Customer request</emphasis>
+         <orderedlist>
+            <listitem>
+               <para>
+                  Obtain your API keys
+               </para>
+               <itemizedlist>
+                  <listitem>
+                     <para>
+                        Login to the 
+                        <link xlink:href="http://apps.rackspace.com/"
+                           >control panel</link>.
+                        Click on My Account. At the top of the page,  
+                        under the Administrators heading, click the link for the API keys page.
+                     </para>
+                  </listitem>
+               </itemizedlist>
+            </listitem>
+            <listitem>
+               <para>
+                  Set up your client's HTTP request
+               </para>
+               <itemizedlist>
+                  <listitem>
+                     <para>
+                        Set up your client to make calls to a URL beginning with <code>https://api.emailsrvr.com/v1</code>.
+                     </para>
+                  </listitem>
+                  <listitem>
+                     <para>
+                        Populate the <code>Accept</code>, <code>User-Agent</code> and <code>X-Api-Signature</code> HTTP request headers correctly.
+                     </para>
+                  </listitem>
+               </itemizedlist>
+            </listitem>
+            <listitem>
+               <para>
+                  Send a &GET; request to <code>/customers/me</code>
+               </para>
+               <itemizedlist>
+                  <listitem>
+                     <para>
+                        Send your request to the complete URI, <code>https://api.emailsrvr.com/v1/customers/me</code>. 
+                        Use your HTTP library to retrieve the HTTP response code, <code>X-Error-Message</code> HTTP response header, and HTTP response body.
+                        Check the response code, response header, and response body to determine success and help debugging. 
+                     </para>
+                  </listitem>
+               </itemizedlist>
+            </listitem>
+         </orderedlist>
+      </para>
+      <para>
+         <emphasis role="bold">NEXT STEPS: your choice</emphasis>
+         <itemizedlist>
+            <listitem>
+               <para>
+                  use the API operations described here to perform administrative functions as needed; 
+                  <xref linkend="examples"></xref>
+                  may show you how to get started in your preferred programming language
+               </para>
+            </listitem>
+         </itemizedlist>
+      </para>
+   </section>
+   <section xml:id="intended_audience">
+      <title>Intended Audience</title>
+      <para> This guide is intended to assist software developers who
+         want to develop applications using the Rackspace Email Admininistration API.
+         To use the information provided here, you should be familiar with: </para>
+      <itemizedlist spacing="compact">
+         <listitem>
+            <para>RESTful web services</para>
+         </listitem>
+         <listitem>
+            <para>HTTP/1.1 conventions</para>
+         </listitem>
+         <listitem>
+            <para>JSON and/or XML data serialization formats</para>
+         </listitem>
+      </itemizedlist>
+      <para>
+         Some API operations interact with 
+         <link xlink:href="http://www.rackspace.com/email-hosting/hosted-exchange/">Microsoft Hosted Exchange</link>. 
+         To understand these operations, you must also understand Microsoft Hosted Exchange.
+      </para>
+      <para>
+         Some API operations interact with 
+         <link xlink:href="http://www.rackspace.com/email-hosting/webmail/">Rackspace Hosted Webmail</link>. 
+         To understand these operations, you must also understand Rackspace Hosted Webmail.
+      </para>
+      <para>
+         Some API operations interact with 
+         <link xlink:href="http://sharepoint.rackspace.com/hosting">Rackspace Hosted SharePoint</link>. 
+         To understand these operations, you must also understand Rackspace Hosted SharePoint.
+      </para>
+      <note>
+         <para>
+            This API requires credentials available through the Rackspace Email &amp; Apps control panel at 
+            <link xlink:href="http://apps.rackspace.com/">http://apps.rackspace.com/</link>.
+            The API is accessible to all with access to the 
+            <link xlink:href="http://apps.rackspace.com/">Rackspace Email &amp; Apps control panel</link>,
+            including resellers, business customers, enterprise customers, and indirect customers. 
+            However, some operations are available to resellers only. 
+            Where that is the case, the limitation is noted in the detailed information about that
+            operation.
+            <!-- <xref linkend="Authentication-d1e647"></xref> syntax for link to an internal section -->
+         </para>
+      </note>
+   </section>
+   <section xml:id="change_history">
+      <title>Document Change History</title>
+      <para>This version of the Developer Guide replaces and
+         obsoletes all previous versions. The most recent changes
+         are described in the table below: </para>
+      <?rax revhistory?>
+   </section>
+   <section xml:id="resources">
+      <title>Additional Resources</title>
+      <para>You can read about other Rackspace APIs at <link
+         xlink:href="http://docs.rackspace.com/"
+         >docs.rackspace.com/</link>.
+      </para>
+      <para>
+         To perform email-related functions via GUI rather than API, use the control panel at 
+         <link xlink:href="http://apps.rackspace.com/"
+            >http://apps.rackspace.com/</link>. For basic information about using the GUI, visit the 
+         <link xlink:href="http://www.rackspace.com/knowledge_center/"
+            >Rackspace Knowledge Center</link>.
+      </para>
+      <para>For general information about Rackspace Hosted Email, refer to
+        <link xlink:href="http://www.rackspace.com/email-hosting/"
+         >http://www.rackspace.com/email-hosting/</link>. This site also offers links
+         to the Rackspace official support channels, including
+         knowledge base articles, forums, phone, chat, and email. 
+      </para>
+      <para>You can follow Rackspace updates and announcements
+      via twitter at: <link
+         xlink:href="http://www.twitter.com/rackspace"
+         >www.twitter.com/rackspace</link>. 
+      </para>
+      <para>This API uses standard HTTP 1.1 response codes as
+      documented at: <link
+         xlink:href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html"
+         >www.w3.org/Protocols/rfc2616/rfc2616-sec10.html
+      </link>.
+      </para>
+   </section>
+   <section xml:id="API_contract_changes">
+      <title>API Contract Changes</title>
+      <para>
+         Rackspace will notify customers in Release Notes when and
+            if the contract does change.
+      </para>
+   </section>
+   <section xml:id="pricing_SLA">
+      <title>Pricing and Service Level</title>
+      <para>Pricing is described at <link
+         xlink:href="http://www.rackspace.com/email-hosting/webmail/pricing/"
+         >http://www.rackspace.com/email-hosting/webmail/pricing/
+         </link>.
+      </para>
+      <para>
+         The Service Level Agreement (SLA) for Hosted Email is available at <link
+            xlink:href="http://www.rackspace.com/information/legal/mailterms"
+            >http://www.rackspace.com/information/legal/mailterms
+         </link>.
+      </para>
+   </section>
+</chapter>

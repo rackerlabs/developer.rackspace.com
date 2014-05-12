@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+                    Flattened from: http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v2.0/xsd/api-common.xsd-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:rax="http://docs.rackspace.com/api"
+            xmlns:db="http://docbook.org/ns/docbook"
+            xmlns:identity="http://docs.openstack.org/identity/api/v2.0"
+            xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
+            xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+            xmlns:atom="http://www.w3.org/2005/Atom"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+            xmlns:ext="http://docs.openstack.org/common/api/v1.0"
+            xmlns:html="http://www.w3.org/1999/xhtml"
+            xmlns:vers="http://docs.openstack.org/common/api/v1.0"
+            xmlns:xs="http://www.w3.org/2001/XMLSchema"
+            xmlns:RAX-KSKEY="http://docs.rackspace.com/identity/api/ext/RAX-KSKEY/v1.0"
+            elementFormDefault="qualified"
+            attributeFormDefault="unqualified"
+            targetNamespace="http://docs.openstack.org/common/api/v1.0">
+   <annotation xmlns="http://www.w3.org/2001/XMLSchema">
+        <xsd:appinfo xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <xsdxt:title>Open Stack Common API Schema Types 1.0</xsdxt:title>
+            <xsdxt:link rev="index" href="extensions.xsd"/>
+            <xsdxt:link rev="index" href="limits.xsd"/>
+            <xsdxt:link rev="index" href="version.xsd"/>
+        </xsd:appinfo>
+        <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <p>
+                This is the main index XML Schema document
+                for Common API Schema Types Version 1.0.
+            </p>
+        </xsd:documentation>
+    </annotation>
+   <!-- (C) 2011-2013 OpenStack Foundation, All Rights Reserved -->
+   <xsd:annotation>
+        <xsd:appinfo xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <xsdxt:title>Extensions</xsdxt:title>
+            <xsdxt:link rel="index" href="api-common.xsd"/>
+        </xsd:appinfo>
+        <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <p> This schema file defines types related to API
+                extensions. </p>
+        </xsd:documentation>
+    </xsd:annotation>
+   <!-- Import ATOM specific schema definitions -->
+   <!-- (C) 2011 OpenStack LLC., All Rights Reserved -->
+   <xs:annotation>
+        <xs:appinfo xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <xsdxt:title>Version Types</xsdxt:title>
+            <xsdxt:link rel="index" href="api-common.xsd"/>
+        </xs:appinfo>
+        <xs:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <p>
+                This schema file defines all types related to versioning.
+            </p>
+        </xs:documentation>
+    </xs:annotation>
+   <!-- Import ATOM specific schema definitions -->
+   <xs:import namespace="http://www.w3.org/2005/Atom"
+              schemaLocation="RAX-KSKEY-admin-xsd-4.xsd"/>
+   <!-- Multiple choices -->
+   <!-- Versioning -->
+   <!-- Types -->
+   <xsd:element name="extensions" type="ext:Extensions">
+        <xsd:annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                <p> A list of supported extensions. </p>
+            </xsd:documentation>
+            <xsd:appinfo>
+                <xsdxt:samples>
+                    <xsdxt:sample>
+                        <xsdxt:code type="application/xml" href="../samples/extensions.xml"/>
+                    </xsdxt:sample>
+                    <xsdxt:sample>
+                        <xsdxt:code type="application/json" href="../samples/extensions.json"/>
+                    </xsdxt:sample>
+                </xsdxt:samples>
+            </xsd:appinfo>
+        </xsd:annotation>
+    </xsd:element>
+   <xsd:element name="extension" type="ext:Extension">
+        <xsd:annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                <p> Details about a specific extension. </p>
+            </xsd:documentation>
+            <xsd:appinfo>
+                <xsdxt:samples>
+                    <xsdxt:sample>
+                        <xsdxt:code type="application/xml" href="../samples/extension.xml"/>
+                    </xsdxt:sample>
+                    <xsdxt:sample>
+                        <xsdxt:code type="application/json" href="../samples/extension.json"/>
+                    </xsdxt:sample>
+                </xsdxt:samples>
+            </xsd:appinfo>
+        </xsd:annotation>
+    </xsd:element>
+   <xs:element name="choices" type="vers:VersionChoiceList">
+        <xs:annotation>
+            <xs:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                <p>
+                    This element is returned when the version of the
+                    resource cannot be determined. The element
+                    provides a list of choices for the resource.
+                </p>
+            </xs:documentation>
+            <xs:appinfo>
+                <xsdxt:samples>
+                    <xsdxt:sample>
+                        <xsdxt:code type="application/xml" href="../samples/choices.xml"/>
+                    </xsdxt:sample>
+                    <xsdxt:sample>
+                        <xsdxt:code type="application/json" href="../samples/choices.json"/>
+                    </xsdxt:sample>
+                </xsdxt:samples>
+            </xs:appinfo>
+        </xs:annotation>
+    </xs:element>
+   <xs:element name="versions" type="vers:VersionChoiceList">
+        <xs:annotation>
+            <xs:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                <p>
+                    Provides a list of supported versions.
+                </p>
+            </xs:documentation>
+            <xs:appinfo>
+                <xsdxt:samples>
+                    <xsdxt:sample>
+                        <xsdxt:code type="application/xml" href="../samples/versions.xml"/>
+                    </xsdxt:sample>
+                    <xsdxt:sample>
+                        <xsdxt:code type="application/json" href="../samples/versions.json"/>
+                    </xsdxt:sample>
+                    <xsdxt:sample>
+                        <xsdxt:code type="application/atom+xml" href="../samples/versions-atom.xml"/>
+                    </xsdxt:sample>
+                </xsdxt:samples>
+            </xs:appinfo>
+        </xs:annotation>
+    </xs:element>
+   <xs:element name="version" type="vers:VersionChoiceRoot" vc:minVersion="1.1">
+        <xs:annotation>
+            <xs:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                <p>
+                    This element provides detailed meta information
+                    regarding the status of the current API
+                    version. The description should include a pointer
+                    to both a human readable and a machine processable
+                    description of the API service.
+                </p>
+            </xs:documentation>
+            <xs:appinfo>
+                <xsdxt:samples>
+                    <xsdxt:sample>
+                        <xsdxt:code type="application/xml" href="../samples/version.xml"/>
+                    </xsdxt:sample>
+                    <xsdxt:sample>
+                        <xsdxt:code type="application/json" href="../samples/version.json"/>
+                    </xsdxt:sample>
+                    <xsdxt:sample>
+                        <xsdxt:code type="application/atom+xml" href="../samples/version-atom.xml"/>
+                    </xsdxt:sample>
+                </xsdxt:samples>
+            </xs:appinfo>
+        </xs:annotation>
+    </xs:element>
+   <xsd:simpleType name="Alias">
+        <xsd:annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                <p>Vendor aliases are used to differentiate
+                    extensions in non-XML representations as well as
+                    in HTTP headers and in the URL path. An alias is
+                    made of a vendor prefix, followed be a dash (-)
+                    followed be a short extension ID. For example:
+                        <code>RAX-PIE</code>.</p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="\w+\-\w+"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+   <xs:simpleType name="VersionStatus">
+        <xs:annotation>
+            <xs:documentation>
+                <html:p>
+                    The VersionStatus type describes a service's operational status.
+                </html:p>
+            </xs:documentation>
+        </xs:annotation>
+
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="ALPHA">
+                <xs:annotation>
+                    <xs:documentation>
+                        <html:p>
+                            This is a new service the API. Thi API
+                            contract may be set, but the implementaiton
+                            may not be 100% complient with it. Developers
+                            are encouraged to begin testing aganst an
+                            ALPHA version to provide feedback.
+                        </html:p>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="BETA">
+                <xs:annotation>
+                    <xs:documentation>
+                        <html:p>
+                            A status of BETA indicates that this
+                            version is a candidate for the next major
+                            release and may feature functionality not
+                            available in the current
+                            version. Developers are encouraged to test
+                            and begin the migration processes to a
+                            BETA version. Note that a BETA version is
+                            undergoing testing, it has not been
+                            officially released, and my not be stable.
+                        </html:p>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="CURRENT">
+                <xs:annotation>
+                    <xs:documentation>
+                        <html:p>
+                            The API version is stable and has been
+                            tested. Developers are encouraged to
+                            develop against this API version. The
+                            current released version of the API will
+                            always be marked as CURRENT.
+                        </html:p>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="DEPRECATED">
+                <xs:annotation>
+                    <xs:documentation>
+                        <html:p>
+                            A status of DEPRECATED indicates that a
+                            newer version of the API is
+                            available. Application developers are
+                            discouraged from using this version and
+                            should instead develop against the latest
+                            current version of the API.
+                        </html:p>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+   <xsd:complexType name="Extensions">
+        <xsd:annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                <p> A list of extensions. </p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="extension"
+                      type="ext:Extension"
+                      minOccurs="0"
+                      maxOccurs="unbounded"/>
+            <xsd:element vc:minVersion="1.1"
+                      ref="atom:link"
+                      minOccurs="0"
+                      maxOccurs="unbounded"/>
+            <xsd:any namespace="##other"
+                  processContents="lax"
+                  minOccurs="0"
+                  maxOccurs="unbounded"/>
+        </xsd:sequence>
+        <xsd:anyAttribute namespace="##other" processContents="lax"/>
+    </xsd:complexType>
+   <xsd:complexType name="Extension">
+        <xsd:annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                <p> Details about a specific extension. </p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="description" type="xsd:string" minOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                        <p> A short description of what the extension
+                            does. </p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element vc:minVersion="1.1"
+                      ref="atom:link"
+                      minOccurs="0"
+                      maxOccurs="unbounded"/>
+            <xsd:any namespace="##other"
+                  processContents="lax"
+                  minOccurs="0"
+                  maxOccurs="unbounded"/>
+        </xsd:sequence>
+        <xsd:attribute name="name" type="xsd:string" use="required">
+            <xsd:annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p> A human readable extension name. </p>
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="namespace" type="xsd:anyURI" use="required">
+            <xsd:annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p> Extension namespace used for XML
+                        representations. </p>
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="alias" type="ext:Alias" use="required">
+            <xsd:annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p> A vendor prefix alias used for non-XML
+                        representations. </p>
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="updated" type="xsd:dateTime" use="optional">
+            <xsd:annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p> The time that the extension was added or
+                        modified. </p>
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:anyAttribute namespace="##other" processContents="lax"/>
+        <xsd:assert vc:minVersion="1.1" test="atom:link[@rel='describedby']">
+            <xsd:annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p> There should be at least one atom link with a
+                        describedby relation. This relation provides
+                        developer info for the extension. </p>
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:assert>
+    </xsd:complexType>
+   <xs:complexType name="VersionChoiceList">
+        <xs:annotation>
+            <xs:documentation>
+                <html:p>
+                    A version choice list outlines a collection of
+                    resources at various versions.
+                </html:p>
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="version"
+                     type="vers:VersionChoice"
+                     minOccurs="1"
+                     maxOccurs="unbounded"/>
+            <xs:any namespace="##other"
+                 processContents="lax"
+                 minOccurs="0"
+                 maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:anyAttribute namespace="##other" processContents="lax"/>
+        <xs:assert vc:minVersion="1.1"
+                 test="every $v in vers:version satisfies $v/atom:link[@rel='self']">
+            <xs:annotation>
+                <xs:documentation>
+                    <html:p>
+                        In version lists, every single version must
+                        contain at least one self link.
+                    </html:p>
+                </xs:documentation>
+            </xs:annotation>
+        </xs:assert>
+    </xs:complexType>
+   <xs:complexType name="VersionChoiceRoot" vc:minVersion="1.1">
+        <xs:complexContent>
+            <xs:extension base="vers:VersionChoice">
+                <xs:assert test="atom:link[@rel='describedby']">
+                    <xs:annotation>
+                        <xs:documentation>
+                            <html:p>
+                                When used as a root element, a version choice
+                                must contain at least one describedby link.
+                            </html:p>
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:assert>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+   <xs:complexType name="VersionChoice">
+        <xs:annotation>
+            <xs:documentation>
+                <html:p>
+                    A version choice contains relevant information
+                    about an available service that a user can then
+                    use to target a specific version of the service.
+                </html:p>
+            </xs:documentation>
+        </xs:annotation>
+
+        <xs:sequence>
+            <xs:element name="media-types"
+                     type="vers:MediaTypeList"
+                     minOccurs="0"
+                     maxOccurs="1"/>
+            <xs:element vc:minVersion="1.1"
+                     ref="atom:link"
+                     minOccurs="0"
+                     maxOccurs="unbounded"/>
+            <xs:any namespace="##other"
+                 processContents="lax"
+                 minOccurs="0"
+                 maxOccurs="unbounded"/>
+        </xs:sequence>
+
+        <xs:attribute name="id" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    <html:p>
+                        The ID of a version choice represents the service version's unique
+                        identifier. This ID is guaranteed to be unique only among the
+                        service version choices outlined in the VersionChoiceList.
+                    </html:p>
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+
+        <xs:attribute name="status" type="vers:VersionStatus" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    <html:p>
+                        A version choice's status describes the current operational state of
+                        the given service version. The operational status is captured in a
+                        simple type enumeration called VersionStatus.
+                    </html:p>
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+
+        <xs:attribute name="updated" type="xs:dateTime" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    <html:p>
+                        A version choice's updated attribute describes
+                        the time when the version was updated. The
+                        time should be updated anytime
+                        <html:strong>anything</html:strong> in the
+                        version has changed: documentation,
+                        extensions, bug fixes.
+                    </html:p>
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:anyAttribute namespace="##other" processContents="lax"/>
+    </xs:complexType>
+   <xs:complexType name="MediaTypeList">
+        <xs:annotation>
+            <xs:documentation>
+                <html:p>
+                    A MediaTypeList outlines a collection of valid media types for a given
+                    service version.
+                </html:p>
+            </xs:documentation>
+        </xs:annotation>
+
+        <xs:sequence>
+            <xs:element name="media-type"
+                     type="vers:MediaType"
+                     minOccurs="1"
+                     maxOccurs="unbounded"/>
+            <xs:any namespace="##other"
+                 processContents="lax"
+                 minOccurs="0"
+                 maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:anyAttribute namespace="##other" processContents="lax"/>
+    </xs:complexType>
+   <xs:complexType name="MediaType">
+        <xs:annotation>
+            <xs:documentation>
+                <html:p>
+                    A MediaType describes what content types the service version understands.
+                </html:p>
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:any namespace="##other"
+                 processContents="lax"
+                 minOccurs="0"
+                 maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="base" type="xs:string" use="optional" default="">
+            <xs:annotation>
+                <xs:documentation>
+                    <html:p>
+                        The base of a given media type describes the
+                        simple MIME type that then a more complicated
+                        media type can be derived from. These types
+                        are basic and provide no namespace or version
+                        specific data are only provided as a
+                        convenience.
+                    </html:p>
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+
+        <xs:attribute name="type" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    <html:p>
+                        The type attribute of a MediaType describes
+                        the MIME specific identifier of the media type
+                        in question.
+                    </html:p>
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:anyAttribute namespace="##other" processContents="lax"/>
+    </xs:complexType>
+</xsd:schema>

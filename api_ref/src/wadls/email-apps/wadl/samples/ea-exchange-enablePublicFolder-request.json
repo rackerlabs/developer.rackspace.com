@@ -1,0 +1,4 @@
+PUT '/customers/12345678/domains/example.com/ex/publicFolders', 'text/xml',    
+{    
+    'enabled' => 'true'    
+}" });

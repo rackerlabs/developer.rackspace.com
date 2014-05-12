@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<book xmlns="http://docbook.org/ns/docbook"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:m="http://www.w3.org/1998/Math/MathML"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:db="http://docbook.org/ns/docbook"
+    xmlns:xref="http://www.w3.org/1999/xref"
+    xmlns:wadl="http://wadl.dev.java.net/2009/02"
+    version="5.0-extension RackBook-2.0"
+    xml:id="api.rackspace.com-backup-pdf">
+    <info>
+        <title>Rackspace Cloud Backup API v1 Reference</title>
+        <titleabbrev>API Reference</titleabbrev>
+        <author>
+            <personname>
+                <firstname/>
+                <surname/>
+            </personname>
+            <affiliation>
+                <orgname>Rackspace Cloud</orgname>
+            </affiliation>
+        </author>
+        <copyright>
+            <year>2010-2014</year>
+            <holder>Rackspace US, Inc.</holder>
+        </copyright>
+        <productname>Rackspace Cloud Backup</productname>
+        <pubdate/>
+        <legalnotice role="rs-api">
+            <annotation>
+                <remark>Copyright details are filled in by the
+                    template.</remark>
+            </annotation>
+        </legalnotice>
+    </info>
+    <xi:include href="preface.xml"/>
+    <xi:include href="ch_backup-v1.xml"/>
+</book>
+
+

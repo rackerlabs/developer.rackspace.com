@@ -1,0 +1,9 @@
+PUT '/customers/999999/admins/admin2',    
+{    
+    'enabled' => 'true',    
+    'locked' => 'false',    
+    'passwordExpiration' => '0',    
+    'allowSimultaneousLogins' => 'true',    
+    'restrictedIps' => '1.1.1.1'    
+    },    
+ 'text/xml'" });

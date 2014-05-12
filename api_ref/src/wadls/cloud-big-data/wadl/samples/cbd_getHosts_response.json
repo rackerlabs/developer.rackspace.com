@@ -1,0 +1,35 @@
+{
+   "hosts": [
+                {
+                  "hostId": "cec7a236858791c04dc6dcc8af8a103e27ec1dea1c67a5d1bfa39312", 
+                  "flavorCount": [
+                             {
+                               "instanceCount": 5, 
+                               "flavorId": "3"
+                             },
+                             {
+                               "instanceCount": 4, 
+                               "flavorId": "2"
+                             }
+                           ], 
+                  
+                 },
+
+                 {
+                  "hostId": "dec7a236858791c04dc6dcc8af8a103e27ec1dea1c67a5d1bfa39315", 
+                  "flavorCount": [
+                             {
+                               "instanceCount": 3, 
+                               "flavorId": "6"
+                             },
+                             {
+                               "instanceCount": 7, 
+                               "flavorId": "2"
+                             }
+                           ], 
+                  
+                 }
+
+
+   ]
+}

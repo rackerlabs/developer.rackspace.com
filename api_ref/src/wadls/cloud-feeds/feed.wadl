@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns="http://wadl.dev.java.net/2009/02"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:db="http://docbook.org/ns/docbook"
+    xmlns:rax="http://docs.rackspace.com/api"
+    xmlns:atom="http://www.w3.org/2005/Atom"
+    xmlns:wadl="http://wadl.dev.java.net/2009/02"
+    xmlns:error="http://docs.rackspace.com/core/error"
+    xmlns:event="http://docs.rackspace.com/core/event"
+    xmlns:usage-summary="http://docs.rackspace.com/core/usage-summary">
+    <!-- Resources -->
+    <resources base="https://servers.api.openstack.com"
+        xml:id="feed-v1">
+        <resource id="atomfeed" type="#AtomFeed"/>
+        <resource id="unvalidated" type="Unvalidated"/>
+        <resource id="validated" type="Validated"/>
+        <resource id="usagedeadletter" type="UsageDeadLetter"/>
+        <resource id="usagesummary" type="UsageSummary"/>
+    </resources>
+    <!-- resource types -->
+    <resource_type id="AtomFeed">
+        <method href="#getFeed"/>
+    </resource_type>
+    <resource_type id="Unvalidated">
+        <wadl:doc title="Unvalidated"
+            xmlns="http://docbook.org/ns/docbook">
+            <para role="shortdesc">Leaving these descriptions fairly
+                loose as these feeds are currently not validated
+                against.</para>
+        </wadl:doc>
+        <method href="#addPlainUnvalidatedEntry"/>
+        <resource path="entries/{id}">
+            <param name="id" type="xs:anyURI" style="template">
+                <doc>urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f</doc>
+            </param>
+            <method href="#getEntry"/>
+        </resource>
+    </resource_type>
+    <resource_type id="Validated">
+        <wadl:doc title="Validated"
+            xmlns="http//docbook.org/ns/dockbook">
+            <para>Check against XSDs but don't check against cross
+                posts.</para>
+        </wadl:doc>
+        <method href="#addPlainEntry"/>
+        <resource path="entries/{id}">
+            <param name="id" type="xs:anyURI" style="template">
+                <doc>urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f</doc>
+            </param>
+            <method href="#getEntry"/>
+        </resource>
+    </resource_type>
+    <resource_type id="UsageDeadLetter">
+        <wadl:doc title="UsageDeadLetter"
+            xmlns="http//docbook.org/ns/dockbook">
+            <para>Allow Usage DeadLetter events.</para>
+        </wadl:doc>
+        <method href="#addUsageDeadLetter"/>
+    </resource_type>
+    <resource_type id="UsageSummary">
+        <wadl:doc title="UsageSummary"
+            xmlns="http//docbook.org/ns/dockbook">
+            <para>Allow Usage Summary events.</para>
+        </wadl:doc>
+        <method href="#addUsageSummary"/>
+    </resource_type>
+
+    <!-- METHODS -->
+    <method id="getFeed" name="GET">
+        <wadl:doc xml:lang="EN" title="Get Events for Products"
+            xmlns="http://docbook.org/ns/docbook">
+            <para role="shortdesc">Gets events for the feed for this
+                product.</para>
+        </wadl:doc>
+        <request>
+            <param name="marker" style="query" type="xs:anyURI"
+                required="false"/>
+            <param name="limit" style="query" type="xs:int"
+                required="false"/>
+            <param name="direction" style="query" type="xs:string"
+                required="false">
+                <wadl:doc xmlns="http//docbook.org/ns/dockbook"><para>Valid
+                    values are backward or forward.</para></wadl:doc>
+            </param>
+        </request>
+        <response status="200">
+            <representation mediaType="application/atom+xml"/>
+        </response>
+        <!-- On Error -->
+        <response status="400 401 409 500 503">
+            <representation mediaType="application/xml"/>
+        </response>
+    </method>
+    <method id="getEntry" name="GET">
+        <wadl:doc xml:lang="EN" title="Get Event ID"
+            xmlns="http://docbook.org/ns/docbook">
+            <para role="shortdesc">Fetches a specified event.</para>
+        </wadl:doc>
+        <response status="200">
+            <representation mediaType="application/atom+xml"/>
+        </response>
+        <!-- On Error -->
+        <response status="400 401 409 500 503">
+            <representation mediaType="application/xml"/>
+        </response>
+    </method>
+    <method id="addPlainUnvalidatedEntry" name="POST">
+        <wadl:doc xml:lang="EN" title="Adding an event."
+            xmlns="http://docbook.org/ns/docbook">
+            <para role="shortdesc">Adds an event for a specified
+                product.</para>
+        </wadl:doc>
+        <request rax:ignoreXSD="true">
+            <representation mediaType="application/xml"/>
+            <representation mediaType="application/atom+xml"/>
+        </request>
+        <!-- Okay -->
+        <response status="201">
+            <representation mediaType="application/atom+xml"/>
+        </response>
+        <!-- On Error -->
+        <response status="400 401 409 500 503">
+            <representation mediaType="application/xml"/>
+        </response>
+    </method>
+    <method id="addPlainEntry" name="POST">
+        <wadl:doc xml:lang="EN" title="Add Plain Entry"
+            xmlns="http://docbook.org/ns/docbook">
+            <para role="shortdesc">Adds an event for a specified
+                product.</para>
+        </wadl:doc>
+        <request>
+            <representation mediaType="application/atom+xml"
+                element="atom:entry">
+                <!-- 
+                   We add an assertion to state that eventErrors are not allowed. If the XPath in the path
+                   attribute evaluates to false we'll error out with the error message in rax:message.
+                 -->
+                <param name="error" style="plain" required="true"
+                    path="not(/atom:entry/atom:content/error:eventError)"
+                    rax:message="eventErrors are not allowed in this feed."/>
+                <!-- 
+                   We add an assertion to state that usageSummaries are not allowed. If the XPath in the path
+                   attribute evaluates to false we'll error out with the error message in rax:message.
+                 -->
+                <param name="usage-summary" style="plain"
+                    required="true"
+                    path="not(/atom:entry/atom:content/usage-summary:usageSummary)"
+                    rax:message="usageSummary elements are not allowed in this feed."/>
+                <!-- We keep common preprocessing operations, adding common categories etc. -->
+                <rax:preprocess href="atom_hopper_pre.xsl"/>
+            </representation>
+        </request>
+        <!-- Okay -->
+        <response status="201">
+            <representation mediaType="application/atom+xml"/>
+        </response>
+        <!-- On Error -->
+        <response status="400 401 409 500 503">
+            <representation mediaType="application/xml"/>
+        </response>
+    </method>
+    <method id="addUsageDeadLetter" name="POST">
+        <wadl:doc xml:lang="EN" title="Add Usage Dead Letter"
+            xmlns="http://docbook.org/ns/docbook">
+            <para role="shortdesc">Adds a usage dead letter
+                event.</para>
+            <para>When a messaging system determines that it cannot or
+                should not deliver a message, it may elect to move the
+                message to a Usage Dead Letter Channel. This method
+                allows errors to be posted to a dead letter atom
+                feed.</para>
+        </wadl:doc>
+        <request>
+            <representation mediaType="application/atom+xml"
+                element="atom:entry">
+                <!-- 
+                   We add an assertion to state that only usage dead letters are allowed. If the XPath in the path
+                   attribute evaluates to false we'll error out with the error message in rax:message.
+                 -->
+                <param name="error" style="plain" required="true"
+                    path="/atom:entry/atom:content/error:eventError"
+                    rax:message="Only eventErrors are allowed in this feed."/>
+                <!-- We keep common preprocessing operations, adding common categories etc. -->
+                <rax:preprocess href="atom_hopper_pre.xsl"/>
+            </representation>
+        </request>
+        <!-- Okay -->
+        <response status="201">
+            <representation mediaType="application/atom+xml"/>
+        </response>
+        <!-- On Error -->
+        <response status="400 401 409 500 503">
+            <representation mediaType="application/xml"/>
+        </response>
+    </method>
+    <method id="addUsageSummary" name="POST">
+        <wadl:doc xml:lang="EN" title="Add Usage Summary"
+            xmlns="http://docbook.org/ns/docbook">
+            <para role="shortdesc">Adds a usage summary.</para>
+        </wadl:doc>
+        <request>
+            <representation mediaType="application/atom+xml"
+                element="atom:entry">
+                <!-- 
+                   We add an assertion to state that only usage summaries are allowed. If the XPath in the path
+                   attribute evaluates to false we'll error out with the error message in rax:message.
+                 -->
+                <param name="usage-summary" style="plain"
+                    required="true"
+                    path="/atom:entry/atom:content/usage-summary:usageSummary"
+                    rax:message="Only usageSummary content is allowed for entries in this feed."/>
+                <!-- We keep common preprocessing operations, adding common categories etc. -->
+                <rax:preprocess href="atom_hopper_pre.xsl"/>
+            </representation>
+        </request>
+        <!-- Okay -->
+        <response status="201">
+            <representation mediaType="application/atom+xml"/>
+        </response>
+        <!-- On Error -->
+        <response status="400 401 409 500 503">
+            <representation mediaType="application/xml"/>
+        </response>
+    </method>
+</application>

@@ -1,0 +1,16 @@
+HTTP/1.1 200 OK
+Date: Tue, 30 Oct 2012 14:41:29 GMT
+Content-Length: 127
+Content-Type: application/json; charset=utf-8
+[
+ {"name":"test_container",
+ "cdn_enabled":"true",
+ "ttl":28800,
+ "log_retention":"true",
+ "cdn_uri":"http://80745c48926cd286a5a0-48261ebe0e4c795a565ece6b9cca2fe8.
+ r10.cf1.rackcdn.com",
+ "cdn_ssl_uri":"https://
+ 83c49b9a2f7ad18250b3-346eb45fd42c58ca13011d659bfc1ac1.ssl.stg2.rackcdn.com",
+ "cdn_streaming_uri":"http://
+ 80745c48926cd286a5a0-48261ebe0e4c795a565ece6b9cca2fe8.r10.cf1.rackcdn.com"}
+ ]

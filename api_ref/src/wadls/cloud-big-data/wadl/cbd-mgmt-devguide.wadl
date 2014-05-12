@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- (C) 2012 OpenStack LLC., All Rights Reserved  -->
+
+<!DOCTYPE application [
+    <!ENTITY % common  SYSTEM "../common/common.ent">
+    %common;
+    
+    
+]>
+
+
+<application xmlns="http://wadl.dev.java.net/2009/02"
+             xmlns:wadl="http://wadl.dev.java.net/2009/02"
+	         xmlns:xlink="http://www.w3.org/1999/xlink"
+             xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+	         xmlns:raxapi="http://docs.rackspace.com/volume/api/v1"
+	         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	         xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	         xmlns:clusters="http://docs.openstack.org/database/api/v1.0">
+	
+	
+<!--*******************************************************-->
+<!-- GRAMMARS                                              -->
+<!--*******************************************************-->
+	
+<!-- What do I need here for Cloud Big Data Admin Guide? 
+	<grammars>
+		<include href="../common/xsd/api.xsd"/> (identity grammars)
+		<include href="../common/xsd/api-common.xsd"/> (identity grammars)
+		<include href="dbaas.xsd" /> (databases grammars)
+	</grammars>
+-->
+	
+<!--*******************************************************-->
+<!-- ALL RESOURCES                                         -->
+<!--*******************************************************-->	
+	
+<resources base="https://dfw.bigdata.api.rackspacecloud.com/">
+	<resource id="version" path="/">
+		
+		<resource id="limits" path="limits">
+			<method href="#listLimits" />	
+				<resource id="limit" path="{tenantId}">
+					<param name="tenantId" style="template" type="xsd:string">
+						<doc>Specifies the tenant ID.</doc></param>
+					<method href="#postLimits" />
+					<method href="#getTenantLimits"/>
+				</resource>
+		</resource>
+		
+		<resource id="clusters" path="clusters">
+			<method href="#getClusters" />
+				<resource id="cluster" path="{clusterId}">
+					<param name="clusterId" style="template" type="xsd:string">
+						<doc>Specifies the cluster ID.</doc></param>
+					<method href="#getCluster" />
+					<method href="#deleteCluster" />			 
+						<resource id="logs" path="logs">
+						   <method href="#getClusterLogs" />
+					   	</resource>	
+					   	<resource id="action" path="action">
+							<method href="#postClusterAction" />
+					   	</resource>	
+					   	<resource id="status" path="status">
+							<method href="#getClusterStatus" />
+					   	</resource>	
+			 	       	<resource id="nodes" path="nodes">
+			 	       		<resource id="nodeId" path="{nodeId}">
+			 	       			<param name="nodeId" style="template" type="xsd:string">
+			 	       				<doc>Specifies the node ID.</doc></param>
+			 	       	     	<resource id="nodeAction" path="action">
+			 	       	      	       	
+					                 <method href="#postClusterNodeAction" />
+			 	       	     	</resource>	
+			 	       		</resource>
+					    </resource>	
+					</resource>
+			 	</resource>
+		
+		<resource id="tenants" path="tenants">
+			<method href="#getTenants" />
+				<resource id="tenant" path="{tenantId}">
+					<param name="tenantId" style="template" type="xsd:string"> 
+						<doc>Specifies the tenant ID.</doc></param>
+							<method href="#getTenant" />
+							<resource id="tenantClusters" path="clusters">
+							<method href="#getTenantClusters" />	
+							</resource>
+				</resource>	
+		</resource>
+		
+		<resource id="hosts" path="hosts">
+				<method href="#getHosts" />
+		</resource>
+		
+		<resource id="servers" path="servers">
+			<method href="#getServers" />
+		</resource>
+		
+		<resource id="endpoints" path="info">
+			<method href="#getEndpointInfo" />
+		</resource>
+		
+		<resource id="endpointCap" path="capacity">
+			<method href="#getEndpointCap" />
+		</resource>
+		
+	</resource>			
+</resources>
+	
+<!--*******************************************************-->
+<!-- ALL METHODS                                            -->
+<!--*******************************************************-->
+
+<!--*******************************************************-->
+<!-- LIMIT METHODS                                         -->
+<!--*******************************************************-->	
+	
+<!--*******************************************************-->	
+<!-- List Limits: listLimits                               -->	  
+<!--*******************************************************-->
+	
+		<method name="GET" id="listLimits">
+			<wadl:doc xml:lang="EN" title="List Limits" xmlns="http://docbook.org/ns/docbook">
+				<para role="shortdesc">Returns a list of resource limits for all tenants.</para> 
+				<para>This operation returns a list of resource limits for all tenants.</para>	
+			</wadl:doc>
+			<response status="200">		
+				<representation mediaType="application/json" >
+					<doc>
+						<xsdxt:code href="../wadl/samples/cbd_listLimits_response.json"/>
+					</doc>
+				</representation>
+			</response>
+		</method>
+	
+<!--*******************************************************-->
+<!-- Post Limits: postLimits                               -->	
+<!--*******************************************************-->	
+
+	<method name="POST" id="postLimits" >
+		<wadl:doc xml:lang="EN" title="Post Limits" xmlns="http://docbook.org/ns/docbook">
+			<para role="shortdesc">Updates resource limits for the specified tenant.</para> 
+			<para>This operation sets resource limits for the specified tenant.</para>	
+		</wadl:doc>
+		<request>
+			<representation mediaType="application/json" element="clusters:Cluster" >
+				<doc>
+					<xsdxt:code href="../wadl/samples/cbd_postLimits_request.json"/>
+				</doc>
+			</representation>
+		</request>
+		<response status="202">		
+			<representation mediaType="application/json" >
+				<doc>
+					<xsdxt:code href="../wadl/samples/cbd_postLimits_response.json"/>
+				</doc>
+			</representation>
+		</response>
+		&fourhundred;	
+		&fourofour;
+	</method>
+	
+<!--*******************************************************-->	
+<!-- Get Tenant Limits *****  getTenantLimits              -->
+<!--*******************************************************-->
+	
+	<method name="GET" id="getTenantLimits">
+		<wadl:doc xml:lang="EN" title="Get Tenant Limits" xmlns="http://docbook.org/ns/docbook">
+			<para role="shortdesc">Returns the resource limits for the specified tenant.</para> 
+			<para>This operation returns the resource limits for the specified tenant.</para>	
+		</wadl:doc>
+		<response status="200">		
+			<representation mediaType="application/json" >
+				<doc>
+					<xsdxt:code href="../wadl/samples/cbd_getTenantLimits_response.json"/>
+				</doc>
+			</representation>
+		</response>
+		&fourofour;
+	</method>
+
+<!--*******************************************************-->
+<!--  CLUSTER METHODS                                      -->
+<!--*******************************************************-->	
+	
+<!--*******************************************************-->						
+<!-- Get Clusters: getClusters                             -->
+<!--*******************************************************-->
+	
+	<method name="GET" id="getClusters">
+		<wadl:doc xml:lang="EN" title="Get Clusters" xmlns="http://docbook.org/ns/docbook">
+			<para role="shortdesc">Lists all clusters for all tenants. You can paginate the list. </para> 
+			<para>This operation lists all clusters for all tenants. You can paginate the list.</para>	
+		</wadl:doc>
+		<response status="200">		
+			<representation mediaType="application/json" >
+				<doc>
+					<xsdxt:code href="../wadl/samples/cbd_getClusters_response.json"/>
+				</doc>
+			</representation>
+		</response>
+	</method>	
+
+	<!--*******************************************************-->						
+	<!-- Delete Cluster: deleteCluster                            -->
+	<!--*******************************************************-->
+	
+	<method name="DELETE" id="deleteCluster">
+		<wadl:doc xml:lang="EN" title="Delete Cluster" xmlns="http://docbook.org/ns/docbook">
+			<para role="shortdesc">Delete the specified cluster. </para> 
+			<para>This operation deletes the specified cluster.</para>	
+		</wadl:doc>
+		<response status="202">		
+			<representation mediaType="application/json" >
+				<doc>
+					<xsdxt:code href="../wadl/samples/cbd_deleteCluster_response-json-http.txt"/>
+				</doc>
+			</representation>
+		</response>
+	</method>	
+	
+	
+<!--*******************************************************-->						
+<!-- Get Specific Cluster: getCluster                      -->
+<!--*******************************************************-->
+	
+	<method name="GET" id="getCluster">
+		<wadl:doc xml:lang="EN" title="Get Specific Cluster" xmlns="http://docbook.org/ns/docbook">
+			<para role="shortdesc">Returns details about the specified cluster. </para>  
+			<para>This operation returns details about the specified cluster. </para>
+		</wadl:doc>
+		<response status="200">		
+			<representation mediaType="application/json" >
+				<doc>
+					<xsdxt:code href="../wadl/samples/cbd_getSpecificCluster_response.json"/>
+				</doc>
+			</representation>
+		</response>
+	</method>
+	
+<!--*******************************************************-->						
+<!-- Get Cluster Logs: getClusterLogs                      -->
+<!--*******************************************************-->
+	
+	<method name="GET" id="getClusterLogs">
+		<wadl:doc xml:lang="EN" title="Get Cluster Logs" xmlns="http://docbook.org/ns/docbook">
+			<para role="shortdesc">Returns the provisioning logs for the specified cluster. </para>  
+			<para>This operation returns the provisioning logs for the specified cluster. </para>
+		</wadl:doc>
+		<response status="200">				
+			<representation mediaType="application/json" >
+			<doc>
+				<xsdxt:code href="../wadl/samples/cbd_getClusterLogs_response.json"/>
+			</doc>
+		</representation>	
+		</response>
+	</method>
+
+<!--*******************************************************-->						
+<!-- Post Cluster Action: postClusterAction                -->
+<!--*******************************************************-->
+	
+	<method name="POST" id="postClusterAction">
+		<wadl:doc xml:lang="EN" title="Post Cluster Action" xmlns="http://docbook.org/ns/docbook">
+			<para role="shortdesc">Performs an action, such as set status, on the specified cluster. </para>  
+			<para>This operation performs an action, such as set status, on the specified cluster. </para>
+		</wadl:doc>
+		<request>
+			<representation mediaType="application/json" element="clusters:Cluster" >
+				<doc>
+					<xsdxt:code href="../wadl/samples/cbd_postClusterAction_request.json"/>
+				</doc>
+			</representation>
+		</request>
+		<response status="200">
+			<representation mediaType="application/json" >
+				<doc>
+					<xsdxt:code href="../wadl/samples/cbd_postClusterAction_response.json"/>
+				</doc>
+			</representation>	
+		</response>
+	</method>
+ 	
+<!--*******************************************************-->						
+<!-- Get Cluster Status: getClusterStatus                  -->
+<!--*******************************************************-->
+	
+	<method name="GET" id="getClusterStatus">
+		<wadl:doc xml:lang="EN" title="Get Cluster Status" xmlns="http://docbook.org/ns/docbook">
+			<para role="shortdesc">Gets a status report about the specified cluster, to ensure that all servers are accessible over the network, services are running, check HDFS does not exceed a threshold. This operation is long running.
+			-	long running </para>  
+			<para>This operation gets a status report about the specified cluster. </para>
+		</wadl:doc>
+		<response status="200">	
+			<representation mediaType="application/json" >
+				<doc>
+					<xsdxt:code href="../wadl/samples/cbd_getClusterStatus_response.json"/>
+				</doc>
+			</representation>	
+		</response>
+	</method>
+
+<!--*******************************************************-->						
+<!-- Post Cluster Action: postClusterNodeAction            -->
+<!--*******************************************************-->		
+	
+	<method name="POST" id="postClusterNodeAction">
+		<wadl:doc xml:lang="EN" title="Post Cluster Node Action" xmlns="http://docbook.org/ns/docbook">
+			<para role="shortdesc">Performs an action, such as replace or restart, on the specified node (server) in the specified cluster. </para>  
+			<para>This operation performs an action, such as replace or restart, on the specified node (server) in the specified cluster. </para>
+		</wadl:doc>
+		<response status="200">		
+		</response>
+	</method>
+	
+<!--*******************************************************-->	
+<!-- TENANT METHODS                                        -->
+<!--*******************************************************-->		
+	
+<!--*******************************************************-->						
+<!-- Get Tenants: getTenants                               -->
+<!--*******************************************************-->
+	
+	<method name="GET" id="getTenants">
+		<wadl:doc xml:lang="EN" title="Get Tenants" xmlns="http://docbook.org/ns/docbook">
+			<para role="shortdesc">Returns a list of tenants who have profiles. </para>  
+			<para>This operation returns a list of tenants who have profiles. </para>
+		</wadl:doc>
+		<response status="200">		
+			<representation mediaType="application/json" >
+				<doc>
+					<xsdxt:code href="../wadl/samples/cbd_getTenants_response.json"/>
+				</doc>
+			</representation>
+		</response>
+	</method>
+	
+<!--*******************************************************-->						
+<!-- Get Specific Tenant: getTenant                        -->
+<!--*******************************************************-->
+	
+	<method name="GET" id="getTenant">
+		<wadl:doc xml:lang="EN" title="Get Specific Tenant" xmlns="http://docbook.org/ns/docbook">
+			<para role="shortdesc">Returns details about the specified tenant. </para>  
+			<para>This operation returns details about the specified tenant. </para>
+		</wadl:doc>
+		<response status="200">		
+			<representation mediaType="application/json" >
+				<doc>
+					<xsdxt:code href="../wadl/samples/cbd_getTenant_response.json"/>
+				</doc>
+			</representation>
+		</response>
+	</method>	
+
+<!--*******************************************************-->						
+<!-- Get Tenant Clusters: getTenantClusters                -->
+<!--*******************************************************-->
+	
+	<method name="GET" id="getTenantClusters">
+		<wadl:doc xml:lang="EN" title="Get Tenant Clusters" xmlns="http://docbook.org/ns/docbook">
+			<para role="shortdesc">Returns a list of clusters for the specified tenant. </para>  
+
+		</wadl:doc>
+		<response status="200">		
+			<representation mediaType="application/json" >
+				<doc>
+					<xsdxt:code href="../wadl/samples/cbd_getTenantClusters_response.json"/>
+				</doc>
+			</representation>
+		</response>
+	</method>	
+	
+<!--*******************************************************-->	
+<!-- HOST METHODS                                          -->
+<!--*******************************************************-->		
+	
+<!--*******************************************************-->						
+<!-- Get Hosts: getHosts                                   -->
+<!--*******************************************************-->
+	
+	<method name="GET" id="getHosts">
+		<wadl:doc xml:lang="EN" title="Get Hosts" xmlns="http://docbook.org/ns/docbook">
+			<para role="shortdesc">Returns all hosts in the system. </para>  
+		</wadl:doc>
+		<response status="200">		
+			<representation mediaType="application/json" >
+				<doc>
+					<xsdxt:code href="../wadl/samples/cbd_getHosts_response.json"/>
+				</doc>
+			</representation>
+		</response>
+	</method>	
+ 	
+<!--*******************************************************-->	
+<!-- SERVER METHODS                                        -->
+<!--*******************************************************-->		
+	
+<!--*******************************************************-->						
+<!-- Get Servers: getServers                               -->
+<!--*******************************************************-->
+	
+	<method name="GET" id="getServers">
+		<wadl:doc xml:lang="EN" title="Get Servers" xmlns="http://docbook.org/ns/docbook">
+			<para role="shortdesc">Returns all servers in the system.</para>  
+		</wadl:doc>
+		<response status="200">		
+			<representation mediaType="application/json" >
+				<doc>
+					<xsdxt:code href="../wadl/samples/cbd_getServers_response.json"/>
+				</doc>
+			</representation>
+		</response>
+	</method>
+	
+	<!--*******************************************************-->	
+	<!-- ENDPOINT INFO METHODS                                        -->
+	<!--*******************************************************-->		
+	
+	<!--*******************************************************-->						
+	<!-- Get Endpoint Info: getEndpointInfo                               -->
+	<!--*******************************************************-->
+	
+	<method name="GET" id="getEndpointInfo">
+		<wadl:doc xml:lang="EN" title="Get Endpoint Information" xmlns="http://docbook.org/ns/docbook">
+			<para role="shortdesc">Returns information for the endpoint.</para>
+			<para>This operation returns the information about the endpoint, such as the version of the API that is running.</para>
+		</wadl:doc>
+		<response status="200">		
+			<representation mediaType="application/json" >
+				<doc>
+					<xsdxt:code href="../wadl/samples/cbd_getEndpointInfo_response.json"/>
+				</doc>
+			</representation>
+		</response>
+	</method>
+	
+	<!--*******************************************************-->	
+	<!-- 	ENDPOINT CAPACITY METHODS                                   -->
+	<!--*******************************************************-->		
+	
+	<!--*******************************************************-->						
+	<!-- Get Endpoint Capacity: getEndpointCap                               -->
+	<!--*******************************************************-->
+	
+	<method name="GET" id="getEndpointCap">
+		<wadl:doc xml:lang="EN" title="Get Endpoint Information" xmlns="http://docbook.org/ns/docbook">
+			<para role="shortdesc">Returns the total and remaining capacity for each flavor supported by the endpoint.</para>
+			<para>This operation returns total and remaining capacity information for the flavors supported by the endpoint.</para>
+		</wadl:doc>
+		<response status="200">		
+			<representation mediaType="application/json" >
+				<doc>
+					<xsdxt:code href="../wadl/samples/cbd_getCapacity_response.json"/>
+				</doc>
+			</representation>
+		</response>
+	</method>
+	
+</application>

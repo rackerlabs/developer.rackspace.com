@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xmlns="http://docbook.org/ns/docbook"
+    xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:linkend="http://www.w3.org/1999/linkend"
+    xmlns:xref="http://www.w3.org/1999/xref"
+    xmlns:wadl="http://wadl.dev.java.net/2009/02"
+    version="5.0-extension RackBook-2.0" xml:id="monitoring-v2">
+    <title>Cloud Monitoring API v1.0</title>
+    <para>Perform monitoring operations.</para>
+    <section xml:id="alarms">
+        <title>Alarms</title> 
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/telemetry-api/src/v2/os-telemetry-api-2.0.wadl#alarms">
+                <wadl:method href="#listAlarms"/>
+                <wadl:method href="#createAlarm"/>
+            </wadl:resource>
+            <wadl:resource
+                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/telemetry-api/src/v2/os-telemetry-api-2.0.wadl#alarm_id">
+                <wadl:method href="#showAlarm"/>
+                <wadl:method href="#updateAlarm"/>
+            </wadl:resource>
+            <wadl:resource
+                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/telemetry-api/src/v2/os-telemetry-api-2.0.wadl#state">
+                <wadl:method href="#updateAlarmState"/>
+                <wadl:method href="#showAlarmState"/>
+            </wadl:resource>
+            <wadl:resource
+                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/telemetry-api/src/v2/os-telemetry-api-2.0.wadl#history">
+                <wadl:method href="#showAlarmHistory"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="meters">
+        <title>Meters</title>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/telemetry-api/src/v2/os-telemetry-api-2.0.wadl#meters">
+                <wadl:method href="#listMeters"/>
+            </wadl:resource>
+            <wadl:resource
+                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/telemetry-api/src/v2/os-telemetry-api-2.0.wadl#meter_name">
+                <wadl:method href="#showMeter"/>
+                <wadl:method href="#createMeter"/>
+            </wadl:resource>
+            <wadl:resource
+                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/telemetry-api/src/v2/os-telemetry-api-2.0.wadl#statistics">
+                <wadl:method href="#showMeterStatistics"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="resources">
+        <title>Resources</title>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/telemetry-api/src/v2/os-telemetry-api-2.0.wadl#resources">
+                <wadl:method href="#listResources"/>
+            </wadl:resource>
+            <wadl:resource
+                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/telemetry-api/src/v2/os-telemetry-api-2.0.wadl#resource_id">
+                <wadl:method href="#showResource"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+</chapter>

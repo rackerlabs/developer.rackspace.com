@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter [
+<!-- Some useful entities borrowed from HTML -->
+<!ENTITY ndash  "&#x2013;">
+<!ENTITY mdash  "&#x2014;">
+<!ENTITY hellip "&#x2026;">   
+<!-- Useful for describing APIs -->
+<!ENTITY GET    '<command xmlns="http://docbook.org/ns/docbook">GET</command>'>
+<!ENTITY PUT    '<command xmlns="http://docbook.org/ns/docbook">PUT</command>'>
+<!ENTITY POST   '<command xmlns="http://docbook.org/ns/docbook">POST</command>'>
+<!ENTITY DELETE '<command xmlns="http://docbook.org/ns/docbook">DELETE</command>'>
+]>
+<chapter xmlns="http://docbook.org/ns/docbook"
+    xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:linkend="http://www.w3.org/1999/linkend"
+    xmlns:xref="http://www.w3.org/1999/xref"
+    xmlns:wadl="http://wadl.dev.java.net/2009/02"
+    version="5.0-extension RackBook-2.0" xml:id="queues-v1.0">
+    <title>Cloud Queues API v1</title>
+    <para>Perform Cloud Queues operations.</para>
+    <section xml:id="homeDocument-operation">
+        <title>Home document</title>
+        <para>Get the home document for Cloud Queues.</para>
+        <note>
+            <para>The home document schema is currently not ratified
+                in OpenStack and may change.</para>
+        </note>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="https://raw.github.com/rackerlabs/docs-cloud-queues/master/src/wadl/cq-devguide.wadl#version"/>
+        </wadl:resources>
+    </section>
+    <section xml:id="queue-operations-dle001">
+        <title>Queues</title>
+        <para>Manage queues.</para>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="https://raw.github.com/rackerlabs/docs-cloud-queues/master/src/wadl/cq-devguide.wadl#queues">
+                <wadl:method href="#listQueues"/>
+            </wadl:resource>
+            <wadl:resource
+                href="https://raw.github.com/rackerlabs/docs-cloud-queues/master/src/wadl/cq-devguide.wadl#queue"/>
+            <wadl:resource
+                href="https://raw.github.com/rackerlabs/docs-cloud-queues/master/src/wadl/cq-devguide.wadl#metadata"/>
+            <wadl:resource
+                href="https://raw.github.com/rackerlabs/docs-cloud-queues/master/src/wadl/cq-devguide.wadl#stats"
+            />
+        </wadl:resources>
+    </section>
+    <section xml:id="message-operations-dle001">
+        <title>Messages </title>
+        <para>Manage messages.</para>
+        <note>
+            <para>All message-related operations require that
+                Client-ID be included in the headers. This is to
+                ensure that messages are not echoed back to the client
+                that posted them unless the client explicitly requests
+                this.</para>
+        </note>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="https://raw.github.com/rackerlabs/docs-cloud-queues/master/src/wadl/cq-devguide.wadl#messages"/>
+            <wadl:resource
+                href="https://raw.github.com/rackerlabs/docs-cloud-queues/master/src/wadl/cq-devguide.wadl#message"
+            />
+        </wadl:resources>
+    </section>
+    <section xml:id="claims-operations-dle001">
+        <title>Claims </title>
+        <para>Perform claim operations.</para>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="https://raw.github.com/rackerlabs/docs-cloud-queues/master/src/wadl/cq-devguide.wadl#claims"/>
+            <wadl:resource
+                href="https://raw.github.com/rackerlabs/docs-cloud-queues/master/src/wadl/cq-devguide.wadl#claim"
+            />
+        </wadl:resources>
+    </section>
+</chapter>

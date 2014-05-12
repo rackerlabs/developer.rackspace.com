@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<accounts xmlns="http://docs.openstack.org/database/api/v1.0">
+    <account id="1234" num_instances="2"/>
+</accounts>

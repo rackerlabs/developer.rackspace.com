@@ -1,0 +1,1449 @@
+
+<!DOCTYPE html>
+<html lang="en"><head>
+   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+      <meta charset="UTF-8">
+         <title>developer.rackspace.com</title>
+         
+         <link href="developer.rackspace.com_files/css.css" rel="stylesheet" type="text/css"/>
+         
+         <link rel="stylesheet" href="developer.rackspace.com_files/reset.css"/>
+         <link rel="stylesheet" href="developer.rackspace.com_files/style.css"/>
+         <link href="apiref/css/bootstrap.min.css" rel="stylesheet"></link> 
+         <link href="apiref/css/main.css" rel="stylesheet" type="text/css"></link>      
+</head>
+   <body>
+      <!--  Top Nav Bar -->
+      <div class="header">
+         <div class="inner clearfix">
+            <a class="title" href="http://awesomemonster.com/devsite/index.html">Rackspace Developer Center</a>
+            <ul>
+               <li><a href="http://awesomemonster.com/devsite/main-sdks.html">SDKs</a></li>
+               <li><a href="http://awesomemonster.com/devsite/main-services.html">Services</a></li>
+               <li><a href="http://awesomemonster.com/devsite/blog-list.html">DevOps Blog</a></li>
+               <li><a href="#">Sign Up</a></li>
+               <li><form action="search">
+                  <input name="" id="" placeholder="Search our docs" type="search">
+                     <input name="" value="Search" type="submit">
+               </form></li>
+            </ul>
+         </div>
+      </div>   
+      
+      <div class="container">
+         <div class="rowtop">
+            <div class="col-md-3">
+               <div class="api-sidebar" data-offset-bottom="0" data-offset-top="1000" data-spy="affix">
+                  <ul class="nav api-sidenav">
+                     <li><a class="smallcapped" href="#blockstorage-v2">Cloud&nbsp;Block&nbsp;Storage&nbsp;API&nbsp;v1</a></li>
+                     <li class="divider"></li>
+                     <li>
+                        <ul class="nav active">
+                           <li><a href="api-ref-auto-scale.html">Auto Scale
+                                 API</a></li>
+                           <li><a href="api-ref-backup.html">Cloud Backup
+                                 API</a></li>
+                           <li><a href="api-ref-big-data.html">Cloud Big Data
+                                 API</a></li>
+                           <li><a href="api-ref-blockstorage.html">Cloud Block
+                                 Storage API</a></li>
+                           <li><a href="api-ref-databases.html">Cloud
+                                 Databases API</a></li>
+                           <li><a href="api-ref-email-and-apps.html">Email
+                                 &amp; Apps API</a></li>
+                           <li><a href="api-ref-files.html">Cloud Files
+                                 API</a></li>
+                           <li><a href="api-ref-identity.html">Cloud Identity
+                                 API</a></li>
+                           <li><a href="api-ref-images.html">Cloud Images
+                                 API</a></li>
+                           <li><a href="api-ref-monitoring.html">Cloud
+                                 Monitoring API</a></li>
+                           <li><a href="api-ref-networks.html">Cloud Networks
+                                 API</a></li>
+                           <li><a href="api-ref-orchestration.html">Cloud
+                                 Orchestration API</a></li>
+                           <li><a href="api-ref-queues.html">Cloud Queues
+                                 API</a></li>
+                           <li><a href="api-ref.html">Cloud Servers
+                                 API</a></li>
+                           <li><a href="api-ref-servers-ext.html">Cloud
+                                 Servers API extensions</a></li>
+                        </ul>
+                     </li>
+                  </ul>
+                  <div class="row">
+                     <div class="col-md-7"><label class="sr-only" for="search-box">Search on this page</label><input class="form-control" id="search-box" placeholder="Search this page" type="text"></input></div>
+                     <div class="col-md-5"><button class="btn btn-default" id="search-btn">Search</button></div>
+                  </div>
+               </div>
+            </div>
+            <div class="col-md-9 api-documentation">
+               
+               
+               <div id="blockstorage-v2">
+                  <div class="subhead">
+                     <h2>Cloud Block Storage API v1<a class="headerlink" href="#blockstorage-v2" title="Permalink to this headline"><span class="glyphicon glyphicon-link"></span></a></h2>
+                  </div>
+                  
+                  
+                  <div id="volumes">
+                     <div class="subhead">
+                        <h3>Volumes<a class="headerlink" href="#volumes" title="Permalink to this headline"><span class="glyphicon glyphicon-link"></span></a></h3>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e152">
+                           <div class="col-md-1"><span class="label label-success">POST</span></div>
+                           <div class="col-md-5">v1/&#8203;{tenant_id}&#8203;/volumes</div>
+                           <div class="col-md-5">
+                              <p>Creates a volume.</p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e152" data-toggle="collapse" id="detail-d69e152-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e152">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>When you use <code>source_volid</code> for volume
+                                    cloning, note that this feature currently has the
+                                    following constraints. You cannot create more than one
+                                    clone per volume concurrently. Snapshots and volume
+                                    cloning use the same locking mechanism, so you cannot
+                                    run a snapshot and a clone of the same volume
+                                    concurrently.
+                                 </p>
+                                 <p>Note that you use the
+                                    <code>os-volume_attachments</code> API call
+                                    (<code>/servers/{server_id}/os-volume_attachments</code>)
+                                    to attach the new volume to your Next Generation Cloud
+                                    Server (with the specified {server_id}). See <a href="http://docs.rackspace.com/servers/api/v2/cs-devguide/content/ch_preface.html">Next Generation Cloud Servers Developer
+                                       Guide</a> for details of the call. Once the
+                                    volume is attached, the new volume appears as another
+                                    device on your cloud server. You can then partition,
+                                    format, and mount it.
+                                 </p>
+                                 <p>The following examples create a 100 GB SATA volume
+                                    called <code>vol-001</code>.
+                                 </p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>200</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"><b>Request parameters</b><table class="table table-bordered table-striped">
+                                       <thead>
+                                          <tr>
+                                             <th>Parameter</th>
+                                             <th>Style</th>
+                                             <th>Type</th>
+                                             <th>Description</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          <tr>
+                                             <td>volume</td>
+                                             <td>plain</td>
+                                             <td>string</td>
+                                             <td>
+                                                
+                                                <p>A partial representation of a
+                                                   volume used in the creation process. This
+                                                   parameter is required for this
+                                                   operation.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>size</td>
+                                             <td>plain</td>
+                                             <td>string</td>
+                                             <td>
+                                                
+                                                <p>The size (in GB) of the
+                                                   volume. This is a required parameter. Note:
+                                                   When creating a volume from a snapshot, the
+                                                   volume size must be greater than the snapshot
+                                                   size. 
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>display_description (Optional)</td>
+                                             <td>plain</td>
+                                             <td>string</td>
+                                             <td>
+                                                
+                                                <p>A description of the volume.
+                                                   This parameter is optional.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>display_name (Optional)</td>
+                                             <td>plain</td>
+                                             <td>string</td>
+                                             <td>
+                                                
+                                                <p>The name of the volume. This
+                                                   parameter is optional. 
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>snapshot_id (Optional)</td>
+                                             <td>plain</td>
+                                             <td>string</td>
+                                             <td>
+                                                
+                                                <p>The optional snapshot from
+                                                   which to create a volume. This parameter is
+                                                   optional. 
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>volume_type (Optional)</td>
+                                             <td>plain</td>
+                                             <td>string</td>
+                                             <td>
+                                                
+                                                <p>The type of volume to create,
+                                                   either SATA or SSD. This parameter is
+                                                   optional. If not defined, then the default,
+                                                   SATA, is used. 
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>source_volid (Optional)</td>
+                                             <td>plain</td>
+                                             <td>string</td>
+                                             <td>
+                                                
+                                                <p>The source identifier of an
+                                                   existing Cloud Block Storage volume that you
+                                                   want to clone (copy) to create a new volume.
+                                                   This parameter is optional.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>availability_zone (Optional)</td>
+                                             <td>plain</td>
+                                             <td>string</td>
+                                             <td>
+                                                
+                                                <p>This parameter is no longer
+                                                   used. Therefore, you can supply any value for
+                                                   <code>availability_zone</code>. If you
+                                                   specify no value, it defaults to
+                                                   <code>nova</code>.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>metadata (Optional)</td>
+                                             <td>plain</td>
+                                             <td>string</td>
+                                             <td>
+                                                
+                                                <p>Metadata values for the
+                                                   volume.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                       </tbody>
+                                    </table>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><select class="example-select form-control">
+                                       <option data-target="#req-json-d69e152" selected="selected" value="json">JSON Request</option>
+                                       <option data-target="#req-xml-d69e152" value="xml">XML Request</option></select></div>
+                              </div>
+                              <div class="tab-content">
+                                 <div class="tab-pane example active" id="req-json-d69e152">
+                                    <div class="example">
+                                       <pre>{
+   "volume":{
+      "display_name":"vol-001",
+      "display_description":"Another volume.",
+      "size":100,
+      "source_volid":"e3611474-589b-46b7-9bdf-5555e2e4999b",
+      "volume_type":"SATA"
+   }
+}
+</pre>
+                                       </div>
+                                 </div>
+                                 <div class="tab-pane example" id="req-xml-d69e152">
+                                    <div class="example">
+                                       <pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;volume xmlns="http://docs.rackspace.com/volume/api/v1"
+        display_name="vol-001" display_description="Another volume."
+        size="100" source_volid="e3611474-589b-46b7-9bdf-5555e2e4999b"
+        volume_type="SATA"/&gt;
+</pre>
+                                       </div>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><select class="example-select form-control">
+                                       <option data-target="#resp-json-d69e152" selected="selected" value="json">JSON Response</option>
+                                       <option data-target="#resp-xml-d69e152" value="xml">XML Response</option></select></div>
+                              </div>
+                              <div class="tab-content">
+                                 <div class="tab-pane example active" id="resp-json-d69e152">
+                                    <div class="example">
+                                       <pre>{
+   "volume":{
+      "status":"available",
+      "display_name":"vol-001",
+      "attachments":[
+
+      ],
+      "availability_zone":"nova",
+      "bootable":"false",
+      "created_at":"2012-02-14T20:53:07Z",
+      "display_description":"Another volume.",
+      "volume_type":"SATA",
+      "snapshot_id":null,
+      "source_volid":"e3611474-589b-46b7-9bdf-5555e2e4999b",
+      "metadata":{
+
+      },
+      "id":"521752a6-acf6-4b2d-bc7a-119f9148cd8c",
+      "size":100
+   }
+}</pre>
+                                       </div>
+                                 </div>
+                                 <div class="tab-pane example" id="resp-xml-d69e152">
+                                    <div class="example">
+                                       <pre>&lt;?xml version='1.0' encoding='UTF-8'?&gt;
+&lt;volume xmlns="http:'//docs.rackspace.com/volume/api/v1"
+        status="available" display_name="vol-001" attachments=""
+        availability_zone="nova" bootable="false"
+        created_at="2012-02-14T20:53:07Z"
+        display_description="Another volume." volume_type="SATA"
+        snapshot_id="null"
+        source_volid="e3611474-589b-46b7-9bdf-5555e2e4999b"
+        metadata="" id="521752a6-acf6-4b2d-bc7a-119f9148cd8c"
+        size="100"/&gt;
+</pre>
+                                       </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e331">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v1/&#8203;{tenant_id}&#8203;/volumes</div>
+                           <div class="col-md-5">
+                              <p>Lists summary information for all
+                                 volumes that the tenant who submits the request can
+                                 access.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e331" data-toggle="collapse" id="detail-d69e331-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e331">
+                           <div class="col-md-12">
+                              <div></div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>200</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><select class="example-select form-control">
+                                       <option data-target="#resp-json-d69e331" selected="selected" value="json">JSON Response</option>
+                                       <option data-target="#resp-xml-d69e331" value="xml">XML Response</option></select></div>
+                              </div>
+                              <div class="tab-content">
+                                 <div class="tab-pane example active" id="resp-json-d69e331">
+                                    <div class="example">
+                                       <pre>{
+   "volumes":[
+      {
+         "id":"521752a6-acf6-4b2d-bc7a-119f9148cd8c",
+         "display_name":"vol-001",
+         "display_description":"Another volume.",
+         "size":100,
+         "volume_type":"SATA",
+         "snapshot_id":null,
+         "attachments":[
+
+         ],
+         "createdAt":"2012-02-14T20:53:07Z"
+      },
+      {
+         "id":"76b8950a-8594-4e5b-8dce-0dfa9c696358",
+         "display_name":"vol-002",
+         "display_description":"Yet another volume.",
+         "size":100,
+         "volume_type":"SATA",
+         "snapshot_id":null,
+         "attachments":[
+
+         ],
+         "createdAt":"2012-03-15T19:10:03Z"
+      }
+   ]
+}
+</pre>
+                                       </div>
+                                 </div>
+                                 <div class="tab-pane example" id="resp-xml-d69e331">
+                                    <div class="example">
+                                       <pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;volumes xmlns="http://docs.rackspace.com/volume/api/v1"&gt;
+        &lt;volume xmlns="http://docs.rackspace.com/volume/api/v1"
+                id="521752a6-acf6-4b2d-bc7a-119f9148cd8c"
+                display_name="vol-001"
+                display_description="Another volume." status="active"
+                size="100" volume_type="SATA"
+                createdAt="2012-02-14T20:53:07Z"&gt; &lt;/volume&gt;
+        &lt;volume xmlns="http://docs.rackspace.com/volume/api/v1"
+                id="76b8950a-8594-4e5b-8dce-0dfa9c696358"
+                display_name="vol-002"
+                display_description="Yet another volume."
+                status="active" size="100" volume_type="SATA"
+                createdAt="2012-03-15T19:10:03Z"/&gt;
+&lt;/volumes&gt;</pre>
+                                       </div>
+                                 </div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e368">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v1/&#8203;{tenant_id}&#8203;/volumes/detail</div>
+                           <div class="col-md-5">
+                              <p>Lists details for volumes that the
+                                 tenant who submits the request can access.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e368" data-toggle="collapse" id="detail-d69e368-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e368">
+                           <div class="col-md-12">
+                              <div></div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>200</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><select class="example-select form-control">
+                                       <option data-target="#resp-json-d69e368" selected="selected" value="json">JSON Response</option>
+                                       <option data-target="#resp-xml-d69e368" value="xml">XML Response</option></select></div>
+                              </div>
+                              <div class="tab-content">
+                                 <div class="tab-pane example active" id="resp-json-d69e368">
+                                    <div class="example">
+                                       <pre>{
+   "volumes":[
+      {
+         "status":"available",
+         "attachments":[
+
+         ],
+         "links":[
+            {
+               "href":"http://localhost:8776/v2/0c2eba2c5af04d3f9e9d0d410b371fde/volumes/45baf976-c20a-4894-a7c3-c94b7376bf55",
+               "rel":"self"
+            },
+            {
+               "href":"http://localhost:8776/0c2eba2c5af04d3f9e9d0d410b371fde/volumes/45baf976-c20a-4894-a7c3-c94b7376bf55",
+               "rel":"bookmark"
+            }
+         ],
+         "availability_zone":"nova",
+         "host":"ip-10-168-107-25",
+         "source_volid":null,
+         "snapshot_id":null,
+         "id":"45baf976-c20a-4894-a7c3-c94b7376bf55",
+         "description":"Another volume.",
+         "name":"vol-004",
+         "created_at":"2013-02-25T06:36:28.000000",
+         "volume_type":"None",
+         "tenant_id":"0c2eba2c5af04d3f9e9d0d410b371fde",
+         "size":1,
+         "metadata":{
+            "contents":"junk"
+         }
+      },
+      {
+         "status":"available",
+         "attachments":[
+
+         ],
+         "links":[
+            {
+               "href":"http://localhost:8776/v2/0c2eba2c5af04d3f9e9d0d410b371fde/volumes/5aa119a8-d25b-45a7-8d1b-88e127885635",
+               "rel":"self"
+            },
+            {
+               "href":"http://localhost:8776/0c2eba2c5af04d3f9e9d0d410b371fde/volumes/5aa119a8-d25b-45a7-8d1b-88e127885635",
+               "rel":"bookmark"
+            }
+         ],
+         "availability_zone":"nova",
+         "host":"ip-10-168-107-25",
+         "source_volid":null,
+         "snapshot_id":null,
+         "id":"5aa119a8-d25b-45a7-8d1b-88e127885635",
+         "description":"This is yet, another volume.",
+         "name":"vol-003",
+         "created_at":"2013-02-25T02:40:21.000000",
+         "volume_type":"None",
+         "tenant_id":"0c2eba2c5af04d3f9e9d0d410b371fde",
+         "size":1,
+         "metadata":{
+            "contents":"not junk"
+         }
+      }
+   ]
+}</pre>
+                                       </div>
+                                 </div>
+                                 <div class="tab-pane example" id="resp-xml-d69e368">
+                                    <div class="example">
+                                       <pre>&lt;?xml version='1.0' encoding='UTF-8'?&gt;
+&lt;volumes xmlns="http://docs.rackspace.com/volume/api/v1"&gt;
+    &lt;volume xmlns="http://docs.rackspace.com/volume/api/v1"
+        status="available" name="vol-004" availability_zone="nova"
+        created_at="2013-02-25 06:36:28" description="Another volume."
+        volume_type="None" source_volid="None" snapshot_id="None"
+        id="45baf976-c20a-4894-a7c3-c94b7376bf55" size="1"
+        tenant_id="0c2eba2c5af04d3f9e9d0d410b371fde"
+        host="ip-10-168-107-25"&gt;
+        &lt;attachments/&gt;
+        &lt;metadata&gt;
+            &lt;meta key="contents"&gt;junk&lt;/meta&gt;
+        &lt;/metadata&gt;
+    &lt;/volume&gt;
+    &lt;volume status="available" name="vol-003" availability_zone="nova"
+        created_at="2013-02-25 02:40:21"
+        description="This is yet, another volume." volume_type="None"
+        source_volid="None" snapshot_id="None"
+        id="5aa119a8-d25b-45a7-8d1b-88e127885635" size="1"
+        tenant_id="0c2eba2c5af04d3f9e9d0d410b371fde"
+        host="ip-10-168-107-25"&gt;
+        &lt;attachments/&gt;
+        &lt;metadata&gt;
+            &lt;meta key="contents"&gt;not junk&lt;/meta&gt;
+        &lt;/metadata&gt;
+    &lt;/volume&gt;
+&lt;/volumes&gt;
+</pre>
+                                       </div>
+                                 </div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e405">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v1/&#8203;{tenant_id}&#8203;/volumes/&#8203;{volume_id}&#8203;</div>
+                           <div class="col-md-5">
+                              <p>Shows volume details.</p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e405" data-toggle="collapse" id="detail-d69e405-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e405">
+                           <div class="col-md-12">
+                              <div></div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>200</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><select class="example-select form-control">
+                                       <option data-target="#resp-json-d69e405" selected="selected" value="json">JSON Response</option>
+                                       <option data-target="#resp-xml-d69e405" value="xml">XML Response</option></select></div>
+                              </div>
+                              <div class="tab-content">
+                                 <div class="tab-pane example active" id="resp-json-d69e405">
+                                    <div class="example">
+                                       <pre>{
+   "volume":{
+      "status":"available",
+      "display_name":"vol-001",
+      "attachments":[
+
+      ],
+      "availability_zone":"nova",
+      "bootable":"false",
+      "created_at":"2012-02-14T20:53:07Z",
+      "display_description":"Another volume.",
+      "volume_type":"SATA",
+      "snapshot_id":null,
+      "source_volid":"e3611474-589b-46b7-9bdf-5555e2e4999b",
+      "metadata":{
+
+      },
+      "id":"521752a6-acf6-4b2d-bc7a-119f9148cd8c",
+      "size":100
+   }
+}</pre>
+                                       </div>
+                                 </div>
+                                 <div class="tab-pane example" id="resp-xml-d69e405">
+                                    <div class="example">
+                                       <pre>&lt;?xml version='1.0' encoding='UTF-8'?&gt;
+&lt;volume xmlns="http:'//docs.rackspace.com/volume/api/v1"
+        status="available" display_name="vol-001" attachments=""
+        availability_zone="nova" bootable="false"
+        created_at="2012-02-14T20:53:07Z"
+        display_description="Another volume." volume_type="SATA"
+        snapshot_id="null"
+        source_volid="e3611474-589b-46b7-9bdf-5555e2e4999b"
+        metadata="" id="521752a6-acf6-4b2d-bc7a-119f9148cd8c"
+        size="100"/&gt;
+</pre>
+                                       </div>
+                                 </div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e440">
+                           <div class="col-md-1"><span class="label label-success">PUT</span></div>
+                           <div class="col-md-5">v1/&#8203;{tenant_id}&#8203;/volumes/&#8203;{volume_id}&#8203;</div>
+                           <div class="col-md-5">
+                              <p>Updates the name and description
+                                 for a volume.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e440" data-toggle="collapse" id="detail-d69e440-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e440">
+                           <div class="col-md-12">
+                              <div></div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>200</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"><b>Request parameters</b><table class="table table-bordered table-striped">
+                                       <thead>
+                                          <tr>
+                                             <th>Parameter</th>
+                                             <th>Style</th>
+                                             <th>Type</th>
+                                             <th>Description</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          <tr>
+                                             <td>display_description (Optional)</td>
+                                             <td>plain</td>
+                                             <td>string</td>
+                                             <td>
+                                                
+                                                <p>A description of the
+                                                   volume.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>display_name (Optional)</td>
+                                             <td>plain</td>
+                                             <td>string</td>
+                                             <td>
+                                                
+                                                <p>The name of the
+                                                   volume.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                       </tbody>
+                                    </table>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><select class="example-select form-control">
+                                       <option data-target="#req-json-d69e440" selected="selected" value="json">JSON Request</option>
+                                       <option data-target="#req-xml-d69e440" value="xml">XML Request</option></select></div>
+                              </div>
+                              <div class="tab-content">
+                                 <div class="tab-pane example active" id="req-json-d69e440">
+                                    <div class="example">
+                                       <pre>{
+   "volume":{
+      "display_name":"new name",
+      "display_description":"new description"
+   }
+}</pre>
+                                       </div>
+                                 </div>
+                                 <div class="tab-pane example" id="req-xml-d69e440">
+                                    <div class="example">
+                                       <pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;volume xmlns="" display_description="New Description"
+        display_name="New Name"/&gt;</pre>
+                                       </div>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><select class="example-select form-control">
+                                       <option data-target="#resp-json-d69e440" selected="selected" value="json">JSON Response</option>
+                                       <option data-target="#resp-xml-d69e440" value="xml">XML Response</option></select></div>
+                              </div>
+                              <div class="tab-content">
+                                 <div class="tab-pane example active" id="resp-json-d69e440">
+                                    <div class="example">
+                                       <pre>{
+   "volume":{
+      "status":"in-use",
+      "display_name":"new name",
+      "attachments":[
+
+      ],
+      "availability_zone":"nova",
+      "bootable":"false",
+      "created_at":"2012-10-23T17:12:40.000000",
+      "display_description":"new description",
+      "volume_type":"SATA",
+      "snapshot_id":null,
+      "source_volid":null,
+      "metadata":{
+
+      },
+      "id":"5e9c00de-60b3-48de-ae58-0a07ec842d51",
+      "size":100
+   }
+}</pre>
+                                       </div>
+                                 </div>
+                                 <div class="tab-pane example" id="resp-xml-d69e440">
+                                    <div class="example">
+                                       <pre>&lt;?xml version='1.0' encoding='UTF-8'?&gt;
+&lt;volume xmlns:atom="http://www.w3.org/2005/Atom"
+        xmlns="http://docs.openstack.org/volume/api/v1"
+        status="available" display_name="New Name"
+        availability_zone="nova" created_at="2013-07-25 21:53:58"
+        display_description="New Description" volume_type="SATA"
+        snapshot_id="null" source_volid="null"
+        id="82c9971b-3953-4ca7-b3d4-e671c71d6335" size="2"&gt;
+        &lt;attachments/&gt;
+        &lt;metadata/&gt;
+&lt;/volume&gt;
+</pre>
+                                       </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e520">
+                           <div class="col-md-1"><span class="label label-success">DELETE</span></div>
+                           <div class="col-md-5">v1/&#8203;{tenant_id}&#8203;/volumes/&#8203;{volume_id}&#8203;</div>
+                           <div class="col-md-5">
+                              <p>Deletes a volume.</p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e520" data-toggle="collapse" id="detail-d69e520-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e520">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>Due to a limitation in the OpenStack source, it is
+                                    not currently (October, 2012) possible to delete a
+                                    volume are you create a snapshot from it.
+                                 </p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>202</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body and does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  
+                  <div id="volume_types">
+                     <div class="subhead">
+                        <h3>Volume types<a class="headerlink" href="#volume_types" title="Permalink to this headline"><span class="glyphicon glyphicon-link"></span></a></h3>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e541">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v1/&#8203;{tenant_id}&#8203;/types</div>
+                           <div class="col-md-5">
+                              <p>Lists volume types.</p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e541" data-toggle="collapse" id="detail-d69e541-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e541">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>Note that the SATA and SSD storage types are
+                                    currently supported. SATA is the standard performance
+                                    storage option and SSD is the high performance
+                                    option.
+                                 </p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>200</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><select class="example-select form-control">
+                                       <option data-target="#resp-json-d69e541" selected="selected" value="json">JSON Response</option>
+                                       <option data-target="#resp-xml-d69e541" value="xml">XML Response</option></select></div>
+                              </div>
+                              <div class="tab-content">
+                                 <div class="tab-pane example active" id="resp-json-d69e541">
+                                    <div class="example">
+                                       <pre>{
+   "volume_types":[
+      {
+         "id":1,
+         "name":"SATA",
+         "extra_specs":{
+
+         }
+      },
+      {
+         "id":2,
+         "name":"SSD",
+         "extra_specs":{
+
+         }
+      }
+   ]
+}</pre>
+                                       </div>
+                                 </div>
+                                 <div class="tab-pane example" id="resp-xml-d69e541">
+                                    <div class="example">
+                                       <pre>&lt;?xml version='1.0' encoding='UTF-8'?&gt;
+&lt;volume_types xmlns="http://docs.rackspace.com/volume/api/v1"&gt;&gt;
+        &lt;volume_type id="1" name="SATA"&gt;
+        &lt;extra_specs/&gt;
+    &lt;/volume_type&gt;
+    &lt;volume_type id="2" name="SSD"&gt;
+        &lt;extra_specs/&gt;
+    &lt;/volume_type&gt;
+&lt;/volume_types&gt;
+</pre>
+                                       </div>
+                                 </div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e581">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v1/&#8203;{tenant_id}&#8203;/types/&#8203;{volume_type_id}&#8203;</div>
+                           <div class="col-md-5">
+                              <p>Show volume type details.</p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e581" data-toggle="collapse" id="detail-d69e581-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e581">
+                           <div class="col-md-12">
+                              <div></div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>200</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><select class="example-select form-control">
+                                       <option data-target="#resp-json-d69e581" selected="selected" value="json">JSON Response</option>
+                                       <option data-target="#resp-xml-d69e581" value="xml">XML Response</option></select></div>
+                              </div>
+                              <div class="tab-content">
+                                 <div class="tab-pane example active" id="resp-json-d69e581">
+                                    <div class="example">
+                                       <pre>{
+   "volume_type":{
+      "id":"1",
+      "name":"SATA",
+      "extra_specs":{
+
+      }
+   }
+}</pre>
+                                       </div>
+                                 </div>
+                                 <div class="tab-pane example" id="resp-xml-d69e581">
+                                    <div class="example">
+                                       <pre>&lt;?xml version='1.0' encoding='UTF-8'?&gt;
+&lt;volume_type xmlns="http://docs.rackspace.com/volume/api/v1" id="1"
+    name="SATA"&gt;
+    &lt;extra_specs/&gt;
+&lt;/volume_type&gt;
+</pre>
+                                       </div>
+                                 </div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body.</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  
+                  <div id="snapshots">
+                     <div class="subhead">
+                        <h3>Snapshots<a class="headerlink" href="#snapshots" title="Permalink to this headline"><span class="glyphicon glyphicon-link"></span></a></h3>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e624">
+                           <div class="col-md-1"><span class="label label-success">POST</span></div>
+                           <div class="col-md-5">v1/&#8203;{tenant_id}&#8203;/snapshots</div>
+                           <div class="col-md-5">
+                              <p>Creates a snapshot.</p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e624" data-toggle="collapse" id="detail-d69e624-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e624">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>A snapshot is a point-in-time copy of the volume.
+                                    You must flush all writes to the volume before you
+                                    create a snapshot. To do so, either un-mount any file
+                                    systems on the volume or detach the volume.
+                                 </p>
+                                 <p>Snapshots are incremental, so each time that you
+                                    create a snapshot, the incremental changes for the new
+                                    snapshot are appended to the previous snapshot, which
+                                    is still available. Note that you can create a volume
+                                    from the snapshot if desired.
+                                 </p>
+                                 <p>The
+                                    <code>os-extended-snapshot-attributes:progress</code>
+                                    field in the response body shows the snapshot
+                                    progress.
+                                 </p>
+                                 <p>When the <code>POST</code> operation returns the 201
+                                    response code, the snapshot is complete.
+                                 </p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>201</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"><b>Request parameters</b><table class="table table-bordered table-striped">
+                                       <thead>
+                                          <tr>
+                                             <th>Parameter</th>
+                                             <th>Style</th>
+                                             <th>Type</th>
+                                             <th>Description</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          <tr>
+                                             <td>snapshot</td>
+                                             <td>plain</td>
+                                             <td>string</td>
+                                             <td>
+                                                
+                                                <p>A partial representation
+                                                   of a snapshot used in the creation
+                                                   process.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>volume_id</td>
+                                             <td>plain</td>
+                                             <td>string</td>
+                                             <td>
+                                                
+                                                <p>The ID of the volume to
+                                                   snapshot.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>force (Optional)</td>
+                                             <td>plain</td>
+                                             <td>string</td>
+                                             <td>
+                                                
+                                                <p>[True/False] Indicate
+                                                   whether to snapshot, even if the volume is
+                                                   attached. Default==False.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>display_name (Optional)</td>
+                                             <td>plain</td>
+                                             <td>string</td>
+                                             <td>
+                                                
+                                                <p>Name of the snapshot.
+                                                   Default==None.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>display_description (Optional)</td>
+                                             <td>plain</td>
+                                             <td>string</td>
+                                             <td>
+                                                
+                                                <p>Description of the
+                                                   snapshot. Default==None.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                       </tbody>
+                                    </table>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><select class="example-select form-control">
+                                       <option data-target="#req-json-d69e624" selected="selected" value="json">JSON Request</option>
+                                       <option data-target="#req-xml-d69e624" value="xml">XML Request</option></select></div>
+                              </div>
+                              <div class="tab-content">
+                                 <div class="tab-pane example active" id="req-json-d69e624">
+                                    <div class="example">
+                                       <pre>{
+   "snapshot":{
+      "display_name":"snap-001",
+      "display_description":"Daily backup",
+      "volume_id":"521752a6-acf6-4b2d-bc7a-119f9148cd8c",
+      "force":true
+   }
+}</pre>
+                                       </div>
+                                 </div>
+                                 <div class="tab-pane example" id="req-xml-d69e624">
+                                    <div class="example">
+                                       <pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;snapshot xmlns="http://docs.rackspace.com/volume/api/v1"
+          name="snap-001" display_name="snap-001"
+          display_description="Daily backup"
+          volume_id="521752a6-acf6-4b2d-bc7a-119f9148cd8c"
+          force="true"/&gt;
+</pre>
+                                       </div>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><select class="example-select form-control">
+                                       <option data-target="#resp-json-d69e624" selected="selected" value="json">JSON Response</option>
+                                       <option data-target="#resp-xml-d69e624" value="xml">XML Response</option></select></div>
+                              </div>
+                              <div class="tab-content">
+                                 <div class="tab-pane example active" id="resp-json-d69e624">
+                                    <div class="example">
+                                       <pre>{
+   "snapshot":{
+      "created_at":"2014-01-28T16:56:56.000000",
+      "display_description":"Daily backup",
+      "display_name":"snap-001",
+      "id":"3fbbcccf-d058-4502-8844-6feeffdf4cb5",
+      "metadata":{
+
+      },
+      "os-extended-snapshot-attributes:progress":"25.39%",
+      "os-extended-snapshot-attributes:project_id":"123456",
+      "size":100,
+      "status":"creating",
+      "volume_id":"521752a6-acf6-4b2d-bc7a-119f9148cd8c"
+   }
+}
+</pre>
+                                       </div>
+                                 </div>
+                                 <div class="tab-pane example" id="resp-xml-d69e624">
+                                    <div class="example">
+                                       <pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;snapshot xmlns="http://docs.rackspace.com/volume/api/v1"
+          createdAt="2014-01-28T16:56:56.000000"
+          display_name="snap-001" display_description="Daily backup"
+          id="3fbbcccf-d058-4502-8844-6feeffdf4cb5" metadata="null"
+          os-extended-snapshot-attributes:progress="25.39%"
+          os-extended-snapshot-attributes:project_id="696059"
+          size="100" status="creating"
+          volume_id="521752a6-acf6-4b2d-bc7a-119f9148cd8c"/&gt;
+</pre>
+                                       </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e750">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v1/&#8203;{tenant_id}&#8203;/snapshots</div>
+                           <div class="col-md-5">
+                              <p>Lists summary information for all
+                                 snapshots that the tenant who submits the request can
+                                 access.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e750" data-toggle="collapse" id="detail-d69e750-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e750">
+                           <div class="col-md-12">
+                              <div></div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>200</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><select class="example-select form-control">
+                                       <option data-target="#resp-json-d69e750" selected="selected" value="json">JSON Response</option>
+                                       <option data-target="#resp-xml-d69e750" value="xml">XML Response</option></select></div>
+                              </div>
+                              <div class="tab-content">
+                                 <div class="tab-pane example active" id="resp-json-d69e750">
+                                    <div class="example">
+                                       <pre>{
+   "snapshots":[
+      {
+         "id":"3fbbcccf-d058-4502-8844-6feeffdf4cb5",
+         "display_name":"snap-001",
+         "display_description":"Daily backup",
+         "volume_id":"521752a6-acf6-4b2d-bc7a-119f9148cd8c",
+         "status":"available",
+         "size":100,
+         "createdAt":"2012-02-29T03:50:07Z"
+      },
+      {
+         "id":"e479997c-650b-40a4-9dfe-77655818b0d2",
+         "display_name":"snap-002",
+         "display_description":"Weekly backup",
+         "volume_id":"76b8950a-8594-4e5b-8dce-0dfa9c696358",
+         "status":"available",
+         "size":100,
+         "createdAt":"2012-03-19T01:52:47Z"
+      }
+   ]
+}
+</pre>
+                                       </div>
+                                 </div>
+                                 <div class="tab-pane example" id="resp-xml-d69e750">
+                                    <div class="example">
+                                       <pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;snapshots xmlns="http://docs.rackspace.com/volume/api/v1"&gt;
+    &lt;snapshot id="3fbbcccf-d058-4502-8844-6feeffdf4cb5"
+        display_name="snap-001" display_description="Daily backup"
+        volume_id="521752a6-acf6-4b2d-bc7a-119f9148cd8c"
+        status="available" size="100" createdAt="2012-02-29T03:50:07Z"/&gt;
+    &lt;snapshot id="e479997c-650b-40a4-9dfe-77655818b0d2"
+        display_name="snap-002" dislay_description="Weekly backup"
+        volume_id="76b8950a-8594-4e5b-8dce-0dfa9c696358"
+        status="available" size="100" createdAt="2012-03-19T01:52:47Z"
+    /&gt;
+&lt;/snapshots&gt;
+</pre>
+                                       </div>
+                                 </div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e787">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v1/&#8203;{tenant_id}&#8203;/snapshots/detail</div>
+                           <div class="col-md-5">
+                              <p>Lists details for snapshots that
+                                 the tenant who submits the request can access.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e787" data-toggle="collapse" id="detail-d69e787-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e787">
+                           <div class="col-md-12">
+                              <div></div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>200</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><select class="example-select form-control">
+                                       <option data-target="#resp-json-d69e787" selected="selected" value="json">JSON Response</option>
+                                       <option data-target="#resp-xml-d69e787" value="xml">XML Response</option></select></div>
+                              </div>
+                              <div class="tab-content">
+                                 <div class="tab-pane example active" id="resp-json-d69e787">
+                                    <div class="example">
+                                       <pre>{
+   "snapshots":[
+      {
+         "status":"available",
+         "os-extended-snapshot-attributes:progress":"100%",
+         "description":"Daily backup",
+         "created_at":"2013-02-25T07:30:12.000000",
+         "metadata":{
+
+         },
+         "volume_id":"5aa119a8-d25b-45a7-8d1b-88e127885635",
+         "os-extended-snapshot-attributes:project_id":"0c2eba2c5af04d3f9e9d0d410b371fde",
+         "size":30,
+         "id":"43f20e0e-2c2c-4770-9d4e-c3d769ae5470",
+         "name":"snap-001"
+      },
+      {
+         "status":"available",
+         "os-extended-snapshot-attributes:progress":"100%",
+         "description":"Weekly backup",
+         "created_at":"2013-02-25T07:20:38.000000",
+         "metadata":{
+
+         },
+         "volume_id":"806092e3-7551-4fff-a005-49016f4943b1",
+         "os-extended-snapshot-attributes:project_id":"0c2eba2c5af04d3f9e9d0d410b371fde",
+         "size":1,
+         "id":"e820db06-58b5-439d-bac6-c01faa3f6499",
+         "name":"snap-002"
+      }
+   ]
+}</pre>
+                                       </div>
+                                 </div>
+                                 <div class="tab-pane example" id="resp-xml-d69e787">
+                                    <div class="example">
+                                       <pre>&lt;?xml version='1.0' encoding='UTF-8'?&gt;
+&lt;snapshots xmlns="http://docs.rackspace.com/volume/api/v1"&gt;
+    &lt;snapshot status="available" description="Daily backup"
+        created_at="2013-02-25 07:30:12"
+        volume_id="5aa119a8-d25b-45a7-8d1b-88e127885635" size="30"
+        id="43f20e0e-2c2c-4770-9d4e-c3d769ae5470" name="snap-001"
+        os-extended-snapshot-attributes:project_id="0c2eba2c5af04d3f9e9d0d410b371fde"
+        os-extended-snapshot-attributes:progress="100%"&gt;
+        &lt;metadata/&gt;
+    &lt;/snapshot&gt;
+    &lt;snapshot status="available" description="Weekly backup"
+        created_at="2013-02-25 07:20:38"
+        volume_id="806092e3-7551-4fff-a005-49016f4943b1" size="1"
+        id="e820db06-58b5-439d-bac6-c01faa3f6499" name="snap-002"
+        os-extended-snapshot-attributes:project_id="0c2eba2c5af04d3f9e9d0d410b371fde"
+        os-extended-snapshot-attributes:progress="100%"&gt;
+        &lt;metadata/&gt;
+    &lt;/snapshot&gt;
+&lt;/snapshots&gt;
+</pre>
+                                       </div>
+                                 </div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e824">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v1/&#8203;{tenant_id}&#8203;/snapshots/&#8203;{snapshot_id}&#8203;</div>
+                           <div class="col-md-5">
+                              <p>Shows snapshot details.</p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e824" data-toggle="collapse" id="detail-d69e824-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e824">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>The
+                                    <code>os-extended-snapshot-attributes:progress</code>
+                                    field in the response body shows the snapshot
+                                    progress.
+                                 </p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>200</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><select class="example-select form-control">
+                                       <option data-target="#resp-json-d69e824" selected="selected" value="json">JSON Response</option>
+                                       <option data-target="#resp-xml-d69e824" value="xml">XML Response</option></select></div>
+                              </div>
+                              <div class="tab-content">
+                                 <div class="tab-pane example active" id="resp-json-d69e824">
+                                    <div class="example">
+                                       <pre>{
+   "snapshot":{
+      "created_at":"2014-01-28T16:56:56.000000",
+      "display_description":"Daily backup",
+      "display_name":"snap-001",
+      "id":"3fbbcccf-d058-4502-8844-6feeffdf4cb5",
+      "metadata":{
+
+      },
+      "os-extended-snapshot-attributes:progress":"25.39%",
+      "os-extended-snapshot-attributes:project_id":"123456",
+      "size":100,
+      "status":"creating",
+      "volume_id":"521752a6-acf6-4b2d-bc7a-119f9148cd8c"
+   }
+}
+</pre>
+                                       </div>
+                                 </div>
+                                 <div class="tab-pane example" id="resp-xml-d69e824">
+                                    <div class="example">
+                                       <pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;snapshot xmlns="http://docs.rackspace.com/volume/api/v1"
+          createdAt="2014-01-28T16:56:56.000000"
+          display_name="snap-001" display_description="Daily backup"
+          id="3fbbcccf-d058-4502-8844-6feeffdf4cb5" metadata="null"
+          os-extended-snapshot-attributes:progress="25.39%"
+          os-extended-snapshot-attributes:project_id="696059"
+          size="100" status="creating"
+          volume_id="521752a6-acf6-4b2d-bc7a-119f9148cd8c"/&gt;
+</pre>
+                                       </div>
+                                 </div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e865">
+                           <div class="col-md-1"><span class="label label-success">DELETE</span></div>
+                           <div class="col-md-5">v1/&#8203;{tenant_id}&#8203;/snapshots/&#8203;{snapshot_id}&#8203;</div>
+                           <div class="col-md-5">
+                              <p>Deletes a snapshot.</p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e865" data-toggle="collapse" id="detail-d69e865-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e865">
+                           <div class="col-md-12">
+                              <div></div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>202</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body and does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-9" id="footer">
+               <p>The OpenStack project is provided under the Apache 2.0 license.</p>
+            </div>
+         </div>
+      </div><script src="apiref/js/jquery-1.10.2.min.js" type="text/javascript"></script><script src="apiref/js/bootstrap.min.js" type="text/javascript"></script><script src="apiref/js/api-site.js" type="text/javascript"></script><script type="text/javascript">
+                  var _gaq = _gaq || [];
+                  _gaq.push(['_setAccount', 'UA-17511903-1']);
+		  _gaq.push(['_setDomainName', '.openstack.org']);
+                  _gaq.push(['_trackPageview']);
+                  (function () {
+                    var ga = document.createElement('script');
+                    ga.type = 'text/javascript';
+                    ga.async = true;
+                    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                    var s = document.getElementsByTagName('script')[0];
+                    s.parentNode.insertBefore(ga, s);\
+                  })();
+                </script></body>
+</html>

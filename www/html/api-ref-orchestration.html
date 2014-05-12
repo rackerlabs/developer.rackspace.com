@@ -1,0 +1,1259 @@
+
+<!DOCTYPE html>
+<html lang="en"><head>
+   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+      <meta charset="UTF-8">
+         <title>developer.rackspace.com</title>
+         
+         <link href="developer.rackspace.com_files/css.css" rel="stylesheet" type="text/css"/>
+         
+         <link rel="stylesheet" href="developer.rackspace.com_files/reset.css"/>
+         <link rel="stylesheet" href="developer.rackspace.com_files/style.css"/>
+         <link href="apiref/css/bootstrap.min.css" rel="stylesheet"></link> 
+         <link href="apiref/css/main.css" rel="stylesheet" type="text/css"></link>      
+</head>
+   <body>
+      <!--  Top Nav Bar -->
+      <div class="header">
+         <div class="inner clearfix">
+            <a class="title" href="http://awesomemonster.com/devsite/index.html">Rackspace Developer Center</a>
+            <ul>
+               <li><a href="http://awesomemonster.com/devsite/main-sdks.html">SDKs</a></li>
+               <li><a href="http://awesomemonster.com/devsite/main-services.html">Services</a></li>
+               <li><a href="http://awesomemonster.com/devsite/blog-list.html">DevOps Blog</a></li>
+               <li><a href="#">Sign Up</a></li>
+               <li><form action="search">
+                  <input name="" id="" placeholder="Search our docs" type="search">
+                     <input name="" value="Search" type="submit">
+               </form></li>
+            </ul>
+         </div>
+      </div>   
+      
+      <div class="container">
+         <div class="rowtop">
+            <div class="col-md-3">
+               <div class="api-sidebar" data-offset-bottom="0" data-offset-top="1000" data-spy="affix">
+                  <ul class="nav api-sidenav">
+                     <li><a class="smallcapped" href="#orchestration-v1">Orchestration&nbsp;API&nbsp;v1</a></li>
+                     <li class="divider"></li>
+                     <li>
+                        <ul class="nav active">
+                           <li><a href="api-ref-auto-scale.html">Auto Scale
+                                 API</a></li>
+                           <li><a href="api-ref-backup.html">Cloud Backup
+                                 API</a></li>
+                           <li><a href="api-ref-big-data.html">Cloud Big Data
+                                 API</a></li>
+                           <li><a href="api-ref-blockstorage.html">Cloud Block
+                                 Storage API</a></li>
+                           <li><a href="api-ref-databases.html">Cloud
+                                 Databases API</a></li>
+                           <li><a href="api-ref-email-and-apps.html">Email
+                                 &amp; Apps API</a></li>
+                           <li><a href="api-ref-files.html">Cloud Files
+                                 API</a></li>
+                           <li><a href="api-ref-identity.html">Cloud Identity
+                                 API</a></li>
+                           <li><a href="api-ref-images.html">Cloud Images
+                                 API</a></li>
+                           <li><a href="api-ref-monitoring.html">Cloud
+                                 Monitoring API</a></li>
+                           <li><a href="api-ref-networks.html">Cloud Networks
+                                 API</a></li>
+                           <li><a href="api-ref-orchestration.html">Cloud
+                                 Orchestration API</a></li>
+                           <li><a href="api-ref-queues.html">Cloud Queues
+                                 API</a></li>
+                           <li><a href="api-ref.html">Cloud Servers
+                                 API</a></li>
+                           <li><a href="api-ref-servers-ext.html">Cloud
+                                 Servers API extensions</a></li>
+                        </ul>
+                     </li>
+                  </ul>
+                  <div class="row">
+                     <div class="col-md-7"><label class="sr-only" for="search-box">Search on this page</label><input class="form-control" id="search-box" placeholder="Search this page" type="text"></input></div>
+                     <div class="col-md-5"><button class="btn btn-default" id="search-btn">Search</button></div>
+                  </div>
+               </div>
+            </div>
+            <div class="col-md-9 api-documentation">
+               
+               
+               <div id="orchestration-v1">
+                  <div class="subhead">
+                     <h2>Orchestration API v1<a class="headerlink" href="#orchestration-v1" title="Permalink to this headline"><span class="glyphicon glyphicon-link"></span></a></h2>
+                  </div>
+                  
+                  
+                  <p>Use a template language to orchestrate Rackspace
+                     services.
+                  </p>
+                  
+                  <div id="stacks">
+                     <div class="subhead">
+                        <h3>Stacks<a class="headerlink" href="#stacks" title="Permalink to this headline"><span class="glyphicon glyphicon-link"></span></a></h3>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e153">
+                           <div class="col-md-1"><span class="label label-success">POST</span></div>
+                           <div class="col-md-5">v1/&#8203;{tenant_id}&#8203;/stacks</div>
+                           <div class="col-md-5">
+                              <p>Creates a stack.</p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e153" data-toggle="collapse" id="detail-d69e153-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e153">
+                           <div class="col-md-12">
+                              <div></div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>201</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"><b>Request parameters</b><table class="table table-bordered table-striped">
+                                       <thead>
+                                          <tr>
+                                             <th>Parameter</th>
+                                             <th>Style</th>
+                                             <th>Type</th>
+                                             <th>Description</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          <tr>
+                                             <td>stack_name</td>
+                                             <td>plain</td>
+                                             <td>String</td>
+                                             <td>
+                                                
+                                                <p>The name of the stack to create.</p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>template_url</td>
+                                             <td>plain</td>
+                                             <td>String</td>
+                                             <td>
+                                                
+                                                <p>The URL of the template to
+                                                   instantiate. This value is ignored if the
+                                                   template is supplied inline.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>template</td>
+                                             <td>plain</td>
+                                             <td>String</td>
+                                             <td>
+                                                
+                                                <p>A JSON template to
+                                                   instantiate. This value takes precedence over
+                                                   the template URL if both are
+                                                   supplied.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>environment</td>
+                                             <td>plain</td>
+                                             <td>String</td>
+                                             <td>
+                                                
+                                                <p>A JSON environment for the
+                                                   stack.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>files</td>
+                                             <td>plain</td>
+                                             <td>String</td>
+                                             <td>
+                                                
+                                                <p>A map of file names (Provider
+                                                   resource templates, as referenced in the
+                                                   environment) to JSON template
+                                                   bodies.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>param_name-n</td>
+                                             <td>plain</td>
+                                             <td>String</td>
+                                             <td>
+                                                
+                                                <p>User-defined parameter names
+                                                   to pass to the template.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>param_value-n</td>
+                                             <td>plain</td>
+                                             <td>String</td>
+                                             <td>
+                                                
+                                                <p>User-defined parameter values
+                                                   to pass to the template.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>timeout_mins</td>
+                                             <td>plain</td>
+                                             <td>String</td>
+                                             <td>
+                                                
+                                                <p>The timeout for stack creation
+                                                   in minutes.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>disable_rollback (Optional)</td>
+                                             <td>plain</td>
+                                             <td>String</td>
+                                             <td>
+                                                
+                                                <p>Controls whether a failure
+                                                   during stack creation causes deletion of all
+                                                   previously-created resources in that stack.
+                                                   The default is True; a failure does not cause
+                                                   deletions.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                       </tbody>
+                                    </table>
+                                 </div>
+                              </div>
+                              <div class="example">
+                                 <pre>{
+    "stack_name": "{stack_name}",
+    "template_url": "{template_url}",
+    "parameters": {
+        "param_name-1": "param_value-1",
+        "param_name-2": "param_value-2"
+    },
+    "timeout_mins": "{timeout_mins}"
+}
+</pre>
+                                 </div>
+                              <p class="nobody">This operation does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e260">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v1/&#8203;{tenant_id}&#8203;/stacks</div>
+                           <div class="col-md-5">
+                              <p>Lists active stacks.</p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e260" data-toggle="collapse" id="detail-d69e260-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e260">
+                           <div class="col-md-12">
+                              <div></div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>200</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"><b>Request parameters</b><table class="table table-bordered table-striped">
+                                       <thead>
+                                          <tr>
+                                             <th>Parameter</th>
+                                             <th>Style</th>
+                                             <th>Type</th>
+                                             <th>Description</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          <tr>
+                                             <td>status (Optional)</td>
+                                             <td>query</td>
+                                             <td>String</td>
+                                             <td>
+                                                
+                                                <p>Filters the stack list by the specified
+                                                   status. You can use this filter multiple times
+                                                   to filter by multiple statuses.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>name (Optional)</td>
+                                             <td>query</td>
+                                             <td>String</td>
+                                             <td>
+                                                
+                                                <p>Filters the stack list by the specified
+                                                   name.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>limit (Optional)</td>
+                                             <td>query</td>
+                                             <td>String</td>
+                                             <td>
+                                                
+                                                <p>Limits the number of stacks that appear on a
+                                                   page to this value. The typical pattern of
+                                                   limit and marker is to make an initial limited
+                                                   request and then to use the ID of the last
+                                                   stack from the response as the marker
+                                                   parameter in a subsequent limited
+                                                   request.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>marker (Optional)</td>
+                                             <td>query</td>
+                                             <td>String</td>
+                                             <td>
+                                                
+                                                <p>Specifies the ID of the last-seen stack. The
+                                                   typical pattern of limit and marker is to make
+                                                   an initial limited request and then to use the
+                                                   ID of the last stack from the response as the
+                                                   marker parameter in a subsequent limited
+                                                   request.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>sort_keys (Optional)</td>
+                                             <td>query</td>
+                                             <td>String</td>
+                                             <td>
+                                                
+                                                <p>Sorts the stack list by one of these
+                                                   attributes: <code>name</code>,
+                                                   <code>status</code>,
+                                                   <code>created_at</code>, or
+                                                   <code>updated_at</code>.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>sort_dir (Optional)</td>
+                                             <td>query</td>
+                                             <td>String</td>
+                                             <td>
+                                                
+                                                <p>The sort direction of the stack list. Either
+                                                   <code>asc</code> (ascending) or
+                                                   <code>desc</code> (descending).
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                       </tbody>
+                                    </table>
+                                 </div>
+                              </div>
+                              <p class="nobody">This operation does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e348">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v1/&#8203;{tenant_id}&#8203;/stacks/&#8203;{stack_name}&#8203;</div>
+                           <div class="col-md-5">
+                              <p>Finds the canonical URL for a
+                                 specified stack.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e348" data-toggle="collapse" id="detail-d69e348-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e348">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>Also works with verbs other than 
+                                    <command xmlns="http://docbook.org/ns/docbook">GET</command>, so you can
+                                    perform 
+                                    <command xmlns="http://docbook.org/ns/docbook">PUT</command> and 
+                                    <command xmlns="http://docbook.org/ns/docbook">DELETE</command> operations on a current
+                                    stack. Set your client to follow redirects. Note that
+                                    when redirecting, the request method should not
+                                    change, as defined in RFC2626. However, in many
+                                    clients the default behavior is to change the method
+                                    to 
+                                    <command xmlns="http://docbook.org/ns/docbook">GET</command> when you receive a 302 because this behavior
+                                    is ubiquitous in web browsers.
+                                 </p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>302</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body and does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e375">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v1/&#8203;{tenant_id}&#8203;/stacks/&#8203;{stack_name}&#8203;/&#8203;{stack_id}&#8203;</div>
+                           <div class="col-md-5">
+                              <p>Gets data about a specified
+                                 stack.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e375" data-toggle="collapse" id="detail-d69e375-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e375">
+                           <div class="col-md-12">
+                              <div></div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>200</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body and does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e385">
+                           <div class="col-md-1"><span class="label label-success">PUT</span></div>
+                           <div class="col-md-5">v1/&#8203;{tenant_id}&#8203;/stacks/&#8203;{stack_name}&#8203;/&#8203;{stack_id}&#8203;</div>
+                           <div class="col-md-5">
+                              <p>Updates a specified stack.</p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e385" data-toggle="collapse" id="detail-d69e385-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e385">
+                           <div class="col-md-12">
+                              <div></div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>202</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"><b>Request parameters</b><table class="table table-bordered table-striped">
+                                       <thead>
+                                          <tr>
+                                             <th>Parameter</th>
+                                             <th>Style</th>
+                                             <th>Type</th>
+                                             <th>Description</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          <tr>
+                                             <td>template_url</td>
+                                             <td>plain</td>
+                                             <td>String</td>
+                                             <td>
+                                                
+                                                <p>The URL of the template to
+                                                   instantiate. This value is ignored if the
+                                                   template is supplied inline.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>template</td>
+                                             <td>plain</td>
+                                             <td>String</td>
+                                             <td>
+                                                
+                                                <p>A JSON template to
+                                                   instantiate. This value takes precedence over
+                                                   the template URL if both are
+                                                   supplied.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>environment</td>
+                                             <td>plain</td>
+                                             <td>String</td>
+                                             <td>
+                                                
+                                                <p>A JSON environment for the
+                                                   stack.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>files</td>
+                                             <td>plain</td>
+                                             <td>String</td>
+                                             <td>
+                                                
+                                                <p>A map of file names (Provider
+                                                   resource templates, as referenced in the
+                                                   environment) to JSON template
+                                                   bodies.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>param_name-n</td>
+                                             <td>plain</td>
+                                             <td>String</td>
+                                             <td>
+                                                
+                                                <p>User-defined parameter names
+                                                   to pass to the template.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>param_value-n</td>
+                                             <td>plain</td>
+                                             <td>String</td>
+                                             <td>
+                                                
+                                                <p>User-defined parameter values
+                                                   to pass to the template.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>timeout_mins</td>
+                                             <td>plain</td>
+                                             <td>String</td>
+                                             <td>
+                                                
+                                                <p>The timeout for stack creation
+                                                   in minutes.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                       </tbody>
+                                    </table>
+                                 </div>
+                              </div>
+                              <div class="example">
+                                 <pre>{
+    "template_url": "{template_url}",
+    "parameters": {
+        "param_name-1": "param_value-1",
+        "param_name-2": "param_value-2"
+    },
+    "timeout_mins": "{timeout_mins}"
+}
+</pre>
+                                 </div>
+                              <p class="nobody">This operation does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e474">
+                           <div class="col-md-1"><span class="label label-success">DELETE</span></div>
+                           <div class="col-md-5">v1/&#8203;{tenant_id}&#8203;/stacks/&#8203;{stack_name}&#8203;/&#8203;{stack_id}&#8203;</div>
+                           <div class="col-md-5">
+                              <p>Deletes a specified stack.</p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e474" data-toggle="collapse" id="detail-d69e474-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e474">
+                           <div class="col-md-12">
+                              <div></div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>204</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body and does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  
+                  <div id="stack-actions">
+                     <div class="subhead">
+                        <h3>Stack actions<a class="headerlink" href="#stack-actions" title="Permalink to this headline"><span class="glyphicon glyphicon-link"></span></a></h3>
+                     </div>
+                     <p>Perform non-life cycle operations on the stack. Specify
+                        the action in the request body.
+                     </p>
+                     <div class="doc-entry">
+                        <div class="row d69e495">
+                           <div class="col-md-1"><span class="label label-success">POST</span></div>
+                           <div class="col-md-5">v1/&#8203;{tenant_id}&#8203;/stacks/&#8203;{stack_name}&#8203;/&#8203;{stack_id}&#8203;/actions</div>
+                           <div class="col-md-5">
+                              <p>Suspends a stack.</p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e495" data-toggle="collapse" id="detail-d69e495-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e495">
+                           <div class="col-md-12">
+                              <div></div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>201</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"><b>Request parameters</b><table class="table table-bordered table-striped">
+                                       <thead>
+                                          <tr>
+                                             <th>Parameter</th>
+                                             <th>Style</th>
+                                             <th>Type</th>
+                                             <th>Description</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          <tr>
+                                             <td>suspend</td>
+                                             <td>plain</td>
+                                             <td>String</td>
+                                             <td>
+                                                
+                                                <p>Specify the
+                                                   <code>suspend</code> action in the request
+                                                   body.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                       </tbody>
+                                    </table>
+                                 </div>
+                              </div>
+                              <div class="example">
+                                 <pre>{
+    "suspend": null
+}
+</pre>
+                                 </div>
+                              <p class="nobody">This operation does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e532">
+                           <div class="col-md-1"><span class="label label-success">POST</span></div>
+                           <div class="col-md-5">v1/&#8203;{tenant_id}&#8203;/stacks/&#8203;{stack_name}&#8203;/&#8203;{stack_id}&#8203;/actions</div>
+                           <div class="col-md-5">
+                              <p>Resumes a suspended stack.</p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e532" data-toggle="collapse" id="detail-d69e532-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e532">
+                           <div class="col-md-12">
+                              <div></div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>201</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"><b>Request parameters</b><table class="table table-bordered table-striped">
+                                       <thead>
+                                          <tr>
+                                             <th>Parameter</th>
+                                             <th>Style</th>
+                                             <th>Type</th>
+                                             <th>Description</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          <tr>
+                                             <td>resume</td>
+                                             <td>plain</td>
+                                             <td>String</td>
+                                             <td>
+                                                
+                                                <p>Specify the
+                                                   <code>resume</code> action in the request
+                                                   body.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                       </tbody>
+                                    </table>
+                                 </div>
+                              </div>
+                              <div class="example">
+                                 <pre>{
+    "resume": null
+}
+</pre>
+                                 </div>
+                              <p class="nobody">This operation does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  
+                  <div id="stack-resources">
+                     <div class="subhead">
+                        <h3>Stack resources<a class="headerlink" href="#stack-resources" title="Permalink to this headline"><span class="glyphicon glyphicon-link"></span></a></h3>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e577">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v1/&#8203;{tenant_id}&#8203;/stacks/&#8203;{stack_name}&#8203;/resources</div>
+                           <div class="col-md-5">
+                              <p>Finds the canonical URL for the
+                                 resource list of a specified stack.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e577" data-toggle="collapse" id="detail-d69e577-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e577">
+                           <div class="col-md-12">
+                              <div></div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>302</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body and does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e589">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v1/&#8203;{tenant_id}&#8203;/stacks/&#8203;{stack_name}&#8203;/&#8203;{stack_id}&#8203;/resources</div>
+                           <div class="col-md-5">
+                              <p>Lists resources in a stack.</p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e589" data-toggle="collapse" id="detail-d69e589-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e589">
+                           <div class="col-md-12">
+                              <div></div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>200</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body and does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e601">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v1/&#8203;{tenant_id}&#8203;/stacks/&#8203;{stack_name}&#8203;/&#8203;{stack_id}&#8203;/resources/&#8203;{resource_name}&#8203;</div>
+                           <div class="col-md-5">
+                              <p>Gets data for a specified
+                                 resource.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e601" data-toggle="collapse" id="detail-d69e601-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e601">
+                           <div class="col-md-12">
+                              <div></div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>200</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body and does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e613">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v1/&#8203;{tenant_id}&#8203;/stacks/&#8203;{stack_name}&#8203;/&#8203;{stack_id}&#8203;/resources/&#8203;{resource_name}&#8203;/metadata</div>
+                           <div class="col-md-5">
+                              <p>Gets metadata for a specified
+                                 resource.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e613" data-toggle="collapse" id="detail-d69e613-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e613">
+                           <div class="col-md-12">
+                              <div></div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>200</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body and does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e626">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v1/&#8203;{tenant_id}&#8203;/resource_types</div>
+                           <div class="col-md-5">
+                              <p>Lists the supported template
+                                 resource types.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e626" data-toggle="collapse" id="detail-d69e626-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e626">
+                           <div class="col-md-12">
+                              <div></div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>200</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body and does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e638">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v1/&#8203;{tenant_id}&#8203;/resource_types/&#8203;{type_name}&#8203;</div>
+                           <div class="col-md-5">
+                              <p>Gets the interface schema for a
+                                 specified resource type.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e638" data-toggle="collapse" id="detail-d69e638-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e638">
+                           <div class="col-md-12">
+                              <div></div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>200</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <div class="example">
+                                 <pre>{
+  "attributes": {
+    "an_attribute": {
+      "description": "An attribute description ."
+    }
+  },
+  "properties": {
+    "a_property": {
+      "update_allowed": false,
+      "required": true,
+      "type": "string",
+      "description": "A resource description."
+    }
+  },
+  "resource_type": "OS::Heat::AResourceName"
+}
+
+</pre>
+                                 </div>
+                              <p class="nobody">This operation does not require a request body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e663">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v1/&#8203;{tenant_id}&#8203;/resource_types/&#8203;{type_name}&#8203;/template</div>
+                           <div class="col-md-5">
+                              <p>Gets a template representation for
+                                 a specified resource type.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e663" data-toggle="collapse" id="detail-d69e663-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e663">
+                           <div class="col-md-12">
+                              <div></div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>200</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body and does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  
+                  <div id="stack-events">
+                     <div class="subhead">
+                        <h3>Stack events<a class="headerlink" href="#stack-events" title="Permalink to this headline"><span class="glyphicon glyphicon-link"></span></a></h3>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e682">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v1/&#8203;{tenant_id}&#8203;/stacks/&#8203;{stack_name}&#8203;/events</div>
+                           <div class="col-md-5">
+                              <p>Finds the canonical URL for the
+                                 event list of a specified stack.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e682" data-toggle="collapse" id="detail-d69e682-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e682">
+                           <div class="col-md-12">
+                              <div></div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>302</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body and does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e694">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v1/&#8203;{tenant_id}&#8203;/stacks/&#8203;{stack_name}&#8203;/&#8203;{stack_id}&#8203;/events</div>
+                           <div class="col-md-5">
+                              <p>Lists events for a specified
+                                 stack.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e694" data-toggle="collapse" id="detail-d69e694-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e694">
+                           <div class="col-md-12">
+                              <div></div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>200</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body and does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e706">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v1/&#8203;{tenant_id}&#8203;/stacks/&#8203;{stack_name}&#8203;/&#8203;{stack_id}&#8203;/resources/&#8203;{resource_name}&#8203;/events</div>
+                           <div class="col-md-5">
+                              <p>Lists events for a specified stack
+                                 resource.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e706" data-toggle="collapse" id="detail-d69e706-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e706">
+                           <div class="col-md-12">
+                              <div></div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>200</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body and does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e718">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v1/&#8203;{tenant_id}&#8203;/stacks/&#8203;{stack_name}&#8203;/&#8203;{stack_id}&#8203;/resources/&#8203;{resource_name}&#8203;/events/&#8203;{event_id}&#8203;</div>
+                           <div class="col-md-5">
+                              <p>Gets data about a specified
+                                 event.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e718" data-toggle="collapse" id="detail-d69e718-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e718">
+                           <div class="col-md-12">
+                              <div></div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>200</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body and does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  
+                  <div id="stack-templates">
+                     <div class="subhead">
+                        <h3>Templates<a class="headerlink" href="#stack-templates" title="Permalink to this headline"><span class="glyphicon glyphicon-link"></span></a></h3>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e736">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v1/&#8203;{tenant_id}&#8203;/stacks/&#8203;{stack_name}&#8203;/&#8203;{stack_id}&#8203;/template</div>
+                           <div class="col-md-5">
+                              <p>Gets a template for a specified
+                                 stack.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e736" data-toggle="collapse" id="detail-d69e736-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e736">
+                           <div class="col-md-12">
+                              <div></div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>200</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body and does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e748">
+                           <div class="col-md-1"><span class="label label-success">POST</span></div>
+                           <div class="col-md-5">v1/&#8203;{tenant_id}&#8203;/validate</div>
+                           <div class="col-md-5">
+                              <p>Validates a specified
+                                 template.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e748" data-toggle="collapse" id="detail-d69e748-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e748">
+                           <div class="col-md-12">
+                              <div></div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>200</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"><b>Request parameters</b><table class="table table-bordered table-striped">
+                                       <thead>
+                                          <tr>
+                                             <th>Parameter</th>
+                                             <th>Style</th>
+                                             <th>Type</th>
+                                             <th>Description</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          <tr>
+                                             <td>template_url</td>
+                                             <td>plain</td>
+                                             <td>String</td>
+                                             <td>
+                                                
+                                                <p>The URL of the template to
+                                                   instantiate. This value is ignored if the
+                                                   template is supplied inline.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>template</td>
+                                             <td>plain</td>
+                                             <td>String</td>
+                                             <td>
+                                                
+                                                <p>A JSON template to
+                                                   instantiate. This value takes precedence over
+                                                   the template URL if both are
+                                                   supplied.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                       </tbody>
+                                    </table>
+                                 </div>
+                              </div>
+                              <div class="example">
+                                 <pre>{
+    "template_url": "{template_url}"
+}
+</pre>
+                                 </div>
+                              <p class="nobody">This operation does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  
+                  <div id="build-info">
+                     <div class="subhead">
+                        <h3>Build Info<a class="headerlink" href="#build-info" title="Permalink to this headline"><span class="glyphicon glyphicon-link"></span></a></h3>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e799">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v1/&#8203;{tenant_id}&#8203;/build_info</div>
+                           <div class="col-md-5">
+                              <p>Shows build information for the
+                                 heat deployment.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e799" data-toggle="collapse" id="detail-d69e799-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e799">
+                           <div class="col-md-12">
+                              <div></div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>200</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <div class="example">
+                                 <pre>{
+    "api": {
+      "revision": "{api_build_revision}"
+    },
+    "engine": {
+      "revision": "{engine_build_revision}"
+    }
+}
+</pre>
+                                 </div>
+                              <p class="nobody">This operation does not require a request body.</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-9" id="footer">
+               <p>The OpenStack project is provided under the Apache 2.0 license.</p>
+            </div>
+         </div>
+      </div><script src="apiref/js/jquery-1.10.2.min.js" type="text/javascript"></script><script src="apiref/js/bootstrap.min.js" type="text/javascript"></script><script src="apiref/js/api-site.js" type="text/javascript"></script><script type="text/javascript">
+                  var _gaq = _gaq || [];
+                  _gaq.push(['_setAccount', 'UA-17511903-1']);
+		  _gaq.push(['_setDomainName', '.openstack.org']);
+                  _gaq.push(['_trackPageview']);
+                  (function () {
+                    var ga = document.createElement('script');
+                    ga.type = 'text/javascript';
+                    ga.async = true;
+                    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                    var s = document.getElementsByTagName('script')[0];
+                    s.parentNode.insertBefore(ga, s);\
+                  })();
+                </script></body>
+</html>

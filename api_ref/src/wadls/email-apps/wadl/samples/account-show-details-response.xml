@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<customer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns="urn:xml:customer">
+    <name>API Customer 17</name>
+    <accountNumber>460182</accountNumber>
+    <referenceNumber>49</referenceNumber>
+</customer>

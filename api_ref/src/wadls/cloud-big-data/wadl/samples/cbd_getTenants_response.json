@@ -1,0 +1,12 @@
+{
+  "tenants": [
+    {
+      "tenantId": 1234
+    },
+
+    {
+      "tenantId": 3456
+    }
+
+  ]
+}   

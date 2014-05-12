@@ -1,0 +1,723 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+                    Flattened from: http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/xsd/api-common.xsd-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:rax="http://docs.rackspace.com/api"
+            xmlns:db="http://docbook.org/ns/docbook"
+            xmlns:csapi="http://docs.openstack.org/compute/api/v1.1"
+            xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+            xmlns:atom="http://www.w3.org/2005/Atom"
+            xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
+            xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+            xmlns:ext="http://www.w3.org/2001/XMLSchema"
+            xmlns:html="http://www.w3.org/1999/xhtml"
+            xmlns:limits="http://docs.openstack.org/common/api/v1.0"
+            xmlns:xs="http://www.w3.org/2001/XMLSchema"
+            xmlns:vers="http://docs.openstack.org/common/api/v1.0"
+            elementFormDefault="qualified"
+            attributeFormDefault="unqualified"
+            targetNamespace="http://docs.openstack.org/common/api/v1.0">
+   <annotation xmlns="http://www.w3.org/2001/XMLSchema">
+        <xsd:appinfo xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <xsdxt:title>Open Stack Common API Schema Types 1.0</xsdxt:title>
+            <xsdxt:link rev="index" href="extensions.xsd"/>
+            <xsdxt:link rev="index" href="limits.xsd"/>
+            <xsdxt:link rev="index" href="version.xsd"/>
+        </xsd:appinfo>
+        <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <p>
+                This is the main index XML Schema document
+                for Common API Schema Types Version 1.0.
+            </p>
+        </xsd:documentation>
+    </annotation>
+   <!-- (C) 2011-2013 OpenStack Foundation, All Rights Reserved -->
+   <xsd:annotation>
+        <xsd:appinfo xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <xsdxt:title>Extensions</xsdxt:title>
+            <xsdxt:link rel="index" href="api-common.xsd"/>
+        </xsd:appinfo>
+        <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <p>This schema file defines types that are related to API
+                extensions.</p>
+        </xsd:documentation>
+    </xsd:annotation>
+   <!-- Import ATOM specific schema definitions -->
+   <!-- (C) 2011-2014 OpenStack Foundation, All Rights Reserved -->
+   <xs:annotation>
+        <xs:appinfo xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <xsdxt:title>Limits</xsdxt:title>
+            <xsdxt:link rel="index" href="api-common.xsd"/>
+        </xs:appinfo>
+        <xs:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <p> This schema file defines types related to
+                preconfigured limits. Limits are used to manage the
+                capacity of the API and to prevent abuse. The API
+                defines two kinds of limits <a href="#type_RateLimit" title="See definition of a RateLimit">RateLimits</a> and <a href="#type_AbsoluteLimit"
+               title="See                 definition of an                 AbsoluteLimit">AbsoluteLimits</a>. RateLimits are thresholds
+                that are reset after a certain amount of time passes.
+                Absolute limits are fixed. </p>
+        </xs:documentation>
+    </xs:annotation>
+   <!-- Live limit definitions -->
+   <!-- Enumeration and SimpleType definitions -->
+   <!-- (C) 2011-2014 OpenStack Foundation, All Rights Reserved -->
+   <xs:annotation>
+        <xs:appinfo xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <xsdxt:title>Version Types</xsdxt:title>
+            <xsdxt:link rel="index" href="api-common.xsd"/>
+        </xs:appinfo>
+        <xs:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <p> This schema file defines all types related to
+                versioning. </p>
+        </xs:documentation>
+    </xs:annotation>
+   <!-- Import ATOM specific schema definitions -->
+   <xs:import namespace="http://www.w3.org/2005/Atom"
+              schemaLocation="os-instance-actions-xsd-3.xsd"/>
+   <!-- Multiple choices -->
+   <!-- Versioning -->
+   <!-- <xs:element name="version" type="vers:VersionChoice" vc:minVersion="1.0" vc:maxVersion="1.1">
+        <xs:annotation>
+            <xs:documentation
+                xml:lang="EN"
+                xmlns="http://www.w3.org/1999/xhtml">
+                <p>
+                    This element provides detailed meta information
+                    regarding the status of the current API version.
+                    This is the XSD 1.0 compatible element definition.
+                </p>
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element> -->
+   <!-- Types -->
+   <xsd:element name="extensions" type="ext:Extensions">
+        <xsd:annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                <p>A list of supported extensions.</p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+   <xsd:element name="extension" type="ext:Extension">
+        <xsd:annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                <p>Details about a specified extension.</p>
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+   <xs:element name="limits" type="limits:Limits">
+        <xs:annotation>
+            <xs:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                <p> The limits element contains information on both
+                    rate and absolute limits. </p>
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+   <xs:element name="choices" type="vers:VersionChoiceList">
+        <xs:annotation>
+            <xs:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                <p> This element is returned when the version of the
+                    resource cannot be determined. The element
+                    provides a list of choices for the resource. </p>
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+   <xs:element name="versions" type="vers:VersionChoiceList">
+        <xs:annotation>
+            <xs:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                <p> Provides a list of supported versions. </p>
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+   <xs:element name="version" type="vers:VersionChoiceRoot" vc:minVersion="1.1">
+        <xs:annotation>
+            <xs:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                <p> This element provides detailed meta information
+                    regarding the status of the current API version.
+                    The description should include a pointer to both a
+                    human readable and a machine processable
+                    description of the API service. </p>
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+   <xsd:simpleType name="Alias">
+        <xsd:annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                <p>Vendor aliases are used to differentiate extensions
+                    in non-XML representations, HTTP
+                    headers, and URL path. An alias has a
+                    vendor prefix, a dash (-), and
+                    a short extension ID. For example,
+                        <code>RAX-PIE</code>.</p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="\w+\-\w+"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+   <xs:simpleType name="HttpMethod">
+        <xs:annotation>
+            <xs:documentation>
+                <html:p> The HttpMethod simple type defines a string
+                    enumeration of HTTP method verbs as outlined in <a href="http://www.ietf.org/rfc/rfc2616.txt">RFC2616</a> section 9. </html:p>
+            </xs:documentation>
+        </xs:annotation>
+
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="GET"/>
+            <xs:enumeration value="DELETE"/>
+            <xs:enumeration value="POST"/>
+            <xs:enumeration value="PUT"/>
+            <xs:enumeration value="HEAD"/>
+            <xs:enumeration value="OPTIONS"/>
+            <xs:enumeration value="CONNECT"/>
+            <xs:enumeration value="TRACE"/>
+
+            <xs:enumeration value="ALL"/>
+        </xs:restriction>
+    </xs:simpleType>
+   <xs:simpleType name="TimeUnit">
+        <xs:annotation>
+            <xs:documentation>
+                <html:p> The TimeUnit simple type defines a string
+                    enumeration of coarse time units that are be used
+                    to define the duration of time that a limited
+                    request will be unavailable for. </html:p>
+            </xs:documentation>
+        </xs:annotation>
+
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="SECOND"/>
+            <xs:enumeration value="MINUTE"/>
+            <xs:enumeration value="HOUR"/>
+            <xs:enumeration value="DAY"/>
+        </xs:restriction>
+    </xs:simpleType>
+   <xs:simpleType name="VersionStatus">
+        <xs:annotation>
+            <xs:documentation>
+                <html:p> The VersionStatus type describes a service's
+                    operational status. </html:p>
+            </xs:documentation>
+        </xs:annotation>
+
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="ALPHA">
+                <xs:annotation>
+                    <xs:documentation>
+                        <html:p> This is a new service the API. This
+                            API contract may be set, but the
+                            implementation may not be 100% compliant
+                            with it. Developers are encouraged to
+                            begin testing against an ALPHA version to
+                            provide feedback. </html:p>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="BETA">
+                <xs:annotation>
+                    <xs:documentation>
+                        <html:p> A status of BETA indicates that this
+                            version is a candidate for the next major
+                            release and may feature functionality not
+                            available in the current version.
+                            Developers are encouraged to test and
+                            begin the migration processes to a BETA
+                            version. Note that a BETA version is
+                            undergoing testing, it has not been
+                            officially released, and my not be stable.
+                        </html:p>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="CURRENT">
+                <xs:annotation>
+                    <xs:documentation>
+                        <html:p> The API version is stable and has
+                            been tested. Developers are encouraged to
+                            develop against this API version. The
+                            current released version of the API will
+                            always be marked as CURRENT. </html:p>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="DEPRECATED">
+                <xs:annotation>
+                    <xs:documentation>
+                        <html:p> A status of DEPRECATED indicates that
+                            a newer version of the API is available.
+                            Application developers are discouraged
+                            from using this version and should instead
+                            develop against the latest current version
+                            of the API. </html:p>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+   <xsd:complexType name="Extensions">
+        <xsd:annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                <p>A list of extensions.</p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="extension"
+                      type="ext:Extension"
+                      minOccurs="0"
+                      maxOccurs="unbounded"/>
+            <xsd:element vc:minVersion="1.1"
+                      ref="atom:link"
+                      minOccurs="0"
+                      maxOccurs="unbounded"/>
+            <xsd:any namespace="##other"
+                  processContents="lax"
+                  minOccurs="0"
+                  maxOccurs="unbounded"/>
+        </xsd:sequence>
+        <xsd:anyAttribute namespace="##other" processContents="lax"/>
+    </xsd:complexType>
+   <xsd:complexType name="Extension">
+        <xsd:annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                <p>Details about a specified extension.</p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="description" type="xsd:string" minOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                        <p>A short description of what the extension
+                            does.</p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element vc:minVersion="1.1"
+                      ref="atom:link"
+                      minOccurs="0"
+                      maxOccurs="unbounded"/>
+            <xsd:any namespace="##other"
+                  processContents="lax"
+                  minOccurs="0"
+                  maxOccurs="unbounded"/>
+        </xsd:sequence>
+        <xsd:attribute name="name" type="xsd:string" use="required">
+            <xsd:annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>A human readable extension name.</p>
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="namespace" type="xsd:anyURI" use="required">
+            <xsd:annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>Extension namespace that is used for XML
+                        representations.</p>
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="alias" type="ext:Alias" use="required">
+            <xsd:annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>A vendor prefix alias that is used for non-XML
+                        representations.</p>
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="updated" type="xsd:dateTime" use="optional">
+            <xsd:annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>The time when the extension was added or
+                        modified.</p>
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:anyAttribute namespace="##other" processContents="lax"/>
+        <xsd:assert vc:minVersion="1.1" test="atom:link[@rel='describedby']">
+            <xsd:annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>At least one atom link must have a describedby
+                        relation, which provides developer
+                        information for the extension.</p>
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:assert>
+    </xsd:complexType>
+   <xs:complexType name="Limits">
+        <xs:annotation>
+            <xs:documentation>
+                <html:p> A Limits type defines a collection of limits
+                </html:p>
+            </xs:documentation>
+        </xs:annotation>
+
+        <xs:sequence>
+            <xs:element name="rates"
+                     type="limits:RateLimitList"
+                     minOccurs="0"
+                     maxOccurs="1"/>
+            <xs:element name="absolute"
+                     type="limits:AbsoluteLimitList"
+                     minOccurs="0"
+                     maxOccurs="1"/>
+            <xs:any namespace="##other"
+                 processContents="lax"
+                 minOccurs="0"
+                 maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:anyAttribute namespace="##other" processContents="lax"/>
+    </xs:complexType>
+   <xs:complexType name="AbsoluteLimitList">
+        <xs:annotation>
+            <xs:documentation>
+                <html:p> An AbsoluteLimitList type defines a list of
+                    absolute limits </html:p>
+            </xs:documentation>
+        </xs:annotation>
+
+        <xs:sequence>
+            <xs:element name="limit"
+                     type="limits:AbsoluteLimit"
+                     minOccurs="1"
+                     maxOccurs="unbounded"/>
+            <xs:any namespace="##other"
+                 processContents="lax"
+                 minOccurs="0"
+                 maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:anyAttribute namespace="##other" processContents="lax"/>
+    </xs:complexType>
+   <xs:complexType name="RateLimitList">
+        <xs:annotation>
+            <xs:documentation>
+                <html:p> A RateLimitList type defines a list of
+                    resource scoped limit collections. </html:p>
+            </xs:documentation>
+        </xs:annotation>
+
+        <xs:sequence>
+            <xs:element name="rate"
+                     type="limits:ResourceRateLimits"
+                     minOccurs="1"
+                     maxOccurs="unbounded"/>
+            <xs:any namespace="##other"
+                 processContents="lax"
+                 minOccurs="0"
+                 maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:anyAttribute namespace="##other" processContents="lax"/>
+    </xs:complexType>
+   <xs:complexType name="ResourceRateLimits">
+        <xs:annotation>
+            <xs:documentation>
+                <html:p> A ResourceLimitCollection type represents a
+                    collection of limits that are scoped to a single
+                    resource variant. </html:p>
+            </xs:documentation>
+        </xs:annotation>
+
+        <xs:sequence>
+            <xs:element name="limit"
+                     type="limits:RateLimit"
+                     minOccurs="1"
+                     maxOccurs="unbounded"/>
+            <xs:any namespace="##other"
+                 processContents="lax"
+                 minOccurs="0"
+                 maxOccurs="unbounded"/>
+        </xs:sequence>
+
+        <xs:attribute name="uri" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    <html:p> The uri of a limit collection is a human
+                        readable string version of the regular
+                        expression matcher that is used to define the
+                        limit collection resource scope. </html:p>
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+
+        <xs:attribute name="regex" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    <html:p> A collection of limits are scoped to a
+                        resource by a regular expression. </html:p>
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:anyAttribute namespace="##other" processContents="lax"/>
+    </xs:complexType>
+   <xs:complexType name="AbsoluteLimit">
+        <xs:annotation>
+            <xs:documentation>
+                <html:p> Absolute limits are predefined fixed limits.
+                    We define each of these limits as a key/value
+                    pair. Please consult the API Specification for a
+                    list of absolute limits used by the system.
+                </html:p>
+            </xs:documentation>
+        </xs:annotation>
+
+        <xs:sequence>
+            <xs:any namespace="##other"
+                 processContents="lax"
+                 minOccurs="0"
+                 maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="name" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    <html:p> The name (or key) of the absolute limit.
+                    </html:p>
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+
+        <xs:attribute name="value" type="xs:int" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    <html:p> A value specifying the absolute limit.
+                        The name of the absolute limit determines the
+                        unit type. For example, the key maxIPGroups
+                        implies that the value is in terms of
+                        IPGroups. </html:p>
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:anyAttribute namespace="##other" processContents="lax"/>
+    </xs:complexType>
+   <xs:complexType name="RateLimit">
+        <xs:annotation>
+            <xs:documentation>
+                <html:p> A Rate Limit type defines the maximum number
+                    of requests that can be performed, the time
+                    interval that each limited request will be
+                    unavailable for, and, for convenience, the
+                    remaining number of requests remaining. This is
+                    done for every HttpMethod that is rate limited.
+                </html:p>
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:any namespace="##other"
+                 processContents="lax"
+                 minOccurs="0"
+                 maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="verb" type="limits:HttpMethod" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    <html:p> The verb of a Limit represents the
+                        HttpMethod that the Limit is scoped to.
+                    </html:p>
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+
+        <xs:attribute name="value" type="xs:int" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    <html:p> The value of a Limit represents maximum
+                        Number of requests that the rate limit will
+                        allow. </html:p>
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+
+        <xs:attribute name="remaining" type="xs:int" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    <html:p> The remaining number of requests that a
+                        user can make against the limited resource
+                        before being denied access. </html:p>
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+
+        <xs:attribute name="unit" type="limits:TimeUnit" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    <html:p> The unit of a Limit defines the duration
+                        of a limited request's unavailability.
+                    </html:p>
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+
+        <xs:attribute name="next-available" type="xs:dateTime" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    <html:p> The next-available attribute of a Limit
+                        tells the user when a limited request will
+                        become available for consumption. </html:p>
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:anyAttribute namespace="##other" processContents="lax"/>
+    </xs:complexType>
+   <xs:complexType name="VersionChoiceList">
+        <xs:annotation>
+            <xs:documentation>
+                <html:p> A version choice list outlines a collection
+                    of resources at various versions. </html:p>
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="version"
+                     type="vers:VersionChoice"
+                     minOccurs="1"
+                     maxOccurs="unbounded"/>
+            <xs:any namespace="##other"
+                 processContents="lax"
+                 minOccurs="0"
+                 maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:anyAttribute namespace="##other" processContents="lax"/>
+        <xs:assert vc:minVersion="1.1"
+                 test="every $v in vers:version satisfies $v/atom:link[@rel='self']">
+            <xs:annotation>
+                <xs:documentation>
+                    <html:p> In version lists, every single version
+                        must contain at least one self link. </html:p>
+                </xs:documentation>
+            </xs:annotation>
+        </xs:assert>
+    </xs:complexType>
+   <xs:complexType name="VersionChoiceRoot" vc:minVersion="1.1">
+        <xs:complexContent>
+            <xs:extension base="vers:VersionChoice">
+                <xs:assert test="atom:link[@rel='describedby']">
+                    <xs:annotation>
+                        <xs:documentation>
+                            <html:p> When used as a root element, a
+                                version choice must contain at least
+                                one describedby link. </html:p>
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:assert>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+   <xs:complexType name="VersionChoice">
+        <xs:annotation>
+            <xs:documentation>
+                <html:p> A version choice contains relevant
+                    information about an available service that a user
+                    can then use to target a specific version of the
+                    service. </html:p>
+            </xs:documentation>
+        </xs:annotation>
+
+        <xs:sequence>
+            <xs:element name="media-types"
+                     type="vers:MediaTypeList"
+                     minOccurs="0"
+                     maxOccurs="1"/>
+            <xs:element vc:minVersion="1.1"
+                     ref="atom:link"
+                     minOccurs="0"
+                     maxOccurs="unbounded"/>
+            <xs:any namespace="##other"
+                 processContents="lax"
+                 minOccurs="0"
+                 maxOccurs="unbounded"/>
+        </xs:sequence>
+
+        <xs:attribute name="id" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    <html:p> The ID of a version choice represents the
+                        service version's unique identifier. This ID
+                        is guaranteed to be unique only among the
+                        service version choices outlined in the
+                        VersionChoiceList. </html:p>
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+
+        <xs:attribute name="status" type="vers:VersionStatus" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    <html:p> A version choice's status describes the
+                        current operational state of the given service
+                        version. The operational status is captured in
+                        a simple type enumeration called
+                        VersionStatus. </html:p>
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+
+        <xs:attribute name="updated" type="xs:dateTime" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    <html:p> A version choice's updated attribute
+                        describes the time when the version was
+                        updated. The time should be updated anytime
+                            <html:strong>anything</html:strong> in the
+                        version has changed: documentation,
+                        extensions, bug fixes. </html:p>
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:anyAttribute namespace="##other" processContents="lax"/>
+    </xs:complexType>
+   <xs:complexType name="MediaTypeList">
+        <xs:annotation>
+            <xs:documentation>
+                <html:p> A MediaTypeList outlines a collection of
+                    valid media types for a given service version.
+                </html:p>
+            </xs:documentation>
+        </xs:annotation>
+
+        <xs:sequence>
+            <xs:element name="media-type"
+                     type="vers:MediaType"
+                     minOccurs="1"
+                     maxOccurs="unbounded"/>
+            <xs:any namespace="##other"
+                 processContents="lax"
+                 minOccurs="0"
+                 maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:anyAttribute namespace="##other" processContents="lax"/>
+    </xs:complexType>
+   <xs:complexType name="MediaType">
+        <xs:annotation>
+            <xs:documentation>
+                <html:p> A MediaType describes what content types the
+                    service version understands. </html:p>
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:any namespace="##other"
+                 processContents="lax"
+                 minOccurs="0"
+                 maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="base" type="xs:string" use="optional" default="">
+            <xs:annotation>
+                <xs:documentation>
+                    <html:p> The base of a given media type describes
+                        the simple MIME type that then a more
+                        complicated media type can be derived from.
+                        These types are basic and provide no namespace
+                        or version specific data are only provided as
+                        a convenience. </html:p>
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+
+        <xs:attribute name="type" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    <html:p> The type attribute of a MediaType
+                        describes the MIME specific identifier of the
+                        media type in question. </html:p>
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:anyAttribute namespace="##other" processContents="lax"/>
+    </xs:complexType>
+</xsd:schema>

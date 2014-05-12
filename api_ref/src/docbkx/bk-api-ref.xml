@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<book xmlns="http://docbook.org/ns/docbook"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:m="http://www.w3.org/1998/Math/MathML"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:db="http://docbook.org/ns/docbook"
+    xmlns:xref="http://www.w3.org/1999/xref"
+    xmlns:wadl="http://wadl.dev.java.net/2009/02"
+    version="5.0-extension RackBook-2.0"
+    xml:id="api.rackspace.com-all-pdf">
+    <info>
+        <title>Rackspace API Reference</title>
+        <titleabbrev>API Reference</titleabbrev>
+        <author>
+            <personname>
+                <firstname/>
+                <surname/>
+            </personname>
+            <affiliation>
+                <orgname>Rackspace Cloud</orgname>
+            </affiliation>
+        </author>
+        <copyright>
+            <year>2010-2014</year>
+            <holder>Rackspace US, Inc.</holder>
+        </copyright>
+        <productname>Rackspace Cloud Files</productname>
+        <pubdate/>
+        <legalnotice role="rs-api">
+            <annotation>
+                <remark>Copyright details are filled in by the
+                    template.</remark>
+            </annotation>
+        </legalnotice>
+    </info>
+    <xi:include href="preface.xml"/>
+    <xi:include href="api-ref-auto-scale.xml"/>
+    <xi:include href="api-ref-backup.xml"/>
+    <xi:include href="api-ref-big-data.xml"/>
+    <xi:include href="api-ref-blockstorage.xml"/>
+    <xi:include href="api-ref-databases.xml"/>
+   <!-- <xi:include href="api-ref-dns.xml"/>-->
+    <xi:include href="api-ref-email-and-apps.xml"/>
+    <xi:include href="api-ref-files.xml"/>
+    <xi:include href="api-ref-identity.xml"/>
+    <xi:include href="api-ref-images.xml"/>
+   <!-- <xi:include href="api-ref-load-balancers.xml"/>-->
+    <xi:include href="api-ref-monitoring.xml"/>
+    <xi:include href="api-ref-networks.xml"/>
+    <xi:include href="api-ref-orchestration.xml"/>
+    <xi:include href="api-ref-queues.xml"/>
+    <xi:include href="api-ref.xml"/>
+    <xi:include href="api-ref-servers-ext.xml"/>
+</book>

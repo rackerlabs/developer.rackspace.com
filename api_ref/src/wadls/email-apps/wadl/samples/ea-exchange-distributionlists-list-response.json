@@ -1,0 +1,19 @@
+{
+    "DistributionLists": [
+        {
+            "Description": "This is an example of an edited DL.",
+            "MemberCount": 0,
+            "CommonName": "exampledl",
+            "DisplayName": "ExampleDL",
+            "Alias": "exampledl.example.com",
+            "IsHiddenFromAddressList": false,
+            "PrimarySmtpAddress": "exampledl@example.com",
+            "Status": "Ready",
+            "LegacyExchangeDn": "/o=e14s/ou=Exchange Administrative Group (FYDIBOHF23SPDLT)/cn=Recipients/cn=exampledl59c"
+        }
+    ],
+    "Sort": "primarysmtpaddress",
+    "Limit": 25,
+    "Total": 1,
+    "Order": "asc"
+}

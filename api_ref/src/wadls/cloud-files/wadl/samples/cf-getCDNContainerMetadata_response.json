@@ -1,0 +1,25 @@
+HTTP/1.1 200 OK
+Date: Tue, 30 Oct 2012 17:57:28 GMT
+Content-Length: 267
+Content-Type: application/xml; charset=utf-8
+<?xml version="1.0" encoding="UTF-8"?>
+<account name="WidgetsRUs.button">
+  <container>
+    <name>images</name>
+    <cdn_enabled>True</cdn_enabled>
+    <ttl>86400</ttl>
+    <log_retention>True</log_retention>
+      <cdn_url>
+        http://80745c48926cd286a5a0-48261ebe0e4c795a565ece6b9cca2fe8.r10.
+cf1.rackcdn.com
+      </cdn_url>
+      <cdn_ssl_url>
+        https://83c49b9a2f7ad18250b3-346eb45fd42c58ca13011d659bfc1ac1.ssl.
+stg2.rackcdn.com
+      </cdn_ssl_url>
+      <cdn_streaming_url>
+        http://084cc2790632ccee0a12-346eb45fd42c58ca13011d659bfc1ac1. r49.
+stream.cf0.rackcdn.com
+      </cdn_streaming_url>
+  </container>
+</account>H

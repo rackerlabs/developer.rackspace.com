@@ -1,0 +1,785 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+                    Flattened from: https://github.rackspace.com/IX/auth-2.0/raw/master/src/common/xsd/RAX-AUTH.xsd-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:rax="http://docs.rackspace.com/api"
+            xmlns:db="http://docbook.org/ns/docbook"
+            xmlns:identity="http://docs.openstack.org/identity/api/v2.0"
+            xmlns:RAX-AUTH="http://docs.rackspace.com/identity/api/ext/RAX-AUTH/v1.0"
+            xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+            xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
+            xmlns:atom="http://www.w3.org/2005/Atom"
+            xmlns:html="http://www.w3.org/1999/xhtml"
+            xmlns:xs="http://www.w3.org/2001/XMLSchema"
+            xmlns:RAX-KSKEY="http://docs.rackspace.com/identity/api/ext/RAX-KSKEY/v1.0"
+            xmlns:OS-KSCATALOG="http://docs.openstack.org/identity/api/ext/OS-KSCATALOG/v1.0"
+            elementFormDefault="qualified"
+            attributeFormDefault="unqualified"
+            targetNamespace="http://docs.rackspace.com/identity/api/ext/RAX-AUTH/v1.0">
+   <import xmlns="http://www.w3.org/2001/XMLSchema"
+           namespace="http://docs.openstack.org/identity/api/v2.0"
+           schemaLocation="RAX-AUTH-xsd-2.xsd"/>
+   <import xmlns="http://www.w3.org/2001/XMLSchema"
+           namespace="http://docs.openstack.org/identity/api/v2.0"
+           schemaLocation="RAX-AUTH-xsd-5.xsd"/>
+   <import xmlns="http://www.w3.org/2001/XMLSchema"
+           namespace="http://docs.openstack.org/identity/api/v2.0"
+           schemaLocation="RAX-AUTH-xsd-6.xsd"/>
+   <import xmlns="http://www.w3.org/2001/XMLSchema"
+           namespace="http://docs.rackspace.com/identity/api/ext/RAX-KSKEY/v1.0"
+           schemaLocation="RAX-AUTH-xsd-7.xsd"/>
+   <import xmlns="http://www.w3.org/2001/XMLSchema"
+           namespace="http://docs.openstack.org/identity/api/ext/OS-KSCATALOG/v1.0"
+           schemaLocation="RAX-AUTH-xsd-9.xsd"/>
+   <import xmlns="http://www.w3.org/2001/XMLSchema"
+           namespace="http://docs.openstack.org/identity/api/v2.0"
+           schemaLocation="RAX-AUTH-xsd-2.xsd"/>
+   <import xmlns="http://www.w3.org/2001/XMLSchema"
+           namespace="http://docs.openstack.org/identity/api/v2.0"
+           schemaLocation="RAX-AUTH-xsd-5.xsd"/>
+   <import xmlns="http://www.w3.org/2001/XMLSchema"
+           namespace="http://docs.openstack.org/identity/api/v2.0"
+           schemaLocation="RAX-AUTH-xsd-6.xsd"/>
+   <import xmlns="http://www.w3.org/2001/XMLSchema"
+           namespace="http://docs.rackspace.com/identity/api/ext/RAX-KSKEY/v1.0"
+           schemaLocation="RAX-AUTH-xsd-7.xsd"/>
+   <import xmlns="http://www.w3.org/2001/XMLSchema"
+           namespace="http://docs.openstack.org/identity/api/ext/OS-KSCATALOG/v1.0"
+           schemaLocation="RAX-AUTH-xsd-9.xsd"/>
+   <attribute xmlns="http://www.w3.org/2001/XMLSchema"
+              name="defaultRegion"
+              type="xsd:string"/>
+   <attribute xmlns="http://www.w3.org/2001/XMLSchema"
+              name="domainId"
+              type="xsd:string"/>
+   <attribute xmlns="http://www.w3.org/2001/XMLSchema"
+              name="propagate"
+              type="xsd:boolean"/>
+   <attribute xmlns="http://www.w3.org/2001/XMLSchema"
+              name="federated"
+              type="xsd:boolean"/>
+   <attribute xmlns="http://www.w3.org/2001/XMLSchema"
+              name="federatedIdp"
+              type="xsd:string"/>
+   <attribute xmlns="http://www.w3.org/2001/XMLSchema"
+              name="tenantAlias"
+              type="xsd:string"/>
+   <attribute xmlns="http://www.w3.org/2001/XMLSchema"
+              name="multiFactorEnabled"
+              type="xsd:boolean"/>
+   <!-- Complex Types -->
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="authenticatedBy"
+            type="RAX-AUTH:AuthenticatedBy"/>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="defaultRegionServices"
+            type="RAX-AUTH:DefaultRegionServices"/>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="serviceApis"
+            type="RAX-AUTH:ServiceApis"/>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="impersonation"
+            type="RAX-AUTH:ImpersonationRequest"/>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="access"
+            type="RAX-AUTH:ImpersonationResponse"/>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="impersonator"
+            type="identity:UserForAuthenticateResponse">
+    	<annotation>
+            <xsd:documentation>
+                <p>The user impersonating.</p>
+            </xsd:documentation>
+        </annotation>
+    </element>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="domain"
+            type="RAX-AUTH:Domain">
+        <annotation>
+            <xsd:documentation>
+                <p>A domain represents an administrative boundary for identity management.</p>
+            </xsd:documentation>
+        </annotation>
+    </element>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="mobilePhone"
+            type="RAX-AUTH:MobilePhone">
+        <annotation>
+            <xsd:documentation>
+                <p>A mobile phone that is available for use with multifactor authentication.
+                The phone has two attributes: a system-assigned id and a phone number.</p>
+            </xsd:documentation>
+        </annotation>
+    </element>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="mobilePhones"
+            type="RAX-AUTH:MobilePhones">
+        <annotation>
+            <xsd:documentation>
+                <p>A list of mobile phones that can be used for multifactor authentication.</p>
+            </xsd:documentation>
+        </annotation>
+    </element>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="verificationCode"
+            type="RAX-AUTH:VerificationCode">
+        <annotation>
+            <xsd:documentation>
+                <p>A code sent in respone to a verification request during the multifactor authentication. 
+                   process. Users can return the verification code to confirm possession of the 
+                   device that has been configured for multifactor authentication. 
+                
+                   
+                </p>
+            </xsd:documentation>
+        </annotation>
+    </element>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="multiFactor"
+            type="RAX-AUTH:MultiFactor">
+        <annotation>
+            <xsd:documentation>
+                <p>User account settings for multifactor authentication.</p>
+            </xsd:documentation>
+        </annotation>
+    </element>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="domains"
+            type="RAX-AUTH:Domains"/>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="policy"
+            type="RAX-AUTH:Policy"/>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="policies"
+            type="RAX-AUTH:Policies"/>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="policySet"
+            type="RAX-AUTH:PolicySet"/>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="policySets"
+            type="RAX-AUTH:PolicySets"/>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="capabilities"
+            type="RAX-AUTH:Capabilities"/>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="capability"
+            type="RAX-AUTH:Capability"/>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="policyMetadata"
+            type="RAX-AUTH:PolicyMetadata"/>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="regions"
+            type="RAX-AUTH:Regions"/>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="region"
+            type="RAX-AUTH:Region"/>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="questions"
+            type="RAX-AUTH:Questions"/>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="question"
+            type="RAX-AUTH:Question"/>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="secretqas"
+            type="RAX-AUTH:SecretQAs"/>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="secretqa"
+            type="RAX-AUTH:SecretQA"/>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="rsaCredentials"
+            type="RAX-AUTH:RsaCredentials"
+            substitutionGroup="identity:credential"/>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="passcodeCredentials"
+            type="RAX-AUTH:PasscodeCredentials"
+            substitutionGroup="identity:credential"/>
+   <simpleType xmlns="http://www.w3.org/2001/XMLSchema" name="StringList">
+        <list itemType="xsd:string"/>
+    </simpleType>
+   <xsd:simpleType xmlns="http://www.w3.org/2001/XMLSchema" name="PolicyAlgorithm">
+        <xsd:annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                <p>
+                    The list of possible policy algorithms.
+                </p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="if-true-allow"/>
+            <xsd:enumeration value="if-false-deny"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+   <simpleType xmlns="http://www.w3.org/2001/XMLSchema" name="Action">
+        <restriction base="xsd:string">
+            <enumeration value="GET"/>
+            <enumeration value="POST"/>
+            <enumeration value="PUT"/>
+            <enumeration value="DELETE"/>
+            <enumeration value="PATCH"/>
+            <enumeration value="*"/>
+        </restriction>
+    </simpleType>
+   <simpleType xmlns="http://www.w3.org/2001/XMLSchema" name="PolicyType">
+        <restriction base="xsd:string">
+            <enumeration value="json-policy-format"/>
+            <enumeration value="standard-policy-format"/>
+        </restriction>
+    </simpleType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="AuthenticatedBy">
+        <sequence>
+            <element name="credential"
+                  type="xsd:string"
+                  minOccurs="0"
+                  maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="ImpersonationRequest">
+        <sequence>
+            <element name="user" type="identity:User">
+                <annotation>
+                    <xsd:documentation>
+                        <p>The user being impersonated.</p>
+                    </xsd:documentation>
+                </annotation>
+            </element>
+            <element name="expire-in-seconds" type="int" minOccurs="0" maxOccurs="1"/>
+        </sequence>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="ImpersonationResponse">
+        <sequence>
+            <element name="token" type="identity:Token">
+                <annotation>
+                    <xsd:documentation>
+                        <p>A token representing the impersonated user.</p>
+                    </xsd:documentation>
+                </annotation>
+            </element>
+        </sequence>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema"
+                name="MultiFactorDevice"
+                abstract="true">
+        <attribute name="id" type="xsd:string">
+        <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                <p>
+                    A system-generated string that uniquely identifies a device that can be used  
+                    for multifactor authentication.
+                </p>
+            </xsd:documentation>
+        </annotation>
+        </attribute>
+        <anyAttribute namespace="##other" processContents="lax"/>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="MobilePhone">
+        <complexContent>
+            <extension base="RAX-AUTH:MultiFactorDevice">
+                <attribute name="number" type="xsd:string">
+                    <annotation>
+                        <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                            <p>
+                                The phone number associated with a mobile phone that has been 
+                                configured for multifactor authentication. 
+                            </p>
+                        </xsd:documentation>
+                    </annotation>
+                </attribute>
+                <attribute name="verified" type="xsd:boolean">
+                    <annotation>
+                        <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                            <p>
+                                A boolean value that indicates whether the device has been verified for the associated user.
+                            </p>
+                        </xsd:documentation>
+                    </annotation>
+                </attribute>
+            </extension>
+        </complexContent>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="MobilePhones">
+        <sequence>
+            <element name="mobilePhone"
+                  type="RAX-AUTH:MobilePhone"
+                  minOccurs="0"
+                  maxOccurs="unbounded"/>
+        </sequence>
+        <anyAttribute namespace="##other" processContents="lax"/>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="VerificationCode">
+        <attribute name="code" type="xsd:string" use="required">
+            <annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>
+                        The code used to verify that a user has possesion of the device to be used for 
+                        multifactor authentication.
+                    </p>
+                </xsd:documentation>
+            </annotation>
+        </attribute>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="MultiFactor">
+        <attribute name="enabled" type="xsd:boolean" use="optional">
+            <annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>
+                        Boolean value that indicates whether multifactor authentication is enabled an 
+                        account. To disable multifactor temporarily, without deleting the multifactor 
+                        configuration, set <literal>enabled=false</literal>
+                    </p>
+                </xsd:documentation>
+            </annotation>
+        </attribute>
+      <attribute name="unlock" type="xsd:boolean" use="optional">
+            <annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>
+                        An optional attribute that indicates whether a user account needs to 
+                        be unlocked. If a user account is locked, an administrator can specify  
+                        <literal>unlock=true</literal> to change the status.  If <literal>unlock=false</literal>, 
+                        or the attribute is not specifed, the account lock status is not affected. 
+                    </p>
+                </xsd:documentation>
+            </annotation>
+        </attribute>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="Domain">
+        <sequence>
+            <element name="description" type="xsd:string">
+                <annotation>
+                    <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                        <p>
+                            An free text description of the domain.
+                        </p>
+                    </xsd:documentation>
+                </annotation>
+            </element>
+        </sequence>
+        <attribute name="id" type="xsd:string" use="required">
+            <annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>
+                        An ID that uniquely identifyies the domain.
+                    </p>
+                </xsd:documentation>
+            </annotation>
+        </attribute>
+        <attribute name="name" type="xsd:string" use="required">
+            <annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>
+                        The name of the domain.
+                    </p>
+                </xsd:documentation>
+            </annotation>
+        </attribute>
+        <attribute name="enabled" type="xsd:boolean" use="optional" default="true">
+            <annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>
+                        A boolean value that indicates whether an account is active.
+                    </p>
+                </xsd:documentation>
+            </annotation>
+        </attribute>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="Domains">
+        <sequence>
+            <element name="domain"
+                  type="RAX-AUTH:Domain"
+                  minOccurs="0"
+                  maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="DefaultRegionServices">
+        <sequence>
+            <element name="serviceName"
+                  type="xsd:string"
+                  minOccurs="0"
+                  maxOccurs="unbounded">
+                <annotation>
+                    <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                        <p>
+                            Service name.
+                        </p>
+                    </xsd:documentation>
+                </annotation>
+            </element>
+        </sequence>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="Policy">
+        <sequence>
+            <element name="description" type="xsd:string">
+                <annotation>
+                    <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                        <p>
+                            An free text description of the policy.
+                        </p>
+                    </xsd:documentation>
+                </annotation>
+            </element>
+        </sequence>
+        <attribute name="id" type="xsd:string" use="required">
+            <annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>
+                        An ID uniquely identifying the policy.
+                    </p>
+                </xsd:documentation>
+            </annotation>
+        </attribute>
+        <attribute name="name" type="xsd:string" use="optional">
+            <annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>
+                        The name of the policy.
+                    </p>
+                </xsd:documentation>
+            </annotation>
+        </attribute>
+        <attribute name="type" type="xsd:string" use="optional">
+            <annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>
+                        The serialized type of the policy. This determines the format the policy is in.
+                    </p>
+                </xsd:documentation>
+            </annotation>
+        </attribute>
+        <attribute name="enabled" type="xsd:boolean" use="optional" default="true">
+            <annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>
+                        A boolean value that indicates whether a policy is active.
+                    </p>
+                </xsd:documentation>
+            </annotation>
+        </attribute>
+        <attribute name="global" type="xsd:boolean" use="optional" default="false">
+            <annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>
+                        A boolean that indiccates whether a policy is global.
+                    </p>
+                </xsd:documentation>
+            </annotation>
+        </attribute>
+        <attribute name="blob" type="xsd:string" use="required">
+            <annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>
+                        A blob containing any type of policy that a client can provide. This could be in any format the client chooses.
+                    </p>
+                </xsd:documentation>
+            </annotation>
+        </attribute>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="Policies">
+        <sequence>
+            <element name="policy"
+                  type="RAX-AUTH:Policy"
+                  minOccurs="0"
+                  maxOccurs="unbounded"/>
+        </sequence>
+        <attribute name="algorithm" type="RAX-AUTH:PolicyAlgorithm" use="required">
+            <annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>
+                        Name of the policy set.
+                    </p>
+                </xsd:documentation>
+            </annotation>
+        </attribute>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="PolicySet">
+        <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                <p>
+                    This is a set of policies that can be attached to target (domain, endpoint, ...)
+                </p>
+            </xsd:documentation>
+        </annotation>
+        <sequence>
+            <element name="description" type="xsd:string">
+                <annotation>
+                    <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                        <p>
+                            An free text description of the policy set.
+                        </p>
+                    </xsd:documentation>
+                </annotation>
+            </element>
+            <element name="policy"
+                  type="RAX-AUTH:Policy"
+                  minOccurs="0"
+                  maxOccurs="unbounded"/>
+        </sequence>
+        <attribute name="id" type="xsd:string" use="required">
+            <annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>
+                        Id of the policy set.
+                    </p>
+                </xsd:documentation>
+            </annotation>
+        </attribute>
+        <attribute name="name" type="xsd:string" use="required">
+            <annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>
+                       Name of the policy set.
+                    </p>
+                </xsd:documentation>
+            </annotation>
+        </attribute>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="PolicySets">
+        <sequence>
+            <element name="policySet"
+                  type="RAX-AUTH:PolicySet"
+                  minOccurs="0"
+                  maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="Capability">
+        <sequence>
+            <element name="description" type="xsd:string">
+                <annotation>
+                    <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                        <p>
+                            An free text description of the capability.
+                        </p>
+                    </xsd:documentation>
+                </annotation>
+            </element>
+        </sequence>
+        <attribute name="id" type="xsd:string" use="required">
+            <annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>
+                        Id of the capability
+                    </p>
+                </xsd:documentation>
+            </annotation>
+        </attribute>
+        <attribute name="name" type="xsd:string" use="required">
+            <annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>
+                        Name of the capability.
+                    </p>
+                </xsd:documentation>
+            </annotation>
+        </attribute>
+        <attribute name="action" type="RAX-AUTH:Action" use="required">
+            <annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>
+                        Action of the capability. This could be PUT, POST, CREATE, ...
+                    </p>
+                </xsd:documentation>
+            </annotation>
+        </attribute>
+        <attribute name="url" type="xsd:string" use="required">
+            <annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>
+                        Url of the capability.
+                    </p>
+                </xsd:documentation>
+            </annotation>
+        </attribute>
+        <attribute name="resources" type="RAX-AUTH:StringList">
+            <annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>
+                        This is a list of arbitrary ids. A capability can be restricted to a specific resource (server, file, ..).
+                    </p>
+                </xsd:documentation>
+            </annotation>
+        </attribute>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="Capabilities">
+        <sequence>
+            <element name="capability"
+                  type="RAX-AUTH:Capability"
+                  minOccurs="0"
+                  maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="PolicyMetadata">
+        <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                <p>
+                    This is meta data used to provide extra information to policy management e.g algorithm for policy evaluation
+                </p>
+            </xsd:documentation>
+        </annotation>
+        <sequence/>
+        <attribute name="algorithm" type="RAX-AUTH:PolicyAlgorithm" use="required">
+            <annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>
+                        Name of the policy set.
+                    </p>
+                </xsd:documentation>
+            </annotation>
+        </attribute>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="Region">
+        <attribute name="name" type="xsd:string" use="required">
+            <annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>
+                        The name of the region.
+                    </p>
+                </xsd:documentation>
+            </annotation>
+        </attribute>
+        <attribute name="isDefault"
+                 type="xsd:boolean"
+                 use="optional"
+                 default="false">
+            <annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>
+                        A boolean value that indicates whether a region is specified as the default region.
+                    </p>
+                </xsd:documentation>
+            </annotation>
+        </attribute>
+        <attribute name="enabled"
+                 type="xsd:boolean"
+                 use="optional"
+                 default="false">
+            <annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>
+                        A boolean value that indicates whether a region is active.
+                    </p>
+                </xsd:documentation>
+            </annotation>
+        </attribute>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="Regions">
+        <sequence>
+            <element name="region"
+                  type="RAX-AUTH:Region"
+                  minOccurs="0"
+                  maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="Question">
+        <attribute name="id" type="xsd:string" use="required">
+            <annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>
+                        The id of the question.
+                    </p>
+                </xsd:documentation>
+            </annotation>
+        </attribute>
+        <attribute name="question" type="xsd:string" use="required">
+            <annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>
+                        A question.
+                    </p>
+                </xsd:documentation>
+            </annotation>
+        </attribute>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="Questions">
+        <sequence>
+            <element name="question"
+                  type="RAX-AUTH:Question"
+                  minOccurs="0"
+                  maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="SecretQA">
+        <attribute name="id" type="xsd:string" use="required">
+            <annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>
+                        The id of the question.
+                    </p>
+                </xsd:documentation>
+            </annotation>
+        </attribute>
+        <attribute name="question" type="xsd:string" use="required">
+            <annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>
+                        The question.
+                    </p>
+                </xsd:documentation>
+            </annotation>
+        </attribute>
+        <attribute name="answer" type="xsd:string" use="required">
+            <annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>
+                        The answer.
+                    </p>
+                </xsd:documentation>
+            </annotation>
+        </attribute>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="SecretQAs">
+        <sequence>
+            <element name="secretqa"
+                  type="RAX-AUTH:SecretQA"
+                  minOccurs="0"
+                  maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="ServiceApis">
+        <sequence>
+            <element name="serviceApi"
+                  type="RAX-AUTH:ServiceApi"
+                  minOccurs="0"
+                  maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="ServiceApi">
+        <sequence>
+        	<element name="description"
+                  type="xsd:string"
+                  minOccurs="0"
+                  maxOccurs="1"/>
+        </sequence>
+        <attribute name="type" type="identity:ExtensibleServiceType">
+            <annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>
+                       Type of the service api e.g compute, object-store, ..
+                    </p>
+                </xsd:documentation>
+            </annotation>
+        </attribute>
+        <attribute name="version" type="xsd:string">
+            <annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>
+                       Version of the service api
+                    </p>
+                </xsd:documentation>
+            </annotation>
+        </attribute>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="RsaCredentials">
+        <complexContent>
+            <extension base="identity:CredentialType">
+                <attribute name="username" type="xsd:string" use="required"/>
+                <attribute name="tokenKey" type="xsd:string" use="required"/>
+            </extension>
+        </complexContent>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="PasscodeCredentials">
+        <complexContent>
+            <extension base="identity:CredentialType">
+                <attribute name="passcode" type="xsd:string" use="required"/>
+            </extension>
+        </complexContent>
+    </complexType>
+</xsd:schema>

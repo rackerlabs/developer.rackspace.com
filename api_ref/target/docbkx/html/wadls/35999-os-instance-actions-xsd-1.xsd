@@ -1,0 +1,1989 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+                    Flattened from: http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/compute-api/src/v2/xsd/api.xsd-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:rax="http://docs.rackspace.com/api"
+            xmlns:db="http://docbook.org/ns/docbook"
+            xmlns:csapi="http://docs.openstack.org/compute/api/v1.1"
+            xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+            xmlns:atom="http://www.w3.org/2005/Atom"
+            xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
+            xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+            xmlns:ext="http://www.w3.org/2001/XMLSchema"
+            xmlns:html="http://www.w3.org/1999/xhtml"
+            xmlns:limits="http://docs.openstack.org/common/api/v1.0"
+            xmlns:xs="http://www.w3.org/2001/XMLSchema"
+            xmlns:vers="http://docs.openstack.org/common/api/v1.0"
+            elementFormDefault="qualified"
+            attributeFormDefault="unqualified"
+            targetNamespace="http://docs.openstack.org/compute/api/v1.1">
+   <import xmlns="http://www.w3.org/2001/XMLSchema"
+           namespace="http://www.w3.org/2005/Atom"
+           schemaLocation="os-instance-actions-xsd-3.xsd"/>
+   <annotation xmlns="http://www.w3.org/2001/XMLSchema">
+      <xsd:appinfo xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+         <xsdxt:title>Open Stack Compute™ API Schema Types 1.1</xsdxt:title>
+         <xsdxt:link rev="index" href="actions.xsd"/>
+         <xsdxt:link rev="index" href="common.xsd"/>
+         <xsdxt:link rev="index" href="faults.xsd"/>
+         <xsdxt:link rev="index" href="flavor.xsd"/>
+         <xsdxt:link rev="index" href="image.xsd"/>
+         <xsdxt:link rev="index" href="server.xsd"/>
+      </xsd:appinfo>
+      <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+         <p>
+        This is the main index XML Schema document
+        for the Open Stack Compute API Version 1.1.
+      </p>
+      </xsd:documentation>
+  </annotation>
+   <!-- (C) 2011-2014 OpenStack Foundation, All Rights Reserved -->
+   <annotation xmlns="http://www.w3.org/2001/XMLSchema">
+      <xsd:appinfo xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+         <xsdxt:title>Servers and Related Types</xsdxt:title>
+         <xsdxt:link rel="index" href="api.xsd"/>
+      </xsd:appinfo>
+      <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+         <p>This schema file defines a <a href="#type_Server" title="Server Type Definition"> Server</a> and all internal
+        entities related to servers including <a href="#type_Addresses" title="Addresses type         definition">Addresses</a> and
+          <a href="#type_File" title="File         type definition">Files</a>.</p>
+      </xsd:documentation>
+  </annotation>
+   <!-- Import ATOM specific schema definitions -->
+   <import xmlns="http://www.w3.org/2001/XMLSchema"
+           namespace="http://www.w3.org/2005/Atom"
+           schemaLocation="os-instance-actions-xsd-3.xsd"/>
+   <!-- Complex Types -->
+   <!-- Simple Types -->
+   <!-- (C) 2011-2013 OpenStack Foundation, All Rights Reserved -->
+   <annotation xmlns="http://www.w3.org/2001/XMLSchema">
+      <xsd:appinfo xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+         <xsdxt:title>Common Types</xsdxt:title>
+         <xsdxt:link rel="index" href="api.xsd"/>
+      </xsd:appinfo>
+      <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+         <p>This schema file defines common types used by multiple
+        entities and possibly spanning several types of requests. </p>
+      </xsd:documentation>
+  </annotation>
+   <!-- Import ATOM specific schema definitions -->
+   <!-- Simple types that span multiple requests -->
+   <!-- (C) 2011-2014 OpenStack Foundation, All Rights Reserved -->
+   <annotation xmlns="http://www.w3.org/2001/XMLSchema">
+      <xsd:appinfo xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+         <xsdxt:title>Images</xsdxt:title>
+         <xsdxt:link rel="index" href="api.xsd"/>
+      </xsd:appinfo>
+      <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+         <p> This schema file defines all entity related to <a href="#type_Image" title="See definition of Image">Images</a>. </p>
+      </xsd:documentation>
+  </annotation>
+   <!-- Import ATOM specific schema definitions -->
+   <import xmlns="http://www.w3.org/2001/XMLSchema"
+           namespace="http://www.w3.org/2005/Atom"
+           schemaLocation="os-instance-actions-xsd-3.xsd"/>
+   <!-- <include schemaLocation="server.xsd">
+    <annotation>
+      <xsd:documentation
+          xml:lang="EN"
+          xmlns="http://www.w3.org/1999/xhtml">
+        <p>
+          Servers and all internal Entities including: Addresses,
+          and Files.
+        </p>
+      </xsd:documentation>
+    </annotation>
+  </include> -->
+   <!-- Complex Types -->
+   <!-- Simple Types -->
+   <!-- (C) 2011-2014 OpenStack Foundation, All Rights Reserved -->
+   <annotation xmlns="http://www.w3.org/2001/XMLSchema">
+      <xsd:appinfo xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+         <xsdxt:title>Faults</xsdxt:title>
+         <xsdxt:link rel="index" href="api.xsd"/>
+      </xsd:appinfo>
+      <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+         <p>This schema file defines faults that may be raised by the
+        OpenStack Compute API. These faults are derived from the <a href="#type_ComputeAPIFault"
+               title="See definition of         ComputeAPIFault">ComputeAPIFault</a>. Most faults extend this type without
+        adding any additional attributes or elements. The only
+        exceptions is the <a href="#type_OverLimitAPIFault"
+               title="See definition of         OverLimitAPIFault">OverLimitAPIFault</a> which adds a <strong>retryAt</strong>
+        attribute and the <a href="#type_AsyncAPIFault"
+               title="See definition of         AsyncAPIFault">AsyncAPIFault</a> which adds a <strong>created</strong>
+        timestamp. Because all faults extend a standard base type, it
+        should be possible to capture all API faults with a single
+          <code>catch</code> statement.</p>
+         <p>Faults are associated with a default HTTP status code that
+        corresponds to the particular fault type. For example an <a href="#element_itemNotFound"
+               title="see definition of         itemNotFound">&lt;itemNotFound&gt;</a> element is associated with the
+        HTTP status code 404. Some elements, the <a href="#element_computeFault"
+               title="see definition of         computeFault">&lt;computeFault&gt;</a> element for example, may be
+        associated with multiple status codes. It is also possible for
+        multiple fault elements to be associated with the same default
+        code. The examples below showcase the default status codes for
+        each element type. Note that these default codes are not part
+        of the formal schema. In practice, however, an element type
+        will likely be associated with its corresponding default
+        status code.</p>
+      </xsd:documentation>
+  </annotation>
+   <!-- Faults -->
+   <!-- Complex Types -->
+   <!-- (C) 2011-2014 OpenStack Foundation, All Rights Reserved -->
+   <annotation xmlns="http://www.w3.org/2001/XMLSchema">
+      <xsd:appinfo xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+         <xsdxt:title>Flavors</xsdxt:title>
+         <xsdxt:link rel="index" href="api.xsd"/>
+      </xsd:appinfo>
+      <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+         <p> This schema file defines all entities related to <a href="#type_Flavor" title="See definition of         Flavor">Flavors</a>. </p>
+      </xsd:documentation>
+  </annotation>
+   <!-- Import ATOM specific schema definitions -->
+   <import xmlns="http://www.w3.org/2001/XMLSchema"
+           namespace="http://www.w3.org/2005/Atom"
+           schemaLocation="os-instance-actions-xsd-3.xsd"/>
+   <!-- Complex Types -->
+   <!-- (C) 2011 OpenStack LLC., All Rights Reserved -->
+   <annotation xmlns="http://www.w3.org/2001/XMLSchema">
+      <xsd:appinfo xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+         <xsdxt:title>Server Actions</xsdxt:title>
+         <xsdxt:link rel="index" href="api.xsd"/>
+      </xsd:appinfo>
+      <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+         <p>
+        This schema file defines actions that can be performed on a
+        cloud server. All cloud server actions are derived from the <a href="#type_Action" title="See definition of         Action">Action</a> type.
+      </p>
+      </xsd:documentation>
+  </annotation>
+   <!-- Complex Types -->
+   <!-- Simple Types -->
+   <!-- (C) 2011-2014 OpenStack Foundation, All Rights Reserved -->
+   <annotation xmlns="http://www.w3.org/2001/XMLSchema">
+        <xsd:appinfo xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <xsdxt:title>Metadata</xsdxt:title>
+            <xsdxt:link rel="index" href="api.xsd"/>
+        </xsd:appinfo>
+        <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <p> This schema file defines metadata for servers and
+                images. </p>
+        </xsd:documentation>
+    </annotation>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="server"
+            type="csapi:Server">
+      <annotation>
+         <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <p>The element defines a server.</p>
+         </xsd:documentation>
+      </annotation>
+  </element>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="servers"
+            type="csapi:Servers">
+      <annotation>
+         <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <p>A collection of servers.</p>
+         </xsd:documentation>
+      </annotation>
+  </element>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="addresses"
+            type="csapi:Addresses">
+      <annotation>
+         <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <p>The element defines list of addresses by network: (public,
+          private, ...).</p>
+         </xsd:documentation>
+      </annotation>
+  </element>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="network"
+            type="csapi:AddressList">
+      <annotation>
+         <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <p>The element defines a list of addresses in a network.</p>
+         </xsd:documentation>
+      </annotation>
+  </element>
+   <element xmlns="http://www.w3.org/2001/XMLSchema" name="ip" type="csapi:Address">
+      <annotation>
+         <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <p>The element defines an individual IP address.</p>
+         </xsd:documentation>
+      </annotation>
+  </element>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="image"
+            type="csapi:Image">
+      <annotation>
+         <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <p> The element defines a collection of files used to create
+          or rebuild a server. </p>
+         </xsd:documentation>
+      </annotation>
+  </element>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="images"
+            type="csapi:Images">
+      <annotation>
+         <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <p> A collection of images. </p>
+         </xsd:documentation>
+      </annotation>
+  </element>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="computeFault"
+            type="csapi:ComputeAPIFault">
+      <annotation>
+         <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <p>A generic Cloud Servers API fault.</p>
+         </xsd:documentation>
+      </annotation>
+  </element>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="itemNotFound"
+            type="csapi:ItemNotFoundAPIFault">
+      <annotation>
+         <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <p>The item or resource could not be found.</p>
+         </xsd:documentation>
+      </annotation>
+  </element>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="buildInProgress"
+            type="csapi:BuildInProgressAPIFault">
+      <annotation>
+         <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <p>The operation is not allowed because the corresponding
+          server is in a build state.</p>
+         </xsd:documentation>
+      </annotation>
+  </element>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="serverCapacityUnavailable"
+            type="csapi:ServerCapacityUnavailableAPIFault">
+      <annotation>
+         <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <p>There is not enough capacity to honor the request.</p>
+         </xsd:documentation>
+      </annotation>
+  </element>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="backupOrResizeInProgress"
+            type="csapi:BackupOrResizeInProgressAPIFault">
+      <annotation>
+         <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <p>The operation is not allowed because the corresponding
+          server is being re-sized or backed up.</p>
+         </xsd:documentation>
+      </annotation>
+  </element>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="serviceUnavailable"
+            type="csapi:ServiceUnavailableAPIFault">
+      <annotation>
+         <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <p>The API service is currently unavailable.</p>
+         </xsd:documentation>
+      </annotation>
+  </element>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="unauthorized"
+            type="csapi:UnauthorizedAPIFault">
+      <annotation>
+         <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <p>Insufficient privileges to honor the request, perhaps an
+          authentication token needs to be obtained or renewed.</p>
+         </xsd:documentation>
+      </annotation>
+  </element>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="forbidden"
+            type="csapi:ForbiddenAPIFault">
+      <annotation>
+         <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <p>Authentication has been validated, however the operation is
+          unauthorized.</p>
+         </xsd:documentation>
+      </annotation>
+  </element>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="overLimit"
+            type="csapi:OverLimitAPIFault">
+      <annotation>
+         <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <p>An <a href="limits.xsd#type_AbsoluteLimit"
+                  title="See           definition of AbsoluteLimit">absolute</a> or <a href="limits.xsd#type_RateLimit"
+                  title="See definition of           RateLimit">rate</a>
+          limit has been exceeded.</p>
+         </xsd:documentation>
+      </annotation>
+  </element>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="badRequest"
+            type="csapi:BadRequestAPIFault">
+      <annotation>
+         <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <p>The request is malformed.</p>
+         </xsd:documentation>
+      </annotation>
+  </element>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="badMediaType"
+            type="csapi:BadMediaTypeAPIFault">
+      <annotation>
+         <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <p>The Content Type of the request is not supported.</p>
+         </xsd:documentation>
+      </annotation>
+  </element>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="badMethod"
+            type="csapi:BadMethodAPIFault">
+      <annotation>
+         <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <p>The HTTP method (or <a href="limits.xsd#type_HTTPVerb" title="See definition of HTTPVerb">verb</a>) is not
+          supported by the corresponding resource.</p>
+         </xsd:documentation>
+      </annotation>
+  </element>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="notImplemented"
+            type="csapi:NotImplementedAPIFault">
+      <annotation>
+         <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <p>The operation is currently not implemented.</p>
+         </xsd:documentation>
+      </annotation>
+  </element>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="flavor"
+            type="csapi:Flavor">
+      <annotation>
+         <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <p> The element defines an available hardware configuration
+          for a server. </p>
+         </xsd:documentation>
+      </annotation>
+  </element>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="flavors"
+            type="csapi:Flavors">
+      <annotation>
+         <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <p> A collection of flavors. </p>
+         </xsd:documentation>
+      </annotation>
+  </element>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="reboot"
+            type="csapi:Reboot">
+      <annotation>
+         <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <p>
+          Performs a HARD or SOFT reboot.
+        </p>
+         </xsd:documentation>
+      </annotation>
+  </element>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="rebuild"
+            type="csapi:Rebuild">
+      <annotation>
+         <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <p>
+          Rebuilds a server.
+        </p>
+         </xsd:documentation>
+      </annotation>
+  </element>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="resize"
+            type="csapi:Resize">
+      <annotation>
+         <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <p>
+          Resizes a server.
+        </p>
+         </xsd:documentation>
+      </annotation>
+  </element>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="confirmResize"
+            type="csapi:ConfirmResize">
+      <annotation>
+         <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <p>
+          Confirms a resize action.
+        </p>
+         </xsd:documentation>
+      </annotation>
+  </element>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="revertResize"
+            type="csapi:RevertResize">
+      <annotation>
+         <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <p>
+          Reverts a resize action.
+        </p>
+         </xsd:documentation>
+      </annotation>
+  </element>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="changePassword"
+            type="csapi:ChangePassword">
+      <annotation>
+         <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <p>
+          Changes a server's password.
+        </p>
+         </xsd:documentation>
+      </annotation>
+  </element>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="createImage"
+            type="csapi:CreateImage">
+      <annotation>
+         <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <p>
+            The action creates a new image for the server.
+        </p>
+         </xsd:documentation>
+      </annotation>
+  </element>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="metadata"
+            type="csapi:Metadata">
+        <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                <p> The element defines a Metadata. </p>
+            </xsd:documentation>
+        </annotation>
+    </element>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="meta"
+            type="csapi:MetadataItem">
+        <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                <p> The element defines a metadata item. </p>
+            </xsd:documentation>
+        </annotation>
+    </element>
+   <simpleType xmlns="http://www.w3.org/2001/XMLSchema" name="ExtensibleServerStatus">
+      <annotation>
+         <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <p>An extensible server status type allows all of the strings
+          defined in <a href="#type_ServerStatus"
+                  title="See definition of                   ServerStatus">ServerStatus</a> or an alias prefixed status.</p>
+         </xsd:documentation>
+      </annotation>
+      <union memberTypes="csapi:ServerStatus csapi:ExtendedStatus"/>
+  </simpleType>
+   <simpleType xmlns="http://www.w3.org/2001/XMLSchema" name="ServerStatus">
+      <restriction base="xsd:string">
+         <enumeration value="ACTIVE">
+            <annotation>
+               <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                  <p>The server is ready to use.</p>
+               </xsd:documentation>
+            </annotation>
+         </enumeration>
+         <enumeration value="SUSPENDED">
+            <annotation>
+               <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                  <p>The server is in an inactive (suspended) state.</p>
+               </xsd:documentation>
+            </annotation>
+         </enumeration>
+         <enumeration value="DELETED">
+            <annotation>
+               <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                  <p>The server has been deleted.</p>
+               </xsd:documentation>
+            </annotation>
+         </enumeration>
+         <enumeration value="RESIZE">
+            <annotation>
+               <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                  <p>The server is being resized.</p>
+               </xsd:documentation>
+            </annotation>
+         </enumeration>
+         <enumeration value="VERIFY_RESIZE">
+            <annotation>
+               <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                  <p>The server is waiting for the resize operation to be
+              confirmed so that the original server may be
+              removed.</p>
+               </xsd:documentation>
+            </annotation>
+         </enumeration>
+         <enumeration value="REVERT_RESIZE">
+            <annotation>
+               <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                  <p>A resized server is being reverted to its previous
+              size.</p>
+               </xsd:documentation>
+            </annotation>
+         </enumeration>
+         <enumeration value="ERROR">
+            <annotation>
+               <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                  <p>The requested operation failed, the server is in an
+              error state.</p>
+               </xsd:documentation>
+            </annotation>
+         </enumeration>
+         <enumeration value="BUILD">
+            <annotation>
+               <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                  <p>The server is being built.</p>
+               </xsd:documentation>
+            </annotation>
+         </enumeration>
+         <enumeration value="PASSWORD">
+            <annotation>
+               <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                  <p>The server password is being changed.</p>
+               </xsd:documentation>
+            </annotation>
+         </enumeration>
+         <enumeration value="REBUILD">
+            <annotation>
+               <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                  <p>The server is being rebuilt.</p>
+               </xsd:documentation>
+            </annotation>
+         </enumeration>
+         <enumeration value="REBOOT">
+            <annotation>
+               <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                  <p>The server is going through a <a href="actions.xsd#type_RebootType"
+                        title="See definition               of RebootType">SOFT</a> reboot.</p>
+               </xsd:documentation>
+            </annotation>
+         </enumeration>
+         <enumeration value="HARD_REBOOT">
+            <annotation>
+               <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                  <p>The server is going through a <a href="actions.xsd#type_RebootType"
+                        title="See definition               of RebootType">HARD</a> reboot.</p>
+               </xsd:documentation>
+            </annotation>
+         </enumeration>
+         <enumeration value="UNKNOWN">
+            <annotation>
+               <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                  <p>The server is in an unknown state.</p>
+               </xsd:documentation>
+            </annotation>
+         </enumeration>
+      </restriction>
+  </simpleType>
+   <simpleType xmlns="http://www.w3.org/2001/XMLSchema" name="FileName">
+      <restriction base="xsd:string">
+         <maxLength value="255"/>
+      </restriction>
+  </simpleType>
+   <simpleType xmlns="http://www.w3.org/2001/XMLSchema" name="blockDeviceMapping">
+      <restriction base="xsd:string">
+         <maxLength value="255"/>
+      </restriction>
+  </simpleType>
+   <simpleType xmlns="http://www.w3.org/2001/XMLSchema" name="FileContent">
+      <restriction base="xsd:base64Binary">
+         <maxLength value="10240"/>
+      </restriction>
+  </simpleType>
+   <simpleType xmlns="http://www.w3.org/2001/XMLSchema" name="AddressVersion">
+      <restriction base="xsd:int">
+         <enumeration value="4">
+            <annotation>
+               <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                  <p>Denotes IPv4.</p>
+               </xsd:documentation>
+            </annotation>
+         </enumeration>
+         <enumeration value="6">
+            <annotation>
+               <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                  <p>Denotes IPv6.</p>
+               </xsd:documentation>
+            </annotation>
+         </enumeration>
+      </restriction>
+  </simpleType>
+   <simpleType xmlns="http://www.w3.org/2001/XMLSchema" name="Progress">
+      <annotation>
+         <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <p> An integer between 0 and 100 that denotes the progress of
+          an operation. </p>
+         </xsd:documentation>
+      </annotation>
+      <restriction base="xsd:int">
+         <minInclusive value="0"/>
+         <maxInclusive value="100"/>
+      </restriction>
+  </simpleType>
+   <simpleType xmlns="http://www.w3.org/2001/XMLSchema" name="UUID">
+      <annotation>
+         <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <p> A universally unique identifier. </p>
+         </xsd:documentation>
+      </annotation>
+      <restriction base="xsd:string">
+         <length value="36" fixed="true"/>
+         <pattern value="[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}"/>
+      </restriction>
+  </simpleType>
+   <simpleType xmlns="http://www.w3.org/2001/XMLSchema" name="ExtendedStatus">
+      <annotation>
+         <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <p> An extended status must contain a prefix. </p>
+         </xsd:documentation>
+      </annotation>
+      <restriction base="xsd:string">
+         <pattern value="(\w|-)+:\w+"/>
+      </restriction>
+  </simpleType>
+   <simpleType xmlns="http://www.w3.org/2001/XMLSchema" name="MetadataKey">
+      <restriction base="xsd:string">
+         <maxLength value="255"/>
+      </restriction>
+  </simpleType>
+   <simpleType xmlns="http://www.w3.org/2001/XMLSchema" name="MetadataValue">
+      <restriction base="xsd:string">
+         <maxLength value="255"/>
+      </restriction>
+  </simpleType>
+   <simpleType xmlns="http://www.w3.org/2001/XMLSchema" name="ExtensibleImageStatus">
+      <annotation>
+         <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <p> An extensible image status type allows all of the strings
+          defined in <a href="#type_ImageStatus"
+                  title="See definition of                   ImageStatus">ImageStatus</a> or an alias prefixed status. </p>
+         </xsd:documentation>
+      </annotation>
+      <union memberTypes="csapi:ImageStatus csapi:ExtendedStatus"/>
+  </simpleType>
+   <simpleType xmlns="http://www.w3.org/2001/XMLSchema" name="ImageStatus">
+      <restriction base="xsd:string">
+         <enumeration value="UNKNOWN">
+            <annotation>
+               <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                  <p> The image is in an unknown state. </p>
+               </xsd:documentation>
+            </annotation>
+         </enumeration>
+         <enumeration value="ACTIVE">
+            <annotation>
+               <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                  <p> All operations have completed successfully, the image
+              is available for install. </p>
+               </xsd:documentation>
+            </annotation>
+         </enumeration>
+         <enumeration value="SAVING">
+            <annotation>
+               <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                  <p> The image is being created (or saved). </p>
+               </xsd:documentation>
+            </annotation>
+         </enumeration>
+         <enumeration value="DELETED">
+            <annotation>
+               <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                  <p> The image has been deleted. </p>
+               </xsd:documentation>
+            </annotation>
+         </enumeration>
+         <enumeration value="ERROR">
+            <annotation>
+               <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                  <p> The requested operation has failed. </p>
+               </xsd:documentation>
+            </annotation>
+         </enumeration>
+      </restriction>
+  </simpleType>
+   <simpleType xmlns="http://www.w3.org/2001/XMLSchema" name="RebootType">
+      <restriction base="xsd:string">
+         <enumeration value="HARD">
+            <annotation>
+               <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                  <p>
+              A HARD reboot is equivalent to power cycling the server.
+              The operating system is not allowed to gracefully
+              shutdown.
+            </p>
+               </xsd:documentation>
+            </annotation>
+         </enumeration>
+         <enumeration value="SOFT">
+            <annotation>
+               <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                  <p>
+              With a SOFT reboot, the operating system is signaled to
+              restart. This allows for a graceful shutdown of all
+              processes.
+            </p>
+               </xsd:documentation>
+            </annotation>
+         </enumeration>
+      </restriction>
+  </simpleType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="Server">
+      <annotation>
+         <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <p>A server is a virtual machine instance in the Cloud Servers
+          system. Note that this complex type defines all elements and
+          attributes as optional because a server instance may take
+          many different forms depending on the operation. When
+          creating a server, for example, the name, imageRef, and
+          flavorRef attributes are required. In addition, optional
+          metadata and personality file elements may be specified:</p>
+            <p>The response to such a crate operation will include the
+          administration password, host ID, and addresses associated
+          with the server:</p>
+            <p>When modifying a server only the name and administration
+          password should be specified as these are the only
+          attributes that are modifiable.</p>
+         </xsd:documentation>
+      </annotation>
+      <sequence>
+         <element name="image" type="csapi:Image" minOccurs="0">
+            <annotation>
+               <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                  <p>A reference to an image used to create the server.
+              External images must contain a link that provides the
+              full path to the image resource.</p>
+               </xsd:documentation>
+            </annotation>
+         </element>
+         <element name="flavor" type="csapi:Flavor" minOccurs="0">
+            <annotation>
+               <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                  <p>The current server flavor. This may not contain all
+              flavor details but will always contain an ID, a name, as
+              well as self and bookmark links.</p>
+               </xsd:documentation>
+            </annotation>
+         </element>
+         <element name="metadata" type="csapi:Metadata" minOccurs="0">
+            <annotation>
+               <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                  <p>A collection of meta data items associated with the
+              server.</p>
+               </xsd:documentation>
+            </annotation>
+         </element>
+         <element ref="csapi:addresses" minOccurs="0">
+            <annotation>
+               <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                  <p>A server's public and private address.</p>
+               </xsd:documentation>
+            </annotation>
+         </element>
+         <element name="personality" type="csapi:Personality" minOccurs="0">
+            <annotation>
+               <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                  <p>A collection of small <a href="#type_File" title="See               definition of file">files</a>
+              used to personalize a new server instance.</p>
+               </xsd:documentation>
+            </annotation>
+         </element>
+         <element name="fault" type="csapi:AsyncAPIFault" minOccurs="0">
+            <annotation>
+               <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                  <p>The details of a fault that may have occurred while
+              creating the server or performing a server action.</p>
+               </xsd:documentation>
+            </annotation>
+         </element>
+         <element vc:minVersion="1.1"
+                  ref="atom:link"
+                  minOccurs="0"
+                  maxOccurs="unbounded"/>
+         <any namespace="##other"
+              processContents="lax"
+              minOccurs="0"
+              maxOccurs="unbounded"/>
+      </sequence>
+      <attribute type="xsd:string" name="name" use="optional">
+         <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+               <p>The name of the server.</p>
+            </xsd:documentation>
+         </annotation>
+      </attribute>
+      <attribute type="xsd:anyURI" name="imageRef" use="optional">
+         <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+               <p>A reference to an image. This is used exclusively when
+            creating a server. Using an image ID here indicates that
+            the image is locally hosted.</p>
+            </xsd:documentation>
+         </annotation>
+      </attribute>
+      <attribute type="xsd:anyURI" name="flavorRef" use="optional">
+         <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+               <p>A reference to a flavor. This is used exclusively when
+            creating a server. Using a flavorRef here indicates that
+            the flavor is locally hosted.</p>
+            </xsd:documentation>
+         </annotation>
+      </attribute>
+      <attribute type="xsd:string" name="accessIPv4" use="optional">
+         <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+               <p>The IPv4 primary IP.</p>
+            </xsd:documentation>
+         </annotation>
+      </attribute>
+      <attribute type="xsd:string" name="accessIPv6" use="optional">
+         <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+               <p>The IPv6 primary IP.</p>
+            </xsd:documentation>
+         </annotation>
+      </attribute>
+      <attribute type="csapi:UUID" name="id" use="optional">
+         <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+               <p>The ID of the server.</p>
+            </xsd:documentation>
+         </annotation>
+      </attribute>
+      <attribute type="xsd:string" name="adminPass" use="optional">
+         <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+               <p>The server's administration password.</p>
+            </xsd:documentation>
+         </annotation>
+      </attribute>
+      <attribute type="xsd:string" name="tenant_id" use="optional">
+         <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+               <p>A unique ID that identifies the tenant that contains the
+            server.</p>
+            </xsd:documentation>
+         </annotation>
+      </attribute>
+      <attribute type="xsd:string" name="user_id" use="optional">
+         <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+               <p>A unique ID that identifies the user who created the
+            server.</p>
+            </xsd:documentation>
+         </annotation>
+      </attribute>
+      <attribute type="xsd:string" name="hostId" use="optional">
+         <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+               <p>A unique ID that identifies the physical host that the VM
+            is running on. This ID is unique <strong>per
+              account</strong> and not globally unique.</p>
+            </xsd:documentation>
+         </annotation>
+      </attribute>
+      <attribute type="csapi:Progress" name="progress" use="optional">
+         <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+               <p>The progress of the current server operation.</p>
+            </xsd:documentation>
+         </annotation>
+      </attribute>
+      <attribute type="csapi:ExtensibleServerStatus" name="status" use="optional">
+         <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+               <p>The current state (or <a href="#type_ExtensibleServerStatus"
+                     title="See definition of ExtensibleServerStatus">status</a>) of the server.</p>
+            </xsd:documentation>
+         </annotation>
+      </attribute>
+      <attribute type="xsd:dateTime" name="updated" use="optional">
+         <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+               <p>The time the server was updated.</p>
+            </xsd:documentation>
+         </annotation>
+      </attribute>
+      <attribute type="xsd:dateTime" name="created" use="optional">
+         <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+               <p>The time the server was created.</p>
+            </xsd:documentation>
+         </annotation>
+      </attribute>
+      <anyAttribute namespace="##other" processContents="lax"/>
+  </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="ServerWithOnlyIDNameLinks">
+      <annotation>
+         <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <p>The only allowed attribute for this Server type is the
+          name, ID, and links. This type is used for non-detailed
+          server lists.</p>
+         </xsd:documentation>
+      </annotation>
+      <complexContent>
+         <restriction base="csapi:Server">
+            <sequence>
+               <element ref="atom:link" minOccurs="1" maxOccurs="unbounded"/>
+               <any vc:minVersion="1.1"
+                    namespace="##other"
+                    processContents="lax"
+                    minOccurs="0"
+                    maxOccurs="unbounded"/>
+            </sequence>
+            <attribute type="xsd:string" name="name" use="required"/>
+            <attribute type="csapi:UUID" name="id" use="required"/>
+            <attribute type="xsd:string" name="accessIPv4" use="prohibited"/>
+            <attribute type="xsd:string" name="accessIPv6" use="prohibited"/>
+            <attribute type="xsd:string" name="adminPass" use="prohibited"/>
+            <attribute type="xsd:string" name="tenant_id" use="prohibited"/>
+            <attribute type="xsd:string" name="user_id" use="prohibited"/>
+            <attribute type="xsd:string" name="hostId" use="prohibited"/>
+            <attribute type="csapi:Progress" name="progress" use="prohibited"/>
+            <attribute type="csapi:ExtensibleServerStatus" name="status" use="prohibited"/>
+            <attribute type="xsd:dateTime" name="updated" use="prohibited"/>
+            <attribute type="xsd:dateTime" name="created" use="prohibited"/>
+            <anyAttribute namespace="##other" processContents="lax"/>
+            <assert vc:minVersion="1.1"
+                    test="atom:link[@rel='self']/@href and atom:link[@rel='bookmark']/@href">
+               <annotation>
+                  <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                     <p>Here the server <strong>MUST</strong> contain a name,
+                an ID, a bookmark link, and a self link.</p>
+                  </xsd:documentation>
+               </annotation>
+            </assert>
+         </restriction>
+      </complexContent>
+  </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="ServerWithOnlyIDLinks">
+      <annotation>
+         <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <p>The only allowed attribute for this Server type is the ID,
+          and links. This type is used for holding external references
+          to servers.</p>
+         </xsd:documentation>
+      </annotation>
+      <complexContent>
+         <restriction base="csapi:Server">
+            <sequence>
+               <element ref="atom:link" minOccurs="1" maxOccurs="unbounded"/>
+               <any vc:minVersion="1.1"
+                    namespace="##other"
+                    processContents="lax"
+                    minOccurs="0"
+                    maxOccurs="unbounded"/>
+            </sequence>
+            <attribute type="csapi:UUID" name="id" use="required"/>
+            <attribute type="xsd:string" name="name" use="prohibited"/>
+            <attribute type="xsd:string" name="accessIPv4" use="prohibited"/>
+            <attribute type="xsd:string" name="accessIPv6" use="prohibited"/>
+            <attribute type="xsd:string" name="adminPass" use="prohibited"/>
+            <attribute type="xsd:string" name="tenantId" use="prohibited"/>
+            <attribute type="xsd:string" name="userId" use="prohibited"/>
+            <attribute type="xsd:string" name="hostId" use="prohibited"/>
+            <attribute type="csapi:Progress" name="progress" use="prohibited"/>
+            <attribute type="csapi:ExtensibleServerStatus" name="status" use="prohibited"/>
+            <attribute type="xsd:dateTime" name="updated" use="prohibited"/>
+            <attribute type="xsd:dateTime" name="created" use="prohibited"/>
+            <anyAttribute namespace="##other" processContents="lax"/>
+            <assert vc:minVersion="1.1"
+                    test="atom:link[@rel='self']/@href and atom:link[@rel='bookmark']/@href">
+               <annotation>
+                  <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                     <p>Here the server <strong>MUST</strong> contain an ID,
+                a bookmark link, and a self link.</p>
+                  </xsd:documentation>
+               </annotation>
+            </assert>
+         </restriction>
+      </complexContent>
+  </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="ServerForCreate">
+      <annotation>
+         <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <p>When creating a server the server must contain a name and a
+          reference to an image and flavor.</p>
+         </xsd:documentation>
+      </annotation>
+      <complexContent>
+         <restriction base="csapi:Server">
+            <sequence>
+               <element name="metadata" type="csapi:Metadata" minOccurs="0">
+                  <annotation>
+                     <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                        <p>A collection of meta data items associated with the
+                  server.</p>
+                     </xsd:documentation>
+                  </annotation>
+               </element>
+               <element name="personality" type="csapi:Personality" minOccurs="0">
+                  <annotation>
+                     <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                        <p>A collection of small <a href="#type_File"
+                              title="See                                   definition of file">files</a> used to personalize a new server
+                  instance.</p>
+                     </xsd:documentation>
+                  </annotation>
+               </element>
+               <any namespace="##other"
+                    processContents="lax"
+                    minOccurs="0"
+                    maxOccurs="unbounded"/>
+            </sequence>
+            <attribute type="xsd:string" name="name" use="required"/>
+            <attribute type="xsd:anyURI" name="imageRef" use="required"/>
+            <attribute type="xsd:anyURI" name="flavorRef" use="required"/>
+            <attribute type="xsd:string" name="accessIPv4" use="optional"/>
+            <attribute type="xsd:string" name="accessIPv6" use="optional"/>
+            <attribute type="xsd:string" name="adminPass" use="optional"/>
+            <attribute type="csapi:UUID" name="id" use="prohibited"/>
+            <attribute type="xsd:string" name="tenant_id" use="prohibited"/>
+            <attribute type="xsd:string" name="user_id" use="prohibited"/>
+            <attribute type="xsd:string" name="hostId" use="prohibited"/>
+            <attribute type="csapi:Progress" name="progress" use="prohibited"/>
+            <attribute type="csapi:ExtensibleServerStatus" name="status" use="prohibited"/>
+            <attribute type="xsd:dateTime" name="updated" use="prohibited"/>
+            <attribute type="xsd:dateTime" name="created" use="prohibited"/>
+            <anyAttribute namespace="##other" processContents="lax"/>
+         </restriction>
+      </complexContent>
+  </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="ServerForUpdate">
+      <complexContent>
+         <extension base="csapi:Server">
+            <assert vc:minVersion="1.1"
+                    test="@name or @accessIPv4 or @accessIPv6 or csapi:metadata">
+               <annotation>
+                  <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                     <p>When updating a server. The server
+                  <strong>MUST</strong> contain either a name or
+                metadata or access address. The other fields are not
+                editable on a server update.</p>
+                  </xsd:documentation>
+               </annotation>
+            </assert>
+         </extension>
+      </complexContent>
+  </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="Servers">
+      <sequence>
+         <element name="server"
+                  type="csapi:Server"
+                  minOccurs="0"
+                  maxOccurs="1000">
+            <annotation>
+               <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                  <p>A collection of servers.</p>
+               </xsd:documentation>
+            </annotation>
+         </element>
+         <element vc:minVersion="1.1"
+                  ref="atom:link"
+                  minOccurs="0"
+                  maxOccurs="unbounded"/>
+         <any namespace="##other"
+              processContents="lax"
+              minOccurs="0"
+              maxOccurs="unbounded"/>
+      </sequence>
+      <anyAttribute namespace="##other" processContents="lax"/>
+  </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema"
+                name="ServersWithOnlyIDsNamesLinks">
+      <annotation>
+         <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <p>A collection of servers with only IDs, names, and links. A
+          collection of this type is returned in non-detailed server
+          list.</p>
+         </xsd:documentation>
+      </annotation>
+      <complexContent>
+         <restriction base="csapi:Servers">
+            <sequence>
+               <element name="server"
+                        type="csapi:ServerWithOnlyIDNameLinks"
+                        minOccurs="0"
+                        maxOccurs="1000"> </element>
+               <element vc:minVersion="1.1"
+                        ref="atom:link"
+                        minOccurs="0"
+                        maxOccurs="unbounded"/>
+               <any namespace="##other"
+                    processContents="lax"
+                    minOccurs="0"
+                    maxOccurs="unbounded"/>
+            </sequence>
+         </restriction>
+      </complexContent>
+  </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="Personality">
+      <annotation>
+         <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN"> A collection of small <a href="#type_File" title="See         definition of file">files</a> used to personalize a server instance.
+      </xsd:documentation>
+      </annotation>
+      <sequence>
+         <element name="file" type="csapi:File" minOccurs="0" maxOccurs="5">
+            <annotation>
+               <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                  <p>A collection of files.</p>
+               </xsd:documentation>
+            </annotation>
+         </element>
+         <any namespace="##other"
+              processContents="lax"
+              minOccurs="0"
+              maxOccurs="unbounded"/>
+      </sequence>
+      <anyAttribute namespace="##other" processContents="lax"/>
+  </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="File">
+      <annotation>
+         <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <p>A file is simply a full path along with base64 file
+          content. The name of the file is specified in the path
+          attribute and the <a href="#type_FileContent"
+                  title="See           definition of FileContent">file
+            content</a> is included inline.</p>
+            <xsdxt:code type="application/xml">
+          
+          &lt;file xmlns="http://docs.openstack.org/compute/api/v1.0"
+                path="/etc/banner.txt"&gt;
+            ICAgICAgDQoiQSBjbG91ZCBkb2VzIG5vdCBrbm93IHdoeSBpdCBtb3ZlcyBpbiBqdXN0IHN1Y2gg
+            YSBkaXJlY3Rpb24gYW5kIGF0IHN1Y2ggYSBzcGVlZC4uLkl0IGZlZWxzIGFuIGltcHVsc2lvbi4u
+            LnRoaXMgaXMgdGhlIHBsYWNlIHRvIGdvIG5vdy4gQnV0IHRoZSBza3kga25vd3MgdGhlIHJlYXNv
+            bnMgYW5kIHRoZSBwYXR0ZXJucyBiZWhpbmQgYWxsIGNsb3VkcywgYW5kIHlvdSB3aWxsIGtub3cs
+            IHRvbywgd2hlbiB5b3UgbGlmdCB5b3Vyc2VsZiBoaWdoIGVub3VnaCB0byBzZWUgYmV5b25kIGhv
+            cml6b25zLiINCg0KLVJpY2hhcmQgQmFjaA==
+          &lt;/file&gt;
+          
+        </xsdxt:code>
+         </xsd:documentation>
+      </annotation>
+      <simpleContent>
+         <extension base="csapi:FileContent">
+            <attribute name="path" type="csapi:FileName" use="required">
+               <annotation>
+                  <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                     <p>Full file path.</p>
+                  </xsd:documentation>
+               </annotation>
+            </attribute>
+            <anyAttribute namespace="##other" processContents="lax"/>
+         </extension>
+      </simpleContent>
+  </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="Addresses">
+      <sequence>
+         <element name="network"
+                  type="csapi:AddressList"
+                  minOccurs="0"
+                  maxOccurs="1000"/>
+         <element vc:minVersion="1.1"
+                  ref="atom:link"
+                  minOccurs="0"
+                  maxOccurs="unbounded"/>
+         <any namespace="##other"
+              processContents="lax"
+              minOccurs="0"
+              maxOccurs="unbounded"/>
+      </sequence>
+      <anyAttribute namespace="##other" processContents="lax"/>
+  </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="AddressList">
+      <sequence>
+         <element name="ip" type="csapi:Address" minOccurs="0" maxOccurs="1000">
+            <annotation>
+               <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                  <p>A collection of addresses.</p>
+               </xsd:documentation>
+            </annotation>
+         </element>
+         <element vc:minVersion="1.1"
+                  ref="atom:link"
+                  minOccurs="0"
+                  maxOccurs="unbounded"/>
+         <any namespace="##other"
+              processContents="lax"
+              minOccurs="0"
+              maxOccurs="unbounded"/>
+      </sequence>
+      <attribute type="xsd:string" name="id" use="optional">
+         <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+               <p>A id of an address list. This is typically a name used to
+            identify a network.</p>
+            </xsd:documentation>
+         </annotation>
+      </attribute>
+      <anyAttribute namespace="##other" processContents="lax"/>
+  </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="Address">
+      <sequence>
+         <any namespace="##other"
+              processContents="lax"
+              minOccurs="0"
+              maxOccurs="unbounded"/>
+      </sequence>
+      <attribute name="addr" type="xsd:string" use="required">
+         <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+               <p>An IP address.</p>
+            </xsd:documentation>
+         </annotation>
+      </attribute>
+      <attribute name="version" type="csapi:AddressVersion" use="optional">
+         <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+               <p>The IP Address version can be 4 or 6. The version
+            attribute is optional if it is left off, the type of
+            address will be determined by from its address format. If
+            it is specified it <strong>should</strong> match the
+            address format.</p>
+               <p>The OpenStack compute API will always fill in the version
+            number as a convenience to the client.</p>
+            </xsd:documentation>
+         </annotation>
+      </attribute>
+      <anyAttribute namespace="##other" processContents="lax"/>
+  </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="Metadata">
+      <sequence>
+         <element name="meta"
+                  type="csapi:MetadataItem"
+                  minOccurs="0"
+                  maxOccurs="1000">
+            <annotation>
+               <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                  <p> A collection of metadata items. An absolute limit
+              might impose additional constraints on the number of
+              metadata items. </p>
+               </xsd:documentation>
+            </annotation>
+         </element>
+         <element vc:minVersion="1.1"
+                  ref="atom:link"
+                  minOccurs="0"
+                  maxOccurs="unbounded"/>
+         <any namespace="##other"
+              processContents="lax"
+              minOccurs="0"
+              maxOccurs="unbounded"/>
+      </sequence>
+      <anyAttribute namespace="##other" processContents="lax"/>
+  </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="MetadataItem">
+      <annotation>
+         <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <p> A MetadataItem is simply a name-value pair. The name is
+          specified in the key attribute and the <a href="#type_MetadataValue"
+                  title="See definition of           MetadataValue">value</a> is included inline. </p>
+            <xsdxt:code type="application/xml">
+          
+            &lt;meta xmlns="http://docs.openstack.org/compute/api/v1.0"
+                  key="Server Label"&gt;Web Head 1&lt;/meta&gt;
+          
+        </xsdxt:code>
+         </xsd:documentation>
+      </annotation>
+      <simpleContent>
+         <extension base="csapi:MetadataValue">
+            <attribute name="key" type="csapi:MetadataKey" use="required">
+               <annotation>
+                  <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                     <p> A meta data name-value pair. </p>
+                  </xsd:documentation>
+               </annotation>
+            </attribute>
+            <anyAttribute namespace="##other" processContents="lax"/>
+         </extension>
+      </simpleContent>
+  </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="Image">
+      <sequence>
+         <element name="server" type="csapi:Server" minOccurs="0">
+            <annotation>
+               <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                  <p> The server associated with the image. This may not
+              contain full server details but will always contain an
+              ID, a name, as well as self and bookmark links. </p>
+               </xsd:documentation>
+            </annotation>
+         </element>
+         <element name="metadata" type="csapi:Metadata" minOccurs="0">
+            <annotation>
+               <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                  <p> A collection of meta data items associated with the
+              image. </p>
+               </xsd:documentation>
+            </annotation>
+         </element>
+         <element name="fault" type="csapi:AsyncAPIFault" minOccurs="0">
+            <annotation>
+               <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                  <p> The details of a fault that may have occurred while
+              creating an image. </p>
+               </xsd:documentation>
+            </annotation>
+         </element>
+         <element vc:minVersion="1.1"
+                  ref="atom:link"
+                  minOccurs="0"
+                  maxOccurs="unbounded"/>
+         <any namespace="##other"
+              processContents="lax"
+              minOccurs="0"
+              maxOccurs="unbounded"/>
+      </sequence>
+      <attribute type="csapi:UUID" name="id" use="optional">
+         <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+               <p> The ID of the image. </p>
+            </xsd:documentation>
+         </annotation>
+      </attribute>
+      <attribute type="xsd:string" name="name" use="optional">
+         <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+               <p> The name of the image. </p>
+            </xsd:documentation>
+         </annotation>
+      </attribute>
+      <attribute type="xsd:string" name="tenant_id" use="optional">
+         <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+               <p> A unique ID that identifies the tenant that contains the
+            image. </p>
+            </xsd:documentation>
+         </annotation>
+      </attribute>
+      <attribute type="xsd:string" name="user_id" use="optional">
+         <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+               <p> A unique ID that identifies the user who created the
+            image. </p>
+            </xsd:documentation>
+         </annotation>
+      </attribute>
+      <attribute type="xsd:dateTime" name="updated" use="optional">
+         <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+               <p> A time-stamp identifying the modification time of the
+            image. </p>
+            </xsd:documentation>
+         </annotation>
+      </attribute>
+      <attribute type="xsd:dateTime" name="created" use="optional">
+         <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+               <p> A creation time-stamp for the image. </p>
+            </xsd:documentation>
+         </annotation>
+      </attribute>
+      <attribute type="csapi:Progress" name="progress" use="optional">
+         <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+               <p> The progress of the current image operation. </p>
+            </xsd:documentation>
+         </annotation>
+      </attribute>
+      <attribute type="csapi:ExtensibleImageStatus" name="status" use="optional">
+         <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+               <p> The current state (or <a href="#type_ExtensibleImageStatus"
+                     title="See definition of ExtensibleImageStatus">status</a>) of the image. </p>
+            </xsd:documentation>
+         </annotation>
+      </attribute>
+      <attribute type="xsd:int" name="minDisk" use="optional">
+         <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+               <p> Minimum disk space required for the image in gigabytes.
+          </p>
+            </xsd:documentation>
+         </annotation>
+      </attribute>
+      <attribute type="xsd:int" name="minRam" use="optional">
+         <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+               <p> The minimum amount of RAM required for the image in
+            megabytes. </p>
+            </xsd:documentation>
+         </annotation>
+      </attribute>
+      <anyAttribute namespace="##other" processContents="lax"/>
+  </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="ImageWithOnlyIDNameLinks">
+      <annotation>
+         <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <p> The only allowed attribute for this Image type is the
+          name, ID, and links. This is used for non-detailed list of
+          images. </p>
+         </xsd:documentation>
+      </annotation>
+      <complexContent>
+         <restriction base="csapi:Image">
+            <sequence>
+               <element ref="atom:link" minOccurs="1" maxOccurs="unbounded"/>
+               <any vc:minVersion="1.1"
+                    namespace="##other"
+                    processContents="lax"
+                    minOccurs="0"
+                    maxOccurs="unbounded"/>
+            </sequence>
+            <attribute type="csapi:UUID" name="id" use="required"/>
+            <attribute type="xsd:string" name="name" use="required"/>
+            <attribute type="xsd:dateTime" name="updated" use="prohibited"/>
+            <attribute type="xsd:dateTime" name="created" use="prohibited"/>
+            <attribute type="csapi:Progress" name="progress" use="prohibited"/>
+            <attribute type="csapi:ExtensibleImageStatus" name="status" use="prohibited"/>
+            <anyAttribute namespace="##other" processContents="lax"/>
+            <assert vc:minVersion="1.1"
+                    test="atom:link[@rel='self']/@href and atom:link[@rel='bookmark']/@href">
+               <annotation>
+                  <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                     <p> Here the image <strong>MUST</strong> contain a name,
+                an ID, a bookmark link, and a self link. </p>
+                  </xsd:documentation>
+               </annotation>
+            </assert>
+         </restriction>
+      </complexContent>
+  </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="Images">
+      <sequence>
+         <element name="image" type="csapi:Image" minOccurs="0" maxOccurs="1000">
+            <annotation>
+               <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                  <p> A collection of images (all details). </p>
+               </xsd:documentation>
+            </annotation>
+         </element>
+         <element vc:minVersion="1.1"
+                  ref="atom:link"
+                  minOccurs="0"
+                  maxOccurs="unbounded"/>
+         <any namespace="##other"
+              processContents="lax"
+              minOccurs="0"
+              maxOccurs="unbounded"/>
+      </sequence>
+      <anyAttribute namespace="##other" processContents="lax"/>
+  </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="ImagesWithOnlyIDsNamesLinks">
+      <annotation>
+         <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <p> A collection of images with only IDs, names, and links.
+          This is used for the non-detailed list of images. </p>
+         </xsd:documentation>
+      </annotation>
+      <complexContent>
+         <restriction base="csapi:Images">
+            <sequence>
+               <element name="image"
+                        type="csapi:ImageWithOnlyIDNameLinks"
+                        minOccurs="0"
+                        maxOccurs="1000"/>
+               <element vc:minVersion="1.1"
+                        ref="atom:link"
+                        minOccurs="0"
+                        maxOccurs="unbounded"/>
+               <any namespace="##other"
+                    processContents="lax"
+                    minOccurs="0"
+                    maxOccurs="unbounded"/>
+            </sequence>
+            <anyAttribute namespace="##other" processContents="lax"/>
+         </restriction>
+      </complexContent>
+  </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="ComputeAPIFault">
+      <sequence>
+         <element name="message" type="xsd:string">
+            <annotation>
+               <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                  <p>A human readable message that is appropriate for
+              display to the end user.</p>
+               </xsd:documentation>
+            </annotation>
+         </element>
+         <element name="details" type="xsd:string" minOccurs="0">
+            <annotation>
+               <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                  <p>The optional &lt;details&gt; element may contain useful
+              information for tracking down errors (such as a stack
+              trace). This information may or may not be appropriate
+              for display to an end user.</p>
+               </xsd:documentation>
+            </annotation>
+         </element>
+         <any namespace="##other"
+              processContents="lax"
+              minOccurs="0"
+              maxOccurs="unbounded"/>
+      </sequence>
+      <attribute name="code" type="xsd:int" use="required">
+         <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+               <p>The HTTP status code associated with the current
+            fault.</p>
+            </xsd:documentation>
+         </annotation>
+      </attribute>
+      <anyAttribute namespace="##other" processContents="lax"/>
+  </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="ItemNotFoundAPIFault">
+      <complexContent>
+         <extension base="csapi:ComputeAPIFault"> </extension>
+      </complexContent>
+  </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="BuildInProgressAPIFault">
+      <complexContent>
+         <extension base="csapi:ComputeAPIFault"> </extension>
+      </complexContent>
+  </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema"
+                name="ServerCapacityUnavailableAPIFault">
+      <complexContent>
+         <extension base="csapi:ComputeAPIFault"> </extension>
+      </complexContent>
+  </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema"
+                name="BackupOrResizeInProgressAPIFault">
+      <complexContent>
+         <extension base="csapi:ComputeAPIFault"> </extension>
+      </complexContent>
+  </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="ResizeNotAllowedAPIFault">
+      <complexContent>
+         <extension base="csapi:ComputeAPIFault"> </extension>
+      </complexContent>
+  </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="ServiceUnavailableAPIFault">
+      <complexContent>
+         <extension base="csapi:ComputeAPIFault"> </extension>
+      </complexContent>
+  </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="UnauthorizedAPIFault">
+      <complexContent>
+         <extension base="csapi:ComputeAPIFault"> </extension>
+      </complexContent>
+  </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="ForbiddenAPIFault">
+      <complexContent>
+         <extension base="csapi:ComputeAPIFault"> </extension>
+      </complexContent>
+  </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="OverLimitAPIFault">
+      <complexContent>
+         <extension base="csapi:ComputeAPIFault">
+            <attribute name="retryAt" type="xsd:dateTime" use="optional">
+               <annotation>
+                  <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                     <p>An optional dateTime denoting when an operation
+                should be retried.</p>
+                  </xsd:documentation>
+               </annotation>
+            </attribute>
+         </extension>
+      </complexContent>
+  </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="AsyncAPIFault">
+      <complexContent>
+         <extension base="csapi:ComputeAPIFault">
+            <attribute name="created" type="xsd:dateTime" use="optional">
+               <annotation>
+                  <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                     <p>An optional dateTime denoting when the fault was
+                created.</p>
+                  </xsd:documentation>
+               </annotation>
+            </attribute>
+         </extension>
+      </complexContent>
+  </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="BadRequestAPIFault">
+      <complexContent>
+         <extension base="csapi:ComputeAPIFault"> </extension>
+      </complexContent>
+  </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="BadMediaTypeAPIFault">
+      <complexContent>
+         <extension base="csapi:ComputeAPIFault"> </extension>
+      </complexContent>
+  </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="BadMethodAPIFault">
+      <complexContent>
+         <extension base="csapi:ComputeAPIFault"> </extension>
+      </complexContent>
+  </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="NotImplementedAPIFault">
+      <complexContent>
+         <extension base="csapi:ComputeAPIFault"> </extension>
+      </complexContent>
+  </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="Flavor">
+      <sequence>
+         <element vc:minVersion="1.1"
+                  ref="atom:link"
+                  minOccurs="0"
+                  maxOccurs="unbounded"/>
+         <any namespace="##other"
+              processContents="lax"
+              minOccurs="0"
+              maxOccurs="unbounded"/>
+      </sequence>
+      <attribute type="csapi:UUID" name="id" use="required">
+         <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+               <p> The ID of the flavor. </p>
+            </xsd:documentation>
+         </annotation>
+      </attribute>
+      <attribute type="xsd:string" name="name" use="optional">
+         <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+               <p> The name of the flavor. </p>
+            </xsd:documentation>
+         </annotation>
+      </attribute>
+      <attribute type="xsd:int" name="ram" use="optional">
+         <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+               <p> The amount of RAM in the flavor in megabytes. </p>
+            </xsd:documentation>
+         </annotation>
+      </attribute>
+      <attribute type="xsd:int" name="disk" use="optional">
+         <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+               <p> The amount of disk space in the flavor in gigabytes.
+          </p>
+            </xsd:documentation>
+         </annotation>
+      </attribute>
+      <attribute type="xsd:int" name="vcpus" use="optional">
+         <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+               <p> The amount of cores allocated. </p>
+            </xsd:documentation>
+         </annotation>
+      </attribute>
+      <anyAttribute namespace="##other" processContents="lax"/>
+  </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="FlavorWithOnlyIDNameLinks">
+      <annotation>
+         <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <p> The only allowed attributes for this Flavor type is the
+          name, ID, and links. This type is used for non-detailed list
+          of flavors. </p>
+         </xsd:documentation>
+      </annotation>
+      <complexContent>
+         <restriction base="csapi:Flavor">
+            <sequence>
+               <element ref="atom:link" minOccurs="1" maxOccurs="unbounded"/>
+               <any vc:minVersion="1.1"
+                    namespace="##other"
+                    processContents="lax"
+                    minOccurs="0"
+                    maxOccurs="unbounded"/>
+            </sequence>
+            <attribute type="csapi:UUID" name="id" use="required"/>
+            <attribute type="xsd:string" name="name" use="required"/>
+            <attribute type="xsd:int" name="ram" use="prohibited"/>
+            <attribute type="xsd:int" name="disk" use="prohibited"/>
+            <attribute type="xsd:int" name="vcpus" use="prohibited"/>
+            <anyAttribute namespace="##other" processContents="lax"/>
+            <assert vc:minVersion="1.1"
+                    test="atom:link[@rel='self']/@href and atom:link[@rel='bookmark']/@href">
+               <annotation>
+                  <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                     <p> Here the flavor <strong>MUST</strong> contain a
+                name, an ID, a bookmark link, and a self link. </p>
+                  </xsd:documentation>
+               </annotation>
+            </assert>
+         </restriction>
+      </complexContent>
+  </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="Flavors">
+      <sequence>
+         <element name="flavor"
+                  type="csapi:Flavor"
+                  minOccurs="0"
+                  maxOccurs="1000">
+            <annotation>
+               <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                  <p> A collection of flavors. </p>
+               </xsd:documentation>
+            </annotation>
+         </element>
+         <element vc:minVersion="1.1"
+                  ref="atom:link"
+                  minOccurs="0"
+                  maxOccurs="unbounded"/>
+         <any namespace="##other"
+              processContents="lax"
+              minOccurs="0"
+              maxOccurs="unbounded"/>
+      </sequence>
+      <anyAttribute namespace="##other" processContents="lax"/>
+  </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema"
+                name="FlavorsWithOnlyIDsNamesLinks">
+      <annotation>
+         <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <p> A collection of flavors with ID, names, and links only.
+          This type is used for non-detailed list of flavors. </p>
+         </xsd:documentation>
+      </annotation>
+      <complexContent>
+         <restriction base="csapi:Flavors">
+            <sequence>
+               <element name="flavor"
+                        type="csapi:FlavorWithOnlyIDNameLinks"
+                        minOccurs="0"
+                        maxOccurs="1000"/>
+               <element vc:minVersion="1.1"
+                        ref="atom:link"
+                        minOccurs="0"
+                        maxOccurs="unbounded"/>
+               <any namespace="##other"
+                    processContents="lax"
+                    minOccurs="0"
+                    maxOccurs="unbounded"/>
+            </sequence>
+            <anyAttribute namespace="##other" processContents="lax"/>
+         </restriction>
+      </complexContent>
+  </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" abstract="true" name="Action">
+      <annotation>
+         <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <p>
+          This is the base type for all server actions.  It is simply
+          a marker abstract type used to differentiate an Action
+          element from other elements.
+        </p>
+         </xsd:documentation>
+      </annotation>
+      <anyAttribute namespace="##other" processContents="lax"/>
+  </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="Reboot">
+      <complexContent>
+         <extension base="csapi:Action">
+            <sequence>
+              <any namespace="##other"
+                    processContents="lax"
+                    minOccurs="0"
+                    maxOccurs="unbounded"/>
+            </sequence>
+            <attribute name="type" type="csapi:RebootType" use="required">
+               <annotation>
+                  <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                     <p>
+                The <a href="#type_RebootType"
+                           title="See definition                 of RebootType">type</a> of reboot to perform.
+              </p>
+                  </xsd:documentation>
+               </annotation>
+            </attribute>
+         </extension>
+      </complexContent>
+  </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="Rebuild">
+      <complexContent>
+         <extension base="csapi:Action">
+            <sequence>
+              <element name="metadata" type="csapi:Metadata" minOccurs="0">
+                  <annotation>
+                      <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                          <p>
+                              A collection of meta data items
+                              associated with the server.  If not
+                              specified the original server metadata
+                              will be kept.
+                          </p>
+                      </xsd:documentation>
+                  </annotation>
+              </element>
+              <element name="personality" type="csapi:Personality" minOccurs="0">
+                  <annotation>
+                      <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                          <p>
+                              A collection of small <a href="#type_File"
+                              title="See definition                               of file">files</a> used to personalize a
+                              new server instance.  Existing server
+                              personality files are deleted by the
+                              rebuild process.
+                          </p>
+                      </xsd:documentation>
+                  </annotation>
+              </element>
+              <any namespace="##other"
+                    processContents="lax"
+                    minOccurs="0"
+                    maxOccurs="unbounded"/>
+            </sequence>
+            <attribute type="xsd:string" name="name" use="optional">
+              <annotation>
+                  <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                      <p>
+                          The name of the server. If not specified the
+                          original server name will be kept.
+                      </p>
+                  </xsd:documentation>
+              </annotation>
+            </attribute>
+            <attribute type="xsd:string" name="adminPass" use="optional">
+              <annotation>
+                  <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                      <p>
+                          The server's administration password.
+                      </p>
+                  </xsd:documentation>
+              </annotation>
+            </attribute>
+            <attribute name="imageRef" type="xsd:anyURI" use="required">
+              <annotation>
+                  <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                      <p>
+                          A reference to an image to use for the
+                          rebuild.  A local image need contain only an
+                          Image ID. External images must contain a
+                          link that provides the full path to the
+                          image resource.  You must supply an image
+                          when rebuilding.
+                      </p>
+                  </xsd:documentation>
+              </annotation>
+            </attribute>
+            <attribute type="xsd:string" name="accessIPv4" use="optional">
+              <annotation>
+                  <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                      <p>
+                          The IPv4 primary IP.
+                      </p>
+                  </xsd:documentation>
+              </annotation>
+            </attribute>
+            <attribute type="xsd:string" name="accessIPv6" use="optional">
+              <annotation>
+                  <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                      <p>
+                          The IPv6 primary IP.
+                      </p>
+                  </xsd:documentation>
+              </annotation>
+            </attribute>
+         </extension>
+      </complexContent>
+  </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="Resize">
+      <complexContent>
+         <extension base="csapi:Action">
+            <sequence>
+              <any namespace="##other"
+                    processContents="lax"
+                    minOccurs="0"
+                    maxOccurs="unbounded"/>
+            </sequence>
+            <attribute name="flavorRef" type="xsd:anyURI" use="required">
+              <annotation>
+                  <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                      <p>
+                          A reference to the flavor to convert to.
+                      </p>
+                  </xsd:documentation>
+              </annotation>
+            </attribute>
+         </extension>
+      </complexContent>
+  </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="ConfirmResize">
+      <complexContent>
+         <extension base="csapi:Action">
+            <sequence>
+              <any namespace="##other"
+                    processContents="lax"
+                    minOccurs="0"
+                    maxOccurs="unbounded"/>
+            </sequence>
+         </extension>
+      </complexContent>
+  </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="RevertResize">
+      <complexContent>
+         <extension base="csapi:Action">
+            <sequence>
+              <any namespace="##other"
+                    processContents="lax"
+                    minOccurs="0"
+                    maxOccurs="unbounded"/>
+            </sequence>
+         </extension>
+      </complexContent>
+  </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="ChangePassword">
+      <complexContent>
+         <extension base="csapi:Action">
+            <sequence>
+              <any namespace="##other"
+                    processContents="lax"
+                    minOccurs="0"
+                    maxOccurs="unbounded"/>
+            </sequence>
+            <attribute type="xsd:string" name="adminPass" use="required">
+              <annotation>
+                  <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                      <p>
+                          The server's administration password.
+                      </p>
+                  </xsd:documentation>
+              </annotation>
+            </attribute>
+         </extension>
+      </complexContent>
+  </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="CreateImage">
+      <complexContent>
+         <extension base="csapi:Action">
+            <sequence>
+              <element name="metadata" type="csapi:Metadata" minOccurs="0">
+                  <annotation>
+                      <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                          <p>
+                              A collection of meta data items
+                              associated with the image.
+                          </p>
+                      </xsd:documentation>
+                  </annotation>
+              </element>
+              <any namespace="##other"
+                    processContents="lax"
+                    minOccurs="0"
+                    maxOccurs="unbounded"/>
+            </sequence>
+            <attribute type="xsd:string" name="name" use="required">
+              <annotation>
+                  <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                      <p>
+                          The name of the image to create.
+                      </p>
+                  </xsd:documentation>
+              </annotation>
+            </attribute>
+         </extension>
+      </complexContent>
+  </complexType>
+</xsd:schema>

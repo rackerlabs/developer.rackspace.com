@@ -1,0 +1,10 @@
+HTTP/1.1 200 OK
+Date: Thu, 10 Jun 2010 20:59:39 GMT
+Last-Modified: Fri, 11 Jun 2010 13:40:18 GMT
+ETag: 8a964ee2a5e88be344f36c22562a6486
+Content-Length: 512000
+Content-Type: text/plain; charset=UTF-8
+X-Object-Meta-Meat: Bacon
+X-Object-Meta-Fruit: Apple
+X-Object-Meta-Veggie: Beans
+X-Object-Meta-Dairy: Cheese

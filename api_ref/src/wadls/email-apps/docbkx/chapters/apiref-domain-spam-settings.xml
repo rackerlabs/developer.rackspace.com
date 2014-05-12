@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xmlns="http://docbook.org/ns/docbook"
+    xml:id="apiref-domain-spam-settings"
+    xmlns:wadl="http://wadl.dev.java.net/2009/02">
+    <title>Domain spam settings</title>
+    <wadl:resources xmlns="http://wadl.dev.java.net/2009/02">
+        <wadl:resource
+            href="../../wadl/email-apps-domain.wadl#settings">
+            <wadl:method href="#showSpamSettings"/>
+            <method href="#updateSpamSettings"/>
+        </wadl:resource>
+        <wadl:resource
+            href="../../wadl/email-apps-domain.wadl#blacklist">
+            <wadl:method href="#listBlacklistEmails"/>
+            <wadl:method href="#updateBlacklistEmails"/>
+        </wadl:resource>
+        <wadl:resource
+            href="../../wadl/email-apps-domain.wadl#email_address">
+            <method href="#addBlacklistEmailOrDomain"/>
+            <method href="#deleteBlacklistEmailsOrDomains"/>
+        </wadl:resource>
+        <wadl:resource
+            href="../../wadl/email-apps-domain.wadl#ipblacklist">
+            <wadl:method href="#listBlacklistIPs"/>
+            <wadl:method href="#updateBlacklistIPs"/>
+        </wadl:resource>
+        <wadl:resource
+            href="../../wadl/email-apps-domain.wadl#ip_address">
+            <wadl:method href="#addBlacklistIP"/>
+            <wadl:method href="#deleteBlacklistIP"/>
+        </wadl:resource>
+        <wadl:resource
+            href="../../wadl/email-apps-domain.wadl#safelist">
+            <wadl:method href="#listSafelistEmails"/>
+            <wadl:method href="#updateSafelistEmail"/>
+        </wadl:resource>
+        <wadl:resource
+            href="../../wadl/email-apps-domain.wadl#email_address-safelist">
+            <method href="#addSafelistEmailOrDomain"/>
+            <method href="#deleteSafelistEmailOrDomain"/>
+        </wadl:resource>
+        <wadl:resource
+            href="../../wadl/email-apps-domain.wadl#ipsafelist">
+            <wadl:method href="#listSafelistIPs"/>
+            <wadl:method href="#updateSafelistIPs"/>
+        </wadl:resource>
+        <wadl:resource
+            href="../../wadl/email-apps-domain.wadl#ip_address-safelist">
+            <wadl:method href="#addSafelistIP"/>
+            <wadl:method href="#deleteSafelistIP"/>
+        </wadl:resource>
+    </wadl:resources>
+</section>

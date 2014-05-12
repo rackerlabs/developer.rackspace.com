@@ -1,0 +1,16 @@
+{
+    "capacity": [
+                 {
+                 "remaining": 11,
+                 "total": 41,
+                 "id": "hadoop1-60",
+                 "name": "XLarge Hadoop Instance"
+                 },
+                 {
+                 "remaining": 187,
+                 "total": 328,
+                 "id": "hadoop1-7",
+                 "name": "Small Hadoop Instance"
+                 }
+                 ]
+}

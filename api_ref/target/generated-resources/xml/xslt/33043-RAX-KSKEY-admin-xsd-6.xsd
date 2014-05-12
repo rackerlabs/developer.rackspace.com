@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+                    Flattened from: http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v2.0/xsd/credentials.xsd-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:rax="http://docs.rackspace.com/api"
+            xmlns:db="http://docbook.org/ns/docbook"
+            xmlns:identity="http://docs.openstack.org/identity/api/v2.0"
+            xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
+            xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+            xmlns:atom="http://www.w3.org/2005/Atom"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+            xmlns:ext="http://docs.openstack.org/common/api/v1.0"
+            xmlns:html="http://www.w3.org/1999/xhtml"
+            xmlns:vers="http://docs.openstack.org/common/api/v1.0"
+            xmlns:xs="http://www.w3.org/2001/XMLSchema"
+            xmlns:RAX-KSKEY="http://docs.rackspace.com/identity/api/ext/RAX-KSKEY/v1.0"
+            elementFormDefault="qualified"
+            attributeFormDefault="unqualified"
+            targetNamespace="http://docs.openstack.org/identity/api/v2.0"><!-- Import ATOM specific schema definitions --><!-- Elements --><!-- Complex Types -->
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="auth"
+            type="identity:AuthenticationRequest"/>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="credential"
+            type="identity:CredentialType"/>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="credentials"
+            type="identity:CredentialListType"/>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="passwordCredentials"
+            type="identity:PasswordCredentialsRequiredUsername"
+            substitutionGroup="identity:credential"/>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema"
+                name="CredentialType"
+                abstract="true">
+        <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                <p> Base type for credential in the Identity Service.
+                </p>
+            </xsd:documentation>
+        </annotation>
+        <sequence>
+            <any namespace="##other"
+              processContents="lax"
+              minOccurs="0"
+              maxOccurs="unbounded"/>
+        </sequence>
+        <anyAttribute namespace="##other" processContents="lax"/>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="AuthenticationRequest">
+        <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                <p> Both the tenantId and tenantName are optional, but
+                    should not be specified together. If both
+                    attributes are specified, the server SHOULD
+                    respond with a 400 Bad Request. </p>
+            </xsd:documentation>
+        </annotation>
+        <sequence>
+            <choice>
+                <element ref="identity:credential" minOccurs="1"/>
+                <element name="token" type="identity:TokenForAuthenticationRequest"/>
+            </choice>
+            <any namespace="##other"
+              processContents="lax"
+              minOccurs="0"
+              maxOccurs="unbounded"/>
+        </sequence>
+        <attribute name="tenantId" type="xsd:string" use="optional"/>
+        <attribute name="tenantName" type="xsd:string" use="optional"/>
+        <anyAttribute namespace="##other" processContents="lax"/>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema"
+                name="TokenForAuthenticationRequest">
+        <attribute name="id" type="xsd:string" use="required"/>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="PasswordCredentialsBase">
+        <complexContent>
+            <extension base="identity:CredentialType">
+                <attribute name="username" type="xsd:string" use="optional"/>
+                <attribute name="password" type="xsd:string" use="required"/>
+            </extension>
+        </complexContent>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema"
+                name="PasswordCredentialsWithoutUsername">
+        <complexContent>
+            <restriction base="identity:PasswordCredentialsBase">
+                <attribute name="username" type="xsd:string" use="prohibited"/>
+                <attribute name="password" type="xsd:string" use="required"/>
+            </restriction>
+        </complexContent>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema"
+                name="PasswordCredentialsRequiredUsername">
+        <complexContent>
+            <restriction base="identity:PasswordCredentialsBase">
+                <attribute name="username" type="xsd:string" use="required"/>
+                <attribute name="password" type="xsd:string" use="required"/>
+            </restriction>
+        </complexContent>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="CredentialListType">
+        <sequence>
+            <element ref="identity:credential" minOccurs="1" maxOccurs="unbounded"/>
+        </sequence>
+        <anyAttribute namespace="##other" processContents="lax"/>
+    </complexType>
+</xsd:schema>

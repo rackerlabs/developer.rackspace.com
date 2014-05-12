@@ -1,0 +1,6 @@
+PUT '/customers/12345678/domains/example.com/spam/ipblacklist',    
+{    
+    'addList' => '216.12.34.%,216.12.%.%',    
+    'removeList' => '216.%.%.%'    
+    },    
+'text/xml'" });

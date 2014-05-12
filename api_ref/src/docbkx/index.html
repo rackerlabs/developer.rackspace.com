@@ -1,0 +1,3882 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+  <title>Rackspace Cloud Technical Documentation</title>
+  <link rel="stylesheet" type="text/css" href="Rackspace%20Cloud%20Technical%20Documentation_files/bootstrap.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="Rackspace%20Cloud%20Technical%20Documentation_files/bootstrap-responsive.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="Rackspace%20Cloud%20Technical%20Documentation_files/mine.css">
+  <link rel="shortcut icon" href="http://docs.rackspace.com/common/img/favicon.ico" type="common/images/x-icon">
+  <script src="Rackspace%20Cloud%20Technical%20Documentation_files/ga.js" async="" type="text/javascript"></script><script type="text/javascript" src="Rackspace%20Cloud%20Technical%20Documentation_files/jquery-1.js"></script>
+  <script type="text/javascript" src="Rackspace%20Cloud%20Technical%20Documentation_files/bootstrap.js"></script>
+  <script type="text/javascript" src="Rackspace%20Cloud%20Technical%20Documentation_files/custom.js"></script>
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-23102455-4']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+  <script type="text/javascript">
+      $(function(){getFooter("api");});
+  </script>
+  
+   
+  <link rel="canonical" href="http://docs.rackspace.com/">
+ <link rel="alternate" type="application/atom+xml" href="http://docs.rackspace.com/feeds/atom-all.xml" title="All Rackspace Technical Documentation Atom Feed">
+ 
+    
+    <link rel="alternate" type="application/atom+xml" href="http://docs.rackspace.com/feeds/atom-servers-v2.xml" title="Next Gen Cloud Servers Atom Feed">
+  
+  
+    
+    <link rel="alternate" type="application/atom+xml" href="http://docs.rackspace.com/feeds/atom-servers-v1.0.xml" title="First Gen Cloud Servers Atom Feed">
+  
+  
+    
+    <link rel="alternate" type="application/atom+xml" href="http://docs.rackspace.com/feeds/atom-files-v1.xml" title="Cloud Files Atom Feed">
+  
+  
+    
+    <link rel="alternate" type="application/atom+xml" href="http://docs.rackspace.com/feeds/atom-cdb-v1.0.xml" title="Cloud Databases Atom Feed">
+  
+  
+    
+    <link rel="alternate" type="application/atom+xml" href="http://docs.rackspace.com/feeds/atom-loadbalancers-v1.0.xml" title="Cloud Load Balancers Atom Feed">
+  
+  
+    
+    <link rel="alternate" type="application/atom+xml" href="http://docs.rackspace.com/feeds/atom-cbs-v1.0.xml" title="Cloud Block Storage Atom Feed">
+  
+  
+    
+    <link rel="alternate" type="application/atom+xml" href="http://docs.rackspace.com/feeds/atom-cdns-v1.0.xml" title="Cloud DNS Atom Feed">
+  
+  
+    
+    <link rel="alternate" type="application/atom+xml" href="http://docs.rackspace.com/feeds/atom-rcbu-v1.0.xml" title="Cloud Backup Atom Feed">
+  
+  
+    
+    <link rel="alternate" type="application/atom+xml" href="http://docs.rackspace.com/feeds/atom-cm-v1.0.xml" title="Cloud Monitoring Atom Feed">
+  
+  
+    
+  
+    
+  
+    
+  
+  
+    
+  
+    
+    <link rel="alternate" type="application/atom+xml" href="http://docs.rackspace.com/feeds/atom-networks-v2.xml" title="Networks Atom Feed">
+    
+  
+    
+    <link rel="alternate" type="application/atom+xml" href="http://docs.rackspace.com/feeds/atom-auth-v1.1.xml" title="Identity Atom Feed">
+    
+  
+    
+  
+    
+    <link rel="alternate" type="application/atom+xml" href="http://docs.rackspace.com/feeds/atom-queues-v1.0.xml" title="Cloud Queues Atom Feed">
+    
+  
+    
+  
+    
+    <link rel="alternate" type="application/atom+xml" href="http://docs.rackspace.com/feeds/atom-cas-v1.0.xml" title="Cloud Auto Scale Atom Feed">
+    
+  
+    
+  
+    
+  
+    
+  
+    
+    <link rel="alternate" type="application/atom+xml" href="http://docs.rackspace.com/feeds/atom-cbd-v1.0.xml" title="Big Data Atom Feed">
+    
+  
+    
+    <link rel="alternate" type="application/atom+xml" href="http://docs.rackspace.com/feeds/atom-images-v2.xml" title="Cloud Images Atom Feed">
+    
+  
+    
+  
+    
+    <link rel="alternate" type="application/atom+xml" href="http://docs.rackspace.com/feeds/atom-orchestration-v1.xml" title="Cloud Orchestration Atom Feed">
+    
+  
+    
+  
+    
+  
+</head>
+<body>
+
+<!----   Top Nav Bar -->
+<div class="navbar navbar-inverse">
+  <div class="navbar-inner" style="border-radius: 0px;">
+    <div class="container">
+      <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <img src="Rackspace%20Cloud%20Technical%20Documentation_files/rackspace-logo.png" href="http://www.rackspace.com/" class="brand" style="height:23px;">
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+	  <li><a href="http://www.rackspace.com/cloud/" title="">Cloud Hosting</a></li>
+          <li><a href="http://www.rackspace.com/managed_hosting/" title="">Managed Hosting</a></li>
+          <li><a href="http://www.rackspace.com/apps/" title="">Email &amp; Apps</a></li>
+          <li><a href="http://www.rackspace.com/information/aboutus" title="">About</a></li>
+        </ul>
+	<ul class="nav pull-right">
+	  <li><a>Sales: 1-800-961-2888</a></li>                                
+                                                                        
+                                                                
+          <li><a>Support: 1-800-961-4454</a></li>                       
+                                                                        
+                                                                       
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-------------- Banner Bar  ------>
+
+<div id="banner-head">
+  <div class="container" style="padding: 2px 0px">
+    <div class="row-fluid">
+      <div class="span6">
+	<h1 class="smaller"><a href="http://docs.rackspace.com/" class="api-logo">Technical Documentation</a></h1>
+      </div>
+      <div class="span6 pull-right" style="padding-top:10px;">
+	<form id="devsearch" action="search.html" onsubmit="return doSearch();" method="get">
+          <!-- <button class="btn" id="btnSearch" style="display:none; height: 30px;margin-top: 10px; float: right; margin-left: 1px;"><i class="icon-search"></i></button> -->
+	  <input id="txtSearchTerm" class="span7 pull-right" placeholder="Search" style="height: 30px;margin-right: 10px;" type="text">
+	</form>
+	<!-- <input class="span9" id="prependedDropdownButton" type="text" style="height: 30px;"> -->
+	<!-- <select class="span3" name="name" id="name"> -->
+	<!--   <option>All Docs</option> -->
+	<!--   <option>All Rackspace</option> -->
+	<!-- </select> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Main Content ---->
+<div id="main-content">
+  <div class="container">
+    <div class="span8" style="margin-left: 0px;">
+      
+      <div class="row-fluid">
+	    <!-- <div class="page-header"> -->
+	    <!--   <h3>The Rackspace Open Cloud</h3> -->
+	    <!-- </div> -->
+	    
+
+	    
+	    
+	      
+		
+	      
+	    
+	      
+		
+	      
+	    
+	      
+		
+	      
+	    
+	      
+		
+	      
+	    
+	      
+		
+	      
+	    
+	      
+		
+	      
+	    
+	      
+		
+	      
+	    
+	      
+		
+	      
+	    
+	      
+		
+	      
+	    
+	      
+	    
+	      
+	    
+	      
+	    
+
+	    
+	      
+	      
+	        <div class="row-fluid">
+	      
+	      
+	      
+	      	      
+	        <div class="span4">
+	          <img src="Rackspace%20Cloud%20Technical%20Documentation_files/next_gen.png" class="" alt="No image found">
+	          <ul class="unstyled" style="margin-top: 5px;">
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                
+	                  <li>
+	                  
+	                  
+	                  
+	                  
+	                  
+	                    
+	                    
+                          <a name="servers-v2-cs-gettingstarted.war" href="http://docs.rackspace.com/servers/api/v2/cs-gettingstarted/content/overview.html" title="servers-v2">                          
+                       
+                      
+                     
+                     
+                          Getting Started Guide
+                          
+                          
+                          
+                          </a>	            	            
+	                  
+	                  
+	                  	                  
+	                  </li>
+	                  
+	                  
+	                	  
+	                
+	                	
+	              
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                
+	                  <li>
+	                  
+	                  
+	                  
+	                  
+	                  
+	                    
+	                    
+                          <a name="servers-v2-cs-devguide.war" href="http://docs.rackspace.com/servers/api/v2/cs-devguide/content/ch_preface.html" title="servers-v2">                          
+                       
+                      
+                     
+                     
+                          API Developer Guide
+                          
+                          
+                          
+                          </a>	            	            
+	                  
+	                  
+	                  	                  
+	                  </li>
+	                  
+	                  
+	                	  
+	                
+	                	
+	              
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                
+	                  <li>
+	                  
+	                  
+	                  
+	                  
+	                  
+	                    
+	                    
+                          <a name="servers-v2-cs-releasenotes.war" href="http://docs.rackspace.com/servers/api/v2/cs-releasenotes/content/ch_preface.html" title="servers-v2">                          
+                       
+                      
+                     
+                     
+                          Release Notes
+                          
+                          
+                          
+                          </a>	            	            
+	                  
+	                  
+	                  	                  
+	                  </li>
+	                  
+	                  
+	                	  
+	                
+	                	
+	              
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                	  
+	                
+	                	  
+           
+	                  
+	                    <li class="more_btn">
+	                      <a href="">More</a>
+	                    </li>
+	                    <div class="more_section" style="display:none;">	                  	                
+	                  
+	                            
+	                  <li>
+	                  
+	                  
+	                  
+	                  	                  
+	                  
+	                  
+	                    	            
+                          <a name="resources.war" href="http://www.rackspace.com/knowledge_center/content/next-generation-cloud-servers-how-articles-other-resources" title="servers-v2" target="_blank">
+	                    
+	                    
+                                                  
+                          How-to and Other Resources
+                          
+                          
+                          
+                          </a>	
+                                                  
+                       
+                                     	            	                  
+	                  </li>
+	                  
+	                  
+	                	
+	              
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                	  
+	                
+	                	  
+           
+	                  
+	                            
+	                  <li>
+	                  
+	                  
+	                  
+	                  	                  
+	                  
+	                  
+	                    	            
+                          <a name="resources.war" href="http://www.rackspace.com/knowledge_center/content/next-generation-cloud-servers-sample-code" title="servers-v2" target="_blank">
+	                    
+	                    
+                                                  
+                          Code Samples
+                          
+                          
+                          
+                          </a>	
+                                                  
+                       
+                                     	            	                  
+	                  </li>
+	                  
+	                  
+	                	
+	              
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                	  
+	                
+	                	  
+           
+	                  
+	                            
+	                  <li>
+	                  
+	                  
+	                  
+	                  	                  
+	                  
+	                  
+	                    	            
+                          <a name="resources.war" href="http://www.rackspace.com/knowledge_center/Frequently_Asked_Questions" title="servers-v2" target="_blank">
+	                    
+	                    
+                                                  
+                          FAQs
+                          
+                          
+                          
+                          </a>	
+                                                  
+                       
+                                     	            	                  
+	                  </li>
+	                  
+	                  
+	                	
+	              
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                	  
+	                
+	                	  
+           
+	                  
+	                            
+	                  <li>
+	                  
+	                  
+	                  
+	                  	                  
+	                  
+	                  
+	                    	            
+                          <a name="resources.war" href="http://www.rackspace.com/cloud/public/servers/pricing" title="servers-v2" target="_blank">
+	                    
+	                    
+                                                  
+                          Pricing
+                          
+                          
+                          
+                          </a>	
+                                                  
+                       
+                                     	            	                  
+	                  </li>
+	                  
+	                  
+	                	
+	              
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                	  
+	                
+	                	  
+           
+	                  
+	                            
+	                  <li>
+	                  
+	                  
+	                  
+	                  	                  
+	                  
+	                  
+	                    	            
+                          <a name="resources.war" href="http://www.rackspace.com/cloud/legal/sla#cloud_servers" title="servers-v2" target="_blank">
+	                    
+	                    
+                                                  
+                          SLA
+                          
+                          
+                          
+                          </a>	
+                                                  
+                       
+                                     	            	                  
+	                  </li>
+	                  
+	                  
+	                      <li class="less_btn">
+	                        <a href="">Less</a>
+	                      </li>
+	                    </div>
+	                  
+	                	
+	              
+	              
+	            	        
+	        </ul></div>	  
+	      
+	
+	         
+   
+	    
+	      
+	      
+	      
+	      
+	      	      
+	        <div class="span4">
+	          <img src="Rackspace%20Cloud%20Technical%20Documentation_files/first_gen.png" class="" alt="No image found">
+	          <ul class="unstyled" style="margin-top: 5px;">
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                
+	                  <li>
+	                  
+	                  
+	                  
+	                  
+	                  
+	                    
+	                    
+                          <a name="servers-wadls.war" href="http://docs.rackspace.com/servers/api/v1.0/api.xsd" title="servers-v1.0">                          
+                       
+                      
+                     
+                     
+                          API Schema Types
+                          
+                          
+                          
+                          </a>	            	            
+	                  
+	                  
+	                  	                  
+	                  </li>
+	                  
+	                  
+	                	  
+	                
+	                	
+	              
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                
+	                  <li>
+	                  
+	                  
+	                  
+	                  
+	                  
+	                    
+	                    
+                          <a name="servers-v1.0-cs-releasenotes.war" href="http://docs.rackspace.com/servers/api/v1.0/cs-releasenotes/content/ch_preface.html" title="servers-v1.0">                          
+                       
+                      
+                     
+                     
+                          Release Notes
+                          
+                          
+                          
+                          </a>	            	            
+	                  
+	                  
+	                  	                  
+	                  </li>
+	                  
+	                  
+	                	  
+	                
+	                	
+	              
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                
+	                  <li>
+	                  
+	                  
+	                  
+	                  
+	                  
+	                    
+	                    
+                          <a name="servers-v1.0-cs-devguide.war" href="http://docs.rackspace.com/servers/api/v1.0/cs-devguide/content/Overview-d1e70.html" title="servers-v1.0">                          
+                       
+                      
+                     
+                     
+                          API Developer Guide
+                          
+                          
+                          
+                          </a>	            	            
+	                  
+	                  
+	                  	                  
+	                  </li>
+	                  
+	                  
+	                	  
+	                
+	                	
+	              
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                	  
+	                
+	                	  
+           
+	                  
+	                    <li class="more_btn">
+	                      <a href="">More</a>
+	                    </li>
+	                    <div class="more_section" style="display:none;">	                  	                
+	                  
+	                            
+	                  <li>
+	                  
+	                  
+	                  
+	                  	                  
+	                  
+	                  
+	                    	            
+                          <a name="resources.war" href="http://www.rackspace.com/knowledge_center/content/first-generation-cloud-servers-how-articles-other-resources" title="servers-v1.0" target="_blank">
+	                    
+	                    
+                                                  
+                          How-to and Other Resources
+                          
+                          
+                          
+                          </a>	
+                                                  
+                       
+                                     	            	                  
+	                  </li>
+	                  
+	                  
+	                	
+	              
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                	  
+	                
+	                	  
+           
+	                  
+	                            
+	                  <li>
+	                  
+	                  
+	                  
+	                  	                  
+	                  
+	                  
+	                    	            
+                          <a name="resources.war" href="http://www.rackspace.com/knowledge_center/content/first-generation-cloud-servers-sample-code" title="servers-v1.0" target="_blank">
+	                    
+	                    
+                                                  
+                          Code Samples
+                          
+                          
+                          
+                          </a>	
+                                                  
+                       
+                                     	            	                  
+	                  </li>
+	                  
+	                  
+	                	
+	              
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                	  
+	                
+	                	  
+           
+	                  
+	                            
+	                  <li>
+	                  
+	                  
+	                  
+	                  	                  
+	                  
+	                  
+	                    	            
+                          <a name="resources.war" href="http://www.rackspace.com/knowledge_center/Frequently_Asked_Questions" title="servers-v1.0" target="_blank">
+	                    
+	                    
+                                                  
+                          FAQs
+                          
+                          
+                          
+                          </a>	
+                                                  
+                       
+                                     	            	                  
+	                  </li>
+	                  
+	                  
+	                	
+	              
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                	  
+	                
+	                	  
+           
+	                  
+	                            
+	                  <li>
+	                  
+	                  
+	                  
+	                  	                  
+	                  
+	                  
+	                    	            
+                          <a name="resources.war" href="http://www.rackspace.com/cloud/public/servers/pricing" title="servers-v1.0" target="_blank">
+	                    
+	                    
+                                                  
+                          Pricing
+                          
+                          
+                          
+                          </a>	
+                                                  
+                       
+                                     	            	                  
+	                  </li>
+	                  
+	                  
+	                	
+	              
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                	  
+	                
+	                	  
+           
+	                  
+	                            
+	                  <li>
+	                  
+	                  
+	                  
+	                  	                  
+	                  
+	                  
+	                    	            
+                          <a name="resources.war" href="http://www.rackspace.com/cloud/legal/sla#cloud_servers" title="servers-v1.0" target="_blank">
+	                    
+	                    
+                                                  
+                          SLA
+                          
+                          
+                          
+                          </a>	
+                                                  
+                       
+                                     	            	                  
+	                  </li>
+	                  
+	                  
+	                      <li class="less_btn">
+	                        <a href="">Less</a>
+	                      </li>
+	                    </div>
+	                  
+	                	
+	              
+	              
+	            	        
+	        </ul></div>	  
+	      
+	
+	         
+   
+	    
+	      
+	      
+	      
+	      
+	      	      
+	        <div class="span4">
+	          <img src="Rackspace%20Cloud%20Technical%20Documentation_files/cloud_files.png" class="" alt="No image found">
+	          <ul class="unstyled" style="margin-top: 5px;">
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                
+	                  <li>
+	                  
+	                  
+	                  
+	                  
+	                  
+	                    
+	                    
+                          <a name="files-v1-cf-intro.war" href="http://docs.rackspace.com/files/api/v1/cf-intro/content/Introduction-d1e82.html" title="files-v1">                          
+                       
+                      
+                     
+                     
+                          Getting Started Guide
+                          
+                          
+                          
+                          </a>	            	            
+	                  
+	                  
+	                  	                  
+	                  </li>
+	                  
+	                  
+	                	  
+	                
+	                	
+	              
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                
+	                  <li>
+	                  
+	                  
+	                  
+	                  
+	                  
+	                    
+	                    
+                          <a name="files-v1-cf-devguide.war" href="http://docs.rackspace.com/files/api/v1/cf-devguide/content/Overview-d1e70.html" title="files-v1">                          
+                       
+                      
+                     
+                     
+                          API Developer Guide
+                          
+                          
+                          
+                          </a>	            	            
+	                  
+	                  
+	                  	                  
+	                  </li>
+	                  
+	                  
+	                	  
+	                
+	                	
+	              
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                
+	                  <li>
+	                  
+	                  
+	                  
+	                  
+	                  
+	                    
+	                    
+                          <a name="files-v1-cf-releasenotes.war" href="http://docs.rackspace.com/files/api/v1/cf-releasenotes/content/preface.html" title="files-v1">                          
+                       
+                      
+                     
+                     
+                          Release Notes
+                          
+                          
+                          
+                          </a>	            	            
+	                  
+	                  
+	                  	                  
+	                  </li>
+	                  
+	                  
+	                	  
+	                
+	                	
+	              
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                	  
+	                
+	                	  
+           
+	                  
+	                    <li class="more_btn">
+	                      <a href="">More</a>
+	                    </li>
+	                    <div class="more_section" style="display:none;">	                  	                
+	                  
+	                            
+	                  <li>
+	                  
+	                  
+	                  
+	                  	                  
+	                  
+	                  
+	                    	            
+                          <a name="resources.war" href="http://www.rackspace.com/knowledge_center/content/cloud-files-how-articles-other-resources" title="files-v1" target="_blank">
+	                    
+	                    
+                                                  
+                          How-to and Other Resources
+                          
+                          
+                          
+                          </a>	
+                                                  
+                       
+                                     	            	                  
+	                  </li>
+	                  
+	                  
+	                	
+	              
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                	  
+	                
+	                	  
+           
+	                  
+	                            
+	                  <li>
+	                  
+	                  
+	                  
+	                  	                  
+	                  
+	                  
+	                    	            
+                          <a name="resources.war" href="http://developer.rackspace.com/#home-sdks" title="files-v1" target="_blank">
+	                    
+	                    
+                                                  
+                          Code Samples and Bindings
+                          
+                          
+                          
+                          </a>	
+                                                  
+                       
+                                     	            	                  
+	                  </li>
+	                  
+	                  
+	                	
+	              
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                	  
+	                
+	                	  
+           
+	                  
+	                            
+	                  <li>
+	                  
+	                  
+	                  
+	                  	                  
+	                  
+	                  
+	                    	            
+                          <a name="resources.war" href="http://www.rackspace.com/knowledge_center/index.php/Cloud_Files_FAQ" title="files-v1" target="_blank">
+	                    
+	                    
+                                                  
+                          FAQs
+                          
+                          
+                          
+                          </a>	
+                                                  
+                       
+                                     	            	                  
+	                  </li>
+	                  
+	                  
+	                	
+	              
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                	  
+	                
+	                	  
+           
+	                  
+	                            
+	                  <li>
+	                  
+	                  
+	                  
+	                  	                  
+	                  
+	                  
+	                    	            
+                          <a name="resources.war" href="http://www.rackspace.com/cloud/public/files/pricing" title="files-v1" target="_blank">
+	                    
+	                    
+                                                  
+                          Pricing
+                          
+                          
+                          
+                          </a>	
+                                                  
+                       
+                                     	            	                  
+	                  </li>
+	                  
+	                  
+	                	
+	              
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                	  
+	                
+	                	  
+           
+	                  
+	                            
+	                  <li>
+	                  
+	                  
+	                  
+	                  	                  
+	                  
+	                  
+	                    	            
+                          <a name="resources.war" href="http://www.rackspace.com/cloud/legal/sla#cloud_files" title="files-v1" target="_blank">
+	                    
+	                    
+                                                  
+                          SLA
+                          
+                          
+                          
+                          </a>	
+                                                  
+                       
+                                     	            	                  
+	                  </li>
+	                  
+	                  
+	                      <li class="less_btn">
+	                        <a href="">Less</a>
+	                      </li>
+	                    </div>
+	                  
+	                	
+	              
+	              
+	            	        
+	        </ul></div>	  
+	      
+	        </div>
+	      
+	
+	         
+   
+	    
+	      
+	      
+	        <div class="row-fluid">
+	      
+	      
+	      
+	      	      
+	        <div class="span4">
+	          <img src="Rackspace%20Cloud%20Technical%20Documentation_files/databases.png" class="" alt="No image found">
+	          <ul class="unstyled" style="margin-top: 5px;">
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                
+	                  <li>
+	                  
+	                  
+	                  
+	                  
+	                  
+	                    
+	                    
+                          <a name="cdb-v1.0-cdb-getting-started.war" href="http://docs.rackspace.com/cdb/api/v1.0/cdb-getting-started/content/DB_Doc_Change_History.html" title="cdb-v1.0">                          
+                       
+                      
+                     
+                     
+                          Getting Started Guide
+                          
+                          
+                          
+                          </a>	            	            
+	                  
+	                  
+	                  	                  
+	                  </li>
+	                  
+	                  
+	                	  
+	                
+	                	
+	              
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                
+	                  <li>
+	                  
+	                  
+	                  
+	                  
+	                  
+	                    
+	                    
+                          <a name="cdb-v1.0-cdb-devguide.war" href="http://docs.rackspace.com/cdb/api/v1.0/cdb-devguide/content/overview.html" title="cdb-v1.0">                          
+                       
+                      
+                     
+                     
+                          API Developer Guide
+                          
+                          
+                          
+                          </a>	            	            
+	                  
+	                  
+	                  	                  
+	                  </li>
+	                  
+	                  
+	                	  
+	                
+	                	
+	              
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                
+	                  <li>
+	                  
+	                  
+	                  
+	                  
+	                  
+	                    
+	                    
+                          <a name="cdb-v1.0-cdb-releasenotes.war" href="http://docs.rackspace.com/cdb/api/v1.0/cdb-releasenotes/content/doc_change_history.html" title="cdb-v1.0">                          
+                       
+                      
+                     
+                     
+                          Release Notes
+                          
+                          
+                          
+                          </a>	            	            
+	                  
+	                  
+	                  	                  
+	                  </li>
+	                  
+	                  
+	                	  
+	                
+	                	
+	              
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                	  
+	                
+	                	  
+           
+	                  
+	                    <li class="more_btn">
+	                      <a href="">More</a>
+	                    </li>
+	                    <div class="more_section" style="display:none;">	                  	                
+	                  
+	                            
+	                  <li>
+	                  
+	                  
+	                  
+	                  	                  
+	                  
+	                  
+	                    	            
+                          <a name="resources.war" href="http://www.rackspace.com/knowledge_center/content/cloud-databases-how-articles-other-resources" title="cdb-v1.0" target="_blank">
+	                    
+	                    
+                                                  
+                          How-to and Other Resources
+                          
+                          
+                          
+                          </a>	
+                                                  
+                       
+                                     	            	                  
+	                  </li>
+	                  
+	                  
+	                	
+	              
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                	  
+	                
+	                	  
+           
+	                  
+	                            
+	                  <li>
+	                  
+	                  
+	                  
+	                  	                  
+	                  
+	                  
+	                    	            
+                          <a name="resources.war" href="http://www.rackspace.com/knowledge_center/content/cloud-databases-sample-code-bindings" title="cdb-v1.0" target="_blank">
+	                    
+	                    
+                                                  
+                          Code Samples and Bindings
+                          
+                          
+                          
+                          </a>	
+                                                  
+                       
+                                     	            	                  
+	                  </li>
+	                  
+	                  
+	                	
+	              
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                	  
+	                
+	                	  
+           
+	                  
+	                            
+	                  <li>
+	                  
+	                  
+	                  
+	                  	                  
+	                  
+	                  
+	                    	            
+                          <a name="resources.war" href="http://www.rackspace.com/cloud/public/databases/pricing" title="cdb-v1.0" target="_blank">
+	                    
+	                    
+                                                  
+                          Pricing
+                          
+                          
+                          
+                          </a>	
+                                                  
+                       
+                                     	            	                  
+	                  </li>
+	                  
+	                  
+	                	
+	              
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                	  
+	                
+	                	  
+           
+	                  
+	                            
+	                  <li>
+	                  
+	                  
+	                  
+	                  	                  
+	                  
+	                  
+	                    	            
+                          <a name="resources.war" href="http://www.rackspace.com/cloud/legal/sla#cloud_databases" title="cdb-v1.0" target="_blank">
+	                    
+	                    
+                                                  
+                          SLA
+                          
+                          
+                          
+                          </a>	
+                                                  
+                       
+                                     	            	                  
+	                  </li>
+	                  
+	                  
+	                      <li class="less_btn">
+	                        <a href="">Less</a>
+	                      </li>
+	                    </div>
+	                  
+	                	
+	              
+	              
+	            	        
+	        </ul></div>	  
+	      
+	
+	         
+   
+	    
+	      
+	      
+	      
+	      
+	      	      
+	        <div class="span4">
+	          <img src="Rackspace%20Cloud%20Technical%20Documentation_files/loadbalancers.png" class="" alt="No image found">
+	          <ul class="unstyled" style="margin-top: 5px;">
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                
+	                  <li>
+	                  
+	                  
+	                  
+	                  
+	                  
+	                    
+	                    
+                          <a name="loadbalancers-v1.0-clb-getting-started.war" href="http://docs.rackspace.com/loadbalancers/api/v1.0/clb-getting-started/content/DB_Doc_Change_History.html" title="loadbalancers-v1.0">                          
+                       
+                      
+                     
+                     
+                          Getting Started Guide
+                          
+                          
+                          
+                          </a>	            	            
+	                  
+	                  
+	                  	                  
+	                  </li>
+	                  
+	                  
+	                	  
+	                
+	                	
+	              
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                
+	                  <li>
+	                  
+	                  
+	                  
+	                  
+	                  
+	                    
+	                    
+                          <a name="loadbalancers-v1.0-clb-devguide.war" href="http://docs.rackspace.com/loadbalancers/api/v1.0/clb-devguide/content/Overview-d1e82.html" title="loadbalancers-v1.0">                          
+                       
+                      
+                     
+                     
+                          API Developer Guide
+                          
+                          
+                          
+                          </a>	            	            
+	                  
+	                  
+	                  	                  
+	                  </li>
+	                  
+	                  
+	                	  
+	                
+	                	
+	              
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                
+	                  <li>
+	                  
+	                  
+	                  
+	                  
+	                  
+	                    
+	                    
+                          <a name="loadbalancers-v1.0-clb-releasenotes.war" href="http://docs.rackspace.com/loadbalancers/api/v1.0/clb-releasenotes/content/doc_change_history.html" title="loadbalancers-v1.0">                          
+                       
+                      
+                     
+                     
+                          Release Notes
+                          
+                          
+                          
+                          </a>	            	            
+	                  
+	                  
+	                  	                  
+	                  </li>
+	                  
+	                  
+	                	  
+	                
+	                	
+	              
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                	  
+	                
+	                	  
+           
+	                  
+	                    <li class="more_btn">
+	                      <a href="">More</a>
+	                    </li>
+	                    <div class="more_section" style="display:none;">	                  	                
+	                  
+	                            
+	                  <li>
+	                  
+	                  
+	                  
+	                  	                  
+	                  
+	                  
+	                    	            
+                          <a name="resources.war" href="http://www.rackspace.com/cloud/public/loadbalancers/pricing" title="loadbalancers-v1.0" target="_blank">
+	                    
+	                    
+                                                  
+                          Pricing
+                          
+                          
+                          
+                          </a>	
+                                                  
+                       
+                                     	            	                  
+	                  </li>
+	                  
+	                  
+	                	
+	              
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                	  
+	                
+	                	  
+           
+	                  
+	                            
+	                  <li>
+	                  
+	                  
+	                  
+	                  	                  
+	                  
+	                  
+	                    	            
+                          <a name="resources.war" href="http://www.rackspace.com/cloud/legal/sla#cloud_load_balancers" title="loadbalancers-v1.0" target="_blank">
+	                    
+	                    
+                                                  
+                          SLA
+                          
+                          
+                          
+                          </a>	
+                                                  
+                       
+                                     	            	                  
+	                  </li>
+	                  
+	                  
+	                      <li class="less_btn">
+	                        <a href="">Less</a>
+	                      </li>
+	                    </div>
+	                  
+	                	
+	              
+	              
+	            	        
+	        </ul></div>	  
+	      
+	
+	         
+   
+	    
+	      
+	      
+	      
+	      
+	      	      
+	        <div class="span4">
+	          <img src="Rackspace%20Cloud%20Technical%20Documentation_files/block_storage.png" class="" alt="No image found">
+	          <ul class="unstyled" style="margin-top: 5px;">
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                
+	                  <li>
+	                  
+	                  
+	                  
+	                  
+	                  
+	                    	            
+                          <a name="resources.war" href="http://www.rackspace.com/knowledge_center/getting-started/cloud-block-storage" title="cbs-v1.0" target="_blank">
+	                    
+	                    
+                      
+                     
+                     
+                          Getting Started Guide
+                          
+                          
+                          
+                          </a>	            	            
+	                  
+	                  
+	                  	                  
+	                  </li>
+	                  
+	                  
+	                	  
+	                
+	                	
+	              
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                
+	                  <li>
+	                  
+	                  
+	                  
+	                  
+	                  
+	                    
+	                    
+                          <a name="cbs-v1.0-cbs-devguide.war" href="http://docs.rackspace.com/cbs/api/v1.0/cbs-devguide/content/overview.html" title="cbs-v1.0">                          
+                       
+                      
+                     
+                     
+                          API Developer Guide
+                          
+                          
+                          
+                          </a>	            	            
+	                  
+	                  
+	                  	                  
+	                  </li>
+	                  
+	                  
+	                	  
+	                
+	                	
+	              
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                
+	                  <li>
+	                  
+	                  
+	                  
+	                  
+	                  
+	                    
+	                    
+                          <a name="cbs-v1.0-cbs-releasenotes.war" href="http://docs.rackspace.com/cbs/api/v1.0/cbs-releasenotes/content/preface.html" title="cbs-v1.0">                          
+                       
+                      
+                     
+                     
+                          Release Notes
+                          
+                          
+                          
+                          </a>	            	            
+	                  
+	                  
+	                  	                  
+	                  </li>
+	                  
+	                  
+	                	  
+	                
+	                	
+	              
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                	  
+	                
+	                	  
+           
+	                  
+	                    <li class="more_btn">
+	                      <a href="">More</a>
+	                    </li>
+	                    <div class="more_section" style="display:none;">	                  	                
+	                  
+	                            
+	                  <li>
+	                  
+	                  
+	                  
+	                  	                  
+	                  
+	                  
+	                    	            
+                          <a name="resources.war" href="http://www.rackspace.com/knowledge_center/product-faq/cloud-block-storage" title="cbs-v1.0" target="_blank">
+	                    
+	                    
+                                                  
+                          FAQs
+                          
+                          
+                          
+                          </a>	
+                                                  
+                       
+                                     	            	                  
+	                  </li>
+	                  
+	                  
+	                	
+	              
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                	  
+	                
+	                	  
+           
+	                  
+	                            
+	                  <li>
+	                  
+	                  
+	                  
+	                  	                  
+	                  
+	                  
+	                    	            
+                          <a name="resources.war" href="http://www.rackspace.com/cloud/public/blockstorage/pricing/" title="cbs-v1.0" target="_blank">
+	                    
+	                    
+                                                  
+                          Pricing
+                          
+                          
+                          
+                          </a>	
+                                                  
+                       
+                                     	            	                  
+	                  </li>
+	                  
+	                  
+	                	
+	              
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                	  
+	                
+	                	  
+           
+	                  
+	                            
+	                  <li>
+	                  
+	                  
+	                  
+	                  	                  
+	                  
+	                  
+	                    	            
+                          <a name="resources.war" href="http://www.rackspace.com/cloud/legal/sla#cloud_blockstorage/" title="cbs-v1.0" target="_blank">
+	                    
+	                    
+                                                  
+                          SLA
+                          
+                          
+                          
+                          </a>	
+                                                  
+                       
+                                     	            	                  
+	                  </li>
+	                  
+	                  
+	                      <li class="less_btn">
+	                        <a href="">Less</a>
+	                      </li>
+	                    </div>
+	                  
+	                	
+	              
+	              
+	            	        
+	        </ul></div>	  
+	      
+	        </div>
+	      
+	
+	         
+   
+	    
+	      
+	      
+	        <div class="row-fluid">
+	      
+	      
+	      
+	      	      
+	        <div class="span4">
+	          <img src="Rackspace%20Cloud%20Technical%20Documentation_files/dns.png" class="" alt="No image found">
+	          <ul class="unstyled" style="margin-top: 5px;">
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                
+	                  <li>
+	                  
+	                  
+	                  
+	                  
+	                  
+	                    
+	                    
+                          <a name="cdns-v1.0-cdns-getting-started.war" href="http://docs.rackspace.com/cdns/api/v1.0/cdns-getting-started/content/DB_Doc_Change_History.html" title="cdns-v1.0">                          
+                       
+                      
+                     
+                     
+                          Getting Started Guide
+                          
+                          
+                          
+                          </a>	            	            
+	                  
+	                  
+	                  	                  
+	                  </li>
+	                  
+	                  
+	                	  
+	                
+	                	
+	              
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                
+	                  <li>
+	                  
+	                  
+	                  
+	                  
+	                  
+	                    
+	                    
+                          <a name="cdns-v1.0-cdns-devguide.war" href="http://docs.rackspace.com/cdns/api/v1.0/cdns-devguide/content/overview.html" title="cdns-v1.0">                          
+                       
+                      
+                     
+                     
+                          API Developer Guide
+                          
+                          
+                          
+                          </a>	            	            
+	                  
+	                  
+	                  	                  
+	                  </li>
+	                  
+	                  
+	                	  
+	                
+	                	
+	              
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                
+	                  <li>
+	                  
+	                  
+	                  
+	                  
+	                  
+	                    
+	                    
+                          <a name="cdns-v1.0-cdns-releasenotes.war" href="http://docs.rackspace.com/cdns/api/v1.0/cdns-releasenotes/content/doc_change_history.html" title="cdns-v1.0">                          
+                       
+                      
+                     
+                     
+                          Release Notes
+                          
+                          
+                          
+                          </a>	            	            
+	                  
+	                  
+	                  	                  
+	                  </li>
+	                  
+	                  
+	                	  
+	                
+	                	
+	              
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                	  
+	                
+	                	  
+           
+	                  
+	                    <li class="more_btn">
+	                      <a href="">More</a>
+	                    </li>
+	                    <div class="more_section" style="display:none;">	                  	                
+	                  
+	                            
+	                  <li>
+	                  
+	                  
+	                  
+	                  	                  
+	                  
+	                  
+	                    	            
+                          <a name="resources.war" href="http://www.rackspace.com/knowledge_center/cloud_dns_faq" title="cdns-v1.0" target="_blank">
+	                    
+	                    
+                                                  
+                          FAQs
+                          
+                          
+                          
+                          </a>	
+                                                  
+                       
+                                     	            	                  
+	                  </li>
+	                  
+	                  
+	                      <li class="less_btn">
+	                        <a href="">Less</a>
+	                      </li>
+	                    </div>
+	                  
+	                	
+	              
+	              
+	            	        
+	        </ul></div>	  
+	      
+	
+	         
+   
+	    
+	      
+	      
+	      
+	      
+	      	      
+	        <div class="span4">
+	          <img src="Rackspace%20Cloud%20Technical%20Documentation_files/backup.png" class="" alt="No image found">
+	          <ul class="unstyled" style="margin-top: 5px;">
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                
+	                  <li>
+	                  
+	                  
+	                  
+	                  
+	                  
+	                    	            
+                          <a name="resources.war" href="http://www.rackspace.com/knowledge_center/article/rackspace-cloud-backup-overview" title="rcbu-v1.0" target="_blank">
+	                    
+	                    
+                      
+                     
+                     
+                          Getting Started
+                          
+                          
+                          
+                          </a>	            	            
+	                  
+	                  
+	                  	                  
+	                  </li>
+	                  
+	                  
+	                	  
+	                
+	                	
+	              
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                
+	                  <li>
+	                  
+	                  
+	                  
+	                  
+	                  
+	                    
+	                    
+                          <a name="rcbu-v1.0-rcbu-devguide.war" href="http://docs.rackspace.com/rcbu/api/v1.0/rcbu-devguide/content/overview.html" title="rcbu-v1.0">                          
+                       
+                      
+                     
+                     
+                          API Developer Guide
+                          
+                          
+                          
+                          </a>	            	            
+	                  
+	                  
+	                  	                  
+	                  </li>
+	                  
+	                  
+	                	  
+	                
+	                	
+	              
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                
+	                  <li>
+	                  
+	                  
+	                  
+	                  
+	                  
+	                    
+	                    
+                          <a name="rcbu-v1.0-rcbu-releasenotes.war" href="http://docs.rackspace.com/rcbu/api/v1.0/rcbu-releasenotes/content/preface.html" title="rcbu-v1.0">                          
+                       
+                      
+                     
+                     
+                          Release Notes
+                          
+                          
+                          
+                          </a>	            	            
+	                  
+	                  
+	                  	                  
+	                  </li>
+	                  
+	                  
+	                	  
+	                
+	                	
+	              
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                	  
+	                
+	                	  
+           
+	                  
+	                    <li class="more_btn">
+	                      <a href="">More</a>
+	                    </li>
+	                    <div class="more_section" style="display:none;">	                  	                
+	                  
+	                            
+	                  <li>
+	                  
+	                  
+	                  
+	                  	                  
+	                  
+	                  
+	                    	            
+                          <a name="resources.war" href="http://www.rackspace.com/knowledge_center/product-faq/cloud-backup" title="rcbu-v1.0" target="_blank">
+	                    
+	                    
+                                                  
+                          FAQ
+                          
+                          
+                          
+                          </a>	
+                                                  
+                       
+                                     	            	                  
+	                  </li>
+	                  
+	                  
+	                	
+	              
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                	  
+	                
+	                	  
+           
+	                  
+	                            
+	                  <li>
+	                  
+	                  
+	                  
+	                  	                  
+	                  
+	                  
+	                    	            
+                          <a name="resources.war" href="http://www.rackspace.com/cloud/backup/pricing/" title="rcbu-v1.0" target="_blank">
+	                    
+	                    
+                                                  
+                          Pricing
+                          
+                          
+                          
+                          </a>	
+                                                  
+                       
+                                     	            	                  
+	                  </li>
+	                  
+	                  
+	                      <li class="less_btn">
+	                        <a href="">Less</a>
+	                      </li>
+	                    </div>
+	                  
+	                	
+	              
+	              
+	            	        
+	        </ul></div>	  
+	      
+	
+	         
+   
+	    
+	      
+	      
+	      
+	      
+	      	      
+	        <div class="span4">
+	          <img src="Rackspace%20Cloud%20Technical%20Documentation_files/monitoring.png" class="" alt="No image found">
+	          <ul class="unstyled" style="margin-top: 5px;">
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                
+	                  <li>
+	                  
+	                  
+	                  
+	                  
+	                  
+	                    
+	                    
+                          <a name="cm-v1.0-cm-getting-started.war" href="http://docs.rackspace.com/cm/api/v1.0/cm-getting-started/content/Introduction.html" title="cm-v1.0">                          
+                       
+                      
+                     
+                     
+                          Getting Started Guide
+                          
+                          
+                          
+                          </a>	            	            
+	                  
+	                  
+	                  	                  
+	                  </li>
+	                  
+	                  
+	                	  
+	                
+	                	
+	              
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                
+	                  <li>
+	                  
+	                  
+	                  
+	                  
+	                  
+	                    
+	                    
+                          <a name="cm-v1.0-cm-devguide.war" href="http://docs.rackspace.com/cm/api/v1.0/cm-devguide/content/overview.html" title="cm-v1.0">                          
+                       
+                      
+                     
+                     
+                          API Developer Guide
+                          
+                          
+                          
+                          </a>	            	            
+	                  
+	                  
+	                  	                  
+	                  </li>
+	                  
+	                  
+	                	  
+	                
+	                	
+	              
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                
+	                  <li>
+	                  
+	                  
+	                  
+	                  
+	                  
+	                    
+	                    
+                          <a name="cm-v1.0-cm-releasenotes.war" href="http://docs.rackspace.com/cm/api/v1.0/cm-releasenotes/content/cmv1.0.a.html" title="cm-v1.0">                          
+                       
+                      
+                     
+                     
+                          Release Notes
+                          
+                          
+                          
+                          </a>	            	            
+	                  
+	                  
+	                  	                  
+	                  </li>
+	                  
+	                  
+	                	  
+	                
+	                	
+	              
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                	  
+	                
+	                	  
+           
+	                  
+	                    <li class="more_btn">
+	                      <a href="">More</a>
+	                    </li>
+	                    <div class="more_section" style="display:none;">	                  	                
+	                  
+	                            
+	                  <li>
+	                  
+	                  
+	                  
+	                  	                  
+	                  
+	                  
+	                    	            
+                          <a name="resources.war" href="http://www.rackspace.com/knowledge_center/article/cloud-monitoring-how-tos-other-resources" title="cm-v1.0" target="_blank">
+	                    
+	                    
+                                                  
+                          How-to and Other Resources
+                          
+                          
+                          
+                          </a>	
+                                                  
+                       
+                                     	            	                  
+	                  </li>
+	                  
+	                  
+	                	
+	              
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                	  
+	                
+	                	  
+           
+	                  
+	                            
+	                  <li>
+	                  
+	                  
+	                  
+	                  	                  
+	                  
+	                  
+	                    	            
+                          <a name="resources.war" href="http://www.rackspace.com/knowledge_center/product-faq/cloud-monitoring" title="cm-v1.0" target="_blank">
+	                    
+	                    
+                                                  
+                          FAQs
+                          
+                          
+                          
+                          </a>	
+                                                  
+                       
+                                     	            	                  
+	                  </li>
+	                  
+	                  
+	                	
+	              
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                	  
+	                
+	                	  
+           
+	                  
+	                            
+	                  <li>
+	                  
+	                  
+	                  
+	                  	                  
+	                  
+	                  
+	                    	            
+                          <a name="resources.war" href="http://feedback.rackspace.com/forums/71021-product-feedback/category/41927-cloud-monitoring" title="cm-v1.0" target="_blank">
+	                    
+	                    
+                                                  
+                          Product Feedback
+                          
+                          
+                          
+                          </a>	
+                                                  
+                       
+                                     	            	                  
+	                  </li>
+	                  
+	                  
+	                	
+	              
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                	  
+	                
+	                	  
+           
+	                  
+	                            
+	                  <li>
+	                  
+	                  
+	                  
+	                  	                  
+	                  
+	                  
+	                    	            
+                          <a name="resources.war" href="http://www.rackspace.com/cloud/public/monitoring/pricing" title="cm-v1.0" target="_blank">
+	                    
+	                    
+                                                  
+                          Pricing
+                          
+                          
+                          
+                          </a>	
+                                                  
+                       
+                                     	            	                  
+	                  </li>
+	                  
+	                  
+	                	
+	              
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                	  
+	                
+	                	  
+           
+	                  
+	                            
+	                  <li>
+	                  
+	                  
+	                  
+	                  	                  
+	                  
+	                  
+	                    	            
+                          <a name="resources.war" href="http://www.rackspace.com/cloud/legal/sla#cloud_monitoring" title="cm-v1.0" target="_blank">
+	                    
+	                    
+                                                  
+                          SLA
+                          
+                          
+                          
+                          </a>	
+                                                  
+                       
+                                     	            	                  
+	                  </li>
+	                  
+	                  
+	                      <li class="less_btn">
+	                        <a href="">Less</a>
+	                      </li>
+	                    </div>
+	                  
+	                	
+	              
+	              
+	            	        
+	        </ul></div>	  
+	      
+	        </div>
+	      
+	
+	         
+   
+	    
+	         
+   
+	    
+	         
+   
+	    
+	         
+   
+	    
+
+      </div>
+ 
+
+      <div class="row-fluid" style="margin-bottom: 35px;">
+        <!-- <div class="page-header"> -->
+        <!--   <h3>Other Products</h3> -->
+        <!-- </div> -->
+
+	    
+	    
+	    
+          
+	    
+          
+
+	      
+	        <div class="row-fluid">
+	        
+	      
+	      
+	      	      
+	      	      
+	        <div class="span4">
+	          <img src="Rackspace%20Cloud%20Technical%20Documentation_files/networks.png" class="" alt="No image found">
+	          <ul class="unstyled" style="margin-top: 5px;">
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                
+	                  <li>
+	                  
+	                  
+	                  
+	                  
+	                  
+	                    
+	                    
+                          <a name="networks-v2-cn-gettingstarted.war" href="http://docs.rackspace.com/networks/api/v2/cn-gettingstarted/content/ch_overview.html" title="networks-v2">                          
+                       
+                      
+                     
+                     
+                          Getting&nbsp;Started&nbsp;Guide
+                          
+                          
+                          
+                          </a>	            	            
+	                  
+	                  
+	                  	                  
+	                  </li>
+	                  
+	                  
+	                	  
+	                
+	                	
+	              
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                
+	                  <li>
+	                  
+	                  
+	                  
+	                  
+	                  
+	                    
+	                    
+                          <a name="networks-v2-cn-devguide.war" href="http://docs.rackspace.com/networks/api/v2/cn-devguide/content/ch_preface.html" title="networks-v2">                          
+                       
+                      
+                     
+                     
+                          API&nbsp;Developer&nbsp;Guide
+                          
+                          
+                          
+                          </a>	            	            
+	                  
+	                  
+	                  	                  
+	                  </li>
+	                  
+	                  
+	                	  
+	                
+	                	
+	              
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                
+	                  <li>
+	                  
+	                  
+	                  
+	                  
+	                  
+	                    
+	                    
+                          <a name="networks-v2-cn-releasenotes.war" href="http://docs.rackspace.com/networks/api/v2/cn-releasenotes/content/ch_preface.html" title="networks-v2">                          
+                       
+                      
+                     
+                     
+                          Release&nbsp;Notes
+                          
+                          
+                          
+                          </a>	            	            
+	                  
+	                  
+	                  	                  
+	                  </li>
+	                  
+	                  
+	                	  
+	                
+	                	
+	              
+	              
+	            	        
+	        </ul></div>	      
+	      	  
+
+	      
+	    
+          
+
+	      
+	      
+	      	      
+	      	      
+	        <div class="span4">
+	          <img src="Rackspace%20Cloud%20Technical%20Documentation_files/identity.png" class="" alt="No image found">
+	          <ul class="unstyled" style="margin-top: 5px;">
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                
+	                  <li>
+	                  
+	                  
+	                  
+	                  
+	                  
+	                    
+	                    
+                          <a name="auth-v2.0-auth-client-devguide.war" href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/Overview-d1e65.html" title="auth-v1.1">                          
+                       
+                      
+                     
+                     
+                          API Developer Guide, v2.0
+                          
+                          
+                          
+                          </a>	            	            
+	                  
+	                  
+	                  	                  
+	                  </li>
+	                  
+	                  
+	                	  
+	                
+	                	
+	              
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                
+	                  <li>
+	                  
+	                  
+	                  
+	                  
+	                  
+	                    
+	                    
+                          <a name="auth-v1.1-auth-client-devguide.war" href="http://docs.rackspace.com/auth/api/v1.1/auth-client-devguide/content/Overview-d1e65.html" title="auth-v1.1">                          
+                       
+                      
+                     
+                     
+                          API Developer Guide, v1.1
+                          
+                          
+                          
+                          </a>	            	            
+	                  
+	                  
+	                  	                  
+	                  </li>
+	                  
+	                  
+	                	  
+	                
+	                	
+	              
+	              
+	            	        
+	        </ul></div>	      
+	      	  
+
+	      
+	    
+          
+	    
+          
+
+	      
+	      
+	      	      
+	      	      
+	        <div class="span4">
+	          <img src="Rackspace%20Cloud%20Technical%20Documentation_files/queues-logo.png" class="" alt="No image found">
+	          <ul class="unstyled" style="margin-top: 5px;">
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                
+	                  <li>
+	                  
+	                  
+	                  
+	                  
+	                  
+	                    
+	                    
+                          <a name="queues-v1.0-cq-gettingstarted.war" href="http://docs.rackspace.com/queues/api/v1.0/cq-gettingstarted/content/doc-change-history.html" title="queues-v1.0">                          
+                       
+                      
+                     
+                     
+                          Getting Started Guide
+                          
+                          
+                          
+                          </a>	            	            
+	                  
+	                  
+	                  	                  
+	                  </li>
+	                  
+	                  
+	                	  
+	                
+	                	
+	              
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                
+	                  <li>
+	                  
+	                  
+	                  
+	                  
+	                  
+	                    
+	                    
+                          <a name="queues-v1.0-cq-devguide.war" href="http://docs.rackspace.com/queues/api/v1.0/cq-devguide/content/overview.html" title="queues-v1.0">                          
+                       
+                      
+                     
+                     
+                          API Developer Guide
+                          
+                          
+                          
+                          </a>	            	            
+	                  
+	                  
+	                  	                  
+	                  </li>
+	                  
+	                  
+	                	  
+	                
+	                	
+	              
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                
+	                  <li>
+	                  
+	                  
+	                  
+	                  
+	                  
+	                    
+	                    
+                          <a name="queues-v1.0-cq-releasenotes.war" href="http://docs.rackspace.com/queues/api/v1.0/cq-releasenotes/content/preface.html" title="queues-v1.0">                          
+                       
+                      
+                     
+                     
+                          Release Notes
+                          
+                          
+                          
+                          </a>	            	            
+	                  
+	                  
+	                  	                  
+	                  </li>
+	                  
+	                  
+	                	  
+	                
+	                	
+	              
+	              
+	            	        
+	        </ul></div>	      
+	      
+	        </div>
+	      	  
+
+	      
+	    
+          
+	    
+          
+
+	      
+	        <div class="row-fluid">
+	        
+	      
+	      
+	      	      
+	      	      
+	        <div class="span4">
+	          <img src="Rackspace%20Cloud%20Technical%20Documentation_files/cas-logo.png" class="" alt="No image found">
+	          <ul class="unstyled" style="margin-top: 5px;">
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                
+	                  <li>
+	                  
+	                  
+	                  
+	                  
+	                  
+	                    
+	                    
+                          <a name="cas-v1.0-autoscale-gettingstarted.war" href="http://docs.rackspace.com/cas/api/v1.0/autoscale-gettingstarted/content/Overview.html" title="cas-v1.0">                          
+                       
+                      
+                     
+                     
+                          Getting Started Guide
+                          
+                          
+                          
+                          </a>	            	            
+	                  
+	                  
+	                  	                  
+	                  </li>
+	                  
+	                  
+	                	  
+	                
+	                	
+	              
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                
+	                  <li>
+	                  
+	                  
+	                  
+	                  
+	                  
+	                    
+	                    
+                          <a name="cas-v1.0-autoscale-devguide.war" href="http://docs.rackspace.com/cas/api/v1.0/autoscale-devguide/content/Overview.html" title="cas-v1.0">                          
+                       
+                      
+                     
+                     
+                          API Developer Guide
+                          
+                          
+                          
+                          </a>	            	            
+	                  
+	                  
+	                  	                  
+	                  </li>
+	                  
+	                  
+	                	  
+	                
+	                	
+	              
+	              
+	            	        
+	        </ul></div>	      
+	      	  
+
+	      
+	    
+          
+	    
+          
+	    
+          
+	    
+          
+
+	      
+	      
+	      	      
+	      	      
+	        <div class="span4">
+	          <img src="Rackspace%20Cloud%20Technical%20Documentation_files/bigdata.png" class="" alt="No image found">
+	          <ul class="unstyled" style="margin-top: 5px;">
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                
+	                  <li>
+	                  
+	                  
+	                  
+	                  
+	                  
+	                    
+	                    
+                          <a name="cbd-v1.0-cbd-getting-started.war" href="http://docs.rackspace.com/cbd/api/v1.0/cbd-getting-started/content/DB_Doc_Change_History.html" title="cbd-v1.0">                          
+                       
+                      
+                     
+                     
+                          Getting Started Guide
+                          
+                          
+                          
+                          </a>	            	            
+	                  
+	                  
+	                  	                  
+	                  </li>
+	                  
+	                  
+	                	  
+	                
+	                	
+	              
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                
+	                  <li>
+	                  
+	                  
+	                  
+	                  
+	                  
+	                    
+	                    
+                          <a name="cbd-v1.0-cbd-devguide.war" href="http://docs.rackspace.com/cbd/api/v1.0/cbd-devguide/content/overview.html" title="cbd-v1.0">                          
+                       
+                      
+                     
+                     
+                          API Developer Guide
+                          
+                          
+                          
+                          </a>	            	            
+	                  
+	                  
+	                  	                  
+	                  </li>
+	                  
+	                  
+	                	  
+	                
+	                	
+	              
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                
+	                  <li>
+	                  
+	                  
+	                  
+	                  
+	                  
+	                    
+	                    
+                          <a name="cbd-v1.0-cbd-releasenotes.war" href="http://docs.rackspace.com/cbd/api/v1.0/cbd-releasenotes/content/preface.html" title="cbd-v1.0">                          
+                       
+                      
+                     
+                     
+                          Release Notes
+                          
+                          
+                          
+                          </a>	            	            
+	                  
+	                  
+	                  	                  
+	                  </li>
+	                  
+	                  
+	                	  
+	                
+	                	
+	              
+	              
+	            	        
+	        </ul></div>	      
+	      	  
+
+	      
+	    
+          
+
+	      
+	      
+	      	      
+	      	      
+	        <div class="span4">
+	          <img src="Rackspace%20Cloud%20Technical%20Documentation_files/images-logo.png" class="" alt="No image found">
+	          <ul class="unstyled" style="margin-top: 5px;">
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                
+	                  <li>
+	                  
+	                  
+	                  
+	                  
+	                  
+	                    
+	                    
+                          <a name="images-v2-ci-devguide.war" href="http://docs.rackspace.com/images/api/v2/ci-devguide/content/ch_image_preface.html" title="images-v2">                          
+                       
+                      
+                     
+                     
+                          API Developer Guide
+                          
+                          
+                          
+                          </a>	            	            
+	                  
+	                  
+	                  	                  
+	                  </li>
+	                  
+	                  
+	                	  
+	                
+	                	
+	              
+	              
+	            	        
+	        </ul></div>	      
+	      
+	        </div>
+	      	  
+
+	      
+	    
+          
+	    
+          
+
+	      
+	        <div class="row-fluid">
+	        
+	      
+	      
+	      	      
+	      	      
+	        <div class="span4">
+	          <img src="Rackspace%20Cloud%20Technical%20Documentation_files/orchestration-logo.png" class="" alt="No image found">
+	          <ul class="unstyled" style="margin-top: 5px;">
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                
+	                  <li>
+	                  
+	                  
+	                  
+	                  
+	                  
+	                    
+	                    
+                          <a name="orchestration-v1-orchestration-getting-started.war" href="http://docs.rackspace.com/orchestration/api/v1/orchestration-getting-started/content/DB_Doc_Change_History.html" title="orchestration-v1">                          
+                       
+                      
+                     
+                     
+                          Getting Started Guide
+                          
+                          
+                          
+                          </a>	            	            
+	                  
+	                  
+	                  	                  
+	                  </li>
+	                  
+	                  
+	                	  
+	                
+	                	
+	              
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                
+	                  <li>
+	                  
+	                  
+	                  
+	                  
+	                  
+	                    
+	                    
+                          <a name="orchestration-v1-orchestration-devguide.war" href="http://docs.rackspace.com/orchestration/api/v1/orchestration-devguide/content/overview.html" title="orchestration-v1">                          
+                       
+                      
+                     
+                     
+                          API Developer Guide
+                          
+                          
+                          
+                          </a>	            	            
+	                  
+	                  
+	                  	                  
+	                  </li>
+	                  
+	                  
+	                	  
+	                
+	                	
+	              
+	            
+	            
+	              
+	               	            
+	              
+	              
+	                
+	                  <li>
+	                  
+	                  
+	                  
+	                  
+	                  
+	                    
+	                    
+                          <a name="orchestration-v1-orchestration-templates-devguide.war" href="http://docs.rackspace.com/orchestration/api/v1/orchestration-templates-devguide/content/overview.html" title="orchestration-v1">                          
+                       
+                      
+                     
+                     
+                          Templates Developer Guide
+                          
+                          
+                          
+                          </a>	            	            
+	                  
+	                  
+	                  	                  
+	                  </li>
+	                  
+	                  
+	                	  
+	                
+	                	
+	              
+	              
+	            	        
+	        </ul></div>	      
+	      	  
+
+	      
+	    
+          
+	    
+          
+	    
+	    
+	  
+	      </div>
+	  
+      </div>
+      </div>
+      
+      <div class="span3 pull-right" style="margin-right: 25px;">
+ 
+          <div class="resource-section">
+              <h4>API reference pages</h4>
+              <ul class="unstyled">
+                 
+                          <li><a href="api-ref-auto-scale.html">Auto Scale
+                              API</a></li>
+                          <li><a href="api-ref-backup.html">Cloud Backup
+                              API</a></li>
+                          <li><a href="api-ref-big-data.html">Cloud Big Data
+                              API</a></li>
+                          <li><a href="api-ref-blockstorage.html">Cloud Block
+                              Storage API</a></li>
+                          <li><a href="api-ref-databases.html">Cloud
+                              Databases API</a></li>
+                          <li><a href="api-ref-email-and-apps.html">Email
+                              &amp; Apps API</a></li>
+                          <li><a href="api-ref-files.html">Cloud Files
+                              API</a></li>
+                          <li><a href="api-ref-identity.html">Cloud Identity
+                              API</a></li>
+                          <li><a href="api-ref-images.html">Cloud Images
+                              API</a></li>
+                          <li><a href="api-ref-monitoring.html">Cloud
+                              Monitoring API</a></li>
+                          <li><a href="api-ref-networks.html">Cloud Networks
+                              API</a></li>
+                          <li><a href="api-ref-orchestration.html">Cloud
+                              Orchestration API</a></li>
+                          <li><a href="api-ref-queues.html">Cloud Queues
+                              API</a></li>
+                          <li><a href="api-ref.html">Cloud Servers
+                              API</a></li>
+                          <li><a href="api-ref-servers-ext.html">Cloud
+                              Servers API extensions</a></li>
+              </ul>
+          </div>
+          
+          <div class="resource-section">
+            <h4>SDKs</h4>
+            <ul class="unstyled">
+              
+                
+                  
+                     
+                    
+	                  <li>
+	                    
+	                      	            
+                            <a name="resources.war" href="http://developer.rackspace.com/#home-sdks" title="sdks" target="_blank">
+	                      
+	                      
+                                                                    
+                        SDKs Introduction
+                          
+                            
+                            
+                            </a>	            	            	                    
+	                  </li>                 
+                                     
+                  
+              
+              
+                
+                  
+                     
+                    
+	                  <li>
+	                    
+	                      	            
+                            <a name="resources.war" href="http://developer.rackspace.com/#java" title="sdks" target="_blank">
+	                      
+	                      
+                                                                    
+                        Java SDK
+                          
+                            
+                            
+                            </a>	            	            	                    
+	                  </li>                 
+                                     
+                  
+              
+              
+                
+                  
+                     
+                    
+	                  <li>
+	                    
+	                      	            
+                            <a name="resources.war" href="http://developer.rackspace.com/#php" title="sdks" target="_blank">
+	                      
+	                      
+                                                                    
+                        PHP SDK
+                          
+                            
+                            
+                            </a>	            	            	                    
+	                  </li>                 
+                                     
+                  
+              
+              
+                
+                  
+                     
+                    
+	                  <li>
+	                    
+	                      	            
+                            <a name="resources.war" href="http://developer.rackspace.com/#python" title="sdks" target="_blank">
+	                      
+	                      
+                                                                    
+                        Python SDK
+                          
+                            
+                            
+                            </a>	            	            	                    
+	                  </li>                 
+                                     
+                  
+              
+              
+                
+                  
+                     
+                    
+	                  <li>
+	                    
+	                      	            
+                            <a name="resources.war" href="http://developer.rackspace.com/#ruby" title="sdks" target="_blank">
+	                      
+	                      
+                                                                    
+                        Ruby SDK
+                          
+                            
+                            
+                            </a>	            	            	                    
+	                  </li>                 
+                                     
+                  
+              
+              
+                
+                  
+                     
+                    
+	                  <li>
+	                    
+	                      	            
+                            <a name="resources.war" href="http://developer.rackspace.com/#dotnet" title="sdks" target="_blank">
+	                      
+	                      
+                                                                    
+                        .NET SDK
+                          
+                            
+                            
+                            </a>	            	            	                    
+	                  </li>                 
+                                     
+                  
+              
+              
+                
+                  
+                     
+                    
+	                  <li>
+	                    
+	                      	            
+                            <a name="resources.war" href="http://developer.rackspace.com/#nodejs" title="sdks" target="_blank">
+	                      
+	                      
+                                                                    
+                        node.js SDK
+                          
+                            
+                            
+                            </a>	            	            	                    
+	                  </li>                 
+                                     
+                  
+              
+              
+            </ul>  
+          </div>   
+               
+        
+          
+          <div class="resource-section">
+            <h4>Resources</h4>
+            <ul class="unstyled">
+              
+                
+                  
+                     
+                    
+	                  <li>
+	                    
+	                      	            
+                            <a name="resources.war" href="http://developer.rackspace.com/" title="resources" target="_blank">
+	                      
+	                      
+                                                                    
+                        Developer Center
+                          
+                            
+                            
+                            </a>	            	            	                    
+	                  </li>                 
+                                     
+                  
+              
+              
+                
+                  
+                     
+                    
+	                  <li>
+	                    
+	                      	            
+                            <a name="resources.war" href="http://www.rackspace.com/knowledge_center" title="resources" target="_blank">
+	                      
+	                      
+                                                                    
+                        Knowledge Center
+                          
+                            
+                            
+                            </a>	            	            	                    
+	                  </li>                 
+                                     
+                  
+              
+              
+                
+                  
+                     
+                    
+	                  <li>
+	                    
+	                      
+	                      
+                            <a name="resources.war" href="https://github.com/rackerlabs" title="resources">
+                          
+                                                                    
+                        Rackspace Github
+                          
+                            
+                            
+                            </a>	            	            	                    
+	                  </li>                 
+                                     
+                  
+              
+              
+                
+                  
+                     
+                    
+	                  <li>
+	                    
+	                      	            
+                            <a name="resources.war" href="http://developer.rackspace.com/blog" title="resources" target="_blank">
+	                      
+	                      
+                                                                    
+                        Technical Blog
+                          
+                            
+                            
+                            </a>	            	            	                    
+	                  </li>                 
+                                     
+                  
+              
+              
+                
+                  
+                     
+                    
+	                  <li>
+	                    
+	                      	            
+                            <a name="resources.war" href="http://community.rackspace.com/developers/default.aspx" title="resources" target="_blank">
+	                      
+	                      
+                                                                    
+                        Developer Community Forum
+                          
+                            
+                            
+                            </a>	            	            	                    
+	                  </li>                 
+                                     
+                  
+              
+              
+            </ul>  
+          </div>   
+               
+        
+ 
+ 
+ 
+         
+        
+      </div>
+
+
+<script type="text/javascript" src="Rackspace%20Cloud%20Technical%20Documentation_files/googlesearch.js"></script>
+<script type="text/javascript">
+    //homepage search box
+    function doSearch(){
+       var term = $('#txtSearchTerm').val();
+       window.location.href = "search.html?q=" + term;
+       return false;
+    }
+</script>
+</div>
+<div id="footer">
+
+<div id="footer-wrap" style="position: relative;top: 0px;width: 100%;background: #1A1A1A;z-index: 40;margin: 0px;padding: 0px;border: 0px;font-family: arial,verdana,sans-serif;font-size: 12px;color: #505050;text-align: center;line-height: 16px;">
+		<div id="rug-wrap" style="background-color: #335687;color: #fff;padding: 19px 0 0px;line-height: 1.3em;font-family: &quot;RobotoLight&quot;,&quot;HelveticaNeue&quot;,&quot;Helvetica Neue&quot;,Helvetica,Arial,sans-serif;font-size: 15px;margin: 0px;border:0px;">
+			<div style="position: relative;top: 2px;left: 0px;width: 960px;margin: 0px auto;text-align: left;padding: 0px;border: 0px;color: #fff;line-height: 1.3em;font-family: &quot;RobotoLight&quot;,&quot;HelveticaNeue&quot;,&quot;Helvetica Neue&quot;,Helvetica,Arial,sans-serif;font-size: 15px;display:block;">
+				<div style="width: 304px;position: relative;float: left;margin: 0px;padding: 0px;border: 0px;text-align: left;color: #fff;line-height: 1.3em;font-family: &quot;RobotoLight&quot;,&quot;HelveticaNeue&quot;,&quot;Helvetica Neue&quot;,Helvetica,Arial,sans-serif;font-size: 15px;">
+				    <img src="Rackspace%20Cloud%20Technical%20Documentation_files/wevegotyourback-24x7x365.png" alt="24x7x365 Support" style="margin: 0px;padding: 0px;border: 0px;text-align: left;color: #fff;line-height: 1.3em;font-family: &quot;RobotoLight&quot;,&quot;HelveticaNeue&quot;,&quot;Helvetica Neue&quot;,Helvetica,Arial,sans-serif;font-size: 15px;">
+				</div>
+				<div style="left: 48px;width: 220px;position: relative;float: left;">
+					<!-- Next 2 lines must be greater than 10 -->
+					<div id="phone" style="background: url(&quot;http://images.cdn.rackspace.com/footer/rug/callus-icon.png&quot;) no-repeat;text-transform: uppercase;font-size: 13px;margin-top: -10px;padding: 10px 0 0px 0px;cursor: pointer;">
+					<ul id="after-phone" style="list-style: none;display: block;-webkit-margin-before: 1em;-webkit-margin-after: 1em;-webkit-margin-start: 0px;-webkit-margin-end: 0px;-webkit-padding-start: 40px;position:relative;bottom:7px;left:15px;">
+					    <li style="display: list-item;text-align: -webkit-match-parent;list-style: none;text-align: left;white-space:nowrap;">1-800-961-2888&nbsp;&nbsp;&nbsp;Sales</li>
+					    <li style="display: list-item;text-align: -webkit-match-parent;list-style: none;text-align: left;white-space:nowrap;">1-800-961-4454&nbsp;&nbsp;&nbsp;Support</li>
+					</ul>
+					</div>
+					<!-- mp_trans_remove_end -->
+					<!-- mp_trans_add='ES,PT' &nbsp; -->
+				</div>
+				<div style="left: 96px;width: 220px;position: relative;float: left; display:none;">
+				    <div id="chat">
+				        <a class="chatpic" style="background: url(&quot;http://images.cdn.rackspace.com/footer/rug/chatwithus-icon.png&quot;)no-repeat;display: block;padding: 10px 0 10px 53px;height: 21px;" href="http://www.rackspace.com/#chat"><span class="toptext" style="color: #fff;cursor: pointer;text-decoration: none;">Live Sales Chat</span></a>
+				    </div>
+				</div>
+				<div style="left: 96px;width: 140px;position: relative;float: left;">
+				    <div style="text-align: left;" id="email">
+				        <a class="emailpic" style="background: url(&quot;http://images.cdn.rackspace.com/footer/rug/emailus-icon.png&quot;) no-repeat;display: block;padding: 10px 0 10px 53px;height: 21px;" href="http://www.rackspace.com/forms/contactsales/"><span class="toptext" style="color: #fff;cursor: pointer;text-decoration: none;">Email Us</span></a>
+				    </div>
+				</div>
+				<div style="background: none;border: 0;clear: both;display: block;float: none;font-size: 0;list-style: none;margin: 0;padding: 0;overflow: hidden;visibility: hidden;width: 0;height: 0;text-align: left;"></div>
+			</div>
+		</div>
+
+		<div style="position: relative;top: 0px;left: 0px;width: 100%;margin: 30px auto;font-family: arial,verdana,sans-serif;font-size: 12px;color: #505050;text-align: center;line-height: 16px;" id="fatfooter-wrap">
+
+			<div style="position: relative;color: #CCC;font-size: 13px;text-transform: uppercase;margin-bottom: 15px;top: 0px;left: 0px;width: 960px;margin: 0px auto;text-align: left;">
+			    <div style="position: relative;color: #CCC;font-size: 13px;text-transform: uppercase;margin-bottom: 15px;width: 140px;float: left;text-align: left;line-height: 16px;">
+	                <div style="position: relative;color: #CCC;font-size: 13px;text-transform: uppercase;margin-bottom: 15px;text-align: left;line-height: 16px;">Products</div>
+	                <ul style="list-style-type: none;margin: 0px;padding: 0px;border: 0px;line-height: 14px;-webkit-margin-before: 1em;display:block;-webkit-margin-after: 1em;-webkit-margin-start: 0px;-webkit-margin-end: 0px;/*-/*-webkit-padding-start: 40px;*/*/color: #CCC;font-size: 13px;text-transform: uppercase;">
+	                    <li style="font-size: 12px;text-transform: capitalize;white-space: nowrap;margin-bottom: 7px;display: list-item;text-align: -webkit-match-parent;list-style-type: none;line-height: 14px;color: #CCC;"><a class="footeranchor" style="color: #AAA;text-decoration: none;cursor: auto;font-size: 12px;text-transform: capitalize;white-space: nowrap;text-align: -webkit-match-parent;list-style-type: none;line-height: 14px;" href="http://www.rackspace.com/cloud/">Public Cloud</a></li>
+	                    <li style="font-size: 12px;text-transform: capitalize;white-space: nowrap;margin-bottom: 7px;display: list-item;text-align: -webkit-match-parent;list-style-type: none;line-height: 14px;color: #CCC;"><a class="footeranchor" style="color: #AAA;text-decoration: none;cursor: auto;font-size: 12px;text-transform: capitalize;white-space: nowrap;text-align: -webkit-match-parent;list-style-type: none;line-height: 14px;" href="http://www.rackspace.com/cloud/private/">Private Cloud</a></li>
+	                    <li style="font-size: 12px;text-transform: capitalize;white-space: nowrap;margin-bottom: 7px;display: list-item;text-align: -webkit-match-parent;list-style-type: none;line-height: 14px;color: #CCC;"><a class="footeranchor" style="color: #AAA;text-decoration: none;cursor: auto;font-size: 12px;text-transform: capitalize;white-space: nowrap;text-align: -webkit-match-parent;list-style-type: none;line-height: 14px;" href="http://www.rackspace.com/cloud/hybrid/">Hybrid Cloud</a></li>
+	                    <li style="font-size: 12px;text-transform: capitalize;white-space: nowrap;margin-bottom: 7px;display: list-item;text-align: -webkit-match-parent;list-style-type: none;line-height: 14px;color: #CCC;"><a class="footeranchor" style="color: #AAA;text-decoration: none;cursor: auto;font-size: 12px;text-transform: capitalize;white-space: nowrap;text-align: -webkit-match-parent;list-style-type: none;line-height: 14px;" href="http://www.rackspace.com/managed-hosting/">Managed Hosting</a></li>
+	                    <li style="font-size: 12px;text-transform: capitalize;white-space: nowrap;margin-bottom: 7px;display: list-item;text-align: -webkit-match-parent;list-style-type: none;line-height: 14px;color: #CCC;"><a class="footeranchor" style="color: #AAA;text-decoration: none;cursor: auto;font-size: 12px;text-transform: capitalize;white-space: nowrap;text-align: -webkit-match-parent;list-style-type: none;line-height: 14px;" href="http://www.rackspace.com/email-hosting/">Email Hosting</a></li>
+	                </ul>
+                </div>
+                <div style="position: relative;color: #CCC;font-size: 13px;text-transform: uppercase;margin-bottom: 15px;left: 72px;width: 140px;float: left;text-align: left;line-height:16px;">
+	                <div style="position: relative;color: #CCC;font-size: 13px;text-transform: uppercase;margin-bottom: 15px;display: block;text-align: left;line-height: 16px;">Support</div>
+	                <ul style="list-style-type: none;margin: 0px;padding: 0px;border: 0px;line-height: 14px;display: block;-webkit-margin-before: 1em;-webkit-margin-after: 1em;-webkit-margin-start: 0px;-webkit-margin-end: 0px;-/*-webkit-padding-start: 40px;*/color: #CCC;font-size: 13px;text-transform: uppercase;text-align: left;">
+	                    <li style="font-size: 12px;text-transform: capitalize;white-space: nowrap;margin-bottom: 7px;display: list-item;text-align: -webkit-match-parent;list-style-type: none;line-height: 14px;color: #CCC;"><a class="footeranchor" style="color: #AAA;text-decoration: none;cursor: auto;font-size: 12px;text-transform: capitalize;white-space: nowrap;text-align: -webkit-match-parent;list-style-type: none;line-height: 14px;" href="http://support.rackspace.com/" target="_blank">Support Home</a></li>
+	                    <li style="font-size: 12px;text-transform: capitalize;white-space: nowrap;margin-bottom: 7px;display: list-item;text-align: -webkit-match-parent;list-style-type: none;line-height: 14px;color: #CCC;"><a class="footeranchor" style="color: #AAA;text-decoration: none;cursor: auto;font-size: 12px;text-transform: capitalize;white-space: nowrap;text-align: -webkit-match-parent;list-style-type: none;line-height: 14px;" href="http://www.rackspace.com/knowledge_center/">Knowledge Center</a></li>
+	                    <li style="font-size: 12px;text-transform: capitalize;white-space: nowrap;margin-bottom: 7px;display: list-item;text-align: -webkit-match-parent;list-style-type: none;line-height: 14px;color: #CCC;"><a class="footeranchor" style="color: #AAA;text-decoration: none;cursor: auto;font-size: 12px;text-transform: capitalize;white-space: nowrap;text-align: -webkit-match-parent;list-style-type: none;line-height: 14px;" href="https://community.rackspace.com/" target="_blank">Rackspace Community</a></li>
+	                    <li style="font-size: 12px;text-transform: capitalize;white-space: nowrap;margin-bottom: 7px;display: list-item;text-align: -webkit-match-parent;list-style-type: none;line-height: 14px;color: #CCC;"><a class="footeranchor" style="color: #AAA;text-decoration: none;cursor: auto;font-size: 12px;text-transform: capitalize;white-space: nowrap;text-align: -webkit-match-parent;list-style-type: none;line-height: 14px;" href="http://docs.rackspace.com/" target="_blank">API Documentation</a></li>
+	                    <li style="font-size: 12px;text-transform: capitalize;white-space: nowrap;margin-bottom: 7px;display: list-item;text-align: -webkit-match-parent;list-style-type: none;line-height: 14px;color: #CCC;"><a class="footeranchor" style="color: #AAA;text-decoration: none;cursor: auto;font-size: 12px;text-transform: capitalize;white-space: nowrap;text-align: -webkit-match-parent;list-style-type: none;line-height: 14px;" href="http://developer.rackspace.com/" target="_blank">Developer Center</a></li>
+	                </ul>
+                </div>
+                <div style="position: relative;color: #CCC;font-size: 13px;text-transform: uppercase;margin-bottom: 15px;left: 144px;width: 140px;float: left;text-align: left;line-height: 16px;">
+	                <div style="position: relative;color: #CCC;font-size: 13px;text-transform: uppercase;margin-bottom: 15px;text-align: left;line-height: 16px;">Control Panels</div>
+	                <ul style="list-style-type: none;margin: 0px;padding: 0px;border: 0px;line-height: 14px;-webkit-margin-before: 1em;-webkit-margin-after: 1em;-webkit-margin-start: 0px;-webkit-margin-end: 0px;-/*-webkit-padding-start: 40px;*/color: #CCC;font-size: 13px;text-transform: uppercase;text-align: left;">
+	                    <li style="font-size: 12px;text-transform: capitalize;white-space: nowrap;margin-bottom: 7px;display: list-item;text-align: -webkit-match-parent;list-style-type: none;line-height: 14px;color: #CCC;"><a class="footeranchor" style="color: #AAA;text-decoration: none;cursor: auto;font-size: 12px;text-transform: capitalize;white-space: nowrap;text-align: -webkit-match-parent;list-style-type: none;line-height: 14px;" href="https://my.rackspace.com/portal/auth/login" target="_blank">MyRackspace Portal</a></li>
+	                    <li style="font-size: 12px;text-transform: capitalize;white-space: nowrap;margin-bottom: 7px;display: list-item;text-align: -webkit-match-parent;list-style-type: none;line-height: 14px;color: #CCC;"><a class="footeranchor" style="color: #AAA;text-decoration: none;cursor: auto;font-size: 12px;text-transform: capitalize;white-space: nowrap;text-align: -webkit-match-parent;list-style-type: none;line-height: 14px;" href="https://mycloud.rackspace.com/" target="_blank">Cloud Control Panel</a></li>
+	                    <li style="font-size: 12px;text-transform: capitalize;white-space: nowrap;margin-bottom: 7px;display: list-item;text-align: -webkit-match-parent;list-style-type: none;line-height: 14px;color: #CCC;"><a class="footeranchor" style="color: #AAA;text-decoration: none;cursor: auto;font-size: 12px;text-transform: capitalize;white-space: nowrap;text-align: -webkit-match-parent;list-style-type: none;line-height: 14px;" href="https://manage.rackspacecloud.com/pages/Login.jsp" target="_blank">Cloud Sites Control Panel</a></li>
+	                    <li style="font-size: 12px;text-transform: capitalize;white-space: nowrap;margin-bottom: 7px;display: list-item;text-align: -webkit-match-parent;list-style-type: none;line-height: 14px;color: #CCC;"><a class="footeranchor" style="color: #AAA;text-decoration: none;cursor: auto;font-size: 12px;text-transform: capitalize;white-space: nowrap;text-align: -webkit-match-parent;list-style-type: none;line-height: 14px;" href="https://apps.rackspace.com/" target="_blank">Rackspace Webmail Login</a></li>
+	                    <li style="font-size: 12px;text-transform: capitalize;white-space: nowrap;margin-bottom: 7px;display: list-item;text-align: -webkit-match-parent;list-style-type: none;line-height: 14px;color: #CCC;"><a class="footeranchor" style="color: #AAA;text-decoration: none;cursor: auto;font-size: 12px;text-transform: capitalize;white-space: nowrap;text-align: -webkit-match-parent;list-style-type: none;line-height: 14px;" href="https://cp.rackspace.com/" target="_blank">Email Admin Login</a></li>
+	                </ul>
+                </div>
+                <div style="position: relative;=color: #CCC;font-size: 13px;text-transform: uppercase;margin-bottom: 15px;left: 216px;width: 304px;float: left;text-align: left;line-height: 16px;">
+	                <div style="position: relative;color: #CCC;font-size: 13px;text-transform: uppercase;margin-bottom: 15px;text-align: left;line-height: 16px;">About Rackspace</div>
+	                <div style="position: relative;color: #CCC;font-size: 13px;text-transform: uppercase;margin-bottom: 15px;width: 140px;float: left;text-align: left;line-height: 16px;bottom: 12px;">
+		                <ul style="list-style-type: none;margin: 0px;padding: 0px;border: 0px;line-height: 14px;display: block;-webkit-margin-before: 1em;-webkit-margin-after: 1em;-webkit-margin-start: 0px;-webkit-margin-end: 0px;-/*-webkit-padding-start: 40px;*/color: #CCC;font-size: 13px;text-transform: uppercase;text-align: left;">
+		                    <li style="font-size: 12px;text-transform: capitalize;white-space: nowrap;margin-bottom: 7px;display: list-item;text-align: -webkit-match-parent;list-style-type: none;line-height: 14px;color: #CCC;"><a class="footeranchor" style="color: #AAA;text-decoration: none;cursor: auto;font-size: 12px;text-transform: capitalize;white-space: nowrap;text-align: -webkit-match-parent;list-style-type: none;line-height: 14px;" href="http://www.rackspace.com/about/">Our Story</a></li>
+		                    <li style="font-size: 12px;text-transform: capitalize;white-space: nowrap;margin-bottom: 7px;display: list-item;text-align: -webkit-match-parent;list-style-type: none;line-height: 14px;color: #CCC;"><a class="footeranchor" style="color: #AAA;text-decoration: none;cursor: auto;font-size: 12px;text-transform: capitalize;white-space: nowrap;text-align: -webkit-match-parent;list-style-type: none;line-height: 14px;" href="http://stories.rackspace.com/" target="_blank">Case Studies</a></li>
+		                    <li style="font-size: 12px;text-transform: capitalize;white-space: nowrap;margin-bottom: 7px;display: list-item;text-align: -webkit-match-parent;list-style-type: none;line-height: 14px;color: #CCC;"><a class="footeranchor" style="color: #AAA;text-decoration: none;cursor: auto;font-size: 12px;text-transform: capitalize;white-space: nowrap;text-align: -webkit-match-parent;list-style-type: none;line-height: 14px;" href="http://www.rackspace.com/events/">Events</a></li>
+		                    <li style="font-size: 12px;text-transform: capitalize;white-space: nowrap;margin-bottom: 7px;display: list-item;text-align: -webkit-match-parent;list-style-type: none;line-height: 14px;color: #CCC;"><a class="footeranchor" style="color: #AAA;text-decoration: none;cursor: auto;font-size: 12px;text-transform: capitalize;white-space: nowrap;text-align: -webkit-match-parent;list-style-type: none;line-height: 14px;" href="http://www.rackspace.com/programs/">Programs</a></li>
+		                    <li style="font-size: 12px;text-transform: capitalize;white-space: nowrap;margin-bottom: 7px;display: list-item;text-align: -webkit-match-parent;list-style-type: none;line-height: 14px;color: #CCC;"><a class="footeranchor" style="color: #AAA;text-decoration: none;cursor: auto;font-size: 12px;text-transform: capitalize;white-space: nowrap;text-align: -webkit-match-parent;list-style-type: none;line-height: 14px;" href="http://www.rackspace.com/blog/newsroom/">Newsroom</a></li>
+		                </ul>
+	                </div>
+                    <div style="position: relative;color: #CCC;font-size: 13px;text-transform: uppercase;margin-bottom: 15px;left: 24px;width: 140px;float: left;text-align: left;line-height: 16px;">
+		                <ul style="list-style-type: none;margin: 0px;padding: 0px;border: 0px;line-height: 14px;display: block;-webkit-margin-before: 1em;-webkit-margin-after: 1em;-webkit-margin-start: 0px;-webkit-margin-end: 0px;-/*-webkit-padding-start: 40px;*/color: #CCC;font-size: 13px;text-transform: uppercase;text-align: left;position:relative;bottom:10px;">
+		                    <li style="font-size: 12px;text-transform: capitalize;white-space: nowrap;margin-bottom: 7px;display: list-item;text-align: -webkit-match-parent;list-style-type: none;line-height: 14px;color: #CCC;"><a class="footeranchor" style="color: #AAA;text-decoration: none;cursor: auto;font-size: 12px;text-transform: capitalize;white-space: nowrap;text-align: -webkit-match-parent;list-style-type: none;line-height: 14px;" href="http://www.rackspace.com/blog/">The Rackspace Blog</a></li>
+		                    <li style="font-size: 12px;text-transform: capitalize;white-space: nowrap;margin-bottom: 7px;display: list-item;text-align: -webkit-match-parent;list-style-type: none;line-height: 14px;color: #CCC;"><a class="footeranchor" style="color: #AAA;text-decoration: none;cursor: auto;font-size: 12px;text-transform: capitalize;white-space: nowrap;text-align: -webkit-match-parent;list-style-type: none;line-height: 14px;" href="http://developer.rackspace.com/blog/" target="_blank">DevOps Blog</a></li>
+		                    <li style="font-size: 12px;text-transform: capitalize;white-space: nowrap;margin-bottom: 7px;display: list-item;text-align: -webkit-match-parent;list-style-type: none;line-height: 14px;color: #CCC;"><a class="footeranchor" style="color: #AAA;text-decoration: none;cursor: auto;font-size: 12px;text-transform: capitalize;white-space: nowrap;text-align: -webkit-match-parent;list-style-type: none;line-height: 14px;" href="http://www.rackspace.com/information/contactus/">Contact Information</a></li>
+		                    <li style="font-size: 12px;text-transform: capitalize;white-space: nowrap;margin-bottom: 7px;display: list-item;text-align: -webkit-match-parent;list-style-type: none;line-height: 14px;color: #CCC;"><a class="footeranchor" style="color: #AAA;text-decoration: none;cursor: auto;font-size: 12px;text-transform: capitalize;white-space: nowrap;text-align: -webkit-match-parent;list-style-type: none;line-height: 14px;" href="http://www.rackspace.com/information/legal/">Legal</a></li>
+		                    <li style="font-size: 12px;text-transform: capitalize;white-space: nowrap;margin-bottom: 7px;display: list-item;text-align: -webkit-match-parent;list-style-type: none;line-height: 14px;color: #CCC;"><a class="footeranchor" style="color: #AAA;text-decoration: none;cursor: auto;font-size: 12px;text-transform: capitalize;white-space: nowrap;text-align: -webkit-match-parent;list-style-type: none;line-height: 14px;" href="http://talent.rackspace.com/" target="_blank">Careers</a></li>
+		                </ul>
+	               </div>
+	               <div style="position: relative;color: #CCC;font-size: 13px;text-transform: uppercase;margin-bottom: 15px;background: none;border: 0;clear: both;display: block;float: none;list-style: none;margin: 0;padding: 0;overflow: hidden;visibility: hidden;width: 0;height: 0;text-align:left;line-height:16px;"></div>
+               </div>
+               <div style="position: relative;color: #CCC;font-size: 13px;text-transform: uppercase;margin-bottom: 15px;background: none;border: 0;clear: both;display: block;float: none;list-style: none;margin: 0;padding: 0;overflow: hidden;visibility: hidden;width: 0;height: 0;text-align:left;line-height:16px;"></div>
+           </div>
+		</div>	
+
+   <div id="basement-wrap" style="padding: 25px 0px;border-top: 1px solid #252525;text-align: left;font-size: 11px;line-height: 19px;color: #CCC;background: #000;">
+	    <div style="position: relative;top: 0px;left: 0px;width: 960px;margin: 0px auto;text-align: left;font-size: 11px;line-height: 19px;color: #CCC;">
+		    <div style="width: 58px;position: relative;float: left;text-align: left;">
+		        <img style="text-align: left;" src="Rackspace%20Cloud%20Technical%20Documentation_files/rackerpowered-logo.png" alt="Racker Powered">
+		    </div>
+            <!-- 
+                /*************
+                NOTE the line with the text ~~~Y Y Y Y~~~ gets replaced with the current year, this line must be appear after line 100
+                and must not be repeated anywhere in the page, even as a comment
+                **************/ 
+            -->
+		    <div style="left: 72px;width: 140px;position: relative;float: left;text-align: left;white-space:nowrap;">2014 Rackspace, US Inc.</div>
+		    <div style="left: 96px;width: 632px;position: relative;float: left;text-align: left;">
+		        <span style="padding: 0px 5px;text-align: left;">
+	                <a style="color: #CCC !important;text-decoration: none !important;cursor: pointer;text-align: left;" href="http://www.rackspace.com/about/" class="basement">About Rackspace</a>
+                </span> | 
+                <span style="padding: 0px 5px;text-align: left;">
+	                <a style="color: #CCC !important;text-decoration: none !important;cursor: pointer;text-align: left;" href="http://ir.rackspace.com/" class="basement">Investors</a>
+                </span> | 
+                <span style="padding: 0px 5px;text-align: left;">
+	                <a style="color: #CCC !important;text-decoration: none !important;cursor: pointer;text-align: left;" href="http://www.rackertalent.com/" class="basement">Careers</a>
+                </span> | 
+                <span style="padding: 0px 5px;text-align: left;">
+	                <a style="color: #CCC !important;text-decoration: none !important;cursor: pointer;text-align: left;" href="http://www.rackspace.com/information/legal/privacystatement" class="basement">Privacy Statement</a>
+                </span> | 
+                <span style="padding: 0px 5px;text-align: left;">
+	                <a style="color: #CCC !important;text-decoration: none !important;cursor: pointer;text-align: left;" href="http://www.rackspace.com/information/legal/websiteterms" class="basement">Website Terms</a>
+                </span> | 
+                <span style="padding: 0px 5px;text-align: left;">
+                	<a style="color: #CCC !important;text-decoration: none !important;cursor: pointer;text-align: left;" href="http://www.rackspace.com/information/legal/copyrights_trademarks" class="basement">Trademarks</a>
+                </span> |
+                <span style="padding: 0px 5px;text-align: left;">
+	                <a style="color: #CCC !important;text-decoration: none !important;cursor: pointer;text-align: left;" href="http://www.rackspace.com/sitemap/" class="basement">Sitemap</a>
+                </span>
+
+            </div>
+		    <div style="text-align: left;padding-bottom:20px;"></div>
+        </div>
+    </div>	
+
+	</div>
+
+
+ 
+</div>
+
+<noscript>
+1-800-961-2888&nbsp;&nbsp;&nbsp;Sales 1-800-961-4454&nbsp;&nbsp;&nbsp;Support		
+<a href="http://www.rackspace.com#chat">Live Sales Chat</a>
+<a href="http://www.rackspace.com/forms/contactsales/">Email Us</a>
+Products	
+<a href="http://www.rackspace.com/cloud/">Public Cloud</a>
+<a class="footeranchor" href="http://www.rackspace.com/cloud/private/">Private Cloud</a>
+<a href="http://www.rackspace.com/cloud/hybrid/">Hybrid Cloud</a>
+<a href="http://www.rackspace.com/managed-hosting/">Managed Hosting</a>
+<a href="http://www.rackspace.com/email-hosting/">Email Hosting</a>		
+Support		
+<a href="http://support.rackspace.com/" target="_blank">Support Home</a>
+<a href="http://www.rackspace.com/knowledge_center/">Knowledge Center</a>
+<a href="https://community.rackspace.com" target="_blank">Rackspace Community</a>
+<a href="http://docs.rackspace.com/" target="_blank">Technical Documentation</a>
+<a href="http://developer.rackspace.com" target="_blank">Developer Center</a>	
+Control Panels		
+<a href="https://my.rackspace.com/portal/auth/login" target="_blank">MyRackspace Portal</a>
+<a href="https://mycloud.rackspace.com" target="_blank">Cloud Control Panel</a>
+<a href="https://manage.rackspacecloud.com/pages/Login.jsp" target="_blank">Cloud Sites Control Panel</a>
+<a href="https://apps.rackspace.com" target="_blank">Rackspace Webmail Login</a>
+<a href="https://cp.rackspace.com" target="_blank">Email Admin Login</a>	
+About Rackspace
+<a class="footeranchor" href="http://www.rackspace.com/about/">Our Story</a>
+<a href="http://stories.rackspace.com" target="_blank">Case Studies</a>
+<a href="http://www.rackspace.com/events/">Events</a>
+<a href="http://www.rackspace.com/programs/">Programs</a>
+<a href="http://www.rackspace.com/blog/newsroom/">Newsroom</a>		
+		
+<a href="http://www.rackspace.com/blog/">The Rackspace Blog</a>
+<a href="http://developer.rackspace.com/blog/" target="_blank">DevOps Blog</a>
+<a href="http://www.rackspace.com/information/contactus/">Contact Information</a>
+<a href="http://www.rackspace.com/information/legal/">Legal</a>
+<a href="http://talent.rackspace.com/" target="_blank">Careers</a>	
+2014 Rackspace, US Inc. 
+<a href="http://www.rackspace.com/about/" class="basement">About Rackspace</a> | <a href="http://ir.rackspace.com" class="basement">Investors</a>
+| <a href="http://www.rackertalent.com" class="basement">Careers</a> | <a href="http://www.rackspace.com/information/legal/privacystatement">Privacy Statement</a> | 
+<a href="http://www.rackspace.com/information/legal/websiteterms">Website Terms</a> | <a href="http://www.rackspace.com/information/legal/copyrights_trademarks">Trademarks</a> | 
+<a href="http://www.rackspace.com/sitemap/" class="basement">Sitemap</a>
+</noscript>
+
+
+
+</div></body></html>

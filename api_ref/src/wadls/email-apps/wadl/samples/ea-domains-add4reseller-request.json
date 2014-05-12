@@ -1,0 +1,5 @@
+PUT '/customers/123455/domains/example.com', 'text/xml',    
+{    
+    'maxNumMailboxes' => '25',    
+    'extraStorage' => '2048'    
+}" });

@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xmlns="http://docbook.org/ns/docbook"
+    xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:linkend="http://www.w3.org/1999/linkend"
+    xmlns:xref="http://www.w3.org/1999/xref"
+    xmlns:wadl="http://wadl.dev.java.net/2009/02"
+    version="5.0-extension RackBook-2.0" xml:id="backup-v1">
+    <title>Cloud Backup API v1.0</title>
+    <!-- <section xml:id="backup-agents">
+        <title>Agents</title>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="../wadls/cloud-backup/wadl/rcbu.wadl#agent__machineAgentId_"/>
+            <wadl:resource
+                href="../wadls/cloud-backup/wadl/rcbu.wadl#agent_enable"/>
+            <wadl:resource
+                href="../wadls/cloud-backup/wadl/rcbu.wadl#agent_encrypt"/>
+            <wadl:resource
+                href="../wadls/cloud-backup/wadl/rcbu.wadl#changeencryption"/>
+            <wadl:resource
+                href="../wadls/cloud-backup/wadl/rcbu.wadl#agent_configuration"/>
+            <wadl:resource
+                href="../wadls/cloud-backup/wadl/rcbu.wadl#agent_busy__machineAgentId_"/>
+            <wadl:resource
+                href="../wadls/cloud-backup/wadl/rcbu.wadl#agent_delete"/>
+            <wadl:resource
+                href="../wadls/cloud-backup/wadl/rcbu.wadl#user_agents"
+            />
+        </wadl:resources>
+    </section>-->
+    <!--<section xml:id="backup-configuration">
+        <title>Backup configuration</title>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="../wadls/cloud-backup/wadl/rcbu.wadl#backup-configuration"/>
+            <wadl:resource
+                href="../wadls/cloud-backup/wadl/rcbu.wadl#agent_machineAgentId"/>
+            <wadl:resource
+                href="../wadls/cloud-backup/wadl/rcbu.wadl#backupConfigurationId"/>
+            <wadl:resource
+                href="../wadls/cloud-backup/wadl/rcbu.wadl#backup-action-requested"/>
+            <wadl:resource
+                href="../wadls/cloud-backup/wadl/rcbu.wadl#backup__backupId"/>
+            <wadl:resource
+                href="../wadls/cloud-backup/wadl/rcbu.wadl#backup_completed_backupConfigurationId"
+            />
+        </wadl:resources>
+    </section>-->
+    <!-- <section xml:id="backup-restore">
+        <title>Restore</title>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="../wadls/cloud-backup/wadl/rcbu.wadl#restore"/>
+            <wadl:resource
+                href="../wadls/cloud-backup/wadl/rcbu.wadl#restore_files"/>
+            <wadl:resource
+                href="../wadls/cloud-backup/wadl/rcbu.wadl#restore_files__restoreId_"/>
+            <wadl:resource
+                href="../wadls/cloud-backup/wadl/rcbu.wadl#restore_files__restoreFileID_"/>
+            <wadl:resource
+                href="../wadls/cloud-backup/wadl/rcbu.wadl#backup_availableforrestore"/>
+            <wadl:resource
+                href="../wadls/cloud-backup/wadl/rcbu.wadl#restore_action-requested"/>
+            <wadl:resource
+                href="../wadls/cloud-backup/wadl/rcbu.wadl#restore_restoreId"/>
+            <wadl:resource
+                href="../wadls/cloud-backup/wadl/rcbu.wadl#restore_report_restoreId"
+            />
+        </wadl:resources>
+    </section>-->
+    <!-- <section xml:id="backup-system-activity">
+        <title>System activity</title>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="../wadls/cloud-backup/wadl/rcbu.wadl#system_activity_agentId"/>
+            <wadl:resource
+                href="../wadls/cloud-backup/wadl/rcbu.wadl#activity"
+            />
+        </wadl:resources>
+    </section>-->
+    <!-- start here -->
+    <section xml:id="backup-agents">
+        <title>Agents</title>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="../wadls/cloud-backup/wadl/rcbu.wadl#agent_machineAgentId">
+                <wadl:method href="#getAgentDetails"/>
+                <wadl:method href="#updateAgentBackupBehavior"/>
+            </wadl:resource>
+            <wadl:resource
+                href="../wadls/cloud-backup/wadl/rcbu.wadl#agent_enable">
+                <wadl:method href="#enableAgent"/>
+            </wadl:resource>
+            <wadl:resource
+                href="../wadls/cloud-backup/wadl/rcbu.wadl#agent_encrypt">
+                <wadl:method href="#encryptVolume"/>
+            </wadl:resource>
+            <wadl:resource
+                href="../wadls/cloud-backup/wadl/rcbu.wadl#agent_changeencryption">
+                <wadl:method href="#changeEncryptPassword"/>
+            </wadl:resource>
+            <wadl:resource
+                href="../wadls/cloud-backup/wadl/rcbu.wadl#agent_delete">
+                <wadl:method href="#deleteAgent"/>
+            </wadl:resource>
+            <wadl:resource
+                href="../wadls/cloud-backup/wadl/rcbu.wadl#agent_migratevault">
+                <wadl:method href="#migrateVault"/>
+            </wadl:resource>
+            <wadl:resource
+                href="../wadls/cloud-backup/wadl/rcbu.wadl#agents">
+                <wadl:method href="#getUserAgents"/>
+            </wadl:resource>
+            <wadl:resource
+                href="../wadls/cloud-backup/wadl/rcbu.wadl#wakeupagents">
+                <wadl:method href="#postWakeUpAgents"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="backup-configuration">
+        <title>Backup configuration</title>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="../wadls/cloud-backup/wadl/rcbu.wadl#backup-configuration">
+                <wadl:method href="#createBackupConfiguration"/>
+                <wadl:method href="#getAllBackupConfigforUser"/>
+            </wadl:resource>
+            <wadl:resource
+                href="../wadls/cloud-backup/wadl/rcbu.wadl#backup-configuration-Id">
+
+                <wadl:method href="#updateBackupConfig"/>
+                <wadl:method href="#getBackupConfig"/>
+                <wadl:method href="#deleteBackupConfig"/>
+            </wadl:resource>
+            <wadl:resource
+                href="../wadls/cloud-backup/wadl/rcbu.wadl#machineAgentId">
+                <wadl:method href="#getAllBackupConfigforAgent"/>
+            </wadl:resource>
+            <wadl:resource
+                href="../wadls/cloud-backup/wadl/rcbu.wadl#backupConfigurationId">
+                <wadl:method href="#enableBackupConfig"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="backups">
+        <title>Backups</title>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="../wadls/cloud-backup/wadl/rcbu.wadl#backup-action-requested">
+                <wadl:method href="#startStopBackupManually"/>
+            </wadl:resource>
+            <wadl:resource
+                href="../wadls/cloud-backup/wadl/rcbu.wadl#backup__backupId">
+                <wadl:method href="#getBackupDetails"/>
+            </wadl:resource>
+            <wadl:resource
+                href="../wadls/cloud-backup/wadl/rcbu.wadl#completedBackupConfigurationId">
+                <wadl:method href="#getCompletedBackups"/>
+            </wadl:resource>
+            <wadl:resource
+                href="../wadls/cloud-backup/wadl/rcbu.wadl#backup_report_backupId">
+                <wadl:method href="#getBackupReport"/>
+
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="backup-restore">
+        <title>Restore</title>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="../wadls/cloud-backup/wadl/rcbu.wadl#restore">
+                <wadl:method href="#createRestoreConfig"/>
+                <wadl:method href="#updateRestoreConfig"/>
+            </wadl:resource>
+            <wadl:resource
+                href="../wadls/cloud-backup/wadl/rcbu.wadl#files">
+                <wadl:method href="#createRestoreFile"/>
+            </wadl:resource>
+            <wadl:resource
+                href="../wadls/cloud-backup/wadl/rcbu.wadl#restoreId">
+                <wadl:method href="#getRestoreFiles"/>
+                <wadl:method href="#deletetRestoreConfig"/>
+            </wadl:resource>
+            <wadl:resource
+                href="../wadls/cloud-backup/wadl/rcbu.wadl#backupAvailableForRestore">
+                <wadl:method href="#getAvailableBackups"/>
+            </wadl:resource>
+            <wadl:resource
+                href="../wadls/cloud-backup/wadl/rcbu.wadl#restore_action-requested">
+                <wadl:method href="#postRestoreAction"/>
+            </wadl:resource>
+            <wadl:resource
+                href="../wadls/cloud-backup/wadl/rcbu.wadl#restore_restoreId">
+                <wadl:method href="#getRestoreDetails"/>
+            </wadl:resource>
+            <wadl:resource
+                href="../wadls/cloud-backup/wadl/rcbu.wadl#restore_report_restoreId">
+                <wadl:method href="#getRestoreReport"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="backup-system-activity">
+        <title>System activity</title>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="../wadls/cloud-backup/wadl/rcbu.wadl#system_activity_agentId">
+                <wadl:method href="#getAgentActivity"/>
+            </wadl:resource>
+            <wadl:resource
+                href="../wadls/cloud-backup/wadl/rcbu.wadl#activity">
+                <wadl:method href="#getUserActivity"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+</chapter>

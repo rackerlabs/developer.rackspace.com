@@ -1,0 +1,100 @@
+#banner-head {
+    margin-top:-20px;
+    background: #335687;
+    padding: 30px;
+    border-bottom: 1px solid rgb(153, 153, 153);
+    color: #fff;
+}
+#banner-head h1.smaller {
+padding: 0px;
+margin-bottom: 0px;
+margin-top: 4px;
+font-size: 32px;
+font-weight: 200;
+}
+
+.page-header {
+    margin-bottom: 0px;
+    border-bottom: 1px solid #ccc;
+}
+#banner-head a {
+    color: #fff;
+}
+
+
+a.api-logo {
+    background: url('../img/circle-cloud.png') no-repeat 0px 0px;
+    padding: 5px 70px;
+}
+.resource-section {
+    background: #eee;
+    border-radius: 4px;
+    margin: 5px;
+    margin-top: 24px;
+    padding: 5px;
+    width: 100%;
+}
+.resource-section h4 {
+    padding: 5px 10px;
+    margin: 0px;
+}
+
+.resource-section ul {
+    padding-left: 10px;
+}
+.more_btn {
+    font-weight: bold;
+    background: url('../img/chev-down.png') no-repeat 40px 7px;
+}
+.more_btn:hover {
+    text-decoration: underline;
+    cursor: hand; 
+    cursor: pointer;
+}
+.less_btn {
+    font-weight: bold;
+    background: url('../img/chev-up.png') no-repeat 40px 3px;
+}
+.less_btn:hover {
+    text-decoration: underline;
+    cursor: hand;
+    cursor: pointer;
+}
+
+.result{border-bottom:1px solid #e6e6e6;margin:10px 10px;padding:5px 0 5px 0px;}
+.result-title{margin-bottom:2px;}
+.result-link{display:block;margin-top:15px;padding-left:20px;font-size:83%;text-decoration:underline;}
+.result-snippet{padding-left:20px;font-size:90%;}
+.result-link{padding-left:40px;display:block;width:90%;word-wrap:break-word;}
+h5.github:before,h5.docs:before,h5.devops:before,h5.rackspace:before,h5.community:before{margin-right:10px;position:relative;top:13px;display:inline-block;height:22px;width:29px;overflow:hidden;background:url("http://4dc1562a455e7bbf7090-44d3937fd019508990d0935859ee629c.r56.cf1.rackcdn.com/img/doc-types-sprite.png");content:'';}
+h5.github:before{background-position:0 -169px;}
+h5.docs:before{background-position:0 -100px;}
+h5.devops:before{background-position:0 -67px;}
+h5.rackspace:before{background-position:0 -33px;}
+h5.community:before{background-position:0 -134px;}
+h5.sdk:before{background-position:0 0;}
+
+.internalicon{
+    display:block;
+    position:relative;
+    width:15px;
+    height:15px;
+    float:right;
+    bottom:0px;
+    right:0px;	
+}
+
+.reviewericon{
+    display:block;
+    position:relative;
+    width:15px;
+    height:15px;
+    float:right;
+    bottom:0px;
+    right:0px;	
+}
+
+.internalreviewer{
+	font-family: verdana;
+}
+

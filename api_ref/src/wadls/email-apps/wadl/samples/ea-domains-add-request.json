@@ -1,0 +1,5 @@
+POST '/customers/123455/domains/example.com', 'text/xml',    
+{    
+    'maxNumMailboxes' => '5',    
+    'extraStorage' => '1024'    
+}" });

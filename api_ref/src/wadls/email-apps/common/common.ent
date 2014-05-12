@@ -1,0 +1,98 @@
+﻿ <!--
+         A collection of common faults, these are pretty much expected
+         in every request.
+     -->
+<!ENTITY commonFaults
+'
+<response status="400" xmlns="http://wadl.dev.java.net/2009/02">
+    <representation mediaType="application/xml" element="imageapi:badRequest"/>
+    <representation mediaType="application/json"/>
+</response>
+<response status="401" xmlns="http://wadl.dev.java.net/2009/02">
+    <representation mediaType="application/xml" element="imageapi:unauthorized"/>
+    <representation mediaType="application/json"/>
+</response>
+<response status="403" xmlns="http://wadl.dev.java.net/2009/02">
+    <representation mediaType="application/xml" element="imageapi:forbidden"/>
+    <representation mediaType="application/json"/>
+</response>
+<response status="405" xmlns="http://wadl.dev.java.net/2009/02">
+    <representation mediaType="application/xml" element="imageapi:badMethod"/>
+    <representation mediaType="application/json"/>
+</response>
+<response status="413" xmlns="http://wadl.dev.java.net/2009/02">
+    <representation mediaType="application/xml" element="imageapi:overLimit"/>
+    <representation mediaType="application/json"/>
+</response>
+<response status="503" xmlns="http://wadl.dev.java.net/2009/02">
+    <representation mediaType="application/xml" element="imageapi:serviceUnavailable"/>
+    <representation mediaType="application/json"/>
+</response>
+<response status="500" xmlns="http://wadl.dev.java.net/2009/02">
+    <representation mediaType="application/xml" element="imageapi:imageapiFault"/>
+    <representation mediaType="application/json"/>
+</response>
+'>
+<!--
+          Faults on GET
+      -->
+<!ENTITY getFaults
+'
+<response status="404" xmlns="http://wadl.dev.java.net/2009/02">
+    <representation mediaType="application/xml" element="imageapi:itemNotFound"/>
+    <representation mediaType="application/json"/>
+</response>
+'>
+<!--
+          Faults on POST/PUT
+      -->
+<!ENTITY postPutFaults
+'
+<response status="415" xmlns="http://wadl.dev.java.net/2009/02">
+    <representation mediaType="application/xml" element="imageapi:badMediaType"/>
+    <representation mediaType="application/json"/>
+</response>
+'>
+
+<!-- Useful for describing APIs -->
+
+<!ENTITY GET '<command xmlns="http://docbook.org/ns/docbook">GET</command>'>
+<!ENTITY PUT '<command xmlns="http://docbook.org/ns/docbook">PUT</command>'>
+<!ENTITY POST '<command xmlns="http://docbook.org/ns/docbook">POST</command>'>
+<!ENTITY PATCH '<command xmlns="http://docbook.org/ns/docbook">PATCH</command>'>
+<!ENTITY DELETE '<command xmlns="http://docbook.org/ns/docbook">DELETE</command>'>
+
+<!-- Some useful entities borrowed from HTML -->
+<!ENTITY ndash "&#x2013;">
+<!ENTITY mdash "&#x2014;">
+<!ENTITY hellip "&#x2026;">
+<!ENTITY plusmn "&#xB1;">
+
+<!--! Rackspace Products -->
+<!ENTITY CIS 'Rackspace Cloud Identity service'>
+<!ENTITY CAS 'Rackspace Cloud Authentication service'>
+<!ENTITY fgCS 'first generation Cloud Servers'>
+<!ENTITY ngCS 'next generation Cloud Servers'>
+<!ENTITY CImS 'Cloud Images service'>
+<!ENTITY CImA 'Cloud Images API'>
+
+<!-- changing authentication endpoints; define entities for US and UK rather than maintaining in text -->
+<!ENTITY ENDPOINT-US "https://identity.api.rackspacecloud.com/v3.0/">
+<!ENTITY ENDPOINT-UK "https://lon.identity.api.rackspacecloud.com/v3.0/">
+
+<!-- not using these now; 
+    if we do, I want them (navigational images) separate from (product-specific content) Figures
+<!ENTITY CHECK '<inlinemediaobject xmlns="http://docbook.org/ns/docbook">
+    <imageobject>
+        <imagedata fileref="figures/Check_mark_23x20_02.svg"
+            format="SVG" scale="60"/>
+    </imageobject>
+</inlinemediaobject>'>
+
+<!ENTITY ARROW '<inlinemediaobject xmlns="http://docbook.org/ns/docbook">
+    <imageobject>
+        <imagedata fileref="figures/Arrow_east.svg"
+            format="SVG" scale="60"/>
+    </imageobject>
+</inlinemediaobject>'>
+-->

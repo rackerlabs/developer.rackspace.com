@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xmlns="http://docbook.org/ns/docbook"
+   xml:id="apiref-sharepoint"
+   xmlns:wadl="http://wadl.dev.java.net/2009/02">
+   <title>SharePoint</title>
+   <resources xmlns="http://wadl.dev.java.net/2009/02">
+      <resource href="../wadls/email-apps/wadl/email-apps-sharepoint.wadl#sharepoint-settings">
+         <wadl:method href="#showSharepointStatus"/>
+         <wadl:method href="#updateSharepointSettings"/>
+      </resource>
+   </resources>
+</section>

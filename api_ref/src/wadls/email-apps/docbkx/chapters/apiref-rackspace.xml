@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xmlns="http://docbook.org/ns/docbook"
+   xml:id="apiref-rackspace-email"
+   xmlns:wadl="http://wadl.dev.java.net/2009/02">
+   <title>Rackspace email</title>
+   <section xml:id="mailboxes">
+      <title>Mailboxes</title>
+      <wadl:resources xmlns="http://wadl.dev.java.net/2009/02">
+         <wadl:resource
+            href="../../wadl/email-apps-rackspace.wadl#mailboxes">
+            <wadl:method href="#listMailboxes"/>
+         </wadl:resource>
+         <wadl:resource
+            href="../../wadl/email-apps-rackspace.wadl#mailbox_name">
+            <wadl:method href="#showMailboxDetails"/>
+            <wadl:method href="#addMailbox"/>
+            <wadl:method href="#updateMailbox"/>
+            <wadl:method href="#deleteMailbox"/>
+         </wadl:resource>
+         <wadl:resource
+            href="../../wadl/email-apps-rackspace.wadl#loginToken">
+            <wadl:method href="#generateLoginTokenMailbox"/>
+         </wadl:resource>
+      </wadl:resources>
+   </section>
+   <section xml:id="mobile-sync">
+      <title>Mobile Sync</title>
+      <wadl:resources xmlns="http://wadl.dev.java.net/2009/02">
+         <wadl:resource
+            href="../../wadl/email-apps-rackspace.wadl#users">
+            <wadl:method href="#listMobileSyncUsers"/>
+         </wadl:resource>
+         <wadl:resource
+            href="../../wadl/email-apps-rackspace.wadl#enable">
+            <wadl:method href="#enableMobileSync"/>
+         </wadl:resource>
+         <wadl:resource
+            href="../../wadl/email-apps-rackspace.wadl#disable">
+            <wadl:method href="#disableMobileSync"/>
+         </wadl:resource>
+         <wadl:resource
+            href="../../wadl/email-apps-rackspace.wadl#mobilesync">
+            <wadl:method href="#showDomainAutoProvisionSetting"/>
+            <wadl:method href="#setMobileSyncAutoProvision"/>
+         </wadl:resource>
+      </wadl:resources>
+   </section>
+   <section xml:id="spam-settings">
+      <title>Spam settings</title>
+      <wadl:resources xmlns="http://wadl.dev.java.net/2009/02">
+         <wadl:resource
+            href="../../wadl/email-apps-rackspace.wadl#settings-mailbox">
+            <wadl:method href="#showMailboxSpamSettings"/>
+            <wadl:method href="#updateMailboxSpamSettings"/>
+         </wadl:resource>
+         <wadl:resource
+            href="../../wadl/email-apps-rackspace.wadl#blacklist-mailbox">
+            <wadl:method href="#listBlacklistEmails"/>
+            <wadl:method href="#updateBlacklistEmails"/>
+         </wadl:resource>
+         <wadl:resource
+            href="../../wadl/email-apps-rackspace.wadl#email_address-mailbox-blacklist">
+            <wadl:method href="#addBlacklistEmailOrDomain"/>
+            <wadl:method href="#deleteBlacklistEmails"/>
+         </wadl:resource>
+         <wadl:resource
+            href="../../wadl/email-apps-rackspace.wadl#ipblacklist-mailbox">
+            <wadl:method href="#listIPBlacklistIPs"/>
+            <wadl:method href="#updateIPBlacklistIPs"/>
+         </wadl:resource>
+         <wadl:resource
+            href="../../wadl/email-apps-rackspace.wadl#ip_address-mailbox-blacklist">
+            <wadl:method href="#addIPBlacklistIP"/>
+            <wadl:method href="#deleteIPBlacklistIP"/>
+         </wadl:resource>
+         <wadl:resource
+            href="../../wadl/email-apps-rackspace.wadl#safelist-mailbox">
+            <wadl:method href="#listSafelistEmails"/>
+            <wadl:method href="#updateSafelistEmails"/>
+         </wadl:resource>
+         <wadl:resource
+            href="../../wadl/email-apps-rackspace.wadl#email_address-mailbox-safelist">
+            <wadl:method href="#addSafelistEmailOrDomain"/>
+            <wadl:method href="#deleteSafelistEmailOrDomain"/>
+         </wadl:resource>
+         <wadl:resource
+            href="../../wadl/email-apps-rackspace.wadl#ipsafelist-mailbox">
+            <wadl:method href="#listIPSafelistIPs"/>
+            <wadl:method href="#updateIPSafelistIPs"/>
+         </wadl:resource>
+         <wadl:resource
+            href="../../wadl/email-apps-rackspace.wadl#ip_address-mailbox-safelist-ip">
+            <wadl:method href="#addIPSafelistIP"/>
+         </wadl:resource>
+         <wadl:resource
+            href="../../wadl/email-apps-rackspace.wadl#email_address-mailbox-safelist-ip">
+            <wadl:method href="#deleteIPSafelistIP"/>
+         </wadl:resource>
+      </wadl:resources>
+   </section>
+   <section xml:id="storage-notification-settings">
+      <title>Storage notification settings</title>
+      <wadl:resources xmlns="http://wadl.dev.java.net/2009/02">
+         <wadl:resource
+            href="../../wadl/email-apps-rackspace.wadl#storagenotification">
+            <wadl:method href="#showMailboxSettingDetails"/>
+            <wadl:method href="#updateMailboxSettings"/>
+         </wadl:resource>
+      </wadl:resources>
+   </section>
+   <section xml:id="aliases">
+      <title>Aliases</title>
+      <wadl:resources xmlns="http://wadl.dev.java.net/2009/02">
+         <wadl:resource
+            href="../../wadl/email-apps-rackspace.wadl#aliases">
+            <wadl:method href="#listRackspaceDomainAliases"/>
+         </wadl:resource>
+         <wadl:resource
+            href="../../wadl/email-apps-rackspace.wadl#alias_name-alias">
+            <wadl:method href="#showAliasDetails"/>
+            <wadl:method href="#deleteAlias"/>
+         </wadl:resource>
+         <wadl:resource
+            href="../../wadl/email-apps-rackspace.wadl#alias_name">
+            <wadl:method href="#createAlias"/>
+         </wadl:resource>
+         <wadl:resource
+            href="../../wadl/email-apps-rackspace.wadl#email_address-alias">
+            <wadl:method href="#addDomainlistEmail"/>
+            <wadl:method href="#deleteDomainlistEmail"/>
+            <wadl:method href="#bulkUpdateAlias"/>
+         </wadl:resource>
+      </wadl:resources>
+   </section>
+</section>

@@ -1,0 +1,1816 @@
+
+<!DOCTYPE html>
+<html lang="en"><head>
+   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+      <meta charset="UTF-8">
+         <title>developer.rackspace.com</title>
+         
+         <link href="developer.rackspace.com_files/css.css" rel="stylesheet" type="text/css"/>
+         
+         <link rel="stylesheet" href="developer.rackspace.com_files/reset.css"/>
+         <link rel="stylesheet" href="developer.rackspace.com_files/style.css"/>
+         <link href="apiref/css/bootstrap.min.css" rel="stylesheet"></link> 
+         <link href="apiref/css/main.css" rel="stylesheet" type="text/css"></link>      
+</head>
+   <body>
+      <!--  Top Nav Bar -->
+      <div class="header">
+         <div class="inner clearfix">
+            <a class="title" href="http://awesomemonster.com/devsite/index.html">Rackspace Developer Center</a>
+            <ul>
+               <li><a href="http://awesomemonster.com/devsite/main-sdks.html">SDKs</a></li>
+               <li><a href="http://awesomemonster.com/devsite/main-services.html">Services</a></li>
+               <li><a href="http://awesomemonster.com/devsite/blog-list.html">DevOps Blog</a></li>
+               <li><a href="#">Sign Up</a></li>
+               <li><form action="search">
+                  <input name="" id="" placeholder="Search our docs" type="search">
+                     <input name="" value="Search" type="submit">
+               </form></li>
+            </ul>
+         </div>
+      </div>   
+      
+      <div class="container">
+         <div class="rowtop">
+            <div class="col-md-3">
+               <div class="api-sidebar" data-offset-bottom="0" data-offset-top="1000" data-spy="affix">
+                  <ul class="nav api-sidenav">
+                     <li><a class="smallcapped" href="#queues-v1.0">Cloud&nbsp;Queues&nbsp;API&nbsp;v1</a></li>
+                     <li class="divider"></li>
+                     <li>
+                        <ul class="nav active">
+                           <li><a href="api-ref-auto-scale.html">Auto Scale
+                                 API</a></li>
+                           <li><a href="api-ref-backup.html">Cloud Backup
+                                 API</a></li>
+                           <li><a href="api-ref-big-data.html">Cloud Big Data
+                                 API</a></li>
+                           <li><a href="api-ref-blockstorage.html">Cloud Block
+                                 Storage API</a></li>
+                           <li><a href="api-ref-databases.html">Cloud
+                                 Databases API</a></li>
+                           <li><a href="api-ref-email-and-apps.html">Email
+                                 &amp; Apps API</a></li>
+                           <li><a href="api-ref-files.html">Cloud Files
+                                 API</a></li>
+                           <li><a href="api-ref-identity.html">Cloud Identity
+                                 API</a></li>
+                           <li><a href="api-ref-images.html">Cloud Images
+                                 API</a></li>
+                           <li><a href="api-ref-monitoring.html">Cloud
+                                 Monitoring API</a></li>
+                           <li><a href="api-ref-networks.html">Cloud Networks
+                                 API</a></li>
+                           <li><a href="api-ref-orchestration.html">Cloud
+                                 Orchestration API</a></li>
+                           <li><a href="api-ref-queues.html">Cloud Queues
+                                 API</a></li>
+                           <li><a href="api-ref.html">Cloud Servers
+                                 API</a></li>
+                           <li><a href="api-ref-servers-ext.html">Cloud
+                                 Servers API extensions</a></li>
+                        </ul>
+                     </li>
+                  </ul>
+                  <div class="row">
+                     <div class="col-md-7"><label class="sr-only" for="search-box">Search on this page</label><input class="form-control" id="search-box" placeholder="Search this page" type="text"></input></div>
+                     <div class="col-md-5"><button class="btn btn-default" id="search-btn">Search</button></div>
+                  </div>
+               </div>
+            </div>
+            <div class="col-md-9 api-documentation">
+               
+               
+               <div id="queues-v1.0">
+                  <div class="subhead">
+                     <h2>Cloud Queues API v1<a class="headerlink" href="#queues-v1.0" title="Permalink to this headline"><span class="glyphicon glyphicon-link"></span></a></h2>
+                  </div>
+                  
+                  
+                  <p>Perform Cloud Queues operations.</p>
+                  
+                  <div id="homeDocument-operation">
+                     <div class="subhead">
+                        <h3>Home document<a class="headerlink" href="#homeDocument-operation" title="Permalink to this headline"><span class="glyphicon glyphicon-link"></span></a></h3>
+                     </div>
+                     <p>Get the home document for Cloud Queues.</p>
+                     <note xmlns="http://docbook.org/ns/docbook">
+                        
+                        <p xmlns="http://www.w3.org/1999/xhtml">The home document schema is currently not ratified
+                           in OpenStack and may change.
+                        </p>
+                        
+                     </note>
+                     <div class="doc-entry">
+                        <div class="row d69e162">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">&#8203;{version}&#8203;</div>
+                           <div class="col-md-5">
+                              <p>Gets the home document.</p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e162" data-toggle="collapse" id="detail-d69e162-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e162">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>This operation gets the home document.</p>
+                                 <p>The entire API is discoverable from a single starting point, the home document. To explore the entire API, you need to know
+                                    only this one URI. This document is cacheable. 
+                                 </p>
+                                 <p>The home document lets you write clients by using relational links, so clients do not have to construct their own URLs. You
+                                    can click through and view the JSON doc in your browser.  
+                                 </p>
+                                 <p>For more information about home documents, see <a href="http://tools.ietf.org/html/draft-nottingham-json-home-02">http://tools.ietf.org/html/draft-nottingham-json-home-02</a>.
+                                 </p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>200</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <div class="example">
+                                 <pre>GET /v1 HTTP/1.1
+Host: ord.queues.api.rackspacecloud.com
+</pre>
+                                 </div>
+                              <div class="example">
+                                 <pre>HTTP/1.0 200 OK
+Cache-Control: max-age=86400
+Content-Length: 4345
+Content-Type: application/json-home
+Date: Tue, 06 Sep 2013 16:31:48 GMT
+Server: WSGIServer/0.1 Python/2.7.3
+
+{
+    "resources": {
+        "rel/queue": {
+            "href-template": "/queues/{queue_name}",
+            "href-vars": {
+                "queue_name": "param/queue_name"
+            },
+            "hints": {
+                "allow": [
+                    "GET",
+                    "HEAD",
+                    "PUT",
+                    "DELETE"
+                ],
+                "formats": {
+                    "application/json": {}
+                }
+            }
+        },
+        "rel/queue-metadata": {
+            "href-template": "/queues/{queue_name}/metadata",
+            "href-vars": {
+                "queue_name": "param/queue_name"
+            },
+            "hints": {
+                "allow": [
+                    "GET",
+                    "PUT"
+                ],
+                "formats": {
+                    "application/json": {}
+                }
+            }
+        },
+        "rel/queue-stats": {
+            "href-template": "/queues/{queue_name}/stats",
+            "href-vars": {
+                "queue_name": "param/queue_name"
+            },
+            "hints": {
+                "allow": [
+                    "GET"
+                ],
+                "formats": {
+                    "application/json": {}
+                }
+            }
+        },
+        "rel/queues": {
+            "href-template": "/queues{?marker,limit,detailed}",
+            "href-vars": {
+                "marker": "param/marker",
+                "detailed": "param/detailed",
+                "limit": "param/queue_limit"
+            },
+            "hints": {
+                "allow": [
+                    "GET"
+                ],
+                "formats": {
+                    "application/json": {}
+                }
+            }
+        },
+        "rel/post-messages": {
+            "href-template": "/v1/queues/{queue_name}/messages",
+            "href-vars": {
+                "queue_name": "param/queue_name"
+            },
+            "hints": {
+                "accept-post": [
+                    "application/json"
+                ],
+                "allow": [
+                    "POST"
+                ],
+                "formats": {
+                    "application/json": {}
+                }
+            }
+        },
+        "rel/messages": {
+            "href-template": "/queues/{queue_name}/messages{?marker,limit,echo,include_claimed}",
+            "href-vars": {
+                "marker": "param/marker",
+                "include_claimed": "param/include_claimed",
+                "queue_name": "param/queue_name",
+                "limit": "param/messages_limit",
+                "echo": "param/echo"
+            },
+            "hints": {
+                "allow": [
+                    "GET"
+                ],
+                "formats": {
+                    "application/json": {}
+                }
+            }
+        },
+        "rel/claim": {
+            "href-template": "/v1/queues/{queue_name}/claims{?limit}",
+            "href-vars": {
+                "queue_name": "param/queue_name",
+                "limit": "param/claim_limit"
+            },
+            "hints": {
+                "accept-post": [
+                    "application/json"
+                ],
+                "allow": [
+                    "POST"
+                ],
+                "formats": {
+                    "application/json": {}
+                }
+            }
+        }
+    }
+}</pre>
+                                 </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  
+                  <div id="queue-operations-dle001">
+                     <div class="subhead">
+                        <h3>Queues<a class="headerlink" href="#queue-operations-dle001" title="Permalink to this headline"><span class="glyphicon glyphicon-link"></span></a></h3>
+                     </div>
+                     <p>Manage queues.</p>
+                     <div class="doc-entry">
+                        <div class="row d69e226">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">&#8203;{version}&#8203;/queues</div>
+                           <div class="col-md-5">
+                              <p>Lists queues.</p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e226" data-toggle="collapse" id="detail-d69e226-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e226">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>A request to list queues when you have no queues in your account returns 204, instead of 200, because there was no information
+                                    to send back.
+                                 </p>
+                                 <p>This operation lists queues for the project. The queues are sorted alphabetically by name. </p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>200</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">badRequest (400),
+                                    unauthorized (401),
+                                    unauthorized (406),
+                                    tooManyRequests (429),
+                                    itemNotFound (404)
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"><b>Request parameters</b><table class="table table-bordered table-striped">
+                                       <thead>
+                                          <tr>
+                                             <th>Parameter</th>
+                                             <th>Style</th>
+                                             <th>Type</th>
+                                             <th>Description</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          <tr>
+                                             <td>marker (Optional)</td>
+                                             <td>query</td>
+                                             <td>xsd:string</td>
+                                             <td>
+                                                				Specifies the name of the last queue received in a previous request, or none to get the first page of results. 
+                                                				
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>limit (Optional)</td>
+                                             <td>query</td>
+                                             <td>xsd:integer</td>
+                                             <td>
+                                                					Specifies the number of queues to return. The default value for the number of queues returned is 10. If you do not specify
+                                                this parameter, the default number of queues is returned.  
+                                                				
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>detailed (Optional)</td>
+                                             <td>query</td>
+                                             <td>xsd:boolean</td>
+                                             <td>
+                                                					Determines whether queue metadata is included in the response. The default value for this parameter is <code>false</code>, which excludes the metadata.
+                                                				
+                                             </td>
+                                          </tr>
+                                       </tbody>
+                                    </table>
+                                 </div>
+                              </div>
+                              <div class="example">
+                                 <pre>GET /v1/queues HTTP/1.1
+Host: ord.queues.api.rackspacecloud.com
+Content-type: application/json
+X-Auth-Token: 0f6e9f63600142f0a970911583522217
+Accept: application/json
+X-Project-Id: 806067</pre>
+                                 </div>
+                              <div class="example">
+                                 <pre>HTTP/1.1 200 OK
+Content-Length: 3170
+Content-Type: application/json; charset=utf-8
+Content-Location: /v1/queues
+
+{
+  "queues": [
+    {
+      "href": "/v1/queues/036b184b28fcb548349af623079119c6a966cbc",
+      "name": "036b184b28fcb548349af623079119c6a966cbc"
+    },
+    {
+      "href": "/v1/queues/0441f28617afbdecf4887e635fd0777fb3cec38",
+      "name": "0441f28617afbdecf4887e635fd0777fb3cec38"
+    },
+    {
+      "href": "/v1/queues/0f8f0eff158922874536efa9cf8412b9e0fd07a",
+      "name": "0f8f0eff158922874536efa9cf8412b9e0fd07a"
+    },
+    {
+      "href": "/v1/queues/160f981379972a4a0afaee5f5394a5d960c410e",
+      "name": "160f981379972a4a0afaee5f5394a5d960c410e"
+    },
+    {
+      "href": "/v1/queues/2888a4527d0a11a3d82202d800f8e90eebd60ea",
+      "name": "2888a4527d0a11a3d82202d800f8e90eebd60ea"
+    },
+    {
+      "href": "/v1/queues/2ad8eeca7f53d480d8ca4885d620643bfc6a7f9",
+      "name": "2ad8eeca7f53d480d8ca4885d620643bfc6a7f9"
+    },
+    {
+      "href": "/v1/queues/3926ce2051db957d76a04cb2ea2d89fd49e6894",
+      "name": "3926ce2051db957d76a04cb2ea2d89fd49e6894"
+    },
+    {
+      "href": "/v1/queues/46b30ebd60186c30194039824e6405300dc0903",
+      "name": "46b30ebd60186c30194039824e6405300dc0903"
+    },
+    {
+      "href": "/v1/queues/486d5af3e057ee1a430eee3ee845aeb60c900d3",
+      "name": "486d5af3e057ee1a430eee3ee845aeb60c900d3"
+    },
+    {
+      "href": "/v1/queues/58e8622645f07c7673412acbed51abb97ddb25d",
+      "name": "58e8622645f07c7673412acbed51abb97ddb25d"
+    }
+  ],
+  "links": [
+    {
+      "href": "/v1/queues?marker=58e8622645f07c7673412acbed51abb9",
+      "rel": "next"
+    }
+  ]
+}</pre>
+                                 </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e331">
+                           <div class="col-md-1"><span class="label label-success">PUT</span></div>
+                           <div class="col-md-5">&#8203;{version}&#8203;/queues/&#8203;{queue_name}&#8203;</div>
+                           <div class="col-md-5">
+                              <p>Creates a queue.</p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e331" data-toggle="collapse" id="detail-d69e331-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e331">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>This operation creates a new queue.</p>
+                                 <p>The body of the request is empty.</p>
+                                 <note xmlns="http://docbook.org/ns/docbook"> 
+                                    
+                                    <p xmlns="http://www.w3.org/1999/xhtml">
+                                       <code>queue_name</code> is the name that you give to the queue. The name must not exceed 64 bytes in length, and it is limited to US-ASCII letters,
+                                       digits, underscores, and hyphens.
+                                    </p>
+                                    				           
+                                 </note>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>201</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">badRequest (400),
+                                    unauthorized (401),
+                                    unauthorized (406),
+                                    tooManyRequests (429)
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <div class="example">
+                                 <pre>PUT /v1/queues/demoqueue HTTP/1.1
+Host: ord.queues.api.rackspacecloud.com
+X-Auth-Token: 0f6e9f63600142f0a970911583522217
+Accept: application/json
+X-Project-Id: 806067
+
+{
+    
+}
+
+</pre>
+                                 </div>
+                              <div class="example">
+                                 <pre>HTTP/1.1 201 Created
+Content-Length: 0
+Location: /v1/queues/demoqueue
+</pre>
+                                 </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e415">
+                           <div class="col-md-1"><span class="label label-success">DELETE</span></div>
+                           <div class="col-md-5">&#8203;{version}&#8203;/queues/&#8203;{queue_name}&#8203;</div>
+                           <div class="col-md-5">
+                              <p>Deletes the specified queue. </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e415" data-toggle="collapse" id="detail-d69e415-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e415">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>This operation immediately deletes a queue and all of its existing messages. </p>
+                                 <note xmlns="http://docbook.org/ns/docbook"> 
+                                    
+                                    <p xmlns="http://www.w3.org/1999/xhtml">
+                                       <code>queue_name</code> is the name that you give to the queue. The name must not exceed 64 bytes in length, and it is limited to US-ASCII letters,
+                                       digits, underscores, and hyphens.
+                                    </p>
+                                    			            
+                                 </note>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>204</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">badRequest (400),
+                                    unauthorized (401),
+                                    unauthorized (406),
+                                    tooManyRequests (429)
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <div class="example">
+                                 <pre>DELETE /v1/queues/demoqueue HTTP/1.1
+Host: ord.queues.api.rackspacecloud.com
+Content-type: application/json
+X-Auth-Token: 0f6e9f63600142f0a970911583522217
+Accept: application/json
+X-Project-Id: 806067
+</pre>
+                                 </div>
+                              <div class="example">
+                                 <pre>HTTP/1.1 204 No Content</pre>
+                                 </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e496">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">&#8203;{version}&#8203;/queues/&#8203;{queue_name}&#8203;</div>
+                           <div class="col-md-5">
+                              <p>Verifies whether the specified queue exists.  </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e496" data-toggle="collapse" id="detail-d69e496-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e496">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>This operation verifies whether the specified queue exists. </p>
+                                 <p> You can also use HEAD instead of GET for the verb.</p>
+                                 <note xmlns="http://docbook.org/ns/docbook"> 
+                                    
+                                    <p xmlns="http://www.w3.org/1999/xhtml">
+                                       <code>queue_name</code> is the name that you give to the queue. The name must not exceed 64 bytes in length, and it is limited to US-ASCII letters,
+                                       digits, underscores, and hyphens.
+                                    </p>
+                                    			            
+                                 </note>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>204</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">itemNotFound (404)
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <div class="example">
+                                 <pre>GET /v1/queues/demoqueue HTTP/1.1
+Host: ord.queues.api.rackspacecloud.com
+X-Project-Id: 806067</pre>
+                                 </div>
+                              <div class="example">
+                                 <pre>HTTP/1.0 204 OK
+
+
+</pre>
+                                 </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e558">
+                           <div class="col-md-1"><span class="label label-success">PUT</span></div>
+                           <div class="col-md-5">&#8203;{version}&#8203;/queues/&#8203;{queue_name}&#8203;/metadata</div>
+                           <div class="col-md-5">
+                              <p>Sets metadata for the specified queue.</p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e558" data-toggle="collapse" id="detail-d69e558-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e558">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>This operation sets metadata for the specified queue.</p>
+                                 <p>The request body has a limit of 256 KB, including whitespace (when re-serialized as JSON). </p>
+                                 <p>This operation replaces any existing metadata document in its entirety. Ensure that you do not accidentally overwrite existing
+                                    metadata that you want to retain.
+                                 </p>
+                                 <p>The body of the request includes contextual information about the way a particular application interacts with the queue. The
+                                    document must be valid JSON. (Cloud Queues validate it.)
+                                 </p>
+                                 <note xmlns="http://docbook.org/ns/docbook"> 
+                                    
+                                    <p xmlns="http://www.w3.org/1999/xhtml">
+                                       <code>queue_name</code> is the name that you give to the queue. The name must not exceed 64 bytes in length, and it is limited to US-ASCII letters,
+                                       digits, underscores, and hyphens.
+                                    </p>
+                                    			            
+                                 </note>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>204</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">badRequest (400),
+                                    unauthorized (401),
+                                    unauthorized (406),
+                                    tooManyRequests (429)
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <div class="example">
+                                 <pre>PUT /v1/queues/demoqueue/metadata HTTP/1.1
+Host: ord.queues.api.rackspacecloud.com
+Content-type: application/json
+X-Auth-Token: 0f6e9f63600142f0a970911583522217
+Accept: application/json
+X-Project-Id: 806067
+
+{
+    "new metadata": "Omega"
+}
+</pre>
+                                 </div>
+                              <div class="example">
+                                 <pre>HTTP/1.1 204 No Content
+Location: /v1/queues/demoqueue/metadata</pre>
+                                 </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e649">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">&#8203;{version}&#8203;/queues/&#8203;{queue_name}&#8203;/metadata</div>
+                           <div class="col-md-5">
+                              <p>Returns metadata for the specified queue.</p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e649" data-toggle="collapse" id="detail-d69e649-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e649">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>This operation returns metadata, such as message TTL, for the queue.</p>
+                                 <note xmlns="http://docbook.org/ns/docbook"> 
+                                    
+                                    <p xmlns="http://www.w3.org/1999/xhtml">
+                                       <code>queue_name</code> is the name that you give to the queue. The name must not exceed 64 bytes in length, and it is limited to US-ASCII letters,
+                                       digits, underscores, and hyphens.
+                                    </p>
+                                    			            
+                                 </note>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>200</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">badRequest (400),
+                                    unauthorized (401),
+                                    unauthorized (406),
+                                    tooManyRequests (429),
+                                    itemNotFound (404)
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <div class="example">
+                                 <pre>GET /v1/queues/demoqueue/metadata HTTP/1.1
+Host: ord.queues.api.rackspacecloud.com
+Content-type: application/json
+X-Auth-Token: 0f6e9f63600142f0a970911583522217
+Accept: application/json
+X-Project-Id: 806067</pre>
+                                 </div>
+                              <div class="example">
+                                 <pre>HTTP/1.1 200 OK
+Content-Length: 25
+Content-Type: application/json; charset=utf-8
+Content-Location: /v1/queues/demoqueue/metadata
+
+{"new metadata": "Omega"}</pre>
+                                 </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e740">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">&#8203;{version}&#8203;/queues/&#8203;{queue_name}&#8203;/stats</div>
+                           <div class="col-md-5">
+                              <p>Returns statistics for the specified queue.</p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e740" data-toggle="collapse" id="detail-d69e740-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e740">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>This operation returns queue statistics, including how many messages are in the queue, categorized by status.</p>
+                                 <note xmlns="http://docbook.org/ns/docbook">
+                                    
+                                    <p xmlns="http://www.w3.org/1999/xhtml">If the value of the <code>total</code> attribute is 0, then <code>oldest</code> and <code>newest</code> message statistics are not included in the response.
+                                    </p>
+                                    
+                                 </note>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>200</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">badRequest (400),
+                                    unauthorized (401),
+                                    unauthorized (406),
+                                    tooManyRequests (429),
+                                    itemNotFound (404)
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <div class="example">
+                                 <pre>GET /v1/queues/demoqueue/stats HTTP/1.1
+Host: ord.queues.api.rackspacecloud.com
+Content-type: application/json
+X-Auth-Token: 0f6e9f63600142f0a970911583522217
+Accept: application/json
+X-Project-Id: 806067</pre>
+                                 </div>
+                              <div class="example">
+                                 <pre>HTTP/1.1 200 OK
+Content-Length: 53
+Content-Type: application/json; charset=utf-8
+Content-Location: /v1/queues/demoqueue/stats
+
+{
+  "messages": {
+      "claimed": 2409,
+      "free": 146929,
+      "total": 149338,
+      "newest": {
+          "age": 12,
+          "created": "2013-08-12T20:45:46Z",
+          "href": "/v1/queues/fizbit/messages/50b68a50d6f5b8c8a7c62b01"
+      }, 
+      "oldest": {
+          "age": 63,
+          "created": "2013-08-12T20:44:55Z",
+          "href": "/v1/queues/fizbit/messages/50b68a50d6f5b8c8a7c62b01"
+      }
+   }
+}</pre>
+                                 </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  
+                  <div id="message-operations-dle001">
+                     <div class="subhead">
+                        <h3>Messages <a class="headerlink" href="#message-operations-dle001" title="Permalink to this headline"><span class="glyphicon glyphicon-link"></span></a></h3>
+                     </div>
+                     <p>Manage messages.</p>
+                     <note xmlns="http://docbook.org/ns/docbook">
+                        
+                        <p xmlns="http://www.w3.org/1999/xhtml">All message-related operations require that
+                           Client-ID be included in the headers. This is to
+                           ensure that messages are not echoed back to the client
+                           that posted them unless the client explicitly requests
+                           this.
+                        </p>
+                        
+                     </note>
+                     <div class="doc-entry">
+                        <div class="row d69e851">
+                           <div class="col-md-1"><span class="label label-success">POST</span></div>
+                           <div class="col-md-5">&#8203;{version}&#8203;/queues/&#8203;{queue_name}&#8203;/messages</div>
+                           <div class="col-md-5">
+                              <p>Posts the message or messages for the specified queue. </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e851" data-toggle="collapse" id="detail-d69e851-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e851">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>This operation posts the specified message or messages. </p>
+                                 <p>You can submit up to 10 messages in a single request, but you must always encapsulate the messages in a collection container
+                                    (an array in JSON, even for a single message - without the JSON array, you receive the "Invalid request body" message). The
+                                    resulting value of the Location header or response body might be used to retrieve the created messages for further processing.
+                                    
+                                 </p>
+                                 <p>The client specifies only the body and TTL for the message. The server inserts metadata, such as ID and age.</p>
+                                 <p>The response body contains a list of resource paths that correspond to each message submitted in the request, in the order
+                                    of the messages. If a server-side error occurs during the processing of the submitted messages, a partial list is returned,
+                                    the partial attribute is set to true, and the client tries to post the remaining messages again. If the server cannot enqueue
+                                    any messages, the server returns a <code>503 Service Unavailable</code> error message. 
+                                 </p>
+                                 <p>The <code>body</code> attribute specifies an arbitrary document that constitutes the body of the message being sent.
+                                 </p>
+                                 <p>The following rules apply for the maximum size:</p>
+                                 <ul>
+                                    				              
+                                    <li>
+                                       					                
+                                       <p>The maximum size of posted messages is the maximum size of the entire request document (rather than the sum of the individual
+                                          message body field values as it was in earlier releases). On error, the client will now be notified of how much it exceeded
+                                          the limit.
+                                       </p>
+                                       				              
+                                    </li>
+                                    				              
+                                    <li>
+                                       					                
+                                       <p>The size is limited to 256 KB, including whitespace.</p>
+                                       				              
+                                    </li>
+                                    			            
+                                 </ul>
+                                 <p>The document must be valid JSON. (Cloud Queues validates it.)</p>
+                                 <p>The <code>ttl</code> attribute specifies how long the server waits before marking the message as expired and removing it from the queue. The value
+                                    of <code>ttl</code> must be between 60 and 1209600 seconds (14 days). Note that the server might not actually delete the message until its age
+                                    has reached up to (ttl + 60) seconds, to allow for flexibility in storage implementations. 
+                                 </p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>201</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">badRequest (400),
+                                    unauthorized (401),
+                                    unauthorized (406),
+                                    tooManyRequests (429),
+                                    itemNotFound (404),
+                                    serviceUnavailable (503)
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <div class="example">
+                                 <pre>POST /v1/queues/demoqueue/messages HTTP/1.1
+Host: ord.queues.api.rackspacecloud.com
+Content-type: application/json
+Client-ID: e58668fc-26eb-11e3-8270-5b3128d43830
+X-Auth-Token: 0f6e9f63600142f0a970911583522217
+Accept: application/json
+X-Project-Id: 806067
+
+[
+  {
+    "ttl": 300,
+    "body": {
+      "event": "BackupStarted"
+    }
+  },
+  {
+    "ttl": 60,
+    "body": {
+      "play": "hockey"
+    }
+  }
+]
+</pre>
+                                 </div>
+                              <div class="example">
+                                 <pre>HTTP/1.1 201 Created
+Content-Length: 149
+Content-Type: application/json; charset=utf-8
+Location: /v1/queues/demoqueue/messages?ids=51db6f78c508f17ddc924357,51db6f78c508f17ddc924358
+
+{
+  "partial": false,
+  "resources": [
+    "/v1/queues/demoqueue/messages/51db6f78c508f17ddc924357",
+    "/v1/queues/demoqueue/messages/51db6f78c508f17ddc924358"
+  ]
+}</pre>
+                                 </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e986">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">&#8203;{version}&#8203;/queues/&#8203;{queue_name}&#8203;/messages</div>
+                           <div class="col-md-5">
+                              <p>Gets the message or messages in the specified queue. </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e986" data-toggle="collapse" id="detail-d69e986-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e986">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>A request to list messages when the queue is not found or when messages are not found returns 204, instead of 200, because
+                                    there was no information to send back. Messages with malformed IDs or messages that are not found by ID are ignored. 
+                                 </p>
+                                 <p>This operation gets the message or messages in the specified queue. </p>
+                                 <p>Message IDs and markers are opaque strings. Clients should make no assumptions about their format or length. Furthermore,
+                                    clients should assume that there is no relationship between markers and message IDs (that is, one cannot be derived from the
+                                    other). This allows for a wide variety of storage driver implementations. 
+                                 </p>
+                                 <p>Results are ordered by age, oldest message first. </p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>200</returnvalue>, 
+                                    <returnvalue>204</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">badRequest (400),
+                                    unauthorized (401),
+                                    unauthorized (406),
+                                    tooManyRequests (429),
+                                    itemNotFound (404),
+                                    serviceUnavailable (503)
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"><b>Request parameters</b><table class="table table-bordered table-striped">
+                                       <thead>
+                                          <tr>
+                                             <th>Parameter</th>
+                                             <th>Style</th>
+                                             <th>Type</th>
+                                             <th>Description</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          <tr>
+                                             <td>marker (Optional)</td>
+                                             <td>query</td>
+                                             <td>xsd:string</td>
+                                             <td>
+                                                					Specifies an opaque string that the client can use to request the next batch of messages. The <code>marker</code> parameter communicates to the server which messages the client has already received. If you do not specify a value,  the
+                                                API returns all messages at the head of the queue (up to the limit).
+                                                				
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>limit (Optional)</td>
+                                             <td>query</td>
+                                             <td>xsd:integer</td>
+                                             <td>When more messages are available than can be returned in a single request, the client can pick up the next batch of messages
+                                                by simply using the URI template parameters returned from the previous call in the "next" field.
+                                                					Specifies up to 10 messages (the default value) to return. If you do not specify a value for the limit parameter, the
+                                                default value of 10 is used. 
+                                                				
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>echo (Optional)</td>
+                                             <td>query</td>
+                                             <td>xsd:boolean</td>
+                                             <td>
+                                                					Determines whether the API returns a client's own messages. The <code>echo</code> parameter is a Boolean value (<code>true</code> or <code>false</code>) that determines whether the API returns a client's own messages, as determined by the <code>uuid</code> portion of the User-Agent header. If you do not specify a value, <code>echo</code> uses the default value of <code>false</code>. If you are experimenting with the API, you might want to set <code>echo=true</code> in order to see the messages that you posted. 
+                                                				
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>include_claimed (Optional)</td>
+                                             <td>query</td>
+                                             <td>xsd:boolean</td>
+                                             <td>
+                                                					Determines whether the API returns claimed messages and unclaimed messages. The <code>include_claimed</code> parameter is a Boolean value (<code>true</code> or <code>false</code>) that determines whether the API returns claimed messages and unclaimed messages. If you do not specify a value, <code>include_claimed</code> uses the default value of <code>false</code> (only unclaimed messages are returned).
+                                                				
+                                             </td>
+                                          </tr>
+                                       </tbody>
+                                    </table>
+                                 </div>
+                              </div>
+                              <div class="example">
+                                 <pre>GET /v1/queues/demoqueue/messages?echo=true HTTP/1.1 
+Host: ord.queues.api.rackspacecloud.com
+Content-type: application/json 
+Client-ID: e58668fc-26eb-11e3-8270-5b3128d43830
+X-Auth-Token: 0f6e9f63600142f0a970911583522217
+Accept: application/json
+X-Project-Id: 806067</pre>
+                                 </div>
+                              <div class="example">
+                                 <pre>HTTP/1.1 204 No Content
+
+HTTP/1.1 200 OK
+Content-Length: 602
+Content-Type: application/json; charset=utf-8
+Content-Location: /v1/queues/demoqueue/messages?echo=true
+
+{
+  "messages": [
+    {
+      "body": {
+        "event": "BackupStarted"
+      },
+      "age": 198,
+      "href": "/v1/queues/demoqueue/messages/51db6ecac508f17ddc9242ad",
+      "ttl": 300
+    },
+    {
+      "body": {
+        "event": "BackupStarted"
+      },
+      "age": 97,
+      "href": "/v1/queues/demoqueue/messages/51db6f2f821e727dc24df623",
+      "ttl": 300
+    },
+    {
+      "body": {
+        "event": "BackupStarted"
+      },
+      "age": 24,
+      "href": "/v1/queues/demoqueue/messages/51db6f78c508f17ddc924357",
+      "ttl": 300
+    },
+    {
+      "body": {
+        "play": "hockey"
+      },
+      "age": 24,
+      "href": "/v1/queues/demoqueue/messages/51db6f78c508f17ddc924358",
+      "ttl": 60
+    }
+  ],
+  "links": [
+    {
+      "href": "/v1/queues/demoqueue/messages?marker=8&amp;echo=true",
+      "rel": "next"
+    }
+  ]
+}</pre>
+                                 </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e1145">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">&#8203;{version}&#8203;/queues/&#8203;{queue_name}&#8203;/messages</div>
+                           <div class="col-md-5">
+                              <p>Gets a specified set of messages from the specified queue. </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e1145" data-toggle="collapse" id="detail-d69e1145-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e1145">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>This operation provides a more efficient way to query multiple messages compared to using a series of individual 
+                                    <command xmlns="http://docbook.org/ns/docbook">GET</command>s. Note that the list of IDs cannot exceed 20. If a malformed ID or a nonexistent message ID is provided, it is ignored, and
+                                    the remaining messages are returned. 
+                                 </p>
+                                 <p>Unlike the Get Messages operation, a client's own messages are always returned in this operation. If you use the ids parameter,
+                                    the echo parameter is not used and is ignored if it is specified. 
+                                 </p>
+                                 <p>The message attributes are defined as follows:
+                                    <ul>
+                                       
+                                       <li>
+                                          
+                                          <p>
+                                             <code>href</code> is an opaque relative URI that the client can use to uniquely identify a message resource and interact with it. 
+                                          </p>
+                                          
+                                       </li>
+                                       
+                                       <li>
+                                          
+                                          <p>
+                                             <code>ttl</code> is the TTL that was set on the message when it was posted. The message expires after (ttl - age) seconds. 
+                                          </p>
+                                          
+                                       </li>
+                                       
+                                       <li>
+                                          
+                                          <p>
+                                             <code>age</code> is the number of seconds relative to the server's clock.
+                                          </p>
+                                          
+                                       </li>
+                                       
+                                       <li>
+                                          
+                                          <p>
+                                             <code>body</code> is the arbitrary document that was submitted with the original request to post the message. 
+                                          </p>
+                                          
+                                       </li>
+                                       
+                                    </ul>
+                                    
+                                 </p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>200</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">badRequest (400),
+                                    unauthorized (401),
+                                    unauthorized (406),
+                                    tooManyRequests (429),
+                                    itemNotFound (404)
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"><b>Request parameters</b><table class="table table-bordered table-striped">
+                                       <thead>
+                                          <tr>
+                                             <th>Parameter</th>
+                                             <th>Style</th>
+                                             <th>Type</th>
+                                             <th>Description</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          <tr>
+                                             <td>ids (Optional)</td>
+                                             <td>query</td>
+                                             <td>xsd:string</td>
+                                             <td>
+                                                					Specifies the IDs of the messages to get. Format multiple message ID values by separating them with commas (comma-separated).
+                                                				
+                                             </td>
+                                          </tr>
+                                       </tbody>
+                                    </table>
+                                 </div>
+                              </div>
+                              <div class="example">
+                                 <pre>GET /v1/queues/demoqueue/messages?ids=51db6f78c508f17ddc924357,51db6ecac508f17ddc9242ad HTTP/1.1
+Host: ord.queues.api.rackspacecloud.com 
+Content-type: application/json
+X-Auth-Token: 0f6e9f63600142f0a970911583522217
+Client-ID: e58668fc-26eb-11e3-8270-5b3128d43830
+Accept: application/json
+X-Project-Id: 806067
+</pre>
+                                 </div>
+                              <div class="example">
+                                 <pre>HTTP/1.1 200 OK
+Content-Location: /v1/queues/fizbat/messages?ids=50b68a50d6f5b8c8a7c62b01,f5b8c8a7c62b0150b68a50d6
+
+...
+
+[
+    {
+      "href": "/v1/queues/fizbit/messages/50b68a50d6f5b8c8a7c62b01",
+      "ttl": 800,
+      "age": 32,
+      "body": {
+        "cmd": "EncodeVideo",
+        "jobid": 58229 
+      }
+    },
+    {
+      "href": "/v1/queues/fizbit/messages/f5b8c8a7c62b0150b68a50d6",
+      "ttl": 800,
+      "age": 790,
+      "body": {
+        "cmd": "EncodeAudio",
+        "jobid": 58201 
+      }
+    }
+]</pre>
+                                 </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e1278">
+                           <div class="col-md-1"><span class="label label-success">DELETE</span></div>
+                           <div class="col-md-5">&#8203;{version}&#8203;/queues/&#8203;{queue_name}&#8203;/messages</div>
+                           <div class="col-md-5">
+                              <p>Provides a bulk delete for messages. </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e1278" data-toggle="collapse" id="detail-d69e1278-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e1278">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>This operation immediately deletes the specified messages. If any of the message IDs are malformed or non-existent, they are
+                                    ignored. The remaining valid messages IDs are deleted.
+                                 </p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>204</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">badRequest (400),
+                                    unauthorized (401),
+                                    unauthorized (406),
+                                    tooManyRequests (429),
+                                    forbidden (403)
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"><b>Request parameters</b><table class="table table-bordered table-striped">
+                                       <thead>
+                                          <tr>
+                                             <th>Parameter</th>
+                                             <th>Style</th>
+                                             <th>Type</th>
+                                             <th>Description</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          <tr>
+                                             <td>ids</td>
+                                             <td>query</td>
+                                             <td>xsd:string</td>
+                                             <td>
+                                                					Specifies the IDs of the messages to delete.
+                                                				
+                                             </td>
+                                          </tr>
+                                       </tbody>
+                                    </table>
+                                 </div>
+                              </div>
+                              <div class="example">
+                                 <pre>DELETE /v1/queues/demoqueue/messages?ids=50b68a50d6f5b8c8a7c62b01,50b68a50d6f5b8c8a7c62b02 HTTP/1.1
+Host: ord.queues.api.rackspacecloud.com
+Content-type: application/json
+X-Auth-Token: 0f6e9f63600142f0a970911583522217
+Client-ID: e58668fc-26eb-11e3-8270-5b3128d43830
+Accept: application/json
+X-Project-Id: 806067</pre>
+                                 </div>
+                              <div class="example">
+                                 <pre>HTTP/1.1 204 No Content</pre>
+                                 </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e1365">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">&#8203;{version}&#8203;/queues/&#8203;{queue_name}&#8203;/messages/&#8203;{messageId}&#8203;</div>
+                           <div class="col-md-5">
+                              <p>Gets the specified message from the specified queue. </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e1365" data-toggle="collapse" id="detail-d69e1365-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e1365">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>This operation gets the specified message from the specified queue. </p>
+                                 <p>If either the message ID is malformed or nonexistent, no message is returned.</p>
+                                 <p>Message fields are defined as follows:
+                                    <ul>
+                                       
+                                       <li>
+                                          
+                                          <p>
+                                             <code>href</code> is an opaque relative URI that the client can use to uniquely identify a message resource and interact with it. 
+                                          </p>
+                                          
+                                       </li>
+                                       
+                                       <li>
+                                          
+                                          <p>
+                                             <code>ttl</code> is the TTL that was set on the message when it was posted. The message expires after (ttl - age) seconds. 
+                                          </p>
+                                          
+                                       </li>
+                                       
+                                       <li>
+                                          
+                                          <p>
+                                             <code>age</code> is the number of seconds relative to the server's clock.
+                                          </p>
+                                          
+                                       </li>
+                                       
+                                       <li>
+                                          
+                                          <p>
+                                             <code>body</code> is the arbitrary document that was submitted with the original request to post the message. 
+                                          </p>
+                                          
+                                       </li>
+                                       
+                                    </ul>
+                                    
+                                 </p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>200</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">badRequest (400),
+                                    unauthorized (401),
+                                    unauthorized (406),
+                                    tooManyRequests (429),
+                                    itemNotFound (404)
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <div class="example">
+                                 <pre>GET /v1/queues/demoqueue/messages/51db6ecac508f17ddc9242ad HTTP/1.1
+Host: ord.queues.api.rackspacecloud.com
+Content-type: application/json
+X-Auth-Token: 0f6e9f63600142f0a970911583522217
+Client-ID: e58668fc-26eb-11e3-8270-5b3128d43830
+Accept: application/json
+X-Project-Id: 806067</pre>
+                                 </div>
+                              <div class="example">
+                                 <pre>HTTP/1.1 200 OK
+Content-Length: 126
+Content-Type: application/json; charset=utf-8
+Content-Location: /v1/queues/demoqueue/messages/51db6ecac508f17ddc9242ad
+
+{
+  "body": {
+    "event": "BackupStarted"
+  },
+  "age": 240,
+  "href": "/v1/queues/demoqueue/messages/51db6ecac508f17ddc9242ad",
+  "ttl": 300
+}</pre>
+                                 </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e1489">
+                           <div class="col-md-1"><span class="label label-success">DELETE</span></div>
+                           <div class="col-md-5">&#8203;{version}&#8203;/queues/&#8203;{queue_name}&#8203;/messages/&#8203;{messageId}&#8203;</div>
+                           <div class="col-md-5">
+                              <p>Deletes the specified message from the specified queue. </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e1489" data-toggle="collapse" id="detail-d69e1489-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e1489">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>This operation immediately deletes the specified message. </p>
+                                 <p>The <code>claim_id</code> parameter specifies that the message is deleted only if it has the specified claim ID and that claim has not expired. This
+                                    specification is useful for ensuring only one worker processes any given message. When a worker's claim expires before it
+                                    can delete a message that it has processed, the worker must roll back any actions it took based on that message because another
+                                    worker can now claim and process the same message. 
+                                 </p>
+                                 <p>If you do not specify <code>claim_id</code>, but the message is claimed, the operation fails. You can only delete claimed messages by providing an appropriate <code>claim_id</code>.
+                                 </p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>204</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">badRequest (400),
+                                    unauthorized (401),
+                                    unauthorized (406),
+                                    tooManyRequests (429),
+                                    forbidden (403)
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"><b>Request parameters</b><table class="table table-bordered table-striped">
+                                       <thead>
+                                          <tr>
+                                             <th>Parameter</th>
+                                             <th>Style</th>
+                                             <th>Type</th>
+                                             <th>Description</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          <tr>
+                                             <td>claim_id (Optional)</td>
+                                             <td>query</td>
+                                             <td>xsd:string</td>
+                                             <td>
+                                                					Identifies the claim. 
+                                                				
+                                             </td>
+                                          </tr>
+                                       </tbody>
+                                    </table>
+                                 </div>
+                              </div>
+                              <div class="example">
+                                 <pre>DELETE /v1/queues/demoqueue/messages/51db6f78c508f17ddc924358 HTTP/1.1
+Host: ord.queues.api.rackspacecloud.com
+Content-type: application/json
+X-Auth-Token: 0f6e9f63600142f0a970911583522217
+Client-ID: e58668fc-26eb-11e3-8270-5b3128d43830
+Accept: application/json
+X-Project-Id: 806067</pre>
+                                 </div>
+                              <div class="example">
+                                 <pre>HTTP/1.1 204 No Content</pre>
+                                 </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  
+                  <div id="claims-operations-dle001">
+                     <div class="subhead">
+                        <h3>Claims <a class="headerlink" href="#claims-operations-dle001" title="Permalink to this headline"><span class="glyphicon glyphicon-link"></span></a></h3>
+                     </div>
+                     <p>Perform claim operations.</p>
+                     <div class="doc-entry">
+                        <div class="row d69e1601">
+                           <div class="col-md-1"><span class="label label-success">POST</span></div>
+                           <div class="col-md-5">&#8203;{version}&#8203;/queues/&#8203;{queue_name}&#8203;/claims</div>
+                           <div class="col-md-5">
+                              <p>Claims a set of messages from the specified queue. </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e1601" data-toggle="collapse" id="detail-d69e1601-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e1601">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>This operation claims a set of messages (up to the value of the <code>limit</code> parameter) from oldest to newest and skips any messages that are already claimed. If no unclaimed messages are available,
+                                    the API returns a <code>204 No Content</code> message. 
+                                 </p>
+                                 <p>When a  client (worker) finishes processing a message, it should delete the message before the claim expires to ensure that
+                                    the message is processed only once. As part of the delete operation, workers should specify the claim ID (which is best done
+                                    by simply using the provided href). If workers perform these actions, then if a claim simply expires, the server can return
+                                    an error and notify the worker of the race condition. This action gives the worker a chance to roll back its own processing
+                                    of the given message because another worker can claim the message and process it.
+                                 </p>
+                                 <p>The age given for a claim is relative to the server's clock. The claim's age is useful for determining how quickly messages
+                                    are getting processed and whether a given message's claim is about to expire. 
+                                 </p>
+                                 <p>When a claim expires, it is released. If the original worker failed to process the message, another client worker can then
+                                    claim the message. 
+                                 </p>
+                                 <note xmlns="http://docbook.org/ns/docbook">
+                                    
+                                    <p xmlns="http://www.w3.org/1999/xhtml">Note that claim creation is best-effort, meaning the worker may claim and return less than the requested number of messages.
+                                       
+                                    </p>
+                                    
+                                 </note>
+                                 <p>The <code>ttl</code> attribute specifies how long the server waits before releasing the claim. The ttl value must be between 60 and 43200 seconds
+                                    (12 hours). You must include a value for this attribute in your request. 
+                                 </p>
+                                 <p>The <code>grace</code> attribute specifies the message grace period in seconds. The value of <code>grace</code> value must be between 60 and 43200 seconds (12 hours). You must include a value for thia attribute in your request. To deal
+                                    with workers that have stopped responding (for up to 1209600 seconds or 14 days, including claim lifetime), the server extends
+                                    the lifetime of claimed messages to be at least as long as the lifetime of the claim itself, plus the specified grace period.
+                                    If a claimed message would normally live longer than the grace period, its expiration is not adjusted.  
+                                 </p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>201</returnvalue>, 
+                                    <returnvalue>204</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">badRequest (400),
+                                    unauthorized (401),
+                                    unauthorized (406),
+                                    tooManyRequests (429),
+                                    itemNotFound (404)
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"><b>Request parameters</b><table class="table table-bordered table-striped">
+                                       <thead>
+                                          <tr>
+                                             <th>Parameter</th>
+                                             <th>Style</th>
+                                             <th>Type</th>
+                                             <th>Description</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          <tr>
+                                             <td>limit (Optional)</td>
+                                             <td>query</td>
+                                             <td>xsd:integer</td>
+                                             <td>
+                                                					Specifies the number of messages to return, up to 20 messages. If <code>limit</code> is not specified, <code>limit</code> defaults to 10.
+                                                				
+                                             </td>
+                                          </tr>
+                                       </tbody>
+                                    </table>
+                                 </div>
+                              </div>
+                              <div class="example">
+                                 <pre>POST /v1/queues/demoqueue/claims HTTP/1.1
+Host: ord.queues.api.rackspacecloud.com
+Content-type: application/json 
+Client-ID: e58668fc-26eb-11e3-8270-5b3128d43830
+X-Auth-Token: 0f6e9f63600142f0a970911583522217
+Accept: application/json
+X-Project-Id: 806067
+
+{ 
+    "ttl": 300,
+    "grace": 300
+}</pre>
+                                 </div>
+                              <div class="example">
+                                 <pre>HTTP/1.1 201 OK
+Content-Length: 162
+Content-Type: application/json; charset=utf-8
+Location: /v1/queues/demoqueue/claims/51db7067821e727dc24df754
+
+[
+  {
+    "body": {
+      "event": "BackupStarted"
+    },
+    "age": 239,
+    "href": "/v1/queues/demoqueue/messages/51db6f78c508f17ddc924357?claim_id=51db7067821e727dc24df754",
+    "ttl": 300
+  }
+]</pre>
+                                 </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e1731">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">&#8203;{version}&#8203;/queues/&#8203;{queue_name}&#8203;/claims/&#8203;{claimId}&#8203;</div>
+                           <div class="col-md-5">
+                              <p>Queries the specified claim for the specified queue. </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e1731" data-toggle="collapse" id="detail-d69e1731-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e1731">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>This operation queries the specified claim for the specified queue. Claims with malformed IDs or claims that are not found
+                                    by ID are ignored.
+                                 </p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>200</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">badRequest (400),
+                                    unauthorized (401),
+                                    unauthorized (406),
+                                    tooManyRequests (429),
+                                    itemNotFound (404)
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <div class="example">
+                                 <pre>GET /v1/queues/demoqueue/claims/51db7067821e727dc24df754 HTTP/1.1
+Host: ord.queues.api.rackspacecloud.com
+Content-type: application/json
+X-Auth-Token: 0f6e9f63600142f0a970911583522217
+Client-ID: e58668fc-26eb-11e3-8270-5b3128d43830
+Accept: application/json
+X-Project-Id: 806067</pre>
+                                 </div>
+                              <div class="example">
+                                 <pre>HTTP/1.1 200 OK
+Content-Length: 263
+Content-Type: application/json; charset=utf-8
+Content-Location: /v1/queues/demoqueue/claims/51db7067821e727dc24df754
+
+{
+  "age": 57,
+  "href": "/v1/queues/demoqueue/claims/51db7067821e727dc24df754",
+  "messages": [
+    {
+      "body": {
+        "event": "BackupStarted"
+      },
+      "age": 296,
+      "href": "/v1/queues/demoqueue/messages/51db6f78c508f17ddc924357?claim_id=51db7067821e727dc24df754",
+      "ttl": 300
+    }
+  ],
+  "ttl": 300
+}
+</pre>
+                                 </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e1810">
+                           <div class="col-md-1"><span class="label label-success">PATCH</span></div>
+                           <div class="col-md-5">&#8203;{version}&#8203;/queues/&#8203;{queue_name}&#8203;/claims/&#8203;{claimId}&#8203;</div>
+                           <div class="col-md-5">
+                              <p>Updates the specified claim for the specified queue. </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e1810" data-toggle="collapse" id="detail-d69e1810-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e1810">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>This operation updates the specified claim for the specified queue. Claims with malformed IDs or claims that are not found
+                                    by ID are ignored.
+                                 </p>
+                                 <p>Clients should periodically renew claims during long-running batches of work to avoid losing a claim while processing a message.
+                                    The client can renew a claim by issuing a 
+                                    <command xmlns="http://docbook.org/ns/docbook">PATCH</command> command to a specific claim resource and including a new TTL for the claim (which can be different from the original TTL).
+                                    The server resets the age of the claim and applies the new TTL.
+                                 </p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>204</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">badRequest (400),
+                                    unauthorized (401),
+                                    unauthorized (406),
+                                    tooManyRequests (429),
+                                    itemNotFound (404)
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <div class="example">
+                                 <pre>PATCH /v1/queues/demoqueue/claims/51db7067821e727dc24df754 HTTP/1.1 
+Host: ord.queues.api.rackspacecloud.com
+Content-type: application/json
+X-Auth-Token: 0f6e9f63600142f0a970911583522217
+Client-ID: e58668fc-26eb-11e3-8270-5b3128d43830
+Accept: application/json
+X-Project-Id: 806067
+
+{
+  "ttl": 300,
+  "grace": 300
+}</pre>
+                                 </div>
+                              <div class="example">
+                                 <pre>HTTP/1.1 204 No Content</pre>
+                                 </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e1895">
+                           <div class="col-md-1"><span class="label label-success">DELETE</span></div>
+                           <div class="col-md-5">&#8203;{version}&#8203;/queues/&#8203;{queue_name}&#8203;/claims/&#8203;{claimId}&#8203;</div>
+                           <div class="col-md-5">
+                              <p>Releases the specified claim for the specified queue. </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e1895" data-toggle="collapse" id="detail-d69e1895-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e1895">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>This operation immediately releases a claim, making any remaining, undeleted) messages that are associated with the claim
+                                    available to other workers. Claims with malformed IDs or claims that are not found by ID are ignored.
+                                 </p>
+                                 <p>This operation is useful when a worker is performing a graceful shutdown, fails to process one or more messages, or is taking
+                                    longer than expected to process messages, and wants to make the remainder of the messages available to other workers. 
+                                 </p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>204</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">badRequest (400),
+                                    unauthorized (401),
+                                    unauthorized (406),
+                                    tooManyRequests (429),
+                                    itemNotFound (404)
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <div class="example">
+                                 <pre>DELETE /v1/480924/queues/demoqueue/claims/51db7067821e727dc24df754 HTTP/1.1
+Host: ord.queues.api.rackspacecloud.com
+Content-type: application/json
+X-Auth-Token: 0f6e9f63600142f0a970911583522217
+Client-ID: e58668fc-26eb-11e3-8270-5b3128d43830
+Accept: application/json
+X-Project-Id: 806067</pre>
+                                 </div>
+                              <div class="example">
+                                 <pre>HTTP/1.1 204 No Content</pre>
+                                 </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-9" id="footer">
+               <p>The OpenStack project is provided under the Apache 2.0 license.</p>
+            </div>
+         </div>
+      </div><script src="apiref/js/jquery-1.10.2.min.js" type="text/javascript"></script><script src="apiref/js/bootstrap.min.js" type="text/javascript"></script><script src="apiref/js/api-site.js" type="text/javascript"></script><script type="text/javascript">
+                  var _gaq = _gaq || [];
+                  _gaq.push(['_setAccount', 'UA-17511903-1']);
+		  _gaq.push(['_setDomainName', '.openstack.org']);
+                  _gaq.push(['_trackPageview']);
+                  (function () {
+                    var ga = document.createElement('script');
+                    ga.type = 'text/javascript';
+                    ga.async = true;
+                    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                    var s = document.getElementsByTagName('script')[0];
+                    s.parentNode.insertBefore(ga, s);\
+                  })();
+                </script></body>
+</html>

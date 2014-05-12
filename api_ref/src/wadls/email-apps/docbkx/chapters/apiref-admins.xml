@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xmlns="http://docbook.org/ns/docbook"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    version="5.0-extension RaxBook-2.0"
+    xmlns:wadl="http://wadl.dev.java.net/2009/02"
+    xml:id="Administrator">
+    <title>Administrators</title>
+    <wadl:resources xmlns="http://wadl.dev.java.net/2009/02">
+        <wadl:resource href="../../wadl/email-apps-account.wadl#admins">
+            <wadl:method href="#listAdmins"/>
+        </wadl:resource>
+        <wadl:resource href="../../wadl/email-apps-account.wadl#admin_name">
+            <wadl:method href="#showAdminDetails"/>
+            <wadl:method href="#addAdmin"/>
+            <wadl:method href="#updateAdmin"/>
+            <wadl:method href="#deleteAdmin"/>
+        </wadl:resource>
+    </wadl:resources>
+</section>

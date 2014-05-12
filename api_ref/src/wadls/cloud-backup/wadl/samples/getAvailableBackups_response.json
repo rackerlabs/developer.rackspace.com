@@ -1,0 +1,32 @@
+[
+    {
+        "BackupConfigurationId":172418,
+        "BackupConfigurationName":"BackupConfig1",
+        "MachineName":"MBP0",
+        "MachineAgentId":252036,
+        "IsEncrypted":false,
+        "PublicKeyHex":10001,
+        "PublicKeyMod":"a5261939975948bb7a58dffe5ff54e65f0498f9175f5a0928
+        8810b8975871e99af3b5dd94057b0fc07535f5f97444504fa35169d461d0d30cf0
+        192e307727c065168c788771c561a9400fb49175e9e6aa4e23fe11af69e9412dd2
+        3b0cb6684c4c2429bce139e848ab26d0829073351f4acd36074eafd036a5eb8335
+        9d2a698d3",
+        "Flavor":"RaxCloudServer",
+        "LastSuccessfulBackupTime":"\/Date(1360701971000)\/"
+    },
+    {
+        "BackupConfigurationId":172417,
+        "BackupConfigurationName":"BackupCOnfig2",
+        "MachineName":"MBP2",
+        "MachineAgentId":252034,
+        "IsEncrypted":false,
+        "PublicKeyHex":10001,
+        "PublicKeyMod":"a5261939975948bb7a58dffe5ff54e65f0498f9175f5a09288
+        810b8975871e99af3b5dd94057b0fc07535f5f97444504fa35169d461d0d30cf019
+        2e307727c065168c788771c561a9400fb49175e9e6aa4e23fe11af69e9412dd23b0
+        cb6684c4c2429bce139e848ab26d0829073351f4acd36074eafd036a5eb83359d2a
+        698d3",
+        "Flavor":"RaxCloudServer",
+        "LastSuccessfulBackupTime":"\/Date(1360701957000)\/"
+    }
+]

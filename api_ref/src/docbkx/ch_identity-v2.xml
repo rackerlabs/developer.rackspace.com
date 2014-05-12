@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xmlns="http://docbook.org/ns/docbook"
+    xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:linkend="http://www.w3.org/1999/linkend"
+    xmlns:xref="http://www.w3.org/1999/xref"
+    xmlns:wadl="http://wadl.dev.java.net/2009/02"
+    version="5.0-extension RackBook-2.0" xml:id="identity-v2"
+    xlink:href="#identity-v2">
+    <title>Cloud Identity API v2.0</title>
+    <para>Add introduction here.</para>
+    <section xml:id="User_Calls">
+        <title>Users</title>
+        <!--- this section comes from 3 WADLs: core identity-admin + extensions OS-KSADM-admin & RAX-KSKEY-admin -->
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <!-- list users -->
+            <wadl:resource
+                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v2.0/wadl/OS-KSADM-admin.wadl#users-v2.0">
+                <wadl:method href="#listUsers">
+                    <wadl:doc>
+                        <note>
+                            <para>
+                                <emphasis role="italic"> If you
+                                   authenticated with the user role,
+                                   you can see only yourself.
+                                </emphasis></para>
+                            <para>If this request is issued by a user
+                                holding the admin role
+                                   (<code>identity:user-admin</code>),
+                                it returns a list of all users for the
+                                tenant.</para>
+                            <para>If this request is issued by a user
+                                holding the user role
+                                   (<code>identity:default</code>), it
+                                returns only the user who issued the
+                                request.</para>
+                        </note>
+                    </wadl:doc>
+                </wadl:method>
+            </wadl:resource>
+            <!-- list user -->
+            <wadl:resource
+                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v2.0/wadl/identity-admin.wadl#users">
+                <wadl:method href="#getUserByName">
+                    <wadl:doc>
+                        <note>
+                            <para>
+                                <emphasis role="italic"> If you
+                                   authenticated with the user role,
+                                   you can see only yourself.
+                                </emphasis></para>
+                            <para>If this request is issued by a user
+                                holding the admin role
+                                   (<code>identity:user-admin</code>),
+                                the specific user's information is
+                                returned only if that user is
+                                associated with the same tenant as the
+                                requester's <code>user-admin</code>
+                                token.</para>
+                            <para>If this request is issued by a user
+                                holding the user role
+                                   (<code>identity:default</code>),
+                                information is returned for only the
+                                requester.</para>
+                        </note>
+                    </wadl:doc>
+                </wadl:method>
+            </wadl:resource>
+            <wadl:resource
+                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v2.0/wadl/identity-admin.wadl#userid">
+                <wadl:method href="#getUserById"/>
+            </wadl:resource>
+            <wadl:resource
+                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v2.0/wadl/identity-admin.wadl#users">
+                <wadl:method href="#getUserByEmail"/>
+            </wadl:resource>
+            <!-- add user -->
+            <wadl:resource
+                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v2.0/wadl/OS-KSADM-admin.wadl#users-v2.0">
+                <wadl:method href="#addUser">
+                    <wadl:doc>
+                        <note>
+                            <para>This call is available only to users
+                                who hold the admin role
+                                   (<code>identity:user-admin</code>).
+                                Using the admin role, you can create a
+                                user who holds the user role
+                                   (<code>identity:default</code>).</para>
+                        </note>
+                        <warning>
+                            <para>If you use this <code>POST
+                                   /users</code> call to create a
+                                user, that user will have access to
+                                APIs but will not have access to the
+                                Cloud Control Panel. Cloud Control
+                                Panel access is provided to the
+                                account's admin user; the admin user
+                                is the user who initiated the account
+                                by completing the Sign-Up
+                                process.</para>
+                        </warning>
+                    </wadl:doc>
+                </wadl:method>
+            </wadl:resource>
+            <!-- update user -->
+            <wadl:resource
+                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v2.0/wadl/OS-KSADM-admin.wadl#userById-v2.0">
+                <wadl:method href="#updateUser">
+                    <wadl:doc>
+                        <note>
+                            <para>Users who hold the admin role can
+                                update users who hold the user role
+                                   (<code>identity:default</code>) or
+                                the admin role
+                                   (<code>identity:user-admin</code>)
+                                for the same tenant.</para>
+                        </note>
+                    </wadl:doc>
+                </wadl:method>
+            </wadl:resource>
+            <!-- delete user -->
+            <wadl:resource
+                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v2.0/wadl/OS-KSADM-admin.wadl#userById-v2.0">
+                <wadl:method href="#deleteUser">
+                    <wadl:doc>
+                        <note>
+                            <para>This call is available only to users
+                                who hold the admin role
+                                   (<code>identity:user-admin</code>).
+                                Using the admin role, you can delete a
+                                user who holds the user role
+                                   (<code>identity:default</code>) for
+                                the same tenant.</para>
+                        </note>
+                    </wadl:doc>
+                </wadl:method>
+            </wadl:resource>
+            <!-- list all credentials -->
+            <wadl:resource
+                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v2.0/wadl/OS-KSADM-admin.wadl#userCredentials-v2.0">
+                <wadl:method href="#listCredentials">
+                    <wadl:doc>
+                        <note>
+                            <para>
+                                <emphasis role="italic">You can see
+                                   only yourself.</emphasis></para>
+                            <para>This call is available to users who
+                                hold either the admin role
+                                   (<code>identity:user-admin</code>)
+                                or the user role
+                                   (<code>identity:default</code>). In
+                                either case, the credentials returned
+                                are only those of the user who issued
+                                the request.</para>
+                        </note>
+                    </wadl:doc>
+                </wadl:method>
+            </wadl:resource>
+            <!-- get user's API key credentials -->
+            <wadl:resource
+                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v2.0/wadl/RAX-KSKEY-admin.wadl#userCredentialsByType">
+                <wadl:method href="#getUserCredential">
+                    <wadl:doc>
+                        <note>
+                            <para>
+                                <emphasis role="italic">You can see
+                                   only yourself.</emphasis></para>
+                            <para>This call is available to users who
+                                hold either the admin role
+                                   (<code>identity:user-admin</code>)
+                                or the user role
+                                   (<code>identity:default</code>). In
+                                either case, the credentials returned
+                                are only those of the user who issued
+                                the request.</para>
+                        </note>
+                    </wadl:doc>
+                </wadl:method>
+            </wadl:resource>
+            <!-- reset user's API key credentials -->
+            <wadl:resource
+                href="https://github.rackspace.com/IX/auth-2.0/raw/master/src/wadl/RAX-AUTH.wadl#reset_apikey_credentials">
+                <wadl:method href="#resetUserAPIKeyCredentials"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="Role_Calls">
+        <title>roles-v2.0</title>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <!-- list roles-v2.0 -->
+            <wadl:resource
+                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v2.0/wadl/OS-KSADM-admin.wadl#roles-v2.0">
+                <wadl:method href="#listroles-v2.0"/>
+            </wadl:resource>
+            <!-- get a global role -->
+            <wadl:resource
+                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v2.0/wadl/OS-KSADM-admin.wadl#roleId-v2.0">
+                <wadl:method href="#getRole"/>
+            </wadl:resource>
+            <!-- add a global role to a user -->
+            <wadl:resource
+                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v2.0/wadl/OS-KSADM-admin.wadl#userRoleById-v2.0">
+                <wadl:method href="#addUserRole"/>
+            </wadl:resource>
+            <!-- delete a global role from a user -->
+            <wadl:resource
+                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v2.0/wadl/OS-KSADM-admin.wadl#userRoleById-v2.0">
+                <wadl:method href="#deleteUserRole"/>
+            </wadl:resource>
+            <!-- list global roles-v2.0 available to a user -->
+            <wadl:resource
+                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v2.0/wadl/identity-admin.wadl#userRoles">
+                <wadl:method href="#listUserGlobalroles-v2.0">
+                    <wadl:doc>
+                        <note>
+                            <para>This call is available to users who
+                                hold either the admin role
+                                   (<code>identity:user-admin</code>)
+                                or user role
+                                   (<code>identity:default</code>).</para>
+                            <para>For users with the <code>user</code>
+                                role, the call is valid only if
+                                   <code>userID</code> and the
+                                   <code>user-default</code> token
+                                have the same value for
+                                   <code>tenant</code>.</para>
+                        </note>
+                    </wadl:doc>
+                </wadl:method>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="Token_Calls">
+        <title>Tokens</title>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v2.0/wadl/identity-admin.wadl#tokens">
+                <!-- authenticate token -->
+                <wadl:method href="#authenticate">
+                    <wadl:doc>
+                        <note>
+                            <para>This call is available to users who
+                                have authenticated as a holder of
+                                either the admin role or the user
+                                role.</para>
+                            <itemizedlist>
+                                <listitem>
+                                   <para>Users holding the
+                                   <code>admin</code> role must
+                                   authenticate as
+                                   <code>identity:user-admin</code>.</para>
+                                </listitem>
+                                <listitem>
+                                   <para>Users holding the
+                                   <code>user</code> role must
+                                   authenticate as
+                                   <code>identity:default</code>.</para>
+                                </listitem>
+                            </itemizedlist>
+                        </note>
+                    </wadl:doc>
+                </wadl:method>
+            </wadl:resource>
+            <wadl:resource
+                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v2.0/wadl/identity-admin.wadl#tokenById">
+                <!-- revoke token -->
+                <wadl:method href="#revokeToken"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="Tenant_Calls">
+        <title>Tenants</title>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v2.0/wadl/identity-admin.wadl#tenants">
+                <wadl:method href="#listTenants"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+</chapter>
