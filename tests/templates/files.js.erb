@@ -1,0 +1,9 @@
+#!/usr/bin/env node
+
+<%= inject :auth_client %>
+
+<% inject :create_container do |todo| %>
+  <% if todo == 'handle as approriate' %>
+    throw new Error(err);
+  <% end %>
+<% end %>

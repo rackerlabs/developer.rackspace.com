@@ -2,6 +2,7 @@
 
 require 'erb'
 require 'fileutils'
+require 'optionparser'
 require 'json'
 
 require 'rainbow'
@@ -31,7 +32,7 @@ class MissingError < RuntimeError ; end
 
 # Enumerate the services that are documented.
 #
-def services
+SERVICES = begin
   entries = Dir[File.join ROOT, 'docs', '*']
   entries = entries.select { |e| File.directory? e }
   entries = entries.map { |e| File.basename e }
@@ -123,6 +124,11 @@ def inject(name)
     elsif in_section
       indent = line.index /\S/ if indent.nil?
       relevant_lines << (indent.nil? ? line : line[indent..-1])
+
+      if block_given?
+        todo = line[/TODO ?(.*)/, 1]
+        relevant_lines << yield(todo) if todo
+      end
     end
   end
 
@@ -136,16 +142,47 @@ def inject(name)
   # Inject credentials into the rendered code.
   credentials.each { |key, value| relevant_section.gsub!("{#{key}}", value) }
 
+  @output << relevant_section if block_given?
+
   relevant_section
 end
 
 ## All together now.
 
 @credentials = credentials
+@languages, @services, @valid = [], [], true
 @outcomes = []
 
-services.each do |service|
-  LANGUAGES.each do |language|
+OptionParser.new do |opts|
+  opts.banner = "Usage: #{$0} [-s SERVICE] [-l LANGUAGE]"
+  opts.separator ''
+
+  opts.on('-s', '--service SERVICE', 'Include examples for the chosen service.') do |service|
+    unless SERVICES.include? service
+      $stderr.puts "Unrecognized service: #{service}"
+      @valid = false
+    end
+
+    @services << service
+  end
+
+  opts.on('-l', '--language LANGUAGE', 'Include examples in the chosen language.') do |lang|
+    lang = LANGUAGES.detect { |l| l.name == lang }
+    if lang
+      @languages << lang
+    else
+      $stderr.puts "Unrecognized language: #{lang}"
+      @valid = false
+    end
+  end
+
+  opts.
+end
+
+
+
+@services.each do |service|
+  @languages.each do |language|
     puts unless @outcomes.empty?
 
     puts Rainbow(" #{service} in #{language.name}".rjust 80, '>').bright
