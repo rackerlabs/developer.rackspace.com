@@ -41,7 +41,12 @@ Authenticating
 
 Okay, we've covered the concepts, so now we need to deal with authentication. Authentication is a required step for all API interactions.
 
-In order to authenticate, you need a username and API key which you can find in the control panel by visiting the "Account Settings" page.
+There are three required attributes for using Rackspace Cloud Servers with an SDK:
+
+* your rackspace username
+* API key `(how to find your API key) <http://www.rackspace.com/knowledge_center/article/rackspace-cloud-essentials-viewing-and-regenerating-your-api-key>`_
+* region `(available regions) <http://developer.rackspace.com/regions>`_
+
 
 Once you've retrieved your details, you pass them into the client:
 
