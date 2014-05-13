@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xmlns="http://docbook.org/ns/docbook"
+    xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:linkend="http://www.w3.org/1999/linkend"
+    xmlns:xref="http://www.w3.org/1999/xref"
+    xmlns:wadl="http://wadl.dev.java.net/2009/02"
+    version="5.0-extension RackBook-2.0" xml:id="networks-v2-ext">
+    <title>Cloud Networks API v2.0 extensions</title>
+ <!--   <section xml:id="quotas-ext">
+        <title>Quotas extension</title>
+        <para>List, show information for, update, and reset
+            quotas.</para>
+        <wadl:resources href="../wadls/networks/wadl/quotas.wadl"
+            xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
+    </section>
+    <section xml:id="network_provider-ext">
+        <title>Networks provider extended attributes</title>
+        <wadl:resources
+            href="../wadls/networks/wadl/networks-provider-ext.wadl"
+            xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
+    </section>
+    <section xml:id="port_binding-ext">
+        <title>Ports binding extended attributes</title>
+        <wadl:resources
+            href="../wadls/networks/wadl/ports-binding-ext.wadl"
+            xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
+    </section>-->
+    <section xml:id="layer-3">
+        <title>Layer-3</title>
+        <wadl:resources
+            href="https://raw.github.com/catlook/networks2/master/src/wadl/layer3.wadl"
+            xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
+    </section>
+    <section xml:id="security_groups">
+        <title>Security groups and rules</title>
+        <wadl:resources
+            href="https://raw.github.com/catlook/networks2/master/src/wadl/security-groups.wadl"
+            xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
+    </section>
+    <xi:include href="section_networks_nova_ext.xml"/>
+</chapter>

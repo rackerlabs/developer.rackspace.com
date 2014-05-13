@@ -1,0 +1,58 @@
+[
+ {
+ "AgentVersion": "1.05.005848",
+ "Architecture": "64-bit",
+ "BackupVaultSize": "35.3 MB",
+ "BackupContainer": "https://storage101.DC.clouddrive.com/
+ v1/yourAccount/CloudBackup_v2_0_yourUUID",
+ "CleanupAllowed": true,
+ "Datacenter": "DFW",
+ "Flavor":"RaxCloudServer",
+ "IPAddress": "192.168.1.1",
+ "IsDisabled": false,
+ "IsEncrypted": true,
+ "MachineAgentId": 213563,
+ "MachineName": "Web Server2",
+ "OperatingSystem": "Windows Server 2012",
+ "OperatingSystemVersion":"",
+ "PublicKey": {
+ "ModulusHex": "a5261939156948bb7a58dffe5ff89e
+ 65f0498f9175f5a98288810b8975871e99af3b5dd9405
+ 7b0fc07535f5f97444504fa35169d461d0d30cf0192e3
+ 07727c065168c788771c561a9400fb61975e9e6aa4e23
+ fe11af69e9412dd23b0cb6684c4c2429bce139e848ab2
+ 6d0829073351f4acd36074eafd036a5eb83359d2a698d0",
+ "ExponentHex": 09528 },
+ "Status": "Online",
+ "TimeOfLastSuccessfulBackup": null,
+ "UseServiceNet": true
+ },
+ {
+ "AgentVersion": "1.05.005848",
+ "Architecture": "64-bit",
+ "BackupVaultSize": "35.3 MB",
+ "BackupContainer": "https://storage101.DC.clouddrive.com/
+ v1/yourAccount/CloudBackup_v2_0_yourUUID",
+ "CleanupAllowed": true,
+ "Flavor":"RaxCloudServer",
+ "Datacenter": "DFW",
+ "IPAddress": "192.168.1.3",
+ "IsDisabled": false,
+ "IsEncrypted": true,
+ "MachineAgentId": 213564,
+ "MachineName": "Web Server",
+ "OperatingSystem": "Windows Server 2012",
+ "OperatingSystemVersion" : "",
+ "PublicKey": {
+ "ModulusHex": "a5261939156948bb7a58dffe5ff89e
+ 65f0498f9175f5a98288810b8975871e99af3b5dd9405
+ 7b0fc07535f5f97444504fa35169d461d0d30cf0192e3
+ 07727c065168c788771c561a9400fb61975e9e6aa4e23
+ fe11af69e9412dd23b0cb6684c4c2429bce139e848ab2
+ 6d0829073351f4acd360723324234234234234234234abc2",
+ "ExponentHex": 82374 },
+ "Status": "Online",
+ "TimeOfLastSuccessfulBackup": null,
+ "UseServiceNet": true
+ }
+]

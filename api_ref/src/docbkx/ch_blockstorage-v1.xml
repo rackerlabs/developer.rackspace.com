@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xmlns="http://docbook.org/ns/docbook"
+    xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:linkend="http://www.w3.org/1999/linkend"
+    xmlns:xref="http://www.w3.org/1999/xref"
+    xmlns:wadl="http://wadl.dev.java.net/2009/02"
+    version="5.0-extension RackBook-2.0" xml:id="blockstorage-v2">
+    <title>Cloud Block Storage API v1</title>
+    <section xml:id="volumes">
+        <title>Volumes</title>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <!-- <wadl:resource
+                href="https://raw.github.com/rackerlabs/docs-cloud-block-storage/master/src/wadls/volume-api/src/os-volume-1.wadl#volumes">-->
+            <wadl:resource
+                href="https://raw.github.com/rackerlabs/docs-cloud-block-storage/master/src/wadls/volume-api/src/os-volume-1.wadl#volumes">
+                <wadl:method href="#createVolume"/>
+                <wadl:method href="#getVolumesSimple"/>
+            </wadl:resource>
+            <wadl:resource
+                href="https://raw.github.com/rackerlabs/docs-cloud-block-storage/master/src/wadls/volume-api/src/os-volume-1.wadl#detail">
+                <wadl:method href="#getVolumesDetail"/>
+            </wadl:resource>
+            <wadl:resource
+                href="https://raw.github.com/rackerlabs/docs-cloud-block-storage/master/src/wadls/volume-api/src/os-volume-1.wadl#volume_id">
+                <wadl:method href="#getVolume"/>
+                <wadl:method href="#renameVolume"/>
+                <wadl:method href="#updateVolume"/>
+                <wadl:method href="#deleteVolume"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="volume_types">
+        <title>Volume types</title>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="https://raw.github.com/rackerlabs/docs-cloud-block-storage/master/src/wadls/volume-api/src/os-volume-1.wadl#volume_types">
+                <wadl:method href="#getVolumeTypes"/>
+            </wadl:resource>
+            <wadl:resource
+                href="https://raw.github.com/rackerlabs/docs-cloud-block-storage/master/src/wadls/volume-api/src/os-volume-1.wadl#volume_type_id">
+                <wadl:method href="#getVolumeType"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="snapshots">
+        <title>Snapshots</title>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="https://raw.github.com/rackerlabs/docs-cloud-block-storage/master/src/wadls/volume-api/src/os-volume-1.wadl#snapshots">
+                <wadl:method href="#createSnapshot"/>
+                <wadl:method href="#getSnapshotsSimple"/>
+            </wadl:resource>
+            <wadl:resource
+                href="https://raw.github.com/rackerlabs/docs-cloud-block-storage/master/src/wadls/volume-api/src/os-volume-1.wadl#snapshot_detail">
+                <wadl:method href="#getSnapshotsDetail"/>
+            </wadl:resource>
+            <wadl:resource
+                href="https://raw.github.com/rackerlabs/docs-cloud-block-storage/master/src/wadls/volume-api/src/os-volume-1.wadl#snapshot_id">
+                <wadl:method href="#getSnapshot"/>
+                <wadl:method href="#updateSnapshot"/>
+                <wadl:method href="#deleteSnapshot"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+</chapter>

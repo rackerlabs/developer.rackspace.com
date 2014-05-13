@@ -1,0 +1,1617 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+   <head>
+      <meta content="text/html; charset=UTF-8" http-equiv="content-type"></meta>
+      <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"></meta>
+      <title>Rackspace API Documentation</title>
+      <link href="apiref/css/css.css" rel="stylesheet" type="text/css"></link>
+      <link href="apiref/css/reset.css" rel="stylesheet"></link>
+      <link href="apiref/css/style.css" rel="stylesheet"></link>
+      <link href="apiref/css/syntax.css" rel="stylesheet"></link>
+      <link href="apiref/css/main-rackspace.css" rel="stylesheet" type="text/css"></link>
+      <link href="apiref/css/bootstrap.min.css" rel="stylesheet"></link>
+   </head>
+   <body>
+      <div class="header">
+         <div class="inner clearfix"><a class="title" href="http://162.242.151.184/index.html">Rackspace Developer Portal</a><ul>
+               <li><a href="http://162.242.151.184/main-sdks.html">SDKs</a></li>
+               <li><a href="http://162.242.151.184/main-services.html">Services</a></li>
+               <li><a href="http://162.242.151.184/docs">Docs</a></li>
+               <li><a href="http://162.242.151.184/blog-list.html">Developer
+                     Blog</a></li>
+               <li><a href="#">Sign Up</a></li>
+               <li>
+                  <form><input id="" name="" placeholder="Search our docs" type="search"></input><input name="" type="submit" value="Search"></input></form>
+               </li>
+            </ul>
+         </div>
+      </div>
+      <div class="container">
+         <div class="rowtop">
+            <div class="col-md-3">
+               <div class="api-sidebar affix-top" data-offset-bottom="0" data-offset-top="1000" data-spy="affix">
+                  <ul class="nav api-sidenav">
+                     <li><a class="smallcapped" href="index.html">Technical documentation</a></li>
+                     <li class="divider"></li>
+                     <li><a class="smallcapped" href="#big-data-v1">Cloud&nbsp;Big&nbsp;Data&nbsp;API&nbsp;v1.0</a></li>
+                     <li class="divider"></li>
+                     <li>
+                        <ul class="nav active">
+                           <li><a href="api-ref-auto-scale.html">Auto Scale
+                                 API</a></li>
+                           <li><a href="api-ref-backup.html">Cloud Backup
+                                 API</a></li>
+                           <li><a href="api-ref-big-data.html">Cloud Big Data
+                                 API</a></li>
+                           <li><a href="api-ref-blockstorage.html">Cloud Block
+                                 Storage API</a></li>
+                           <li><a href="api-ref-databases.html">Cloud
+                                 Databases API</a></li>
+                           <li><a href="api-ref-files.html">Cloud Files
+                                 API</a></li>
+                           <li><a href="api-ref-identity.html">Cloud Identity
+                                 API</a></li>
+                           <li><a href="api-ref-images.html">Cloud Images
+                                 API</a></li>
+                           <li><a href="api-ref-monitoring.html">Cloud
+                                 Monitoring API</a></li>
+                           <li><a href="api-ref-networks.html">Cloud Networks
+                                 API</a></li>
+                           <li><a href="api-ref-orchestration.html">Cloud
+                                 Orchestration API</a></li>
+                           <li><a href="api-ref-queues.html">Cloud Queues
+                                 API</a></li>
+                           <li><a href="api-ref.html">Cloud Servers
+                                 API</a></li>
+                           <li><a href="api-ref-servers-ext.html">Cloud
+                                 Servers API extensions</a></li>
+                        </ul>
+                     </li>
+                  </ul>
+                  <div class="row">
+                     <div class="col-md-7"><label class="sr-only" for="search-box">Search on this
+                           page</label><input class="form-control" id="search-box" placeholder="Search this page" type="text"></input></div>
+                     <div class="col-md-5"><button class="btn btn-default" id="search-btn">Search</button></div>
+                  </div>
+               </div>
+            </div>
+            <div class="col-md-9 api-documentation">
+               
+               
+               <div id="big-data-v1">
+                  <div class="subhead">
+                     <h2>Cloud Big Data API v1.0<a class="headerlink" href="#big-data-v1" title="Permalink to this headline"><span class="glyphicon glyphicon-link"></span></a></h2>
+                  </div>
+                  
+                  
+                  <div id="profileOperations">
+                     <div class="subhead">
+                        <h3>Profiles<a class="headerlink" href="#profileOperations" title="Permalink to this headline"><span class="glyphicon glyphicon-link"></span></a></h3>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d82e147">
+                           <link href="apiref/css/main-rackspace.css" rel="stylesheet" type="text/css"></link>
+                           <div class="col-md-1"><span class="label label-success">POST</span></div>
+                           <div class="col-md-5">v1.0/&#8203;{tenant_id}&#8203;/profile</div>
+                           <div class="col-md-5">
+                              <p>Creates a profile or updates the
+                                 				information in an existing profile.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d82e147" data-toggle="collapse" id="detail-d82e147-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d82e147">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>Cloud Big Data provisions each server in the cluster
+                                    				with the <code>username</code> and
+                                    					<code>password</code> that are part of the
+                                    				profile. You can ssh into the nodes with those
+                                    				credentials. These credentials are required in the
+                                    				request (as shown in the example "Create or Update
+                                    				Profile Request:JSON").
+                                 </p>
+                                 <p>The <code>cloudCredentials.username</code> and
+                                    					<code>cloudCredentials.apikey</code> are stored in
+                                    				the cluster configuration so that Hadoop can read or
+                                    				write objects stored in Cloud Files. These credentials
+                                    				are optional. If they are not supplied, the cluster
+                                    				does not have access to Cloud Files, but otherwise
+                                    				operates normally.
+                                 </p>
+                                 <note xmlns="http://docbook.org/ns/docbook">
+                                    
+                                    <p xmlns="http://www.w3.org/1999/xhtml">You must create your profile before you create
+                                       					a cluster.
+                                    </p>
+                                    
+                                 </note>
+                                 <p>The 400 error code might indicate malformed data or
+                                    				unacceptable parameters.
+                                 </p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>200</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">badRequest (400)
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <div class="example">
+                                 <pre>{
+   "profile":{
+      "username":"john.doe",
+      "password":"j0Hnd03",
+      "sshkeys":[
+         {
+            "name":"t@test",
+            "publicKey":"ssh-rsa ....."
+         }
+      ],
+      "cloudCredentials":{
+         "username":"jdoe",
+         "apikey":"df23gkh34h52gkdgfakgf"
+      }
+   }
+}</pre>
+                                 </div>
+                              <div class="example">
+                                 <pre>{
+   "profile":{
+      "username":"john.doe",
+      "userId":"12346",
+      "tenantId":"123456",
+      "sshkeys":[
+         {
+            "name":"t@test",
+            "publicKey":"ssh-rsa ....."
+         }
+      ],
+      "cloudCredentials":{
+         "username":"jdoe"
+      },
+      "links":[
+         {
+            "rel":"self",
+            "href":"https://dfw.bigdata.api.rackspacecloud.com/v1.0/123456/profile"
+         },
+         {
+            "rel":"bookmark",
+            "href":"https://dfw.bigdata.api.rackspacecloud.com/123456/profile"
+         }
+      ]
+   }
+}       </pre>
+                                 </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d82e219">
+                           <link href="apiref/css/main-rackspace.css" rel="stylesheet" type="text/css"></link>
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v1.0/&#8203;{tenant_id}&#8203;/profile</div>
+                           <div class="col-md-5">
+                              <p>Returns profile details for the
+                                 				current user.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d82e219" data-toggle="collapse" id="detail-d82e219-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d82e219">
+                           <div class="col-md-12">
+                              <div></div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>200</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <div class="example">
+                                 <pre>{
+   "profile":{
+      "username":"john.doe",
+      "user_id":"12346",
+      "tenant_id":"123456",
+      "sshkeys":[
+         {
+            "name":"t@test"
+         }
+      ],
+      "cloudCredentials":{
+
+      },
+      "links":[
+         {
+            "rel":"self",
+            "href":"https://dfw.bigdata.api.rackspacecloud.com/v1.0/123456/profile"
+         },
+         {
+            "rel":"bookmark",
+            "href":"https://dfw.bigdata.api.rackspacecloud.com/123456/profile"
+         }
+      ]
+   }
+}
+</pre>
+                                 </div>
+                              <p class="nobody">This operation does not require a request
+                                 body.
+                              </p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  
+                  <div id="clusterOperations">
+                     <div class="subhead">
+                        <h3>Clusters<a class="headerlink" href="#clusterOperations" title="Permalink to this headline"><span class="glyphicon glyphicon-link"></span></a></h3>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d82e250">
+                           <link href="apiref/css/main-rackspace.css" rel="stylesheet" type="text/css"></link>
+                           <div class="col-md-1"><span class="label label-success">POST</span></div>
+                           <div class="col-md-5">v1.0/&#8203;{tenant_id}&#8203;/clusters</div>
+                           <div class="col-md-5">
+                              <p>Creates a cluster.</p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d82e250" data-toggle="collapse" id="detail-d82e250-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d82e250">
+                           <div class="col-md-12">
+                              <div>
+                                 <note xmlns="http://docbook.org/ns/docbook">
+                                    
+                                    <p xmlns="http://www.w3.org/1999/xhtml">You must create your profile before you create
+                                       					a cluster.
+                                    </p>
+                                    
+                                 </note>
+                                 <p>The <code>postInitScript</code> request parameter
+                                    				specifies a URL that downloads a script that runs
+                                    				after the cluster is created. The status of the run is
+                                    				shown in the <code>postInitScriptStatus</code>
+                                    				response parameter.
+                                 </p>
+                                 <p>Possible values for
+                                    					<code>postInitScriptStatus</code> are
+                                    					<code>FAILED</code>, <code>PENDING</code>,
+                                    					<code>DELIVERED</code>, <code>RUNNING</code>,
+                                    					<code>SUCCEEDED</code>, and
+                                    				<code>None</code>.
+                                 </p>
+                                 <p>The <code>progress</code> response parameter is
+                                    				calculated based on the number of nodes in the cluster
+                                    				and their progress through configuration. Currently,
+                                    				the calculation is as follows but is subject to
+                                    				change:
+                                 </p>
+                                 <ul>
+                                    				              
+                                    <li>
+                                       
+                                       <p>BUILDING: progress = 0.5 *
+                                          						configuring_count /
+                                          					len(self.nodes)
+                                       </p>
+                                       
+                                    </li>
+                                    				              
+                                    <li>
+                                       
+                                       <p>CONFIGURING/RESIZING: progress = 0.5 +
+                                          						(0.5 * active_count /
+                                          					len(self.nodes))
+                                       </p>
+                                       
+                                    </li>
+                                    				              
+                                    <li>
+                                       
+                                       <p>ACTIVE: progress =
+                                          					1.0
+                                       </p>
+                                       
+                                    </li>
+                                    			            
+                                 </ul>
+                                 <p>The 400 error code might indicate any of the
+                                    				following issues:
+                                 </p>
+                                 <ul>
+                                    
+                                    <li>
+                                       
+                                       <p>The
+                                          						response body is
+                                          						invalid.
+                                       </p>
+                                       
+                                    </li>
+                                    
+                                    <li>
+                                       
+                                       <p>You
+                                          						need to create a user
+                                          					profile.
+                                       </p>
+                                       
+                                    </li>
+                                    
+                                    <li>
+                                       
+                                       <p>The node
+                                          						count is
+                                          						invalid.
+                                       </p>
+                                       
+                                    </li>
+                                    
+                                    <li>
+                                       
+                                       <p>The
+                                          						flavor is
+                                          						invalid.
+                                       </p>
+                                       
+                                    </li>
+                                    
+                                    <li>
+                                       
+                                       <p>The
+                                          						data is
+                                          				malformed.
+                                       </p>
+                                       
+                                    </li>
+                                    
+                                 </ul>
+                                 <p>The 413 error code might indicate that the resource
+                                    				limit is exceeded.
+                                 </p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>200</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">badRequest (400),
+                                    overLimit (413)
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <div class="example">
+                                 <pre>{
+   "cluster":{
+      "name":"slice",
+      "clusterType":"HADOOP_HDP1_1",
+      "flavorId":"4fba3bca-7c76-11e2-b737-beeffa00040e",
+      "nodeCount":5,
+      "postInitScript":"http://example.com/configure_cluster.sh"
+   }
+}</pre>
+                                 </div>
+                              <div class="example">
+                                 <pre>{
+   "cluster":{
+      "id":"db478fc1-2d86-4597-8010-cbe787bbbc41",
+      "created":"2012-12-27T10:10:10Z",
+      "updated":"",
+      "name":"slice",
+      "clusterType":"HADOOP_HDP1_1",
+      "flavorId":"4fba3bca-7c76-11e2-b737-beeffa00040e",
+      "nodeCount":5,
+      "postInitScriptStatus":"PENDING",
+      "progress":0.0,
+      "status":"BUILDING",
+      "links":[
+         {
+            "rel":"self",
+            "href":"https://dfw.bigdata.api.rackspacecloud.com/v1.0/1234/clusters/db478fc1-2d86-4597-8010-cbe787bbbc41"
+         },
+         {
+            "rel":"bookmark",
+            "href":"https://dfw.bigdata.api.rackspacecloud.com/1234/clusters/db478fc1-2d86-4597-8010-cbe787bbbc41"
+         }
+      ]
+   }
+}</pre>
+                                 </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d82e409">
+                           <link href="apiref/css/main-rackspace.css" rel="stylesheet" type="text/css"></link>
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v1.0/&#8203;{tenant_id}&#8203;/clusters</div>
+                           <div class="col-md-5">
+                              <p>Lists all clusters for your
+                                 				account.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d82e409" data-toggle="collapse" id="detail-d82e409-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d82e409">
+                           <div class="col-md-12">
+                              <div></div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>200</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <div class="example">
+                                 <pre>{
+   "clusters":[
+      {
+         "id":"db478fc1-2d86-4597-8010-cbe787bbbc41",
+         "name":"slice",
+         "created":"2012-12-27T10:10:10Z",
+         "updated":"2012-12-27T10:15:10Z",
+         "clusterType":"HADOOP_HDP1_1",
+         "flavorId":"4fba3bca-7c76-11e2-b737-beeffa00040e",
+         "nodeCount":5,
+         "postInitScriptStatus":"SUCCEEDED",
+         "progress":1.0,
+         "status":"ACTIVE",
+         "links":[
+            {
+               "rel":"self",
+               "href":"https://dfw.bigdata.api.rackspacecloud.com/v1.0/1234/clusters/db478fc1-2d86-4597-8010-cbe787bbbc41"
+            },
+            {
+               "rel":"bookmark",
+               "href":"https://dfw.bigdata.api.rackspacecloud.com/1234/clusters/db478fc1-2d86-4597-8010-cbe787bbbc41"
+            }
+         ]
+      },
+      {
+         "id":"ac111111-2d86-4597-8010-cbe787bbbc41",
+         "name":"real",
+         "created":"2012-12-27T10:10:10Z",
+         "updated":"2012-12-27T10:15:10Z",
+         "clusterType":"HBASE_HDP1_1",
+         "flavorId":"518400b2-7c76-11e2-b737-beeffa00040e",
+         "nodeCount":20,
+         "postInitScriptStatus":null,
+         "progress":1.0,
+         "status":"ACTIVE",
+         "links":[
+            {
+               "rel":"self",
+               "href":"https://dfw.bigdata.api.rackspacecloud.com/v1.0/1234/clusters/ac111111-2d86-4597-8010-cbe787bbbc41"
+            },
+            {
+               "rel":"bookmark",
+               "href":"https://dfw.bigdata.api.rackspacecloud.com/1234/clusters/ac111111-2d86-4597-8010-cbe787bbbc41"
+            }
+         ]
+      }
+   ]
+}</pre>
+                                 </div>
+                              <p class="nobody">This operation does not require a request
+                                 body.
+                              </p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d82e434">
+                           <link href="apiref/css/main-rackspace.css" rel="stylesheet" type="text/css"></link>
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v1.0/&#8203;{tenant_id}&#8203;/clusters/&#8203;{clusterId}&#8203;</div>
+                           <div class="col-md-5">
+                              <p>Shows details for a specified
+                                 				cluster.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d82e434" data-toggle="collapse" id="detail-d82e434-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d82e434">
+                           <div class="col-md-12">
+                              <div></div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>200</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">itemNotFound (404)
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <div class="example">
+                                 <pre>GET https://dfw.bigdata.api.rackspacecloud.com/v1.0/7654321/clusters/ac111111-2d86-4597-8010-cbe787bbbc41
+Accept: application/json 
+X-Auth-Token:ea85e6ac-baff-4a6c-bf43-848020ea3812
+Content-Type: application/json  </pre>
+                                 </div>
+                              <div class="example">
+                                 <pre>Status: 200 OK
+Date: Mon, 06 Aug 2012 21:54:21 GMT
+Content-Type: application/json
+Content-Length: 110</pre>
+                                 </div>
+                              <div class="example">
+                                 <pre>{
+   "cluster":{
+      "id":"db478fc1-2d86-4597-8010-cbe787bbbc41",
+      "created":"2012-12-27T10:10:10Z",
+      "updated":"2012-12-27T10:20:10Z",
+      "name":"slice",
+      "clusterType":"HADOOP_HDP1_1",
+      "flavorId":"4fba3bca-7c76-11e2-b737-beeffa00040e",
+      "nodeCount":5,
+      "postInitScriptStatus":"SUCCEEDED",
+      "progress":1.0,
+      "status":"ACTIVE",
+      "links":[
+         {
+            "rel":"self",
+            "href":"https://dfw.bigdata.api.rackspacecloud.com/v1.0/1234/clusters/db478fc1-2d86-4597-8010-cbe787bbbc41"
+         },
+         {
+            "rel":"bookmark",
+            "href":"https://dfw.bigdata.api.rackspacecloud.com/1234/clusters/db478fc1-2d86-4597-8010-cbe787bbbc41"
+         }
+      ]
+   }
+}</pre>
+                                 </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d82e485">
+                           <link href="apiref/css/main-rackspace.css" rel="stylesheet" type="text/css"></link>
+                           <div class="col-md-1"><span class="label label-success">DELETE</span></div>
+                           <div class="col-md-5">v1.0/&#8203;{tenant_id}&#8203;/clusters/&#8203;{clusterId}&#8203;</div>
+                           <div class="col-md-5">
+                              <p>Deletes a specified cluster.</p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d82e485" data-toggle="collapse" id="detail-d82e485-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d82e485">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>The 400 error code might indicate missing or invalid
+                                    				parameters.
+                                 </p>
+                                 <p>The 409 error code might indicate an invalid
+                                    				state.
+                                 </p>
+                                 <p>This operation deletes the cluster that is specified
+                                    				by <code>clusterId</code>.
+                                 </p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>204</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">badRequest (400),
+                                    itemNotFound (404),
+                                    conflict (409)
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <div class="example">
+                                 <pre>DELETE https://dfw.bigdata.api.rackspacecloud.com/v1.0/7654321/clusters/db478fc1-2d86-4597-8010-cbe787bbbc41
+Accept: application/json 
+X-Auth-Token:ea85e6ac-baff-4a6c-bf43-848020ea3812
+Content-Type: application/json</pre>
+                                 </div>
+                              <div class="example">
+                                 <pre>Status: 202 Accepted
+Date: Mon, 06 Aug 2012 21:54:21 GMT
+Content-Type: application/json</pre>
+                                 </div>
+                              <div class="example">
+                                 <pre>{
+   "cluster":{
+      "id":"db478fc1-2d86-4597-8010-cbe787bbbc41",
+      "created":"2012-12-27T10:10:10Z",
+      "updated":"2012-12-27T20:14:10Z",
+      "name":"slice",
+      "clusterType":"HADOOP_HDP1_1",
+      "flavorId":"4fba3bca-7c76-11e2-b737-beeffa00040e",
+      "nodeCount":5,
+      "postInitScriptStatus":null,
+      "status":"DELETING",
+      "links":[
+         {
+            "rel":"self",
+            "href":"https://dfw.bigdata.api.rackspacecloud.com/v1.0/1234/clusters/db478fc1-2d86-4597-8010-cbe787bbbc41"
+         },
+         {
+            "rel":"bookmark",
+            "href":"https://dfw.bigdata.api.rackspacecloud.com/1234/clusters/db478fc1-2d86-4597-8010-cbe787bbbc41"
+         }
+      ]
+   }
+}      </pre>
+                                 </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d82e565">
+                           <link href="apiref/css/main-rackspace.css" rel="stylesheet" type="text/css"></link>
+                           <div class="col-md-1"><span class="label label-success">POST</span></div>
+                           <div class="col-md-5">v1.0/&#8203;{tenant_id}&#8203;/clusters/&#8203;{clusterId}&#8203;/action</div>
+                           <div class="col-md-5">
+                              <p>Resizes a specified cluster.</p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d82e565" data-toggle="collapse" id="detail-d82e565-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d82e565">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>The 400 error code might indicate the presence of
+                                    				unacceptable parameters or malformed data.
+                                 </p>
+                                 <p>The 409 error code might indicate an invalid
+                                    				state.
+                                 </p>
+                                 <p>This operation resizes the cluster specified by
+                                    					<code>clusterId</code>.
+                                 </p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>200</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">badRequest (400),
+                                    itemNotFound (404),
+                                    conflict (409)
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <div class="example">
+                                 <pre>{
+   "resize":{
+      "nodeCount":10
+   }
+}      </pre>
+                                 </div>
+                              <div class="example">
+                                 <pre>{
+   "cluster":{
+      "id":"db478fc1-2d86-4597-8010-cbe787bbbc41",
+      "created":"2012-12-27T10:10:10Z",
+      "updated":"2012-12-27T16:20:10Z",
+      "name":"slice",
+      "clusterType":"HADOOP_HDP1_1",
+      "flavorId":"4fba3bca-7c76-11e2-b737-beeffa00040e",
+      "nodeCount":10,
+      "postInitScriptStatus":"PENDING",
+      "progress":0.5,
+      "status":"RESIZING",
+      "links":[
+         {
+            "rel":"self",
+            "href":"https://dfw.bigdata.api.rackspacecloud.com/v1.0/1234/clusters/db478fc1-2d86-4597-8010-cbe787bbbc41"
+         },
+         {
+            "rel":"bookmark",
+            "href":"https://dfw.bigdata.api.rackspacecloud.com/1234/clusters/db478fc1-2d86-4597-8010-cbe787bbbc41"
+         }
+      ]
+   }
+}
+        </pre>
+                                 </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  
+                  <div id="nodeOperations">
+                     <div class="subhead">
+                        <h3>Nodes<a class="headerlink" href="#nodeOperations" title="Permalink to this headline"><span class="glyphicon glyphicon-link"></span></a></h3>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d82e645">
+                           <link href="apiref/css/main-rackspace.css" rel="stylesheet" type="text/css"></link>
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v1.0/&#8203;{tenant_id}&#8203;/clusters/&#8203;{clusterId}&#8203;/nodes</div>
+                           <div class="col-md-5">
+                              <p>Lists all nodes for a specified
+                                 				cluster.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d82e645" data-toggle="collapse" id="detail-d82e645-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d82e645">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>Valid values for the request body parameter
+                                    					<code>postInitScriptStatus</code> are
+                                    					<code>FAILED</code>, <code>PENDING</code>,
+                                    					<code>DELIVERED</code>, <code>RUNNING</code>,
+                                    					<code>SUCCEEDED</code>, and
+                                    				<code>None</code>.
+                                 </p>
+                                 <p>Valid values for the node status are in 
+                                    <xref xmlns="http://docbook.org/ns/docbook" linkend="node_status"></xref>.
+                                 </p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>200</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">itemNotFound (404)
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <div class="example">
+                                 <pre>GET https://dfw.bigdata.api.rackspacecloud.com/v1.0/7654321/clusters/ac111111-2d86-4597-8010-cbe787bbbc41/nodes
+Accept: application/json 
+X-Auth-Token:ea85e6ac-baff-4a6c-bf43-848020ea3812
+Content-Type: application/json              </pre>
+                                 </div>
+                              <div class="example">
+                                 <pre>{
+   "nodes":[
+      {
+         "id":"000",
+         "created":"2012-12-27T10:10:10Z",
+         "role":"NAMENODE",
+         "name":"NAMENODE-1",
+         "postInitScriptStatus":null,
+         "status":"ACTIVE",
+         "addresses":{
+            "public":[
+               {
+                  "addr":"168.x.x.3",
+                  "version":4
+               }
+            ],
+            "private":[
+               {
+                  "addr":"10.x.x.3",
+                  "version":4
+               }
+            ]
+         },
+         "services":[
+            {
+               "name":"namenode"
+            },
+            {
+               "name":"jobtracker"
+            },
+            {
+               "name":"ssh",
+               "uri":"ssh://user@168.x.x.3"
+            }
+         ],
+         "links":[
+            {
+               "rel":"self",
+               "href":"https://dfw.bigdata.api.rackspacecloud.com/v1.0/1234/clusters/db478fc1-2d86-4597-8010-cbe787bbbc41/nodes/000"
+            },
+            {
+               "rel":"bookmark",
+               "href":"https://dfw.bigdata.api.rackspacecloud.com/1234/clusters/db478fc1-2d86-4597-8010-cbe787bbbc41/nodes/000"
+            }
+         ]
+      },
+      {
+         "id":"aaa",
+         "role":"GATEWAY",
+         "name":"GATEWAY-1",
+         "postInitScriptStatus":null,
+         "status":"ACTIVE",
+         "addresses":{
+            "public":[
+               {
+                  "addr":"168.x.x.4",
+                  "version":4
+               }
+            ],
+            "private":[
+               {
+                  "addr":"10.x.x.4",
+                  "version":4
+               }
+            ]
+         },
+         "services":[
+            {
+               "name":"pig"
+            },
+            {
+               "name":"hive"
+            },
+            {
+               "name":"ssh",
+               "uri":"ssh://user@168.x.x.4"
+            },
+            {
+               "name":"status",
+               "uri":"http://10.x.x.4"
+            },
+            {
+               "name":"hdfs-scp",
+               "uri":"scp://user@168.x.x.4:9022"
+            }
+         ],
+         "links":[
+            {
+               "rel":"self",
+               "href":"https://dfw.bigdata.api.rackspacecloud.com/v1.0/1234/clusters/db478fc1-2d86-4597-8010-cbe787bbbc41/nodes/aaa"
+            },
+            {
+               "rel":"bookmark",
+               "href":"https://dfw.bigdata.api.rackspacecloud.com/1234/clusters/db478fc1-2d86-4597-8010-cbe787bbbc41/nodes/aaa"
+            }
+         ]
+      },
+      {
+         "id":"bbb",
+         "role":"DATANODE",
+         "name":"DATANODE-1",
+         "postInitScriptStatus":null,
+         "status":"ACTIVE",
+         "addresses":{
+            "public":[
+               {
+                  "addr":"168.x.x.5",
+                  "version":4
+               }
+            ],
+            "private":[
+               {
+                  "addr":"10.x.x.5",
+                  "version":4
+               }
+            ]
+         },
+         "services":[
+            {
+               "name":"datanode"
+            },
+            {
+               "name":"tasktracker"
+            },
+            {
+               "name":"ssh",
+               "uri":"ssh://user@168.x.x.5"
+            }
+         ],
+         "links":[
+            {
+               "rel":"self",
+               "href":"https://dfw.bigdata.api.rackspacecloud.com/v1.0/1234/clusters/db478fc1-2d86-4597-8010-cbe787bbbc41/nodes/bbb"
+            },
+            {
+               "rel":"bookmark",
+               "href":"https://dfw.bigdata.api.rackspacecloud.com/1234/clusters/db478fc1-2d86-4597-8010-cbe787bbbc41/nodes/bbb"
+            }
+         ]
+      },
+      {
+         "id":"ccc",
+         "role":"DATANODE",
+         "name":"DATANODE-2",
+         "postInitScriptStatus":null,
+         "status":"ACTIVE",
+         "addresses":{
+            "public":[
+               {
+                  "addr":"168.x.x.6",
+                  "version":4
+               }
+            ],
+            "private":[
+               {
+                  "addr":"10.x.x.6",
+                  "version":4
+               }
+            ]
+         },
+         "services":[
+            {
+               "name":"datanode"
+            },
+            {
+               "name":"tasktracker"
+            },
+            {
+               "name":"ssh",
+               "uri":"ssh://user@168.x.x.6"
+            }
+         ],
+         "links":[
+            {
+               "rel":"self",
+               "href":"https://dfw.bigdata.api.rackspacecloud.com/v1.0/1234/clusters/db478fc1-2d86-4597-8010-cbe787bbbc41/nodes/ccc"
+            },
+            {
+               "rel":"bookmark",
+               "href":"https://dfw.bigdata.api.rackspacecloud.com/1234/clusters/db478fc1-2d86-4597-8010-cbe787bbbc41/nodes/ccc"
+            }
+         ]
+      }
+   ]
+}</pre>
+                                 </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d82e722">
+                           <link href="apiref/css/main-rackspace.css" rel="stylesheet" type="text/css"></link>
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v1.0/&#8203;{tenant_id}&#8203;/clusters/&#8203;{clusterId}&#8203;/nodes/&#8203;{nodeId}&#8203;</div>
+                           <div class="col-md-5">
+                              <p>Shows details for a specified node
+                                 				in a specified cluster.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d82e722" data-toggle="collapse" id="detail-d82e722-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d82e722">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>Valid values for the request body parameter
+                                    					<code>postInitScriptStatus</code> are
+                                    					<code>FAILED</code>, <code>PENDING</code>,
+                                    					<code>DELIVERED</code>, <code>RUNNING</code>,
+                                    					<code>SUCCEEDED</code>, and
+                                    				<code>None</code>.
+                                 </p>
+                                 <p>Valid values for the node status are in 
+                                    <xref xmlns="http://docbook.org/ns/docbook" linkend="node_status"></xref>.
+                                 </p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>200</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">itemNotFound (404)
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <div class="example">
+                                 <pre>GET https://dfw.bigdata.api.rackspacecloud.com/v1.0/7654321/clusters/ac111111-2d86-4597-8010-cbe787bbbc41/nodes/000
+Accept: application/json 
+X-Auth-Token:ea85e6ac-baff-4a6c-bf43-848020ea3812
+Content-Type: application/json               </pre>
+                                 </div>
+                              <div class="example">
+                                 <pre>{
+   "node":{
+      "id":"000",
+      "created":"2012-12-27T10:10:10Z",
+      "role":"NAMENODE",
+      "name":"NAMENODE-1",
+      "postInitScriptStatus":null,
+      "status":"ACTIVE",
+      "addresses":{
+         "public":[
+            {
+               "addr":"168.x.x.3",
+               "version":4
+            }
+         ],
+         "private":[
+            {
+               "addr":"10.x.x.3",
+               "version":4
+            }
+         ]
+      },
+      "services":[
+         {
+            "name":"datanode"
+         },
+         {
+            "name":"tasktracker"
+         },
+         {
+            "name":"ssh",
+            "uri":"ssh://user@168.x.x.3"
+         }
+      ],
+      "links":[
+         {
+            "rel":"self",
+            "href":"https://dfw.bigdata.api.rackspacecloud.com/v1.0/1234/clusters/db478fc1-2d86-4597-8010-cbe787bbbc41/nodes/000"
+         },
+         {
+            "rel":"bookmark",
+            "href":"https://dfw.bigdata.api.rackspacecloud.com/1234/clusters/db478fc1-2d86-4597-8010-cbe787bbbc41/nodes/000"
+         }
+      ]
+   }
+}
+
+        </pre>
+                                 </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  
+                  <div id="flavorOperations">
+                     <div class="subhead">
+                        <h3>Flavors<a class="headerlink" href="#flavorOperations" title="Permalink to this headline"><span class="glyphicon glyphicon-link"></span></a></h3>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d82e805">
+                           <link href="apiref/css/main-rackspace.css" rel="stylesheet" type="text/css"></link>
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v1.0//flavors</div>
+                           <div class="col-md-5">
+                              <p>Lists all available flavors,
+                                 				including the drive size and amount of RAM.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d82e805" data-toggle="collapse" id="detail-d82e805-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d82e805">
+                           <div class="col-md-12">
+                              <div></div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>200</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <div class="example">
+                                 <pre>{
+   "flavors":[
+      {
+         "disk":256,
+         "id":"4fba3bca-7c76-11e2-b737-beeffa00040e",
+         "links":[
+            {
+               "href":"http://dfw.bigdata.api.rackspacecloud.com/v1.0/1234/flavors/4fba3bca-7c76-11e2-b737-beeffa00040e",
+               "rel":"self"
+            },
+            {
+               "href":"http://dfw.bigdata.api.rackspacecloud.com/1234/flavors/4fba3bca-7c76-11e2-b737-beeffa00040e",
+               "rel":"bookmark"
+            }
+         ],
+         "name":"Tiny Hadoop Instance",
+         "ram":5120,
+         "vcpus":1
+      },
+      {
+         "disk":512,
+         "id":"518400b2-7c76-11e2-b737-beeffa00040e",
+         "links":[
+            {
+               "href":"http://dfw.bigdata.api.rackspacecloud.com/v1.0/1234/flavors/518400b2-7c76-11e2-b737-beeffa00040e",
+               "rel":"self"
+            },
+            {
+               "href":"http://dfw.bigdata.api.rackspacecloud.com/1234/flavors/518400b2-7c76-11e2-b737-beeffa00040e",
+               "rel":"bookmark"
+            }
+         ],
+         "name":"Small Hadoop Instance",
+         "ram":8192,
+         "vcpus":2
+      },
+      {
+         "disk":1024,
+         "id":"5413894c-7c76-11e2-b737-beeffa00040e",
+         "links":[
+            {
+               "href":"http://dfw.bigdata.api.rackspacecloud.com/v1.0/1234/flavors/5413894c-7c76-11e2-b737-beeffa00040e",
+               "rel":"self"
+            },
+            {
+               "href":"http://dfw.bigdata.api.rackspacecloud.com/1234/flavors/5413894c-7c76-11e2-b737-beeffa00040e",
+               "rel":"bookmark"
+            }
+         ],
+         "name":"Medium Hadoop Instance",
+         "ram":15360,
+         "vcpus":4
+      },
+      {
+         "disk":2000,
+         "id":"559dd2b8-7c76-11e2-b737-beeffa00040e",
+         "links":[
+            {
+               "href":"http://dfw.bigdata.api.rackspacecloud.com/v1.0/1234/flavors/559dd2b8-7c76-11e2-b737-beeffa00040e",
+               "rel":"self"
+            },
+            {
+               "href":"http://dfw.bigdata.api.rackspacecloud.com/1234/flavors/559dd2b8-7c76-11e2-b737-beeffa00040e",
+               "rel":"bookmark"
+            }
+         ],
+         "name":"Large Hadoop Instance",
+         "ram":27648,
+         "vcpus":8
+      }
+   ]
+}</pre>
+                                 </div>
+                              <p class="nobody">This operation does not require a request
+                                 body.
+                              </p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d82e830">
+                           <link href="apiref/css/main-rackspace.css" rel="stylesheet" type="text/css"></link>
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v1.0//flavors/&#8203;{flavorId}&#8203;</div>
+                           <div class="col-md-5">
+                              <p>Shows details for a specified
+                                 				flavor.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d82e830" data-toggle="collapse" id="detail-d82e830-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d82e830">
+                           <div class="col-md-12">
+                              <div></div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>200</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">itemNotFound (404)
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <div class="example">
+                                 <pre>{
+   "flavor":{
+      "disk":256,
+      "id":"4fba3bca-7c76-11e2-b737-beeffa00040e",
+      "links":[
+         {
+            "href":"http://dfw.bigdata.api.rackspacecloud.com/v1.0/1234/flavors/4fba3bca-7c76-11e2-b737-beeffa00040e",
+            "rel":"self"
+         },
+         {
+            "href":"http://dfw.bigdata.api.rackspacecloud.com/1234/flavors/4fba3bca-7c76-11e2-b737-beeffa00040e",
+            "rel":"bookmark"
+         }
+      ],
+      "name":"Tiny Hadoop Instance",
+      "ram":5120,
+      "vcpus":1
+   }
+}</pre>
+                                 </div>
+                              <p class="nobody">This operation does not require a request
+                                 body.
+                              </p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d82e862">
+                           <link href="apiref/css/main-rackspace.css" rel="stylesheet" type="text/css"></link>
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v1.0//flavors/&#8203;{flavorId}&#8203;/types</div>
+                           <div class="col-md-5">
+                              <p>Lists the supported cluster types
+                                 				for a specified flavor.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d82e862" data-toggle="collapse" id="detail-d82e862-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d82e862">
+                           <div class="col-md-12">
+                              <div></div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>200</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">itemNotFound (404)
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <div class="example">
+                                 <pre>{
+   "types":[
+      {
+         "id":"HADOOP_HDP1_1",
+         "links":[
+            {
+               "href":"http://dfw.bigdata.api.rackspacecloud.com/v1.0/1234/types/HADOOP_HDP1_1",
+               "rel":"self"
+            },
+            {
+               "href":"http://dfw.bigdata.api.rackspacecloud.com/1234/types/HADOOP_HDP1_1",
+               "rel":"bookmark"
+            }
+         ],
+         "name":"Hadoop (HDP 1.1)"
+      }
+   ]
+}    </pre>
+                                 </div>
+                              <p class="nobody">This operation does not require a request
+                                 body.
+                              </p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  
+                  <div id="typeOperations">
+                     <div class="subhead">
+                        <h3>Types<a class="headerlink" href="#typeOperations" title="Permalink to this headline"><span class="glyphicon glyphicon-link"></span></a></h3>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d82e901">
+                           <link href="apiref/css/main-rackspace.css" rel="stylesheet" type="text/css"></link>
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v1.0//types</div>
+                           <div class="col-md-5">
+                              <p>Lists cluster types.</p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d82e901" data-toggle="collapse" id="detail-d82e901-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d82e901">
+                           <div class="col-md-12">
+                              <div></div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>200</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <div class="example">
+                                 <pre>{
+   "types":[
+      {
+         "id":"HADOOP_HDP1_1",
+         "links":[
+            {
+               "href":"http://dfw.bigdata.api.rackspacecloud.com/v1.0/1234/types/HADOOP_HDP1_1",
+               "rel":"self"
+            },
+            {
+               "href":"http://dfw.bigdata.api.rackspacecloud.com/1234/types/HADOOP_HDP1_1",
+               "rel":"bookmark"
+            }
+         ],
+         "name":"Hadoop (HDP 1.1)"
+      }
+   ]
+}    </pre>
+                                 </div>
+                              <p class="nobody">This operation does not require a request
+                                 body.
+                              </p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d82e926">
+                           <link href="apiref/css/main-rackspace.css" rel="stylesheet" type="text/css"></link>
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v1.0//types/&#8203;{typeId}&#8203;</div>
+                           <div class="col-md-5">
+                              <p>Shows details for a specified
+                                 				cluster type.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d82e926" data-toggle="collapse" id="detail-d82e926-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d82e926">
+                           <div class="col-md-12">
+                              <div></div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>200</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">itemNotFound (404)
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <div class="example">
+                                 <pre>{
+   "type":{
+      "id":"HADOOP_HDP1_1",
+      "links":[
+         {
+            "href":"http://dfw.bigdata.api.rackspacecloud.com/v1.0/1234/types/HADOOP_HDP1_1",
+            "rel":"self"
+         },
+         {
+            "href":"http://dfw.bigdata.api.rackspacecloud.com/1234/types/HADOOP_HDP1_1",
+            "rel":"bookmark"
+         }
+      ],
+      "name":"Hadoop (HDP 1.1)",
+      "services":[
+
+      ]
+   }
+}
+        </pre>
+                                 </div>
+                              <p class="nobody">This operation does not require a request
+                                 body.
+                              </p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d82e958">
+                           <link href="apiref/css/main-rackspace.css" rel="stylesheet" type="text/css"></link>
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v1.0//types/&#8203;{typeId}&#8203;/flavors</div>
+                           <div class="col-md-5">
+                              <p>Lists the supported flavors for a
+                                 				specified cluster type.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d82e958" data-toggle="collapse" id="detail-d82e958-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d82e958">
+                           <div class="col-md-12">
+                              <div></div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>200</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">itemNotFound (404)
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <div class="example">
+                                 <pre>{
+   "flavors":[
+      {
+         "disk":1024,
+         "id":"5413894c-7c76-11e2-b737-beeffa00040e",
+         "links":[
+            {
+               "href":"http://dfw.bigdata.api.rackspacecloud.com/v1.0/1234/flavors/5413894c-7c76-11e2-b737-beeffa00040e",
+               "rel":"self"
+            },
+            {
+               "href":"http://dfw.bigdata.api.rackspacecloud.com/1234/flavors/5413894c-7c76-11e2-b737-beeffa00040e",
+               "rel":"bookmark"
+            }
+         ],
+         "name":"Medium Hadoop Instance",
+         "ram":15360,
+         "vcpus":4
+      },
+      {
+         "disk":2000,
+         "id":"559dd2b8-7c76-11e2-b737-beeffa00040e",
+         "links":[
+            {
+               "href":"http://dfw.bigdata.api.rackspacecloud.com/v1.0/1234/flavors/559dd2b8-7c76-11e2-b737-beeffa00040e",
+               "rel":"self"
+            },
+            {
+               "href":"http://dfw.bigdata.api.rackspacecloud.com/1234/flavors/559dd2b8-7c76-11e2-b737-beeffa00040e",
+               "rel":"bookmark"
+            }
+         ],
+         "name":"Large Hadoop Instance",
+         "ram":27648,
+         "vcpus":8
+      }
+   ]
+}</pre>
+                                 </div>
+                              <p class="nobody">This operation does not require a request
+                                 body.
+                              </p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  
+                  <div id="limitsOperations">
+                     <div class="subhead">
+                        <h3>Resource limits<a class="headerlink" href="#limitsOperations" title="Permalink to this headline"><span class="glyphicon glyphicon-link"></span></a></h3>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d82e996">
+                           <link href="apiref/css/main-rackspace.css" rel="stylesheet" type="text/css"></link>
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v1.0//limits</div>
+                           <div class="col-md-5">
+                              <p>Shows the absolute resource limits,
+                                 				such as remaining node count, available RAM, and
+                                 				remaining disk space, for the user.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d82e996" data-toggle="collapse" id="detail-d82e996-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d82e996">
+                           <div class="col-md-12">
+                              <div></div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>200</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <div class="example">
+                                 <pre>{
+   "limits":{
+      "absolute":{
+         "disk":{
+            "limit":5120,
+            "remaining":5120
+         },
+         "nodeCount":{
+            "limit":5,
+            "remaining":5
+         },
+         "ram":{
+            "limit":40960,
+            "remaining":40960
+         },
+         "vcpus":{
+            "limit":10,
+            "remaining":10
+         }
+      },
+      "links":[
+         {
+            "href":"http://dfw.bigdata.api.rackspacecloud.com/v1.0/1234/limits",
+            "rel":"self"
+         },
+         {
+            "href":"http://dfw.bigdata.api.rackspacecloud.com/1234/limits",
+            "rel":"bookmark"
+         }
+      ]
+   }
+}
+        </pre>
+                                 </div>
+                              <p class="nobody">This operation does not require a request
+                                 body.
+                              </p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-9" id="footer">
+               <div class="legal"><a href="index.html"> Legal notices </a></div>
+            </div>
+         </div>
+      </div><script src="apiref/js/jquery-1.10.2.min.js" type="text/javascript"></script><script src="apiref/js/bootstrap.min.js" type="text/javascript"></script><script src="apiref/js/api-site.js" type="text/javascript"></script><script type="text/javascript">
+                    var _gaq = _gaq || [];
+                    _gaq.push(['_setAccount', 'UA-17511903-1']);
+                    _gaq.push(['_setDomainName', '.openstack.org']);
+                    _gaq.push(['_trackPageview']);
+                    (function () {
+                    var ga = document.createElement('script');
+                    ga.type = 'text/javascript';
+                    ga.async = true;
+                    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                    var s = document.getElementsByTagName('script')[0];
+                    s.parentNode.insertBefore(ga, s);
+                    })();
+                  </script></body>
+</html>

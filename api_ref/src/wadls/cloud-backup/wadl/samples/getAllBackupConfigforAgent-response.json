@@ -1,0 +1,84 @@
+{
+    [
+        {
+           "BackupConfigurationId": 158485,
+           "MachineAgentId": 224193,
+           "MachineName": "Web Server",
+           "Flavor": "RaxCloudServer",
+           "IsEncrypted": false,
+           "BackupConfigurationName": "Manual Log Backup",
+           "IsActive": true,
+           "IsDeleted": false,
+           "VersionRetention": 60,
+           "BackupConfigurationScheduleId": 155566,
+           "MissedBackupActionId": 1,
+           "Frequency": "Manually",
+           "StartTimeHour": null,
+           "StartTimeMinute": null,
+           "StartTimeAmPm": "",
+           "DayOfWeekId": null,
+           "HourInterval": null,
+           "TimeZoneId": "Eastern Standard Time",
+           "NextScheduledRunTime": "\/Date(-62135578800000)\/",
+           "LastRunTime": null,
+           "LastRunBackupReportId": null,
+           "NotifyRecipients": "user@rackspace.com",
+           "NotifySuccess": true,
+           "NotifyFailure": true,
+           "Inclusions": [
+               {
+                   "FilePath": "C:\\Websites\\Logs",
+                   "ParentId": 158485,
+                   "FileItemType": "Folder",
+                   "FileId": 47085
+               }
+        ],
+           "Exclusions": [
+     
+        ]
+     },
+     {
+           "BackupConfigurationId": 158486,
+           "MachineAgentId": 224193,
+           "MachineName": "Web Server",
+           "Flavor": "RaxCloudServer",
+           "IsEncrypted": false,
+           "BackupConfigurationName": "Weekly Website Backup",
+           "IsActive": true,
+           "IsDeleted": false,
+           "VersionRetention": 60,
+           "BackupConfigurationScheduleId": 155567,
+           "MissedBackupActionId": 1,
+           "Frequency": "Weekly",
+           "StartTimeHour": 7,
+           "StartTimeMinute": 23,
+           "StartTimeAmPm": "AM",
+           "DayOfWeekId": 1,
+           "HourInterval": null,
+           "TimeZoneId": "Eastern Standard Time",
+           "NextScheduledRunTime": "\/Date(1358752980000)\/",
+           "LastRunTime": null,
+           "LastRunBackupReportId": null,
+           "NotifyRecipients": "user@rackspace.com",
+           "NotifySuccess": true,
+           "NotifyFailure": true,
+           "Inclusions": [
+                {
+                   "FilePath": "C:\\Websites",
+                   "ParentId": 158486,
+                   "FileItemType": "Folder",
+                   "FileId": 47086
+                },
+                {
+                   "FilePath": "C:\\Websites\\Logs",
+                   "ParentId": 158486,
+                   "FileItemType": "Folder",
+                   "FileId": 47087
+                }
+            ],
+            "Exclusions": [
+     
+            ]
+        }
+     ]
+}

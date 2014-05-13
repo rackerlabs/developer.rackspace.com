@@ -1,0 +1,22 @@
+{
+   "offset":0,
+   "size":50,
+   "total":3,
+   "customers":[
+      {
+         "name":"API Customer 17",
+         "accountNumber":"460182",
+         "referenceNumber":"49"
+      },
+      {
+         "name":"API Customer 39",
+         "accountNumber":"460181",
+         "referenceNumber":"23"
+      },
+      {
+         "name":"API Customer 50",
+         "accountNumber":"460183",
+         "referenceNumber":"10"
+      }
+   ]
+}

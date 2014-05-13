@@ -1,0 +1,5 @@
+POST '/customers/123456/domains/example.com/alternatedomains/example.com', 'text/xml',    
+{    
+    'type' => 'AcceptedDomain'    
+    'createForExistingRecipients' => 'true'    
+}" });

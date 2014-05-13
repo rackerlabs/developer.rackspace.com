@@ -1,0 +1,16 @@
+{
+   "profile":{
+      "username":"john.doe",
+      "password":"j0Hnd03",
+      "sshkeys":[
+         {
+            "name":"t@test",
+            "publicKey":"ssh-rsa ....."
+         }
+      ],
+      "cloudCredentials":{
+         "username":"jdoe",
+         "apikey":"df23gkh34h52gkdgfakgf"
+      }
+   }
+}

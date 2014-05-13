@@ -1,0 +1,8 @@
+{
+   "hosts":[
+      {
+         "instanceCount":2,
+         "name":"hostname"
+      }
+   ]
+}

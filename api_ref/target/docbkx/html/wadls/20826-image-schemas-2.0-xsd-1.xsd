@@ -1,0 +1,1040 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+                    Flattened from: https://github.rackspace.com/IX/cloud-images/raw/master/src/common/xsd/api.xsd-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:rax="http://docs.rackspace.com/api"
+            xmlns:db="http://docbook.org/ns/docbook"
+            xmlns:identity="http://docs.openstack.org/identity/api/v2.0"
+            xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
+            xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+            xmlns:atom="http://www.w3.org/2005/Atom"
+            xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+            xmlns:ext="http://docs.openstack.org/common/api/v1.0"
+            xmlns:html="http://www.w3.org/1999/xhtml"
+            xmlns:limits="http://docs.openstack.org/common/api/v1.0"
+            xmlns:xs="http://www.w3.org/2001/XMLSchema"
+            xmlns:vers="http://docs.openstack.org/common/api/v1.0"
+            elementFormDefault="qualified"
+            attributeFormDefault="unqualified"
+            targetNamespace="http://docs.openstack.org/identity/api/v2.0">
+   <import xmlns="http://www.w3.org/2001/XMLSchema"
+           vc:minVersion="1.1"
+           namespace="http://www.w3.org/2005/Atom"
+           schemaLocation="image-schemas-2.0-xsd-4.xsd"/>
+   <!-- (C) 2011 OpenStack LLC., All Rights Reserved -->
+   <!-- Import ATOM specific schema definitions -->
+   <!-- Elements -->
+   <!-- Complex Types -->
+   <!--EndpointForService-->
+   <!-- VersionForService -->
+   <!-- (C) 2011 OpenStack LLC., All Rights Reserved -->
+   <!-- Import ATOM specific schema definitions -->
+   <!-- Elements -->
+   <!-- Complex Types -->
+   <!-- (C) 2011 OpenStack LLC., All Rights Reserved -->
+   <!-- Import ATOM specific schema definitions -->
+   <!-- Simple Types -->
+   <!-- (C) 2011 OpenStack LLC., All Rights Reserved -->
+   <!-- Import ATOM specific schema definitions -->
+   <!-- Elements -->
+   <!-- Complex Types -->
+   <!-- (C) 2011 OpenStack LLC., All Rights Reserved -->
+   <!-- Fault Elements -->
+   <!-- Fault Types -->
+   <!-- (C) 2011 OpenStack LLC., All Rights Reserved -->
+   <!-- Import ATOM specific schema definitions -->
+   <!-- Complex Types -->
+   <!-- (C) 2011 OpenStack LLC., All Rights Reserved -->
+   <!-- (C) 2011 OpenStack LLC., All Rights Reserved -->
+   <!-- Import ATOM specific schema definitions -->
+   <!-- Elements -->
+   <!-- Complex Types -->
+   <!-- (C) 2011 OpenStack LLC., All Rights Reserved -->
+   <!-- Import ATOM specific schema definitions -->
+   <!-- Elements -->
+   <!-- Complex Types -->
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="access"
+            type="identity:AuthenticateResponse"/>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="roles"
+            type="identity:RoleList">
+        <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                <p>
+                    A list of roles.
+                </p>
+            </xsd:documentation>
+        </annotation>
+    </element>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="role"
+            type="identity:Role">
+        <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                <p>
+                    A role.
+                </p>
+            </xsd:documentation>
+        </annotation>
+    </element>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="tenant"
+            type="identity:Tenant">
+        <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                <p>
+                  A container used to group or isolate resources and/or identity
+                  objects. Depending on the service operator, a tenant may map to a customer,
+                  account, organization, or project.
+                </p>
+            </xsd:documentation>
+            <xsd:appinfo>
+              <xsdxt:samples>
+                <xsdxt:sample>
+                  <xsdxt:code type="application/xml" href="../samples/tenant.xml"/>
+                </xsdxt:sample>
+                <xsdxt:sample>
+                  <xsdxt:code type="application/json" href="../samples/tenant.json"/>
+                </xsdxt:sample>
+              </xsdxt:samples>
+            </xsd:appinfo>
+        </annotation>
+    </element>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="tenants"
+            type="identity:Tenants">
+       <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                <p>
+                    A list of tenants.
+                </p>
+            </xsd:documentation>
+        </annotation>
+    </element>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="identityFault"
+            type="identity:IdentityFault"/>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="serviceUnavailable"
+            type="identity:ServiceUnavailableFault"/>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="badRequest"
+            type="identity:BadRequestFault"/>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="unauthorized"
+            type="identity:UnauthorizedFault"/>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="overLimit"
+            type="identity:OverLimitFault"/>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="userDisabled"
+            type="identity:UserDisabledFault"/>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="forbidden"
+            type="identity:ForbiddenFault"/>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="itemNotFound"
+            type="identity:ItemNotFoundFault"/>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="tenantConflict"
+            type="identity:TenantConflictFault"/>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="endpoint"
+            type="identity:Endpoint">
+        <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                <p>
+                    An Endpoint.
+                </p>
+            </xsd:documentation>
+        </annotation>
+    </element>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="endpoints"
+            type="identity:EndpointList">
+        <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                <p>
+                    A list of Endpoints.
+                </p>
+            </xsd:documentation>
+        </annotation>
+    </element>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="users"
+            type="identity:UserList">
+        <annotation>
+            <xsd:documentation xml:lang="EN">
+                <p>
+                    A list of Users.
+                </p>
+            </xsd:documentation>
+        </annotation>
+    </element>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="user"
+            type="identity:User">
+        <annotation>
+            <xsd:documentation xml:lang="EN">
+                <p>
+                    A Keystone User.
+                </p>
+            </xsd:documentation>
+        </annotation>
+    </element>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="auth"
+            type="identity:AuthenticationRequest"/>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="credential"
+            type="identity:CredentialType"/>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="credentials"
+            type="identity:CredentialListType"/>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="passwordCredentials"
+            type="identity:PasswordCredentialsRequiredUsername"
+            substitutionGroup="identity:credential"/>
+   <simpleType xmlns="http://www.w3.org/2001/XMLSchema" name="ExtensibleServiceType">
+        <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                <p>
+                    An extensible service type allows all of the
+                    strings defined in <a href="#type_ServiceType"
+                  title="See definition of                         ServiceType">ServiceType</a> or an
+                    alias prefixed status.
+                </p>
+            </xsd:documentation>
+        </annotation>
+        <union memberTypes="identity:ServiceType identity:ExtendedService"/>
+    </simpleType>
+   <simpleType xmlns="http://www.w3.org/2001/XMLSchema" name="ServiceType">
+        <restriction base="xsd:string">
+            <enumeration value="compute">
+                <annotation>
+                    <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                        <p>
+                            The type for an OpenStack Compute API 1.1 compatible service.
+                        </p>
+                    </xsd:documentation>
+                </annotation>
+            </enumeration>
+            <enumeration value="object-store">
+                <annotation>
+                    <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                        <p>
+                            The type for a Swift-compatible service.
+                        </p>
+                    </xsd:documentation>
+                </annotation>
+            </enumeration>
+            <enumeration value="image">
+                <annotation>
+                    <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                        <p>
+                            The type for a Glance-compatible service
+                        </p>
+                    </xsd:documentation>
+                </annotation>
+            </enumeration>
+            <enumeration value="identity">
+                <annotation>
+                    <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                        <p>
+                            The type for a Keystone-compatible service.
+                        </p>
+                    </xsd:documentation>
+                </annotation>
+            </enumeration>
+            <enumeration value="volume">
+                <annotation>
+                    <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                        <p>
+                            The type for a Block-Storage-compatible service.
+                        </p>
+                    </xsd:documentation>
+                </annotation>
+            </enumeration>
+            <enumeration value="ec2">
+                <annotation>
+                    <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                        <p>
+                            The type for Amazon's EC2-compatible service.
+                        </p>
+                    </xsd:documentation>
+                </annotation>
+            </enumeration>
+        </restriction>
+    </simpleType>
+   <simpleType xmlns="http://www.w3.org/2001/XMLSchema" name="ExtendedService">
+        <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                <p>
+                    A non-core service type which must contain an extension prefix.
+                </p>
+            </xsd:documentation>
+        </annotation>
+        <restriction base="xsd:string">
+            <pattern value="(\w|-)+:(\w|-)+"/>
+        </restriction>
+    </simpleType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="Token">
+        <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                <p>
+                    A token is an arbitrary bit of text that is used to access
+                    resources. Each token has a scope which describes which
+                    resources are accessible with it. A token may be
+                    revoked at anytime and is valid for a finite duration.
+                </p>
+                <p>
+                    While Keystone supports token-based authentication in this release,
+                    the intention is for it to support additional protocols in the
+                    future. The desire is for it to be an integration service, and not
+                    a full-fledged identity store and management solution.
+                </p>
+            </xsd:documentation>
+            <xsd:appinfo>
+                <xsdxt:samples>
+                    <xsdxt:sample>
+                        <xsdxt:code type="application/xml" href="../samples/token.xml"/>
+                    </xsdxt:sample>
+                    <xsdxt:sample>
+                        <xsdxt:code type="application/json" href="../samples/token.json"/>
+                    </xsdxt:sample>
+                </xsdxt:samples>
+            </xsd:appinfo>
+        </annotation>
+        <sequence>
+            <element name="tenant" type="identity:TenantForAuthenticateResponse"/>
+            <any namespace="##other"
+              processContents="lax"
+              minOccurs="0"
+              maxOccurs="unbounded"/>
+        </sequence>
+        <attribute name="id" type="xsd:string" use="required"/>
+        <attribute name="expires" type="xsd:dateTime" use="required"/>
+        <anyAttribute namespace="##other" processContents="lax"/>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="AuthenticateResponse">
+        <sequence>
+            <element name="token" type="identity:Token"/>
+            <element name="user" type="identity:UserForAuthenticateResponse"/>
+            <element name="serviceCatalog" type="identity:ServiceCatalog" minOccurs="0"/>
+            <any namespace="##other"
+              processContents="lax"
+              minOccurs="0"
+              maxOccurs="unbounded"/>
+        </sequence>
+        <anyAttribute namespace="##other" processContents="lax"/>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="UserForAuthenticateResponse">
+        <sequence>
+            <element name="roles" type="identity:RoleList"/>
+            <any namespace="##other"
+              processContents="lax"
+              minOccurs="0"
+              maxOccurs="unbounded"/>
+        </sequence>
+        <attribute name="id" type="xsd:string"/>
+        <attribute name="name" type="xsd:string"/>
+        <anyAttribute namespace="##other" processContents="lax"/>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema"
+                name="TenantForAuthenticateResponse">
+        <attribute name="id" type="xsd:string"/>
+        <attribute name="name" type="xsd:string"/>
+        <anyAttribute namespace="##other" processContents="lax"/>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="ServiceCatalog">
+        <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                <p>
+                  The service catalog lists the services you have access to
+                </p>
+                <div class="design">
+                    <p>
+                    We optimized for future flexibility around the hierarchy. So we
+                    left the design as a flat list of endpoints with attributes and the
+                    consumer can categorize as they need.
+                    This results in potential duplication (such as with the version/@list)
+                    but we acceopt that normalization cost in order to not force an
+                    artificial hierarchy (suchas on region, which can be optional).
+                  </p>
+                </div>
+            </xsd:documentation>
+            <xsd:appinfo>
+              <xsdxt:samples>
+                <xsdxt:sample>
+                  <xsdxt:code type="application/xml" href="../samples/services.xml"/>
+                </xsdxt:sample>
+                <xsdxt:sample>
+                  <xsdxt:code type="application/json" href="../samples/services.json"/>
+                </xsdxt:sample>
+              </xsdxt:samples>
+            </xsd:appinfo>
+        </annotation>
+        <sequence>
+            <element name="service"
+                  type="identity:ServiceForCatalog"
+                  minOccurs="1"
+                  maxOccurs="unbounded">
+                <annotation>
+                    <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                        <p>
+                            A list of services.
+                        </p>
+                    </xsd:documentation>
+                </annotation>
+            </element>
+            <element vc:minVersion="1.1"
+                  ref="atom:link"
+                  minOccurs="0"
+                  maxOccurs="unbounded"/>
+            <any namespace="##other"
+              processContents="lax"
+              minOccurs="0"
+              maxOccurs="unbounded"/>
+        </sequence>
+        <anyAttribute namespace="##other" processContents="lax"/>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="ServiceForCatalog">
+        <sequence>
+            <element name="endpoint"
+                  type="identity:EndpointForService"
+                  minOccurs="1"
+                  maxOccurs="unbounded">
+                <annotation>
+                    <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                        <p>
+                            A list of endpoints.
+                        </p>
+                    </xsd:documentation>
+                </annotation>
+            </element>
+            <element vc:minVersion="1.1"
+                  ref="atom:link"
+                  minOccurs="0"
+                  maxOccurs="unbounded"/>
+            <any namespace="##other"
+              processContents="lax"
+              minOccurs="0"
+              maxOccurs="unbounded"/>
+        </sequence>
+        <attribute name="type" type="identity:ExtensibleServiceType" use="required">
+            <annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>
+                        The OpenStack-registered type (e.g. 'compute', 'object-store', etc).
+                    </p>
+                </xsd:documentation>
+            </annotation>
+        </attribute>
+        <attribute name="name" type="xsd:string" use="optional">
+            <annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>
+                        The commercial service name (e.g. 'My Nova Cloud Servers').
+                    </p>
+                </xsd:documentation>
+            </annotation>
+        </attribute>
+        <anyAttribute namespace="##other" processContents="lax"/>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="EndpointForService">
+        <sequence>
+            <element name="version"
+                  type="identity:VersionForService"
+                  maxOccurs="1"
+                  minOccurs="0">
+                <annotation>
+                    <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                        <p>
+                            Version details.
+                        </p>
+                    </xsd:documentation>
+                </annotation>
+            </element>
+            <element vc:minVersion="1.1"
+                  ref="atom:link"
+                  minOccurs="0"
+                  maxOccurs="unbounded"/>
+            <any namespace="##other"
+              processContents="lax"
+              minOccurs="0"
+              maxOccurs="unbounded"/>
+        </sequence>
+        <attribute name="region" type="xsd:string" use="optional">
+            <annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>
+                        The name of the region where the endpoint
+                        lives. Example: airport codes; LHR (UK),
+                        STL (Saint Louis)
+                    </p>
+                </xsd:documentation>
+            </annotation>
+        </attribute>
+        <attribute name="tenantId" type="xsd:string" use="optional">
+            <annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>
+                        Tenant id to which the endpoints belong.
+                    </p>
+                </xsd:documentation>
+            </annotation>
+        </attribute>
+        <attribute name="publicURL" type="xsd:anyURI" use="required">
+            <annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>
+                        Public accessible service URL.
+                    </p>
+                </xsd:documentation>
+            </annotation>
+        </attribute>
+        <attribute name="internalURL" type="xsd:anyURI" use="optional">
+            <annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>
+                        A service URL, accessible only locally within that
+                        cloud (generally over a high bandwidth, low latency,
+                        free of charge link).
+                    </p>
+                </xsd:documentation>
+            </annotation>
+        </attribute>
+        <attribute name="adminURL" type="xsd:anyURI" use="optional">
+            <annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>
+                        An Admin URL (used for administration using privileged
+                        calls). This may expose
+                        additional functionality not found in the public and
+                        internal URL.
+                    </p>
+                </xsd:documentation>
+            </annotation>
+        </attribute>
+        <anyAttribute namespace="##other" processContents="lax"/>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="VersionForService">
+        <attribute name="id" type="xsd:string" use="required">
+            <annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>
+                       Id of the version.
+                    </p>
+                </xsd:documentation>
+            </annotation>
+        </attribute>
+        <attribute name="info" type="xsd:anyURI" use="required">
+            <annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>
+                        URI to get the information specific to this version.
+                    </p>
+                </xsd:documentation>
+            </annotation>
+        </attribute>
+        <attribute name="list" type="xsd:anyURI" use="required">
+            <annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>
+                        URI to get the information about all versions.
+                    </p>
+                </xsd:documentation>
+            </annotation>
+        </attribute>
+        <anyAttribute namespace="##other" processContents="lax"/>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="Role">
+        <attribute name="id" type="xsd:string" use="optional"/>
+        <attribute name="name" type="xsd:string" use="required"/>
+        <attribute name="description" type="xsd:string" use="optional"/>
+        <attribute name="serviceId" type="xsd:string" use="optional"/>
+        <attribute name="tenantId" type="xsd:string" use="optional"/>
+        <anyAttribute namespace="##other" processContents="lax"/>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="RoleList">
+        <sequence>
+            <element name="role"
+                  type="identity:Role"
+                  minOccurs="0"
+                  maxOccurs="unbounded"/>
+            <element vc:minVersion="1.1"
+                  ref="atom:link"
+                  minOccurs="0"
+                  maxOccurs="unbounded"/>
+            <any namespace="##other"
+              processContents="lax"
+              minOccurs="0"
+              maxOccurs="unbounded"/>
+        </sequence>
+        <anyAttribute namespace="##other" processContents="lax"/>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="Tenants">
+        <sequence>
+            <element name="tenant" type="identity:Tenant" maxOccurs="100"/>
+            <element vc:minVersion="1.1"
+                  ref="atom:link"
+                  minOccurs="0"
+                  maxOccurs="unbounded"/>
+            <any namespace="##other"
+              processContents="lax"
+              minOccurs="0"
+              maxOccurs="unbounded"/>
+        </sequence>
+        <anyAttribute namespace="##other" processContents="lax"/>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="Tenant">
+        <sequence>
+            <element name="description" type="xsd:string">
+                <annotation>
+                    <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                        <p>
+                            An free text description of the tenant.
+                        </p>
+                    </xsd:documentation>
+                </annotation>
+            </element>
+            <any namespace="##other"
+              processContents="lax"
+              minOccurs="0"
+              maxOccurs="unbounded"/>
+        </sequence>
+        <attribute name="id" type="xsd:string" use="optional">
+            <annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>
+                        An ID uniquely identifying the tenant. This usually comes from the back-end store.
+                        This value is guaranteed to be unique and immutable (it will never change).
+                    </p>
+                </xsd:documentation>
+            </annotation>
+        </attribute>
+        <attribute name="name" type="xsd:string" use="required">
+            <annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>
+                        The name of the tenant. This is guaranteed to be unique, but may change.
+                    </p>
+                </xsd:documentation>
+            </annotation>
+        </attribute>
+        <attribute name="enabled" type="xsd:boolean" use="optional" default="true">
+            <annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>
+                        An boolean signifying if a tenant is enabled or not. A disabled tenant
+                        cannot be authenticated against.
+                    </p>
+                </xsd:documentation>
+            </annotation>
+        </attribute>
+        <attribute name="display-name" type="xsd:string" use="optional">
+            <annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>
+                        A human-readable, friendly name for use in user interfaces.
+                    </p>
+                </xsd:documentation>
+            </annotation>
+        </attribute>
+        <attribute type="xsd:dateTime" name="updated" use="optional">
+            <annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>
+                        A time-stamp identifying the modification time of the
+                        tenant.
+                    </p>
+                </xsd:documentation>
+            </annotation>
+        </attribute>
+        <attribute type="xsd:dateTime" name="created" use="optional">
+            <annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>
+                        A creation time-stamp for the tenant.
+                    </p>
+                </xsd:documentation>
+            </annotation>
+        </attribute>
+        <anyAttribute namespace="##other" processContents="lax"/>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="IdentityFault">
+        <sequence>
+            <element name="message" type="xsd:string">
+                <annotation>
+                    <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                        <p>
+                            A human readable message that is appropriate for display
+                            to the end user.
+                        </p>
+                    </xsd:documentation>
+                </annotation>
+            </element>
+            <element name="details" type="xsd:string" minOccurs="0">
+                <annotation>
+                    <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                        <p>
+                            The optional &lt;details&gt; element may contain useful
+                            information for tracking down errors (e.g a stack
+                            trace).  This information may or may not be appropriate
+                            for display to an end user.
+                        </p>
+                    </xsd:documentation>
+                </annotation>
+            </element>
+            <any namespace="##other"
+              processContents="lax"
+              minOccurs="0"
+              maxOccurs="unbounded"/>
+        </sequence>
+        <attribute name="code" type="xsd:int" use="required">
+            <annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>
+                        The HTTP status code associated with the current fault.
+                    </p>
+                </xsd:documentation>
+            </annotation>
+        </attribute>
+        <anyAttribute namespace="##other" processContents="lax"/>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="ServiceUnavailableFault">
+        <complexContent>
+            <extension base="identity:IdentityFault">
+            </extension>
+        </complexContent>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="BadRequestFault">
+        <complexContent>
+            <extension base="identity:IdentityFault">
+            </extension>
+        </complexContent>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="UnauthorizedFault">
+        <complexContent>
+            <extension base="identity:IdentityFault">
+            </extension>
+        </complexContent>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="UserDisabledFault">
+        <complexContent>
+            <extension base="identity:IdentityFault">
+            </extension>
+        </complexContent>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="ForbiddenFault">
+        <complexContent>
+            <extension base="identity:IdentityFault">
+            </extension>
+        </complexContent>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="ItemNotFoundFault">
+        <complexContent>
+            <extension base="identity:IdentityFault">
+            </extension>
+        </complexContent>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="TenantConflictFault">
+        <complexContent>
+            <extension base="identity:IdentityFault">
+            </extension>
+        </complexContent>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="OverLimitFault">
+        <complexContent>
+            <extension base="identity:IdentityFault">
+                <attribute name="retryAt" type="xsd:dateTime" use="optional">
+                    <annotation>
+                        <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                            <p>
+                                An optional dateTime denoting when an operation should
+                                be retried.
+                            </p>
+                        </xsd:documentation>
+                    </annotation>
+                </attribute>
+            </extension>
+        </complexContent>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="Endpoint">
+        <sequence>
+            <element name="version"
+                  type="identity:VersionForService"
+                  maxOccurs="1"
+                  minOccurs="0">
+                <annotation>
+                    <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                        <p>
+                            Version details.
+                        </p>
+                    </xsd:documentation>
+                </annotation>
+            </element>
+            <element vc:minVersion="1.1"
+                  ref="atom:link"
+                  minOccurs="0"
+                  maxOccurs="unbounded"/>
+            <any namespace="##other"
+              processContents="lax"
+              minOccurs="0"
+              maxOccurs="unbounded"/>
+        </sequence>
+        <attribute name="id" type="xsd:int" use="required">
+            <annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>
+                        An ID uniquely identifying the Endpoint.
+                    </p>
+                </xsd:documentation>
+            </annotation>
+        </attribute>
+        <attribute name="type" type="identity:ExtensibleServiceType" use="required">
+            <annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>
+                        The OpenStack-registered type (e.g. 'compute', 'object-store', etc).
+                    </p>
+                </xsd:documentation>
+            </annotation>
+        </attribute>
+        <attribute name="name" type="xsd:string" use="optional">
+            <annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>
+                        The commercial service name (e.g. 'My Nova Cloud Servers').
+                    </p>
+                </xsd:documentation>
+            </annotation>
+        </attribute>
+        <attribute name="region" type="xsd:string" use="optional">
+            <annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>
+                        The region of Endpoint Template.
+                    </p>
+                </xsd:documentation>
+            </annotation>
+        </attribute>
+        <attribute name="publicURL" type="xsd:anyURI" use="required">
+            <annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>
+                        The public URL to access represented service.
+                    </p>
+                </xsd:documentation>
+            </annotation>
+        </attribute>
+        <attribute name="internalURL" type="xsd:anyURI" use="optional">
+            <annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>
+                        The internal version of the public URL.
+                    </p>
+                </xsd:documentation>
+            </annotation>
+        </attribute>
+        <attribute name="adminURL" type="xsd:anyURI" use="optional">
+            <annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>
+                        The admin URL.
+                    </p>
+                </xsd:documentation>
+            </annotation>
+        </attribute>
+        <attribute name="tenantId" type="xsd:string" use="optional">
+            <annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>
+                        Tenant id to which the endpoints belong.
+                    </p>
+                </xsd:documentation>
+            </annotation>
+        </attribute>
+        <anyAttribute namespace="##other" processContents="lax"/>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="EndpointList">
+        <sequence>
+            <element name="endpoint"
+                  type="identity:Endpoint"
+                  minOccurs="0"
+                  maxOccurs="unbounded"/>
+            <element vc:minVersion="1.1"
+                  ref="atom:link"
+                  minOccurs="0"
+                  maxOccurs="unbounded"/>
+            <any namespace="##other"
+              processContents="lax"
+              minOccurs="0"
+              maxOccurs="unbounded"/>
+        </sequence>
+        <anyAttribute namespace="##other" processContents="lax"/>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="User">
+        <sequence>
+            <any namespace="##other"
+              processContents="lax"
+              minOccurs="0"
+              maxOccurs="unbounded"/>
+        </sequence>
+        <attribute name="id" type="xsd:string" use="optional">
+            <annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>
+                        An automatically generated, unique, immutable (it will never change) identifier
+                        for the user. This is generated by the backend this user is stored in.
+                    </p>
+                </xsd:documentation>
+            </annotation>
+        </attribute>
+        <attribute name="username" type="xsd:string" use="optional">
+            <annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>
+                        A unique, mutable (it can change) user name that may be used by the user
+                        an identifier when presenting credentials.
+                    </p>
+                </xsd:documentation>
+            </annotation>
+        </attribute>
+        <attribute name="email" type="xsd:string" use="optional"/>
+        <attribute name="enabled" type="xsd:boolean" default="true" use="optional">
+            <annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>
+                        A true/false value that determines if the user may authenticate or not.
+                        If enabled is false, the user will not be able to authenticate.
+                        How this value is stored or generated is dependent on the backend in use.
+                    </p>
+                </xsd:documentation>
+            </annotation>
+        </attribute>
+        <attribute name="display-name" type="xsd:string" use="optional">
+            <annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>
+                        A human-readable, friendly name for use in user interfaces.
+                    </p>
+                </xsd:documentation>
+            </annotation>
+        </attribute>
+        <attribute name="updated" type="xsd:dateTime" use="optional">
+            <annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>
+                        A time-stamp identifying the modification time of the
+                        user.
+                    </p>
+                </xsd:documentation>
+            </annotation>
+        </attribute>
+        <attribute name="created" type="xsd:dateTime" use="optional">
+            <annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>
+                        A creation time-stamp for the user.
+                    </p>
+                </xsd:documentation>
+            </annotation>
+        </attribute>
+        <anyAttribute namespace="##other" processContents="lax"/>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="UserList">
+        <sequence>
+            <element name="user"
+                  type="identity:User"
+                  minOccurs="0"
+                  maxOccurs="unbounded"/>
+            <element vc:minVersion="1.1"
+                  ref="atom:link"
+                  minOccurs="0"
+                  maxOccurs="unbounded"/>
+            <any namespace="##other"
+              processContents="lax"
+              minOccurs="0"
+              maxOccurs="unbounded"/>
+        </sequence>
+        <anyAttribute namespace="##other" processContents="lax"/>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema"
+                name="CredentialType"
+                abstract="true">
+        <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                <p>
+                    Base type for credential in Keystone.
+                </p>
+            </xsd:documentation>
+        </annotation>
+        <sequence>
+            <any namespace="##other"
+              processContents="lax"
+              minOccurs="0"
+              maxOccurs="unbounded"/>
+        </sequence>
+        <anyAttribute namespace="##other" processContents="lax"/>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="AuthenticationRequest">
+        <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                <p>
+                    Both the tenantId and tenantName are optional, but should not be specified together. If both attributes are specified, the server SHOULD respond with a 400 Bad Request.
+                </p>
+            </xsd:documentation>
+        </annotation>
+     <sequence>
+          <choice>
+               <element ref="identity:credential" minOccurs="1"/>
+               <element name="token" type="identity:TokenForAuthenticationRequest"/>
+          </choice>
+          <any namespace="##other"
+              processContents="lax"
+              minOccurs="0"
+              maxOccurs="unbounded"/>
+      </sequence>
+        <attribute name="tenantId" type="xsd:string" use="optional"/>
+        <attribute name="tenantName" type="xsd:string" use="optional"/>
+        <anyAttribute namespace="##other" processContents="lax"/>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema"
+                name="TokenForAuthenticationRequest">
+        <attribute name="id" type="xsd:string" use="required"/>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="PasswordCredentialsBase">
+        <complexContent>
+            <extension base="identity:CredentialType">
+                <attribute name="username" type="xsd:string" use="optional"/>
+                <attribute name="password" type="xsd:string" use="required"/>
+            </extension>
+        </complexContent>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema"
+                name="PasswordCredentialsWithoutUsername">
+        <complexContent>
+            <restriction base="identity:PasswordCredentialsBase">
+                <attribute name="username" type="xsd:string" use="prohibited"/>
+                <attribute name="password" type="xsd:string" use="required"/>
+            </restriction>
+        </complexContent>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema"
+                name="PasswordCredentialsRequiredUsername">
+        <complexContent>
+            <restriction base="identity:PasswordCredentialsBase">
+                <attribute name="username" type="xsd:string" use="required"/>
+                <attribute name="password" type="xsd:string" use="required"/>
+            </restriction>
+        </complexContent>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="CredentialListType">
+        <sequence>
+           <element ref="identity:credential" minOccurs="1" maxOccurs="unbounded"/>
+        </sequence>
+        <anyAttribute namespace="##other" processContents="lax"/>
+    </complexType>
+</xsd:schema>

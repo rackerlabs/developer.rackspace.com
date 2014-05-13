@@ -1,0 +1,21 @@
+{
+    "BackupConfigurationId":6270,
+    "BackupConfigurationName":"Restore_Backup",
+    "BackupReportId":133886,
+    "RestorePoint":"\/Date(1357151359000)\/",
+    "StartTime":"\/Date(1357226521000)\/",
+    "CompletedTime":"\/Date(1357226535000)\/",
+    "Duration":"00:00:14",
+    "OriginatingComputerName":"sujala-test-centos",
+    "State":"CompletedWithErrors",
+    "NumFilesRestored":"35",
+    "NumBytesRestored":"18 MB",
+    "RestoreDestination":"BILLS-TEST-WIN",
+    "RestoreDestinationMachineId":864,
+    "NumErrors":"1",
+    "Reason":"UnableToProcessSomeFiles",
+    "Diagnostics":"Some files may not have been restored",
+    "ErrorList":[
+    
+    ]
+}

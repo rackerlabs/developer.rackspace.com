@@ -1,0 +1,3175 @@
+
+<!DOCTYPE html>
+<html lang="en"><head>
+   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+      <meta charset="UTF-8">
+         <title>developer.rackspace.com</title>
+         
+         <link href="developer.rackspace.com_files/css.css" rel="stylesheet" type="text/css"/>
+         
+         <link rel="stylesheet" href="developer.rackspace.com_files/reset.css"/>
+         <link rel="stylesheet" href="developer.rackspace.com_files/style.css"/>
+         <link href="apiref/css/bootstrap.min.css" rel="stylesheet"></link> 
+         <link href="apiref/css/main.css" rel="stylesheet" type="text/css"></link>      
+</head>
+   <body>
+      <!--  Top Nav Bar -->
+      <div class="header">
+         <div class="inner clearfix">
+            <a class="title" href="http://awesomemonster.com/devsite/index.html">Rackspace Developer Center</a>
+            <ul>
+               <li><a href="http://awesomemonster.com/devsite/main-sdks.html">SDKs</a></li>
+               <li><a href="http://awesomemonster.com/devsite/main-services.html">Services</a></li>
+               <li><a href="http://awesomemonster.com/devsite/blog-list.html">DevOps Blog</a></li>
+               <li><a href="#">Sign Up</a></li>
+               <li><form action="search">
+                  <input name="" id="" placeholder="Search our docs" type="search">
+                     <input name="" value="Search" type="submit">
+               </form></li>
+            </ul>
+         </div>
+      </div>   
+      
+      <div class="container">
+         <div class="rowtop">
+            <div class="col-md-3">
+               <div class="api-sidebar" data-offset-bottom="0" data-offset-top="1000" data-spy="affix">
+                  <ul class="nav api-sidenav">
+                     <li><a class="smallcapped" href="#autoscale-v1.0">Auto&nbsp;Scale&nbsp;API&nbsp;v1.0</a></li>
+                     <li class="divider"></li>
+                     <li>
+                        <ul class="nav active">
+                           <li><a href="api-ref-auto-scale.html">Auto Scale
+                                 API</a></li>
+                           <li><a href="api-ref-backup.html">Cloud Backup
+                                 API</a></li>
+                           <li><a href="api-ref-big-data.html">Cloud Big Data
+                                 API</a></li>
+                           <li><a href="api-ref-blockstorage.html">Cloud Block
+                                 Storage API</a></li>
+                           <li><a href="api-ref-databases.html">Cloud
+                                 Databases API</a></li>
+                           <li><a href="api-ref-email-and-apps.html">Email
+                                 &amp; Apps API</a></li>
+                           <li><a href="api-ref-files.html">Cloud Files
+                                 API</a></li>
+                           <li><a href="api-ref-identity.html">Cloud Identity
+                                 API</a></li>
+                           <li><a href="api-ref-images.html">Cloud Images
+                                 API</a></li>
+                           <li><a href="api-ref-monitoring.html">Cloud
+                                 Monitoring API</a></li>
+                           <li><a href="api-ref-networks.html">Cloud Networks
+                                 API</a></li>
+                           <li><a href="api-ref-orchestration.html">Cloud
+                                 Orchestration API</a></li>
+                           <li><a href="api-ref-queues.html">Cloud Queues
+                                 API</a></li>
+                           <li><a href="api-ref.html">Cloud Servers
+                                 API</a></li>
+                           <li><a href="api-ref-servers-ext.html">Cloud
+                                 Servers API extensions</a></li>
+                        </ul>
+                     </li>
+                  </ul>
+                  <div class="row">
+                     <div class="col-md-7"><label class="sr-only" for="search-box">Search on this page</label><input class="form-control" id="search-box" placeholder="Search this page" type="text"></input></div>
+                     <div class="col-md-5"><button class="btn btn-default" id="search-btn">Search</button></div>
+                  </div>
+               </div>
+            </div>
+            <div class="col-md-9 api-documentation">
+               
+               
+               <div id="autoscale-v1.0">
+                  <div class="subhead">
+                     <h2>Auto Scale API v1.0<a class="headerlink" href="#autoscale-v1.0" title="Permalink to this headline"><span class="glyphicon glyphicon-link"></span></a></h2>
+                  </div>
+                  
+                  <!-- ../wadls/autoscale/wadl/autoscale.wadl -->
+                  
+                  
+                  <div id="autoscale-groups">
+                     <div class="subhead">
+                        <h3>Scaling groups<a class="headerlink" href="#autoscale-groups" title="Permalink to this headline"><span class="glyphicon glyphicon-link"></span></a></h3>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e154">
+                           <div class="col-md-1"><span class="label label-success">POST</span></div>
+                           <div class="col-md-5">v1.0/&#8203;{tenantId}&#8203;/groups</div>
+                           <div class="col-md-5">
+                              <p>Creates a scaling group.</p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e154" data-toggle="collapse" id="detail-d69e154-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e154">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>Creates a scaling group or a collection of servers
+                                    and load balancers that are managed by a scaling
+                                    policy. To describe the group, specify the scaling
+                                    group configuration, launch configuration, and
+                                    optional scaling policies in the request body in JSON
+                                    format.
+                                 </p>
+                                 <p>If the request succeeds, the response body describes
+                                    the created group in JSON format. The response
+                                    includes an ID and links for the group.
+                                 </p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>201</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">identityFault (400, 500, &#8230;),
+                                    badRequest (400),
+                                    unauthorized (401),
+                                    forbidden (403),
+                                    badMethod (405),
+                                    overLimit (413),
+                                    serviceUnavailable (503),
+                                    itemNotFound (404),
+                                    badMediaType (415)
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"><b>Request parameters</b><table class="table table-bordered table-striped">
+                                       <thead>
+                                          <tr>
+                                             <th>Parameter</th>
+                                             <th>Style</th>
+                                             <th>Type</th>
+                                             <th>Description</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          <tr>
+                                             <td>launchConfiguration</td>
+                                             <td>plain</td>
+                                             <td>object</td>
+                                             <td>
+                                                
+                                                <p>A launch configuration.</p>
+                                                
+                                                <p>A
+                                                   launch configuration defines what to do
+                                                   when a new server is created, including
+                                                   information about the server image, the
+                                                   flavor of the server image, and the load
+                                                   balancer to which to connect. You must set
+                                                   the <code>type</code> parameter to
+                                                   <code>launch_server</code>.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>loadBalancers (Optional)</td>
+                                             <td>plain</td>
+                                             <td>array</td>
+                                             <td>
+                                                
+                                                <p>One or more load balancers to which to
+                                                   add new servers.
+                                                </p>
+                                                
+                                                <p>All servers are added to these load
+                                                   balancers with the IP addresses of their
+                                                   ServiceNet network. All servers are
+                                                   enabled and equally weighted. Any new
+                                                   servers that are not connected to the
+                                                   ServiceNet network are not added to any
+                                                   load balancers.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>port</td>
+                                             <td>plain</td>
+                                             <td>integer</td>
+                                             <td>
+                                                
+                                                <p>The port number of the
+                                                   service (on the new servers) to use for
+                                                   this particular load balancer. In most
+                                                   cases, this port number is
+                                                   80.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>loadBalancerId</td>
+                                             <td>plain</td>
+                                             <td>integer</td>
+                                             <td>
+                                                
+                                                <p>The ID of the load
+                                                   balancer to which to add new
+                                                   servers.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>server</td>
+                                             <td>plain</td>
+                                             <td>object</td>
+                                             <td>
+                                                
+                                                <p>The attributes that Auto
+                                                   Scale uses to create a new server. For
+                                                   more information, see <a href="http://docs.rackspace.com/servers/api/v2/cs-devguide/content/CreateServers.html">Create Server</a>. The attributes
+                                                   that you specify for the server entity
+                                                   apply to all new servers in the scaling
+                                                   group, including the server
+                                                   name.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>flavorRef</td>
+                                             <td>plain</td>
+                                             <td>string</td>
+                                             <td>
+                                                
+                                                <p>The flavor of the server
+                                                   image. Specifies the flavor ID for the
+                                                   server.
+                                                </p>
+                                                
+                                                <p>A flavor is a resource
+                                                   configuration for a server. For more
+                                                   information, see Server Flavors
+                                                   <olink xmlns="http://docbook.org/ns/docbook" targetdoc="autoscale-devguide" targetptr="server-flavors">&#8220;Server
+                                                      Flavors&#8221;
+                                                   </olink>
+                                                   section.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>imageRef</td>
+                                             <td>plain</td>
+                                             <td>string</td>
+                                             <td>
+                                                
+                                                <p>The ID of the cloud server
+                                                   image, after which new server images are
+                                                   created.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>personality (Optional)</td>
+                                             <td>plain</td>
+                                             <td>array</td>
+                                             <td>
+                                                
+                                                <p>The file path and/or the
+                                                   content that you want to inject into a
+                                                   server image. For more information, see
+                                                   the <a href="http://docs.rackspace.com/servers/api/v2/cs-devguide/content/Server_Personality-d1e2543.html">Server Personality</a>
+                                                   documentation for Rackspace Cloud
+                                                   Servers.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>path</td>
+                                             <td>plain</td>
+                                             <td>string</td>
+                                             <td>
+                                                
+                                                <p>The path to the file that
+                                                   contains data that is injected into the
+                                                   file system of the new cloud server
+                                                   image.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>contents</td>
+                                             <td>plain</td>
+                                             <td>string</td>
+                                             <td>
+                                                
+                                                <p>The content items that is
+                                                   injected into the file system of the new
+                                                   cloud server image.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>args</td>
+                                             <td>plain</td>
+                                             <td>object</td>
+                                             <td>
+                                                
+                                                <p>The item to be configured.
+                                                   Must be "server" or "load balancer." Most
+                                                   launch configurations have both a server
+                                                   and a load balancer
+                                                   configured.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>type</td>
+                                             <td>plain</td>
+                                             <td>string</td>
+                                             <td>
+                                                
+                                                <p>The type of the launch
+                                                   configuration. For this release, this
+                                                   parameter must be set to
+                                                   <code>launch_server</code>.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>groupConfiguration</td>
+                                             <td>plain</td>
+                                             <td>object</td>
+                                             <td>
+                                                
+                                                <p>The configuration options
+                                                   for the scaling group. The scaling group
+                                                   configuration specifies the basic elements
+                                                   of the Auto Scale configuration. It
+                                                   manages how many servers can participate
+                                                   in the scaling group. It specifies
+                                                   information related to load
+                                                   balancers.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>maxEntities (Optional)</td>
+                                             <td>plain</td>
+                                             <td>object</td>
+                                             <td>
+                                                
+                                                <p>The maximum amount of
+                                                   identities that are allowed in the scaling
+                                                   group. This number defaults to null. If
+                                                   this value is provided it must be set to
+                                                   an integer between 0 and 1000.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>name</td>
+                                             <td>plain</td>
+                                             <td>string</td>
+                                             <td>
+                                                
+                                                <p>The name of the scaling
+                                                   group. This name does not need to be
+                                                   unique.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>cooldown</td>
+                                             <td>plain</td>
+                                             <td>integer</td>
+                                             <td>
+                                                
+                                                <p>The cool-down period
+                                                   before more entities are added, in
+                                                   seconds. This number must be an integer
+                                                   between 0 and 86400 (24 hrs).
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>minEntities</td>
+                                             <td>plain</td>
+                                             <td>integer</td>
+                                             <td>
+                                                
+                                                <p>The minimum number of
+                                                   entities in the scaling group. This number
+                                                   must be an integer between 0 and
+                                                   1000.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>metadata (Optional)</td>
+                                             <td>plain</td>
+                                             <td>object</td>
+                                             <td>
+                                                
+                                                <p>Optional. Custom metadata
+                                                   for your group configuration. You can use
+                                                   the metadata parameter for customer
+                                                   automation, but it does not change any
+                                                   functionality in Auto Scale. There
+                                                   currently is no limitation on
+                                                   depth.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>scalingPolicies</td>
+                                             <td>plain</td>
+                                             <td>array</td>
+                                             <td>This parameter group specifies configuration
+                                                information for your scaling policies. Scaling
+                                                policies specify how to modify the scaling
+                                                group and its behavior. You can specify
+                                                multiple policies to manage a scaling group.
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>array</td>
+                                             <td>plain</td>
+                                             <td>array</td>
+                                             <td>
+                                                
+                                                <p>An array of scaling
+                                                   policies.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>name</td>
+                                             <td>plain</td>
+                                             <td>string</td>
+                                             <td>
+                                                
+                                                <p>A name for the scaling
+                                                   policy. This name must be unique for each
+                                                   scaling policy.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>args (Optional)</td>
+                                             <td>plain</td>
+                                             <td>object</td>
+                                             <td>
+                                                
+                                                <p>Additional configuration
+                                                   information for policies of type
+                                                   "schedule." This parameter is not required
+                                                   for policies of type "webhook." This
+                                                   parameter must be set to either "at" or
+                                                   <code>cron</code>. Both "at" and
+                                                   <code>cron</code> are mutually
+                                                   exclusive.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>cron (Optional)</td>
+                                             <td>plain</td>
+                                             <td>string</td>
+                                             <td>
+                                                
+                                                <p>The recurring time when
+                                                   the policy runs as a cron entry. For
+                                                   example, if you set this parameter to
+                                                   <code>1 0 * * *</code>, the policy
+                                                   runs at one minute past midnight (00:01)
+                                                   every day of the month, and every day of
+                                                   the week. For more information about cron,
+                                                   see <a href="http://en.wikipedia.org/wiki/Cron">http://en.wikipedia.org/wiki/Cron</a>.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>at (Optional)</td>
+                                             <td>plain</td>
+                                             <td>string</td>
+                                             <td>
+                                                
+                                                <p>The time when this policy
+                                                   runs. This property is mutually exclusive
+                                                   with the <code>cron</code> parameter. You
+                                                   can either provide <code>cron</code> or
+                                                   "at" for a given policy, but not both. You
+                                                   must specify seconds when using "at". If
+                                                   seconds are not specified, a 400 error is
+                                                   returned.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>changePercent (Optional)</td>
+                                             <td>plain</td>
+                                             <td>number</td>
+                                             <td>
+                                                
+                                                <p>The percent change to make
+                                                   in the number of servers in the scaling
+                                                   group. If this number is positive, the
+                                                   number of servers will increase by the
+                                                   given percentage. If this parameter is set
+                                                   to a negative number, the number of
+                                                   servers decreases by the given percentage.
+                                                   The absolute change in the number of
+                                                   servers will be rounded to the nearest
+                                                   integer. This means that if -X% of the
+                                                   current number of servers translates to
+                                                   -0.5 or -0.25 or -0.75 servers, the actual
+                                                   number of servers that will be shut down
+                                                   is 1. If X% of the current number of
+                                                   servers translates to 1.2 or 1.5 or 1.7
+                                                   servers, the actual number of servers that
+                                                   will be launched is 2.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>cooldown</td>
+                                             <td>plain</td>
+                                             <td>number</td>
+                                             <td>
+                                                
+                                                <p>The cool-down period, in
+                                                   seconds, before this particular scaling
+                                                   policy can run again. The cool-down period
+                                                   does not affect the global scaling group
+                                                   cool-down. The minimum value for this
+                                                   parameter is 0 seconds, the maximum value
+                                                   is 86400 seconds (24 hrs).
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>type</td>
+                                             <td>plain</td>
+                                             <td>enum</td>
+                                             <td>
+                                                
+                                                <p>The type of policy that
+                                                   runs for the current release, this value
+                                                   can be either <code>webhook</code> for
+                                                   webhook-based policies or
+                                                   <code>schedule</code> for
+                                                   schedule-based policies.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>change (Optional)</td>
+                                             <td>plain</td>
+                                             <td>integer</td>
+                                             <td>
+                                                
+                                                <p>The change to make in the
+                                                   number of servers in the scaling group.
+                                                   This parameter must be an integer. If the
+                                                   value is a positive integer, the number of
+                                                   servers increases. If the value is a
+                                                   negative integer, the number of servers
+                                                   decreases.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>desiredCapacity (Optional)</td>
+                                             <td>plain</td>
+                                             <td>integer</td>
+                                             <td>
+                                                
+                                                <p>The desired server
+                                                   capacity of the scaling the group. For
+                                                   example, how many servers should be in the
+                                                   scaling group. This value must be an
+                                                   absolute number. For example, if this
+                                                   parameter is set to 10 and the executing
+                                                   policy with this will bring the number of
+                                                   servers to 10. The minimum allowed value
+                                                   is 0.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                       </tbody>
+                                    </table><b>Response parameters</b><table class="table table-bordered table-striped">
+                                       <thead>
+                                          <tr>
+                                             <th>Parameter</th>
+                                             <th>Style</th>
+                                             <th>Type</th>
+                                             <th>Description</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          <tr>
+                                             <td>location</td>
+                                             <td>header</td>
+                                             <td>xsd:anyURI</td>
+                                             <td>
+                                                
+                                                <p>Creates an auto scaling
+                                                   endpoint.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                       </tbody>
+                                    </table>
+                                 </div>
+                              </div>
+                              <div class="example">
+                                 <pre>{
+   "launchConfiguration":{
+      "args":{
+         "loadBalancers":[
+            {
+               "port":80,
+               "loadBalancerId":237935
+            }
+         ],
+         "server":{
+            "name":"autoscale_server",
+            "imageRef":"7cf5ffc3-7b20-46fd-98e4-fefa9908d7e8",
+            "flavorRef":"performance1-2",
+            "OS-DCF:diskConfig":"AUTO",
+            "networks":[
+               {
+                  "uuid":"11111111-1111-1111-1111-111111111111"
+               },
+               {
+                  "uuid":"00000000-0000-0000-0000-000000000000"
+               }
+            ]
+         }
+      },
+      "type":"launch_server"
+   },
+   "groupConfiguration":{
+      "maxEntities":10,
+      "cooldown":360,
+      "name":"testscalinggroup",
+      "minEntities":0
+   },
+   "scalingPolicies":[
+      {
+         "cooldown":0,
+         "name":"scale up by 1",
+         "change":1,
+         "type":"schedule",
+         "args":{
+            "cron":"23 * * * *"
+         }
+      }
+   ]
+}</pre>
+                                 </div>
+                              <div class="example">
+                                 <pre>{
+   "group":{
+      "groupConfiguration":{
+         "cooldown":360,
+         "maxEntities":10,
+         "metadata":{
+
+         },
+         "minEntities":0,
+         "name":"testscalinggroup"
+      },
+      "id":"48692442-2dbe-4311-955e-bc29f02ae311",
+      "launchConfiguration":{
+         "args":{
+            "loadBalancers":[
+               {
+                  "loadBalancerId":237935,
+                  "port":80
+               }
+            ],
+            "server":{
+               "OS-DCF:diskConfig":"AUTO",
+               "flavorRef":"performance1-2",
+               "imageRef":"7cf5ffc3-7b20-46fd-98e4-fefa9908d7e8",
+               "name":"autoscale_server",
+               "networks":[
+                  {
+                     "uuid":"11111111-1111-1111-1111-111111111111"
+                  },
+                  {
+                     "uuid":"00000000-0000-0000-0000-000000000000"
+                  }
+               ]
+            }
+         },
+         "type":"launch_server"
+      },
+      "links":[
+         {
+            "href":"https://dfw.autoscale.api.rackspacecloud.com/v1.0/829409/groups/48692442-2dbe-4311-955e-bc29f02ae311/",
+            "rel":"self"
+         }
+      ],
+      "scalingPolicies":[
+         {
+            "args":{
+               "cron":"23 * * * *"
+            },
+            "change":1,
+            "cooldown":0,
+            "id":"9fa63149-c93d-4116-8069-74d68f48fadc",
+            "links":[
+               {
+                  "href":"https://dfw.autoscale.api.rackspacecloud.com/v1.0/829409/groups/48692442-2dbe-4311-955e-bc29f02ae311/policies/9fa63149-c93d-4116-8069-74d68f48fadc/",
+                  "rel":"self"
+               }
+            ],
+            "name":"scale up by 1",
+            "type":"schedule"
+         }
+      ],
+      "scalingPolicies_links":[
+         {
+            "href":"https://dfw.autoscale.api.rackspacecloud.com/v1.0/829409/groups/48692442-2dbe-4311-955e-bc29f02ae311/policies/",
+            "rel":"policies"
+         }
+      ],
+      "state":{
+         "active":[
+
+         ],
+         "activeCapacity":0,
+         "desiredCapacity":0,
+         "name":"testscalinggroup",
+         "paused":false,
+         "pendingCapacity":0
+      }
+   }
+}</pre>
+                                 </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e588">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v1.0/&#8203;{tenantId}&#8203;/groups</div>
+                           <div class="col-md-5">
+                              <p>Lists the scaling groups that are
+                                 available for a specified tenant.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e588" data-toggle="collapse" id="detail-d69e588-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e588">
+                           <div class="col-md-12">
+                              <div></div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>200</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">identityFault (400, 500, &#8230;),
+                                    badRequest (400),
+                                    unauthorized (401),
+                                    forbidden (403),
+                                    badMethod (405),
+                                    overLimit (413),
+                                    serviceUnavailable (503),
+                                    itemNotFound (404)
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <div class="example">
+                                 <pre>{
+   "groups":[
+      {
+         "id":"e41380ae-173c-4b40-848a-25c16d7fa83d",
+         "links":[
+            {
+               "href":"https://dfw.autoscale.api.rackspacecloud.com/v1.0/676873/groups/e41380ae-173c-4b40-848a-25c16d7fa83d/",
+               "rel":"self"
+            }
+         ],
+         "state":{
+            "active":[
+
+            ],
+            "activeCapacity":0,
+            "desiredCapacity":0,
+            "paused":false,
+            "pendingCapacity":0,
+            "name":"testscalinggroup198547"
+         }
+      },
+      {
+         "id":"f82bb000-f451-40c8-9dc3-6919097d2f7e",
+         "state":{
+            "active":[
+
+            ],
+            "activeCapacity":0,
+            "desiredCapacity":0,
+            "paused":false,
+            "pendingCapacity":0,
+            "name":"testscalinggroup198547"
+         },
+         "links":[
+            {
+               "href":"https://dfw.autoscale.api.rackspacecloud.com/v1.0/676873/groups/f82bb000-f451-40c8-9dc3-6919097d2f7e/",
+               "rel":"self"
+            }
+         ]
+      }
+   ],
+   "groups_links":[
+
+   ]
+}</pre>
+                                 </div>
+                              <p class="nobody">This operation does not require a request body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e672">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v1.0/&#8203;{tenantId}&#8203;/groups/&#8203;{groupId}&#8203;</div>
+                           <div class="col-md-5">
+                              <p>Shows configuration details for a
+                                 specified scaling group.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e672" data-toggle="collapse" id="detail-d69e672-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e672">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>Details include the launch configuration and the
+                                    scaling policies for the specified scaling group
+                                    configuration.
+                                 </p>
+                                 <p>The details appear in the response body in JSON
+                                    format.
+                                 </p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>200</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">identityFault (400, 500, &#8230;),
+                                    badRequest (400),
+                                    unauthorized (401),
+                                    forbidden (403),
+                                    badMethod (405),
+                                    overLimit (413),
+                                    serviceUnavailable (503),
+                                    itemNotFound (404)
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <div class="example">
+                                 <pre>{
+   "group":{
+      "groupConfiguration":{
+         "cooldown":60,
+         "maxEntities":0,
+         "metadata":{
+
+         },
+         "minEntities":0,
+         "name":"smallest possible launch config group"
+      },
+      "state":{
+         "active":[
+
+         ],
+         "activeCapacity":0,
+         "desiredCapacity":0,
+         "paused":false,
+         "pendingCapacity":0,
+         "name":"smallest possible launch config group"
+      },
+      "id":"605e13f6-1452-4588-b5da-ac6bb468c5bf",
+      "launchConfiguration":{
+         "args":{
+            "server":{
+
+            }
+         },
+         "type":"launch_server"
+      },
+      "links":[
+         {
+            "href":"https://dfw.autoscale.api.rackspacecloud.com/v1.0/676873/groups/605e13f6-1452-4588-b5da-ac6bb468c5bf/",
+            "rel":"self"
+         }
+      ],
+      "scalingPolicies":[
+         {
+            "changePercent":-5.5,
+            "cooldown":1800,
+            "id":"eb0fe1bf-3428-4f34-afd9-a5ac36f60511",
+            "links":[
+               {
+                  "href":"https://dfw.autoscale.api.rackspacecloud.com/v1.0/676873/groups/605e13f6-1452-4588-b5da-ac6bb468c5bf/policies/eb0fe1bf-3428-4f34-afd9-a5ac36f60511/",
+                  "rel":"self"
+               }
+            ],
+            "name":"scale down by 5.5 percent",
+            "type":"webhook"
+         }
+      ]
+   }
+}</pre>
+                                 </div>
+                              <p class="nobody">This operation does not require a request body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e760">
+                           <div class="col-md-1"><span class="label label-success">DELETE</span></div>
+                           <div class="col-md-5">v1.0/&#8203;{tenantId}&#8203;/groups/&#8203;{groupId}&#8203;</div>
+                           <div class="col-md-5">
+                              <p>Deletes a specified scaling
+                                 group.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e760" data-toggle="collapse" id="detail-d69e760-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e760">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>The scaling group must be empty. An empty group
+                                    contains no entities. If deletion is successful, no
+                                    response body is returned. If the group contains
+                                    pending or active entities, deletion fails and a 409
+                                    error message is returned. If there are pending or
+                                    active servers in the scaling group, pass
+                                    <code>force=true</code> to force delete the group.
+                                    Passing <code>force=true</code> immediately deletes
+                                    all active servers in the group. Pending servers are
+                                    deleted when they build and become active.
+                                 </p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>204</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">identityFault (400, 500, &#8230;),
+                                    badRequest (400),
+                                    unauthorized (401),
+                                    forbidden (403),
+                                    badMethod (405),
+                                    overLimit (413),
+                                    serviceUnavailable (503),
+                                    itemNotFound (404),
+                                    badMediaType (415)
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body and does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e845">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v1.0/&#8203;{tenantId}&#8203;/groups/&#8203;{groupId}&#8203;/state</div>
+                           <div class="col-md-5">
+                              <p>Gets the current state of a scaling
+                                 group.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e845" data-toggle="collapse" id="detail-d69e845-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e845">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>The GroupState object consists of the following
+                                    properties:
+                                 </p>
+                                 <ul>
+                                    
+                                    <li>
+                                       
+                                       <p>paused. Specifies whether execution of
+                                          scaling policies for the group is currently
+                                          suspended. If this value is set to true, the
+                                          group will not scale up or down. All policy
+                                          execution calls will be ignored while this
+                                          value is set to true..
+                                       </p>
+                                       
+                                    </li>
+                                    
+                                    <li>
+                                       
+                                       <p>pendingCapacity. Integer. Specifies
+                                          the number of servers that are in a "building"
+                                          state..
+                                       </p>
+                                       
+                                    </li>
+                                    
+                                    <li>
+                                       
+                                       <p>name. Specifies the name of the
+                                          group.
+                                       </p>
+                                       
+                                    </li>
+                                    
+                                    <li>
+                                       
+                                       <p>Active. Specifies an array of active
+                                          servers in the group. This array includes the
+                                          serverID, as well as other
+                                          data.
+                                       </p>
+                                       
+                                    </li>
+                                    
+                                    <li>
+                                       
+                                       <p>activeCapacity. Integer. Specifies the
+                                          number of active servers in the
+                                          group.
+                                       </p>
+                                       
+                                    </li>
+                                    
+                                    <li>
+                                       
+                                       <p>desiredCapacity. Integer. Specifies
+                                          the sum of all servers that are in
+                                          <code>Active</code> and
+                                          <code>Pending</code>
+                                          state.
+                                       </p>
+                                       
+                                    </li>
+                                    
+                                    <li>
+                                       
+                                       <p>A request to create multiple policies,
+                                          followed by the matching
+                                          response.
+                                       </p>
+                                       
+                                    </li>
+                                    
+                                 </ul>
+                                 <p>Gets the current state of the specified scaling
+                                    group. It describes the state of the group in terms of
+                                    its current set of active entities, the number of
+                                    pending entities, and the desired number of entities.
+                                    The description is returned in the response body in
+                                    JSON format.
+                                 </p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>200</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">identityFault (400, 500, &#8230;),
+                                    badRequest (400),
+                                    unauthorized (401),
+                                    forbidden (403),
+                                    badMethod (405),
+                                    overLimit (413),
+                                    serviceUnavailable (503),
+                                    itemNotFound (404)
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <div class="example">
+                                 <pre>{
+   "group":{
+      "paused":false,
+      "pendingCapacity":0,
+      "name":"testscalinggroup198547",
+      "active":[
+
+      ],
+      "activeCapacity":0,
+      "desiredCapacity":0
+   }
+}</pre>
+                                 </div>
+                              <p class="nobody">This operation does not require a request body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e988">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v1.0/&#8203;{tenantId}&#8203;/groups/&#8203;{groupId}&#8203;/config</div>
+                           <div class="col-md-5">
+                              <p> Lists the configuration for a
+                                 scaling group.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e988" data-toggle="collapse" id="detail-d69e988-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e988">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>Lists the configuration for a specified scaling
+                                    group. The configuration describes the minimum number
+                                    of entities in the group, the maximum number of
+                                    entities in the group, the global cool-down time for
+                                    the group, and other metadata. The configuration is
+                                    returned in the response body in JSON format.
+                                 </p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>200</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">identityFault (400, 500, &#8230;),
+                                    badRequest (400),
+                                    unauthorized (401),
+                                    forbidden (403),
+                                    badMethod (405),
+                                    overLimit (413),
+                                    serviceUnavailable (503),
+                                    itemNotFound (404)
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <div class="example">
+                                 <pre>{
+   "groupConfiguration":{
+      "cooldown":60,
+      "maxEntities":0,
+      "metadata":{
+
+      },
+      "minEntities":0,
+      "name":"smallest possible group"
+   }
+}</pre>
+                                 </div>
+                              <p class="nobody">This operation does not require a request body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e1073">
+                           <div class="col-md-1"><span class="label label-success">PUT</span></div>
+                           <div class="col-md-5">v1.0/&#8203;{tenantId}&#8203;/groups/&#8203;{groupId}&#8203;/config</div>
+                           <div class="col-md-5">
+                              <p>Updates the configuration for the
+                                 scaling group.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e1073" data-toggle="collapse" id="detail-d69e1073-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e1073">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>Changes the configuration of an existing scaling
+                                    group. To change the configuration, specify the new
+                                    configuration in the request body in JSON format.
+                                    Configuration elements include the minimum number of
+                                    entities, the maximum number of entities, the global
+                                    cool-down time, and other metadata. If the update is
+                                    successful, no response body is returned.
+                                 </p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>204</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">identityFault (400, 500, &#8230;),
+                                    badRequest (400),
+                                    unauthorized (401),
+                                    forbidden (403),
+                                    badMethod (405),
+                                    overLimit (413),
+                                    serviceUnavailable (503),
+                                    itemNotFound (404),
+                                    badMediaType (415)
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"><b>Request parameters</b><table class="table table-bordered table-striped">
+                                       <thead>
+                                          <tr>
+                                             <th>Parameter</th>
+                                             <th>Style</th>
+                                             <th>Type</th>
+                                             <th>Description</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          <tr>
+                                             <td>maxEntities</td>
+                                             <td>plain</td>
+                                             <td>object</td>
+                                             <td>
+                                                
+                                                <p>The maximum amount of
+                                                   identities that are allowed in the scaling
+                                                   group. This number defaults to null. If
+                                                   this value is provided it must be set to
+                                                   an integer between 0 and 1000.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>cooldown</td>
+                                             <td>plain</td>
+                                             <td>integer</td>
+                                             <td>
+                                                
+                                                <p>The cool-down period
+                                                   before more entities are added, in
+                                                   seconds. This number must be an integer
+                                                   between 0 and 86400 (24 hrs).
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>name</td>
+                                             <td>plain</td>
+                                             <td>string</td>
+                                             <td>
+                                                
+                                                <p>The name of the scaling
+                                                   group. This name cannot be
+                                                   unique.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>minEntities</td>
+                                             <td>plain</td>
+                                             <td>integer</td>
+                                             <td>
+                                                
+                                                <p>The minimum number of
+                                                   entities in the scaling group. This number
+                                                   must be an integer between 0 and
+                                                   1000.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>metadata</td>
+                                             <td>plain</td>
+                                             <td>object</td>
+                                             <td>
+                                                
+                                                <p>Optional. Custom metadata
+                                                   for your group configuration. You can use
+                                                   the metadata parameter for customer
+                                                   automation, but it does not change any
+                                                   functionality in Auto Scale. There
+                                                   currently is no limitation on
+                                                   depth.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                       </tbody>
+                                    </table>
+                                 </div>
+                              </div>
+                              <div class="example">
+                                 <pre>{
+   "name":"workers",
+   "cooldown":60,
+   "minEntities":5,
+   "maxEntities":100,
+   "metadata":{
+      "firstkey":"this is a string",
+      "secondkey":"1"
+   }
+}</pre>
+                                 </div>
+                              <p class="nobody">This operation does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e1214">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v1.0/&#8203;{tenantId}&#8203;/groups/&#8203;{groupId}&#8203;/launch</div>
+                           <div class="col-md-5">
+                              <p>Shows launch configuration details
+                                 for a specified scaling group.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e1214" data-toggle="collapse" id="detail-d69e1214-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e1214">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>The details include how to create a server, from
+                                    which image to create a server, which load balancers
+                                    to join the server to, which networks to add the
+                                    server to, and other metadata.
+                                 </p>
+                                 <p>The details appear in the response body in JSON
+                                    format.
+                                 </p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>200</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">identityFault (400, 500, &#8230;),
+                                    badRequest (400),
+                                    unauthorized (401),
+                                    forbidden (403),
+                                    badMethod (405),
+                                    overLimit (413),
+                                    serviceUnavailable (503),
+                                    itemNotFound (404)
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <div class="example">
+                                 <pre>{
+   "launchConfiguration":{
+      "type":"launch_server",
+      "args":{
+         "server":{
+            "flavorRef":"performance1-4",
+            "name":"webhead",
+            "imageRef":"0d589460-f177-4b0f-81c1-8ab8903ac7d8",
+            "OS-DCF:diskConfig":"AUTO",
+            "metadata":{
+               "mykey":"myvalue"
+            },
+            "personality":[
+
+            ],
+            "networks":[
+               {
+                  "uuid":"11111111-1111-1111-1111-111111111111"
+               }
+            ]
+         },
+         "loadBalancers":[
+
+         ]
+      }
+   }
+}</pre>
+                                 </div>
+                              <p class="nobody">This operation does not require a request body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e1300">
+                           <div class="col-md-1"><span class="label label-success">PUT</span></div>
+                           <div class="col-md-5">v1.0/&#8203;{tenantId}&#8203;/groups/&#8203;{groupId}&#8203;/launch</div>
+                           <div class="col-md-5">
+                              <p>Updates an existing launch
+                                 configuration for the specified scaling group.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e1300" data-toggle="collapse" id="detail-d69e1300-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e1300">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>To change the launch configuration, specify the new
+                                    configuration in the request body in JSON format.
+                                    Configuration elements include how to create a server,
+                                    from what image to create a server, which load
+                                    balancers to join the server to, which networks to add
+                                    the server to, and other metadata. If the update is
+                                    successful, no response body is returned.
+                                 </p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>204</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">identityFault (400, 500, &#8230;),
+                                    badRequest (400),
+                                    unauthorized (401),
+                                    forbidden (403),
+                                    badMethod (405),
+                                    overLimit (413),
+                                    serviceUnavailable (503),
+                                    itemNotFound (404),
+                                    badMediaType (415)
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"><b>Request parameters</b><table class="table table-bordered table-striped">
+                                       <thead>
+                                          <tr>
+                                             <th>Parameter</th>
+                                             <th>Style</th>
+                                             <th>Type</th>
+                                             <th>Description</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          <tr>
+                                             <td>args (Optional)</td>
+                                             <td>plain</td>
+                                             <td>object</td>
+                                             <td>
+                                                
+                                                <p>The item to be configured.
+                                                   Must be "server" or "loadbalancer." Most
+                                                   launch configurations have both a server
+                                                   and a loadbalancer
+                                                   configured.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>loadBalancers (Optional)</td>
+                                             <td>plain</td>
+                                             <td>array</td>
+                                             <td>
+                                                
+                                                <p>One or more load balancers
+                                                   to which to add servers.
+                                                </p>
+                                                
+                                                <p>All servers are added to these load
+                                                   balancers with the IP addresses of their
+                                                   ServiceNet network. All servers are
+                                                   enabled and equally weighted. Any new
+                                                   servers that are not connected to the
+                                                   ServiceNet network are not added to any
+                                                   load balancers.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>port</td>
+                                             <td>plain</td>
+                                             <td>integer</td>
+                                             <td>
+                                                
+                                                <p>The port number of the
+                                                   service (on the new servers) to use for
+                                                   this particular load balancer. In most
+                                                   cases, this port number is
+                                                   80.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>loadBalancerId</td>
+                                             <td>plain</td>
+                                             <td>integer</td>
+                                             <td>
+                                                
+                                                <p>The ID of the load
+                                                   balancer to which new servers will be
+                                                   added.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>server</td>
+                                             <td>plain</td>
+                                             <td>object</td>
+                                             <td>
+                                                
+                                                <p>The attributes that Auto
+                                                   Scale uses to create a new server. For
+                                                   more information, see <a href="http://docs.rackspace.com/servers/api/v2/cs-devguide/content/CreateServers.html">Create Server</a>. The attributes
+                                                   that are specified for the server entity
+                                                   will apply to all new servers in the
+                                                   scaling group, including the server
+                                                   name.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>flavorRef</td>
+                                             <td>plain</td>
+                                             <td>string</td>
+                                             <td>
+                                                
+                                                <p>The flavor of the server
+                                                   image. Specifies the flavor Id for the
+                                                   server. A flavor is a resource
+                                                   configuration for a server. For more
+                                                   information on available flavors, see the
+                                                   Server Flavors
+                                                   <olink xmlns="http://docbook.org/ns/docbook" targetdoc="autoscale-devguide" targetptr="server-flavors">&#8220;Server
+                                                      Flavors&#8221;
+                                                   </olink>
+                                                   section.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>imageRef</td>
+                                             <td>plain</td>
+                                             <td>string</td>
+                                             <td>
+                                                
+                                                <p>The ID of the cloud server
+                                                   image, after which new server images will
+                                                   be created.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>personality (Optional)</td>
+                                             <td>plain</td>
+                                             <td>array</td>
+                                             <td>
+                                                
+                                                <p>The file path and/or the
+                                                   content that you want to inject into a
+                                                   server image. For more information, see
+                                                   the <a href="http://docs.rackspace.com/servers/api/v2/cs-devguide/content/Server_Personality-d1e2543.html">Server Personality</a>
+                                                   documentation for Rackspace Cloud
+                                                   Servers.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>path</td>
+                                             <td>plain</td>
+                                             <td>string</td>
+                                             <td>
+                                                
+                                                <p>The path to the file that
+                                                   contains data that will be injected into
+                                                   the file system of the new cloud server
+                                                   image.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>contents</td>
+                                             <td>plain</td>
+                                             <td>string</td>
+                                             <td>
+                                                
+                                                <p>The content items that
+                                                   will be injected into the file system of
+                                                   the new cloud server image.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                       </tbody>
+                                    </table>
+                                 </div>
+                              </div>
+                              <div class="example">
+                                 <pre>{
+   "type":"launch_server",
+   "args":{
+      "server":{
+         "flavorRef":"performance1-4",
+         "name":"webhead",
+         "imageRef":"0d589460-f177-4b0f-81c1-8ab8903ac7d8",
+         "OS-DCF:diskConfig":"AUTO",
+         "metadata":{
+            "mykey":"myvalue"
+         },
+         "personality":[
+
+         ],
+         "networks":[
+            {
+               "uuid":"11111111-1111-1111-1111-111111111111"
+            }
+         ]
+      },
+      "loadBalancers":[
+         {
+            "loadBalancerId":2200,
+            "port":8081
+         }
+      ]
+   }
+}</pre>
+                                 </div>
+                              <p class="nobody">This operation does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e1498">
+                           <div class="col-md-1"><span class="label label-success">POST</span></div>
+                           <div class="col-md-5">v1.0/&#8203;{tenantId}&#8203;/groups/&#8203;{groupId}&#8203;/pause</div>
+                           <div class="col-md-5">
+                              <p>Pauses the execution of all scaling
+                                 policies for the specified scaling group.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e1498" data-toggle="collapse" id="detail-d69e1498-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e1498">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>IMPORTANT: This method has not been implemented in
+                                    the Auto Scale API yet and will be implemented in a
+                                    future release.
+                                 </p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>204</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">identityFault (400, 500, &#8230;),
+                                    badRequest (400),
+                                    unauthorized (401),
+                                    forbidden (403),
+                                    badMethod (405),
+                                    overLimit (413),
+                                    serviceUnavailable (503),
+                                    itemNotFound (404),
+                                    badMediaType (415)
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body and does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e1577">
+                           <div class="col-md-1"><span class="label label-success">POST</span></div>
+                           <div class="col-md-5">v1.0/&#8203;{tenantId}&#8203;/groups/&#8203;{groupId}&#8203;/resume</div>
+                           <div class="col-md-5">
+                              <p>Resumes the execution of all
+                                 scaling policies for the specified scaling
+                                 group.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e1577" data-toggle="collapse" id="detail-d69e1577-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e1577">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>IMPORTANT: This method has not been implemented in
+                                    the Auto Scale API yet and will be implemented in a
+                                    future release.
+                                 </p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>204</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">identityFault (400, 500, &#8230;),
+                                    badRequest (400),
+                                    unauthorized (401),
+                                    forbidden (403),
+                                    badMethod (405),
+                                    overLimit (413),
+                                    serviceUnavailable (503),
+                                    itemNotFound (404),
+                                    badMediaType (415)
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body and does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  
+                  <div id="autoscale-policies">
+                     <div class="subhead">
+                        <h3>Policies<a class="headerlink" href="#autoscale-policies" title="Permalink to this headline"><span class="glyphicon glyphicon-link"></span></a></h3>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e1662">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v1.0/&#8203;{tenantId}&#8203;/groups/&#8203;{groupId}&#8203;/policies</div>
+                           <div class="col-md-5">
+                              <p>Lists all scaling policies that are
+                                 available to the specified scaling group.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e1662" data-toggle="collapse" id="detail-d69e1662-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e1662">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>Each policy is described in terms of an ID, name,
+                                    type, adjustment, cool-down time, and links. These
+                                    descriptions are returned in the response body in JSON
+                                    format.
+                                 </p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>200</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">identityFault (400, 500, &#8230;),
+                                    badRequest (400),
+                                    unauthorized (401),
+                                    forbidden (403),
+                                    badMethod (405),
+                                    overLimit (413),
+                                    serviceUnavailable (503),
+                                    itemNotFound (404)
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <div class="example">
+                                 <pre>{
+   "policies":[
+      {
+         "args":{
+            "cron":"23 * * * *"
+         },
+         "changePercent":-5.5,
+         "cooldown":1800,
+         "id":"5f26e16c-5fa7-4d4f-8e78-257ea711389f",
+         "links":[
+            {
+               "href":"https://dfw.autoscale.api.rackspacecloud.com/v1.0/676873/groups/605e13f6-1452-4588-b5da-ac6bb468c5bf/policies/5f26e16c-5fa7-4d4f-8e78-257ea711389f/",
+               "rel":"self"
+            }
+         ],
+         "name":"scale down by 5.5 percent at 11pm",
+         "type":"schedule"
+      },
+      {
+         "args":{
+            "at":"2013-12-05T03:12:00Z"
+         },
+         "changePercent":-5.5,
+         "cooldown":1800,
+         "id":"9f7c5801-6b25-4f5a-af07-4bb752e23d53",
+         "links":[
+            {
+               "href":"https://dfw.autoscale.api.rackspacecloud.com/v1.0/676873/groups/605e13f6-1452-4588-b5da-ac6bb468c5bf/policies/9f7c5801-6b25-4f5a-af07-4bb752e23d53/",
+               "rel":"self"
+            }
+         ],
+         "name":"scale down by 5.5 percent on the 5th",
+         "type":"schedule"
+      },
+      {
+         "changePercent":-5.5,
+         "cooldown":1800,
+         "id":"eb0fe1bf-3428-4f34-afd9-a5ac36f60511",
+         "links":[
+            {
+               "href":"https://dfw.autoscale.api.rackspacecloud.com/v1.0/676873/groups/605e13f6-1452-4588-b5da-ac6bb468c5bf/policies/eb0fe1bf-3428-4f34-afd9-a5ac36f60511/",
+               "rel":"self"
+            }
+         ],
+         "name":"scale down by 5.5 percent",
+         "type":"webhook"
+      },
+      {
+         "cooldown":1800,
+         "desiredCapacity":5,
+         "id":"2f45092a-fde7-4461-a67a-3519e0366cd6",
+         "links":[
+            {
+               "href":"https://dfw.autoscale.api.rackspacecloud.com/v1.0/676873/groups/605e13f6-1452-4588-b5da-ac6bb468c5bf/policies/2f45092a-fde7-4461-a67a-3519e0366cd6/",
+               "rel":"self"
+            }
+         ],
+         "name":"set group to 5 servers",
+         "type":"webhook"
+      },
+      {
+         "change":1,
+         "cooldown":1800,
+         "id":"e36e6a43-2a7a-433c-918c-39fa45b75d12",
+         "links":[
+            {
+               "href":"https://dfw.autoscale.api.rackspacecloud.com/v1.0/676873/groups/605e13f6-1452-4588-b5da-ac6bb468c5bf/policies/e36e6a43-2a7a-433c-918c-39fa45b75d12/",
+               "rel":"self"
+            }
+         ],
+         "name":"scale up by one server",
+         "type":"webhook"
+      }
+   ],
+   "policies_links":[
+
+   ]
+}</pre>
+                                 </div>
+                              <p class="nobody">This operation does not require a request body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e1745">
+                           <div class="col-md-1"><span class="label label-success">POST</span></div>
+                           <div class="col-md-5">v1.0/&#8203;{tenantId}&#8203;/groups/&#8203;{groupId}&#8203;/policies</div>
+                           <div class="col-md-5">
+                              <p>Creates one or more scaling
+                                 policies for a specified scaling group.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e1745" data-toggle="collapse" id="detail-d69e1745-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e1745">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>To create a policy, specify it in the request body
+                                    in JSON format. Each description must include a name,
+                                    type, adjustment, and cool-down time.
+                                 </p>
+                                 <p>Use the JSON response to obtain information about
+                                    the newly-created policy or policies:
+                                 </p>
+                                 <ul>
+                                    
+                                    <li>
+                                       
+                                       <p>The response header points to the List
+                                          Policies endpoint.
+                                       </p>
+                                       
+                                    </li>
+                                    
+                                    <li>
+                                       
+                                       <p>The response body provides an array of
+                                          scaling policies.
+                                       </p>
+                                       
+                                    </li>
+                                    
+                                 </ul>
+                                 <p>The examples that are provided below show several
+                                    methods for creating a scaling policy:
+                                 </p>
+                                 <ul>
+                                    
+                                    <li>
+                                       
+                                       <p>A request to create a policy based on
+                                          desired capacity.
+                                       </p>
+                                       
+                                    </li>
+                                    
+                                    <li>
+                                       
+                                       <p>A request to create a policy based on
+                                          incremental change.
+                                       </p>
+                                       
+                                    </li>
+                                    
+                                    <li>
+                                       
+                                       <p>A request to create a policy based on
+                                          change percentage.
+                                       </p>
+                                       
+                                    </li>
+                                    
+                                    <li>
+                                       
+                                       <p>A request to create a policy based on
+                                          change percentage scheduled daily, at a
+                                          specific time of day.
+                                       </p>
+                                       
+                                    </li>
+                                    
+                                    <li>
+                                       
+                                       <p>A request to create a policy based on
+                                          change percentage scheduled once, for a
+                                          specific date and time.
+                                       </p>
+                                       
+                                    </li>
+                                    
+                                    <li>
+                                       
+                                       <p>A request to create multiple policies,
+                                          followed by the matching
+                                          response.
+                                       </p>
+                                       
+                                    </li>
+                                    
+                                 </ul>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>201</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">identityFault (400, 500, &#8230;),
+                                    badRequest (400),
+                                    unauthorized (401),
+                                    forbidden (403),
+                                    badMethod (405),
+                                    overLimit (413),
+                                    serviceUnavailable (503),
+                                    itemNotFound (404),
+                                    badMediaType (415)
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"><b>Request parameters</b><table class="table table-bordered table-striped">
+                                       <thead>
+                                          <tr>
+                                             <th>Parameter</th>
+                                             <th>Style</th>
+                                             <th>Type</th>
+                                             <th>Description</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          <tr>
+                                             <td>array</td>
+                                             <td>plain</td>
+                                             <td>array</td>
+                                             <td>
+                                                
+                                                <p>An array of scaling
+                                                   policies.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>name</td>
+                                             <td>plain</td>
+                                             <td>string</td>
+                                             <td>
+                                                
+                                                <p>The name of the scaling
+                                                   policy. The name must be unique for each
+                                                   scaling policy in the scaling
+                                                   group.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>args (Optional)</td>
+                                             <td>plain</td>
+                                             <td>object</td>
+                                             <td>
+                                                
+                                                <p>Additional configuration
+                                                   information for policies of type "schedule."
+                                                   This parameter is not required for policies of
+                                                   type "webhook." This parameter must be set to
+                                                   either "at" or <code>cron</code>. Both "at"
+                                                   and <code>cron</code> are mutually
+                                                   exclusive.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>cron (Optional)</td>
+                                             <td>plain</td>
+                                             <td>string</td>
+                                             <td>
+                                                
+                                                <p>The recurring time when the
+                                                   policy runs as a cron entry. For example, if
+                                                   you set this parameter to <code>1 0 * *
+                                                      *</code>, the policy will run at one
+                                                   minute past midnight (00:01) every day of the
+                                                   month, and every day of the week. For more
+                                                   information about cron, see <a href="http://en.wikipedia.org/wiki/Cron">
+                                                      http://en.wikipedia.org/wiki/Cron</a>.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>at (Optional)</td>
+                                             <td>plain</td>
+                                             <td>string</td>
+                                             <td>
+                                                
+                                                <p>The time at which this policy
+                                                   runs. This property is mutually exclusive with
+                                                   the <code>cron</code> parameter. You can
+                                                   either provide <code>cron</code> or "at" for a
+                                                   given policy, but not both. You must specify
+                                                   seconds when using "at". If seconds are not
+                                                   specified, a 400 error is
+                                                   returned.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>changePercent (Optional)</td>
+                                             <td>plain</td>
+                                             <td>number</td>
+                                             <td>
+                                                
+                                                <p>The percentage amount change
+                                                   to make in the number of servers in the
+                                                   scaling group. If this number is positive, the
+                                                   number of servers increases by the specified
+                                                   percentage. If you set this parameter to a
+                                                   negative number, the number of servers
+                                                   decreases by the specified
+                                                   percentage.
+                                                </p>
+                                                
+                                                <p>The absolute change in
+                                                   the number of servers is rounded to the
+                                                   nearest integer. This means that if -X% of the
+                                                   current number of servers translates to -0.5
+                                                   or -0.25 or -0.75 servers, the actual number
+                                                   of servers that are shut down is 1. If X% of
+                                                   the current number of servers translates to
+                                                   1.2 or 1.5 or 1.7 servers, the actual number
+                                                   of servers that are launched is
+                                                   2.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>cooldown</td>
+                                             <td>plain</td>
+                                             <td>number</td>
+                                             <td>
+                                                
+                                                <p>The cool-down period, in
+                                                   seconds, before this particular scaling policy
+                                                   can run again. The cool-down period does not
+                                                   affect the global scaling group cool-down. The
+                                                   minimum value for this parameter is 0 seconds,
+                                                   the maximum value is 86400 seconds (24
+                                                   hrs).
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>type</td>
+                                             <td>plain</td>
+                                             <td>enum</td>
+                                             <td>
+                                                
+                                                <p>The type of policy that is
+                                                   executed for the current release. This value
+                                                   can be either <code>webhook</code> for
+                                                   webhook-based policies or
+                                                   <code>schedule</code> for schedule-based
+                                                   policies.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>change (Optional)</td>
+                                             <td>plain</td>
+                                             <td>integer</td>
+                                             <td>
+                                                
+                                                <p>The change to make in the
+                                                   number of servers in the scaling group. This
+                                                   parameter must be an integer. If the value is
+                                                   a positive integer, the number of servers
+                                                   increases. If the value is a negative integer,
+                                                   the number of servers
+                                                   decreases.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>desiredCapacity (Optional)</td>
+                                             <td>plain</td>
+                                             <td>integer</td>
+                                             <td>
+                                                
+                                                <p>The desired server capacity of
+                                                   the scaling the group. For example how many
+                                                   servers there should be in the scaling group.
+                                                   This value must be an absolute number. For
+                                                   example, if this parameter is set to 10,
+                                                   executing this policy will bring the number of
+                                                   servers to 10. The minimum allowed value of
+                                                   this parameter is 0.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                       </tbody>
+                                    </table>
+                                 </div>
+                              </div>
+                              <div class="example">
+                                 <pre>{
+   "policies":[
+      {
+         "args":{
+            "at":"2013-12-05T03:12:00Z"
+         },
+         "changePercent":-5.5,
+         "cooldown":1800,
+         "id":"9f7c5801-6b25-4f5a-af07-4bb752e23d53",
+         "links":[
+            {
+               "href":"https://dfw.autoscale.api.rackspacecloud.com/v1.0/676873/groups/605e13f6-1452-4588-b5da-ac6bb468c5bf/policies/9f7c5801-6b25-4f5a-af07-4bb752e23d53/",
+               "rel":"self"
+            }
+         ],
+         "name":"scale down by 5.5 percent on the 5th",
+         "type":"schedule"
+      },
+      {
+         "cooldown":1800,
+         "desiredCapacity":5,
+         "id":"b0555a35-b2cb-4f0e-8743-d59e1621b980",
+         "links":[
+            {
+               "href":"https://dfw.autoscale.api.rackspacecloud.com/v1.0/676873/groups/605e13f6-1452-4588-b5da-ac6bb468c5bf/policies/b0555a35-b2cb-4f0e-8743-d59e1621b980/",
+               "rel":"self"
+            }
+         ],
+         "name":"set group to 5 servers",
+         "type":"webhook"
+      },
+      {
+         "args":{
+            "cron":"23 * * * *"
+         },
+         "changePercent":-5.5,
+         "cooldown":1800,
+         "id":"30707675-8e7c-4ea5-9358-c21648afcf29",
+         "links":[
+            {
+               "href":"https://dfw.autoscale.api.rackspacecloud.com/v1.0/676873/groups/605e13f6-1452-4588-b5da-ac6bb468c5bf/policies/30707675-8e7c-4ea5-9358-c21648afcf29/",
+               "rel":"self"
+            }
+         ],
+         "name":"scale down by 5.5 percent at 11pm",
+         "type":"schedule"
+      },
+      {
+         "change":1,
+         "cooldown":1800,
+         "id":"1f3bdd08-7aae-4009-a3b7-49aa47fc0876",
+         "links":[
+            {
+               "href":"https://dfw.autoscale.api.rackspacecloud.com/v1.0/676873/groups/605e13f6-1452-4588-b5da-ac6bb468c5bf/policies/1f3bdd08-7aae-4009-a3b7-49aa47fc0876/",
+               "rel":"self"
+            }
+         ],
+         "name":"scale up by one server",
+         "type":"webhook"
+      },
+      {
+         "changePercent":-5.5,
+         "cooldown":1800,
+         "id":"5afac18c-41e5-49d6-aba8-dec17c0d8ed7",
+         "links":[
+            {
+               "href":"https://dfw.autoscale.api.rackspacecloud.com/v1.0/676873/groups/605e13f6-1452-4588-b5da-ac6bb468c5bf/policies/5afac18c-41e5-49d6-aba8-dec17c0d8ed7/",
+               "rel":"self"
+            }
+         ],
+         "name":"scale down by 5.5 percent",
+         "type":"webhook"
+      }
+   ]
+}</pre>
+                                 </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e2089">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v1.0/&#8203;{tenantId}&#8203;/groups/&#8203;{groupId}&#8203;/policies/&#8203;{policyId}&#8203;</div>
+                           <div class="col-md-5">
+                              <p>Shows scaling policy
+                                 details.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e2089" data-toggle="collapse" id="detail-d69e2089-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e2089">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>Details include an ID, name, type, adjustment,
+                                    cool-down time, and links.
+                                 </p>
+                                 <p>The details appear in the response body in JSON
+                                    format.
+                                 </p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>200</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">identityFault (400, 500, &#8230;),
+                                    badRequest (400),
+                                    unauthorized (401),
+                                    forbidden (403),
+                                    badMethod (405),
+                                    overLimit (413),
+                                    serviceUnavailable (503),
+                                    itemNotFound (404)
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <div class="example">
+                                 <pre>{
+   "policy":{
+      "args":{
+         "cron":"23 * * * *"
+      },
+      "changePercent":-5.5,
+      "cooldown":1800,
+      "id":"5f26e16c-5fa7-4d4f-8e78-257ea711389f",
+      "links":[
+         {
+            "href":"https://dfw.autoscale.api.rackspacecloud.com/v1.0/676873/groups/605e13f6-1452-4588-b5da-ac6bb468c5bf/policies/5f26e16c-5fa7-4d4f-8e78-257ea711389f/",
+            "rel":"self"
+         }
+      ],
+      "name":"scale down by 5.5 percent at 11pm",
+      "type":"schedule"
+   }
+}</pre>
+                                 </div>
+                              <p class="nobody">This operation does not require a request body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e2177">
+                           <div class="col-md-1"><span class="label label-success">PUT</span></div>
+                           <div class="col-md-5">v1.0/&#8203;{tenantId}&#8203;/groups/&#8203;{groupId}&#8203;/policies/&#8203;{policyId}&#8203;</div>
+                           <div class="col-md-5">
+                              <p>Updates an existing scaling policy
+                                 for the specified tenant.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e2177" data-toggle="collapse" id="detail-d69e2177-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e2177">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>To update the policy, specify the name, type,
+                                    adjustment, and cool-down time for the policy in the
+                                    request body in JSON format. If the change succeeds,
+                                    no response body is returned.
+                                 </p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>204</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">identityFault (400, 500, &#8230;),
+                                    badRequest (400),
+                                    unauthorized (401),
+                                    forbidden (403),
+                                    badMethod (405),
+                                    overLimit (413),
+                                    serviceUnavailable (503),
+                                    itemNotFound (404),
+                                    badMediaType (415)
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"><b>Request parameters</b><table class="table table-bordered table-striped">
+                                       <thead>
+                                          <tr>
+                                             <th>Parameter</th>
+                                             <th>Style</th>
+                                             <th>Type</th>
+                                             <th>Description</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          <tr>
+                                             <td>name</td>
+                                             <td>plain</td>
+                                             <td>string</td>
+                                             <td>
+                                                
+                                                <p>A name for the scaling
+                                                   policy. This name must be unique for each
+                                                   scaling policy.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>args (Optional)</td>
+                                             <td>plain</td>
+                                             <td>object</td>
+                                             <td>
+                                                
+                                                <p>Additional configuration
+                                                   information for policies of type
+                                                   "schedule." This parameter is not required
+                                                   for policies of type "webhook." This
+                                                   parameter must be set to either "at" or
+                                                   <code>cron</code>. Both "at" and
+                                                   <code>cron</code> are mutually
+                                                   exclusive.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>cron (Optional)</td>
+                                             <td>plain</td>
+                                             <td>string</td>
+                                             <td>
+                                                
+                                                <p>The recurring time when
+                                                   the policy runs as a cron entry. For
+                                                   example, if you set this parameter to
+                                                   <code>1 0 * * *</code>, the policy
+                                                   will run at one minute past midnight
+                                                   (00:01) every day of the month, and every
+                                                   day of the week. For more information
+                                                   about cron, see <a href="http://en.wikipedia.org/wiki/Cron">http://en.wikipedia.org/wiki/Cron</a>.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>at (Optional)</td>
+                                             <td>plain</td>
+                                             <td>string</td>
+                                             <td>
+                                                
+                                                <p>The time at which this
+                                                   policy runs. This property is mutually
+                                                   exclusive with the <code>cron</code>
+                                                   parameter. You can either provide
+                                                   <code>cron</code> or "at" for a given
+                                                   policy, but not both. You must specify
+                                                   seconds when using "at". If seconds are
+                                                   not specified, a 400 error is
+                                                   returned.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>changePercent (Optional)</td>
+                                             <td>plain</td>
+                                             <td>number</td>
+                                             <td>
+                                                
+                                                <p>The percent change to make
+                                                   in the number of servers in the scaling
+                                                   group. If this number is positive, the
+                                                   number of servers will increase by the
+                                                   given percentage. If this parameter is set
+                                                   to a negative number, the number of
+                                                   servers decreases by the given percentage.
+                                                   The absolute change in the number of
+                                                   servers will be rounded to the nearest
+                                                   integer. This means that if -X% of the
+                                                   current number of servers translates to
+                                                   -0.5 or -0.25 or -0.75 servers, the actual
+                                                   number of servers that will be shut down
+                                                   is 1. If X% of the current number of
+                                                   servers translates to 1.2 or 1.5 or 1.7
+                                                   servers, the actual number of servers that
+                                                   will be launched is 2.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>cooldown</td>
+                                             <td>plain</td>
+                                             <td>number</td>
+                                             <td>
+                                                
+                                                <p>The cool-down period, in
+                                                   seconds, before this particular scaling
+                                                   policy can run again. The cool-down period
+                                                   does not affect the global scaling group
+                                                   cool-down. The minimum value for this
+                                                   parameter is 0 seconds. The maximum value
+                                                   is 86400 seconds (24
+                                                   hrs).
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>type</td>
+                                             <td>plain</td>
+                                             <td>enum</td>
+                                             <td>
+                                                
+                                                <p>The type of policy that
+                                                   runs for the current release. This value
+                                                   can be either <code>webhook</code> for
+                                                   webhook-based policies or
+                                                   <code>schedule</code> for
+                                                   schedule-based policies.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>change (Optional)</td>
+                                             <td>plain</td>
+                                             <td>integer</td>
+                                             <td>
+                                                
+                                                <p>The change to make in the
+                                                   number of servers in the scaling group.
+                                                   This parameter must be an integer. If the
+                                                   value is a positive integer, the number of
+                                                   servers increases. If the value is a
+                                                   negative integer, the number of servers
+                                                   decreases.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>desiredCapacity (Optional)</td>
+                                             <td>plain</td>
+                                             <td>integer</td>
+                                             <td>
+                                                
+                                                <p>The desired server
+                                                   capacity of the scaling the group, such as
+                                                   how many servers should be in the scaling
+                                                   group. This value must be an absolute
+                                                   number. For example, if this parameter is
+                                                   set to 10, running this policy brings the
+                                                   number of servers to 10. The minimum
+                                                   allowed value of this parameter is
+                                                   0.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                       </tbody>
+                                    </table>
+                                 </div>
+                              </div>
+                              <div class="example">
+                                 <pre>{
+   "change":1,
+   "cooldown":1800,
+   "name":"scale up by one server",
+   "type":"webhook"
+}</pre>
+                                 </div>
+                              <p class="nobody">This operation does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e2376">
+                           <div class="col-md-1"><span class="label label-success">DELETE</span></div>
+                           <div class="col-md-5">v1.0/&#8203;{tenantId}&#8203;/groups/&#8203;{groupId}&#8203;/policies/&#8203;{policyId}&#8203;</div>
+                           <div class="col-md-5">
+                              <p>Deletes a specified scaling policy
+                                 from the specified tenant.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e2376" data-toggle="collapse" id="detail-d69e2376-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e2376">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>If deletion is successful, no response body is
+                                    returned.
+                                 </p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>204</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">identityFault (400, 500, &#8230;),
+                                    badRequest (400),
+                                    unauthorized (401),
+                                    forbidden (403),
+                                    badMethod (405),
+                                    overLimit (413),
+                                    serviceUnavailable (503),
+                                    itemNotFound (404),
+                                    badMediaType (415)
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body and does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e2455">
+                           <div class="col-md-1"><span class="label label-success">POST</span></div>
+                           <div class="col-md-5">v1.0/&#8203;{tenantId}&#8203;/groups/&#8203;{groupId}&#8203;/policies/&#8203;{policyId}&#8203;/execute</div>
+                           <div class="col-md-5">
+                              <p>Runs a specified scaling
+                                 policy.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e2455" data-toggle="collapse" id="detail-d69e2455-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e2455">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>If the operation succeeds, a response body is
+                                    returned.
+                                 </p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>202</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">identityFault (400, 500, &#8230;),
+                                    badRequest (400),
+                                    unauthorized (401),
+                                    forbidden (403),
+                                    badMethod (405),
+                                    overLimit (413),
+                                    serviceUnavailable (503),
+                                    itemNotFound (404),
+                                    badMediaType (415)
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body and does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  
+                  <div id="autoscale-webhooks">
+                     <div class="subhead">
+                        <h3>Web hooks<a class="headerlink" href="#autoscale-webhooks" title="Permalink to this headline"><span class="glyphicon glyphicon-link"></span></a></h3>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e2540">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v1.0/&#8203;{tenantId}&#8203;/groups/&#8203;{groupId}&#8203;/policies/&#8203;{policyId}&#8203;/webhooks</div>
+                           <div class="col-md-5">
+                              <p>Lists web hooks and their IDs for a
+                                 specified scaling policy.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e2540" data-toggle="collapse" id="detail-d69e2540-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e2540">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>This data is returned in the response body in JSON
+                                    format.
+                                 </p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>200</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">identityFault (400, 500, &#8230;),
+                                    badRequest (400),
+                                    unauthorized (401),
+                                    forbidden (403),
+                                    badMethod (405),
+                                    overLimit (413),
+                                    serviceUnavailable (503),
+                                    itemNotFound (404),
+                                    badMediaType (415)
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <div class="example">
+                                 <pre>
+{
+   "webhooks":[
+      {
+         "id":"152054a3-e0ab-445b-941d-9f8e360c9eed",
+         "links":[
+            {
+               "href":"https://dfw.autoscale.api.rackspacecloud.com/v1.0/676873/groups/605e13f6-1452-4588-b5da-ac6bb468c5bf/policies/eb0fe1bf-3428-4f34-afd9-a5ac36f60511/webhooks/152054a3-e0ab-445b-941d-9f8e360c9eed/",
+               "rel":"self"
+            },
+            {
+               "href":"https://dfw.autoscale.api.rackspacecloud.com/v1.0/execute/1/0077882e9626d83ef30e1ca379c8654d86cd34df3cd49ac8da72174668315fe8/",
+               "rel":"capability"
+            }
+         ],
+         "metadata":{
+            "notes":"PagerDuty will fire this webhook"
+         },
+         "name":"PagerDuty"
+      },
+      {
+         "id":"23037efb-53a9-4ae5-bc33-e89a56b501b6",
+         "links":[
+            {
+               "href":"https://dfw.autoscale.api.rackspacecloud.com/v1.0/676873/groups/605e13f6-1452-4588-b5da-ac6bb468c5bf/policies/eb0fe1bf-3428-4f34-afd9-a5ac36f60511/webhooks/23037efb-53a9-4ae5-bc33-e89a56b501b6/",
+               "rel":"self"
+            },
+            {
+               "href":"https://dfw.autoscale.api.rackspacecloud.com/v1.0/execute/1/4f767340574433927a26dc747253dad643d5d13ec7b66b764dcbf719b32302b9/",
+               "rel":"capability"
+            }
+         ],
+         "metadata":{
+
+         },
+         "name":"Nagios"
+      }
+   ],
+   "webhooks_links":[
+
+   ]
+}</pre>
+                                 </div>
+                              <p class="nobody">This operation does not require a request body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e2632">
+                           <div class="col-md-1"><span class="label label-success">POST</span></div>
+                           <div class="col-md-5">v1.0/&#8203;{tenantId}&#8203;/groups/&#8203;{groupId}&#8203;/policies/&#8203;{policyId}&#8203;/webhooks</div>
+                           <div class="col-md-5">
+                              <p>Creates one or more web hooks for
+                                 the specified scaling policy.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e2632" data-toggle="collapse" id="detail-d69e2632-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e2632">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>Web hooks must have a name. If the operation
+                                    succeeds, the response body contains the IDs and links
+                                    to the newly created web hooks. This data is provided
+                                    in the request body in JSON format.
+                                 </p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>201</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">identityFault (400, 500, &#8230;),
+                                    badRequest (400),
+                                    unauthorized (401),
+                                    forbidden (403),
+                                    badMethod (405),
+                                    overLimit (413),
+                                    serviceUnavailable (503),
+                                    itemNotFound (404),
+                                    badMediaType (415)
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"><b>Request parameters</b><table class="table table-bordered table-striped">
+                                       <thead>
+                                          <tr>
+                                             <th>Parameter</th>
+                                             <th>Style</th>
+                                             <th>Type</th>
+                                             <th>Description</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          <tr>
+                                             <td>name</td>
+                                             <td>plain</td>
+                                             <td>string</td>
+                                             <td>
+                                                
+                                                <p>A name for the webhook for
+                                                   logging purposes.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>metadata (Optional)</td>
+                                             <td>plain</td>
+                                             <td>object</td>
+                                             <td>
+                                                
+                                                <p>User-provided key-value
+                                                   metadata. Both keys and values should be
+                                                   strings with a maximum length of 256
+                                                   characters.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                       </tbody>
+                                    </table>
+                                 </div>
+                              </div>
+                              <div class="example">
+                                 <pre>[
+   {
+      "metadata":{
+         "notes":"PagerDuty will fire this webhook"
+      },
+      "name":"PagerDuty"
+   },
+   {
+      "name":"Nagios"
+   }
+]</pre>
+                                 </div>
+                              <div class="example">
+                                 <pre>{
+   "webhooks":[
+      {
+         "id":"152054a3-e0ab-445b-941d-9f8e360c9eed",
+         "links":[
+            {
+               "href":"https://dfw.autoscale.api.rackspacecloud.com/v1.0/676873/groups/605e13f6-1452-4588-b5da-ac6bb468c5bf/policies/eb0fe1bf-3428-4f34-afd9-a5ac36f60511/webhooks/152054a3-e0ab-445b-941d-9f8e360c9eed/",
+               "rel":"self"
+            },
+            {
+               "href":"https://dfw.autoscale.api.rackspacecloud.com/v1.0/execute/1/0077882e9626d83ef30e1ca379c8654d86cd34df3cd49ac8da72174668315fe8/",
+               "rel":"capability"
+            }
+         ],
+         "metadata":{
+            "notes":"PagerDuty will fire this webhook"
+         },
+         "name":"PagerDuty"
+      },
+      {
+         "id":"23037efb-53a9-4ae5-bc33-e89a56b501b6",
+         "links":[
+            {
+               "href":"https://dfw.autoscale.api.rackspacecloud.com/v1.0/676873/groups/605e13f6-1452-4588-b5da-ac6bb468c5bf/policies/eb0fe1bf-3428-4f34-afd9-a5ac36f60511/webhooks/23037efb-53a9-4ae5-bc33-e89a56b501b6/",
+               "rel":"self"
+            },
+            {
+               "href":"https://dfw.autoscale.api.rackspacecloud.com/v1.0/execute/1/4f767340574433927a26dc747253dad643d5d13ec7b66b764dcbf719b32302b9/",
+               "rel":"capability"
+            }
+         ],
+         "metadata":{
+
+         },
+         "name":"Nagios"
+      }
+   ]
+}</pre>
+                                 </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e2762">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v1.0/&#8203;{tenantId}&#8203;/groups/&#8203;{groupId}&#8203;/policies/&#8203;{policyId}&#8203;/webhooks/&#8203;{webhookId}&#8203;</div>
+                           <div class="col-md-5">
+                              <p>Shows webhook details for a
+                                 specified scaling policy.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e2762" data-toggle="collapse" id="detail-d69e2762-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e2762">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>The details appear in the response body in JSON
+                                    format.
+                                 </p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>200</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">identityFault (400, 500, &#8230;),
+                                    badRequest (400),
+                                    unauthorized (401),
+                                    forbidden (403),
+                                    badMethod (405),
+                                    overLimit (413),
+                                    serviceUnavailable (503),
+                                    itemNotFound (404)
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <div class="example">
+                                 <pre>
+
+{
+   "webhook":{
+      "id":"23037efb-53a9-4ae5-bc33-e89a56b501b6",
+      "links":[
+         {
+            "href":"https://dfw.autoscale.api.rackspacecloud.com/v1.0/676873/groups/605e13f6-1452-4588-b5da-ac6bb468c5bf/policies/eb0fe1bf-3428-4f34-afd9-a5ac36f60511/webhooks/23037efb-53a9-4ae5-bc33-e89a56b501b6/",
+            "rel":"self"
+         },
+         {
+            "href":"https://dfw.autoscale.api.rackspacecloud.com/v1.0/execute/1/4f767340574433927a26dc747253dad643d5d13ec7b66b764dcbf719b32302b9/",
+            "rel":"capability"
+         }
+      ],
+      "metadata":{
+
+      },
+      "name":"Nagios"
+   }
+}</pre>
+                                 </div>
+                              <p class="nobody">This operation does not require a request body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e2847">
+                           <div class="col-md-1"><span class="label label-success">PUT</span></div>
+                           <div class="col-md-5">v1.0/&#8203;{tenantId}&#8203;/groups/&#8203;{groupId}&#8203;/policies/&#8203;{policyId}&#8203;/webhooks/&#8203;{webhookId}&#8203;</div>
+                           <div class="col-md-5">
+                              <p>Updates a webhook for a specified
+                                 tenant and scaling policy.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e2847" data-toggle="collapse" id="detail-d69e2847-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e2847">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>If the
+                                    specified webhook is not recognized, the change is
+                                    ignored. If you submit a URL, the URL is ignored but
+                                    that does not invalidate the request. If the change is
+                                    successful, no response body is returned.
+                                 </p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>204</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">identityFault (400, 500, &#8230;),
+                                    badRequest (400),
+                                    unauthorized (401),
+                                    forbidden (403),
+                                    badMethod (405),
+                                    overLimit (413),
+                                    serviceUnavailable (503),
+                                    itemNotFound (404),
+                                    badMediaType (415)
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"><b>Request parameters</b><table class="table table-bordered table-striped">
+                                       <thead>
+                                          <tr>
+                                             <th>Parameter</th>
+                                             <th>Style</th>
+                                             <th>Type</th>
+                                             <th>Description</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          <tr>
+                                             <td>name</td>
+                                             <td>plain</td>
+                                             <td>string</td>
+                                             <td>
+                                                
+                                                <p>A name for the webhook for
+                                                   logging purposes.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td>metadata (Optional)</td>
+                                             <td>plain</td>
+                                             <td>object</td>
+                                             <td>
+                                                
+                                                <p>User-provided key-value
+                                                   metadata. Both keys and values should be
+                                                   strings not exceeding 256 characters in
+                                                   length.
+                                                </p>
+                                                
+                                             </td>
+                                          </tr>
+                                       </tbody>
+                                    </table>
+                                 </div>
+                              </div>
+                              <p class="nobody">This operation does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d69e2952">
+                           <div class="col-md-1"><span class="label label-success">DELETE</span></div>
+                           <div class="col-md-5">v1.0/&#8203;{tenantId}&#8203;/groups/&#8203;{groupId}&#8203;/policies/&#8203;{policyId}&#8203;/webhooks/&#8203;{webhookId}&#8203;</div>
+                           <div class="col-md-5">
+                              <p>Deletes a webhook for a specified
+                                 scaling policy.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d69e2952" data-toggle="collapse" id="detail-d69e2952-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d69e2952">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>If deletion succeeds, no response body is
+                                    returned.
+                                 </p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Normal Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <returnvalue>204</returnvalue>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">identityFault (400, 500, &#8230;),
+                                    badRequest (400),
+                                    unauthorized (401),
+                                    forbidden (403),
+                                    badMethod (405),
+                                    overLimit (413),
+                                    serviceUnavailable (503),
+                                    itemNotFound (404),
+                                    badMediaType (415)
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body and does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-9" id="footer">
+               <p>The OpenStack project is provided under the Apache 2.0 license.</p>
+            </div>
+         </div>
+      </div><script src="apiref/js/jquery-1.10.2.min.js" type="text/javascript"></script><script src="apiref/js/bootstrap.min.js" type="text/javascript"></script><script src="apiref/js/api-site.js" type="text/javascript"></script><script type="text/javascript">
+                  var _gaq = _gaq || [];
+                  _gaq.push(['_setAccount', 'UA-17511903-1']);
+		  _gaq.push(['_setDomainName', '.openstack.org']);
+                  _gaq.push(['_trackPageview']);
+                  (function () {
+                    var ga = document.createElement('script');
+                    ga.type = 'text/javascript';
+                    ga.async = true;
+                    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                    var s = document.getElementsByTagName('script')[0];
+                    s.parentNode.insertBefore(ga, s);\
+                  })();
+                </script></body>
+</html>

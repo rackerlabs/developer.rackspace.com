@@ -1,0 +1,6 @@
+PUT '/customers/12345678/domains/example.com/spam/safelist',    
+{    
+    'addList' => '@%.example.com,abc@example.com',    
+    'removeList' => '@examp%.com'    
+    },    
+'text/xml'" });

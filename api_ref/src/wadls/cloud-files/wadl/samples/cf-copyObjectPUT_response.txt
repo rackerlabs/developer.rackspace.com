@@ -1,0 +1,10 @@
+HTTP/1.1 201 Created
+Content-Length: 0
+X-Copied-From-Last-Modified: Thu, 16 Jan 2014 21:19:45 GMT
+X-Copied-From: MySourceObject
+Last-Modified: Fri, 17 Jan 2014 18:22:57 GMT
+Etag: 451e372e48e0f6b1114fa0724aa79fa1
+Content-Type: text/html; charset=UTF-8
+X-Object-Meta-Test: testCF
+X-Trans-Id: txdcb481ad49d24e9a81107-0052d97501
+Date: Fri, 17 Jan 2014 18:22:57 GMT

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<book xmlns="http://docbook.org/ns/docbook"
+    xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:linkend="http://www.w3.org/1999/linkend"
+    xmlns:xref="http://www.w3.org/1999/xref"
+    xmlns:wadl="http://wadl.dev.java.net/2009/02"
+    version="5.0-extension RackBook-2.0"
+    xml:id="api.rackspace.com-networks-pdf">
+    <info>
+        <title>Rackspace Cloud Networks API v2.0 and Extensions
+            Reference</title>
+        <?rax title.font.size="32px"?>
+        <?rax subtitle.font.size="32px"?>
+        <titleabbrev>Cloud Networks API Reference</titleabbrev>
+        <author>
+            <personname>
+                <firstname/>
+                <surname/>
+            </personname>
+            <affiliation>
+                <orgname>Rackspace Cloud</orgname>
+            </affiliation>
+        </author>
+        <copyright>
+            <year>2010-2013</year>
+            <holder>Rackspace US, Inc.</holder>
+        </copyright>
+        <productname>Rackspace Cloud Networks</productname>
+        <pubdate/>
+        <legalnotice role="rs-api">
+            <annotation>
+                <remark>Copyright details are filled in by the
+                    template.</remark>
+            </annotation>
+        </legalnotice>
+    </info>
+    <xi:include href="preface.xml"/>
+    <xi:include href="ch_networks-v2.xml"/>
+    <xi:include href="ch_networks-v2-ext.xml"/>
+</book>

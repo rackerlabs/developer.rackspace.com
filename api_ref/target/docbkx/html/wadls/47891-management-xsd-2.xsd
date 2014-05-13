@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+                    Flattened from: file:/Users/dian4554/Documents/developer.rackspace.com/api_ref/src/wadls/cloud-databases/xsd/management.xsd-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:rax="http://docs.rackspace.com/api"
+            xmlns:db="http://docbook.org/ns/docbook"
+            xmlns:dbaas="http://docs.openstack.org/database/api/v1.0"
+            xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+            elementFormDefault="qualified"
+            attributeFormDefault="unqualified"
+            targetNamespace="http://docs.openstack.org/database/api/v1.0">
+   <xsd:import xmlns="http://www.w3.org/2001/XMLSchema"
+               schemaLocation="management-xsd-1.xsd"
+               id="dbaas"
+               namespace="http://docs.openstack.org/database/api/v1.0"/>
+   <xsd:import xmlns="http://www.w3.org/2001/XMLSchema"
+               schemaLocation="management-xsd-1.xsd"
+               id="dbaas"
+               namespace="http://docs.openstack.org/database/api/v1.0"/>
+   <annotation xmlns="http://www.w3.org/2001/XMLSchema">
+      <xsd:appinfo xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+         <xsdxt:title>Dbaas Management</xsdxt:title>
+      </xsd:appinfo>
+      <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+         <p>This schema defines entity contains entities related to the dbaas Management API.</p>
+      </xsd:documentation>
+  </annotation>
+   <!--Complex Types-->
+   <element xmlns="http://www.w3.org/2001/XMLSchema" name="host" type="dbaas:Host">
+      <annotation>
+         <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <p>Information about a Host.</p>
+         </xsd:documentation>
+      </annotation>
+  </element>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="hosts"
+            type="dbaas:Hosts">
+      <annotation>
+         <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <p>List of Hosts.</p>
+         </xsd:documentation>
+      </annotation>
+  </element>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="devices"
+            type="dbaas:Devices">
+      <annotation>
+         <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <p>Information about storage devices.</p>
+         </xsd:documentation>
+      </annotation>
+  </element>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="account"
+            type="dbaas:Account">
+      <annotation>
+         <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <p>Information about Account.</p>
+         </xsd:documentation>
+      </annotation>
+  </element>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="config"
+            type="dbaas:Config">
+      <annotation>
+         <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <p>Details of a configuration item</p>
+         </xsd:documentation>
+      </annotation>
+  </element>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="configs"
+            type="dbaas:Configs">
+      <annotation>
+         <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <p>List of Configs.</p>
+         </xsd:documentation>
+      </annotation>
+  </element>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="rootdetails"
+            type="dbaas:RootDetails">
+      <annotation>
+         <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <p>Details of a configuration item</p>
+         </xsd:documentation>
+      </annotation>
+  </element>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="diagnosticsDetails"
+            type="dbaas:DiagnosticsDetails">
+      <annotation>
+         <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <p>Diagnostic details of a guest.</p>
+         </xsd:documentation>
+      </annotation>
+  </element>
+   <element xmlns="http://www.w3.org/2001/XMLSchema" name="reboot">
+      <annotation>
+         <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+            <p>Reboot an Instance</p>
+         </xsd:documentation>
+      </annotation>
+  </element>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="Hosts">
+      <sequence>
+         <element name="host"
+                  type="dbaas:Host"
+                  minOccurs="0"
+                  maxOccurs="unbounded">
+            <annotation>
+               <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                  <p>A list of Host names.</p>
+               </xsd:documentation>
+            </annotation>
+         </element>
+      </sequence>
+  </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="ManagementInstance">
+      <extension base="dbaas:instance">
+         <attribute name="root_enabled_at" type="xsd:dateTime">
+            <annotation>
+               <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                  <p>Timestamp of the first time MySQL root was enabled for the instance.</p>
+               </xsd:documentation>
+            </annotation>
+         </attribute>
+         <attribute name="root_enabled_by" type="xsd:integer" use="optional">
+            <annotation>
+               <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                  <p>ID of the first user to enable MySQL root for the instance.</p>
+               </xsd:documentation>
+            </annotation>
+         </attribute>
+      </extension>
+  </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="ManagementInstances">
+      <sequence>
+         <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+               <p>A list of database instances, with additional management information.</p>
+            </xsd:documentation>
+         </annotation>
+         <element name="instance"
+                  type="dbaas:ManagementInstance"
+                  minOccurs="0"
+                  maxOccurs="unbounded">
+      </element>
+      </sequence>
+  </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="ManagementInstanceIP">
+      <attribute name="address" type="xsd:string"/>
+      <attribute name="virtual_interface_id" type="xsd:id"/>
+  </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="ManagementInstanceIPs">
+      <sequence>
+         <element name="ip"
+                  type="dbaas:ManagementInstanceIP"
+                  minOccurs="0"
+                  maxOccurs="unbounded"/>
+      </sequence>
+  </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="ManagementIndexInstance">
+      <sequence>
+         <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+               <p>A single database instance, with some additional management information.</p>
+            </xsd:documentation>
+            <atrribute name="account_id" type="xsd:string"/>
+            <attribute name="created_at" type="xsd:string"/>
+            <attribute name="deleted" type="xsd:boolean"/>
+            <attribute name="deleted_at" type="xsd:string"/>
+            <attribute name="flavorid" type="xsd:integer"/>
+            <attribute name="host" type="xsd:string"/>
+            <attribute name="id" type="xsd:string"/>
+            <attribute name="state" type="xsd:string"/>
+            <element name="ips" type="dbaas:ManagementInstanceIPs"/>
+         </annotation>
+      </sequence>
+  </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="ManagementIndexInstances">
+      <sequence>
+         <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+               <p>A list of database index instances, with some additional management information.</p>
+            </xsd:documentation>
+            <element name="instance"
+                     type="dbaas:ManagementIndexInstance"
+                     minOccurs="0"
+                     maxOccurs="unbounded">
+        </element>
+         </annotation>
+      </sequence>
+  </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="Host">
+      <sequence>
+         <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+               <p>A list of database instances on the Host.</p>
+            </xsd:documentation>
+         </annotation>
+         <element name="instance"
+                  type="dbaas:ManagementInstance"
+                  minOccurs="0"
+                  maxOccurs="unbounded"/>
+      </sequence>
+      <attribute name="name" type="xsd:string" use="required">
+         <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+               <p>The name of the Host.</p>
+            </xsd:documentation>
+         </annotation>
+      </attribute>
+      <attribute name="percentUsed" type="xsd:float" use="optional">
+         <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+               <p>The percent of the used RAM on the Host.</p>
+            </xsd:documentation>
+         </annotation>
+      </attribute>
+      <attribute name="totalRAM" type="xsd:integer" use="optional">
+         <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+               <p>The total amount of RAM on the Host.</p>
+            </xsd:documentation>
+         </annotation>
+      </attribute>
+      <attribute name="usedRAM" type="xsd:integer" use="optional">
+         <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+               <p>The used amount of RAM on the Host.</p>
+            </xsd:documentation>
+         </annotation>
+      </attribute>
+  </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="Devices">
+      <sequence>
+         <element name="device"
+                  type="dbaas:Device"
+                  minOccurs="0"
+                  maxOccurs="unbounded">
+            <annotation>
+               <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                  <p>A storage device on the Host.</p>
+               </xsd:documentation>
+            </annotation>
+         </element>
+      </sequence>
+  </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="Device">
+      <attribute name="id" type="xsd:integer" use="optional">
+         <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+               <p>The id of the storage device.</p>
+            </xsd:documentation>
+         </annotation>
+      </attribute>
+      <attribute name="name" type="xsd:string" use="optional">
+         <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+               <p>The name of the storage device.</p>
+            </xsd:documentation>
+         </annotation>
+      </attribute>
+      <attribute name="type" type="xsd:string" use="optional">
+         <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+               <p>The type of the storage device.</p>
+            </xsd:documentation>
+         </annotation>
+      </attribute>
+      <attribute name="availablesize" type="xsd:integer" use="optional">
+         <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+               <p>The available size of the storage device.</p>
+            </xsd:documentation>
+         </annotation>
+      </attribute>
+      <attribute name="totalsize" type="xsd:integer" use="optional">
+         <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+               <p>The total size of the storage device.</p>
+            </xsd:documentation>
+         </annotation>
+      </attribute>
+  </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="Account">
+      <attribute name="name" type="xsd:string" use="required">
+         <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+               <p>The name of the account.</p>
+            </xsd:documentation>
+         </annotation>
+      </attribute>
+      <sequence>
+         <element name="hosts"
+                  type="dbaas:Hosts"
+                  minOccurs="0"
+                  maxOccurs="unbounded">
+            <annotation>
+               <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                  <p>List of hosts that the Account has instances running on.</p>
+               </xsd:documentation>
+            </annotation>
+         </element>
+      </sequence>
+  </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="Configs">
+      <sequence>
+         <element name="config"
+                  type="dbaas:Config"
+                  minOccurs="0"
+                  maxOccurs="unbounded">
+            <annotation>
+               <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                  <p>A configuration entry</p>
+               </xsd:documentation>
+            </annotation>
+         </element>
+      </sequence>
+  </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="Config">
+      <attribute name="key" type="xsd:string" use="required">
+         <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+               <p>The configuration entry key</p>
+            </xsd:documentation>
+         </annotation>
+      </attribute>
+      <attribute name="value" type="xsd:string" use="optional">
+         <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+               <p>The value of the configuration entry</p>
+            </xsd:documentation>
+         </annotation>
+      </attribute>
+      <attribute name="description" type="xsd:string" use="optional">
+         <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+               <p>The description of the configuration entry</p>
+            </xsd:documentation>
+         </annotation>
+      </attribute>
+  </complexType>
+   <xsd:complexType xmlns="http://www.w3.org/2001/XMLSchema" name="RootDetails">
+      <attribute name="id" type="xsd:string" use="required">
+         <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+               <p>The instance id of that is checked by the call.</p>
+            </xsd:documentation>
+         </annotation>
+      </attribute>
+      <attribute name="root_enabled_at" type="xsd:string" use="required">
+         <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+               <p>The date timestamp that a user enabled root on the instance.</p>
+            </xsd:documentation>
+         </annotation>
+      </attribute>
+      <attribute name="root_enabled_by" type="xsd:string" use="required">
+         <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+               <p>The user that enabled root on the instance.</p>
+            </xsd:documentation>
+         </annotation>
+      </attribute>
+  </xsd:complexType>
+   <xsd:complexType xmlns="http://www.w3.org/2001/XMLSchema" name="DiagnosticsDetails">
+      <attribute name="version" type="xsd:string" use="required">
+         <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+               <p>The version of the guest installed on the instance.</p>
+            </xsd:documentation>
+         </annotation>
+      </attribute>
+      <attribute name="fdSize" type="xsd:integer" use="optional">
+         <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+               <p>Number of file descriptor slots currently allocated.</p>
+            </xsd:documentation>
+         </annotation>
+      </attribute>
+      <attribute name="vmSize" type="xsd:integer" use="optional">
+         <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+               <p>Virtual memory size.</p>
+            </xsd:documentation>
+         </annotation>
+      </attribute>
+      <attribute name="vmPeak" type="xsd:integer" use="optional">
+         <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+               <p>Peak virtual memory size.</p>
+            </xsd:documentation>
+         </annotation>
+      </attribute>
+      <attribute name="vmRss" type="xsd:integer" use="optional">
+         <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+               <p>Resident set size.</p>
+            </xsd:documentation>
+         </annotation>
+      </attribute>
+      <attribute name="vmHwm" type="xsd:integer" use="optional">
+         <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+               <p>Peak resident set size ("high water mark").</p>
+            </xsd:documentation>
+         </annotation>
+      </attribute>
+      <attribute name="threads" type="xsd:integer" use="optional">
+         <annotation>
+            <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+               <p>Number of threads in process containing this thread.</p>
+            </xsd:documentation>
+         </annotation>
+      </attribute>
+  </xsd:complexType>
+</xsd:schema>

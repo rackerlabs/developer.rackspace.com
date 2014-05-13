@@ -1,0 +1,30 @@
+{
+   [
+     {
+        "ID": 134692,
+        "Type": "Backup",
+        "ParentId": 6265,
+        "DisplayName": "Backup1",
+        "IsBackupConfigurationDeleted": false,
+        "SourceMachineAgentId": 5,
+        "SourceMachineName": "BALAJIMBP",
+        "DestinationMachineAgentId": 0,
+        "DestinationMachineName": "",
+        "CurrentState": "Completed",
+        "TimeOfActivity": "\/Date(1357230189000)\/"
+     },
+     {
+        "ID": 134693,
+        "Type": "Backup",
+        "ParentId": 6265,
+        "DisplayName": "Backup1",
+        "IsBackupConfigurationDeleted": false,
+        "SourceMachineAgentId": 5,
+        "SourceMachineName": "BALAJIMBP",
+        "DestinationMachineAgentId": 0,
+        "DestinationMachineName": "",
+        "CurrentState": "Completed",
+        "TimeOfActivity": "\/Date(1357230189000)\/"
+     }
+    ]
+}

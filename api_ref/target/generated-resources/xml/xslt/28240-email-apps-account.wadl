@@ -1,0 +1,1247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wadl:application xmlns="http://docbook.org/ns/docbook"
+                  xmlns:wadl="http://wadl.dev.java.net/2009/02"
+                  xmlns:rax="http://docs.rackspace.com/api"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                  rax:original-wadl="file:/Users/dian4554/Documents/developer.rackspace.com/api_ref/src/wadls/email-apps/wadl/email-apps-account.wadl">
+   <rax:types>
+      <rax:type prefix="" namespace="http://wadl.dev.java.net/2009/02" name="">
+         <para/>
+      </rax:type>
+   </rax:types>
+   <rax:responses><!--A list of unique responses in the wadl -->
+      <rax:response status="200"
+                    prefix=""
+                    namespace="http://wadl.dev.java.net/2009/02"
+                    name="">
+         <para/>
+      </rax:response>
+   </rax:responses>
+   <!--
+	    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	    ! This is a representation of the resources tree           !
+	    ! for use in generating a reference directly from the wadl.!
+	    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	  -->
+   <rax:resources xmlns="http://wadl.dev.java.net/2009/02">
+      <rax:resource rax:id="customers">
+         <rax:resource rax:id="customer_account_number">
+            <rax:resource rax:id="logintoken"/>
+            <rax:resource rax:id="admins">
+               <rax:resource rax:id="admin_name"/>
+            </rax:resource>
+         </rax:resource>
+      </rax:resource>
+   </rax:resources>
+   <resources xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+              xmlns:db="http://docbook.org/ns/docbook"
+              xmlns:common="http://docs.openstack.org/common/api/v1.0"
+              xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+              xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              xmlns:raxapi="http://docs.rackspace.com/volume/api/v1"
+              xmlns="http://wadl.dev.java.net/2009/02"
+              base="http://api.emailsrvr.com/"
+              xml:id="email-account">
+      <!-- <resource id="version0" path="v0">-->
+      <resource path="customers" id="customers">
+         <method name="GET" rax:id="listCustomers">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="List customers (reseller only)">
+               <para role="shortdesc">Lists customers to which the
+            authenticated user has access.</para>
+               <para>Filter/Search</para>
+               <para>Search parameter 'startswith' and 'contains' will try
+            to find the result in customer name, account number and
+            reference number. We also provide a separate query method
+            ?referenceNumber=123456 that will return a Show on the
+            exact customer whose reference number is as
+            specified.</para>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json" element="noop">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <xsdxt:code>
+                        <programlisting language="javascript">GET '/customers?size=100\u0026offset=10,'
+                  'text/xml'" });</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="200">
+               <representation mediaType="application/xml">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <xsdxt:code>
+                        <programlisting language="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;customerList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns="urn:xml:customerList"&gt;
+    &lt;offset&gt;0&lt;/offset&gt;
+    &lt;size&gt;50&lt;/size&gt;
+    &lt;total&gt;3&lt;/total&gt;
+    &lt;customers&gt;
+        &lt;customer&gt;
+            &lt;name&gt;API Customer 17&lt;/name&gt;
+            &lt;accountNumber&gt;460182&lt;/accountNumber&gt;
+            &lt;referenceNumber&gt;49&lt;/referenceNumber&gt;
+        &lt;/customer&gt;
+        &lt;customer&gt;
+            &lt;name&gt;API Customer 39&lt;/name&gt;
+            &lt;accountNumber&gt;460181&lt;/accountNumber&gt;
+            &lt;referenceNumber&gt;23&lt;/referenceNumber&gt;
+        &lt;/customer&gt;
+        &lt;customer&gt;
+            &lt;name&gt;API Customer 50&lt;/name&gt;
+            &lt;accountNumber&gt;460183&lt;/accountNumber&gt;
+            &lt;referenceNumber&gt;10&lt;/referenceNumber&gt;
+        &lt;/customer&gt;
+    &lt;/customers&gt;
+&lt;/customerList&gt;
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <xsdxt:code>
+                        <programlisting language="javascript">{
+   "offset":0,
+   "size":50,
+   "total":3,
+   "customers":[
+      {
+         "name":"API Customer 17",
+         "accountNumber":"460182",
+         "referenceNumber":"49"
+      },
+      {
+         "name":"API Customer 39",
+         "accountNumber":"460181",
+         "referenceNumber":"23"
+      },
+      {
+         "name":"API Customer 50",
+         "accountNumber":"460183",
+         "referenceNumber":"10"
+      }
+   ]
+}</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </response>
+         </method>
+         <method name="POST" rax:id="addSubaccount">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      title="Add sub-account (reseller only)">
+               <para role="shortdesc">Adds a sub-account.</para>
+               <para>Note that customer number is not known until the
+            customer is added.</para>
+               <table rules="all">
+                  <caption>Request Data</caption>
+                  <thead>
+                     <tr>
+                        <td>
+                           <b xmlns="http://www.w3.org/1999/xhtml">Field
+                        Name</b>
+                        </td>
+                        <td>
+                           <b xmlns="http://www.w3.org/1999/xhtml">Data
+                        Type</b>
+                        </td>
+                        <td>
+                           <b xmlns="http://www.w3.org/1999/xhtml">Description</b>
+                        </td>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <td>name</td>
+                        <td>string</td>
+                        <td>The customer's display name (Required for
+                     Add)</td>
+                     </tr>
+                     <tr>
+                        <td>referenceNumber</td>
+                        <td>string</td>
+                        <td>The reference number of this account</td>
+                     </tr>
+                  </tbody>
+               </table>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json" element="noop">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <xsdxt:code>
+                        <programlisting language="javascript">POST '/customers', 'text/xml', { 'name' =\u003E
+                  'Name' }" });</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="204"/>
+            <response status="400">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                  <para>The name field was not specified. Sample Message:
+               Missing required field: name</para>
+               </wadl:doc>
+            </response>
+            <response status="400">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                  <para>The name field cannot be blank. Sample Message:
+               Required field name cannot be empty</para>
+               </wadl:doc>
+            </response>
+            <response status="400">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                  <para>Names cannot start with a space. Sample Message:
+               Improper Customer Name</para>
+               </wadl:doc>
+            </response>
+         </method>
+      </resource>
+         
+         
+         <resource path="customers/{customer_account_number}" id="customer_account_number">
+         <param name="customer_account_number"
+                style="template"
+                required="true"
+                rax:id="">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The customer account
+                     number.</para>
+               </wadl:doc>
+            </param>
+         <method name="GET" rax:id="showAccountDetails">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Show sub-account details (reseller only)">
+               <para role="shortdesc">Shows sub-account details.</para>
+               <para>Remarks</para>
+               <itemizedlist>
+                  <listitem>
+                     <para>To do the show operation on the account that is
+                  logged in instead of a customer's account, use "me"
+                  in the place of the customer account number i.e.
+                  'https://api.emailsrvr.com/v0/customers/me'.</para>
+                  </listitem>
+                  <listitem>
+                     <para>The show operation only supports the GET HTTP
+                  verb. For text/xml format, refer to the following
+                  schema document: <link xlink:href="http://api.emailsrvr.com/Schemas/Customer.xsd">Customer.xsd</link>
+                     </para>
+                  </listitem>
+               </itemizedlist>
+               <para>Example: Querying with Reference Number</para>
+               <para>The query string "referenceNumber=xx" searches for a
+            customer with an exact reference number.</para>
+               <itemizedlist>
+                  <listitem>
+                     <para>GET '/customers?referenceNumber=49',
+                  'text/xml'</para>
+                  </listitem>
+               </itemizedlist>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json" element="noop">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <xsdxt:code>
+                        <programlisting language="javascript">GET /customers/me, text/xml" });</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <xsdxt:code>
+                        <programlisting language="javascript">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;customer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns="urn:xml:customer"&gt;
+    &lt;name&gt;API Customer 17&lt;/name&gt;
+    &lt;accountNumber&gt;460182&lt;/accountNumber&gt;
+    &lt;referenceNumber&gt;49&lt;/referenceNumber&gt;
+&lt;/customer&gt;
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <xsdxt:code>
+                        <programlisting language="javascript">{"name":"API Customer
+                  17","accountNumber":"460182","referenceNumber":"49"}</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </response>
+
+         </method>
+         <method name="PUT" rax:id="updateSubaccount">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      title="Update sub-account (reseller only)">
+               <para role="shortdesc">Updates a sub-account.</para>
+            </wadl:doc>
+            <request>
+               <param name="name"
+                      style="plain"
+                      type="xsd:string"
+                      required="true"
+                      rax:id="">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <para>The display name for the
+                  customer.</para>
+                  </wadl:doc>
+               </param>
+               <param name="referenceNumber"
+                      style="plain"
+                      type="xsd:string"
+                      required="false"
+                      rax:id="">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <para>The reference number for the
+                  account</para>
+                  </wadl:doc>
+               </param>
+               <representation mediaType="application/json" element="noop">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <xsdxt:code>
+                        <programlisting language="javascript">PUT '/customers/999999', 'text/xml', { 'name'
+                  =\u003E 'NewName', 'referenceNumber' =\u003E '12345'
+                  }" });</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="204"/>
+            <response status="400">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                  <para>The name field was not specified. Sample Message:
+               Missing required field: name</para>
+               </wadl:doc>
+            </response>
+            <response status="400">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                  <para>The name field cannot be blank. Sample Message:
+               Required field name cannot be empty</para>
+               </wadl:doc>
+            </response>
+            <response status="400">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                  <para>Names cannot start with a space. Sample Message:
+               Improper Customer Name</para>
+               </wadl:doc>
+            </response>
+         </method>
+         <method name="DELETE" rax:id="deleteAccount">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      title="Delete sub-account (reseller only)">
+               <para role="shortdesc">Deletes a sub-account.</para>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json" element="noop">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <xsdxt:code>
+                        <programlisting language="javascript">DELETE '/customers/999999', 'text/xml'"
+                  });</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="204"/>
+         </method>
+      </resource>
+            
+            
+            
+            
+            <resource path="customers/{customer_account_number}/loginToken" id="logintoken">
+         <param name="customer_account_number"
+                style="template"
+                required="true"
+                rax:id="">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The customer account
+                     number.</para>
+               </wadl:doc>
+            </param>
+         <method name="POST" rax:id="generateLoginToken">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Generate login token">
+               <para role="shortdesc">Generates a login token that a
+            customer can use to SSO into the Control Panel.</para>
+               <para>Login tokens can be generated for virtual and
+            non-virtual users.</para>
+               <itemizedlist>
+                  <listitem>
+                     <para>Virtual user gets the administrator's privileges
+                  when SSOed into the Control Panel.</para>
+                  </listitem>
+                  <listitem>
+                     <para>Non-virtual user gets only as much privileges as
+                  are given to him/her when his/her account was
+                  created.</para>
+                  </listitem>
+               </itemizedlist>
+               <para>A Login token is valid for ten minutes after its
+            creation. The "dateCreated" field indicates the time when
+            the login token is created.</para>
+               <itemizedlist>
+                  <listitem>
+                     <para>Using the generated login token shown in the
+                  example below, the customer with account number
+                  460896 can SSO into the Control Panel using the
+                  following URL:
+                  http://ControlPanelURL/TokenLogin.aspx?loginToken=EEB0012D8DBC2CAC26E28365D44B537FFF0D79350</para>
+                  </listitem>
+                  <listitem>
+                     <para>A customer can also use the login token to log
+                  into their private label control panel (E.g.:
+                  cp.mydomain.com/logintokens.aspx).</para>
+                  </listitem>
+               </itemizedlist>
+               <table rules="all">
+                  <caption>Request Data</caption>
+                  <thead>
+                     <tr>
+                        <td>
+                           <b xmlns="http://www.w3.org/1999/xhtml">Field
+                        Name</b>
+                        </td>
+                        <td>
+                           <b xmlns="http://www.w3.org/1999/xhtml">Data
+                        Type</b>
+                        </td>
+                        <td>
+                           <b xmlns="http://www.w3.org/1999/xhtml">Description</b>
+                        </td>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <td>userName</td>
+                        <td>string</td>
+                        <td>The name for which login token needs to be
+                     created.</td>
+                     </tr>
+                     <tr>
+                        <td>virtualUser</td>
+                        <td>string</td>
+                        <td>A flag indicating whether the user for whom the
+                     login token needs to be generated is virtual or
+                     non-virtual. Valid values: true/false. When set
+                     to true, the userName is treated as a virtual
+                     user. When set to false, the userName is treated
+                     as a non-virtual user. A non-virtual user must be
+                     an existing admin user.</td>
+                     </tr>
+                  </tbody>
+               </table>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json" element="noop">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <xsdxt:code>
+                        <programlisting language="javascript">POST '/customers/460896/loginToken', 'text/xml' {
+                  'userName' =\u003E 'dev_cust_limitedadmin',
+                  'virtualUser' =\u003E 'true' }" });</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="200">
+               <representation mediaType="application/xml">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <xsdxt:code>
+                        <programlisting language="xml">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+                  &lt;loginToken
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  xmlns="urn:xml:loginToken"&gt;
+                  &lt;user&gt;dev_cust_limitedadmin_460896_vu&lt;/user&gt;
+                  &lt;token&gt;EEB0012D8DBC2CAC26E28365D44B537FFF0D79350&lt;/token&gt;
+                  &lt;dateCreated&gt;6/11/2010 10:53:46
+                  AM&lt;/dateCreated&gt;
+                  &lt;/loginToken&gt;</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </response>
+         </method>
+      </resource>
+               
+            
+            <resource path="customers/{customer_account_number}/admins" id="admins">
+         <param name="customer_account_number"
+                style="template"
+                required="true"
+                rax:id="">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The customer account
+                     number.</para>
+               </wadl:doc>
+            </param>
+         <method name="GET" rax:id="listAdmins">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" title="List account admins">
+               <para role="shortdesc">Lists account admins.</para>
+               <para>If you specify a customer account, a list of admins
+            under that specific account are returned.</para>
+               <itemizedlist>
+                  <listitem>
+                     <para>This operation Lists admins under the account. If
+                  you specify a customer account, a list of admins
+                  under that specific account is returned.</para>
+                  </listitem>
+                  <listitem>
+                     <para>Alternate route: /v0/admins</para>
+                  </listitem>
+               </itemizedlist>
+               <para>Remarks</para>
+               <itemizedlist>
+                  <listitem>
+                     <para>To retrieve a list of admins owned by the account
+                  that is logged in, use "me" as the customer account
+                  number i.e.
+                  'https://api.emailsrvr.com/v0/customers/me/domains'.</para>
+                  </listitem>
+               </itemizedlist>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json" element="noop">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <xsdxt:code>
+                        <programlisting language="javascript">GET '/customers/999999/admins?size=5\u0026page=1',
+                  'text/xml'" });</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="200">
+               <representation mediaType="application/xml">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <xsdxt:code>
+                        <programlisting language="xml">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+                  &lt;adminList
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  xmlns="urn:xml:adminList"&gt;
+                  &lt;offset&gt;0&lt;/offset&gt;
+                  &lt;size&gt;50&lt;/size&gt;
+                  &lt;total&gt;3&lt;/total&gt; &lt;admins&gt;
+                  &lt;admin&gt;
+                  &lt;adminId&gt;apiadmin37&lt;/adminId&gt;
+                  &lt;type&gt;super&lt;/type&gt;
+                  &lt;enabled&gt;true&lt;/enabled&gt;
+                  &lt;locked&gt;false&lt;/locked&gt; &lt;/admin&gt;
+                  &lt;admin&gt;
+                  &lt;adminId&gt;apiadmin76&lt;/adminId&gt;
+                  &lt;type&gt;super&lt;/type&gt;
+                  &lt;enabled&gt;true&lt;/enabled&gt;
+                  &lt;locked&gt;false&lt;/locked&gt; &lt;/admin&gt;
+                  &lt;admin&gt;
+                  &lt;adminId&gt;apiadmin94&lt;/adminId&gt;
+                  &lt;type&gt;super&lt;/type&gt;
+                  &lt;enabled&gt;true&lt;/enabled&gt;
+                  &lt;locked&gt;false&lt;/locked&gt; &lt;/admin&gt;
+                  &lt;/admins&gt; &lt;/adminList&gt;</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <xsdxt:code>
+                        <programlisting language="javascript">{"admins":[{"adminId":"apiadmin37","enabled":true,"locked":false,"type":"super"},{"adminId":"apiadmin76","enabled":true,"locked":false,"type":"super"},{"adminId":"apiadmin94","enabled":true,"locked":false,"type":"super"}],"offset":0,"size":50,"total":3}</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </response>
+
+         </method>
+      </resource>
+               
+               <resource path="customers/{customer_account_number}/admins/{admin_name}"
+                id="admin_name">
+         <param name="customer_account_number"
+                style="template"
+                required="true"
+                rax:id="">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The customer account
+                     number.</para>
+               </wadl:doc>
+            </param>
+         <param name="admin_name" style="template" required="true" rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The admin name.</para>
+                     </wadl:doc>
+                  </param>
+         <method name="GET" rax:id="showAdminDetails">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Show admin details">
+               <para role="shortdesc">Shows admin details.</para>
+               <itemizedlist>
+                  <listitem>
+                     <para>The show operation will return detailed
+                  information about the specified admin.</para>
+                  </listitem>
+                  <listitem>
+                     <para>Alternate route: /v0/admins/{admin name}</para>
+                  </listitem>
+               </itemizedlist>
+               <para>Remarks</para>
+               <itemizedlist>
+                  <listitem>
+                     <para>The show operation only supports the GET HTTP
+                  verb. For text/xml format, refer to the following
+                  schema document: <link xlink:href="http://api.emailsrvr.com/Schemas/Admin.xsd">Admin.xsd</link>
+                     </para>
+                  </listitem>
+               </itemizedlist>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json" element="noop">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <xsdxt:code>
+                        <programlisting language="javascript">GET '/customers/999999/admins/admin1', 'text/xml'"
+                  });</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="200">
+               <representation mediaType="application/xml">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <xsdxt:code>
+                        <programlisting language="xml">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+                  &lt;admin
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  xmlns="urn:xml:admin"&gt;
+                  &lt;adminId&gt;apiadmin1&lt;/adminId&gt;
+                  &lt;type&gt;super&lt;/type&gt;
+                  &lt;enabled&gt;true&lt;/enabled&gt;
+                  &lt;locked&gt;false&lt;/locked&gt;
+                  &lt;firstName&gt;First&lt;/firstName&gt;
+                  &lt;lastName&gt;Last&lt;/lastName&gt;
+                  &lt;email&gt;first.last@rackspace.com&lt;/email&gt;
+                  &lt;passwordExpiration&gt;10&lt;/passwordExpiration&gt;
+                  &lt;allowSimultaneousLogins&gt;false&lt;/allowSimultaneousLogins&gt;
+                  &lt;restrictedIps&gt;
+                  &lt;restrictedIps&gt;1.1.1.1&lt;/restrictedIps&gt;
+                  &lt;restrictedIps&gt;1.1.1.2&lt;/restrictedIps&gt;
+                  &lt;restrictedIps&gt;1.1.1.3&lt;/restrictedIps&gt;
+                  &lt;/restrictedIps&gt; &lt;/admin&gt;</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <xsdxt:code>
+                        <programlisting language="javascript">{"adminId":"apiadmin1","allowSimultaneousLogins":false,"email":"first.last@rackspace.com","firstName":"First","enabled":true,"locked":false,"lastName":"Last","passwordExpiration":10,"restrictedIps":["1.1.1.1","1.1.1.2","1.1.1.3"],"type":"super"}</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </response>
+
+         </method>
+         <method name="POST" rax:id="addAdmin">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Add admin">
+               <para role="shortdesc">Adds an admin to a specified
+            account.</para>
+               <itemizedlist>
+                  <listitem>
+                     <para>Add a new admin under the specified
+                  account.</para>
+                  </listitem>
+                  <listitem>
+                     <para>Alternate route: /v0/admins/{admin name}</para>
+                  </listitem>
+               </itemizedlist>
+               <table rules="all">
+                  <caption>Request Data</caption>
+                  <thead>
+                     <tr>
+                        <td>
+                           <b xmlns="http://www.w3.org/1999/xhtml">Field
+                        Name</b>
+                        </td>
+                        <td>
+                           <b xmlns="http://www.w3.org/1999/xhtml">Data
+                        Type</b>
+                        </td>
+                        <td>
+                           <b xmlns="http://www.w3.org/1999/xhtml">Description</b>
+                        </td>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <td>type</td>
+                        <td>string</td>
+                        <td>Admin type (Required for Add). Must be "super",
+                     "standard" or "limited". Can't change permissions
+                     and domain access for limited admin at this
+                     point.</td>
+                     </tr>
+                     <tr>
+                        <td>password</td>
+                        <td>string</td>
+                        <td>Admin log in password (Required for Add)</td>
+                     </tr>
+                     <tr>
+                        <td>firstName</td>
+                        <td>string</td>
+                        <td>Admin first name (Required for Add)</td>
+                     </tr>
+                     <tr>
+                        <td>lastName</td>
+                        <td>string</td>
+                        <td>Admin last name (Required for Add)</td>
+                     </tr>
+                     <tr>
+                        <td>email</td>
+                        <td>string</td>
+                        <td>Admin contact email (Required for Add)</td>
+                     </tr>
+                     <tr>
+                        <td>securityQuestion</td>
+                        <td>string</td>
+                        <td>Security question (Required for Add)</td>
+                     </tr>
+                     <tr>
+                        <td>securityAnswer</td>
+                        <td>string</td>
+                        <td>Security answer (Required for Add)</td>
+                     </tr>
+                     <tr>
+                        <td>passwordExpiration</td>
+                        <td>int</td>
+                        <td>The number of days in which password expires. 0
+                     means password never expires.</td>
+                     </tr>
+                     <tr>
+                        <td>allowSimultaneousLogins</td>
+                        <td>boolean</td>
+                        <td>Allow simultaneous logins using this
+                     administrative ID</td>
+                     </tr>
+                     <tr>
+                        <td>restrictedIps</td>
+                        <td>string</td>
+                        <td>Login restricted to IP address(es). Can be up to
+                     3 valid addresses separated by commas.</td>
+                     </tr>
+                     <tr>
+                        <td>enabled</td>
+                        <td>boolean</td>
+                        <td>Enable/disable admin account</td>
+                     </tr>
+                     <tr>
+                        <td>locked</td>
+                        <td>boolean</td>
+                        <td>Lock/unlock admin account</td>
+                     </tr>
+                  </tbody>
+               </table>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json" element="noop">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <xsdxt:code>
+                        <programlisting language="javascript">POST '/customers/999999/admins/admin1', { 'type'
+                  =\u003E 'super', 'password' =\u003E 'password',
+                  'firstName' =\u003E 'First', 'lastName' =\u003E
+                  'Last', 'email' =\u003E 'first.last@rackspace.com',
+                  'securityQuestion' =\u003E 'Q', 'securityAnswer'
+                  =\u003E 'A' }, 'text/xml'" });</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="204"/>
+            <response status="400">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                  <para>Password doesn't meet the requirements. Sample
+               Message: Password must be 7 to 30 characters.</para>
+               </wadl:doc>
+            </response>
+            <response status="400">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                  <para>Invalid email address. Sample Message: Invalid email
+               address.</para>
+               </wadl:doc>
+            </response>
+            <response status="400">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                  <para>Invalid restricted to IP address(es). Sample
+               Message: IP addresses must be valid addresses separated
+               by commas. A maximum of 3 addresses may be
+               entered.</para>
+               </wadl:doc>
+            </response>
+         </method>
+         <method name="PUT" rax:id="updateAdmin">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Update admin">
+               <para role="shortdesc">Updates an admin for a specified
+            account.</para>
+               <itemizedlist>
+                  <listitem>
+                     <para role="shortdesc">Updates an existing admin under
+                  the specified account.</para>
+                  </listitem>
+                  <listitem>
+                     <para>Alternate route: /v0/admins/{admin name}</para>
+                  </listitem>
+               </itemizedlist>
+               <table rules="all">
+                  <caption>Request Data</caption>
+                  <thead>
+                     <tr>
+                        <td>
+                           <b xmlns="http://www.w3.org/1999/xhtml">Field
+                        Name</b>
+                        </td>
+                        <td>
+                           <b xmlns="http://www.w3.org/1999/xhtml">Data
+                        Type</b>
+                        </td>
+                        <td>
+                           <b xmlns="http://www.w3.org/1999/xhtml">Description</b>
+                        </td>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <td>type</td>
+                        <td>string</td>
+                        <td>Admin type (Required for Add). Must be "super",
+                     "standard" or "limited". Can't change permissions
+                     and domain access for limited admin at this
+                     point.</td>
+                     </tr>
+                     <tr>
+                        <td>password</td>
+                        <td>string</td>
+                        <td>Admin log in password (Required for Add)</td>
+                     </tr>
+                     <tr>
+                        <td>firstName</td>
+                        <td>string</td>
+                        <td>Admin first name (Required for Add)</td>
+                     </tr>
+                     <tr>
+                        <td>lastName</td>
+                        <td>string</td>
+                        <td>Admin last name (Required for Add)</td>
+                     </tr>
+                     <tr>
+                        <td>email</td>
+                        <td>string</td>
+                        <td>Admin contact email (Required for Add)</td>
+                     </tr>
+                     <tr>
+                        <td>securityQuestion</td>
+                        <td>string</td>
+                        <td>Security question (Required for Add)</td>
+                     </tr>
+                     <tr>
+                        <td>securityAnswer</td>
+                        <td>string</td>
+                        <td>Security answer (Required for Add)</td>
+                     </tr>
+                     <tr>
+                        <td>passwordExpiration</td>
+                        <td>int</td>
+                        <td>The number of days in which password expires. 0
+                     means password never expires.</td>
+                     </tr>
+                     <tr>
+                        <td>allowSimultaneousLogins</td>
+                        <td>boolean</td>
+                        <td>Allow simultaneous logins using this
+                     Administrative ID</td>
+                     </tr>
+                     <tr>
+                        <td>restrictedIps</td>
+                        <td>string</td>
+                        <td>Login restricted to IP address(es). Can be up to
+                     3 valid addresses separated by commas.</td>
+                     </tr>
+                     <tr>
+                        <td>enabled</td>
+                        <td>boolean</td>
+                        <td>Enable/disable admin account</td>
+                     </tr>
+                     <tr>
+                        <td>locked</td>
+                        <td>boolean</td>
+                        <td>Lock/unlock admin account</td>
+                     </tr>
+                  </tbody>
+               </table>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json" element="noop">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <xsdxt:code>
+                        <programlisting language="javascript">PUT '/customers/999999/admins/admin2', { 'enabled'
+                  =\u003E 'true', 'locked' =\u003E 'false',
+                  'passwordExpiration' =\u003E '0',
+                  'allowSimultaneousLogins' =\u003E 'true',
+                  'restrictedIps' =\u003E '1.1.1.1' }, 'text/xml'"
+                  });</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="204"/>
+            <response status="400">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                  <para>Password doesn't meet the requirements. Sample
+               Message: Password must be 7 to 30 characters.</para>
+               </wadl:doc>
+            </response>
+            <response status="400">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                  <para>Invalid email address. Sample Message: Invalid email
+               address.</para>
+               </wadl:doc>
+            </response>
+            <response status="400">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                  <para>Invalid restricted to IP address(es). Sample
+               Message: IP addresses must be valid addresses separated
+               by commas. A maximum of 3 addresses may be
+               entered.</para>
+               </wadl:doc>
+            </response>
+         </method>
+         <method name="DELETE" rax:id="deleteAdmin">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Delete admin">
+               <para role="shortdesc">Deletes an admin from a specified
+            account.</para>
+               <itemizedlist>
+                  <listitem>
+                     <para role="shortdesc">Deletes an admin</para>
+                  </listitem>
+                  <listitem>
+                     <para>Alternate route: /v0/admins/{admin name}</para>
+                  </listitem>
+               </itemizedlist>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json" element="noop">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <xsdxt:code>
+                        <programlisting language="javascript">DELETE '/customers/999999/admins/admin1',
+                  'text/xml'" });</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="204"/>
+         </method>
+      </resource>
+                  
+                  
+                  
+                  
+                  
+               
+                      
+         
+      
+   </resources>
+   <!-- methods -->
+   <!-- Customer account operations -->
+   <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:raxapi="http://docs.rackspace.com/volume/api/v1"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           id="listCustomers"
+           name="GET">
+      
+      <request>
+         <representation mediaType="application/json" element="noop">
+            
+         </representation>
+      </request>
+      <response status="200">
+         <representation mediaType="application/xml">
+            
+         </representation>
+         <representation mediaType="application/json">
+            
+         </representation>
+      </response>
+   </method>
+   <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:raxapi="http://docs.rackspace.com/volume/api/v1"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           id="addSubaccount"
+           name="POST">
+      
+      <request>
+         <representation mediaType="application/json" element="noop">
+            
+         </representation>
+      </request>
+      <response status="204"/>
+      <response status="400">
+         
+      </response>
+      <response status="400">
+         
+      </response>
+      <response status="400">
+         
+      </response>
+   </method>
+   <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:raxapi="http://docs.rackspace.com/volume/api/v1"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           id="showAccountDetails"
+           name="GET">
+      
+      <request>
+         <representation mediaType="application/json" element="noop">
+            
+         </representation>
+      </request>
+      <response status="200">
+         <representation mediaType="application/json">
+            
+         </representation>
+
+         <representation mediaType="application/json">
+            
+         </representation>
+      </response>
+
+   </method>
+   <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:raxapi="http://docs.rackspace.com/volume/api/v1"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           id="updateSubaccount"
+           name="PUT">
+      
+      <request>
+         <param name="name"
+                style="plain"
+                type="xsd:string"
+                required="true"
+                rax:id="">
+            
+         </param>
+         <param name="referenceNumber"
+                style="plain"
+                type="xsd:string"
+                required="false"
+                rax:id="">
+            
+         </param>
+         <representation mediaType="application/json" element="noop">
+            
+         </representation>
+      </request>
+      <response status="204"/>
+      <response status="400">
+         
+      </response>
+      <response status="400">
+         
+      </response>
+      <response status="400">
+         
+      </response>
+   </method>
+   <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:raxapi="http://docs.rackspace.com/volume/api/v1"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           id="deleteAccount"
+           name="DELETE">
+      
+      <request>
+         <representation mediaType="application/json" element="noop">
+            
+         </representation>
+      </request>
+      <response status="204"/>
+   </method>
+   <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:raxapi="http://docs.rackspace.com/volume/api/v1"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           id="generateLoginToken"
+           name="POST">
+      
+      <request>
+         <representation mediaType="application/json" element="noop">
+            
+         </representation>
+      </request>
+      <response status="200">
+         <representation mediaType="application/xml">
+            
+         </representation>
+      </response>
+   </method>
+   <!-- Admin operations -->
+   <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:raxapi="http://docs.rackspace.com/volume/api/v1"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           id="listAdmins"
+           name="GET">
+      
+      <request>
+         <representation mediaType="application/json" element="noop">
+            
+         </representation>
+      </request>
+      <response status="200">
+         <representation mediaType="application/xml">
+            
+         </representation>
+
+         <representation mediaType="application/json">
+            
+         </representation>
+      </response>
+
+   </method>
+   <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:raxapi="http://docs.rackspace.com/volume/api/v1"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           id="showAdminDetails"
+           name="GET">
+      
+      <request>
+         <representation mediaType="application/json" element="noop">
+            
+         </representation>
+      </request>
+      <response status="200">
+         <representation mediaType="application/xml">
+            
+         </representation>
+
+         <representation mediaType="application/json">
+            
+         </representation>
+      </response>
+
+   </method>
+   <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:raxapi="http://docs.rackspace.com/volume/api/v1"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           id="addAdmin"
+           name="POST">
+      
+      <request>
+         <representation mediaType="application/json" element="noop">
+            
+         </representation>
+      </request>
+      <response status="204"/>
+      <response status="400">
+         
+      </response>
+      <response status="400">
+         
+      </response>
+      <response status="400">
+         
+      </response>
+   </method>
+   <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:raxapi="http://docs.rackspace.com/volume/api/v1"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           id="updateAdmin"
+           name="PUT">
+      
+      <request>
+         <representation mediaType="application/json" element="noop">
+            
+         </representation>
+      </request>
+      <response status="204"/>
+      <response status="400">
+         
+      </response>
+      <response status="400">
+         
+      </response>
+      <response status="400">
+         
+      </response>
+   </method>
+   <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:raxapi="http://docs.rackspace.com/volume/api/v1"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           id="deleteAdmin"
+           name="DELETE">
+      
+      <request>
+         <representation mediaType="application/json" element="noop">
+            
+         </representation>
+      </request>
+      <response status="204"/>
+   </method>
+</wadl:application>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xmlns="http://docbook.org/ns/docbook"
+    xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:linkend="http://www.w3.org/1999/linkend"
+    xmlns:xref="http://www.w3.org/1999/xref"
+    xmlns:wadl="http://wadl.dev.java.net/2009/02"
+    version="5.0-extension RackBook-2.0" xml:id="big-data-v1">
+    <title>Cloud Big Data API v1.0</title>
+    <section xml:id="profileOperations">
+        <title>Profiles</title>
+        <!--<para>Your Cloud Big Data profile is different from your cloud
+            account. A profile is the configuration for the
+            administration and login account for the cluster. Each
+            user or account can have only one profile. Any updates or
+            additions override the existing profile.</para>-->
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="../wadls/cloud-big-data/wadl/cbd-devguide.wadl#profiles"
+            />
+        </wadl:resources>
+    </section>
+    <section xml:id="clusterOperations">
+        <title>Clusters</title>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="../wadls/cloud-big-data/wadl/cbd-devguide.wadl#clusters">
+                <wadl:method href="#createCluster"/>
+                <wadl:method href="#getClusters"/>
+            </wadl:resource>
+            <wadl:resource
+                href="../wadls/cloud-big-data/wadl/cbd-devguide.wadl#cluster">
+                <wadl:method href="#getClusterDetails"/>
+                <wadl:method href="#deleteCluster"/>
+            </wadl:resource>
+            <wadl:resource
+                href="../wadls/cloud-big-data/wadl/cbd-devguide.wadl#action">
+                <wadl:method href="#postClusterAction"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="nodeOperations">
+        <title>Nodes</title>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="../wadls/cloud-big-data/wadl/cbd-devguide.wadl#nodes">
+                <wadl:method href="#getClusterNodes"/>
+            </wadl:resource>
+            <wadl:resource
+                href="../wadls/cloud-big-data/wadl/cbd-devguide.wadl#node">
+                <wadl:method href="#getNodeDetails"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="flavorOperations">
+        <title>Flavors</title>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="../wadls/cloud-big-data/wadl/cbd-devguide.wadl#flavors">
+                <wadl:method href="#getFlavors"/>
+            </wadl:resource>
+            <wadl:resource
+                href="../wadls/cloud-big-data/wadl/cbd-devguide.wadl#flavor">
+                <wadl:method href="#getFlavorDetails"/>
+            </wadl:resource>
+            <wadl:resource
+                href="../wadls/cloud-big-data/wadl/cbd-devguide.wadl#flavorsSupportedType">
+                <wadl:method href="#getSupportedClusterTypesByFlavor"
+                />
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="typeOperations">
+        <title>Types</title>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="../wadls/cloud-big-data/wadl/cbd-devguide.wadl#types">
+                <wadl:method href="#getClusterTypes"/>
+            </wadl:resource>
+            <wadl:resource
+                href="../wadls/cloud-big-data/wadl/cbd-devguide.wadl#type">
+                <wadl:method href="#getClusterTypeDetails"/>
+            </wadl:resource>
+            <wadl:resource
+                href="../wadls/cloud-big-data/wadl/cbd-devguide.wadl#flavorsType">
+                <wadl:method href="#getSupportedFlavorsForType"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="limitsOperations">
+        <title>Resource limits</title>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="../wadls/cloud-big-data/wadl/cbd-devguide.wadl#limits">
+                <wadl:method href="#viewResourceLimits"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+</chapter>

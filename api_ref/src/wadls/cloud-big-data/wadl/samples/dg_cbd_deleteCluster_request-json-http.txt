@@ -1,0 +1,4 @@
+DELETE https://dfw.bigdata.api.rackspacecloud.com/v1.0/7654321/clusters/db478fc1-2d86-4597-8010-cbe787bbbc41
+Accept: application/json 
+X-Auth-Token:ea85e6ac-baff-4a6c-bf43-848020ea3812
+Content-Type: application/json

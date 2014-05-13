@@ -1,0 +1,820 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE application [
+    <!ENTITY % common  SYSTEM "common.ent">
+    %common;
+]>
+
+<application xmlns="http://wadl.dev.java.net/2009/02"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+  xmlns:wadl="http://wadl.dev.java.net/2009/02"
+  xmlns:dbaas="http://docs.openstack.org/database/api/v1.0">
+
+  <grammars>
+    <include href="dbaas.xsd"/>
+    <include href="management.xsd"/>
+  </grammars>
+  <resources base="https://localhost:8775">
+    <resource id="mgmt" path="mgmt">
+      <resource id="hosts" path="hosts">
+        <method href="#gethosts"/>
+        <resource id="hostid" path="{hostId}">
+          <param name="hostId" style="template" type="xsd:string">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+              xml:lang="EN"><para>The host ID for a specified
+                host.</para></wadl:doc>
+          </param>
+          <method href="#gethostbyid"/>
+          <resource id="instances-hostId" path="instances">
+            <resource id="instanceAction-hostId" path="action">
+              <method href="#updateHostInstances"/>
+            </resource>
+          </resource>
+        </resource>
+      </resource>
+      <resource id="instances" path="instances">
+        <method href="#getIndex"/>
+        <resource id="instanceId" path="{instanceId}">
+          <param name="instanceId" style="template" type="xsd:string">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+              xml:lang="EN"><para>The instance ID for a specified
+                database instance.</para></wadl:doc>
+          </param>
+          <method href="#showinstances"/>
+          <resource id="rootdetails" path="root">
+            <method href="#getrootdetails"/>
+          </resource>
+          <resource id="diagnostics" path="diagnostics">
+            <method href="#getdiagnosticdetails"/>
+          </resource>
+          <resource id="instanceAction" path="action">
+            <method href="#rebootInstance"/>
+          </resource>
+          <resource id="hwInfo" path="hwinfo">
+            <method href="#getHwInfo"/>
+          </resource>
+        </resource>
+      </resource>
+      <resource id="storage" path="storage">
+        <method href="#indexstorage"/>
+      </resource>
+      <resource id="accounts" path="accounts">
+        <method href="#getaccounts"/>
+        <resource id="accountid" path="{accountId}">
+          <param name="accountId" style="template" type="xsd:string">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+              xml:lang="EN"><para>The account ID for a specified
+                account.</para></wadl:doc>
+          </param>
+          <method href="#getaccountbyid"/>
+        </resource>
+      </resource>
+    </resource>
+  </resources>
+
+  <!--Methods-->
+  <method name="GET" id="getaccounts">
+    <wadl:doc xml:lang="EN" title="List active accounts"
+      xmlns="http://docbook.org/ns/docbook">
+      <para role="shortdesc">Lists all accounts that have at least one
+        instance that is not deleted.</para>
+      <para>This operation returns a list of all the accounts across
+        all locations that own at least one instance that has not been
+        deleted, that is, all accounts of current users.</para>
+    </wadl:doc>
+    <request>
+      <representation mediaType="application/xml">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+          <para>The following examples show the list active accounts requests:</para>
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-list-accounts-request-xml-http.txt"
+          />
+        </wadl:doc>
+      </representation>
+      <representation mediaType="application/json">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-list-accounts-request-json-http.txt"
+          />
+        </wadl:doc>
+      </representation>
+    </request>
+    <response status="200">
+      <representation mediaType="application/xml"
+        element="dbaas:Hosts">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+          <para>The following examples show the list active accounts responses:</para>
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-list-accounts-response-xml-http.txt"/>
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-list-accounts-response.xml"
+          />
+        </wadl:doc>
+      </representation>
+      <representation mediaType="application/json"
+        element="dbaas:Hosts">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-list-accounts-response-json-http.txt"/>
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-list-accounts-response.json"
+          />
+        </wadl:doc>
+      </representation>
+    </response> &commonFaults; &getFaults; </method>
+
+  <method name="GET" id="gethosts">
+    <wadl:doc xml:lang="EN" title="List compute hosts"
+      xmlns="http://docbook.org/ns/docbook">
+      <para role="shortdesc">Lists all compute hosts.</para>
+      <remark>Reviewer: in the DNS project, we have been requested by
+        the customer to provide a table of parameters (should be
+        pulled automatically if parameters defined in wadl) and a
+        table of attributes (for calls that allow detailed info about
+        the object created to be specified. No doubt our DB customers
+        will want this too.</remark>
+      <remark>Reviewer: These tables probably need 4 columns: name;
+        parameter type: e.g. template, query, etc.; data type: string,
+        etc.; required?; description.</remark>
+      <para>This operation returns a list of all the hosts from the
+        database that are running the binary 'nova-compute'.</para>
+    </wadl:doc>
+    <request>
+      <representation mediaType="application/xml">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+          <para>The following examples show the list compute hosts
+            requests:</para>
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-list-hosts-request-xml-http.txt"
+          />
+        </wadl:doc>
+      </representation>
+      <representation mediaType="application/json">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-list-hosts-request-json-http.txt"
+          />
+        </wadl:doc>
+      </representation>
+    </request>
+    <response status="200">
+      <representation mediaType="application/xml"
+        element="dbaas:Hosts">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+          <para>The following examples show the list compute hosts
+            responses:</para>
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-list-hosts-response-xml-http.txt"/>
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-list-hosts-response.xml"
+          />
+        </wadl:doc>
+      </representation>
+      <representation mediaType="application/json"
+        element="dbaas:Hosts">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-list-hosts-response-json-http.txt"
+            /><xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-list-hosts-response.json"
+          />
+        </wadl:doc>
+      </representation>
+    </response> &commonFaults; &getFaults; </method>
+
+  <method name="GET" id="gethostbyid">
+    <wadl:doc xml:lang="EN" title="List host instances"
+      xmlns="http://docbook.org/ns/docbook">
+      <para role="shortdesc">Lists all instances for a specified
+        host.</para>
+      <remark>Reviewer: in the DNS project, we have been requested by
+        the customer to provide a table of parameters (should be
+        pulled automatically if parameters defined in wadl) and a
+        table of attributes (for calls that allow detailed info about
+        the object created to be specified. No doubt our DB customers
+        will want this too.</remark>
+      <remark>Reviewer: These tables probably need 4 columns: name;
+        parameter type: e.g. template, query, etc.; data type: string,
+        etc.; required?; description.</remark>
+      <para>This operation returns the following information:</para>
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para>host name</para>
+        </listitem>
+        <listitem>
+          <para>percent of RAM used</para>
+        </listitem>
+        <listitem>
+          <para>total RAM on host</para>
+        </listitem>
+        <listitem>
+          <para>used RAM on host</para>
+        </listitem>
+        <listitem>
+          <para>a list of the compute instances running on the given
+            host</para>
+        </listitem>
+      </itemizedlist>
+      <para>If the host name does not exist, a 404 not found error is
+        returned.</para>
+    </wadl:doc>
+    <request>
+      <representation mediaType="application/xml">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+          <para>The following examples show the list host instances requests:</para>
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-get-host-detail-request-xml-http.txt"
+          />
+        </wadl:doc>
+      </representation>
+      <representation mediaType="application/json">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-get-host-detail-request-json-http.txt"
+          />
+        </wadl:doc>
+      </representation>
+    </request>
+    <response status="200">
+      <representation mediaType="application/xml" element="dbaas:Host">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+          <para>The following examples show the list host instances responses:</para>
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-get-host-detail-response-xml-http.txt"/>
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-get-host-detail-response.xml"
+          />
+        </wadl:doc>
+      </representation>
+      <representation mediaType="application/json"
+        element="dbaas:Host">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-get-host-detail-response-json-http.txt"/>
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-get-host-detail-response.json"
+          />
+        </wadl:doc>
+      </representation>
+    </response> &commonFaults; &getFaults; </method>
+
+  <method name="GET" id="getIndex">
+    <wadl:doc xml:lang="EN" title="List management index of instances"
+      xmlns="http://docbook.org/ns/docbook">
+      <para role="shortdesc">Lists all database instances, optionally
+        filtered by deleted status.</para>
+    </wadl:doc>
+    <request>
+      <param name="deleted" style="query" type="xsd:boolean">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook">
+          <para>This query parameter specifies whether or not to list
+            deleted instances. If <code>true</code>, deleted instances
+            are listed. If <code>false</code>, deleted instances are
+            not listed.</para>
+        </wadl:doc>
+      </param>
+      <representation mediaType="application/xml">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+          <para>The following examples show the list management index of instances
+            requests:</para>
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-instance-index-request-xml-http.txt"
+          />
+        </wadl:doc>
+      </representation>
+      <representation mediaType="application/json">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-instance-index-request-json-http.txt"
+          />
+        </wadl:doc>
+      </representation>
+    </request>
+    <response status="200">
+      <representation mediaType="application/xml"
+        element="dbaas:ManagementIndexInstances">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+          <para>The following examples show the list management index of instances
+            response:</para>
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-instance-index-response-xml-http.txt"/>
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-instance-index-response.xml"
+          />
+        </wadl:doc>
+      </representation>
+      <representation mediaType="application/json">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-instance-index-response-json-http.txt"/>
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-instance-index-response.json"/>
+          <para>By default, all instances (both deleted and not
+            deleted) are displayed. Use the <code>deleted</code> query
+            parameter to list only the deleted or not deleted
+            instances.</para>
+        </wadl:doc>
+      </representation>
+    </response> &commonFaults; &getFaults; </method>
+
+  <method name="GET" id="showinstances">
+    <wadl:doc xml:lang="EN" title="Show database instance details"
+      xmlns="http://docbook.org/ns/docbook">
+      <para role="shortdesc">Shows database instance details.</para>
+      <remark>Reviewer: in the DNS project, we have been requested by
+        the customer to provide a table of parameters (should be
+        pulled automatically if parameters defined in wadl) and a
+        table of attributes (for calls that allow detailed info about
+        the object created to be specified. No doubt our DB customers
+        will want this too.</remark>
+      <remark>Reviewer: These tables probably need 4 columns: name;
+        parameter type: e.g. template, query, etc.; data type: string,
+        etc.; required?; description.</remark>
+      <para>This operation returns detailed information about the
+        status and details for a specified database instance.</para>
+    </wadl:doc>
+    <request>
+      <representation mediaType="application/xml">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+          <para>The following examples show the show database instance details requests:</para>
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-get-instance-details-request-xml-http.txt"
+          />
+        </wadl:doc>
+      </representation>
+      <representation mediaType="application/json">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-get-instance-details-request-json-http.txt"
+          />
+        </wadl:doc>
+      </representation>
+    </request>
+    <response status="200">
+      <representation mediaType="application/xml"
+        element="ManagementInstances">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+          <para>The following examples show the show database instance details responses:</para>
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-get-instance-details-response-xml-http.txt"/>
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-get-instance-details-response.xml"
+          />
+        </wadl:doc>
+      </representation>
+      <representation mediaType="application/json"
+        element="ManagementInstances">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-get-instance-details-response-json-http.txt"/>
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-get-instance-details-response.json"
+          />
+        </wadl:doc>
+      </representation>
+    </response> &commonFaults; &getFaults; </method>
+
+  <!-- Instance Actions -->
+  <method name="POST" id="rebootInstance">
+    <wadl:doc xml:lang="EN" title="Reboot instance"
+      xmlns="http://docbook.org/ns/docbook">
+      <para role="shortdesc">Reboots an instance.</para>
+      <para>This operation reboots the underlying OS along with the
+        mysql instance.</para>
+      <para>This operation returns a 202 Accepted response.</para>
+    </wadl:doc>
+    <request>
+      <representation mediaType="application/xml"
+        element="dbaas:Reboot">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+          <para>The following examples show the reboot instance
+            requests:</para>
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-instance-reboot-request-xml-http.txt"/>
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-instance-reboot-request.xml"
+          />
+        </wadl:doc>
+      </representation>
+      <representation mediaType="application/json"
+        element="dbaas:Reboot">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-instance-reboot-request-json-http.txt"
+            /><xsdxt:code
+            href="../apidocs/src/resources/samples/db-instance-reboot-request.json"
+          />
+        </wadl:doc>
+      </representation>
+    </request>
+    <response status="202">
+      <representation mediaType="application/xml">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+          <para>The following examples show the reboot instance
+            responses:</para>
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-instance-reboot-response-xml-http.txt"
+          />
+        </wadl:doc>
+      </representation>
+      <representation mediaType="application/json">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-instance-reboot-response-json-http.txt"
+          />
+        </wadl:doc>
+      </representation>
+    </response> &commonFaults; &getFaults; &postPutFaults; </method>
+
+  <method name="POST" id="updateHostInstances">
+    <wadl:doc xml:lang="EN" title="Update host instances"
+      xmlns="http://docbook.org/ns/docbook">
+      <para role="shortdesc">Updates all instances on a specified
+        host.</para>
+      <para>This operation will call on all guest agents in a
+        specified host to install new versions of itself.</para>
+      <para>This operation returns a 202 Accepted response.</para>
+    </wadl:doc>
+    <request>
+      <representation mediaType="application/xml"
+        element="dbaas:Update">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+          <para>The following examples show the update host instances requests:</para>
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-host-update-request-xml-http.txt"/>
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-host-update-request.xml"
+          />
+        </wadl:doc>
+      </representation>
+      <representation mediaType="application/json"
+        element="dbaas:Update">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-host-update-request-json-http.txt"
+            /><xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-host-update-request.json"
+          />
+        </wadl:doc>
+      </representation>
+    </request>
+    <response status="202">
+      <representation mediaType="application/xml">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+          <para>The following examples show the update host instances responses:</para>
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-host-update-response-xml-http.txt"
+          />
+        </wadl:doc>
+      </representation>
+      <representation mediaType="application/json">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-host-update-response-json-http.txt"
+          />
+        </wadl:doc>
+      </representation>
+    </response> &commonFaults; &getFaults; &postPutFaults; </method>
+
+  <method name="GET" id="indexstorage">
+    <wadl:doc xml:lang="EN" title="Show storage device details"
+      xmlns="http://docbook.org/ns/docbook">
+      <para role="shortdesc">Shows storage device details.</para>
+      <remark>Reviewer: in the DNS project, we have been requested by
+        the customer to provide a table of parameters (should be
+        pulled automatically if parameters defined in wadl) and a
+        table of attributes (for calls that allow detailed info about
+        the object created to be specified. No doubt our DB customers
+        will want this too.</remark>
+      <remark>Reviewer: These tables probably need 4 columns: name;
+        parameter type: e.g. template, query, etc.; data type: string,
+        etc.; required?; description.</remark>
+      <para>This operation returns detailed information about the
+        details for the storage device.</para>
+    </wadl:doc>
+    <request>
+      <representation mediaType="application/xml">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+          <para>The following examples show the show storage device details requests:</para>
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-get-storage-request-xml-http.txt"
+          />
+        </wadl:doc>
+      </representation>
+      <representation mediaType="application/json">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-get-storage-request-json-http.txt"
+          />
+        </wadl:doc>
+      </representation>
+    </request>
+    <response status="200">
+      <representation mediaType="application/xml"
+        element="dbaas:Devices">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+          <para>The following examples show the show storage device details responses:</para>
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-get-storage-response-xml-http.txt"
+            /><xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-get-storage-response.xml"
+          />
+        </wadl:doc>
+      </representation>
+      <representation mediaType="application/json"
+        element="dbaas:Devices">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-get-storage-response-json-http.txt"/>
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-get-storage-response.json"
+          />
+        </wadl:doc>
+      </representation>
+    </response> &commonFaults; &getFaults; </method>
+
+  <method name="GET" id="getaccountbyid">
+    <wadl:doc xml:lang="EN" title="Show account details"
+      xmlns="http://docbook.org/ns/docbook">
+      <para role="shortdesc">Shows account details.</para>
+      <remark>Reviewer: This section needs examples.</remark>
+      <para>This operation returns:</para>
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para>account name</para>
+        </listitem>
+        <listitem>
+          <para>id</para>
+        </listitem>
+        <listitem>
+          <para>list of hosts that have the id</para>
+        </listitem>
+        <listitem>
+          <para>instance name</para>
+        </listitem>
+        <listitem>
+          <para>status of each instance on the hosts</para>
+        </listitem>
+      </itemizedlist>
+    </wadl:doc>
+    <request>
+      <representation mediaType="application/xml">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+          <para>The following examples show the show account details
+            requests:</para>
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-get-account-details-request-xml-http.txt"
+          />
+        </wadl:doc>
+      </representation>
+      <representation mediaType="application/json">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-get-account-details-request-json-http.txt"
+          />
+        </wadl:doc>
+      </representation>
+    </request>
+    <response status="200">
+      <representation mediaType="application/xml"
+        element="dbaas:Account">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+          <para>The following examples show the show account details
+            responses:</para>
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-get-account-details-response-xml-http.txt"/>
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-get-account-details-response.xml"
+          />
+        </wadl:doc>
+      </representation>
+      <representation mediaType="application/json"
+        element="dbaas:Account">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-get-account-details-response-json-http.txt"
+            /><xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-get-account-details-response.json"
+          />
+        </wadl:doc>
+      </representation>
+    </response> &commonFaults; &getFaults; </method>
+
+  <method name="GET" id="getrootdetails">
+    <wadl:doc xml:lang="EN" title="Show root details"
+      xmlns="http://docbook.org/ns/docbook">
+      <para role="shortdesc">Shows root flag details for a specified
+        instance.</para>
+      <remark>Reviewer: Need the description for the summary table
+        above and the detailed description for the next
+        paragraph.</remark>
+      <para>This operation shows the root flag details for the
+        specified instance.</para>
+    </wadl:doc>
+    <request>
+      <representation mediaType="application/xml">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+          <para>The following examples show the show root details
+            requests:</para>
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-get-root-details-request-xml-http.txt"
+          />
+        </wadl:doc>
+      </representation>
+      <representation mediaType="application/json">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-get-root-details-request-json-http.txt"
+          />
+        </wadl:doc>
+      </representation>
+    </request>
+    <response status="200">
+      <representation mediaType="application/xml"
+        element="dbaas:RootDetails">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+          <para>The following examples show the show root details
+            responses:</para>
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-get-root-details-response-xml-http.txt"/>
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-get-root-details-response.xml"
+          />
+        </wadl:doc>
+      </representation>
+      <representation mediaType="application/json"
+        element="dbaas:RootDetails">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-get-root-details-response-json-http.txt"
+            /><xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-get-root-details-response.json"
+          />
+        </wadl:doc>
+      </representation>
+    </response> &commonFaults; &getFaults; </method>
+
+  <method name="GET" id="getdiagnosticdetails">
+    <wadl:doc xml:lang="EN" title="Show diagnostics information"
+      xmlns="http://docbook.org/ns/docbook">
+      <para role="shortdesc">Shows the instance agent and other
+        instance diagnostics information.</para>
+      <para>This operation provides the following info for the guest
+        agent managing a specified instance.</para>
+      <table rules="all">
+        <caption>Response fields for show diagnostics information</caption>
+        <thead>
+          <tr>
+            <td colspan="1">Name</td>
+            <td colspan="3">Description</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan="1">version</td>
+            <td colspan="3">The version of the guest installed on the
+              instance.</td>
+          </tr>
+          <tr>
+            <td colspan="1">fdSize</td>
+            <td colspan="3">Number of file descriptor slots currently
+              allocated.</td>
+          </tr>
+          <tr>
+            <td colspan="1">vmSize</td>
+            <td colspan="3">Virtual memory size.</td>
+          </tr>
+          <tr>
+            <td colspan="1">vmPeak</td>
+            <td colspan="3">Peak virtual memory size.</td>
+          </tr>
+          <tr>
+            <td colspan="1">vmRss</td>
+            <td colspan="3">Resident set size.</td>
+          </tr>
+          <tr>
+            <td colspan="1">vmHwm</td>
+            <td colspan="3">Peak resident set size ("high water
+              mark").</td>
+          </tr>
+          <tr>
+            <td colspan="1">threads</td>
+            <td colspan="3">Number of threads in process containing
+              this thread.</td>
+          </tr>
+        </tbody>
+      </table>
+    </wadl:doc>
+    <request>
+      <representation mediaType="application/xml">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+          <para>The following examples show the show diagnostics information
+            requests:</para>
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-instance-diagnostics-request-xml-http.txt"
+          />
+        </wadl:doc>
+      </representation>
+      <representation mediaType="application/json">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-instance-diagnostics-request-json-http.txt"
+          />
+        </wadl:doc>
+      </representation>
+    </request>
+    <response status="200">
+      <representation mediaType="application/xml"
+        element="dbaas:DiagnosticsDetails">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+          <para>The following examples show the show diagnostics information
+            requests:</para>
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-instance-diagnostics-response-xml-http.txt"/>
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-instance-diagnostics-response.xml"
+          />
+        </wadl:doc>
+      </representation>
+      <representation mediaType="application/json">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-instance-diagnostics-response-json-http.txt"
+            /><xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-instance-diagnostics-response.json"
+          />
+        </wadl:doc>
+      </representation>
+    </response> &commonFaults; &getFaults; </method>
+
+  <method name="GET" id="getHwInfo">
+    <wadl:doc xml:lang="EN" title="Show hardware details"
+      xmlns="http://docbook.org/ns/docbook">
+      <para role="shortdesc">Shows the instance hardware details
+        from the guest agent.</para>
+      <para>This operation provides the following info from the guest
+        agent managing a specified instance.</para>
+      <table rules="all">
+        <caption>Response fields for show hardware details</caption>
+        <thead>
+          <tr>
+            <td colspan="1">Name</td>
+            <td colspan="3">Description</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan="1">mem_total</td>
+            <td colspan="3">Total memory an instance sees.</td>
+          </tr>
+          <tr>
+            <td colspan="1">num_cpus</td>
+            <td colspan="3">Number of CPUs an instance sees.</td>
+          </tr>
+        </tbody>
+      </table>
+    </wadl:doc>
+    <request>
+      <representation mediaType="application/xml">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+          <para>The following examples show the show hardware details
+            requests:</para>
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-instance-hwinfo-request-xml-http.txt"
+          />
+        </wadl:doc>
+      </representation>
+      <representation mediaType="application/json">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-instance-hwinfo-request-json-http.txt"
+          />
+        </wadl:doc>
+      </representation>
+    </request>
+    <response status="200">
+      <representation mediaType="application/xml"
+        element="dbaas:DiagnosticsDetails">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+          <para>The following examples show the show hardware details
+            responses:</para>
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-instance-hwinfo-response-xml-http.txt"/>
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-instance-hwinfo-response.xml"
+          />
+        </wadl:doc>
+      </representation>
+      <representation mediaType="application/json">
+        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-instance-hwinfo-response-json-http.txt"
+            />
+          <xsdxt:code
+            href="../apidocs/src/resources/samples/db-mgmt-instance-hwinfo-response.json"
+          />
+        </wadl:doc>
+      </representation>
+    </response> &commonFaults; &getFaults; </method>
+</application>

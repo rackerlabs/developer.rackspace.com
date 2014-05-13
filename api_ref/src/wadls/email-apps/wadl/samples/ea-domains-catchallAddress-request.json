@@ -1,0 +1,4 @@
+PUT '/customers/12345678/domains/example.com/catchalladdress', 'text/xml',    
+{    
+    'address' => 'abc@example.com'    
+}" });

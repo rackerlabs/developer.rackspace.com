@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xmlns="http://docbook.org/ns/docbook" xml:id="apiref-domain"
+   xmlns:wadl="http://wadl.dev.java.net/2009/02">
+   <title>Domains</title>
+   <wadl:resources xmlns="http://wadl.dev.java.net/2009/02">
+      <wadl:resource href="../wadls/email-apps/wadl/email-apps-domain.wadl#domains">
+         <wadl:method href="#listDomains"/>
+      </wadl:resource>
+      <wadl:resource
+         href="../wadls/email-apps/wadl/email-apps-domain.wadl#domain_name">
+         <wadl:method href="#showDomainDetails"/>
+         <wadl:method href="#addDomain"/>
+         <wadl:method href="#updateDomain"/>
+         <wadl:method href="#moveDomain"/>
+         <wadl:method href="#deleteDomain"/>
+      </wadl:resource>
+      <wadl:resource
+         href="../wadls/email-apps/wadl/email-apps-domain.wadl#alternatedomains">
+         <wadl:method href="#listDomainAliases"/>
+      </wadl:resource>
+      <wadl:resource
+         href="../wadls/email-apps/wadl/email-apps-domain.wadl#alternate_domain_name">
+         <wadl:method href="#addDomainAlias"/>
+         <wadl:method href="#deleteAlternateDomain"/>
+      </wadl:resource>
+      <wadl:resource
+         href="../wadls/email-apps/wadl/email-apps-domain.wadl#splitdomainrouting">
+         <wadl:method href="#showEmailServerDetails"/>
+         <wadl:method href="#setEmailServerDetails"/>
+      </wadl:resource>
+      <wadl:resource
+         href="../wadls/email-apps/wadl/email-apps-domain.wadl#archivingSSOLoginURL">
+         <wadl:method href="#showLoginURL"/>
+      </wadl:resource>
+      <wadl:resource
+         href="../wadls/email-apps/wadl/email-apps-domain.wadl#publicfolders">
+         <method href="#showPublicFoldersStatus"/>
+         <wadl:method href="#enablePublicFolders"/>
+      </wadl:resource>
+      <wadl:resource
+         href="../wadls/email-apps/wadl/email-apps-domain.wadl#emaileveryone">
+         <wadl:method href="#emailEveryone"/>
+      </wadl:resource>
+      <wadl:resource
+         href="../wadls/email-apps/wadl/email-apps-domain.wadl#catchalladdress">
+         <wadl:method href="#showCatchAllAddress"/>
+         <wadl:method href="#updateCatchAllAddress"/>
+      </wadl:resource>
+   </wadl:resources>
+</section>

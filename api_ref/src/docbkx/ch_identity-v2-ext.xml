@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter[
+<!ENTITY GET    '<command xmlns="http://docbook.org/ns/docbook">GET</command>'>
+]>
+<chapter xmlns="http://docbook.org/ns/docbook"
+    xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:linkend="http://www.w3.org/1999/linkend"
+    xmlns:xref="http://www.w3.org/1999/xref"
+    xmlns:wadl="http://wadl.dev.java.net/2009/02"
+    version="5.0-extension RackBook-2.0" xml:id="ch_identity-v2-ext"
+    xlink:href="#identity-v2-ext">
+    <title>Cloud Identity API v2.0 extensions</title>
+    <para>Query the Identity API to list available extensions
+        with a &GET; request to <code>v2.0/extensions</code>.</para>
+    <section xml:id="os-ksadm-admin-ext">
+        <title>OS-KSADM admin extension</title>
+        <wadl:resources
+            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v2.0/wadl/OS-KSADM-admin.wadl"
+            xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
+    </section>
+    <section xml:id="os-kscatalog-ext">
+        <title>OS-KSCATALOG admin extension</title>
+        <wadl:resources
+            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v2.0/wadl/OS-KSCATALOG-admin.wadl"
+            xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
+    </section>
+    <section xml:id="rax-auth-ext">
+        <title>RAX-AUTH extension</title>
+        <wadl:resources
+            href="https://github.rackspace.com/IX/auth-2.0/raw/master/src/wadl/RAX-AUTH.wadl"
+            xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
+    </section>
+    <section xml:id="rax-ksgrp-admin-ext">
+        <title>RAX-KSGRP admin extension</title>
+        <wadl:resources
+            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v2.0/wadl/RAX-KSGRP-admin.wadl"
+            xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
+    </section>
+    <section xml:id="rax-kskey-admin-ext">
+        <title>RAX-KSKEY admin extension</title>
+        <wadl:resources
+            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v2.0/wadl/RAX-KSKEY-admin.wadl"
+            xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
+    </section>
+    <section xml:id="rax-ksqa-admin-ext">
+        <title>RAX-KSQA admin extension</title>
+        <wadl:resources
+            href="http://git.openstack.org/cgit/openstack/api-site/plain/api-ref/src/wadls/identity-api/src/v2.0/wadl/RAX-KSQA-admin.wadl"
+            xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
+    </section>
+    <section xml:id="rax-ratelimit-admin-ext">
+        <title>RAX-RATELIMIT admin extension</title>
+        <wadl:resources
+            href="https://github.rackspace.com/IX/auth-2.0/raw/master/src/wadl/RAX-RATELIMIT-admin.wadl"
+            xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
+    </section>
+</chapter>

@@ -1,0 +1,22 @@
+{
+    "cluster": {
+                 "status": "DELETING", 
+                 "updated": "2013-06-25T00:20:54", 
+                 "name": "nmap_cluster Tue Jun 25 00:17:57 2013", 
+                 "links": [
+                             {
+                               "href": "https://lab.lava.rackspace.com:8446/v1.0/maya6380/clusters/0dfb3", 
+                               "rel": "self"
+                             },
+                             {
+                               "href": "https://lab.lava.rackspace.com:8446/v1.0/maya6380/clusters/0dfb3", 
+                               "rel": "bookmark"
+                             }
+                          ], 
+                 "created": "2013-06-25T00:19:23", 
+                 "nodeCount": 2, 
+                 "flavorId": "2", 
+                 "id": "0dfb3", 
+                 "clusterType": "HADOOP_HDP1_3"
+    }
+}

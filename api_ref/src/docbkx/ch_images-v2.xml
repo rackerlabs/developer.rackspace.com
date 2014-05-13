@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xmlns="http://docbook.org/ns/docbook"
+    xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:linkend="http://www.w3.org/1999/linkend"
+    xmlns:xref="http://www.w3.org/1999/xref"
+    xmlns:wadl="http://wadl.dev.java.net/2009/02"
+    version="5.0-extension RackBook-2.0" xml:id="images-v2">
+    <title>Cloud Images API v2</title>
+    <section xml:id="images">
+        <title>Images</title>
+        <para>Create, update, and delete image metadata records. Share
+            images with other users. Also, upload and download raw
+            image data.</para>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02"
+            href="https://github.rackspace.com/IX/cloud-images/raw/master/src/wadl/image-2.0.wadl"
+        />
+    </section>
+    <section xml:id="image-schemas">
+        <title>Image schemas</title>
+        <para>Get a JSON-schema document that represents an image or
+            images entity.</para>
+        <wadl:resources
+            href="https://github.rackspace.com/IX/cloud-images/raw/master/src/wadl/image-schemas-2.0.wadl"
+            xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
+    </section>
+</chapter>

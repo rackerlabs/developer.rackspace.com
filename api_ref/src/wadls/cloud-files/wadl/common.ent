@@ -1,0 +1,175 @@
+<!ENTITY ndash "&#8211;">
+<!ENTITY mdash "&#8212;">
+
+<!ENTITY GET    '<command xmlns="http://docbook.org/ns/docbook">GET</command>'>
+<!ENTITY PUT    '<command xmlns="http://docbook.org/ns/docbook">PUT</command>'>
+<!ENTITY POST   '<command xmlns="http://docbook.org/ns/docbook">POST</command>'>
+<!ENTITY DELETE '<command xmlns="http://docbook.org/ns/docbook">DELETE</command>'>
+<!ENTITY PATCH '<command xmlns="http://docbook.org/ns/docbook">PATCH</command>'>
+
+
+<!--
+          Fault on Get Account MetaData
+ -->
+     <!ENTITY headAcctMetaFaults
+           '
+        <response status="401" xmlns="http://wadl.dev.java.net/2009/02">
+            <doc title="Unauthorized">Authentication has failed.</doc>
+            <representation mediaType="application/xml" element="files:unauthorized"/>
+            <representation mediaType="application/json"/>
+        </response>
+
+           '>
+           
+<!--
+          Only 404 Fault
+ -->
+     <!ENTITY   only404Fault '
+        <response status="404" xmlns="http://wadl.dev.java.net/2009/02">
+            <doc title="Not Found">The requested resource was not found.</doc>
+            <representation mediaType="application/xml" element="files:itemNotFound"/>
+            <representation mediaType="application/json"/>
+        </response>'>
+           
+<!--      
+          Fault on Delete CDN-Enabled Object
+-->                     
+     <!ENTITY deleteCDNObjectFaults
+           '
+        <response status="404" xmlns="http://wadl.dev.java.net/2009/02">
+            <doc title="Not Found">The requested resource was not found.</doc>
+            <representation mediaType="application/xml" element="files:itemNotFound"/>
+            <representation mediaType="application/json"/>
+        </response>
+        
+  <response status="403" xmlns="http://wadl.dev.java.net/2009/02">
+            <doc title="Forbidden">The server refused to respond to request.</doc>
+            <representation mediaType="application/xml" element="files:forbidden"/>
+            <representation mediaType="application/json"/>
+        </response>
+           '>
+           
+  <!--
+          Faults on POST/PUT
+      -->
+     <!ENTITY postPutFaults
+           '
+        <response status="400" xmlns="http://wadl.dev.java.net/2009/02">
+            <doc title="Bad Request">The request could not be understood by the server due to malformed syntax.</doc>
+            <representation mediaType="application/xml" element="files:badRequest"/>
+            <representation mediaType="application/json"/>
+        </response>
+           '>          
+
+<!--
+          Fault on Delete Container
+ -->
+     <!ENTITY deleteContainerFaults
+           '
+        <response status="404" xmlns="http://wadl.dev.java.net/2009/02">
+            <doc title="Not Found">The requested resource was not found.</doc>
+            <representation mediaType="application/xml" element="files:itemNotFound"/>
+            <representation mediaType="application/json"/>
+        </response>
+        <response status="409" xmlns="http://wadl.dev.java.net/2009/02">
+            <doc title="Conflict">The request could not be completed due to a conflict with the current state of the resource.</doc>
+            <representation mediaType="application/xml" element="files:conflict"/>
+            <representation mediaType="application/json"/>
+        </response>        
+
+           '>
+           
+<!--
+          Fault on Create Object
+ -->
+     <!ENTITY createObjectFaults
+           '
+        <response status="401" xmlns="http://wadl.dev.java.net/2009/02">
+            <doc title="Unauthorized">Authentication has failed.</doc>
+            <representation mediaType="application/xml" element="files:unauthorized"/>
+            <representation mediaType="application/json"/>
+        </response>
+        <response status="411" xmlns="http://wadl.dev.java.net/2009/02">
+            <doc title="Length Required">The request did not specify the length of its content.</doc>
+            <representation mediaType="application/xml" element="files:lengthRequired"/>
+            <representation mediaType="application/json"/>
+        </response>
+        <response status="422" xmlns="http://wadl.dev.java.net/2009/02">
+            <doc title="Unprocessable Entity">The request could not be followed due to semantic errors.</doc>
+            <representation mediaType="application/xml" element="files:unprocessableEntity"/>
+            <representation mediaType="application/json"/>
+        </response>    
+
+           '>          
+           
+<!--
+         NOTE: NONE OF THE ERROR BELOW HERE ARE USED BY CLOUD FILES WADLS
+         A collection of common faults, these are pretty much expected
+         in every request. 
+         
+-->
+     <!ENTITY commonFaults
+           '
+        <response status="400" xmlns="http://wadl.dev.java.net/2009/02">
+            <doc title="Bad Request">The request could not be understood by the server due to malformed syntax.</doc>
+            <representation mediaType="application/xml" element="files:badRequest"/>
+            <representation mediaType="application/json"/>
+        </response>
+        <response status="401" xmlns="http://wadl.dev.java.net/2009/02">
+            <doc title="Unauthorized">Authentication has failed.</doc>
+            <representation mediaType="application/xml" element="files:unauthorized"/>
+            <representation mediaType="application/json"/>
+        </response>
+        <response status="406" xmlns="http://wadl.dev.java.net/2009/02">
+            <doc title="Not Acceptable">The resource identified by the request is only capable of generating response entities which have content characteristics not acceptable according to the accept headers sent in the request.</doc>
+            <representation mediaType="application/xml" element="files:notAcceptable"/>
+            <representation mediaType="application/json"/>
+        </response>
+        <response status="429" xmlns="http://wadl.dev.java.net/2009/02">
+            <doc title="Too Many Requests">Too many requests were sent to the server.</doc>
+            <representation mediaType="application/xml" element="files:tooManyRequests"/>
+            <representation mediaType="application/json"/>
+        </response>
+
+           '>           
+<!-- Not used by all of Cloud API operations
+     NOT USED BY CLOUD FILES WADL
+        <response status="403" xmlns="http://wadl.dev.java.net/2009/02">
+            <doc title="Forbidden">The server refused to respond to request.</doc>
+            <representation mediaType="application/xml" element="files:forbidden"/>
+            <representation mediaType="application/json"/>
+        </response>
+        <response status="405" xmlns="http://wadl.dev.java.net/2009/02">
+            <doc title="Method Not Allowed">The method specified in the request is not allowed for the resource identified by the request URI.</doc>
+            <representation mediaType="application/xml" element="files:badMethod"/>
+            <representation mediaType="application/json"/>
+        </response>
+        <response status="413" xmlns="http://wadl.dev.java.net/2009/02">
+            <doc title="Request Entity Too Large">The server refused to process a request because the request entity was larger than the server was willing or able to process. </doc>
+            <representation mediaType="application/xml" element="files:overLimit"/>
+            <representation mediaType="application/json"/>
+        </response>
+        <response status="422" xmlns="http://wadl.dev.java.net/2009/02">
+            <doc title="Unprocessable Entity">The request could not be followed due to semantic errors.</doc>
+            <representation mediaType="application/xml" element="files:unprocessableEntity"/>
+            <representation mediaType="application/json"/>
+        </response>
+        <response status="500" xmlns="http://wadl.dev.java.net/2009/02">
+            <doc title="Internal Server Error">The server encountered an unexpected condition which prevented it from fulfilling the request.</doc>
+            <representation mediaType="application/xml" element="files:instanceFault"/>
+            <representation mediaType="application/json"/>
+        </response>
+        <response status="501" xmlns="http://wadl.dev.java.net/2009/02">
+            <doc title="Not Implemented">The server does not support the functionality required to fulfill the request.</doc>
+            <representation mediaType="application/xml" element="files:notImplemented"/>
+            <representation mediaType="application/json"/>
+        </response>
+        <response status="503" xmlns="http://wadl.dev.java.net/2009/02">
+            <doc title="Service Unavailable">The server is currently unable to handle the request due to a temporary overloading or maintenance of the server.</doc>
+            <representation mediaType="application/xml" element="files:serviceUnavailable"/>
+            <representation mediaType="application/json"/>
+        </response>
+
+         
+ -->
+      

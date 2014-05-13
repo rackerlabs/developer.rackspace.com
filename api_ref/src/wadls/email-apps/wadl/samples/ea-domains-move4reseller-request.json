@@ -1,0 +1,4 @@
+PUT '/customers/123456/domains/newcompany.com', 'text/xml',    
+{    
+    'moveDomain' => 'true'    
+}" });

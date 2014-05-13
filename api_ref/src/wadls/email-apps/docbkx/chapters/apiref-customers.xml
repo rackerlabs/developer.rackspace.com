@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xmlns="http://docbook.org/ns/docbook"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:xi="http://www.w3.org/2001/XInclude"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   version="5.0-extension RaxBook-2.0"
+   xmlns:wadl="http://wadl.dev.java.net/2009/02" xml:id="customers">
+   <title>Customers</title>
+   <wadl:resources xmlns="http://wadl.dev.java.net/2009/02">
+      <wadl:resource href="../../wadl/email-apps-account.wadl#customers">
+         <wadl:method href="#listCustomers"/>
+         <wadl:method href="#addSubaccount"/>
+      </wadl:resource>
+      <wadl:resource
+         href="../../wadl/email-apps-account.wadl#customer_account_number">
+         <wadl:method href="#showAccountDetails"/>
+         <wadl:method href="#updateSubaccount"/>
+         <wadl:method href="#deleteAccount"/>
+      </wadl:resource>
+      <wadl:resource href="../../wadl/email-apps-account.wadl#logintoken">
+         <wadl:method href="#generateLoginToken"/>
+      </wadl:resource>
+   </wadl:resources>
+</section>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE application [<!ENTITY % common SYSTEM "../../common/common.ent">
+%common;]>
+<chapter xmlns="http://docbook.org/ns/docbook"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:xi="http://www.w3.org/2001/XInclude" 
+   xmlns:svg="http://www.w3.org/2000/svg"
+         xml:id="examples">
+   <title>Examples of Basic Operations</title>
+   <para>
+      You can interact with this API using the programming language of your choice.
+      The examples we show here demonstrate how to work with this API in a few popular languages.
+      For other languages, you may be able to adapt the examples in  
+      <link xlink:href="http://developer.rackspace.com/#home-sdks">Rackspace Software Development Kits</link>, 
+      showing how to work with other Rackspace REST APIs. 
+   </para>
+   <section xml:id="language_Csharp">
+      <title>Basic operations using C#</title>
+      <para>
+         The example in this section demonstrates using C# to interact with this API.
+      </para>
+      <example>
+         <title>Basic operations: C#</title>
+         <programlisting language="xml">
+                <xi:include href="../samples/ea-operations.Csharp" parse="text"/>
+               </programlisting>
+      </example>
+   </section>
+      <section xml:id="language_PHP">
+         <title>Basic operations using PHP</title>
+         <para>
+            Examples in this section demonstrate using PHP to interact with this API.
+         </para>
+         <para>
+            In addition to the library described here, you must have these PHP extensions:
+            <itemizedlist>
+               <listitem>
+                  <para>
+                     <code>curl</code>
+                  </para>
+               </listitem>
+               <listitem>
+                  <para>
+                     <code>pecl_http</code>
+                  </para>
+               </listitem>
+            </itemizedlist>
+         </para>
+         <example>
+            <title>Basic Library: PHP</title>
+               <programlisting language="xml">
+                <xi:include href="../samples/ea-operations.php" parse="text"/>
+               </programlisting>
+         </example>
+         <example>
+            <title>Simple &GET;: PHP</title>
+            <programlisting language="xml">
+                <xi:include href="../samples/ea-operation-get.php" parse="text"/>
+               </programlisting>
+         </example>
+         <example>
+            <title>&GET; with multi-page response: PHP</title>
+            <programlisting language="xml">
+                <xi:include href="../samples/ea-operation-get-paging.php" parse="text"/>
+               </programlisting>
+         </example>
+         <example>
+            <title>Simple &POST;: PHP</title>
+            <programlisting language="xml">
+                <xi:include href="../samples/ea-operation-post.php" parse="text"/>
+               </programlisting>
+         </example>
+         <example>
+            <title>Simple &PUT;: PHP</title>
+            <programlisting language="xml">
+                <xi:include href="../samples/ea-operation-put.php" parse="text"/>
+               </programlisting>
+         </example>
+      </section>
+   <section xml:id="language_Ruby">
+      <title>Basic operations using Ruby</title>
+      <para>
+         The example in this section demonstrates using Ruby to interact with this API.
+      </para>
+      <para>
+         To make the example shorter, we have written helper methods and included them in a NetMethods module.
+      </para>
+      <example>
+         <title>NetMethods: Ruby</title>
+         <programlisting language="xml">
+                <xi:include href="../samples/ea-operations.ruby" parse="text"/>
+               </programlisting>
+      </example>
+   </section>
+</chapter>

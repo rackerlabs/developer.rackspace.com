@@ -1,0 +1,4 @@
+POST /v1/MossoCloudFS_0672d7fa-9f85-4a81-a3ab-adb66a880123 HTTP/1.1
+Host: storage.clouddrive.com
+X-Auth-Token: f064c46a782c444cb4ba4b6434288f7c
+X-Remove-Account-Meta-Book: x

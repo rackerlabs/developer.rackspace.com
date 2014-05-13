@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xmlns="http://docbook.org/ns/docbook"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:m="http://www.w3.org/1998/Math/MathML"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:db="http://docbook.org/ns/docbook"
+    xmlns:xref="http://www.w3.org/1999/xref"
+    xmlns:wadl="http://wadl.dev.java.net/2009/02"
+    version="5.0-extension RackBook-2.0" xml:id="autoscale-v1.0">
+    <title>Auto Scale API v1.0</title>
+    <section xml:id="autoscale-groups">
+        <title>Scaling groups</title>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="https://raw.github.com/rackerlabs/otter/master/docbook/src/wadl/autoscale.wadl#groups">
+                <wadl:method href="#listGroups"/>
+                <wadl:method href="#createGroup"/>
+            </wadl:resource>
+            <wadl:resource
+                href="https://raw.github.com/rackerlabs/otter/master/docbook/src/wadl/autoscale.wadl#groupId">
+                <wadl:method href="#showGroupManifest"/>
+                <wadl:method href="#deleteGroup"/>
+            </wadl:resource>
+            <wadl:resource
+                href="https://raw.github.com/rackerlabs/otter/master/docbook/src/wadl/autoscale.wadl#state">
+                <wadl:method href="#getGroupState"/>
+            </wadl:resource>
+            <wadl:resource
+                href="https://raw.github.com/rackerlabs/otter/master/docbook/src/wadl/autoscale.wadl#pause">
+                <wadl:method href="#pauseGroup"/>
+            </wadl:resource>
+            <wadl:resource
+                href="https://raw.github.com/rackerlabs/otter/master/docbook/src/wadl/autoscale.wadl#resume">
+                <wadl:method href="#resumeGroup"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="Configurations">
+        <title>Configurations</title>
+        <wadl:resources xmlns="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="https://raw.github.com/rackerlabs/otter/master/docbook/src/wadl/autoscale.wadl#config">
+                <wadl:method href="#getGroupConfig"/>
+                <wadl:method href="#putGroupConfig"/>
+            </wadl:resource>
+            <wadl:resource
+                href="https://raw.github.com/rackerlabs/otter/master/docbook/src/wadl/autoscale.wadl#launch">
+                <wadl:method href="#getLaunchConfig"/>
+                <wadl:method href="#putLaunchConfig"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="autoscale-policies">
+        <title>Policies</title>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="https://raw.github.com/rackerlabs/otter/master/docbook/src/wadl/autoscale.wadl#policies">
+                <wadl:method href="#getPolicies"/>
+                <wadl:method href="#createPolicies"/>
+            </wadl:resource>
+            <wadl:resource
+                href="https://raw.github.com/rackerlabs/otter/master/docbook/src/wadl/autoscale.wadl#policyid">
+                <wadl:method href="#deletePolicy"/>
+                <wadl:method href="#getPolicy"/>
+                <wadl:method href="#putPolicy"/>
+            </wadl:resource>
+            <wadl:resource
+                href="https://raw.github.com/rackerlabs/otter/master/docbook/src/wadl/autoscale.wadl#execute">
+                <wadl:method href="#executePolicy"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="Executions">
+        <title>Executions</title>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="https://raw.github.com/rackerlabs/otter/master/docbook/src/wadl/autoscale.wadl#capability_hash">
+                <wadl:method href="#anonymousExecute"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="autoscale-webhooks">
+        <title>Webhooks</title>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="https://raw.github.com/rackerlabs/otter/master/docbook/src/wadl/autoscale.wadl#webhooks">
+                <wadl:method href="#getWebhooks"/>
+                <wadl:method href="#createWebhook"/>
+            </wadl:resource>
+            <wadl:resource
+                href="https://raw.github.com/rackerlabs/otter/master/docbook/src/wadl/autoscale.wadl#webhookid">
+                <wadl:method href="#getWebhook"/>
+                <wadl:method href="#putWebhook"/>
+                <wadl:method href="#deleteWebhook"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+</chapter>

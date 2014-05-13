@@ -1,0 +1,17 @@
+{
+   "servers": [
+                {
+                  "serverId": "cec7a236858791c04dc6dcc8af8a103e27ec1dea1c67a5d1bfa39312", 
+                  "novaStatus": "UNKNOWN",
+                  "lavaStatus": "ERROR"
+                },
+
+                {
+                  "serverId": "fec7a236858791c04dc6dcc8af8a103e27ec1dea1c67a5d1bfa39345", 
+                  "novaStatus": "ACTIVE",
+                  "lavaStatus": "ACTIVE"
+                }
+
+                
+   ]
+}

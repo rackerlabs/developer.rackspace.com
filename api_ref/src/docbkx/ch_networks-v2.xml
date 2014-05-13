@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xmlns="http://docbook.org/ns/docbook"
+    xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:linkend="http://www.w3.org/1999/linkend"
+    xmlns:xref="http://www.w3.org/1999/xref"
+    xmlns:wadl="http://wadl.dev.java.net/2009/02"
+    version="5.0-extension RackBook-2.0" xml:id="networks-v2">
+    <title>Cloud Networks API v2.0</title>
+    <para>Use virtual networking services among devices that are
+        managed by the OpenStack Compute service. The Networking API
+        v2.0 combines the API v1.1 functionality with some essential
+        Internet Protocol Address Management (IPAM) functionality.
+        Enables users to associate IP address blocks and other network
+        configuration settings with a neutron network. You can choose
+        a specific IP address from the block or let neutron choose the
+        first available IP address.</para>
+    <section xml:id="network-ops">
+        <title>Networks</title>
+        <para>List, show information for, create, update, and delete
+            networks.</para>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="https://raw2.github.com/catlook/networks2/master/src/wadl/networks.wadl#Networks"
+            />
+        </wadl:resources>
+    </section>
+    <section xml:id="subnets">
+        <title>Subnets</title>
+        <para>List, show information for, create, update, and delete
+            subnet resources.</para>
+        <wadl:resources
+            href="https://raw2.github.com/catlook/networks2/master/src/wadl/subnets.wadl"
+            xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
+    </section>
+    <section xml:id="ports">
+        <title>Ports</title>
+        <para>List, show information for, create, update, and delete
+            ports.</para>
+        <wadl:resources
+            href="https://raw2.github.com/catlook/networks2/master/src/wadl/ports.wadl"
+            xmlns:wadl="http://wadl.dev.java.net/2009/02"/>
+    </section>
+</chapter>

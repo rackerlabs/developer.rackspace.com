@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns="http://wadl.dev.java.net/2009/02"
+   xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+   xmlns:db="http://docbook.org/ns/docbook"
+   xmlns:common="http://docs.openstack.org/common/api/v1.0"
+   xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+   xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+   xmlns:wadl="http://wadl.dev.java.net/2009/02"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:xs="http://www.w3.org/2001/XMLSchema"
+   xmlns:raxapi="http://docs.rackspace.com/volume/api/v1">
+   <resources base="http://api.emailsrvr.com/"
+      xml:id="email-sharepoint">
+      <!-- <resource id="version0" path="v0">-->
+      <resource path="customers" id="customers">
+         <method href="#listCustomers"/>
+         <method href="#addSubaccount"/>
+         <resource path="{customer_account_number}"
+            id="customer_account_number">
+            <param name="customer_account_number" style="template"
+               required="true">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                  xml:lang="EN"><para>The customer account
+                     number.</para>
+               </wadl:doc>
+            </param>
+            <method href="#showAccountDetails"/>
+            <method href="#updateSubaccount"/>
+            <method href="#deleteAccount"/>
+            <resource path="sharepoint" id="sharepoint">
+               <resource path="settings" id="sharepoint-settings">
+                  <method href="#showSharepointStatus"/>
+                  <method href="#updateSharepointSettings"/>
+               </resource>
+            </resource>
+         </resource>
+      </resource>
+   </resources>
+   <!-- methods -->
+
+   <!-- begin SHAREPOINT -->
+
+   <method id="showSharepointStatus" name="GET">
+      <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"
+         title="List Sharepoint status">
+         <para role="shortdesc">Shows the status and quota size of the
+            SharePoint service.</para>
+      </wadl:doc>
+      <request>
+         <representation mediaType="application/json" element="noop">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+               xml:lang="EN">
+               <xsdxt:code
+                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+                  >GET '/customers/999999/sharepoint/settings',
+                  'text/xml'" });</xsdxt:code>
+            </wadl:doc>
+         </representation>
+      </request>
+      <response status="200">
+         <representation mediaType="application/xml">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+               xml:lang="EN">
+               <xsdxt:sample
+                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0">
+                  <xsdxt:code
+                     href="./samples/ea-sharepoint-status-response.xml"
+                  />
+               </xsdxt:sample>
+            </wadl:doc>
+         </representation>
+         <representation mediaType="application/json">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+               xml:lang="EN">
+               <xsdxt:sample
+                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0">
+                  <xsdxt:code
+                     href="./samples/ea-sharepoint-status-response.json"
+                  />
+               </xsdxt:sample>
+            </wadl:doc>
+         </representation>
+      </response>
+   </method>
+   <method id="updateSharepointSettings" name="PUT">
+      <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN"
+         title="Update Sharepoint settings (reseller only)">
+         <para role="shortdesc">Updates SharePoint settings for your
+            customers.</para>
+         <table xmlns="http://docbook.org/ns/docbook">
+            <caption>Request Data</caption>
+            <thead>
+               <tr>
+                  <td>
+                     <b xmlns="http://www.w3.org/1999/xhtml">Field
+                        Name</b>
+                  </td>
+                  <td>
+                     <b xmlns="http://www.w3.org/1999/xhtml">Data
+                        Type</b>
+                  </td>
+                  <td>
+                     <b xmlns="http://www.w3.org/1999/xhtml"
+                        >Description</b>
+                  </td>
+               </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <td>enabled</td>
+                  <td>boolean</td>
+                  <td>Whether SharePoint is enabled or not. By
+                     enabling SharePoint you and/or your customers are
+                     agreeing to Rackspace's <link
+                        xlink:href="http://www.rackspace.com/information/legal/sharepointappterms"
+                        >SharePoint Services Terms and
+                        Conditions</link>
+                  </td>
+               </tr>
+               <tr>
+                  <td>size</td>
+                  <td>double</td>
+                  <td>SharePoint's storage size in GB. Valid values
+                     are .25 and any integer between 1 and 50
+                     inclusive. This field will be ignored when
+                     SharePoint is disabled. (default value is
+                     0.25GB)</td>
+               </tr>
+            </tbody>
+         </table>
+      </wadl:doc>
+      <request>
+         <representation mediaType="application/json" element="noop">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+               xml:lang="EN">
+               <xsdxt:code
+                  xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+                  >PUT '/customers/123456/sharepoint/settings',
+                  'text/xml', { 'enabled' =\u003E 'true', 'size'
+                  =\u003E '10.0' }" });</xsdxt:code>
+            </wadl:doc>
+         </representation>
+      </request>
+      <response status="204"/>
+   </method>
+</application>

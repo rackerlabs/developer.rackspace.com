@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<itemizedlist xmlns="http://docbook.org/ns/docbook"
+    xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:linkend="http://www.w3.org/1999/linkend"
+    xmlns:xref="http://www.w3.org/1999/xref"
+    xmlns:wadl="http://wadl.dev.java.net/2009/02"
+    version="5.0-extension RackBook-2.0" xml:id="service-list">
+    <listitem>
+        <para><link xlink:href="api-ref-auto-scale.html">Auto Scale
+                API</link></para>
+    </listitem>
+    <listitem>
+        <para><link xlink:href="api-ref-backup.html">Cloud Backup
+                API</link></para>
+    </listitem>
+    <listitem>
+        <para><link xlink:href="api-ref-big-data.html">Cloud Big Data
+                API</link></para>
+    </listitem>
+    <listitem>
+        <para><link xlink:href="api-ref-blockstorage.html">Cloud Block
+                Storage API</link></para>
+    </listitem>
+    <listitem>
+        <para><link xlink:href="api-ref-databases.html">Cloud
+                Databases API</link></para>
+    </listitem>
+  <!--  <listitem>
+        <para><link xlink:href="api-ref-dns.html">Cloud DNS
+            API</link></para>
+    </listitem>-->
+   <!-- <listitem>
+        <para><link xlink:href="api-ref-email-and-apps.html">Email
+                &amp; Apps API</link></para>
+    </listitem>-->
+   <!-- <listitem>
+        <para><link xlink:href="api-ref-feeds.html">Cloud Feeds
+                API</link></para>
+    </listitem> -->
+    <listitem>
+        <para><link xlink:href="api-ref-files.html">Cloud Files
+                API</link></para>
+    </listitem>
+    <listitem>
+        <para><link xlink:href="api-ref-identity.html">Cloud Identity
+                API</link></para>
+    </listitem>
+    <listitem>
+        <para><link xlink:href="api-ref-images.html">Cloud Images
+                API</link></para>
+    </listitem>
+   <!-- <listitem>
+        <para><link xlink:href="api-ref-load-balancers.html">Cloud
+                Load Balancers API</link></para>
+    </listitem>-->
+    <listitem>
+        <para><link xlink:href="api-ref-monitoring.html">Cloud
+                Monitoring API</link></para>
+    </listitem>
+    <listitem>
+        <para><link xlink:href="api-ref-networks.html">Cloud Networks
+                API</link></para>
+    </listitem>
+    <listitem>
+        <para><link xlink:href="api-ref-orchestration.html">Cloud
+                Orchestration API</link></para>
+    </listitem>
+    <listitem>
+        <para><link xlink:href="api-ref-queues.html">Cloud Queues
+                API</link></para>
+    </listitem>
+    <listitem>
+        <para><link xlink:href="api-ref.html">Cloud Servers
+                API</link></para>
+    </listitem>
+    <listitem>
+        <para><link xlink:href="api-ref-servers-ext.html">Cloud
+                Servers API extensions</link></para>
+    </listitem>
+</itemizedlist>

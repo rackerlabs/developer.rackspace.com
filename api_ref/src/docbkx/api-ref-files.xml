@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<book xmlns="http://docbook.org/ns/docbook"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  xmlns:xi="http://www.w3.org/2001/XInclude"
+  xmlns:svg="http://www.w3.org/2000/svg"
+  xmlns:m="http://www.w3.org/1998/Math/MathML"
+  xmlns:html="http://www.w3.org/1999/xhtml"
+  xmlns:db="http://docbook.org/ns/docbook" version="5.0"
+  xml:id="api.rackspace.com-files">
+  <info>
+    <title>Cloud Files API</title>
+    <copyright>
+      <year>2010-2014</year>
+    </copyright>
+    <legalnotice role="rs-api">
+      <para/>
+    </legalnotice>
+    <annotation>
+      <xi:include href="itemizedlist-service-list.xml"/>
+    </annotation>
+  </info>
+  <xi:include href="ch_files-v1.xml"/>
+</book>

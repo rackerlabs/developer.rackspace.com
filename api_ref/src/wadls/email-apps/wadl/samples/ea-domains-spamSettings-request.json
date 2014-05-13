@@ -1,0 +1,8 @@
+PUT '/customers/me/domains/example.com/spam/settings', 'text/xml',    
+{    
+    'filterLevel' => 'on',    
+    'rsEmail.spamHandling' => 'toFolder',    
+    'rsEmail.hasFolderCleaner' => 'true',    
+    'rsEmail.spamFolderAgeLimit' => '7',    
+    'rsEmail.spamFolderNumLimit' => '100',    
+}" });

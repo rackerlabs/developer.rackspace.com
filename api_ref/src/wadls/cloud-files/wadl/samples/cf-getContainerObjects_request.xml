@@ -1,0 +1,4 @@
+GET /v1/MossoCloudFS_0672d7fa-9f85-4a81-a3ab-adb66a880123/MyContainer?
+format=xml HTTP/1.1
+Host: storage.clouddrive.com
+X-Storage-Token: 182f9c0af0e828cfe3281767d29d19f4

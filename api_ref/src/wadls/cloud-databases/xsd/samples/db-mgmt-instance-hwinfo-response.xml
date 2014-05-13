@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hwinfo xmlns="http://docs.openstack.org/database/api/v1.0">
+    <num_cpus> 1 </num_cpus>
+    <mem_total> 524288 </mem_total>
+</hwinfo>

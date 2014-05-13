@@ -1,0 +1,18 @@
+{
+    "BackupId": 134332,
+    "BackupConfigurationId": 158519,
+    "CurrentState": "Queued",
+    "BackupConfigurationName": "Weekly Website Backup",
+    "MachineAgentId": 224321,
+    "MachineName": "Web Server",
+    "StateChangeTime": "\/Date(1358530097000)\/",
+    "IsEncrypted": false,
+    "EncryptionKey": {
+        "ModulusHex": "a3261939975948bb7a58dffe5ff54e65f0498f9
+        175f5a09288810b8975871e99af3b5dd94057b0fc07535f5f97444
+        504fa35169d461d0d30cf0192e307727c065168c788771c561a940
+        0fb49175e9e6aa4e23fe11af69e9412dd23b0cb6684c4c2429bce1
+        39e848ab26d0829073351f4acd36074eafd036a5eb83359d2a698d5",
+        "ExponentHex": 20010
+    }
+}

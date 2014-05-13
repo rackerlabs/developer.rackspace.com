@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<auth>
+    <apiKeyCredentials
+        xmlns="http://docs.rackspace.com/identity/api/ext/RAX-KSKEY/v1.0"
+        username="your_username" apiKey="your_api_key"/>
+</auth>

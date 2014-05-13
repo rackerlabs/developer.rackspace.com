@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.rackspace.cloud.dbaas</groupId>
+  <artifactId>dbaas-docs</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <name>Database Public API Spec</name>
+  <packaging>jar</packaging>
+  <build>
+    <plugins>
+      <plugin>
+	<groupId>com.rackspace.cloud.api</groupId>
+	<artifactId>clouddocs-maven-plugin</artifactId>
+	<!-- this <version> relates only to the *plugin* used for document formatting -->
+	<!-- the version of the *API* that is the subject of the document is indicated within each document -->
+	<version>1.14.1</version>
+	<executions>
+	  <execution>
+	    <id>cdb-mgmt-devguide</id>
+	    <goals>
+	      <goal>generate-webhelp</goal>
+	    </goals>
+	    <phase>generate-sources</phase>
+	    <configuration>
+	      <sourceDirectory>src/resources</sourceDirectory>
+	      <highlightSource>false</highlightSource>
+	      <!-- this is the Rackspace-internal service developer guide formerly known as ManagementAPISpec.xml -->			                      
+	      <includes>cdb-mgmt-devguide.xml</includes>
+	      <enableDisqus>intranet</enableDisqus>
+	      <security>internal</security>
+	      <feedbackEmail>mike.asthalter@rackspace.com</feedbackEmail>
+	    </configuration>
+	  </execution>
+	  <execution>
+	    <id>cdb-devguide</id>
+	    <goals>
+	      <goal>generate-webhelp</goal>
+	    </goals>
+	    <phase>generate-sources</phase>
+	    <configuration>
+	      <sourceDirectory>src/resources</sourceDirectory>
+	      <highlightSource>false</highlightSource>
+	      <trimWadlUriCount>2</trimWadlUriCount>
+	      <!-- this is the public-facing client developer guide formerly known as PublicAPISpec.xml -->
+	      <!-- this document that will be published as cdb-devguide-latest.pdf at http://docs.rackspacecloud.com/api/ --> 
+	      <enableDisqus>1</enableDisqus>
+	      <googleAnalyticsId>UA-23102455-4</googleAnalyticsId>
+	      <includes>cdb-devguide.xml</includes>
+	      <canonicalUrlBase>http://docs.rackspace.com/cdb/api/v1.0/cdb-devguide/content</canonicalUrlBase>
+	      <feedbackEmail>mike.asthalter@rackspace.com</feedbackEmail>
+	    </configuration>
+	  </execution>
+	  <execution>
+	    <id>cdb-getting-started</id>
+	    <goals>
+	      <goal>generate-webhelp</goal>
+	    </goals>
+	    <phase>generate-sources</phase>
+	    <configuration>
+	      <sourceDirectory>src/resources</sourceDirectory>
+	      <highlightSource>false</highlightSource>
+	      <!-- this is the Rackspace Getting Started guide -->
+	      <includes>cdb-getting-started.xml</includes>
+	      <enableDisqus>1</enableDisqus>
+	      <googleAnalyticsId>UA-23102455-4</googleAnalyticsId>
+	      <canonicalUrlBase>http://docs.rackspace.com/cdb/api/v1.0/cdb-getting-started/content</canonicalUrlBase>
+	    </configuration>
+	  </execution>
+	  <!-- MA: added this to generate public release notes -->
+	  <execution>
+	    <id>cdb-releasenotes-internal</id>
+	    <goals>
+	      <goal>generate-webhelp</goal>
+	    </goals>
+	    <phase>generate-sources</phase>
+	    <configuration>
+	      <sourceDirectory>src/resources</sourceDirectory>
+	      <highlightSource>false</highlightSource>
+	      <includes>cdb-releasenotes.xml</includes>
+	      <enableDisqus>intranet</enableDisqus>
+	      <feedbackEmail>mike.asthalter@rackspace.com</feedbackEmail>
+	      <enableGoogleAnalytics>1</enableGoogleAnalytics>
+	      <chapterAutolabel>0</chapterAutolabel>
+	      <security>internal</security>
+	      <canonicalUrlBase>http://docs-internal.rackspace.com/cdb/api/v1.0/cdb-releasenotes/content</canonicalUrlBase>
+	    </configuration>
+	  </execution>
+	  <execution>
+	    <id>cdb-releasenotes</id>
+	    <goals>
+	      <goal>generate-webhelp</goal>
+	    </goals>
+	    <phase>generate-sources</phase>
+	    <configuration>
+	      <sourceDirectory>src/resources</sourceDirectory>
+	      <highlightSource>false</highlightSource>
+	      <includes>cdb-releasenotes.xml</includes>
+	      <enableDisqus>1</enableDisqus>
+	      <feedbackEmail>mike.asthalter@rackspace.com</feedbackEmail>
+	      <enableGoogleAnalytics>1</enableGoogleAnalytics>
+	      <chapterAutolabel>0</chapterAutolabel>
+	      <security>external</security>
+	      <canonicalUrlBase>http://docs.rackspace.com/cdb/api/v1.0/cdb-releasenotes/content</canonicalUrlBase>
+	    </configuration>
+	  </execution>
+	</executions>
+	<configuration>
+	  <socialIcons>1</socialIcons>
+	  <feedbackEmail>mike.asthalter@rackspace.com</feedbackEmail>
+	  <branding>rackspace</branding>
+	  <!-- <failOnValidationError>false</failOnValidationError> -->
+	</configuration>
+            </plugin>
+            <plugin>
+	      <groupId>org.apache.maven.plugins</groupId>
+	      <artifactId>maven-assembly-plugin</artifactId>
+	      <version>2.3</version>
+	      <configuration>
+		<descriptors>
+		  <descriptor>includewars.xml</descriptor>
+		</descriptors>
+	      </configuration>
+	      <executions>
+		<execution>
+		  <id>assembly</id>
+		  <goals>
+		    <goal>single</goal>
+		  </goals>
+		  <phase>package</phase>
+		</execution>
+	      </executions>
+            </plugin>
+        </plugins>
+      </build>
+      <profiles>                                                                                              
+    <profile>                                                                                           
+      <id>Rackspace Research Repositories</id>                                                        
+      <activation>                                                                                    
+        <activeByDefault>true</activeByDefault>                                                     
+      </activation>                                                                                   
+      <repositories>                                                                                  
+        <repository>                                                                                
+          <id>rackspace-research</id>                                                             
+          <name>Rackspace Research Repository</name>                                              
+          <url>http://maven.research.rackspacecloud.com/content/groups/public/</url>              
+        </repository>                                                                               
+      </repositories>                                                                                 
+      <pluginRepositories>                                                                            
+        <pluginRepository>                                                                          
+          <id>rackspace-research</id>                                                             
+          <name>Rackspace Research Repository</name>                                              
+          <url>http://maven.research.rackspacecloud.com/content/groups/public/</url>              
+        </pluginRepository>                                                                         
+      </pluginRepositories>                                                                           
+    </profile> 
+  </profiles>
+</project>

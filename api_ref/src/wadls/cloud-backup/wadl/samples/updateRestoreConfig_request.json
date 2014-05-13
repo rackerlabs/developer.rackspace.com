@@ -1,0 +1,10 @@
+{
+    "RestoreId": 14387,
+    "BackupConfigurationId": 148325,
+    "RestoreStateId": 1,
+    "BackupMachineId": 156953,
+    "DestinationMachineId": 156953,
+    "DestinationPath": "C:\\RestoredPath",
+    "BackupId": 133599,
+    "OverwriteFiles": true
+}

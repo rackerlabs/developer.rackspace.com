@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE application [<!ENTITY % common SYSTEM "../../common/common.ent">
+%common;]>
+<chapter xmlns="http://docbook.org/ns/docbook"
+   xmlns:xi="http://www.w3.org/2001/XInclude"
+   xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0"
+   xml:id="generalAPIinfo">
+   <title>General API Information</title>
+   <para>The Email Administration API is implemented using a ReSTful
+      web service interface. All requests to authenticate and operate
+      against the authentication service should be performed using SSL
+      over HTTP (HTTPS) on TCP port 443.</para>
+   <section xml:id="Request_Response_Types-d1e149">
+      <title>Request/Response Types</title>
+      <para>The API supports both the JSON and XML data serialization
+         formats. The request format is specified using the
+            <code>Content-Type</code> header and is required for
+         operations that have a request body. The response format can
+         be specified in requests either by using the
+            <code>Accept</code> header or by adding an
+            <code>.xml</code> or <code>.json</code> extension to the
+         request URI. It is possible for a response to be serialized
+         using a format different from the request. If no response
+         format is specified, JSON is the default. If conflicting
+         formats are specified using both an <code>Accept</code>
+         header and a query extension, the query extension takes
+         precedence.</para>
+      <table rules="all">
+         <caption>Response Types</caption>
+         <thead>
+            <tr>
+               <td>Format</td>
+               <td>Accept Header</td>
+               <td>Query Extension</td>
+               <td>Default</td>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <td>JSON</td>
+               <td>application/json</td>
+               <td>.json</td>
+               <td>Yes</td>
+            </tr>
+            <tr>
+               <td>XML</td>
+               <td>application/xml</td>
+               <td>.xml</td>
+               <td>No</td>
+            </tr>
+         </tbody>
+      </table>
+   </section>
+   <section xml:id="Versions">
+      <title>Versions</title>
+      <para>The API uses a URI versioning scheme.</para>
+      <important>
+         <para>The first element of the URI path contains the target
+            version identifier: for example, in
+               <code>https://api.emailsrvr.com/v1/</code>, the API
+            version is 1. Other than requests to query for version,
+            all requests must contain a target version.</para>
+      </important>
+      <para>Any features or functionality changes that would
+         necessitate a break in API compatibility will require a new
+         version, which will result in the URI version being updated
+         accordingly. When new API versions are released, older
+         versions will be marked as <code>DEPRECATED</code>. Rackspace
+         will work with developers and partners to ensure that there
+         is adequate time to migrate to the new version before
+         deprecated versions are discontinued.</para>
+      <para>You can programmatically determine available API versions
+         by performing a &GET; on the root URL returned from the
+         authentication system. In the root URL, the version and
+         everything to the right of it is truncated.</para>
+   </section>
+   <section xml:id="Limits-d1e909">
+      <title>Limits</title>
+      <para>Calls to the API are rate-limited at a default of 50
+         requests per second. Since tokens have an expiration time of
+         24 hours, you should never hit this limit.</para>
+      <para>The limit is placed on either the request's IP address,
+         the username, or the token in the <code>X-Auth-Token</code>
+         header, depending on the data available in the call's
+         request. If your request is rejected because you have
+         exceeded your rate limit, you will receive a
+            <errorcode>413</errorcode>
+         <code>overLimit</code> error. While you can retry after a few
+         seconds, we also recommend that you check your client code to
+         verify that it is using the API in an efficient manner.</para>
+      <para>A future release will provide the ability to view your
+         limits so you can track API utilization before being
+         rate-limited.</para>
+      <para>The rate limit defaults are likely to change as we gauge
+         realistic levels. If the default limits change, we'll update
+         this document to reflect the current value.</para>
+   </section>
+   <section xml:id="Faults-d1e908">
+      <title>Faults</title>
+      <para>When an error occurs, the system returns an HTTP error
+         response code denoting the type of error. The system returns
+         additional information about the fault in the body of the
+         response. For faults in the text/xml format, refer to the
+         faults schema document at <link
+            xlink:href="http://api.emailsrvr.com/Schemas/faults.xsd"
+            >http://api.emailsrvr.com/Schemas/faults.xsd</link>.</para>
+      <para>The following table lists possible fault types along with
+         their associated error codes.</para>
+      <table rules="all">
+         <caption>Fault Types</caption>
+         <thead>
+            <tr>
+               <td>Fault Element</td>
+               <td>Associated Error Codes</td>
+               <td>Expected in All Requests?</td>
+            </tr>
+         </thead>
+         <tbody>
+            <tr align="left">
+               <td>appsFault</td>
+               <td>500, 400, other</td>
+               <td> YES </td>
+            </tr>
+            <tr align="left">
+               <td>serviceUnavailable</td>
+               <td>503</td>
+               <td> YES </td>
+            </tr>
+            <tr align="left">
+               <td>badRequest</td>
+               <td>400</td>
+               <td> YES </td>
+            </tr>
+            <tr align="left">
+               <td>unauthorized</td>
+               <td>401</td>
+               <td> YES </td>
+            </tr>
+            <tr align="left">
+               <td><link linkend="Limits-d1e909">overLimit</link></td>
+               <td>413</td>
+               <td> YES</td>
+            </tr>
+            <tr align="left">
+               <td>userDisabled</td>
+               <td>403</td>
+               <td/>
+            </tr>
+            <tr align="left">
+               <td>forbidden</td>
+               <td>403</td>
+               <td/>
+            </tr>
+            <tr align="left">
+               <td>itemNotFound</td>
+               <td>404</td>
+               <td/>
+            </tr>
+            <tr align="left">
+               <td>tenantConflict</td>
+               <td>409</td>
+               <td/>
+            </tr>
+         </tbody>
+      </table>
+      <para>The root element of the fault may change depending on the
+         type of error. From an XML schema perspective, all API faults
+         are extensions of the base fault type,
+            <type>AppsAPIFault</type>. When working with a system that
+         binds XML to actual classes, use <type>AppsAPIFault</type> as
+         a catch-all if there is no interest in distinguishing between
+         individual fault types; for example, you may need to do this
+         if you are working with JAXB.</para>
+      <para>The error code is returned in the body of the response.
+         The message section returns a human-readable message. The
+         details section is optional and may contain useful
+         information for tracking down an error. For example, a stack
+         trace may be provided.</para>
+   </section>
+   <section xml:id="pagination">
+      <title>Pagination</title>
+      <para>The results of index actions are split into pages to
+         lessen potentially high resource usage. The index URLs have a
+         query string with parameters in the format
+            <code>?size=xx&amp;offset=xx</code>. If a query parameter
+         is omitted, the default value is used.</para>
+      <table rules="all">
+         <caption>Pagination Defaults and Maximums</caption>
+         <thead>
+            <tr>
+               <td>Query Parameter</td>
+               <td>Default</td>
+               <td>Maximum</td>
+               <th>Notes</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr align="left">
+               <td>size</td>
+               <td>50</td>
+               <td> 250</td>
+               <td>This is the number of elements per page.</td>
+            </tr>
+            <tr align="left">
+               <td>offset</td>
+               <td>0</td>
+               <td> N/A</td>
+               <td>This is the number items to offset from the first
+                  item in the list.</td>
+            </tr>
+         </tbody>
+      </table>
+   </section>
+   <section xml:id="Role_Based_Access_Control-d1e808">
+      <title>Role Based Access Control</title>
+      <para>The API is accessible to all with access to the <link
+            xlink:href="http://apps.rackspace.com/">Rackspace Email
+            &amp; Apps control panel</link>, including resellers,
+         business customers, enterprise customers, and indirect
+         customers. However, some operations are available to
+         resellers only. Where that is the case, the limitation is
+         noted in the detailed information about that operation.</para>
+   </section>
+</chapter>

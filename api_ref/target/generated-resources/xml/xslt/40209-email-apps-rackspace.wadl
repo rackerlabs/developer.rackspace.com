@@ -1,0 +1,4189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wadl:application xmlns="http://docbook.org/ns/docbook"
+                  xmlns:wadl="http://wadl.dev.java.net/2009/02"
+                  xmlns:rax="http://docs.rackspace.com/api"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                  rax:original-wadl="file:/Users/dian4554/Documents/developer.rackspace.com/api_ref/src/wadls/email-apps/wadl/email-apps-rackspace.wadl">
+   <rax:types>
+      <rax:type prefix="" namespace="http://wadl.dev.java.net/2009/02" name="">
+         <para/>
+      </rax:type>
+   </rax:types>
+   <rax:responses><!--A list of unique responses in the wadl -->
+      <rax:response status="200"
+                    prefix=""
+                    namespace="http://wadl.dev.java.net/2009/02"
+                    name="">
+         <para/>
+      </rax:response>
+   </rax:responses>
+   <!--
+	    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	    ! This is a representation of the resources tree           !
+	    ! for use in generating a reference directly from the wadl.!
+	    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	  -->
+   <rax:resources xmlns="http://wadl.dev.java.net/2009/02">
+            
+                
+                    The customer account
+                            number.
+                    
+                
+                
+                    
+                        
+                            The domain
+                                   name.
+                            
+                        
+                        
+                            <rax:resource rax:id="mailboxes">
+         <rax:resource rax:id="mailbox_name">
+            <rax:resource rax:id="loginToken"/>
+                                   <rax:resource rax:id="settings-mailbox"/>
+                                   <rax:resource rax:id="blacklist-mailbox">
+               <rax:resource rax:id="email_address-mailbox-blacklist"/>
+            </rax:resource>
+                                   <rax:resource rax:id="ipblacklist-mailbox">
+               <rax:resource rax:id="ip_address-mailbox-blacklist"/>
+            </rax:resource>
+                                   <rax:resource rax:id="safelist-mailbox">
+               <rax:resource rax:id="email_address-mailbox-safelist"/>
+            </rax:resource>
+                                   <rax:resource rax:id="ipsafelist-mailbox">
+               <rax:resource rax:id="ip_address-mailbox-safelist-ip"/>
+               <rax:resource rax:id="email_address-mailbox-safelist-ip"/>
+            </rax:resource>
+                                   
+                                   <rax:resource rax:id="alias_name-alias">
+               <rax:resource rax:id="email_address-alias"/>
+            </rax:resource>
+                                   </rax:resource>
+      </rax:resource>
+                            <rax:resource rax:id="storagenotification"/>
+                            <rax:resource rax:id="aliases">
+         <rax:resource rax:id="alias_name">
+            <rax:resource rax:id="email_address"/>
+         </rax:resource>
+      </rax:resource>
+                        
+                        <rax:resource rax:id="mobilesync">
+         <rax:resource rax:id="users">
+            <rax:resource rax:id="enable"/>
+            <rax:resource rax:id="disable"/>
+         </rax:resource>
+      </rax:resource>
+                    
+                
+            
+        </rax:resources>
+    <resources xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+              xmlns:db="http://docbook.org/ns/docbook"
+              xmlns:common="http://docs.openstack.org/common/api/v1.0"
+              xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+              xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              xmlns:raxapi="http://docs.rackspace.com/volume/api/v1"
+              xmlns="http://wadl.dev.java.net/2009/02"
+              base="http://api.emailsrvr.com/"
+              xml:id="email-rackspace">
+        <!-- <resource id="version0" path="v0">-->
+        <resource path="customers/{customer_account_number}/domains/{domain_name}/rs/mailboxes"
+                id="mailboxes">
+         <param name="customer_account_number"
+                style="template"
+                required="true"
+                rax:id="">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The customer account
+                            number.</para>
+                    </wadl:doc>
+                </param>
+         <param name="domain_name" style="template" required="true" rax:id="">
+                            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The domain
+                                   name.</para>
+                            </wadl:doc>
+                        </param>
+         <method name="GET" rax:id="listMailboxes">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      title="List Rackspace email mailboxes">
+               <para role="shortdesc">Lists Rackspace email mailboxes in
+                a domain.</para>
+               <para>Filter/Search</para>
+               <para>Mailbox searches may be filtered by the 'enabled'
+                flag using query methods ?enabled=true and
+                ?enabled=false.</para>
+               <para>Remarks</para>
+               <itemizedlist>
+                  <listitem>
+                    <para>The show operation only supports the GET
+                        HTTP verb.</para>
+                  </listitem>
+               </itemizedlist>
+               <para>Custom Fields</para>
+               <para>The result displays each mailbox's 'name' and
+                'displayName' as default. There is a query string
+                'fields' that allows the result to display more
+                mailbox properties. The additional properties are:
+                'size', 'currentUsage', 'enabled', 'createdDate', and
+                'lastLogin'</para>
+               <itemizedlist>
+                  <title>Example</title>
+                  <listitem>
+                    <para>GET
+                        '/customers/12345678/domains/example.com/rs/mailboxes?fields=size,currentUsage',
+                        'text/xml'</para>
+                  </listitem>
+               </itemizedlist>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json" element="noop">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">GET
+                        '/customers/12345678/domains/example.com/rs/mailboxes',
+                        'text/xml'" });</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="200">
+               <representation mediaType="application/xml">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="xml">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+                        &lt;rsMailboxList
+                        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                        xmlns="urn:xml:rsMailboxList"&gt;
+                        &lt;offset&gt;0&lt;/offset&gt;
+                        &lt;size&gt;50&lt;/size&gt;
+                        &lt;total&gt;2&lt;/total&gt;
+                        &lt;rsMailboxes&gt; &lt;rsMailbox&gt;
+                        &lt;name&gt;apirsmailbox37&lt;/name&gt;
+                        &lt;/rsMailbox&gt; &lt;rsMailbox&gt;
+                        &lt;name&gt;apirsmailbox91&lt;/name&gt;
+                        &lt;/rsMailbox&gt; &lt;/rsMailboxes&gt;
+                        &lt;/rsMailboxList&gt;</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">{"offset":0,"size":50,"total":2,"rsMailboxes":[{"name":"apirsmailbox37"},{"name":"apirsmailbox91"}]}</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </response>
+
+         </method>
+      </resource>
+                                
+                                <resource path="customers/{customer_account_number}/domains/{domain_name}/rs/mailboxes/{mailbox_name}"
+                id="mailbox_name">
+         <param name="customer_account_number"
+                style="template"
+                required="true"
+                rax:id="">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The customer account
+                            number.</para>
+                    </wadl:doc>
+                </param>
+         <param name="domain_name" style="template" required="true" rax:id="">
+                            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The domain
+                                   name.</para>
+                            </wadl:doc>
+                        </param>
+         <param name="mailbox_name" style="template" required="true" rax:id="">
+                                   <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The mailbox
+                                   name.</para>
+                                   </wadl:doc>
+                                   </param>
+         <method name="GET" rax:id="showMailboxDetails">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      title="Show Rackspace email mailbox details">
+               <para role="shortdesc">Shows details for a specified
+                Rackspace email mailbox.</para>
+               <para>Remarks</para>
+               <itemizedlist>
+                  <listitem>
+                    <para>The show operation only supports the GET
+                        HTTP verb.</para>
+                  </listitem>
+               </itemizedlist>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json" element="noop">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">GET
+                        '/customers/12345678/domains/example.com/rs/mailboxes/alex.smith',
+                        'text/xml'" });</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+                        &lt;?xml version="1.0" encoding="utf-8"?&gt;
+                        &lt;rsMailbox
+                        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                        xmlns="urn:xml:rsMailbox"&gt;
+                        &lt;name&gt;apirsmailbox37&lt;/name&gt;
+                        &lt;size&gt;10240&lt;/size&gt;
+                        &lt;currentUsage&gt;1024&lt;/currentUsage&gt;
+                        &lt;vacationMessage&gt;My Test Vacation
+                        Message&lt;/vacationMessage&gt;
+                        &lt;enableVacationMessage&gt;true&lt;/enableVacationMessage&gt;
+                        &lt;emailForwardingAddressList&gt;
+                        &lt;emailAddress&gt;notreal0@apidomain.net&lt;/emailAddress&gt;
+                        &lt;emailAddress&gt;notreal1@apidomain.net&lt;/emailAddress&gt;
+                        &lt;/emailForwardingAddressList&gt;
+                        &lt;saveForwardedEmail&gt;false&lt;/saveForwardedEmail&gt;
+                        &lt;lastLogin&gt;2/12/2009 1:00:00
+                        AM&lt;/lastLogin&gt;
+                        &lt;createdDate&gt;4/10/2006 7:47:34
+                        PM&lt;/createdDate&gt;
+                        &lt;visibleInRackspaceEmailCompanyDirectory&gt;false&lt;/visibleInRackspaceEmailCompanyDirectory&gt;
+                        &lt;visibleInExchangeGAL&gt;false&lt;/visibleInExchangeGAL&gt;
+                        &lt;contactInfo&gt;
+                        &lt;lastName&gt;Testlast&lt;/lastName&gt;
+                        &lt;firstName&gt;Jayfirst&lt;/firstName&gt;
+                        &lt;generationQualifier&gt;Jr&lt;/generationQualifier&gt;
+                        &lt;initials&gt;A&lt;/initials&gt;
+                        &lt;organizationUnit&gt;IT&lt;/organizationUnit&gt;
+                        &lt;businessStreet&gt;123 Biz
+                        St&lt;/businessStreet&gt;
+                        &lt;businessCity&gt;Blacksburg&lt;/businessCity&gt;
+                        &lt;businessState&gt;VA&lt;/businessState&gt;
+                        &lt;businessPostalCode&gt;24060&lt;/businessPostalCode&gt;
+                        &lt;businessCountry&gt;USA&lt;/businessCountry&gt;
+                        &lt;homeStreet&gt;456 Home
+                        St&lt;/homeStreet&gt;
+                        &lt;homeCity&gt;Charlotte&lt;/homeCity&gt;
+                        &lt;homeState&gt;NC&lt;/homeState&gt;
+                        &lt;homePostalCode&gt;28210&lt;/homePostalCode&gt;
+                        &lt;homeCountry&gt;USA&lt;/homeCountry&gt;
+                        &lt;businessNumber&gt;555.123.0001&lt;/businessNumber&gt;
+                        &lt;homeNumber&gt;555.123.0003&lt;/homeNumber&gt;
+                        &lt;mobileNumber&gt;555.123.0004&lt;/mobileNumber&gt;
+                        &lt;faxNumber&gt;555.123.0005&lt;/faxNumber&gt;
+                        &lt;homeFaxNumber&gt;555.123.0006&lt;/homeFaxNumber&gt;
+                        &lt;pagerNumber&gt;555.123.0002&lt;/pagerNumber&gt;
+                        &lt;notes&gt;This is my note about my
+                        mailbox.&lt;/notes&gt; &lt;title&gt;My
+                        Title&lt;/title&gt;
+                        &lt;userID&gt;J.Test&lt;/userID&gt;
+                        &lt;customID&gt;0123456789&lt;/customID&gt;
+                        &lt;organizationalStatus&gt;OrgStatus&lt;/organizationalStatus&gt;
+                        &lt;employeeType&gt;Full-Time&lt;/employeeType&gt;
+                        &lt;/contactInfo&gt;
+                        &lt;enabled&gt;true&lt;/enabled&gt;
+                        &lt;/rsMailbox&gt;</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">{"emailForwardingAddressList":["test@resellerallservices.net"],"enableVacationMessage":true,"enabled":true,"contactInfo":{"businessNumber":"555.123.0001"
+                        ,"faxNumber":"555.123.0005"
+                        ,"firstName":"Jimmy"
+                        ,"homeNumber":"555.123.0003"
+                        ,"lastName":"TestLaste"
+                        ,"mobileNumber":"555.123.0004" ,"notes":"This
+                        is my note about my mailbox."
+                        ,"pagerNumber":"555.123.0002"
+                        ,"businessCity":"" ,"businessCountry":""
+                        ,"businessPostalCode":"" ,"businessState":""
+                        ,"businessStreet":""
+                        ,"employeeType":"DoesNotExist"
+                        ,"generationQualifier":"Jr" ,"homeCity":""
+                        ,"homeCountry":""
+                        ,"homeFaxNumber":"555.123.0006"
+                        ,"homePostalCode":"" ,"homeState":""
+                        ,"homeStreet":"" ,"initials":"A"
+                        ,"organizationUnit":"IT"
+                        ,"organizationalStatus":"gainfully employed"
+                        ,"title":"My Title" ,"userID":"J.Test",
+                        "customID":"0123456789"},"name":"unittestexist"
+                        ,"saveForwardedEmail":false,"size":10240,"vacationMessage":"Test
+                        Vacation Message", "createdDate":"4\/10\/2006
+                        7:47:34 PM", "currentUsage":1024,
+                        "visibleInExchangeGAL":false,
+                        "visibleInRackspaceEmailCompanyDirectory":false}</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </response>
+
+         </method>
+         <method name="POST" rax:id="addMailbox">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Add Rackspace email mailbox">
+               <para role="shortdesc">Adds a Rackspace email
+                mailbox.</para>
+               <para>To add a mailbox, use these form fields:</para>
+               <table rules="all">
+                  <caption>Request Data</caption>
+                  <thead>
+                    <tr>
+                        <td>
+                            <b xmlns="http://www.w3.org/1999/xhtml">Field Name</b>
+                        </td>
+                        <td>
+                            <b xmlns="http://www.w3.org/1999/xhtml">Data Type</b>
+                        </td>
+                        <td>
+                            <b xmlns="http://www.w3.org/1999/xhtml">Description</b>
+                        </td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                        <td>password</td>
+                        <td>string</td>
+                        <td>Password (Required for Add)</td>
+                    </tr>
+                    <tr>
+                        <td>size</td>
+                        <td>positive integer</td>
+                        <td>Mailbox size in megabytes (Required for
+                            Add)</td>
+                    </tr>
+                    <tr>
+                        <td>enableVacationMessage</td>
+                        <td>boolean</td>
+                        <td>indicates whether vacation message has
+                            been enabled</td>
+                    </tr>
+                    <tr>
+                        <td>vacationMessage</td>
+                        <td>string</td>
+                        <td>A mailbox's vacation message</td>
+                    </tr>
+                    <tr>
+                        <td>emailForwardingAddresses</td>
+                        <td>string</td>
+                        <td>A comma delimited list, Maximum 15
+                            addresses, 4 of which can be outside of
+                            this domain</td>
+                    </tr>
+                    <tr>
+                        <td>saveForwardedEmail</td>
+                        <td>string</td>
+                        <td>Indicates whether to save a copy of any
+                            forwarded email</td>
+                    </tr>
+                    <tr>
+                        <td>lastName</td>
+                        <td>string</td>
+                        <td>A last name</td>
+                    </tr>
+                    <tr>
+                        <td>firstName</td>
+                        <td>string</td>
+                        <td>A first name</td>
+                    </tr>
+                    <tr>
+                        <td>generationQualifier</td>
+                        <td>string</td>
+                        <td>A person's generation (ex. Jr., Sr.,
+                            III)</td>
+                    </tr>
+                    <tr>
+                        <td>initials</td>
+                        <td>string</td>
+                        <td>A person's middle initial</td>
+                    </tr>
+                    <tr>
+                        <td>organizationUnit</td>
+                        <td>string</td>
+                        <td>A person's organization unit (ex.
+                            Marketing)</td>
+                    </tr>
+                    <tr>
+                        <td>businessNumber</td>
+                        <td>string</td>
+                        <td>Business phone number</td>
+                    </tr>
+                    <tr>
+                        <td>pagerNumber</td>
+                        <td>string</td>
+                        <td>Pager phone number</td>
+                    </tr>
+                    <tr>
+                        <td>homeNumber</td>
+                        <td>string</td>
+                        <td>Home phone number</td>
+                    </tr>
+                    <tr>
+                        <td>mobileNumber</td>
+                        <td>string</td>
+                        <td>Mobile phone number</td>
+                    </tr>
+                    <tr>
+                        <td>faxNumber</td>
+                        <td>string</td>
+                        <td>Fax phone number</td>
+                    </tr>
+                    <tr>
+                        <td>homeFaxNumber</td>
+                        <td>string</td>
+                        <td>Home Fax phone number</td>
+                    </tr>
+                    <tr>
+                        <td>businessStreet</td>
+                        <td>string</td>
+                        <td>The business street address for a
+                            contact</td>
+                    </tr>
+                    <tr>
+                        <td>businessCity</td>
+                        <td>string</td>
+                        <td>The business city for a contact</td>
+                    </tr>
+                    <tr>
+                        <td>businessState</td>
+                        <td>string</td>
+                        <td>The business state for a contact</td>
+                    </tr>
+                    <tr>
+                        <td>businessPostalCode</td>
+                        <td>string</td>
+                        <td>The business postal code/zip code for a
+                            contact</td>
+                    </tr>
+                    <tr>
+                        <td>businessCountry</td>
+                        <td>string</td>
+                        <td>The business country for a contact</td>
+                    </tr>
+                    <tr>
+                        <td>homeStreet</td>
+                        <td>string</td>
+                        <td>The home street address for a contact</td>
+                    </tr>
+                    <tr>
+                        <td>homeCity</td>
+                        <td>string</td>
+                        <td>The home city for a contact</td>
+                    </tr>
+                    <tr>
+                        <td>homeState</td>
+                        <td>string</td>
+                        <td>The home state for a contact</td>
+                    </tr>
+                    <tr>
+                        <td>homePostalCode</td>
+                        <td>string</td>
+                        <td>The home postal code/zip code for a
+                            contact</td>
+                    </tr>
+                    <tr>
+                        <td>homeCountry</td>
+                        <td>string</td>
+                        <td>The home country for a contact</td>
+                    </tr>
+                    <tr>
+                        <td>notes</td>
+                        <td>string</td>
+                        <td>Any notes for the mailbox</td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>string</td>
+                        <td>A contact's title</td>
+                    </tr>
+                    <tr>
+                        <td>userID</td>
+                        <td>string</td>
+                        <td>A user ID for a contact</td>
+                    </tr>
+                    <tr>
+                        <td>organizationalStatus</td>
+                        <td>string</td>
+                        <td>A contact's organization status</td>
+                    </tr>
+                    <tr>
+                        <td>employeeType</td>
+                        <td>string</td>
+                        <td>A contact's employee type</td>
+                    </tr>
+                    <tr>
+                        <td>customID</td>
+                        <td>string</td>
+                        <td>A custom field that can be used to tie
+                            user mailboxes to external user
+                            systems</td>
+                    </tr>
+                    <tr>
+                        <td>enabled</td>
+                        <td>boolean</td>
+                        <td>Status of the mailbox: true = enabled,
+                            false = disabled.</td>
+                    </tr>
+                    <tr>
+                        <td>visibleInRackspaceEmailCompanyDirectory</td>
+                        <td>boolean</td>
+                        <td>Flag indicating whether the mailbox is
+                            visible in the company directory</td>
+                    </tr>
+                    <tr>
+                        <td>visibleInExchangeGAL</td>
+                        <td>boolean</td>
+                        <td>Flag indicating whether the mailbox is
+                            visible in the Exchange Global Address
+                            List</td>
+                    </tr>
+                    <tr>
+                        <td>currentUsage <i xmlns="http://www.w3.org/1999/xhtml">
+                                <b>(read only)</b>
+                            </i>
+                        </td>
+                        <td>positive integer</td>
+                        <td>Current space used in mailbox (in MB)</td>
+                    </tr>
+                    <tr>
+                        <td>createdDate <i xmlns="http://www.w3.org/1999/xhtml">
+                                <b>(read only)</b>
+                            </i>
+                        </td>
+                        <td>string</td>
+                        <td>Date of mailbox creation, EST Time (in
+                            string format)</td>
+                    </tr>
+                    <tr>
+                        <td>lastLogin <i xmlns="http://www.w3.org/1999/xhtml">
+                                <b>(read only)</b>
+                            </i>
+                        </td>
+                        <td>string</td>
+                        <td>Date of last login, EST Time (in string
+                            format)</td>
+                    </tr>
+                  </tbody>
+               </table>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json" element="noop">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">POST
+                        '/customers/12345678/domains/example.com/rs/mailboxes/alex.smith',
+                        'text/xml', { 'password' =\u003E
+                        'Secret13!@#', 'size' =\u003E '2048',
+                        'enableVacationMessage' =\u003E 'true',
+                        'vacationMessage' =\u003E 'My Vacation
+                        Message', 'emailForwardingAddresses' =\u003E
+                        'sampletest@example.com,sampletest2@example.com',
+                        'saveForwardedEmail' =\u003E 'false'
+                        'lastName' =\u003E 'Testlastname', 'firstName'
+                        =\u003E 'Jay', 'generationQualifier' =\u003E
+                        'III', 'initials' =\u003E 'A',
+                        'organizationUnit' =\u003E 'IT',
+                        'businessStreet' =\u003E '123 Biz St.',
+                        'businessCity' =\u003E 'Blacksburg',
+                        'businessState' =\u003E 'VA',
+                        'businessPostalCode' =\u003E '24060',
+                        'businessCountry' =\u003E 'USA', 'homeStreet'
+                        =\u003E '456 Home St.', 'homeCity' =\u003E
+                        'Charlotte', 'homeState' =\u003E 'NC',
+                        'homePostalCode' =\u003E '28210',
+                        'homeCountry' =\u003E 'USA', 'notes' =\u003E
+                        'This is my note about my mailbox.', 'title'
+                        =\u003E 'My Title', 'userID' =\u003E 'J.Test',
+                        'customID' =\u003E '0123456789',
+                        'organizationalStatus' =\u003E 'OrgStatus',
+                        'employeeType' =\u003E 'Full-Time'
+                        'visibleInExchangeGAL'=\u003E'true',
+                        'visibleInRackspaceEmailCompanyDirectory'
+                        =\u003E 'false' }" });</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="204"/>
+         </method>
+         <method name="PUT" rax:id="updateMailbox">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      title="Update Rackspace email mailbox">
+               <para role="shortdesc">Updates a Rackspace email
+                mailbox.</para>
+               <para>To add a mailbox, use these form fields:</para>
+               <table rules="all">
+                  <caption>Request Data</caption>
+                  <thead>
+                    <tr>
+                        <td>
+                            <b xmlns="http://www.w3.org/1999/xhtml">Field Name</b>
+                        </td>
+                        <td>
+                            <b xmlns="http://www.w3.org/1999/xhtml">Data Type</b>
+                        </td>
+                        <td>
+                            <b xmlns="http://www.w3.org/1999/xhtml">Description</b>
+                        </td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                        <td>password</td>
+                        <td>string</td>
+                        <td>Password (Required for Add)</td>
+                    </tr>
+                    <tr>
+                        <td>size</td>
+                        <td>positive integer</td>
+                        <td>Mailbox size in megabytes (Required for
+                            Add)</td>
+                    </tr>
+                    <tr>
+                        <td>enableVacationMessage</td>
+                        <td>boolean</td>
+                        <td>indicates whether vacation message has
+                            been enabled</td>
+                    </tr>
+                    <tr>
+                        <td>vacationMessage</td>
+                        <td>string</td>
+                        <td>A mailbox's vacation message</td>
+                    </tr>
+                    <tr>
+                        <td>emailForwardingAddresses</td>
+                        <td>string</td>
+                        <td>A comma delimited list, Maximum 15
+                            addresses, 4 of which can be outside of
+                            this domain</td>
+                    </tr>
+                    <tr>
+                        <td>saveForwardedEmail</td>
+                        <td>string</td>
+                        <td>Indicates whether to save a copy of any
+                            forwarded email</td>
+                    </tr>
+                    <tr>
+                        <td>lastName</td>
+                        <td>string</td>
+                        <td>A last name</td>
+                    </tr>
+                    <tr>
+                        <td>firstName</td>
+                        <td>string</td>
+                        <td>A first name</td>
+                    </tr>
+                    <tr>
+                        <td>generationQualifier</td>
+                        <td>string</td>
+                        <td>A person's generation (ex. Jr., Sr.,
+                            III)</td>
+                    </tr>
+                    <tr>
+                        <td>initials</td>
+                        <td>string</td>
+                        <td>A person's middle initial</td>
+                    </tr>
+                    <tr>
+                        <td>organizationUnit</td>
+                        <td>string</td>
+                        <td>A person's organization unit (ex.
+                            Marketing)</td>
+                    </tr>
+                    <tr>
+                        <td>businessNumber</td>
+                        <td>string</td>
+                        <td>Business phone number</td>
+                    </tr>
+                    <tr>
+                        <td>pagerNumber</td>
+                        <td>string</td>
+                        <td>Pager phone number</td>
+                    </tr>
+                    <tr>
+                        <td>homeNumber</td>
+                        <td>string</td>
+                        <td>Home phone number</td>
+                    </tr>
+                    <tr>
+                        <td>mobileNumber</td>
+                        <td>string</td>
+                        <td>Mobile phone number</td>
+                    </tr>
+                    <tr>
+                        <td>faxNumber</td>
+                        <td>string</td>
+                        <td>Fax phone number</td>
+                    </tr>
+                    <tr>
+                        <td>homeFaxNumber</td>
+                        <td>string</td>
+                        <td>Home Fax phone number</td>
+                    </tr>
+                    <tr>
+                        <td>businessStreet</td>
+                        <td>string</td>
+                        <td>The business street address for a
+                            contact</td>
+                    </tr>
+                    <tr>
+                        <td>businessCity</td>
+                        <td>string</td>
+                        <td>The business city for a contact</td>
+                    </tr>
+                    <tr>
+                        <td>businessState</td>
+                        <td>string</td>
+                        <td>The business state for a contact</td>
+                    </tr>
+                    <tr>
+                        <td>businessPostalCode</td>
+                        <td>string</td>
+                        <td>The business postal code/zip code for a
+                            contact</td>
+                    </tr>
+                    <tr>
+                        <td>businessCountry</td>
+                        <td>string</td>
+                        <td>The business country for a contact</td>
+                    </tr>
+                    <tr>
+                        <td>homeStreet</td>
+                        <td>string</td>
+                        <td>The home street address for a contact</td>
+                    </tr>
+                    <tr>
+                        <td>homeCity</td>
+                        <td>string</td>
+                        <td>The home city for a contact</td>
+                    </tr>
+                    <tr>
+                        <td>homeState</td>
+                        <td>string</td>
+                        <td>The home state for a contact</td>
+                    </tr>
+                    <tr>
+                        <td>homePostalCode</td>
+                        <td>string</td>
+                        <td>The home postal code/zip code for a
+                            contact</td>
+                    </tr>
+                    <tr>
+                        <td>homeCountry</td>
+                        <td>string</td>
+                        <td>The home country for a contact</td>
+                    </tr>
+                    <tr>
+                        <td>notes</td>
+                        <td>string</td>
+                        <td>Any notes for the mailbox</td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>string</td>
+                        <td>A contact's title</td>
+                    </tr>
+                    <tr>
+                        <td>userID</td>
+                        <td>string</td>
+                        <td>A user ID for a contact</td>
+                    </tr>
+                    <tr>
+                        <td>organizationalStatus</td>
+                        <td>string</td>
+                        <td>A contact's organization status</td>
+                    </tr>
+                    <tr>
+                        <td>employeeType</td>
+                        <td>string</td>
+                        <td>A contact's employee type</td>
+                    </tr>
+                    <tr>
+                        <td>customID</td>
+                        <td>string</td>
+                        <td>A custom field that can be used to tie
+                            user mailboxes to external user
+                            systems</td>
+                    </tr>
+                    <tr>
+                        <td>enabled</td>
+                        <td>boolean</td>
+                        <td>Status of the mailbox: true = enabled,
+                            false = disabled.</td>
+                    </tr>
+                    <tr>
+                        <td>visibleInRackspaceEmailCompanyDirectory</td>
+                        <td>boolean</td>
+                        <td>Flag indicating whether the mailbox is
+                            visible in the company directory</td>
+                    </tr>
+                    <tr>
+                        <td>visibleInExchangeGAL</td>
+                        <td>boolean</td>
+                        <td>Flag indicating whether the mailbox is
+                            visible in the Exchange Global Address
+                            List</td>
+                    </tr>
+                    <tr>
+                        <td>currentUsage <i xmlns="http://www.w3.org/1999/xhtml">
+                                <b>(read only)</b>
+                            </i>
+                        </td>
+                        <td>positive integer</td>
+                        <td>Current space used in mailbox (in MB)</td>
+                    </tr>
+                    <tr>
+                        <td>createdDate <i xmlns="http://www.w3.org/1999/xhtml">
+                                <b>(read only)</b>
+                            </i>
+                        </td>
+                        <td>string</td>
+                        <td>Date of mailbox creation, EST Time (in
+                            string format)</td>
+                    </tr>
+                    <tr>
+                        <td>lastLogin <i xmlns="http://www.w3.org/1999/xhtml">
+                                <b>(read only)</b>
+                            </i>
+                        </td>
+                        <td>string</td>
+                        <td>Date of last login, EST Time (in string
+                            format)</td>
+                    </tr>
+                  </tbody>
+               </table>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json" element="noop">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">PUT
+                        '/customers/12345678/domains/example.com/rs/mailboxes/alex.smith',
+                        'text/xml', { 'password' =\u003E
+                        'Secret13!@#', 'size' =\u003E '2048',
+                        'enableVacationMessage' =\u003E 'true',
+                        'vacationMessage' =\u003E 'My Vacation
+                        Message', 'emailForwardingAddresses' =\u003E
+                        'sampletest@example.com,sampletest2@example.com',
+                        'saveForwardedEmail' =\u003E 'false'
+                        'lastName' =\u003E 'Testlastname', 'firstName'
+                        =\u003E 'Jay', 'generationQualifier' =\u003E
+                        'III', 'initials' =\u003E 'A',
+                        'organizationUnit' =\u003E 'IT',
+                        'businessStreet' =\u003E '123 Biz St.',
+                        'businessCity' =\u003E 'Blacksburg',
+                        'businessState' =\u003E 'VA',
+                        'businessPostalCode' =\u003E '24060',
+                        'businessCountry' =\u003E 'USA', 'homeStreet'
+                        =\u003E '456 Home St.', 'homeCity' =\u003E
+                        'Charlotte', 'homeState' =\u003E 'NC',
+                        'homePostalCode' =\u003E '28210',
+                        'homeCountry' =\u003E 'USA', 'notes' =\u003E
+                        'This is my note about my mailbox.', 'title'
+                        =\u003E 'My Title', 'userID' =\u003E 'J.Test',
+                        'customID' =\u003E '0123456789',
+                        'organizationalStatus' =\u003E 'OrgStatus',
+                        'employeeType' =\u003E 'Full-Time'
+                        'visibleInExchangeGAL'=\u003E'true',
+                        'visibleInRackspaceEmailCompanyDirectory'
+                        =\u003E 'false' } " });</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="204"/>
+         </method>
+         <method name="DELETE" rax:id="deleteMailbox">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      title="Delete Rackspace email mailbox">
+               <para role="shortdesc">Deletes a Rackspace email
+                mailbox.</para>
+               <para>Remarks</para>
+               <para>The mailbox and mailbox contents are deleted
+                permanently.</para>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json" element="noop">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">DELETE
+                        '/customers/12345678/domains/example.com/rs/mailboxes/alex.smith',
+                        'text/xml'" });</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="204"/>
+         </method>
+      </resource>
+                                   
+                                   
+                                   
+                                   
+                                   
+                                   <resource path="customers/{customer_account_number}/domains/{domain_name}/rs/mailboxes/{mailbox_name}/loginToken"
+                id="loginToken">
+         <param name="customer_account_number"
+                style="template"
+                required="true"
+                rax:id="">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The customer account
+                            number.</para>
+                    </wadl:doc>
+                </param>
+         <param name="domain_name" style="template" required="true" rax:id="">
+                            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The domain
+                                   name.</para>
+                            </wadl:doc>
+                        </param>
+         <param name="mailbox_name" style="template" required="true" rax:id="">
+                                   <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The mailbox
+                                   name.</para>
+                                   </wadl:doc>
+                                   </param>
+         <method name="POST" rax:id="generateLoginTokenMailbox">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      title="Create login token for Rackspace email mailbox">
+               <para role="shortdesc">Creates a login token that a user
+                can use to log in to a Rackspace email mailbox.</para>
+               <para role="shortdesc">Lists a login token, created date,
+                and expiration date.</para>
+               <para>Remarks</para>
+               <itemizedlist>
+                  <listitem>
+                    <para>The login token is valid until the current
+                        time (EST) passes the expiration date, and can
+                        be used until that point.</para>
+                  </listitem>
+                  <listitem>
+                    <para>Using the generate login token shown in the
+                        example below, a user can SSO into
+                        testmailbox@testapidomain.net at the following
+                        URL: https://{webmail
+                        address}/mail/src/redirect.php?user_name={testmailbox@testapidomain.net}&amp;emailaddress=testmailbox@testapidomain.net&amp;sessionID=5b5e27419a363fc5b65bbb63d1c2d3f8</para>
+                  </listitem>
+               </itemizedlist>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json" element="noop">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">POST
+                        '/customers/460896/domains/testapidomain.net/rs/mailboxes/testmailbox/loginToken',
+                        {}, 'text/xml'" });</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="200">
+               <representation mediaType="application/xml">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="xml">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+                        &lt;rsMailboxLoginToken
+                        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                        xmlns="urn:xml:rsMailboxLoginToken"&gt;
+                        &lt;token&gt;5b5e27419a363fc5b65bbb63d1c2d3f8&lt;/token&gt;
+                        &lt;dateCreated&gt;9/22/2010 9:33:15
+                        AM&lt;/dateCreated&gt;
+                        &lt;expirationDate&gt;9/22/2010 9:53:14
+                        AM&lt;/expirationDate&gt;
+                        &lt;/rsMailboxLoginToken&gt;</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </response>
+         </method>
+      </resource>
+                                   
+                                   
+                                   <resource path="customers/{customer_account_number}/domains/{domain_name}/rs/mailboxes/{mailbox_name}/spam/settings"
+                id="settings-mailbox">
+         <param name="customer_account_number"
+                style="template"
+                required="true"
+                rax:id="">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The customer account
+                            number.</para>
+                    </wadl:doc>
+                </param>
+         <param name="domain_name" style="template" required="true" rax:id="">
+                            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The domain
+                                   name.</para>
+                            </wadl:doc>
+                        </param>
+         <param name="mailbox_name" style="template" required="true" rax:id="">
+                                   <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The mailbox
+                                   name.</para>
+                                   </wadl:doc>
+                                   </param>
+         <method name="GET" rax:id="showMailboxSpamSettings">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Show mailbox spam settings">
+               <para role="shortdesc">Shows the mailbox spam
+                settings.</para>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json" element="noop">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">GET
+                        /customers/12345678/domains/example.com/rs/mailboxes/alex.smith/spam/settings',
+                        'text/xml'" });</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="200">
+               <representation mediaType="application/xml">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="xml">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+                        &lt;rsMailboxSpamSetting
+                        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                        xmlns="urn:xml:RSMailboxSpamSetting"&gt;
+                        &lt;filterLevel&gt;on&lt;/filterLevel&gt;
+                        &lt;rsEmailSettings&gt;
+                        &lt;spamHandling&gt;toFolder&lt;/spamHandling&gt;
+                        &lt;hasFolderCleaner&gt;false&lt;/hasFolderCleaner&gt;
+                        &lt;spamFolderAgeLimit&gt;0&lt;/spamFolderAgeLimit&gt;
+                        &lt;spamFolderNumLimit&gt;0&lt;/spamFolderNumLimit&gt;
+                        &lt;spamForwardingAddress /&gt;
+                        &lt;/rsEmailSettings&gt;
+                        &lt;/rsMailboxSpamSetting&gt;</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">{"filterLevel":"on","rsEmailSettings":"hasFolderCleaner":false,"spamFolderAgeLimit":0,"spamFolderNumLimit":0,"spamForwardingAddress":"","spamHandling":"toFolder"}}</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </response>
+
+         </method>
+         <method name="PUT" rax:id="updateMailboxSpamSettings">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Update spam settings">
+               <para role="shortdesc">Updates the mailbox spam
+                settings.</para>
+               <table rules="all">
+                  <caption>Request Data</caption>
+                  <thead>
+                    <tr>
+                        <td>
+                            <b xmlns="http://www.w3.org/1999/xhtml">Field Name</b>
+                        </td>
+                        <td>
+                            <b xmlns="http://www.w3.org/1999/xhtml">Data Type</b>
+                        </td>
+                        <td>
+                            <b xmlns="http://www.w3.org/1999/xhtml">Description</b>
+                        </td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                        <td>filterLevel</td>
+                        <td>string</td>
+                        <td>This is a required field. Spam filter
+                            status: 'on', 'off', or 'exclusive'.
+                            Exclusive mode allows only email cleared
+                            by the Safelist.</td>
+                    </tr>
+                    <tr>
+                        <td>rsEmail.spamHandling</td>
+                        <td>string</td>
+                        <td>
+                           <para>The string 'toFolder' will deliver
+                                the email to the user's Spam folder,
+                                'delete' will delete the mail
+                                immediately, 'labelSubject' will
+                                prepend [SPAM] to the email's subject
+                                line, and 'toAddress' will send the
+                                email to a specified folder
+                                instead.</para>
+                           <para>Valid Field
+                                Combinations:</para>
+                            <para>(toFolder =&gt; hasFolderCleaner,
+                                spamFolderAgeLimit,
+                                spamFolderNumLimit)</para>
+                            <para>(toAddress =&gt;
+                                spamForwardingAddress)</para>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>rsEmail.hasFolderCleaner</td>
+                        <td>string</td>
+                        <td>
+                           <para>This field is effective when
+                                rsEmail.spamHandling option is set to
+                                'toFolder'. This field controls how
+                                the spam that is delivered o the spam
+                                folder is handled. There are currently
+                                two options supported for handling
+                                spam. First option is to set a limit
+                                after which the spam gets deleted. One
+                                can set limit on the number of days or
+                                on the number of spam emails. Second
+                                option is to never automatically
+                                delete the spam. For both these
+                                options to be enabled the
+                                rsEmail.hasFolderCleaner field should
+                                be set to 'true'.</para>
+                            <para>The folder cleaner fields
+                                (hasFolderCleaner, spamFolderAgeLimit,
+                                spamFolderNumLimit) are allowed only
+                                when the spamHandling field is set to
+                                'toFolder'. In order to never delete
+                                the spam set the spamFolderAgeLimit
+                                and spamFolderNumLimit fields to
+                                0.</para>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>rsEmail.spamFolderAgeLimit</td>
+                        <td>string</td>
+                        <td>The number of days a message stays in the
+                            Spam folder before its deleted. This field
+                            is effective only when
+                            rsEmail.spamHandling is set to 'toFolder',
+                            and 'rs.hasFolderCleaner' is set to
+                            'true'. This field cannot have negative
+                            value.</td>
+                    </tr>
+                    <tr>
+                        <td>rsEmail.spamFolderNumLimit</td>
+                        <td>string</td>
+                        <td>The maximum number of emails the Spam
+                            folder holds. This field is effective only
+                            when rsEmail.spamHandling is set to
+                            'toFolder', and 'rs.hasFolderCleaner' is
+                            set to 'true'. This field cannot have
+                            negative value.</td>
+                    </tr>
+                    <tr>
+                        <td>rsEmail.spamForwardingAddress</td>
+                        <td>string</td>
+                        <td>The email address that Spam emails is
+                            redirected to. This field is required when
+                            the spamHandling field is set to
+                            'toAddress'</td>
+                    </tr>
+                  </tbody>
+               </table>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json" element="noop">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">PUT
+                        '/customers/100018/domains/resellerallservices.net/rs/mailboxes/unittestexist/spam/settings',
+                        { 'filterLevel' =\u003E 'on',
+                        'rsEmail.spamHandling' =\u003E 'toFolder',
+                        'rsEmail.hasFolderCleaner' =\u003E 'true',
+                        'rsEmail.spamFolderAgeLimit' =\u003E '7',
+                        'rsEmail.spamFolderNumLimit' =\u003E '100', },
+                        Formats.xml" });</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="204"/>
+            <response status="400">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                  <para>Invalid input for form field 'filterLevel'.
+                    Sample Message: Invalid FilterLevel: high. Input
+                    must be: on/off/exclusive</para>
+               </wadl:doc>
+            </response>
+            <response status="400">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                  <para>Invalid input for form field 'spamHandling'.
+                    Sample Message: Invalid RSEmail SpamHandling:
+                    Input must be:
+                    toFolder/delete/labelSubject/toAddress</para>
+               </wadl:doc>
+            </response>
+            <response status="400">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                  <para>Invalid email address in spam forwarding
+                    address. Sample Message: Invalid email
+                    address</para>
+               </wadl:doc>
+            </response>
+            <response status="400">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                  <para>Empty forwarding address. Sample Message: Spam
+                    Forwarding Address cannot be empty for spam
+                    handling policy: toAddress</para>
+               </wadl:doc>
+            </response>
+            <response status="400">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                  <para>Invalid value for field 'spamFolderAgeLimit'.
+                    Sample Message: Invalid RSEmail SpamCleanupOption:
+                    -1. rsEmail.spamFolderAgeLimit should be
+                    non-negative</para>
+               </wadl:doc>
+            </response>
+            <response status="400">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                  <para>Invalid value for field 'spamFolderNumLimit'.
+                    Sample Message: Invalid RSEmail SpamCleanupOption:
+                    -1. rsEmail.spamNumberLimit should be
+                    non-negative.</para>
+               </wadl:doc>
+            </response>
+            <response status="400">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                  <para>Invalid field combination. Sample Message:
+                    Invalid field combination: Folder cleaner options
+                    cannot be specified with spam handling policy:
+                    delete.</para>
+               </wadl:doc>
+            </response>
+            <response status="400">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                  <para>Invalid field combination. Sample Message:
+                    Invalid field combination: Folder cleaner options
+                    cannot be specified with spam handling policy:
+                    labelSubject.</para>
+               </wadl:doc>
+            </response>
+            <response status="400">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                  <para>Invalid field combination. Sample Message:
+                    Invalid field combination: Folder cleaner options
+                    cannot be specified with spam handling policy:
+                    toAddress.</para>
+               </wadl:doc>
+            </response>
+         </method>
+      </resource>
+                                   
+                                   
+                                   <resource path="customers/{customer_account_number}/domains/{domain_name}/rs/mailboxes/{mailbox_name}/spam/blacklist"
+                id="blacklist-mailbox">
+         <param name="customer_account_number"
+                style="template"
+                required="true"
+                rax:id="">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The customer account
+                            number.</para>
+                    </wadl:doc>
+                </param>
+         <param name="domain_name" style="template" required="true" rax:id="">
+                            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The domain
+                                   name.</para>
+                            </wadl:doc>
+                        </param>
+         <param name="mailbox_name" style="template" required="true" rax:id="">
+                                   <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The mailbox
+                                   name.</para>
+                                   </wadl:doc>
+                                   </param>
+         <method name="GET" rax:id="listBlacklistEmails">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      title="List email addresses in mailbox blacklist">
+               <para role="shortdesc">Lists the email addresses in a
+                blacklist associated with a mailbox.</para>
+               <para>Remarks</para>
+               <itemizedlist>
+                  <listitem>
+                    <para>The Index operation only supports the GET
+                        HTTP verb.</para>
+                  </listitem>
+               </itemizedlist>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json" element="noop">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">GET
+                        '/customers/12345678/domains/example.com/rs/mailboxes/alex.smith/spam/blacklist',
+                        'text/xml'" });</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="200">
+               <representation mediaType="application/xml">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="xml">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+                        &lt;blacklist
+                        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                        xmlns="urn:xml:blacklist"&gt;
+                        &lt;addresses&gt;
+                        &lt;address&gt;name1@spam.com&lt;/address&gt;
+                        &lt;address&gt;name2@spam.com&lt;/address&gt;
+                        &lt;/addresses&gt;
+                        &lt;/blacklist&gt;</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">{"addresses":["name1@spam.com","name2@spam.com"]}</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </response>
+         </method>
+         <method name="PUT" rax:id="updateBlacklistEmails">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      title="Update email addresses in blacklist">
+               <para role="shortdesc">Updates the email addresses in a
+                blacklist.</para>
+               <para>Remarks</para>
+               <para>You can use a '%' as a wildcard in domains, but not
+                in the TLD (.com, .net, etc). You cannot use wildcards
+                in email addresses. For example, the following are
+                allowed: @%.example.com, @examp%.com.</para>
+               <table rules="all">
+                  <caption>Request Data</caption>
+                  <thead>
+                    <tr>
+                        <td>
+                            <b xmlns="http://www.w3.org/1999/xhtml">Field Name</b>
+                        </td>
+                        <td>
+                            <b xmlns="http://www.w3.org/1999/xhtml">Data Type</b>
+                        </td>
+                        <td>
+                            <b xmlns="http://www.w3.org/1999/xhtml">Description</b>
+                        </td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                        <td>addList</td>
+                        <td>string</td>
+                        <td>Comma separated list of email addresses to
+                            add to the list</td>
+                    </tr>
+                    <tr>
+                        <td>removeList</td>
+                        <td>string</td>
+                        <td>Comma separated list of email addresses to
+                            remove from the list</td>
+                    </tr>
+                  </tbody>
+               </table>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json" element="noop">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">PUT
+                        '/customers/12345678/domains/example.com/rs/mailboxes/jane.doe/spam/blacklist',
+                        { 'addList' =\u003E
+                        '@%.example.com,abc@example.com', 'removeList'
+                        =\u003E '@examp%.com' }, 'text/xml'"
+                        });</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="204"/>
+         </method>
+      </resource>
+                                   
+                                   
+                                   <resource path="customers/{customer_account_number}/domains/{domain_name}/rs/mailboxes/{mailbox_name}/spam/blacklist/{email_address}"
+                id="email_address-mailbox-blacklist">
+         <param name="customer_account_number"
+                style="template"
+                required="true"
+                rax:id="">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The customer account
+                            number.</para>
+                    </wadl:doc>
+                </param>
+         <param name="domain_name" style="template" required="true" rax:id="">
+                            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The domain
+                                   name.</para>
+                            </wadl:doc>
+                        </param>
+         <param name="mailbox_name" style="template" required="true" rax:id="">
+                                   <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The mailbox
+                                   name.</para>
+                                   </wadl:doc>
+                                   </param>
+         <param name="email_address" style="template" required="true" rax:id="">
+                                   <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The email
+                                   address.</para>
+                                   </wadl:doc>
+                                   </param>
+         <method name="POST" rax:id="addBlacklistEmailOrDomain">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      title="Add email address or domain to blacklist">
+               <para role="shortdesc">Adds an email address or domain to
+                the blacklist.</para>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json" element="noop">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">POST
+                        '/customers/12345678/domains/example.com/rs/mailboxes/alex.smith/spam/blacklist/anyone@spam.com',
+                        {},'text/xml'" });</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="204"/>
+            <response status="400">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook">
+                  <para>Entered invalid email or domain. Sample Message:
+                    invalid email address: abc</para>
+               </wadl:doc>
+            </response>
+            <response status="400">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook">
+                  <para>Entered current domain. Sample Message: Adding
+                    example.com would blacklist the current
+                    domain</para>
+               </wadl:doc>
+            </response>
+         </method>
+         <method name="DELETE" rax:id="deleteBlacklistEmails">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      title="Delete email address or domain from blacklist">
+               <para role="shortdesc">Deletes an email address or domain
+                from a blacklist.</para>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json" element="noop">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">DELETE
+                        '/customers/12345678/domains/example.com/rs/mailboxes/alex.smith/spam/blacklist/anyone@yahoo.com',
+                        'text/xml'" });</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="204"/>
+            <response status="400">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                  <para>Entered invalid email address or domain. Sample
+                    Message: invalid email address: abc</para>
+               </wadl:doc>
+            </response>
+            <response status="400">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                  <para>Entered email address or domain is not on the
+                    current blacklist. Sample Message:
+                    abc@junkmail.com is not found on the list</para>
+               </wadl:doc>
+            </response>
+         </method>
+      </resource>
+                                   
+                                   
+                                   
+                                   
+                                   <resource path="customers/{customer_account_number}/domains/{domain_name}/rs/mailboxes/{mailbox_name}/spam/ipblacklist"
+                id="ipblacklist-mailbox">
+         <param name="customer_account_number"
+                style="template"
+                required="true"
+                rax:id="">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The customer account
+                            number.</para>
+                    </wadl:doc>
+                </param>
+         <param name="domain_name" style="template" required="true" rax:id="">
+                            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The domain
+                                   name.</para>
+                            </wadl:doc>
+                        </param>
+         <param name="mailbox_name" style="template" required="true" rax:id="">
+                                   <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The mailbox
+                                   name.</para>
+                                   </wadl:doc>
+                                   </param>
+         <method name="GET" rax:id="listIPBlacklistIPs">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      title="List IP addresses in an IP blacklist">
+               <para role="shortdesc">Lists the IP addresses in an IP
+                blacklist associated with a mailbox.</para>
+               <para>Remarks:</para>
+               <itemizedlist>
+                  <listitem>
+                    <para>The Index operation only supports the GET
+                        HTTP verb.</para>
+                  </listitem>
+               </itemizedlist>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json" element="noop">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">GET
+                        '/customers/12345678/domains/example.com/rs/mailboxes/alex.smith/spam/ipblacklist',
+                        'text/xml'" });</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="200">
+               <representation mediaType="application/xml">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="xml">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+                        &lt;ipBlacklist
+                        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                        xmlns="urn:xml:ipBlacklist"&gt;
+                        &lt;addresses&gt;
+                        &lt;ip&gt;216.12.34.1&lt;/ip&gt;
+                        &lt;ip&gt;216.12.34.2&lt;/ip&gt;
+                        &lt;/addresses&gt;
+                        &lt;/ipBlacklist&gt;</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">{"addresses":["216.12.34.1","216.12.34.2"]}</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </response>
+
+         </method>
+         <method name="PUT" rax:id="updateIPBlacklistIPs">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      title="Update IP addresses in IP blacklist">
+               <para role="shortdesc">Updates IP addresses in an IP
+                blacklist.</para>
+               <para>Remarks</para>
+               <para>You can use a '%' as a wildcard in the last octets
+                to specify IP ranges. For example: 216.12.34.%,
+                216.12.%.%, 216.%.%.%.</para>
+               <table rules="all">
+                  <caption>Request Data</caption>
+                  <thead>
+                    <tr>
+                        <td>
+                            <b xmlns="http://www.w3.org/1999/xhtml">Field Name</b>
+                        </td>
+                        <td>
+                            <b xmlns="http://www.w3.org/1999/xhtml">Data Type</b>
+                        </td>
+                        <td>
+                            <b xmlns="http://www.w3.org/1999/xhtml">Description</b>
+                        </td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                        <td>addList</td>
+                        <td>string</td>
+                        <td>Comma separated list of IP addresses to
+                            add to the list</td>
+                    </tr>
+                    <tr>
+                        <td>removeList</td>
+                        <td>string</td>
+                        <td>Comma separated list of IP addresses to
+                            remove from the list</td>
+                    </tr>
+                  </tbody>
+               </table>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json" element="noop">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">PUT
+                        '/customers/12345678/domains/example.com/rs/mailboxes/jane.doe/spam/ipblacklist',
+                        { 'addList' =\u003E '216.12.34.%,216.12.%.%',
+                        'removeList' =\u003E '216.%.%.%' },
+                        'text/xml'" });</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="204"/>
+         </method>
+      </resource>
+                                   
+                                   
+                                   <resource path="customers/{customer_account_number}/domains/{domain_name}/rs/mailboxes/{mailbox_name}/spam/ipblacklist/{ip_address}"
+                id="ip_address-mailbox-blacklist">
+         <param name="customer_account_number"
+                style="template"
+                required="true"
+                rax:id="">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The customer account
+                            number.</para>
+                    </wadl:doc>
+                </param>
+         <param name="domain_name" style="template" required="true" rax:id="">
+                            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The domain
+                                   name.</para>
+                            </wadl:doc>
+                        </param>
+         <param name="mailbox_name" style="template" required="true" rax:id="">
+                                   <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The mailbox
+                                   name.</para>
+                                   </wadl:doc>
+                                   </param>
+         <param name="ip_address" style="template" required="true" rax:id="">
+                                   <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The IP
+                                   address.</para>
+                                   </wadl:doc>
+                                   </param>
+         <method name="POST" rax:id="addIPBlacklistIP">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      title="Add IP address to IP blacklist">
+               <para role="shortdesc">Adds an IP address to an IP
+                blacklist.</para>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json" element="noop">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">POST
+                        '/customers/12345678/domains/example.com/rs/mailboxes/alex.smith/spam/blacklist/216.12.34.1',
+                        {},'text/xml'" });</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="204"/>
+            <response status="400">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                  <para>Entered invalid IP address. Sample Message:
+                    invalid ip address: 123</para>
+               </wadl:doc>
+            </response>
+         </method>
+         <method name="DELETE" rax:id="deleteIPBlacklistIP">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      title="Delete IP address from IP blacklist">
+               <para role="shortdesc">Deletes an IP address from an IP
+                blacklist.</para>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json" element="noop">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">DELETE
+                        '/customers/12345678/domains/example.com/rs/mailboxes/alex.smith/spam/ipblacklist/216.12.34.1',
+                        'text/xml'" });</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="204"/>
+            <response status="400">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                  <para>Entered IP is not on the current blacklist.
+                    Sample Message: 216.12.34.1 is not found on the
+                    blacklist</para>
+               </wadl:doc>
+            </response>
+         </method>
+      </resource>
+                                   
+                                   
+                                   
+                                   
+                                   <resource path="customers/{customer_account_number}/domains/{domain_name}/rs/mailboxes/{mailbox_name}/spam/safelist"
+                id="safelist-mailbox">
+         <param name="customer_account_number"
+                style="template"
+                required="true"
+                rax:id="">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The customer account
+                            number.</para>
+                    </wadl:doc>
+                </param>
+         <param name="domain_name" style="template" required="true" rax:id="">
+                            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The domain
+                                   name.</para>
+                            </wadl:doc>
+                        </param>
+         <param name="mailbox_name" style="template" required="true" rax:id="">
+                                   <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The mailbox
+                                   name.</para>
+                                   </wadl:doc>
+                                   </param>
+         <method name="GET" rax:id="listSafelistEmails">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      title="List email addresses in safelist">
+               <para role="shortdesc">Lists email addresses in a
+                safelist.</para>
+               <para>Remarks</para>
+               <itemizedlist>
+                  <listitem>
+                    <para>The Index operation only supports the GET
+                        HTTP verb.</para>
+                  </listitem>
+               </itemizedlist>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json" element="noop">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">GET
+                        '/customers/12345678/domains/example.com/rs/mailboxes/alex.smith/spam/safelist',
+                        'text/xml'" });</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="200">
+               <representation mediaType="application/xml">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="xml">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+                        &lt;safelist
+                        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                        xmlns="urn:xml:safelist"&gt; &lt;addresses&gt;
+                        &lt;address&gt;name1@notspam.com&lt;/address&gt;
+                        &lt;address&gt;name2@notspam.com&lt;/address&gt;
+                        &lt;/addresses&gt;
+                        &lt;/safelist&gt;</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">{"addresses":["name1@notspam.com","name2@notspam.com"]}</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </response>
+
+         </method>
+         <method name="PUT" rax:id="updateSafelistEmails">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      title="Updates email addresses in          safelist">
+               <para role="shortdesc">Updates email addresses in a
+                safelist.</para>
+               <para>Remarks</para>
+               <para>You can use a '%' as a wild card in domains, but not
+                in the TLD (.com, .net, etc). You cannot use wild
+                cards in email addresses. For example, the following
+                are allowed: @%.example.com, @examp%.com.</para>
+               <table rules="all">
+                  <caption>Request Data</caption>
+                  <thead>
+                    <tr>
+                        <td>
+                            <b xmlns="http://www.w3.org/1999/xhtml">Field Name</b>
+                        </td>
+                        <td>
+                            <b xmlns="http://www.w3.org/1999/xhtml">Data Type</b>
+                        </td>
+                        <td>
+                            <b xmlns="http://www.w3.org/1999/xhtml">Description</b>
+                        </td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                        <td>addList</td>
+                        <td>string</td>
+                        <td>Comma separated list of email addresses to
+                            add to the list</td>
+                    </tr>
+                    <tr>
+                        <td>removeList</td>
+                        <td>string</td>
+                        <td>Comma separated list of email addresses to
+                            remove from the list</td>
+                    </tr>
+                  </tbody>
+               </table>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json" element="noop">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">PUT
+                        '/customers/12345678/domains/example.com/rs/mailboxes/jane.doe/spam/safelist',
+                        { 'addList' =\u003E
+                        '@%.example.com,abc@example.com', 'removeList'
+                        =\u003E '@examp%.com' }, 'text/xml'"
+                        });</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="204"/>
+         </method>
+      </resource>
+                                   
+                                   
+                                   <resource path="customers/{customer_account_number}/domains/{domain_name}/rs/mailboxes/{mailbox_name}/spam/safelist/{email_address}"
+                id="email_address-mailbox-safelist">
+         <param name="customer_account_number"
+                style="template"
+                required="true"
+                rax:id="">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The customer account
+                            number.</para>
+                    </wadl:doc>
+                </param>
+         <param name="domain_name" style="template" required="true" rax:id="">
+                            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The domain
+                                   name.</para>
+                            </wadl:doc>
+                        </param>
+         <param name="mailbox_name" style="template" required="true" rax:id="">
+                                   <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The mailbox
+                                   name.</para>
+                                   </wadl:doc>
+                                   </param>
+         <param name="email_address" style="template" required="true" rax:id="">
+                                   <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The email
+                                   address.</para>
+                                   </wadl:doc>
+                                   </param>
+         <method name="POST" rax:id="addSafelistEmailOrDomain">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      title="Add email address or domain to          safelist">
+               <para role="shortdesc">Adds an email address or domain to
+                a safelist.</para>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json" element="noop">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">POST
+                        '/customers/12345678/domains/example.com/rs/mailboxes/alex.smith/spam/safelist/anyone@yahoo.com',
+                        {},'text/xml'" });</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="204"/>
+            <response status="400">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                  <para>Entered invalid email address or domain. Sample
+                    Message: invalid email address: abc</para>
+               </wadl:doc>
+            </response>
+         </method>
+         <method name="DELETE" rax:id="deleteSafelistEmailOrDomain">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      title="Delete email address or domain from safelist">
+               <para role="shortdesc">Deletes an email address or domain
+                from a safelist.</para>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json" element="noop">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">DELETE
+                        '/customers/12345678/domains/example.com/rs/mailboxes/alex.smith/spam/safelist/anyone@yahoo.com',
+                        'text/xml'" });</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="204"/>
+            <response status="400">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                  <para>Entered invalid email address or domain. Sample
+                    Message: invalid email address: abc</para>
+               </wadl:doc>
+            </response>
+            <response status="400">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                  <para>Entered email address or domain is not on the
+                    current safelist. Sample Message: anyone@yahoo.com
+                    is not found on the list</para>
+               </wadl:doc>
+            </response>
+         </method>
+      </resource>
+                                   
+                                   
+                                   
+                                   
+                                   <resource path="customers/{customer_account_number}/domains/{domain_name}/rs/mailboxes/{mailbox_name}/spam/ipsafelist"
+                id="ipsafelist-mailbox">
+         <param name="customer_account_number"
+                style="template"
+                required="true"
+                rax:id="">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The customer account
+                            number.</para>
+                    </wadl:doc>
+                </param>
+         <param name="domain_name" style="template" required="true" rax:id="">
+                            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The domain
+                                   name.</para>
+                            </wadl:doc>
+                        </param>
+         <param name="mailbox_name" style="template" required="true" rax:id="">
+                                   <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The mailbox
+                                   name.</para>
+                                   </wadl:doc>
+                                   </param>
+         <method name="GET" rax:id="listIPSafelistIPs">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      title="List IP addresses in IP safelist">
+               <para role="shortdesc">Lists IP addresses in an IP
+                safelist.</para>
+               <para>Remarks</para>
+               <itemizedlist>
+                  <listitem>
+                    <para>The Index operation only supports the GET
+                        HTTP verb.</para>
+                  </listitem>
+               </itemizedlist>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json" element="noop">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">GET
+                        '/customers/12345678/domains/example.com/rs/mailboxes/alex.smith/spam/ipsafelist',
+                        'text/xml'" });</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="200">
+               <representation mediaType="application/xml">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="xml">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+                        &lt;ipSafelist
+                        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                        xmlns="urn:xml:ipSafelist"&gt;
+                        &lt;addresses&gt;
+                        &lt;ip&gt;192.168.0.1&lt;/ip&gt;
+                        &lt;ip&gt;192.168.0.2&lt;/ip&gt;
+                        &lt;/addresses&gt;
+                        &lt;/ipSafelist&gt;</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">{"addresses":["192.168.0.1","192.168.0.2"]}</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </response>
+
+         </method>
+         <method name="PUT" rax:id="updateIPSafelistIPs">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      title="Update IP addresses in IP safelist">
+               <para role="shortdesc">Updates IP addresses in an IP
+                safelist.</para>
+               <para>Remarks</para>
+               <para>You can use a '%' as a wild card in the last octets
+                to specify IP ranges. For example: 216.12.34.%,
+                216.12.%.%, 216.%.%.%.</para>
+               <table rules="all">
+                  <caption>Request Data</caption>
+                  <thead>
+                    <tr>
+                        <td>
+                            <b xmlns="http://www.w3.org/1999/xhtml">Field Name</b>
+                        </td>
+                        <td>
+                            <b xmlns="http://www.w3.org/1999/xhtml">Data Type</b>
+                        </td>
+                        <td>
+                            <b xmlns="http://www.w3.org/1999/xhtml">Description</b>
+                        </td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                        <td>addList</td>
+                        <td>string</td>
+                        <td>Comma separated list of IP addresses to
+                            add to the list</td>
+                    </tr>
+                    <tr>
+                        <td>removeList</td>
+                        <td>string</td>
+                        <td>Comma separated list of IP addresses to
+                            remove from the list</td>
+                    </tr>
+                  </tbody>
+               </table>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json" element="noop">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">PUT
+                        '/customers/12345678/domains/example.com/rs/mailboxes/jane.doe/spam/ipsafelist',
+                        { 'addList' =\u003E '216.12.34.%,216.12.%.%',
+                        'removeList' =\u003E '216.%.%.%' },
+                        'text/xml'" });</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="204"/>
+         </method>
+      </resource>
+                                   
+                                   
+                                   <resource path="customers/{customer_account_number}/domains/{domain_name}/rs/mailboxes/{mailbox_name}/spam/ipsafelist/{ip_address}"
+                id="ip_address-mailbox-safelist-ip">
+         <param name="customer_account_number"
+                style="template"
+                required="true"
+                rax:id="">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The customer account
+                            number.</para>
+                    </wadl:doc>
+                </param>
+         <param name="domain_name" style="template" required="true" rax:id="">
+                            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The domain
+                                   name.</para>
+                            </wadl:doc>
+                        </param>
+         <param name="mailbox_name" style="template" required="true" rax:id="">
+                                   <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The mailbox
+                                   name.</para>
+                                   </wadl:doc>
+                                   </param>
+         <param name="ip_address" style="template" required="true" rax:id="">
+                                   <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The IP
+                                   address.</para>
+                                   </wadl:doc>
+                                   </param>
+         <method name="POST" rax:id="addIPSafelistIP">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Add IP address to IP safelist">
+               <para role="shortdesc">Adds an IP address to an IP
+                safelist.</para>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json" element="noop">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">POST
+                        '/customers/12345678/domains/example.com/rs/mailboxes/alex.smith/spam/ipsafelist/216.12.34.1',
+                        {},'text/xml'" });</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="204"/>
+            <response status="400">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                  <para>Entered invalid IP address. Sample Message:
+                    invalid ip address: 123</para>
+               </wadl:doc>
+            </response>
+         </method>
+      </resource>
+                                   
+                                   
+                                   
+                                   <resource path="customers/{customer_account_number}/domains/{domain_name}/rs/mailboxes/{mailbox_name}/spam/ipsafelist/{email_address}"
+                id="email_address-mailbox-safelist-ip">
+         <param name="customer_account_number"
+                style="template"
+                required="true"
+                rax:id="">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The customer account
+                            number.</para>
+                    </wadl:doc>
+                </param>
+         <param name="domain_name" style="template" required="true" rax:id="">
+                            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The domain
+                                   name.</para>
+                            </wadl:doc>
+                        </param>
+         <param name="mailbox_name" style="template" required="true" rax:id="">
+                                   <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The mailbox
+                                   name.</para>
+                                   </wadl:doc>
+                                   </param>
+         <method name="DELETE" rax:id="deleteIPSafelistIP">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      title="Delete IP address from IP safelist">
+               <para role="shortdesc">Deletes an IP address from an IP
+                safelist.</para>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json" element="noop">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">DELETE
+                        '/customers/12345678/domains/example.com/rs/mailboxes/alex.smith/spam/ipsafelist/216.12.34.1',
+                        'text/xml'" });</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="204"/>
+            <response status="400">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                  <para>Entered IP is not on the current safelist.
+                    Sample Message: 216.12.34.1 is not found on the
+                    safelist</para>
+               </wadl:doc>
+            </response>
+         </method>
+      </resource>
+                                   
+                                   
+                                   
+                                   <resource path="customers/{customer_account_number}/domains/{domain_name}/rs/mailboxes/{mailbox_name}/alias/{alias_name}"
+                id="alias_name-alias">
+         <param name="customer_account_number"
+                style="template"
+                required="true"
+                rax:id="">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The customer account
+                            number.</para>
+                    </wadl:doc>
+                </param>
+         <param name="domain_name" style="template" required="true" rax:id="">
+                            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The domain
+                                   name.</para>
+                            </wadl:doc>
+                        </param>
+         <param name="mailbox_name" style="template" required="true" rax:id="">
+                                   <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The mailbox
+                                   name.</para>
+                                   </wadl:doc>
+                                   </param>
+         <param name="customer_account_number"
+                style="template"
+                required="true"
+                rax:id="">
+                                   <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The customer
+                                   account number.</para>
+                                   </wadl:doc>
+                                   </param>
+         <param name="alias_name" style="template" required="true" rax:id="">
+                                   <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The alias
+                                   name.</para>
+                                   </wadl:doc>
+                                   </param>
+         <method name="GET" rax:id="showAliasDetails">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Show alias details">
+               <para role="shortdesc">Shows alias details.</para>
+               <para>Remarks</para>
+               <itemizedlist>
+                  <listitem>
+                    <para>The show operation only supports the GET
+                        HTTP verb.</para>
+                  </listitem>
+               </itemizedlist>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json" element="noop">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">GET
+                        '/customers/100018/domains/resellerallservices.net/rs/aliases/alias1',
+                        Formats.xml" });</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="200">
+               <representation mediaType="application/xml">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="xml">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+                        &lt;?xml version="1.0" encoding="utf-8"?&gt;
+                        &lt;alias
+                        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                        xmlns="urn:xml:alias"&gt;
+                        &lt;name&gt;alias1&lt;/name&gt;
+                        &lt;emailAddressList&gt;
+                        &lt;emailAddress&gt;jane.doe@resellerallservices.net&lt;/emailAddress&gt;
+                        &lt;emailAddress&gt;e3@yahoo.com&lt;/emailAddress&gt;
+                        &lt;/emailAddressList&gt;
+                        &lt;/alias&gt;</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">{"emailAddressList":{"emailAddress":["jane.doe@resellerallservices.net","e3@yahoo.com"]},"name":"alias3"}</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </response>
+            <response status="404">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                  <para>Non-existent alias.. Sample Message: Resource
+                    not found.</para>
+               </wadl:doc>
+            </response>
+         </method>
+      </resource>
+                                   
+                                   
+                                   
+                                   <resource path="customers/{customer_account_number}/domains/{domain_name}/rs/mailboxes/{mailbox_name}/alias/{alias_name}/{email_address}"
+                id="email_address-alias">
+         <param name="customer_account_number"
+                style="template"
+                required="true"
+                rax:id="">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The customer account
+                            number.</para>
+                    </wadl:doc>
+                </param>
+         <param name="domain_name" style="template" required="true" rax:id="">
+                            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The domain
+                                   name.</para>
+                            </wadl:doc>
+                        </param>
+         <param name="mailbox_name" style="template" required="true" rax:id="">
+                                   <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The mailbox
+                                   name.</para>
+                                   </wadl:doc>
+                                   </param>
+         <param name="customer_account_number"
+                style="template"
+                required="true"
+                rax:id="">
+                                   <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The customer
+                                   account number.</para>
+                                   </wadl:doc>
+                                   </param>
+         <param name="alias_name" style="template" required="true" rax:id="">
+                                   <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The alias
+                                   name.</para>
+                                   </wadl:doc>
+                                   </param>
+         <param name="email_address" style="template" required="true" rax:id="">
+                                   <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The email
+                                   address.</para>
+                                   </wadl:doc>
+                                   </param>
+         <method name="POST" rax:id="addDomainlistEmail">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      title="Add email address to alias list">
+               <para role="shortdesc">Adds an email address to a domain
+                or non-domain email list.</para>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json" element="noop">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">POST
+                        '/customers/100018/domains/resellerallservices.net/rs/aliases/alias1/joe.schmoe@resellerallservices.net',
+                        {}, Formats.xml" });</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="204"/>
+            <response status="400">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                  <para>Non-existent email address in the alias.. Sample
+                    Message: An alias must point to a valid email
+                    address. The following email addresses do not
+                    exist: a@resellerallservices.net</para>
+               </wadl:doc>
+            </response>
+            <response status="400">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                  <para>More than four non-domain email addresses
+                    specified.. Sample Message: Max number of
+                    non-local email recipients reached.</para>
+               </wadl:doc>
+            </response>
+            <response status="404">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                  <para>Non existent alias.. Sample Message: Resource
+                    not found.</para>
+               </wadl:doc>
+            </response>
+         </method>
+      </resource>
+                                   
+                                   
+                                   
+                                   
+                                
+                            <resource path="customers/{customer_account_number}/domains/{domain_name}/rs/storageNotification"
+                id="storagenotification">
+         <param name="customer_account_number"
+                style="template"
+                required="true"
+                rax:id="">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The customer account
+                            number.</para>
+                    </wadl:doc>
+                </param>
+         <param name="domain_name" style="template" required="true" rax:id="">
+                            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The domain
+                                   name.</para>
+                            </wadl:doc>
+                        </param>
+         <method name="GET" rax:id="showMailboxSettingDetails">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      title="Show storage notification settings">
+               <para role="shortdesc">Shows storage notification settings
+                for a specified Rackspace email mailbox.</para>
+               <para>These settings control whether an email notification
+                is sent to users when their mailbox reaches a certain
+                capacity.</para>
+               <para>Remarks</para>
+               <itemizedlist>
+                  <listitem>
+                    <para>The index operation only supports the GET
+                        HTTP verb.</para>
+                  </listitem>
+               </itemizedlist>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json" element="noop">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">GET
+                        '/customers/12345678/domains/example.com/rs/storageNotification',
+                        'text/xml'" });</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="200">
+               <representation mediaType="application/xml">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="xml">&lt;rsStorageNotification
+                        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                        xmlns="urn:xml:rsStorageNotification"&gt;
+                        &lt;enabled&gt;true&lt;/enabled&gt;
+                        &lt;notificationCC&gt;test@email.net&lt;/notificationCC&gt;
+                        &lt;notificationMessage&gt;The mailbox is
+                        getting full.&lt;/notificationMessage&gt;
+                        &lt;notificationPercentage&gt;99&lt;/notificationPercentage&gt;
+                        &lt;/rsStorageNotification&gt;</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">{"enabled":true,
+                        "notificationCC":"test@email.net",
+                        "notificationMessage":"Test",
+                        "notificationPercentage":99}</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </response>
+
+         </method>
+         <method name="PUT" rax:id="updateMailboxSettings">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      title="Update mailbox storage notification settings">
+               <para role="shortdesc">Updates Rackspace email mailbox
+                storage notification settings in a specified
+                domain.</para>
+               <table rules="all">
+                  <caption>Request Data</caption>
+                  <thead>
+                    <tr>
+                        <td>
+                            <b xmlns="http://www.w3.org/1999/xhtml">Field Name</b>
+                        </td>
+                        <td>
+                            <b xmlns="http://www.w3.org/1999/xhtml">Data Type</b>
+                        </td>
+                        <td>
+                            <b xmlns="http://www.w3.org/1999/xhtml">Description</b>
+                        </td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                        <td>enabled</td>
+                        <td>boolean</td>
+                        <td>Activates domain storage notification.
+                            (Required)</td>
+                    </tr>
+                    <tr>
+                        <td>notificationPercentage</td>
+                        <td>int</td>
+                        <td>The storage percentage that triggers the
+                            notification. (Required for Add) (Valid
+                            Values: 50, 60, 70, 80, 90, 99)</td>
+                    </tr>
+                    <tr>
+                        <td>notificationMessage</td>
+                        <td>string</td>
+                        <td>The notification message. (The special tag
+                            &lt;*USER*&gt; will substitute in the
+                            username. The special tag &lt;*DOMAIN*&gt;
+                            will substitute in the domain.)</td>
+                    </tr>
+                    <tr>
+                        <td>notificationCC</td>
+                        <td>string</td>
+                        <td>An email address the notification message
+                            will be carbon copied to.</td>
+                    </tr>
+                  </tbody>
+               </table>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json" element="noop">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">PUT
+                        '/customers/12345678/domains/example.com/rs/mailboxes/alex.smith',
+                        'text/xml', { 'enabled' =\u003E 'true',
+                        'notificationPercentage' =\u003E '90',
+                        'notificationMessage' =\u003E 'Your mailbox
+                        \"\u003C*USER*\u003E@\u003C*DOMAIN*\u003E\" is
+                        almost full.', 'notificationCC' =\u003E
+                        'test@testdomain.com' } " });</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="204"/>
+         </method>
+      </resource>
+                                
+                                
+                            <resource path="customers/{customer_account_number}/domains/{domain_name}/rs/aliases"
+                id="aliases">
+         <param name="customer_account_number"
+                style="template"
+                required="true"
+                rax:id="">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The customer account
+                            number.</para>
+                    </wadl:doc>
+                </param>
+         <param name="domain_name" style="template" required="true" rax:id="">
+                            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The domain
+                                   name.</para>
+                            </wadl:doc>
+                        </param>
+         <method name="GET" rax:id="listRackspaceDomainAliases">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" title="List aliases">
+               <para role="shortdesc">Lists aliases in a Rackspace
+                domain.</para>
+               <para>Remarks</para>
+               <itemizedlist>
+                  <listitem>
+                    <para>The show operation only supports the GET
+                        HTTP verb.</para>
+                  </listitem>
+               </itemizedlist>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json" element="noop">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">GET
+                        '/customers/12345678/domains/example.com/rs/aliases',
+                        'text/xml'" });</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="200">
+               <representation mediaType="application/xml">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="xml">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+                        &lt;aliasList
+                        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                        xmlns="urn:xml:aliasList"&gt; &lt;aliases&gt;
+                        &lt;alias&gt; &lt;name&gt;alias1&lt;/name&gt;
+                        &lt;numberOfMembers&gt;3&lt;/numberOfMembers&gt;
+                        &lt;/alias&gt; &lt;/aliases&gt;
+                        &lt;/aliasList&gt;</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">{"aliases":[{"name":"alias1","numberOfMembers":3}]}</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </response>
+
+         </method>
+      </resource>
+                                
+                                <resource path="customers/{customer_account_number}/domains/{domain_name}/rs/aliases/{alias_name}"
+                id="alias_name">
+         <param name="customer_account_number"
+                style="template"
+                required="true"
+                rax:id="">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The customer account
+                            number.</para>
+                    </wadl:doc>
+                </param>
+         <param name="domain_name" style="template" required="true" rax:id="">
+                            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The domain
+                                   name.</para>
+                            </wadl:doc>
+                        </param>
+         <method name="POST" rax:id="createAlias">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Create alias">
+               <para role="shortdesc">Creates an alias.</para>
+               <para>Remarks</para>
+               <para>Currently there is a limit of 50 domain emails and 4
+                non-domain emails.</para>
+               <table rules="all">
+                  <caption>Request Data</caption>
+                  <thead>
+                    <tr>
+                        <td>
+                            <b xmlns="http://www.w3.org/1999/xhtml">Field Name</b>
+                        </td>
+                        <td>
+                            <b xmlns="http://www.w3.org/1999/xhtml">Description</b>
+                        </td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                        <td>aliasEmails</td>
+                        <td>Comma separated list of domain and
+                            non-domain emails.</td>
+                    </tr>
+                  </tbody>
+               </table>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json" element="noop">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">POST
+                        '/customers/100018/domains/resellerallservices.net/rs/aliases/alias1',
+                        {'aliasEmails'=\u003E'jane.doe@resellerallservices.net,
+                        joe.schmoe@resellerallservices.net,e1@yahoo.com,
+                        e2@gmail.com' }, Formats.xml" });</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="204"/>
+            <response status="400">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                  <para>Non-existent domain email address.. Sample
+                    Message: An alias must point to a valid email
+                    address. The following email addresses do not
+                    exist: a@resellerallservices.net</para>
+               </wadl:doc>
+            </response>
+            <response status="400">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                  <para>Empty domain email list and non-domain email
+                    list.. Sample Message: An alias must point to a
+                    valid email address.</para>
+               </wadl:doc>
+            </response>
+            <response status="400">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                  <para>More than four non-domain email addresses
+                    specified.. Sample Message: Max number of
+                    non-local email recipients reached.</para>
+               </wadl:doc>
+            </response>
+         </method>
+         <method name="DELETE" rax:id="deleteAlias">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Delete alias">
+               <para role="shortdesc">Deletes an alias.</para>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json" element="noop">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">DELETE
+                        '/customers/100018/domains/resellerallservices.net/rs/aliases/alias1',
+                        Formats.xml" });</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="204"/>
+            <response status="404">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                  <para>Non-existent alias.. Sample Message: Resource
+                    not found</para>
+               </wadl:doc>
+            </response>
+         </method>
+         <method name="PUT" rax:id="bulkUpdateAlias">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Bulk-update alias list">
+               <para role="shortdesc">Updates an existing alias by
+                replacing its contents with the new email addresses
+                specified in the field aliasEmails.</para>
+               <para>The following list shows the number of email
+                addresses you can specify:</para>
+               <itemizedlist>
+                  <listitem>
+                    <itemizedlist>
+                        <listitem>
+                            <para>1 - 50 domain email addresses</para>
+                        </listitem>
+                        <listitem>
+                            <para>1 - 4 non-domain addresses</para>
+                        </listitem>
+                    </itemizedlist>
+                  </listitem>
+                  <listitem>
+                    <para>You must specify at least one email address.
+                        By default, the maximum combined total of
+                        email addresses you can specify is 50.</para>
+                  </listitem>
+                  <listitem>
+                    <para>You cannot delete a specific email address
+                        using DELETE. If you use DELETE with this
+                        operation, the entire alias is deleted.</para>
+                  </listitem>
+               </itemizedlist>
+               <table rules="all">
+                  <caption>Request Data</caption>
+                  <thead>
+                    <tr>
+                        <td>
+                            <b xmlns="http://www.w3.org/1999/xhtml">Field Name</b>
+                        </td>
+                        <td>
+                            <b xmlns="http://www.w3.org/1999/xhtml">Data Type</b>
+                        </td>
+                        <td>
+                            <b xmlns="http://www.w3.org/1999/xhtml">Description</b>
+                        </td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                        <td>aliasEmail</td>
+                        <td>string</td>
+                        <td>A comma separated list of email
+                            addresses.</td>
+                    </tr>
+                  </tbody>
+               </table>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json" element="noop">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">PUT
+                        '/customers/100487/domains/testdomain.com/rs/aliases/alias_name',
+                        {
+                        aliasEmails=email@outsider.com,abc@yahoo.com,user1@domain.com,
+                        user2@domain.com }, 'text/xml'"
+                        });</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="204"/>
+            <response status="404">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                  <para>Modify Invalid Alias. Sample Message: Entity of
+                    type Alias identified by user3@domain.com was not
+                    found.</para>
+               </wadl:doc>
+            </response>
+            <response status="400">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                  <para>Modify Valid Alias With No Email Address. Sample
+                    Message: An alias must point to a valid email
+                    address.</para>
+               </wadl:doc>
+            </response>
+            <response status="404">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                  <para>Modify Valid Alias With Non Existing Email
+                    Address(es). Sample Message: An alias must point
+                    to a valid email address. The following email
+                    addresses do not exist: user@domain.com.</para>
+               </wadl:doc>
+            </response>
+         </method>
+      </resource>
+                                   
+                                   
+
+                                   
+                                   <resource id="email_address"
+                path="customers/{customer_account_number}/domains/{domain_name}/rs/aliases/{alias_name}/{email_address}">
+         <param name="customer_account_number"
+                style="template"
+                required="true"
+                rax:id="">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The customer account
+                            number.</para>
+                    </wadl:doc>
+                </param>
+         <param name="domain_name" style="template" required="true" rax:id="">
+                            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The domain
+                                   name.</para>
+                            </wadl:doc>
+                        </param>
+         <method name="DELETE" rax:id="deleteDomainlistEmail">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      title="Delete email address from alias list">
+               <para role="shortdesc">Deletes an email address from a
+                domain or non-domain email list.</para>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json" element="noop">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">DELETE
+                        '/customers/100018/domains/resellerallservices.net/rs/aliases/alias1/joe.schmoe@resellerallservices.net',
+                        {}, Formats.xml" });</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="204"/>
+            <response status="404">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                  <para>Non-existent alias.. Sample Message: Resource
+                    not found</para>
+               </wadl:doc>
+            </response>
+            <response status="404">
+               <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                  <para>Non existent email address in the alias.. Sample
+                    Message: Email address
+                    jane.doe@resellerallservices.net does not exist in
+                    alias alias1.</para>
+               </wadl:doc>
+            </response>
+         </method>
+      </resource>
+                                   
+                                   
+                                
+                            <resource path="customers/{customer_account_number}/domains/{domain_name}/mobilesync"
+                id="mobilesync">
+         <param name="customer_account_number"
+                style="template"
+                required="true"
+                rax:id="">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The customer account
+                            number.</para>
+                    </wadl:doc>
+                </param>
+         <param name="domain_name" style="template" required="true" rax:id="">
+                            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The domain
+                                   name.</para>
+                            </wadl:doc>
+                        </param>
+         <method name="GET" rax:id="showDomainAutoProvisionSetting">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      title="Show auto-provisioning settings">
+               <para role="shortdesc">Shows the auto-provisioning
+                settings for a domain.</para>
+               <para>Remarks</para>
+               <itemizedlist>
+                  <listitem>
+                    <para>The index operation only supports the GET
+                        HTTP verb.</para>
+                  </listitem>
+               </itemizedlist>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json" element="noop">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">GET
+                        '/customers/12345678/domains/example.com/mobilesync',
+                        'text/xml'\u003C 200" });</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="200">
+               <representation mediaType="application/xml">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="xml">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+                        &lt;mobileSyncDomainInfo
+                        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                        xmlns="urn:xml:mobileSyncDomainInfo"&gt;
+                        &lt;autoProvision&gt;false&lt;/autoProvision&gt;
+                        &lt;/mobileSyncDomainInfo&gt;</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">{"autoProvision":true}</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </response>
+         </method>
+         <method name="PUT" rax:id="setMobileSyncAutoProvision">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      title="Update Mobile Sync auto-provisioning settings">
+               <para role="shortdesc">Updates settings to enable or
+                disable Mobile Sync auto-provisioning for a
+                domain.</para>
+               <para>Special Considerations</para>
+               <itemizedlist>
+                  <listitem>
+                    <para>Enabling Mobile Sync auto-provisioning will
+                        add Mobile Sync to all existing Rackspace
+                        Email mailboxes on the domain. Any new
+                        Rackspace Email mailbox will have Mobile Sync
+                        as well.</para>
+                  </listitem>
+                  <listitem>
+                    <para>Disabling Mobile Sync auto-provisioning will
+                        only prevent new mailboxes having Mobile Sync
+                        when they are created. It will not disable
+                        Mobile Sync for the existing mailboxes. New
+                        mailboxes can still add Mobile Sync
+                        later.</para>
+                  </listitem>
+               </itemizedlist>
+               <table rules="all">
+                  <caption>Request Data</caption>
+                  <thead>
+                    <tr>
+                        <td>
+                            <b xmlns="http://www.w3.org/1999/xhtml">Field Name</b>
+                        </td>
+                        <td>
+                            <b xmlns="http://www.w3.org/1999/xhtml">Data Type</b>
+                        </td>
+                        <td>
+                            <b xmlns="http://www.w3.org/1999/xhtml">Description</b>
+                        </td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                        <td>autoProvision</td>
+                        <td>Boolean</td>
+                        <td>'True' for enable and 'False' for
+                            disable</td>
+                    </tr>
+                  </tbody>
+               </table>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json" element="noop">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">PUT
+                        '/customers/12345678/domains/example.com/mobilesync',
+                        'text/xml', { 'autoProvision' =\u003E 'True' }
+                        " });</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="204"/>
+         </method>
+      </resource>
+                            
+                            
+                            <resource path="customers/{customer_account_number}/domains/{domain_name}/mobilesync/users"
+                id="users">
+         <param name="customer_account_number"
+                style="template"
+                required="true"
+                rax:id="">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The customer account
+                            number.</para>
+                    </wadl:doc>
+                </param>
+         <param name="domain_name" style="template" required="true" rax:id="">
+                            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The domain
+                                   name.</para>
+                            </wadl:doc>
+                        </param>
+         <method name="GET" rax:id="listMobileSyncUsers">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" title="List Mobile Sync users">
+               <para role="shortdesc">Lists Mobile Sync users in a
+                domain.</para>
+               <para>This list contains all potential users of Mobile
+                Sync and their current status
+                (enabled/disabled).</para>
+               <para>Filter/Search</para>
+               <para>Searches may be filtered by the 'name' property
+                using query methods ?startsWith= or ?contains=.</para>
+               <para>Ordering</para>
+               <para>Searches may be ordered by any of their properties.
+                You can order by multiple properties. Some examples
+                are:</para>
+               <itemizedlist>
+                  <listitem>
+                    <para>?order=Name%20asc (Order by name
+                        ascending)</para>
+                  </listitem>
+                  <listitem>
+                    <para>?order=Enabled%20desc (Order by enabled
+                        descending)</para>
+                  </listitem>
+                  <listitem>
+                    <para>?order[0]=Name%20desc&amp;order[1]=Enabled%20asc
+                        (Order by name descending then enabled
+                        ascending)</para>
+                  </listitem>
+               </itemizedlist>
+               <para>Note: It is important to capitalize the first letter
+                of the property.</para>
+               <para>Paging</para>
+               <para>Searches may be paged using ?size= and/or ?offset=.
+                Some examples are:</para>
+               <itemizedlist>
+                  <listitem>
+                    <para>?size=3 (Return a maximum of 3
+                        results)</para>
+                  </listitem>
+                  <listitem>
+                    <para>?offset=2 (Return results starting with the
+                        3rd entry)</para>
+                  </listitem>
+                  <listitem>
+                    <para>?size=5&amp;offset=5 (Return 5 results
+                        starting with the 6th entry)</para>
+                  </listitem>
+               </itemizedlist>
+               <para>Remarks</para>
+               <itemizedlist>
+                  <listitem>
+                    <para>The index operation only supports the GET
+                        HTTP verb.</para>
+                  </listitem>
+               </itemizedlist>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json" element="noop">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">GET
+                        '/customers/12345678/domains/example.com/mobilesync/users?startsWith=a\u0026size=50\u0026offset=100\u0026order=Enabled%20asc',
+                        'text/xml'" });</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="200">
+               <representation mediaType="application/xml">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="xml">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+                        &lt;mobileSyncUserList
+                        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                        xmlns="urn:xml:mobileSyncUserList"&gt;
+                        &lt;offset&gt;100&lt;/offset&gt;
+                        &lt;size&gt;50&lt;/size&gt;
+                        &lt;total&gt;1000&lt;/total&gt; &lt;users&gt;
+                        &lt;user&gt; &lt;name&gt;alex&lt;/name&gt;
+                        &lt;domain&gt;example.com&lt;/domain&gt;
+                        &lt;enabled&gt;false&lt;/enabled&gt;
+                        &lt;details&gt;&lt;/details&gt; &lt;/user&gt;
+                        &lt;user&gt; &lt;name&gt;ann&lt;/name&gt;
+                        &lt;domain&gt;example.com&lt;/domain&gt;
+                        &lt;enabled&gt;true&lt;/enabled&gt;
+                        &lt;details&gt;&lt;/details&gt; &lt;/user&gt;
+                        &lt;/users&gt;
+                        &lt;/mobileSyncUserList&gt;</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">{"offset":100,"size":50,"total":1000,"users":[{"details":null,"domain":"example.com","enabled":false,"name":"alex"},{"details":null,"domain":"example.com","enabled":true,"name":"ann"}]}</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </response>
+
+         </method>
+      </resource>
+                                
+                                <resource path="customers/{customer_account_number}/domains/{domain_name}/mobilesync/users/enable"
+                id="enable">
+         <param name="customer_account_number"
+                style="template"
+                required="true"
+                rax:id="">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The customer account
+                            number.</para>
+                    </wadl:doc>
+                </param>
+         <param name="domain_name" style="template" required="true" rax:id="">
+                            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The domain
+                                   name.</para>
+                            </wadl:doc>
+                        </param>
+         <method name="POST" rax:id="enableMobileSync">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Enable Mobile Sync">
+               <para role="shortdesc">Enables the Mobile Sync feature for
+                users.</para>
+               <para>Special Considerations</para>
+               <itemizedlist>
+                  <listitem>
+                    <para>Enabling Mobile Sync for a user will
+                        increase your monthly bill.</para>
+                  </listitem>
+                  <listitem>
+                    <para>This is a throttled operation. Send as many
+                        users as you can at once instead of making the
+                        call multiple times, once per user.</para>
+                  </listitem>
+                  <listitem>
+                    <para>The maximum number of users per request is
+                        250.</para>
+                  </listitem>
+               </itemizedlist>
+               <table rules="all">
+                  <caption>Request Data</caption>
+                  <thead>
+                    <tr>
+                        <td>
+                            <b xmlns="http://www.w3.org/1999/xhtml">Field Name</b>
+                        </td>
+                        <td>
+                            <b xmlns="http://www.w3.org/1999/xhtml">Data Type</b>
+                        </td>
+                        <td>
+                            <b xmlns="http://www.w3.org/1999/xhtml">Description</b>
+                        </td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                        <td>users</td>
+                        <td>String array</td>
+                        <td>Comma-separated list of user names to
+                            enable/disable</td>
+                    </tr>
+                  </tbody>
+               </table>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json" element="noop">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">POST
+                        '/customers/12345678/domains/example.com/mobilesync/users/enable',
+                        'text/xml', { 'users' =\u003E
+                        'user1,user2,user3' } " });</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="204"/>
+         </method>
+      </resource>
+                                   
+                                
+                                <resource path="customers/{customer_account_number}/domains/{domain_name}/mobilesync/users/disable"
+                id="disable">
+         <param name="customer_account_number"
+                style="template"
+                required="true"
+                rax:id="">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The customer account
+                            number.</para>
+                    </wadl:doc>
+                </param>
+         <param name="domain_name" style="template" required="true" rax:id="">
+                            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>The domain
+                                   name.</para>
+                            </wadl:doc>
+                        </param>
+         <method name="POST" rax:id="disableMobileSync">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" title="Disable Mobile Sync">
+               <para role="shortdesc">Disables the Mobile Sync feature
+                for users.</para>
+               <para>Special Considerations</para>
+               <itemizedlist>
+                  <listitem>
+                    <para>Enabling Mobile Sync for a user will
+                        increase your monthly bill.</para>
+                  </listitem>
+                  <listitem>
+                    <para>This is a throttled operation. Send as many
+                        users as you can at once instead of making the
+                        call multiple times, once per user.</para>
+                  </listitem>
+                  <listitem>
+                    <para>The maximum number of users per request is
+                        250.</para>
+                  </listitem>
+               </itemizedlist>
+               <table rules="all">
+                  <caption>Request Data</caption>
+                  <thead>
+                    <tr>
+                        <td>
+                            <b xmlns="http://www.w3.org/1999/xhtml">Field Name</b>
+                        </td>
+                        <td>
+                            <b xmlns="http://www.w3.org/1999/xhtml">Data Type</b>
+                        </td>
+                        <td>
+                            <b xmlns="http://www.w3.org/1999/xhtml">Description</b>
+                        </td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                        <td>users</td>
+                        <td>String array</td>
+                        <td>Comma-separated list of user names to
+                            enable/disable</td>
+                    </tr>
+                  </tbody>
+               </table>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json" element="noop">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">POST
+                        '/customers/12345678/domains/example.com/mobilesync/users/disable',
+                        'text/xml', { 'users' =\u003E
+                        'user1,user2,user3' } " });</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="204"/>
+         </method>
+      </resource>
+                                   
+                                
+                            
+                        
+    </resources>
+    <!-- methods -->
+    <!-- Rackspace email mailbox operations -->
+
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:raxapi="http://docs.rackspace.com/volume/api/v1"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           id="listMailboxes"
+           name="GET">
+        
+        <request>
+            <representation mediaType="application/json" element="noop">
+                
+            </representation>
+        </request>
+        <response status="200">
+            <representation mediaType="application/xml">
+                
+            </representation>
+
+            <representation mediaType="application/json">
+                
+            </representation>
+        </response>
+
+    </method>
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:raxapi="http://docs.rackspace.com/volume/api/v1"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           id="showMailboxDetails"
+           name="GET">
+        
+        <request>
+            <representation mediaType="application/json" element="noop">
+                
+            </representation>
+        </request>
+        <response status="200">
+            <representation mediaType="application/json">
+                
+            </representation>
+
+            <representation mediaType="application/json">
+                
+            </representation>
+        </response>
+
+    </method>
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:raxapi="http://docs.rackspace.com/volume/api/v1"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           id="addMailbox"
+           name="POST">
+        
+        <request>
+            <representation mediaType="application/json" element="noop">
+                
+            </representation>
+        </request>
+        <response status="204"/>
+    </method>
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:raxapi="http://docs.rackspace.com/volume/api/v1"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           id="updateMailbox"
+           name="PUT">
+        
+        <request>
+            <representation mediaType="application/json" element="noop">
+                
+            </representation>
+        </request>
+        <response status="204"/>
+    </method>
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:raxapi="http://docs.rackspace.com/volume/api/v1"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           id="deleteMailbox"
+           name="DELETE">
+        
+        <request>
+            <representation mediaType="application/json" element="noop">
+                
+            </representation>
+        </request>
+        <response status="204"/>
+    </method>
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:raxapi="http://docs.rackspace.com/volume/api/v1"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           id="generateLoginTokenMailbox"
+           name="POST">
+        
+        <request>
+            <representation mediaType="application/json" element="noop">
+                
+            </representation>
+        </request>
+        <response status="200">
+            <representation mediaType="application/xml">
+                
+            </representation>
+        </response>
+    </method>
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:raxapi="http://docs.rackspace.com/volume/api/v1"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           id="listMobileSyncUsers"
+           name="GET">
+        
+        <request>
+            <representation mediaType="application/json" element="noop">
+                
+            </representation>
+        </request>
+        <response status="200">
+            <representation mediaType="application/xml">
+                
+            </representation>
+
+            <representation mediaType="application/json">
+                
+            </representation>
+        </response>
+
+    </method>
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:raxapi="http://docs.rackspace.com/volume/api/v1"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           id="enableMobileSync"
+           name="POST">
+        
+        <request>
+            <representation mediaType="application/json" element="noop">
+                
+            </representation>
+        </request>
+        <response status="204"/>
+    </method>
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:raxapi="http://docs.rackspace.com/volume/api/v1"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           id="disableMobileSync"
+           name="POST">
+        
+        <request>
+            <representation mediaType="application/json" element="noop">
+                
+            </representation>
+        </request>
+        <response status="204"/>
+    </method>
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:raxapi="http://docs.rackspace.com/volume/api/v1"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           id="showDomainAutoProvisionSetting"
+           name="GET">
+        
+        <request>
+            <representation mediaType="application/json" element="noop">
+                
+            </representation>
+        </request>
+        <response status="200">
+            <representation mediaType="application/xml">
+                
+            </representation>
+            <representation mediaType="application/json">
+                
+            </representation>
+        </response>
+    </method>
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:raxapi="http://docs.rackspace.com/volume/api/v1"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           id="setMobileSyncAutoProvision"
+           name="PUT">
+        
+        <request>
+            <representation mediaType="application/json" element="noop">
+                
+            </representation>
+        </request>
+        <response status="204"/>
+    </method>
+
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:raxapi="http://docs.rackspace.com/volume/api/v1"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           id="showMailboxSpamSettings"
+           name="GET">
+        
+        <request>
+            <representation mediaType="application/json" element="noop">
+                
+            </representation>
+        </request>
+        <response status="200">
+            <representation mediaType="application/xml">
+                
+            </representation>
+
+            <representation mediaType="application/json">
+                
+            </representation>
+        </response>
+
+    </method>
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:raxapi="http://docs.rackspace.com/volume/api/v1"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           id="updateMailboxSpamSettings"
+           name="PUT">
+        
+        <request>
+            <representation mediaType="application/json" element="noop">
+                
+            </representation>
+        </request>
+        <response status="204"/>
+        <response status="400">
+            
+        </response>
+        <response status="400">
+            
+        </response>
+        <response status="400">
+            
+        </response>
+        <response status="400">
+            
+        </response>
+        <response status="400">
+            
+        </response>
+        <response status="400">
+            
+        </response>
+        <response status="400">
+            
+        </response>
+        <response status="400">
+            
+        </response>
+        <response status="400">
+            
+        </response>
+    </method>
+
+
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:raxapi="http://docs.rackspace.com/volume/api/v1"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           id="listBlacklistEmails"
+           name="GET">
+        
+        <request>
+            <representation mediaType="application/json" element="noop">
+                
+            </representation>
+        </request>
+        <response status="200">
+            <representation mediaType="application/xml">
+                
+            </representation>
+
+            <representation mediaType="application/json">
+                
+            </representation>
+        </response>
+    </method>
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:raxapi="http://docs.rackspace.com/volume/api/v1"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           id="addBlacklistEmailOrDomain"
+           name="POST">
+        
+        <request>
+            <representation mediaType="application/json" element="noop">
+                
+            </representation>
+        </request>
+        <response status="204"/>
+        <response status="400">
+            
+        </response>
+        <response status="400">
+            
+        </response>
+    </method>
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:raxapi="http://docs.rackspace.com/volume/api/v1"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           id="updateBlacklistEmails"
+           name="PUT">
+        
+        <request>
+            <representation mediaType="application/json" element="noop">
+                
+            </representation>
+        </request>
+        <response status="204"/>
+    </method>
+
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:raxapi="http://docs.rackspace.com/volume/api/v1"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           id="deleteBlacklistEmails"
+           name="DELETE">
+        
+        <request>
+            <representation mediaType="application/json" element="noop">
+                
+            </representation>
+        </request>
+        <response status="204"/>
+        <response status="400">
+            
+        </response>
+        <response status="400">
+            
+        </response>
+    </method>
+
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:raxapi="http://docs.rackspace.com/volume/api/v1"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           id="listIPBlacklistIPs"
+           name="GET">
+        
+        <request>
+            <representation mediaType="application/json" element="noop">
+                
+            </representation>
+        </request>
+        <response status="200">
+            <representation mediaType="application/xml">
+                
+            </representation>
+
+            <representation mediaType="application/json">
+                
+            </representation>
+        </response>
+
+    </method>
+
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:raxapi="http://docs.rackspace.com/volume/api/v1"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           id="addIPBlacklistIP"
+           name="POST">
+        
+        <request>
+            <representation mediaType="application/json" element="noop">
+                
+            </representation>
+        </request>
+        <response status="204"/>
+        <response status="400">
+            
+        </response>
+    </method>
+
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:raxapi="http://docs.rackspace.com/volume/api/v1"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           id="updateIPBlacklistIPs"
+           name="PUT">
+        
+        <request>
+            <representation mediaType="application/json" element="noop">
+                
+            </representation>
+        </request>
+        <response status="204"/>
+    </method>
+
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:raxapi="http://docs.rackspace.com/volume/api/v1"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           id="deleteIPBlacklistIP"
+           name="DELETE">
+        
+        <request>
+            <representation mediaType="application/json" element="noop">
+                
+            </representation>
+        </request>
+        <response status="204"/>
+        <response status="400">
+            
+        </response>
+    </method>
+
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:raxapi="http://docs.rackspace.com/volume/api/v1"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           id="listSafelistEmails"
+           name="GET">
+        
+        <request>
+            <representation mediaType="application/json" element="noop">
+                
+            </representation>
+        </request>
+        <response status="200">
+            <representation mediaType="application/xml">
+                
+            </representation>
+
+            <representation mediaType="application/json">
+                
+            </representation>
+        </response>
+
+    </method>
+
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:raxapi="http://docs.rackspace.com/volume/api/v1"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           id="addSafelistEmailOrDomain"
+           name="POST">
+        
+        <request>
+            <representation mediaType="application/json" element="noop">
+                
+            </representation>
+        </request>
+        <response status="204"/>
+        <response status="400">
+            
+        </response>
+    </method>
+
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:raxapi="http://docs.rackspace.com/volume/api/v1"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           id="updateSafelistEmails"
+           name="PUT">
+        
+        <request>
+            <representation mediaType="application/json" element="noop">
+                
+            </representation>
+        </request>
+        <response status="204"/>
+    </method>
+
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:raxapi="http://docs.rackspace.com/volume/api/v1"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           id="deleteSafelistEmailOrDomain"
+           name="DELETE">
+        
+        <request>
+            <representation mediaType="application/json" element="noop">
+                
+            </representation>
+        </request>
+        <response status="204"/>
+        <response status="400">
+            
+        </response>
+        <response status="400">
+            
+        </response>
+    </method>
+
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:raxapi="http://docs.rackspace.com/volume/api/v1"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           id="listIPSafelistIPs"
+           name="GET">
+        
+        <request>
+            <representation mediaType="application/json" element="noop">
+                
+            </representation>
+        </request>
+        <response status="200">
+            <representation mediaType="application/xml">
+                
+            </representation>
+
+            <representation mediaType="application/json">
+                
+            </representation>
+        </response>
+
+    </method>
+
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:raxapi="http://docs.rackspace.com/volume/api/v1"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           id="addIPSafelistIP"
+           name="POST">
+        
+        <request>
+            <representation mediaType="application/json" element="noop">
+                
+            </representation>
+        </request>
+        <response status="204"/>
+        <response status="400">
+            
+        </response>
+    </method>
+
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:raxapi="http://docs.rackspace.com/volume/api/v1"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           id="updateIPSafelistIPs"
+           name="PUT">
+        
+        <request>
+            <representation mediaType="application/json" element="noop">
+                
+            </representation>
+        </request>
+        <response status="204"/>
+    </method>
+
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:raxapi="http://docs.rackspace.com/volume/api/v1"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           id="deleteIPSafelistIP"
+           name="DELETE">
+        
+        <request>
+            <representation mediaType="application/json" element="noop">
+                
+            </representation>
+        </request>
+        <response status="204"/>
+        <response status="400">
+            
+        </response>
+    </method>
+
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:raxapi="http://docs.rackspace.com/volume/api/v1"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           id="showMailboxSettingDetails"
+           name="GET">
+        
+        <request>
+            <representation mediaType="application/json" element="noop">
+                
+            </representation>
+        </request>
+        <response status="200">
+            <representation mediaType="application/xml">
+                
+            </representation>
+
+            <representation mediaType="application/json">
+                
+            </representation>
+        </response>
+
+    </method>
+
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:raxapi="http://docs.rackspace.com/volume/api/v1"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           id="updateMailboxSettings"
+           name="PUT">
+        
+        <request>
+            <representation mediaType="application/json" element="noop">
+                
+            </representation>
+        </request>
+        <response status="204"/>
+    </method>
+
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:raxapi="http://docs.rackspace.com/volume/api/v1"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           id="listRackspaceDomainAliases"
+           name="GET">
+        
+        <request>
+            <representation mediaType="application/json" element="noop">
+                
+            </representation>
+        </request>
+        <response status="200">
+            <representation mediaType="application/xml">
+                
+            </representation>
+
+            <representation mediaType="application/json">
+                
+            </representation>
+        </response>
+
+    </method>
+
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:raxapi="http://docs.rackspace.com/volume/api/v1"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           id="showAliasDetails"
+           name="GET">
+        
+        <request>
+            <representation mediaType="application/json" element="noop">
+                
+            </representation>
+        </request>
+        <response status="200">
+            <representation mediaType="application/xml">
+                
+            </representation>
+            <representation mediaType="application/json">
+                
+            </representation>
+        </response>
+        <response status="404">
+            
+        </response>
+    </method>
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:raxapi="http://docs.rackspace.com/volume/api/v1"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           id="createAlias"
+           name="POST">
+        
+        <request>
+            <representation mediaType="application/json" element="noop">
+                
+            </representation>
+        </request>
+        <response status="204"/>
+        <response status="400">
+            
+        </response>
+        <response status="400">
+            
+        </response>
+        <response status="400">
+            
+        </response>
+    </method>
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:raxapi="http://docs.rackspace.com/volume/api/v1"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           id="deleteAlias"
+           name="DELETE">
+        
+        <request>
+            <representation mediaType="application/json" element="noop">
+                
+            </representation>
+        </request>
+        <response status="204"/>
+        <response status="404">
+            
+        </response>
+    </method>
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:raxapi="http://docs.rackspace.com/volume/api/v1"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           id="addDomainlistEmail"
+           name="POST">
+        
+        <request>
+            <representation mediaType="application/json" element="noop">
+                
+            </representation>
+        </request>
+        <response status="204"/>
+        <response status="400">
+            
+        </response>
+        <response status="400">
+            
+        </response>
+        <response status="404">
+            
+        </response>
+    </method>
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:raxapi="http://docs.rackspace.com/volume/api/v1"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           id="deleteDomainlistEmail"
+           name="DELETE">
+        
+        <request>
+            <representation mediaType="application/json" element="noop">
+                
+            </representation>
+        </request>
+        <response status="204"/>
+        <response status="404">
+            
+        </response>
+        <response status="404">
+            
+        </response>
+    </method>
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:raxapi="http://docs.rackspace.com/volume/api/v1"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           id="bulkUpdateAlias"
+           name="PUT">
+        
+        <request>
+            <representation mediaType="application/json" element="noop">
+                
+            </representation>
+        </request>
+        <response status="204"/>
+        <response status="404">
+            
+        </response>
+        <response status="400">
+            
+        </response>
+        <response status="404">
+            
+        </response>
+    </method>
+</wadl:application>

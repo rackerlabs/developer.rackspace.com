@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+                    Flattened from: https://github.rackspace.com/IX/cloud-images/raw/master/src/common/xsd/fault.xsd-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:rax="http://docs.rackspace.com/api"
+            xmlns:db="http://docbook.org/ns/docbook"
+            xmlns:identity="http://docs.openstack.org/identity/api/v2.0"
+            xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
+            xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+            xmlns:atom="http://www.w3.org/2005/Atom"
+            xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+            xmlns:ext="http://docs.openstack.org/common/api/v1.0"
+            xmlns:html="http://www.w3.org/1999/xhtml"
+            xmlns:limits="http://docs.openstack.org/common/api/v1.0"
+            xmlns:xs="http://www.w3.org/2001/XMLSchema"
+            xmlns:vers="http://docs.openstack.org/common/api/v1.0"
+            elementFormDefault="qualified"
+            attributeFormDefault="unqualified"
+            targetNamespace="http://docs.openstack.org/identity/api/v2.0"><!-- Fault Elements --><!-- Fault Types -->
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="identityFault"
+            type="identity:IdentityFault"/>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="serviceUnavailable"
+            type="identity:ServiceUnavailableFault"/>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="badRequest"
+            type="identity:BadRequestFault"/>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="unauthorized"
+            type="identity:UnauthorizedFault"/>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="overLimit"
+            type="identity:OverLimitFault"/>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="userDisabled"
+            type="identity:UserDisabledFault"/>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="forbidden"
+            type="identity:ForbiddenFault"/>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="itemNotFound"
+            type="identity:ItemNotFoundFault"/>
+   <element xmlns="http://www.w3.org/2001/XMLSchema"
+            name="tenantConflict"
+            type="identity:TenantConflictFault"/>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="IdentityFault">
+        <sequence>
+            <element name="message" type="xsd:string">
+                <annotation>
+                    <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                        <p>
+                            A human readable message that is appropriate for display
+                            to the end user.
+                        </p>
+                    </xsd:documentation>
+                </annotation>
+            </element>
+            <element name="details" type="xsd:string" minOccurs="0">
+                <annotation>
+                    <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                        <p>
+                            The optional &lt;details&gt; element may contain useful
+                            information for tracking down errors (e.g a stack
+                            trace).  This information may or may not be appropriate
+                            for display to an end user.
+                        </p>
+                    </xsd:documentation>
+                </annotation>
+            </element>
+            <any namespace="##other"
+              processContents="lax"
+              minOccurs="0"
+              maxOccurs="unbounded"/>
+        </sequence>
+        <attribute name="code" type="xsd:int" use="required">
+            <annotation>
+                <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                    <p>
+                        The HTTP status code associated with the current fault.
+                    </p>
+                </xsd:documentation>
+            </annotation>
+        </attribute>
+        <anyAttribute namespace="##other" processContents="lax"/>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="ServiceUnavailableFault">
+        <complexContent>
+            <extension base="identity:IdentityFault">
+            </extension>
+        </complexContent>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="BadRequestFault">
+        <complexContent>
+            <extension base="identity:IdentityFault">
+            </extension>
+        </complexContent>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="UnauthorizedFault">
+        <complexContent>
+            <extension base="identity:IdentityFault">
+            </extension>
+        </complexContent>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="UserDisabledFault">
+        <complexContent>
+            <extension base="identity:IdentityFault">
+            </extension>
+        </complexContent>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="ForbiddenFault">
+        <complexContent>
+            <extension base="identity:IdentityFault">
+            </extension>
+        </complexContent>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="ItemNotFoundFault">
+        <complexContent>
+            <extension base="identity:IdentityFault">
+            </extension>
+        </complexContent>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="TenantConflictFault">
+        <complexContent>
+            <extension base="identity:IdentityFault">
+            </extension>
+        </complexContent>
+    </complexType>
+   <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="OverLimitFault">
+        <complexContent>
+            <extension base="identity:IdentityFault">
+                <attribute name="retryAt" type="xsd:dateTime" use="optional">
+                    <annotation>
+                        <xsd:documentation xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN">
+                            <p>
+                                An optional dateTime denoting when an operation should
+                                be retried.
+                            </p>
+                        </xsd:documentation>
+                    </annotation>
+                </attribute>
+            </extension>
+        </complexContent>
+    </complexType>
+</xsd:schema>

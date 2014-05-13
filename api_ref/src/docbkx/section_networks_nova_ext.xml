@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section [
+<!ENTITY CS 'Cloud Servers'>
+<!ENTITY HOST 'dfw.servers.api.rackspacecloud.com'>
+<!ENTITY virt_ext 'Cloud Networks virtual interface extension'>
+<!ENTITY Uvirt_ext 'Virtual interfaces extension'>
+<!ENTITY URL 'https://&HOST;/v2/'>
+]>
+<section xmlns="http://docbook.org/ns/docbook"
+    xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0"
+    xml:id="section_virt_ext">
+    <title>&Uvirt_ext;</title>
+    <para>Use the &virt_ext; to create a virtual interface to a
+        specified network and attach that network to an existing
+        server instance. You can attach either an isolated network
+        that you have created or a Rackspace network.</para>
+    <para>A virtual interface works in the same way as the network
+        interface card (NIC) inside your laptop. Like a NIC, a virtual
+        interface is the medium through which you can attach a network
+        to your server. You create a virtual interface for a specified
+        network, and the network, which is composed of logical
+        switches, is attached to your server instance through the
+        virtual interface.</para>
+    <note>
+        <para>You can create a maximum of one virtual interface per
+            instance per network. </para>
+    </note>
+    <para>You can also use the &virt_ext; to perform the following
+        actions:</para>
+    <itemizedlist>
+        <listitem>
+            <para>List the virtual interfaces for a server
+                instance.</para>
+        </listitem>
+        <listitem>
+            <para>Delete a virtual interface and detach it from a
+                server instance.</para>
+        </listitem>
+    </itemizedlist>
+    <!--- this section comes from these WADLs: networksnova.wadl -->
+    <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+        <!-- list virtual interfaces -->
+        <wadl:resource
+            href="https://raw2.github.com/catlook/networks2/master/src/wadl/networksnova.wadl#interfaces">
+            <wadl:method href="#listInterfaces"/>
+        </wadl:resource>
+        <!-- create virtual interface -->
+        <wadl:resource
+            href="https://raw2.github.com/catlook/networks2/master/src/wadl/networksnova.wadl#interfaces">
+            <wadl:method href="#createInterface"/>
+        </wadl:resource>
+        <!-- delete virtual interface -->
+        <wadl:resource
+            href="https://raw2.github.com/catlook/networks2/master/src/wadl/networksnova.wadl#interfaceID">
+            <wadl:method href="#deleteInterface"/>
+        </wadl:resource>
+    </wadl:resources>
+</section>

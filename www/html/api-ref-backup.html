@@ -1,0 +1,1507 @@
+
+<!DOCTYPE html>
+<html lang="en"><head>
+   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+      <meta charset="UTF-8">
+         <title>developer.rackspace.com</title>
+         
+         <link href="developer.rackspace.com_files/css.css" rel="stylesheet" type="text/css"/>
+         
+         <link rel="stylesheet" href="developer.rackspace.com_files/reset.css"/>
+         <link rel="stylesheet" href="developer.rackspace.com_files/style.css"/>
+         <link href="apiref/css/bootstrap.min.css" rel="stylesheet"></link> 
+         <link href="apiref/css/main.css" rel="stylesheet" type="text/css"></link>      
+</head>
+   <body>
+      <!--  Top Nav Bar -->
+      <div class="header">
+         <div class="inner clearfix">
+            <a class="title" href="http://awesomemonster.com/devsite/index.html">Rackspace Developer Center</a>
+            <ul>
+               <li><a href="http://awesomemonster.com/devsite/main-sdks.html">SDKs</a></li>
+               <li><a href="http://awesomemonster.com/devsite/main-services.html">Services</a></li>
+               <li><a href="http://awesomemonster.com/devsite/blog-list.html">DevOps Blog</a></li>
+               <li><a href="#">Sign Up</a></li>
+               <li><form action="search">
+                  <input name="" id="" placeholder="Search our docs" type="search">
+                     <input name="" value="Search" type="submit">
+               </form></li>
+            </ul>
+         </div>
+      </div>   
+      
+      <div class="container">
+         <div class="rowtop">
+            <div class="col-md-3">
+               <div class="api-sidebar" data-offset-bottom="0" data-offset-top="1000" data-spy="affix">
+                  <ul class="nav api-sidenav">
+                     <li><a class="smallcapped" href="#backup-v1">Cloud&nbsp;Backup&nbsp;API&nbsp;v1.0</a></li>
+                     <li class="divider"></li>
+                     <li>
+                        <ul class="nav active">
+                           <li><a href="api-ref-auto-scale.html">Auto Scale
+                                 API</a></li>
+                           <li><a href="api-ref-backup.html">Cloud Backup
+                                 API</a></li>
+                           <li><a href="api-ref-big-data.html">Cloud Big Data
+                                 API</a></li>
+                           <li><a href="api-ref-blockstorage.html">Cloud Block
+                                 Storage API</a></li>
+                           <li><a href="api-ref-databases.html">Cloud
+                                 Databases API</a></li>
+                           <li><a href="api-ref-email-and-apps.html">Email
+                                 &amp; Apps API</a></li>
+                           <li><a href="api-ref-files.html">Cloud Files
+                                 API</a></li>
+                           <li><a href="api-ref-identity.html">Cloud Identity
+                                 API</a></li>
+                           <li><a href="api-ref-images.html">Cloud Images
+                                 API</a></li>
+                           <li><a href="api-ref-monitoring.html">Cloud
+                                 Monitoring API</a></li>
+                           <li><a href="api-ref-networks.html">Cloud Networks
+                                 API</a></li>
+                           <li><a href="api-ref-orchestration.html">Cloud
+                                 Orchestration API</a></li>
+                           <li><a href="api-ref-queues.html">Cloud Queues
+                                 API</a></li>
+                           <li><a href="api-ref.html">Cloud Servers
+                                 API</a></li>
+                           <li><a href="api-ref-servers-ext.html">Cloud
+                                 Servers API extensions</a></li>
+                        </ul>
+                     </li>
+                  </ul>
+                  <div class="row">
+                     <div class="col-md-7"><label class="sr-only" for="search-box">Search on this page</label><input class="form-control" id="search-box" placeholder="Search this page" type="text"></input></div>
+                     <div class="col-md-5"><button class="btn btn-default" id="search-btn">Search</button></div>
+                  </div>
+               </div>
+            </div>
+            <div class="col-md-9 api-documentation">
+               
+               
+               <div id="backup-v1">
+                  <div class="subhead">
+                     <h2>Cloud Backup API v1.0<a class="headerlink" href="#backup-v1" title="Permalink to this headline"><span class="glyphicon glyphicon-link"></span></a></h2>
+                  </div>
+                  
+                  
+                  <div id="backup-agents">
+                     <div class="subhead">
+                        <h3>Agents<a class="headerlink" href="#backup-agents" title="Permalink to this headline"><span class="glyphicon glyphicon-link"></span></a></h3>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d70e150">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v1.0/&#8203;{tenant_id}&#8203;/agent/&#8203;{machineAgentId}&#8203;</div>
+                           <div class="col-md-5">
+                              <p>Gets machine and agent
+                                 details.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d70e150" data-toggle="collapse" id="detail-d70e150-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d70e150">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>Details about the machine and its
+                                    agent.
+                                 </p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <errorcode>400</errorcode>,
+                                    
+                                    <errorcode>403</errorcode>,
+                                    
+                                    <errorcode>403</errorcode>,
+                                    
+                                    <errorcode>404</errorcode>,
+                                    
+                                    <errorcode>500</errorcode>
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body and does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d70e209">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v1.0/&#8203;{tenant_id}&#8203;/agent/configuration</div>
+                           <div class="col-md-5">
+                              <p>Gets the configuration for
+                                 an agent.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d70e209" data-toggle="collapse" id="detail-d70e209-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d70e209">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>The configuration for the authenticated
+                                    agent.
+                                 </p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <errorcode>400</errorcode>,
+                                    
+                                    <errorcode>403</errorcode>,
+                                    
+                                    <errorcode>403</errorcode>,
+                                    
+                                    <errorcode>500</errorcode>
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body and does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d70e258">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v1.0/&#8203;{tenant_id}&#8203;/agent/busy/&#8203;{machineAgentId}&#8203;</div>
+                           <div class="col-md-5">
+                              <p>Checks whether the agent
+                                 is currently busy performing blocking
+                                 tasks.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d70e258" data-toggle="collapse" id="detail-d70e258-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d70e258">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>true | false</p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <errorcode>400</errorcode>,
+                                    
+                                    <errorcode>403</errorcode>,
+                                    
+                                    <errorcode>403</errorcode>,
+                                    
+                                    <errorcode>500</errorcode>
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body and does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d70e307">
+                           <div class="col-md-1"><span class="label label-success">POST</span></div>
+                           <div class="col-md-5">v1.0/&#8203;{tenant_id}&#8203;/agent/delete</div>
+                           <div class="col-md-5">
+                              <p>Permanently deletes an
+                                 agent and its backup data.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d70e307" data-toggle="collapse" id="detail-d70e307-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d70e307">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>N/A</p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <errorcode>400</errorcode>,
+                                    
+                                    <errorcode>403</errorcode>,
+                                    
+                                    <errorcode>403</errorcode>,
+                                    
+                                    <errorcode>500</errorcode>
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body and does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d70e357">
+                           <div class="col-md-1"><span class="label label-success">POST</span></div>
+                           <div class="col-md-5">v1.0/&#8203;{tenant_id}&#8203;/agent/enable</div>
+                           <div class="col-md-5">
+                              <p>Enables or disables an
+                                 agent.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d70e357" data-toggle="collapse" id="detail-d70e357-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d70e357">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>Disabling an agent does not
+                                    delete it nor its data. You can re-enable
+                                    disabled agents.
+                                 </p>
+                                 <p>N/A</p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <errorcode>400</errorcode>,
+                                    
+                                    <errorcode>403</errorcode>,
+                                    
+                                    <errorcode>403</errorcode>,
+                                    
+                                    <errorcode>500</errorcode>
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body and does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d70e409">
+                           <div class="col-md-1"><span class="label label-success">POST</span></div>
+                           <div class="col-md-5">v1.0/&#8203;{tenant_id}&#8203;/agent/encrypt</div>
+                           <div class="col-md-5">
+                              <p>Enables volume
+                                 encryption.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d70e409" data-toggle="collapse" id="detail-d70e409-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d70e409">
+                           <div class="col-md-12">
+                              <div>
+                                 <note xmlns="http://docbook.org/ns/docbook">
+                                    
+                                    <p xmlns="http://www.w3.org/1999/xhtml">Enables volume encryption if it is not
+                                       already enabled.
+                                    </p>
+                                    
+                                 </note>
+                                 <p>RSE request ID</p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <errorcode>400</errorcode>,
+                                    
+                                    <errorcode>403</errorcode>,
+                                    
+                                    <errorcode>403</errorcode>,
+                                    
+                                    <errorcode>500</errorcode>
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body and does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d70e464">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v1.0/&#8203;{tenant_id}&#8203;/user/agents</div>
+                           <div class="col-md-5">
+                              <p>Gets all agents for the
+                                 authenticated user.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d70e464" data-toggle="collapse" id="detail-d70e464-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d70e464">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>A list of agents.</p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <errorcode>400</errorcode>,
+                                    
+                                    <errorcode>403</errorcode>,
+                                    
+                                    <errorcode>403</errorcode>,
+                                    
+                                    <errorcode>500</errorcode>
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body and does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  
+                  <div id="backup-configuration">
+                     <div class="subhead">
+                        <h3>Backup configuration<a class="headerlink" href="#backup-configuration" title="Permalink to this headline"><span class="glyphicon glyphicon-link"></span></a></h3>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d70e519">
+                           <div class="col-md-1"><span class="label label-success">POST</span></div>
+                           <div class="col-md-5">v1.0/&#8203;{tenant_id}&#8203;/backup-configuration</div>
+                           <div class="col-md-5">
+                              <p>Creates a backup
+                                 configuration for the authenticated
+                                 user.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d70e519" data-toggle="collapse" id="detail-d70e519-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d70e519">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>See GET
+                                    /backup-configuration/{backupConfigurationId}
+                                 </p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <errorcode>400</errorcode>,
+                                    
+                                    <errorcode>403</errorcode>,
+                                    
+                                    <errorcode>403</errorcode>,
+                                    
+                                    <errorcode>404</errorcode>,
+                                    
+                                    <errorcode>500</errorcode>
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body and does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d70e576">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v1.0/&#8203;{tenant_id}&#8203;/backup-configuration</div>
+                           <div class="col-md-5">
+                              <p>Lists backup
+                                 configurations for the authenticated
+                                 user.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d70e576" data-toggle="collapse" id="detail-d70e576-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d70e576">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>The list of backup configurations for the
+                                    currently authenticated user.
+                                 </p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <errorcode>400</errorcode>,
+                                    
+                                    <errorcode>403</errorcode>,
+                                    
+                                    <errorcode>403</errorcode>,
+                                    
+                                    <errorcode>404</errorcode>,
+                                    
+                                    <errorcode>500</errorcode>
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body and does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d70e635">
+                           <div class="col-md-1"><span class="label label-success">PUT</span></div>
+                           <div class="col-md-5">v1.0/&#8203;{tenant_id}&#8203;/backup-configuration/&#8203;{backupConfigurationId}&#8203;</div>
+                           <div class="col-md-5">
+                              <p>Updates a backup
+                                 configuration.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d70e635" data-toggle="collapse" id="detail-d70e635-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d70e635">
+                           <div class="col-md-12">
+                              <div>
+                                 <note xmlns="http://docbook.org/ns/docbook">
+                                    
+                                    <p xmlns="http://www.w3.org/1999/xhtml">See GET
+                                       /backup-configuration/{backupConfigurationId}
+                                       to provide
+                                       BackupConfigurationScheduleId
+                                    </p>
+                                    
+                                 </note>
+                                 <p>N/A</p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <errorcode>400</errorcode>,
+                                    
+                                    <errorcode>403</errorcode>,
+                                    
+                                    <errorcode>403</errorcode>,
+                                    
+                                    <errorcode>404</errorcode>,
+                                    
+                                    <errorcode>500</errorcode>
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body and does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d70e698">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v1.0/&#8203;{tenant_id}&#8203;/backup-configuration/&#8203;{backupConfigurationId}&#8203;</div>
+                           <div class="col-md-5">
+                              <p>Gets backup configuration
+                                 details.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d70e698" data-toggle="collapse" id="detail-d70e698-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d70e698">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>Details for a specified backup
+                                    configuration.
+                                 </p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <errorcode>400</errorcode>,
+                                    
+                                    <errorcode>403</errorcode>,
+                                    
+                                    <errorcode>403</errorcode>,
+                                    
+                                    <errorcode>404</errorcode>,
+                                    
+                                    <errorcode>500</errorcode>
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body and does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d70e755">
+                           <div class="col-md-1"><span class="label label-success">DELETE</span></div>
+                           <div class="col-md-5">v1.0/&#8203;{tenant_id}&#8203;/backup-configuration/&#8203;{backupConfigurationId}&#8203;</div>
+                           <div class="col-md-5">
+                              <p>Deletes a specified backup
+                                 configuration.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d70e755" data-toggle="collapse" id="detail-d70e755-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d70e755">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>N/A</p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <errorcode>400</errorcode>,
+                                    
+                                    <errorcode>403</errorcode>,
+                                    
+                                    <errorcode>403</errorcode>,
+                                    
+                                    <errorcode>404</errorcode>,
+                                    
+                                    <errorcode>500</errorcode>
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body and does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d70e814">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v1.0/&#8203;{tenant_id}&#8203;/backup-configuration/system/&#8203;{machineAgentId}&#8203;</div>
+                           <div class="col-md-5">
+                              <p>Lists backup
+                                 configurations for a specified agent.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d70e814" data-toggle="collapse" id="detail-d70e814-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d70e814">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>The list of backup configurations for the
+                                    specified agent.
+                                 </p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <errorcode>400</errorcode>,
+                                    
+                                    <errorcode>403</errorcode>,
+                                    
+                                    <errorcode>403</errorcode>,
+                                    
+                                    <errorcode>404</errorcode>,
+                                    
+                                    <errorcode>500</errorcode>
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body and does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d70e873">
+                           <div class="col-md-1"><span class="label label-success">POST</span></div>
+                           <div class="col-md-5">v1.0/&#8203;{tenant_id}&#8203;/backup-configuration/enable/&#8203;{backupConfigurationId}&#8203;</div>
+                           <div class="col-md-5">
+                              <p>Enables or disables a
+                                 backup configuration.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d70e873" data-toggle="collapse" id="detail-d70e873-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d70e873">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>Disabling a
+                                    backup configuration does not delete it or its
+                                    data. You can re-enable disabled backup
+                                    configurations.
+                                 </p>
+                                 <p>Details for the backup configuration. See
+                                    GET
+                                    /backup-configuration/{backupConfigurationId}
+                                 </p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <errorcode>400</errorcode>,
+                                    
+                                    <errorcode>403</errorcode>,
+                                    
+                                    <errorcode>403</errorcode>,
+                                    
+                                    <errorcode>500</errorcode>
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body and does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d70e926">
+                           <div class="col-md-1"><span class="label label-success">POST</span></div>
+                           <div class="col-md-5">v1.0/&#8203;{tenant_id}&#8203;/backup/action-requested</div>
+                           <div class="col-md-5">
+                              <p>Manually starts or stops a
+                                 backup.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d70e926" data-toggle="collapse" id="detail-d70e926-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d70e926">
+                           <div class="col-md-12">
+                              <div>
+                                 <note xmlns="http://docbook.org/ns/docbook">
+                                    
+                                    <p xmlns="http://www.w3.org/1999/xhtml"> When manually starting a backup,
+                                       provide the backup configuration identifier
+                                       for Id. When manually stopping a backup,
+                                       provide the backup identifier for
+                                       Id.
+                                    </p>
+                                    
+                                 </note>
+                                 <p>Identifier of the instance of the
+                                    backup.
+                                 </p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <errorcode>400</errorcode>,
+                                    
+                                    <errorcode>403</errorcode>,
+                                    
+                                    <errorcode>403</errorcode>,
+                                    
+                                    <errorcode>404</errorcode>,
+                                    
+                                    <errorcode>500</errorcode>
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body and does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d70e991">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v1.0/&#8203;{tenant_id}&#8203;/backup/&#8203;{backupId}&#8203;</div>
+                           <div class="col-md-5">
+                              <p>Gets a specified
+                                 backup.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d70e991" data-toggle="collapse" id="detail-d70e991-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d70e991">
+                           <div class="col-md-12">
+                              <div>
+                                 <note xmlns="http://docbook.org/ns/docbook">
+                                    
+                                    <p xmlns="http://www.w3.org/1999/xhtml">The authenticated user must have access
+                                       to the specified backup.
+                                    </p>
+                                    
+                                 </note>
+                                 <p>Details about a specified backup.</p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <errorcode>400</errorcode>,
+                                    
+                                    <errorcode>403</errorcode>,
+                                    
+                                    <errorcode>403</errorcode>,
+                                    
+                                    <errorcode>404</errorcode>,
+                                    
+                                    <errorcode>500</errorcode>
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body and does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d70e1056">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v1.0/&#8203;{tenant_id}&#8203;/backup/completed/&#8203;{backupConfigurationId}&#8203;</div>
+                           <div class="col-md-5">
+                              <p>Gets the completed backups
+                                 for a backup configuration that can still be
+                                 restored.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d70e1056" data-toggle="collapse" id="detail-d70e1056-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d70e1056">
+                           <div class="col-md-12">
+                              <div>
+                                 <note xmlns="http://docbook.org/ns/docbook">
+                                    
+                                    <p xmlns="http://www.w3.org/1999/xhtml">The authenticated user must have access
+                                       to the specified backup
+                                       configuration.
+                                    </p>
+                                    
+                                 </note>
+                                 <p>Details about the completed backups.</p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <errorcode>400</errorcode>,
+                                    
+                                    <errorcode>403</errorcode>,
+                                    
+                                    <errorcode>403</errorcode>,
+                                    
+                                    <errorcode>404</errorcode>,
+                                    
+                                    <errorcode>500</errorcode>
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body and does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  
+                  <div id="backup-restore">
+                     <div class="subhead">
+                        <h3>Restore<a class="headerlink" href="#backup-restore" title="Permalink to this headline"><span class="glyphicon glyphicon-link"></span></a></h3>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d70e1127">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v1.0/&#8203;{tenant_id}&#8203;/backup/report/&#8203;{backupId}&#8203;</div>
+                           <div class="col-md-5">
+                              <p>Gets details about a
+                                 completed backup.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d70e1127" data-toggle="collapse" id="detail-d70e1127-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d70e1127">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>The backup report submitted for the
+                                    completed backup.
+                                 </p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <errorcode>400</errorcode>,
+                                    
+                                    <errorcode>403</errorcode>,
+                                    
+                                    <errorcode>403</errorcode>,
+                                    
+                                    <errorcode>404</errorcode>,
+                                    
+                                    <errorcode>500</errorcode>
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body and does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d70e1186">
+                           <div class="col-md-1"><span class="label label-success">PUT</span></div>
+                           <div class="col-md-5">v1.0/&#8203;{tenant_id}&#8203;/restore</div>
+                           <div class="col-md-5">
+                              <p>Creates a new restore
+                                 configuration.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d70e1186" data-toggle="collapse" id="detail-d70e1186-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d70e1186">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>See GET /restore/{restoreId}</p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <errorcode>400</errorcode>,
+                                    
+                                    <errorcode>403</errorcode>,
+                                    
+                                    <errorcode>403</errorcode>,
+                                    
+                                    <errorcode>404</errorcode>,
+                                    
+                                    <errorcode>500</errorcode>
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body and does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d70e1243">
+                           <div class="col-md-1"><span class="label label-success">POST</span></div>
+                           <div class="col-md-5">v1.0/&#8203;{tenant_id}&#8203;/restore</div>
+                           <div class="col-md-5">
+                              <p>Updates an existing
+                                 restore configuration.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d70e1243" data-toggle="collapse" id="detail-d70e1243-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d70e1243">
+                           <div class="col-md-12">
+                              <div>
+                                 <note xmlns="http://docbook.org/ns/docbook">
+                                    
+                                    <p xmlns="http://www.w3.org/1999/xhtml"> Restores can only be updated while in
+                                       the "Creating" state. See GET
+                                       /restore/{restoreId} for a list of restore
+                                       states.
+                                    </p>
+                                    
+                                 </note>
+                                 <p>N/A</p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <errorcode>400</errorcode>,
+                                    
+                                    <errorcode>403</errorcode>,
+                                    
+                                    <errorcode>403</errorcode>,
+                                    
+                                    <errorcode>404</errorcode>,
+                                    
+                                    <errorcode>500</errorcode>
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body and does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d70e1308">
+                           <div class="col-md-1"><span class="label label-success">PUT</span></div>
+                           <div class="col-md-5">v1.0/&#8203;{tenant_id}&#8203;/restore/files</div>
+                           <div class="col-md-5">
+                              <p>Creates a restore file
+                                 that is associated with a restore.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d70e1308" data-toggle="collapse" id="detail-d70e1308-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d70e1308">
+                           <div class="col-md-12">
+                              <div>
+                                 <note xmlns="http://docbook.org/ns/docbook">
+                                    
+                                    <p xmlns="http://www.w3.org/1999/xhtml"> ParentId is the ID of the restore this
+                                       file is associated with.
+                                    </p>
+                                    
+                                 </note>
+                                 <p>See GET /restore/files/{restoreId}</p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <errorcode>400</errorcode>,
+                                    
+                                    <errorcode>403</errorcode>,
+                                    
+                                    <errorcode>403</errorcode>,
+                                    
+                                    <errorcode>404</errorcode>,
+                                    
+                                    <errorcode>500</errorcode>
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body and does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d70e1373">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v1.0/&#8203;{tenant_id}&#8203;/restore/files/&#8203;{restoreId}&#8203;</div>
+                           <div class="col-md-5">
+                              <p>Gets files that should be
+                                 included and excluded for a restore.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d70e1373" data-toggle="collapse" id="detail-d70e1373-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d70e1373">
+                           <div class="col-md-12">
+                              <div>
+                                 <note xmlns="http://docbook.org/ns/docbook">
+                                    
+                                    <p xmlns="http://www.w3.org/1999/xhtml"> Values for Filter: 1 = Include; 2 =
+                                       Exclude. Values for FileItemType: 0 = File,
+                                       1 = Folder, 2 = Database.
+                                    </p>
+                                    
+                                 </note>
+                                 <p>List of Restore Files included/excluded in
+                                    the configuration
+                                 </p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <errorcode>400</errorcode>,
+                                    
+                                    <errorcode>403</errorcode>,
+                                    
+                                    <errorcode>403</errorcode>,
+                                    
+                                    <errorcode>404</errorcode>,
+                                    
+                                    <errorcode>500</errorcode>
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body and does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d70e1439">
+                           <div class="col-md-1"><span class="label label-success">DELETE</span></div>
+                           <div class="col-md-5">v1.0/&#8203;{tenant_id}&#8203;/restore/files/&#8203;{restoreFileID}&#8203;</div>
+                           <div class="col-md-5">
+                              <p>Deletes a restore
+                                 configuration file.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d70e1439" data-toggle="collapse" id="detail-d70e1439-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d70e1439">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>204 - No Content</p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <errorcode>400</errorcode>,
+                                    
+                                    <errorcode>403</errorcode>,
+                                    
+                                    <errorcode>403</errorcode>,
+                                    
+                                    <errorcode>404</errorcode>,
+                                    
+                                    <errorcode>500</errorcode>
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body and does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d70e1498">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v1.0/&#8203;{tenant_id}&#8203;/backup/availableforrestore</div>
+                           <div class="col-md-5">
+                              <p>Gets the backups that are
+                                 eligible for restore.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d70e1498" data-toggle="collapse" id="detail-d70e1498-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d70e1498">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>A backup
+                                    that is eligible for restore has completed at
+                                    least once, has not been deleted, and is not
+                                    expired.
+                                 </p>
+                                 <p>List of backups</p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <errorcode>400</errorcode>,
+                                    
+                                    <errorcode>403</errorcode>,
+                                    
+                                    <errorcode>403</errorcode>,
+                                    
+                                    <errorcode>404</errorcode>,
+                                    
+                                    <errorcode>500</errorcode>
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body and does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d70e1560">
+                           <div class="col-md-1"><span class="label label-success">POST</span></div>
+                           <div class="col-md-5">v1.0/&#8203;{tenant_id}&#8203;/restore/action-requested</div>
+                           <div class="col-md-5">
+                              <p>Manually starts or stops a
+                                 restore.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d70e1560" data-toggle="collapse" id="detail-d70e1560-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d70e1560">
+                           <div class="col-md-12">
+                              <div>
+                                 <note xmlns="http://docbook.org/ns/docbook">
+                                    
+                                    <p xmlns="http://www.w3.org/1999/xhtml">In the examples below, Id should be the
+                                       identifier of the restore you wish to start
+                                       or stop.
+                                    </p>
+                                    
+                                 </note>
+                                 <p>N/A</p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <errorcode>400</errorcode>,
+                                    
+                                    <errorcode>403</errorcode>,
+                                    
+                                    <errorcode>403</errorcode>,
+                                    
+                                    <errorcode>404</errorcode>,
+                                    
+                                    <errorcode>500</errorcode>
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body and does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d70e1625">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v1.0/&#8203;{tenant_id}&#8203;/restore/&#8203;{restoreId}&#8203;</div>
+                           <div class="col-md-5">
+                              <p>Gets restore
+                                 details.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d70e1625" data-toggle="collapse" id="detail-d70e1625-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d70e1625">
+                           <div class="col-md-12">
+                              <div>
+                                 <note xmlns="http://docbook.org/ns/docbook">
+                                    
+                                    <p xmlns="http://www.w3.org/1999/xhtml"> Restore States: 0 = Creating, 1 =
+                                       Queued, 2 = InProgress, 3 = Finished, 4 =
+                                       Stopped, 5 = Failed, 6 = StartRequested, 7
+                                       = StopRequested
+                                    </p>
+                                    
+                                 </note>
+                                 <p>Details about a restore</p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <errorcode>400</errorcode>,
+                                    
+                                    <errorcode>403</errorcode>,
+                                    
+                                    <errorcode>403</errorcode>,
+                                    
+                                    <errorcode>404</errorcode>,
+                                    
+                                    <errorcode>500</errorcode>
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body and does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d70e1690">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v1.0/&#8203;{tenant_id}&#8203;/restore/report/&#8203;{restoreId}&#8203;</div>
+                           <div class="col-md-5">
+                              <p>Gets a restore
+                                 report.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d70e1690" data-toggle="collapse" id="detail-d70e1690-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d70e1690">
+                           <div class="col-md-12">
+                              <div>
+                                 <note xmlns="http://docbook.org/ns/docbook">
+                                    
+                                    <p xmlns="http://www.w3.org/1999/xhtml"> Restore States: 3 = Completed 4 =
+                                       Stopped 5 = Failed
+                                    </p>
+                                    
+                                 </note>
+                                 <p>Restore Report</p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <errorcode>400</errorcode>,
+                                    
+                                    <errorcode>403</errorcode>,
+                                    
+                                    <errorcode>403</errorcode>,
+                                    
+                                    <errorcode>404</errorcode>,
+                                    
+                                    <errorcode>500</errorcode>
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body and does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  
+                  <div id="backup-system-activity">
+                     <div class="subhead">
+                        <h3>System activity<a class="headerlink" href="#backup-system-activity" title="Permalink to this headline"><span class="glyphicon glyphicon-link"></span></a></h3>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d70e1761">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v1.0/&#8203;{tenant_id}&#8203;/system/activity/&#8203;{agentId}&#8203;</div>
+                           <div class="col-md-5">
+                              <p>Lists all activity for a
+                                 system that is in progress or
+                                 completed.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d70e1761" data-toggle="collapse" id="detail-d70e1761-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d70e1761">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>A list of activities</p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <errorcode>400</errorcode>,
+                                    
+                                    <errorcode>403</errorcode>,
+                                    
+                                    <errorcode>403</errorcode>,
+                                    
+                                    <errorcode>404</errorcode>,
+                                    
+                                    <errorcode>500</errorcode>
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body and does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d70e1820">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v1.0/&#8203;{tenant_id}&#8203;/activity</div>
+                           <div class="col-md-5">
+                              <p>Lists all activity that is
+                                 in progress or completed.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d70e1820" data-toggle="collapse" id="detail-d70e1820-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d70e1820">
+                           <div class="col-md-12">
+                              <div>
+                                 <p>A list of activities</p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <errorcode>400</errorcode>,
+                                    
+                                    <errorcode>403</errorcode>,
+                                    
+                                    <errorcode>403</errorcode>,
+                                    
+                                    <errorcode>404</errorcode>,
+                                    
+                                    <errorcode>500</errorcode>
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body and does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  
+                  <div id="backup-help">
+                     <div class="subhead">
+                        <h3>Help<a class="headerlink" href="#backup-help" title="Permalink to this headline"><span class="glyphicon glyphicon-link"></span></a></h3>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d70e1886">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v1.0/&#8203;{tenant_id}&#8203;/help/health</div>
+                           <div class="col-md-5">
+                              <p>Gets the health for API by
+                                 checking all dependent systems.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d70e1886" data-toggle="collapse" id="detail-d70e1886-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d70e1886">
+                           <div class="col-md-12">
+                              <div></div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <errorcode>400</errorcode>,
+                                    
+                                    <errorcode>403</errorcode>,
+                                    
+                                    <errorcode>403</errorcode>,
+                                    
+                                    <errorcode>500</errorcode>
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body and does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d70e1932">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v1.0/&#8203;{tenant_id}&#8203;/help/developerguide</div>
+                           <div class="col-md-5">
+                              <p>Gets the developer guide
+                                 for this API.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d70e1932" data-toggle="collapse" id="detail-d70e1932-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d70e1932">
+                           <div class="col-md-12">
+                              <div></div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <errorcode>400</errorcode>,
+                                    
+                                    <errorcode>403</errorcode>,
+                                    
+                                    <errorcode>403</errorcode>,
+                                    
+                                    <errorcode>500</errorcode>
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body and does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="doc-entry">
+                        <div class="row d70e1978">
+                           <div class="col-md-1"><span class="label label-success">GET</span></div>
+                           <div class="col-md-5">v1.0/&#8203;{tenant_id}&#8203;/help/supportedimages/&#8203;{cloudServersPlatform}&#8203;</div>
+                           <div class="col-md-5">
+                              <p>Determines whether Cloud
+                                 Servers images are compatible with the
+                                 agent.
+                              </p>&nbsp;
+                              
+                           </div>
+                           <div class="col-md-1"><button class="btn btn-info btn-sm btn-detail" data-target="#detail-d70e1978" data-toggle="collapse" id="detail-d70e1978-btn">detail</button></div>
+                        </div>
+                        <div class="row collapse api-detail" id="detail-d70e1978">
+                           <div class="col-md-12">
+                              <div>
+                                 <note xmlns="http://docbook.org/ns/docbook">
+                                    
+                                    <p xmlns="http://www.w3.org/1999/xhtml">{cloudServersPlatform}: firstgen,
+                                       nextgen
+                                    </p>
+                                    
+                                 </note>
+                                 <p>List of Cloud Servers images the agent is
+                                    supported to run on.
+                                 </p>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><b>Error Response Codes</b></div>
+                                 <div class="col-md-9">
+                                    <errorcode>400</errorcode>,
+                                    
+                                    <errorcode>403</errorcode>,
+                                    
+                                    <errorcode>403</errorcode>,
+                                    
+                                    <errorcode>500</errorcode>
+                                    
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12"></div>
+                              </div>
+                              <p class="nobody">This operation does not require a request body and does not return a response body.</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  
+               </div>
+               
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-9" id="footer">
+               <p>The OpenStack project is provided under the Apache 2.0 license.</p>
+            </div>
+         </div>
+      </div><script src="apiref/js/jquery-1.10.2.min.js" type="text/javascript"></script><script src="apiref/js/bootstrap.min.js" type="text/javascript"></script><script src="apiref/js/api-site.js" type="text/javascript"></script><script type="text/javascript">
+                  var _gaq = _gaq || [];
+                  _gaq.push(['_setAccount', 'UA-17511903-1']);
+		  _gaq.push(['_setDomainName', '.openstack.org']);
+                  _gaq.push(['_trackPageview']);
+                  (function () {
+                    var ga = document.createElement('script');
+                    ga.type = 'text/javascript';
+                    ga.async = true;
+                    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                    var s = document.getElementsByTagName('script')[0];
+                    s.parentNode.insertBefore(ga, s);\
+                  })();
+                </script></body>
+</html>

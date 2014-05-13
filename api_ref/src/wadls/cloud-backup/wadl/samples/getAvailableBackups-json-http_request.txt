@@ -1,0 +1,6 @@
+GET https://dfw.backup.api.rackspacecloud.com/v1.0/1234/backup/availableforrestore
+User-Agent: controlpanel.drivesrvr.com
+Host: dfw.backup.api.rackspacecloud.com
+Content-Type: application/json;
+Content-Length: 0
+X-Auth-Token: 95b1788906f74d279d03001c6a14f3fe

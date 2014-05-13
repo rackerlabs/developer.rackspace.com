@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xmlns="http://docbook.org/ns/docbook"
+    xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:linkend="http://www.w3.org/1999/linkend"
+    xmlns:xref="http://www.w3.org/1999/xref"
+    xmlns:wadl="http://wadl.dev.java.net/2009/02"
+    version="5.0-extension RackBook-2.0" xml:id="files-v1">
+    <title>Cloud Files API v1</title>
+    <para>Manage the accounts, containers, and objects in the Object
+        Storage system.</para>
+    <para>To run the cURL command examples for these requests, set
+        these environment variables:</para>
+    <itemizedlist>
+        <listitem>
+            <para><code>publicURL</code>. The public URL that is the
+                HTTP endpoint from where you can access Object
+                Storage. It includes the Cloud Files API version
+                number and your account name. For example,
+                    <code>https://23.253.72.207/v1/my_account</code>.</para>
+        </listitem>
+        <listitem>
+            <para><code>token</code>. The authentication token for
+                Cloud Files.</para>
+        </listitem>
+    </itemizedlist>
+    <para>To obtain these values, run the <command>swift stat
+            -v</command> command.</para>
+    <para>As shown in this example, the public URL appears in the
+            <code>StorageURL</code> field, and the token appears in
+        the <code>Auth Token</code> field:</para>
+    <programlisting>StorageURL: https://23.253.72.207/v1/my_account
+Auth Token: {token}
+Account: my_account
+Containers: 2
+Objects: 3
+Bytes: 47
+Meta Book: MobyDick
+X-Timestamp: 1389453423.35964
+X-Trans-Id: txee55498935404a2caad89-0052dd3b77
+Content-Type: text/plain; charset=utf-8
+Accept-Ranges: bytes</programlisting>
+    <para>For a complete description of HTTP 1.1 header definitions,
+        see <link
+            xlink:href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14"
+            >Header Field Definitions</link>.</para>
+    <section xml:id="files_account_services">
+        <title>Accounts</title>
+        <para>List containers for a specified account. Create, update,
+            and delete account metadata. Show account metadata.</para>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="../wadls/cloud-files/wadl/rax-cloudFiles-api-v1.wadl#account">
+                <wadl:method href="#listcontainers"/>
+                <wadl:method href="#updateaccountmeta"/>
+                <wadl:method href="#retrieveaccountmeta"/>  
+                <wadl:method href="#deleteaccountmeta"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="files_container_services">
+        <title>Containers</title>
+        <para>List objects in a specified container. Create, show
+            details for, and delete containers. Create, update, show,
+            and delete container metadata.</para>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="../wadls/cloud-files/wadl/rax-cloudFiles-api-v1.wadl#container">
+                <wadl:method href="#listcontainerobjects"/>
+                <wadl:method href="#createcontainer"/>
+                <wadl:method href="#deletecontainer"/>
+                <wadl:method href="#updateacontainermeta"/>
+                <wadl:method href="#retrievecontainermeta"/>
+                <wadl:method href="#deletecontainermeta"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="files_object_services">
+        <title>Objects</title>
+        <para>Creates, replaces, Show details for, and deletes
+            objects. Copies objects with another object with a new or
+            different name. Updates object metadata.</para>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+            href="../wadls/cloud-files/wadl/rax-cloudFiles-api-v1.wadl#object">
+                <wadl:method href="#getobjectdata"/>
+                <wadl:method href="#createobject"/>
+                <wadl:method href="#deleteobject"/>
+                <wadl:method href="#copyobject"/>
+                <wadl:method href="#retrieveobjectmeta"/>
+                <wadl:method href="#updateaobjmeta"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <!-- add back later - validation errors -->
+    <section xml:id="files_cdn_containers">
+        <title>CDN-enabled containers</title>
+        <para>Manage CDN-enabled containers.</para>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="../wadls/cloud-files/wadl/rax-cloudFilesCDN-api-v1.wadl#container">
+                <wadl:method href="#enableDisableCDNcontainer"/>
+                <wadl:method href="#retrieveCDNcontainermeta"/>
+                <wadl:method href="#updateCDNcontainermeta"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+    <section xml:id="files_cdn_objects">
+        <title>CDN-enabled objects</title>
+        <para>Manage CDN-enabled objects</para>
+        <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <wadl:resource
+                href="../wadls/cloud-files/wadl/rax-cloudFilesCDN-api-v1.wadl#object">
+                <wadl:method href="#deleteCDNobject"/>
+            </wadl:resource>
+        </wadl:resources>
+    </section>
+</chapter>

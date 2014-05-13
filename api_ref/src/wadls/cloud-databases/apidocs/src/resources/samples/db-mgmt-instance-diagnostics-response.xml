@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diagnostics fdSize="64" threads="2" version="1" vmHwm="2872"
+    vmPeak="29160" vmRss="2872" vmSize="29096"
+    xmlns="http://docs.openstack.org/database/api/v1.0"/>

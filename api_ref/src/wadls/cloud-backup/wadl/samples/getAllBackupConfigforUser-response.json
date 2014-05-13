@@ -1,0 +1,88 @@
+{
+   [
+     {
+     "BackupConfigurationId": 100850,
+     "MachineAgentId": 96674,
+     "MachineName": "Web Server",
+     "Flavor": "RaxCloudServer",
+     "IsEncrypted": false,
+     "BackupConfigurationName": "Manual Website Backup",
+     "IsActive": true,
+     "IsDeleted": false,
+     "VersionRetention": 60,
+     "BackupConfigurationScheduleId": 98017,
+     "MissedBackupActionId": 2,
+     "Frequency": "Manually",
+     "StartTimeHour": null,
+     "StartTimeMinute": null,
+     "StartTimeAmPm": "",
+     "DayOfWeekId": null,
+     "HourInterval": null,
+     "TimeZoneId": "Eastern Standard Time",
+     "NextScheduledRunTime": null,
+     "LastRunTime": "\/Date(1343226053000)\/",
+     "LastRunBackupReportId": 80071,
+     "NotifyRecipients": "user@rackspace.com",
+     "NotifySuccess": false,
+     "NotifyFailure": true,
+     "Inclusions": [
+      {
+        "FilePath": "/web/",
+        "ParentId": 100850,
+        "FileItemType": "Folder",
+        "FileId": 2947
+      }
+    ],
+     "Exclusions": [
+      {
+        "FilePath": "/web/cache/",
+        "ParentId": 100850,
+        "FileItemType": "Folder",
+        "FileId": 2948
+      }
+    ]
+      },
+     {
+     "BackupConfigurationId": 100928,
+     "MachineAgentId": 96685,
+     "MachineName": "Database Server",
+     "Flavor": "RaxCloudServer",
+     "IsEncrypted": false,
+     "BackupConfigurationName": "Manual DB Backup",
+     "IsActive": true,
+     "IsDeleted": false,
+     "VersionRetention": 60,
+     "BackupConfigurationScheduleId": 98019,
+     "MissedBackupActionId": 2,
+     "Frequency": "Manually",
+     "StartTimeHour": null,
+     "StartTimeMinute": null,
+     "StartTimeAmPm": "",
+     "DayOfWeekId": null,
+     "HourInterval": null,
+     "TimeZoneId": "Eastern Standard Time",
+     "NextScheduledRunTime": null,
+     "LastRunTime": "\/Date(1343226074000)\/",
+     "LastRunBackupReportId": 80116,
+     "NotifyRecipients": "user@rackspace.com",
+     "NotifySuccess": false,
+     "NotifyFailure": true,
+     "Inclusions": [
+      {
+        "FilePath": "/db/dumps/",
+        "ParentId": 100928,
+        "FileItemType": "Folder",
+        "FileId": 3568
+      }
+    ],
+     "Exclusions": [
+      {
+        "FilePath": "/db/dumps/tmp/",
+        "ParentId": 100928,
+        "FileItemType": "Folder",
+        "FileId": 3570
+      }
+     ]
+    }
+  ]
+}
