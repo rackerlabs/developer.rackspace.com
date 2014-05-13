@@ -40,6 +40,16 @@ SERVICES = begin
   entries
 end
 
+# Create a String that lists the available services and languages.
+#
+def summarize_available
+  snames = SERVICES.map { |s| Rainbow(s).bright }
+  lnames = LANGUAGES.map { |l| Rainbow(l.syntax).bright }
+
+  "Known services: #{snames.join ', '}\n" \
+  "Known languages: #{lnames.join ', '}"
+end
+
 # Load an arbitrary set of credentials from a .json file in this directory. See
 # `credentials.json.example` for the expected keys.
 #
@@ -181,15 +191,14 @@ OptionParser.new do |opts|
     puts opts
     exit 0
   end
+
+  opts.separator ''
+  opts.separator summarize_available
 end.parse! ARGV
 
 unless @valid
-  snames = SERVICES.map { |s| Rainbow(s).bright }
-  lnames = LANGUAGES.map { |l| Rainbow(l.syntax).bright }
-
   $stderr.puts
-  $stderr.puts "Known services: #{snames.join ', '}"
-  $stderr.puts "Known languages: #{lnames.join ', '}"
+  $stderr.puts summarize_available
   exit 1
 end
 
