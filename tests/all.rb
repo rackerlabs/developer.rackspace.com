@@ -106,6 +106,20 @@ def execute(service, language, path)
   outcome
 end
 
+# Yielded to the block of an inject call.
+#
+class TodoSnippet
+
+  def initialize(title)
+    @title = title
+  end
+
+  def when(title)
+    yield if @title == title
+  end
+
+end
+
 ## Template utilities
 
 # These methods are intended to be used within .erb templates in the templates/
@@ -143,7 +157,7 @@ def inject(name)
       if block_given?
         todo = line[/TODO ?(.*)/, 1]
         if todo
-          yield todo
+          yield TodoSnippet.new(todo)
         else
           @output << relevant_line
         end
