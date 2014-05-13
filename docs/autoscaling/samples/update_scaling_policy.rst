@@ -10,4 +10,6 @@
 
 .. code-block:: ruby
 
-  my_group = service.groups.get '{group_id}'
+  my_policy.cooldown = 60
+  my_policy.change = 3
+  my_policy.save

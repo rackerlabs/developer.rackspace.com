@@ -9,3 +9,9 @@
 .. code-block:: python
 
 .. code-block:: ruby
+
+  my_webhook.name = 'webhook1'
+  my_webhook.metadata = {
+      :owner => 'webteam'
+  }
+  my_webhook.save

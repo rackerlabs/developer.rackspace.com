@@ -71,6 +71,10 @@ If you want to see the details of a scaling group, see the code below:
 
 .. include:: samples/get_scaling_group_details.rst
 
+If you want to alter details for a scaling group, see code samples below:
+
+.. include:: samples/update_scaling_group_details.rst
+
 Additionally, if you want to inspect the current state of an autoscaling group, do as follows:
 
 .. include:: samples/get_scaling_group_state.rst
@@ -95,13 +99,17 @@ Alternatively, the code samples below show how to go about if you want to inspec
 
 .. include:: samples/get_scaling_policy_details.rst
 
+If you want to alter details for a policy, see code samples below:
+
+.. include:: samples/update_scaling_policy.rst
+
 To execute a particular autoscaling policy see code samples below:
 
-.. include:: samples/execute_autoscaling_policy.rst
+.. include:: samples/execute_scaling_policy.rst
 
 Finally, if you want to delete an autoscaling policy, consider the following:
 
-.. include:: samples/delete_autoscaling_policy.rst
+.. include:: samples/delete_caling_policy.rst
 
 
 Webhooks
@@ -125,4 +133,4 @@ If you want to alter details about an existing Webhook, see code samples below:
 
 Finally, to delete an autoscaling Webhook, you can do as suggested in the code samples below:
 
-.. include:: samples/delete_autoscaling_wenhook.rst
+.. include:: samples/delete_scaling_webhook.rst

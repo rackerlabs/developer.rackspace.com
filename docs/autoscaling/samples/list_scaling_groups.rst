@@ -9,3 +9,5 @@
 .. code-block:: python
 
 .. code-block:: ruby
+
+  scaling_groups = service.groups

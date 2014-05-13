@@ -10,4 +10,8 @@
 
 .. code-block:: ruby
 
-  my_group = service.groups.get '{group_id}'
+  group_config = my_group.group_config
+  
+  group_config.cooldown = 120
+  group_config.max_entities = 16
+  group_config.save

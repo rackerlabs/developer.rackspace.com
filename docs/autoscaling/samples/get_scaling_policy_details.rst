@@ -9,3 +9,5 @@
 .. code-block:: python
 
 .. code-block:: ruby
+
+  my_policy = my_group.policies.get '{policy_id}'

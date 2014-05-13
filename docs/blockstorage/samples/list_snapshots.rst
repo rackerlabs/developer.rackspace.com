@@ -14,5 +14,5 @@
 
   @client.snapshots.all
 
-  # To fetch only snapshots assocated with a given volume:
+  # To fetch only snapshots associated with a given volume:
   volume.snapshots

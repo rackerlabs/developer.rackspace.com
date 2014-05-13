@@ -9,3 +9,5 @@
 .. code-block:: python
 
 .. code-block:: ruby
+
+  my_webhook.destroy
