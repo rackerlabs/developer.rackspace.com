@@ -125,6 +125,7 @@ def inject(name)
 
   relevant_lines = []
   in_section, indent = false, nil
+  cs = credentials
 
   File.readlines(sample_path).each do |line|
     if line =~ /^.. code-block:: #{@language.syntax}$/
@@ -133,11 +134,21 @@ def inject(name)
       in_section = false
     elsif in_section
       indent = line.index /\S/ if indent.nil?
-      relevant_lines << (indent.nil? ? line : line[indent..-1])
+      relevant_line = indent.nil? ? line : line[indent..-1]
+      relevant_line ||= ''
+
+      # Inject credentials into the rendered line.
+      cs.each { |key, value| relevant_line.gsub!("{#{key}}", value) }
 
       if block_given?
         todo = line[/TODO ?(.*)/, 1]
-        relevant_lines << yield(todo) if todo
+        if todo
+          yield todo
+        else
+          @output << relevant_line
+        end
+      else
+        relevant_lines << relevant_line
       end
     end
   end
@@ -147,14 +158,7 @@ def inject(name)
     return ''
   end
 
-  relevant_section = relevant_lines.join
-
-  # Inject credentials into the rendered code.
-  credentials.each { |key, value| relevant_section.gsub!("{#{key}}", value) }
-
-  @output << relevant_section if block_given?
-
-  relevant_section
+  relevant_lines.join
 end
 
 ## All together now.

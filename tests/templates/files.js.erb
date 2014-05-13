@@ -3,7 +3,10 @@
 <%= inject :auth_client %>
 
 <% inject :create_container do |todo| %>
-  <% if todo == 'handle as approriate' %>
+  <% case todo
+     when 'handle as appropriate' %>
     throw new Error(err);
+  <% else %>
+    // <%= todo %>
   <% end %>
 <% end %>
