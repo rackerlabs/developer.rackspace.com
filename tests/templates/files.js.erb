@@ -1,0 +1,11 @@
+#!/usr/bin/env node
+
+<%= inject :auth_client %>
+
+<% inject :create_container do |todo| %>
+  <% todo.when 'handle as appropriate' do %>
+    throw new Error(err);
+  <% end ; todo.when 'use your container' do %>
+    // use your container
+  <% end %>
+<% end %>

@@ -1,0 +1,40 @@
+#!/usr/bin/env ruby
+
+require 'minitest'
+require 'minitest/assertions'
+
+include Minitest::Assertions
+
+public
+
+def assertions ; @assertions ; end
+def assertions=(value) ; @assertions = value ; end
+@assertions = 0
+
+<%= inject :auth_client %>
+
+<%= inject :create_container %>
+
+refute_nil @client.directories.get('sample-container-test')
+
+<%= inject :set_container_as_cdn %>
+
+assert directory.public?
+
+<%= inject :unset_container_as_cdn %>
+
+refute directory.public?
+
+<%= inject :upload_object %>
+
+<%= inject :update_object_metadata %>
+
+<%= inject :get_object_temp_url %>
+
+<%= inject :get_object_sdk %>
+
+<%= inject :get_object_cdn %>
+
+<%= inject :delete_object %>
+
+<%= inject :delete_container %>
