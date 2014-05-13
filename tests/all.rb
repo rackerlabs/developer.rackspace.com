@@ -2,7 +2,7 @@
 
 require 'erb'
 require 'fileutils'
-require 'optionparser'
+require 'optparse'
 require 'json'
 
 require 'rainbow'
@@ -166,8 +166,9 @@ OptionParser.new do |opts|
     @services << service
   end
 
-  opts.on('-l', '--language LANGUAGE', 'Include examples in the chosen language.') do |lang|
-    lang = LANGUAGES.detect { |l| l.name == lang }
+  opts.on('-l', '--language LANGUAGE', 'Include examples in the chosen language.') do |query|
+    normalized = query.downcase
+    lang = LANGUAGES.detect { |l| l.name.downcase == normalized || l.syntax.downcase == normalized }
     if lang
       @languages << lang
     else
@@ -176,10 +177,24 @@ OptionParser.new do |opts|
     end
   end
 
-  opts.
+  opts.on('-h', '--help', "You're looking at it.") do
+    puts opts
+    exit 0
+  end
+end.parse! ARGV
+
+unless @valid
+  snames = SERVICES.map { |s| Rainbow(s).bright }
+  lnames = LANGUAGES.map { |l| Rainbow(l.syntax).bright }
+
+  $stderr.puts
+  $stderr.puts "Known services: #{snames.join ', '}"
+  $stderr.puts "Known languages: #{lnames.join ', '}"
+  exit 1
 end
 
-
+@services = SERVICES if @services.empty?
+@languages = LANGUAGES if @languages.empty?
 
 @services.each do |service|
   @languages.each do |language|
