@@ -35,5 +35,5 @@
     instance.users.create(
       :name => '{dbUsername}',
       :password => '{dbPassword}',
-      :databases => %w{{dbName1} {dbName2}}
+      :databases => ['{dbName1}', '{dbName2}']
     )
