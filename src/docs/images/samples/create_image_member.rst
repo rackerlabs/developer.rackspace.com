@@ -6,11 +6,11 @@
 
 .. code-block:: php
 
-    // To create an image member:
+    # To create an image member:
     
     
 .. code-block:: python
-    // To create an image member:
+    # To create an image member:
     from __future__ import print_function
 
     import os
@@ -57,3 +57,12 @@
     print(" Created at: %s" % member.created_at)
 
 .. code-block:: ruby
+
+.. code-block:: curl
+    # To create an image member for an image, specify the image ID
+    # for the image you want to share and the user name (member ID)
+    # for the user that you want to share the image with:
+    $ curl -s $publicUrl/images/{imageId}/members -X POST \
+        -d '{"member":"{memberId}"}' -H "X-Auth-Token: $token" | python -m json.tool
+    # NOTE: {imageId} and {memberId} are placeholders: replace these with 
+    # actual values and do not enclose these values with {}.

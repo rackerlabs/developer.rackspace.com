@@ -77,12 +77,12 @@ Image identifiers
 
 Images are uniquely identified by a URI that matches this signature::
 
-  {image server location}/v2/images/{image_ID}
+  {image server location}/v2/images/{imageId}
 
 Where:
 
 * ``{image server location}`` is the resource location of the Cloud Images service that knows about an image.
-* ``{image_ID}`` is the image identifier, which is a UUID, making it globally unique.
+* ``{imageId}`` is the image identifier, which is a UUID, making it globally unique.
 
 Common image properties
 -----------------------

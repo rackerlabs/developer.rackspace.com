@@ -50,3 +50,13 @@
 
   # If you're a UK customer, specify a :rackspace_auth_url of "Fog::Rackspace::UK_AUTH_ENDPOINT" as well, and use the
   # :lon (London) region.
+  
+.. code-block:: curl
+    # Export your publicURL to the publicUrl variable:
+    $ export publicUrl="https://identity.api.rackspacecloud.com/v2.0/"
+    # To authenticate, use your Rackspace Cloud Account user name and API key:
+    $ curl -s $publicUrl/tokens -X 'POST' \
+      -d '{"auth":{"RAX-KSKEY:apiKeyCredentials":{"username":"{username}", "apiKey":"{apiKey}"}}}' \
+      -H "Content-Type: application/json" | python -m json.tool
+    # NOTE: {username} and {apiKey} are placeholders: 
+    # Replace them with actual values and do not enclose the values with {}.

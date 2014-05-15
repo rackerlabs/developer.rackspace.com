@@ -6,11 +6,11 @@
 
 .. code-block:: php
 
-    // To list image members:
+    # To list image members:
     
 .. code-block:: python
 
-    // To list image members:
+    # To list image members:
     from __future__ import print_function
 
 
@@ -49,3 +49,10 @@
             print(" %s (%s)" % (member.id, member.status))
 
 .. code-block:: ruby
+
+.. code-block:: curl
+    # To list image members:
+    $ curl -s $publicUrl/images/{imageId}/members \
+        -H "X-Auth-Token: $token" | python -m json.tool
+    # NOTE: {imageId} is a placeholder: replace it with 
+    # an actual value and do not enclose it with {}.
