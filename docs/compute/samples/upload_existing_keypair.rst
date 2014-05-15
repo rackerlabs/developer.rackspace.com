@@ -49,3 +49,8 @@
       :name => 'my_keypair',
       :public_key => File.read('~/.ssh/my_server.pub')
     )
+
+.. code-blok:: shell
+
+  $ nova keypair-add --pub-key path/to/mykey.pub mykey
+

@@ -41,4 +41,4 @@
 
 .. code-block:: shell
 
-  
+  $ nova keypair-add mykey > mykey.pem
