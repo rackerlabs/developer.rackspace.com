@@ -2,5 +2,6 @@
 _site
 .pygments-cache
 .tweet-cache
+.jekyll-assets-cache/
 .idea/
 .vagrant

@@ -16,6 +16,7 @@
   - build-essential
   - ruby2.1-dev
   - nodejs
+  - openjdk-7-jre
   sudo: yes
 
 - name: Install bundler

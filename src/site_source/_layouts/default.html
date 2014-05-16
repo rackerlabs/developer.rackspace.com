@@ -11,7 +11,7 @@
     rel='stylesheet' type='text/css'>
 
   <!-- our styles: -->
-  <link rel="stylesheet" href="/less/main.css"/>
+  {% stylesheet main %}
 
 </head>
 <body>
@@ -20,23 +20,10 @@
 {{ content }}
 {% include footer.html %}
 
-  <script type="text/javascript" src="/js/lib/jquery/jquery-1.11.1.js"></script>
-  <script type="text/javascript" src="/js/lib/bootstrap/collapse.js"></script>
-  <script type="text/javascript" src="/js/lib/bootstrap/dropdown.js"></script>
+  {% javascript app %}
 
   <!-- syntax highlighter: -->
   <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
