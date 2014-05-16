@@ -19,8 +19,8 @@ A snapshot is a point-in-time copy of the data that a volume contains.
 
 Snapshots are incremental, so each time that you create a snapshot, the incremental changes for the new snapshot are appended to the previous snapshot, which is still available.
 
-Authenticating
-===============
+Authenticate
+============
 
 In order to authenticate, you need a username and API key which you can find in the control panel by visiting the "Account Settings" page.
 
