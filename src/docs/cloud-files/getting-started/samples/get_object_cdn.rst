@@ -22,7 +22,7 @@
 
   file.public_url
 
-.. code-block:: shell
+.. code-block:: sh
 
   curl -i -X HEAD $CDN_ENDPOINT/{containerName}/{objectName} /
       -H "X-Auth-Token: $TOKEN"

@@ -66,7 +66,7 @@
   file = directory.files.get('somefile.txt')
   temp_url = file.url(Time.now.to_i + 600)
 
-.. code-block:: shell
+.. code-block:: sh
 
   # To create a TempURL, first set the X-Account-Meta-Temp-Url-Key metadata
   # header on your Cloud Files account to a key that only you know.

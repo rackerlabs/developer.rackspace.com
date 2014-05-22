@@ -47,7 +47,7 @@
     :comment => 'Root level for domain.com'
   )
 
-.. code-block:: shell
+.. code-block:: sh
 
   curl -X POST -d \
     '{

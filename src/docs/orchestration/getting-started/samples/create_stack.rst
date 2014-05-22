@@ -12,7 +12,7 @@
 
   # N/A
 
-.. code-block:: shell
+.. code-block:: sh
 
   $ curl -X POST -d \
     '{

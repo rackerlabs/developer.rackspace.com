@@ -26,7 +26,7 @@
 
   message.destroy
 
-.. code-block:: shell
+.. code-block:: sh
 
   curl -X DELETE $ENDPOINT/queues/{queueName}/messages/{messageId} \
     -H "Content-type: application/json" \

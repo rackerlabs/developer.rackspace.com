@@ -17,7 +17,7 @@
 
   server.wait_for { ready? }
 
-.. code-block:: shell
+.. code-block:: sh
 
   # from resulting json below see "status"
   curl -X GET $ENDPOINT/{serverId} \

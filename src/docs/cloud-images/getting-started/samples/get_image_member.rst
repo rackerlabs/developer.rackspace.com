@@ -12,7 +12,7 @@
 
   # N/A
 
-.. code-block:: shell
+.. code-block:: sh
 
   curl -s $ENDPOINT/images/{imageId}/members/{memberId} \
     -H "X-Auth-Token: $TOKEN" | python -m json.tool

@@ -30,7 +30,7 @@
 
   directory.destroy
 
-.. code-block:: shell
+.. code-block:: sh
 
   curl -i -X DELETE $ENDPOINT/{containerName} -H "X-Auth-Token: $TOKEN"
 

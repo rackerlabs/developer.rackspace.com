@@ -34,9 +34,9 @@
   zone.ttl = 3600
   zone.save
 
-.. code-block:: shell
+.. code-block:: sh
 
-.. code-block:: shell
+.. code-block:: sh
 
   curl -X PUT -d \
     '{

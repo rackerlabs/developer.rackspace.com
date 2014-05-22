@@ -1,5 +1,3 @@
-package com.rackspace.developer;
-
 import com.google.common.collect.ImmutableList;
 import com.google.common.io.Files;
 import org.jclouds.ContextBuilder;
@@ -10,7 +8,8 @@ import org.jclouds.openstack.nova.v2_0.features.FlavorApi;
 import org.jclouds.openstack.nova.v2_0.features.ImageApi;
 import org.jclouds.openstack.nova.v2_0.features.ServerApi;
 import org.jclouds.openstack.nova.v2_0.options.CreateServerOptions;
-import org.jclouds.openstack.nova.v2_0.predicates.ServerPredicates;
+// TODO: ServerPredicates is only available in jclouds 1.7.3
+//import org.jclouds.openstack.nova.v2_0.predicates.ServerPredicates;
 
 import java.io.File;
 import java.io.IOException;
@@ -19,7 +18,7 @@ import java.util.concurrent.TimeoutException;
 
 import static com.google.common.base.Charsets.UTF_8;
 
-public class Compute {
+public class CloudServers {
     public static final String PROVIDER = System.getProperty("provider", "rackspace-cloudservers-us");
     public static final String ZONE = System.getProperty("zone", "IAD");
 
@@ -36,7 +35,8 @@ public class Compute {
         List<? extends Flavor> flavors = listFlavors(novaApi);
         Flavor flavor = getFlavor(novaApi, flavors);
         KeyPair keyPair = createNewKeyPair(novaApi);
-        Server server = createServerWithKeypair(novaApi, image, flavor, keyPair);
+        ServerCreated serverCreated = createServerWithKeypair(novaApi, image, flavor, keyPair);
+        Server server = queryServerBuild(novaApi, serverCreated);
         resizeServer(novaApi, server, flavors.get(1));
         deleteServer(novaApi, server);
         deleteKeyPair(novaApi, keyPair);
@@ -90,15 +90,22 @@ public class Compute {
         return keyPair;
     }
 
-    public static Server createServerWithKeypair(NovaApi novaApi, Image image, Flavor flavor, KeyPair keyPair)
+    public static ServerCreated createServerWithKeypair(NovaApi novaApi, Image image, Flavor flavor, KeyPair keyPair)
             throws TimeoutException {
         ServerApi serverApi = novaApi.getServerApiForZone(ZONE);
         CreateServerOptions options = CreateServerOptions.Builder.keyPairName(keyPair.getName());
         ServerCreated serverCreated = serverApi.create("My new server", image.getId(), flavor.getId(), options);
 
-        if (!ServerPredicates.awaitActive(serverApi).apply(serverCreated.getId())) {
-            throw new TimeoutException("Timeout on server: " + serverCreated);
-        }
+        return serverCreated;
+    }
+
+    public static Server queryServerBuild(NovaApi novaApi, ServerCreated serverCreated) throws TimeoutException {
+        ServerApi serverApi = novaApi.getServerApiForZone(ZONE);
+
+// TODO: ServerPredicates is only available in jclouds 1.7.3
+//        if (!ServerPredicates.awaitActive(serverApi).apply(serverCreated.getId())) {
+//            throw new TimeoutException("Timeout on server: " + serverCreated);
+//        }
 
         Server server = serverApi.get(serverCreated.getId());
 

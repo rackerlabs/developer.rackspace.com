@@ -65,7 +65,7 @@
 
   # N/A
 
-.. code-block:: shell
+.. code-block:: sh
 
   curl -i $ENDPOINT/images/{imageId}/members/{memberId} -X DELETE \
       -H "X-Auth-Token: $TOKEN"

@@ -39,7 +39,7 @@
 
   record = my_zone.records.get('{recordId}')
 
-.. code-block:: shell
+.. code-block:: sh
 
   curl -X GET -d \
     -H "X-Auth-Token: $TOKEN" \

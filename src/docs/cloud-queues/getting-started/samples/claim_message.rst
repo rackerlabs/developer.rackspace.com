@@ -38,7 +38,7 @@
     :grace => 600
   )
 
-.. code-block:: shell
+.. code-block:: sh
 
   curl -X POST $ENDPOINT/queues/{queueName}/claims -d \
     '{"ttl": 300,"grace":300}' \

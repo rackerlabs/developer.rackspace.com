@@ -25,4 +25,4 @@
 
   database = instance.databases.create(:name => 'sample_db')
 
-.. code-block:: shell
+.. code-block:: sh

@@ -49,7 +49,7 @@
     :public_key => File.read('/home/my-user/.ssh/id_rsa.pub')
   )
 
-.. code-block:: shell
+.. code-block:: sh
 
   curl -X POST $ENDPOINT/os-keypairs -d \
     '{

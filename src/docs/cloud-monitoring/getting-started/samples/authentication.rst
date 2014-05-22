@@ -18,7 +18,7 @@
     :rackspace_region => '{region}'
   )
 
-.. code-block:: shell
+.. code-block:: sh
 
   # {username}, {apiKey} below are placeholders, do not enclose '{}' when you replace them with actual credentials.
 

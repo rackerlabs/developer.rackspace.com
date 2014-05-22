@@ -12,7 +12,7 @@
 
   # N/A
 
-.. code-block:: shell
+.. code-block:: sh
 
     # To create a task to import an image, specify the source
     # file for the image and the directory in your Cloud Files

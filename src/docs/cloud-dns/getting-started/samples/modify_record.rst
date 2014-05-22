@@ -38,7 +38,7 @@
 
   record.save
 
-.. code-block:: shell
+.. code-block:: sh
 
   curl -X PUT -d \
     '{

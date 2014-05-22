@@ -23,4 +23,4 @@
 
   @balancer.health_monitor
 
-.. code-block:: shell
+.. code-block:: sh

@@ -20,4 +20,4 @@
 
   # This operation is currently not supported through the fog SDK.
 
-.. code-block:: shell
+.. code-block:: sh

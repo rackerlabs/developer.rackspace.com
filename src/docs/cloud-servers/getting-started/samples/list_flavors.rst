@@ -45,7 +45,7 @@
 
   @client.flavors.all
 
-.. code-block:: shell
+.. code-block:: sh
 
   curl -X GET $ENDPOINT/flavors \
     -H "X-Auth-Token: $TOKEN" | python -m json.tool

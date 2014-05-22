@@ -21,7 +21,7 @@
 
   claim.destroy
 
-.. code-block:: shell
+.. code-block:: sh
 
   curl -X DELETE $ENDPOINT/queues/{queueName}/claims/{claimId} \
     -H "Content-type: application/json" \

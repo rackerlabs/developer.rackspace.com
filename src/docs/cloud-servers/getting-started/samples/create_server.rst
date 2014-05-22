@@ -43,7 +43,7 @@
     :flavor_id => flavor.id
   )
 
-.. code-block:: shell
+.. code-block:: sh
 
   # Reminder: all {variableNames} are placeholders only. Must be replaced by actual and valid values
   curl -X POST $ENDPOINT -d \

@@ -40,4 +40,4 @@
     :databases => ['{dbName1}', '{dbName2}']
   )
 
-.. code-block:: shell
+.. code-block:: sh

@@ -25,7 +25,7 @@
 
   record.destroy
 
-.. code-block:: shell
+.. code-block:: sh
 
   curl -X DELETE -d \
     -H "X-Auth-Token: $TOKEN" \

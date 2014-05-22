@@ -19,7 +19,7 @@ Code blocks go in this order::
 
   .. code-block:: ruby
 
-  .. code-block:: shell
+  .. code-block:: sh
 
 
 If there's a new language you want to add code samples for, insert it where it fits alphabetically. 

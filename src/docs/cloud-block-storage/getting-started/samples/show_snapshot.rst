@@ -16,7 +16,7 @@
 
   snapshot @client.snapshots.get('{snapshotId}')
 
- .. code-block:: shell
+ .. code-block:: sh
 
     $ curl -X GET $ENDPOINT/snapshots/{snapshotId}
       -H "X-Auth-Token: $TOKEN" \

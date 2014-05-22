@@ -38,4 +38,4 @@
   @balancer.disable_content_caching
   @balancer.wait_for { ready? }
 
-.. code-block:: shell
+.. code-block:: sh

@@ -20,7 +20,7 @@
 
   queue = @client.queues.create(:name => 'sample_queue')
 
-.. code-block:: shell
+.. code-block:: sh
 
   curl -X PUT $ENDPOINT/queues/{queueName} \
     -H "X-Auth-Token: $TOKEN" \

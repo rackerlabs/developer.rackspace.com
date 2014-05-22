@@ -36,7 +36,7 @@
     :display_description => 'This is the description'
   )
 
-.. code-block:: shell
+.. code-block:: sh
 
   $ curl -X POST -d \
     '{

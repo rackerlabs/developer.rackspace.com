@@ -19,7 +19,7 @@
     :details => { :address => '{emailAddress}' }
   )
 
-.. code-block:: shell
+.. code-block:: sh
 
   $ curl -X POST -d \
     '{

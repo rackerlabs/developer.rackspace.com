@@ -18,7 +18,7 @@
 
   snapshot.destroy
 
-.. code-block:: shell
+.. code-block:: sh
 
   $ curl -X DELETE $ENDPOINT/snapshots/{snapshotId} \
     -H "X-Auth-Token: $TOKEN" \

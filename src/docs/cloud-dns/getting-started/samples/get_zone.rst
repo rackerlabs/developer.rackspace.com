@@ -41,7 +41,7 @@
 
   zone = service.zones.all.find { |z| z.name == 'domain.com' }
 
-.. code-block:: shell
+.. code-block:: sh
 
   curl -X GET -d \
     -H "X-Auth-Token: $TOKEN" \

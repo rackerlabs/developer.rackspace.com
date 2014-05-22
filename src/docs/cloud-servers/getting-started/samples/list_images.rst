@@ -36,7 +36,7 @@
 
   @client.images.all
 
-.. code-block:: shell
+.. code-block:: sh
 
   curl -X GET $ENDPOINT/images \
     -H "X-Auth-Token: $TOKEN" | python -m json.tool

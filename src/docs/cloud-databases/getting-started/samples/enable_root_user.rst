@@ -27,4 +27,4 @@
   # Store the root password to your local filesystem.
   File.write('~/.root_mysql_pwd', instance.root_password)
 
-.. code-block:: shell
+.. code-block:: sh

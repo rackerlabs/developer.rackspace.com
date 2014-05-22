@@ -12,7 +12,7 @@
 
   # N/A
 
-.. code-block:: shell
+.. code-block:: sh
 
     $ curl -s $ENDPOINT/tasks -X POST \
         -d '{"type": "export","input":{"image_uuid": "{imageId}","receiving_swift_container": "exports"}}' \

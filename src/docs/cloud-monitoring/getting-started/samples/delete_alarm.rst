@@ -12,7 +12,7 @@
 
   alarm.destroy
 
-.. code-block:: shell
+.. code-block:: sh
 
   $ curl -X DELETE $ENDPOINT/entities/{entityId}/alarms/{alarmId} \
     -H "X-Auth-Token: $TOKEN"

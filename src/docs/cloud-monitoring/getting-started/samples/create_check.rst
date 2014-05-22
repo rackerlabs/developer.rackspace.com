@@ -24,7 +24,7 @@
     :monitoring_zones_poll => ['{monitoringZoneId}']
   )
 
-.. code-block:: shell
+.. code-block:: sh
 
   $ curl -X POST -d \
     '{

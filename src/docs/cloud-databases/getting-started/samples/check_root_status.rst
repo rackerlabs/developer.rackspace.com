@@ -22,4 +22,4 @@
 
   root_enabled = instance.root_user_enabled?
 
-.. code-block:: shell
+.. code-block:: sh

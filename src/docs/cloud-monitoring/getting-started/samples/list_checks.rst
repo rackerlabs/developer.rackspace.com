@@ -12,7 +12,7 @@
 
   entity.checks.all
 
-.. code-block:: shell
+.. code-block:: sh
 
   $ curl -X GET $ENDPOINT/entities/{entityId}/checks \
     -H "X-Auth-Token: $TOKEN" \

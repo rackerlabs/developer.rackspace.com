@@ -17,4 +17,4 @@
 
   # N/A
 
-.. code-block:: shell
+.. code-block:: sh

@@ -21,7 +21,7 @@
   # To fetch only snapshots associated with a given volume:
   volume.snapshots
 
-.. code-block:: shell
+.. code-block:: sh
 
   $ curl -X GET $ENDPOINT/snapshots \
     -H "X-Auth-Token: $TOKEN" \

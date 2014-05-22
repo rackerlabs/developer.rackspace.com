@@ -58,7 +58,7 @@
 
   # N/A
 
-.. code-block:: shell
+.. code-block:: sh
 
   # To create an image member for an image, specify the image ID
   # for the image you want to share and the user name (member ID)

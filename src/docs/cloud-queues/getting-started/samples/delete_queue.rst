@@ -16,7 +16,7 @@
 
   queue.destroy
 
-.. code-block:: shell
+.. code-block:: sh
 
   curl -X DELETE $ENDPOINT/queues/{queueName} \
     -H "Content-type: application/json" \

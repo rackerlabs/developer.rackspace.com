@@ -40,7 +40,7 @@
   key_pair = @client.key_pairs.create(:name => 'my-keypair')
   File.write('my-keypair.pem', key_pair.private_key, :perm => 0600)
 
-.. code-block:: shell
+.. code-block:: sh
 
   curl -X POST $ENDPOINT/os-keypairs -d \
     '{"keypair":{"name":"{keyPairName}"} }' \

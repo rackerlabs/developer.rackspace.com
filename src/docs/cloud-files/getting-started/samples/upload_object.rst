@@ -53,7 +53,7 @@
     :body => 'Rackspace is awesome!'
   )
 
-.. code-block:: shell
+.. code-block:: sh
 
   curl -i -X PUT $ENDPOINT/{containerName}/{objectName} /
     -H "X-Auth-Token: $TOKEN" \

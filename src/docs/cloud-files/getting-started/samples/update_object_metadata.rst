@@ -20,7 +20,7 @@
   file.metadata['some-key'] = 'another-value'
   file.save
 
-.. code-block:: shell
+.. code-block:: sh
 
     curl -i -X POST $ENDPOINT/{containerName}/{objectName} \
       -H "X-Auth-Token: $TOKEN" \

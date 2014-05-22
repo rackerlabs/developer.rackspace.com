@@ -20,7 +20,7 @@
 
   server.resize('{newFlavorId}')
 
-.. code-block:: shell
+.. code-block:: sh
 
   # First, you'll need to note the flavor ref number from the flavor list.
   curl -X PUT $ENDPOINT/{serverId}/action \ -d \

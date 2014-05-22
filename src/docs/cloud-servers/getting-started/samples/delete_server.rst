@@ -23,6 +23,6 @@
 
   server.destroy
 
-.. code-block:: shell
+.. code-block:: sh
 
   curl -X DELETE $ENDPOINT/$SERVER_ID -H "X-Auth-Token: $TOKEN"

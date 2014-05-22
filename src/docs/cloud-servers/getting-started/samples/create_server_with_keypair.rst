@@ -44,7 +44,7 @@
     :key_name => 'my-keypair'
   )
 
-.. code-block:: shell
+.. code-block:: sh
 
   curl -X POST $ENDPOINT -d \
     '{

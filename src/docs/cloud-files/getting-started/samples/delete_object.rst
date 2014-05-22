@@ -22,7 +22,7 @@
 
   file.destroy
 
-.. code-block:: shell
+.. code-block:: sh
 
   curl -i -X DELETE $ENDPOINT/{containerName}/{objectName} \
     -H "X-Auth-Token: $TOKEN"

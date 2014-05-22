@@ -12,7 +12,7 @@
 
   @client.list_monitoring_zones.body['values']
 
-.. code-block:: shell
+.. code-block:: sh
 
   $ curl -X GET $ENDPOINT/monitoring_zones \
     -H "X-Auth-Token: $TOKEN" \

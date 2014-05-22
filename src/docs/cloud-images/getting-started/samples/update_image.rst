@@ -12,7 +12,7 @@
 
   # N/A
 
-.. code-block:: shell
+.. code-block:: sh
 
   curl -s $ENDPOINT/images/{imageId} -X PATCH \
     -d '[{"op": "replace", "path": "/name", "value": "My Favorite Ubuntu"}]' \

@@ -16,7 +16,7 @@
 
   volumes = @client.volumes.all
 
-.. code-block:: shell
+.. code-block:: sh
 
   $ curl -X GET $ENDPOINT/volumes \
     -H "X-Auth-Token: $TOKEN" \

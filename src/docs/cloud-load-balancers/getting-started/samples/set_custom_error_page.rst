@@ -32,4 +32,4 @@
   # To delete your custom error page:
   @balancer.reset_error_page
 
-.. code-block:: shell
+.. code-block:: sh

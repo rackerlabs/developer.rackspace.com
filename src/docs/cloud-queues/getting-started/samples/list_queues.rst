@@ -16,7 +16,7 @@
 
   @client.queues.all
 
-.. code-block:: shell
+.. code-block:: sh
 
   curl -X GET $ENDPOINT/queues \
     -H "Content-type: application/json" \

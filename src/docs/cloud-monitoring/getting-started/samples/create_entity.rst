@@ -12,7 +12,7 @@
 
   entity = @client.entities.create(:label => 'somehost.domain.com')
 
-.. code-block:: shell
+.. code-block:: sh
 
   $ curl -X POST -d \
     '{

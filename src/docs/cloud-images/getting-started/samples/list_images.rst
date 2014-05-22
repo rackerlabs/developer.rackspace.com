@@ -41,6 +41,6 @@
 
   # N/A
 
-.. code-block:: shell
+.. code-block:: sh
 
   curl -s $ENDPOINT/images -H "X-Auth-Token: $token" | python -m json.tool

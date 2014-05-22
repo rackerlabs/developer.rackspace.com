@@ -54,4 +54,4 @@
   @balancer.enable_connection_throttling(5000, 2, 10000, 5)
   @balancer.wait_for { ready? }
 
-.. code-block:: shell
+.. code-block:: sh

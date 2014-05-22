@@ -49,4 +49,4 @@
 
   file.body
 
-.. code-block:: shell
+.. code-block:: sh

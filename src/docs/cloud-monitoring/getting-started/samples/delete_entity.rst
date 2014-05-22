@@ -12,7 +12,7 @@
 
   entity.destroy
 
-.. code-block:: shell
+.. code-block:: sh
 
   $ curl -X DELETE $ENDPOINT/entities/{entityId} \
     -H "X-Auth-Token: $TOKEN"

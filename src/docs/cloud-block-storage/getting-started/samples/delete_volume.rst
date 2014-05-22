@@ -18,7 +18,7 @@
 
   volume.destroy
 
-.. code-block:: shell
+.. code-block:: sh
 
   $ curl -X DELETE $ENDPOINT/volumes/{volumeId} \
     -H "X-Auth-Token: $TOKEN" \

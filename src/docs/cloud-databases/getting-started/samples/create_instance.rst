@@ -52,4 +52,4 @@
   )
   instance.wait_for { ready? }
 
-.. code-block:: shell
+.. code-block:: sh

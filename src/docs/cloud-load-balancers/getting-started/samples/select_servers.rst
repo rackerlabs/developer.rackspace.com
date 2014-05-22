@@ -31,4 +31,4 @@
   @server_one = compute.servers.get('{serverId1}')
   @server_two = compute.servers.get('{serverId2}')
 
-.. code-block:: shell
+.. code-block:: sh

@@ -18,4 +18,4 @@
 
   flavor = @client.flavors.get('{flavorId}')
 
-.. code-block:: shell
+.. code-block:: sh

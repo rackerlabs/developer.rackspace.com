@@ -46,7 +46,7 @@
     :value => '192.168.1.1'
   )
 
-.. code-block:: shell
+.. code-block:: sh
 
   curl -X POST -s -d \
     '{

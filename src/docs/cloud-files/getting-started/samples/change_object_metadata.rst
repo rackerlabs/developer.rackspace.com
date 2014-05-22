@@ -32,4 +32,4 @@
   file.metadata['some-key'] = 'some-value'
   file.save
 
-.. code-block:: shell
+.. code-block:: sh

@@ -39,4 +39,4 @@
     :rackspace_region => '{region}'
   )
 
-.. code-block:: shell
+.. code-block:: sh

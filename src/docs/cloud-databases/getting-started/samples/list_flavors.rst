@@ -18,4 +18,4 @@
 
   flavors = @client.flavors.all
 
-.. code-block:: shell
+.. code-block:: sh

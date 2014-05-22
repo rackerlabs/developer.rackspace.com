@@ -12,7 +12,7 @@
 
   # N/A
 
-.. code-block:: shell
+.. code-block:: sh
 
   $ curl -X GET $ENDPOINT/stacks/{stack_name}/{stack_id} \
     -H "X-Auth-Token: $TOKEN" \

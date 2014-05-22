@@ -38,4 +38,4 @@
     :nodes => []
   )
 
-.. code-block:: shell
+.. code-block:: sh

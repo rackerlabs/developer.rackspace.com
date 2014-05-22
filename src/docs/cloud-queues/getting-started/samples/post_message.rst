@@ -29,7 +29,7 @@
 
   queue.enqueue("Message body", 900)
 
-.. code-block:: shell
+.. code-block:: sh
 
   curl -X POST POST $ENDPOINT/queues/{queueName}/messages -d \
     '[{"ttl": 300,"body": {"event": "BackupStarted"}},{"ttl": 60,"body": {"play": "hockey"}}]' \

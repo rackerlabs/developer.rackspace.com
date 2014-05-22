@@ -20,7 +20,7 @@
   directory.public = false
   directory.save
 
-.. code-block:: shell
+.. code-block:: sh
 
   curl -i -X POST $ENDPOINT/{containerName} /
     -H "X-Auth-Token: $TOKEN" \
