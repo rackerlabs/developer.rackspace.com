@@ -6,7 +6,13 @@
 
 .. code-block:: php
 
+    $policy->execute();
+
 .. code-block:: python
+
+    # After authenticating
+    au = pyrax.autoscale
+    au.execute_policy("{scalingGroupId}", "{policyId}")
 
 .. code-block:: ruby
 

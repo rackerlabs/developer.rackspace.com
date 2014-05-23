@@ -1,0 +1,33 @@
+.language-bar {
+
+  background-color: #f2f2f2;
+
+  ul {
+    .list-inline;
+    margin: 0;
+  }
+
+  ul > li {
+    line-height: 40px;
+    padding: 0px 12px;
+    text-transform: uppercase;
+    color: #d2d2d2;
+
+    &:hover {
+      background-color: #ccc;
+      color: #858585;
+      cursor: pointer;
+    }
+
+    &.active {
+      background-color: @hugeyellow-dark;
+      color: white;
+    }
+
+    &.prefix, &.prefix:hover {
+      background-color: #f2f2f2;
+      color: #858585;
+      cursor: default;
+    }
+  }
+}

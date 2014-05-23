@@ -6,7 +6,13 @@
 
 .. code-block:: php
 
+    $group = $service->group('{groupId}');
+
 .. code-block:: python
+
+    # After authenticating
+    au = pyrax.autoscale
+    scaling_group = au.get("{scalingGroupId}")
 
 .. code-block:: ruby
 

@@ -6,7 +6,13 @@
 
 .. code-block:: php
 
+    $group->delete();
+
 .. code-block:: python
+
+    # After authenticating
+    au = pyrax.autoscale
+    au.delete("{scalingGroupId}")
 
 .. code-block:: ruby
 

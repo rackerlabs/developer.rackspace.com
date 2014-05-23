@@ -6,6 +6,8 @@
 
 .. code-block:: php
 
+    $zones = $service->getMonitoringZones();
+
 .. code-block:: python
 
 .. code-block:: ruby

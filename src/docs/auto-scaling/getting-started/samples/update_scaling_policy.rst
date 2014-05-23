@@ -6,7 +6,20 @@
 
 .. code-block:: php
 
+    $policy->update(array(
+        'name'     => 'New name',
+        'cooldown' => 120
+    ));
+
 .. code-block:: python
+
+    # After authenticating
+    au = pyrax.autoscale
+    # The `scalingGroupId` and `policyId` parameters are required. You may
+    # include one or more of the remaining paramters.
+    au.update_policy("{scalingGroupId}", "{policyId}", name="My Policy",
+            policy_type="webhook", cooldown=120, change=10, is_percent=True,
+            desired_capacity=7)
 
 .. code-block:: ruby
 

@@ -6,6 +6,8 @@
 
 .. code-block:: php
 
+    $checks = $entity->getChecks();
+
 .. code-block:: python
 
 .. code-block:: ruby

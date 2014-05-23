@@ -6,6 +6,8 @@
 
 .. code-block:: php
 
+    $entity->delete();
+
 .. code-block:: python
 
 .. code-block:: ruby

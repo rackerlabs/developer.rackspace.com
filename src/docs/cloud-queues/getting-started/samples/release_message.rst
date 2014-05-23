@@ -2,6 +2,9 @@
 
 .. code-block:: java
 
+  ClaimApi claimApi = marconiApi.getClaimApiForZoneAndClientAndQueue("{region}", "{clientId}", "sample_queue");
+  claimApi.release("{claimId}");
+
 .. code-block:: javascript
 
 .. code-block:: php

@@ -6,6 +6,8 @@
 
 .. code-block:: php
 
+    $check->delete();
+
 .. code-block:: python
 
 .. code-block:: ruby

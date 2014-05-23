@@ -109,7 +109,7 @@ To execute a particular autoscaling policy see code samples below:
 
 Finally, if you want to delete an autoscaling policy, consider the following:
 
-.. include:: samples/delete_caling_policy.rst
+.. include:: samples/delete_scaling_policy.rst
 
 
 Webhooks

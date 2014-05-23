@@ -1,19 +1,7 @@
-	<div class="sidebar">
-        <div class="block archives">
-            <h3>Archives</h3>
-            {% monthly_list %}
-        </div>
-
-        <div class="block contributors">
-            {% if site.gravatar_emails %}
-              <h3>Contributors</h3>
-		      {% gravatar_images 50 %}
-			{% endif %}
-		</div>
-
-        <div class="block tagcloud">
-            <h3>Tag Cloud</h3>
-            <span id="tag-cloud">{% tag_cloud counter:true %}</span>
-        </div>
-
-</div>
+<ul>
+  <li><span class="sidebarheader">Developer Center</span></li>
+  <li><a href="#">SDKs &amp; Tools</a></li>
+  <li><a href="#">Conference Sponsorship</a></li>
+  <li><a href="#">Services</a></li>
+  <li><a href="#">Developer Discount</a></li>
+</ul>

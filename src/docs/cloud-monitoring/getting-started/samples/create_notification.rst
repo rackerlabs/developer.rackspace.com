@@ -6,6 +6,24 @@
 
 .. code-block:: php
 
+    $notification = $service->getNotification();
+
+    $params = array(
+        'label' => 'My webhook #1',
+        'type'  => 'webhook',
+        'details' => array(
+            'url' => 'http://example.com'
+        )
+    );
+
+    // Test these params
+    $response = $notification->testParams($params);
+
+    echo $response->status; // Was it successful?
+
+    // Now create the notification
+    $notification->create($params);
+
 .. code-block:: python
 
 .. code-block:: ruby

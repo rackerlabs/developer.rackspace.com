@@ -6,6 +6,21 @@
 
 .. code-block:: php
 
+    $service = $client->cloudMonitoringService('cloudMonitoring', '{region}');
+
+    $service->createEntity(array(
+        'label' => '{entityLabel}',
+        'ip_addresses' => array(
+            'default' => '127.0.0.4',
+            'b'       => '127.0.0.5',
+            'c'       => '127.0.0.6',
+            'test'    => '127.0.0.7'
+        ),
+        'metadata' => array(
+            'foo'  => 'bar'
+        )
+    ));
+
 .. code-block:: python
 
 .. code-block:: ruby

@@ -6,7 +6,13 @@
 
 .. code-block:: php
 
+    $webhook->delete();
+
 .. code-block:: python
+
+    # After authenticating
+    au = pyrax.autoscale
+    au.delete_webhook("{scalingGroupId}", "{policyId}", "{webhookId}")
 
 .. code-block:: ruby
 

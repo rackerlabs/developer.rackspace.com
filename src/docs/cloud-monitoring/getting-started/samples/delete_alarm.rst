@@ -6,6 +6,8 @@
 
 .. code-block:: php
 
+    $alarm->delete();
+
 .. code-block:: python
 
 .. code-block:: ruby

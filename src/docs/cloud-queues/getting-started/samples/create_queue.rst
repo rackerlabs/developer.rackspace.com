@@ -2,6 +2,9 @@
 
 .. code-block:: java
 
+  QueueApi queueApi = marconiApi.getQueueApiForZoneAndClient("{region}", "{clientId}");
+  queueApi.create("sample_queue");
+
 .. code-block:: javascript
 
 .. code-block:: php

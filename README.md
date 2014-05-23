@@ -11,7 +11,7 @@ We are migrating to this repo by June-ish 2014. The areas now building are:
 - `/src/site_source`: Rest of the web site layout and content, built using Jekyll
 
 In progress:
-- /api/: maven, content maintained in /dian4554/rax-api-ref (to move to rackerlabs/rax-api-ref)
+- /api/: maven, content maintained in rackerlabs/docs-api-reference
 - elastic search
 
 To do:

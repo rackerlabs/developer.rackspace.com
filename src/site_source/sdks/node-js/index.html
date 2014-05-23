@@ -1,9 +1,45 @@
 ---
-layout: page
-title: Rackspace Developer Center
+layout: sdk-page
+title: Node.js SDKs
 ---
 <div>
-  <h1>Node.js SDK</h1>
+  <h1>Getting Started with node.js SDKs</h1>
+  <p>Rackspace's official SDK for node.js <a target="_blank" href="https://github.com/pkgcloud/pkgcloud/"><strong>pkgcloud</strong></a>, an MIT licensed open-source community project for using multiple cloud providers from a standardized API.</p>
+  <p>Currently, pkgcloud has support for multiple Rackspace services: <a href="/docs/cloud-servers/getting-started/?lang=node.js">Cloud Servers</a>,
+    <a href="/docs/cloud-files/getting-started/?lang=node.js">Cloud Files</a>, <a
+      href="/docs/cloud-block-storage/getting-started/?lang=node.js">Cloud Block Storage</a>, <a
+      href="/docs/cloud-dns/getting-started/?lang=node.js">Cloud DNS</a>, <a
+      href="/docs/cloud-load-balancers/getting-started/?lang=node.js">Cloud Load Balancers</a>. Support for additional services is on-going.</p>
+  <hr />
+  <h2>Installation</h2>
+  <p>Generally, all node.js packages are recommended to be installed via npm, and <strong>pkgcloud</strong> is no different:</p>
+  <pre>
+    npm install pkgcloud
+  </pre>
+  <h2>Using pkgcloud</h2>
+  <p>For any combination of service & region, a user should create a single client, and then use that client to access APIs for that service & region combination. If you had assets in both <em>ORD</em> &amp; <em>IAD</em> you would create two clients.</p>
+  <p>In this example, we create a single compute client, in the <em>IAD</em> region, and then output a list of server Id's to the console:</p>
+  <pre>
+    var pkgcloud = require('pkgcloud');
+
+    var client = pkgcloud.providers.rackspace.createClient({
+      username: 'my-username',
+      apiKey: 'my-api-key',
+      service: 'compute',
+      region: 'IAD'
+    });
+
+    client.getServers(function(err, servers) {
+      if (err) {
+        // handle your error case
+      }
+
+      // print out each server id
+      servers.forEach(function(server) {
+        console.log(server.id);
+      });
+    });
+  </pre>
 </div>
 
 

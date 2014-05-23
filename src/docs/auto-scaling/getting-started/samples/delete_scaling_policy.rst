@@ -6,7 +6,13 @@
 
 .. code-block:: php
 
+    $policy->delete();
+
 .. code-block:: python
+
+    # After authenticating
+    au = pyrax.autoscale
+    au.delete_policy("{scalingGroupId}", "{policyId}")
 
 .. code-block:: ruby
 

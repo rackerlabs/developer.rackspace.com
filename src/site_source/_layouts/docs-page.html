@@ -1,0 +1,38 @@
+---
+layout: default
+---
+<div class="title-header">
+  <div class="inner">
+    <span class="headline">{{ page.title }}</span>
+  </div>
+</div>
+<div class="language-bar">
+  <div class="container">
+   <div class="row">
+     <div class="col-md-9 col-md-offset-3">
+       <ul>
+         <li class="prefix">I'm Coding In:</li>
+         <li data-class="highlight-sh" data-query="shell" class="lang-btn">Shell</li>
+         <li data-class="highlight-java" data-query="java" class="lang-btn">Java</li>
+         <li data-class="highlight-python" data-query="python" class="lang-btn">Python</li>
+         <li data-class="highlight-csharp" data-query=".net" class="lang-btn">.Net</li>
+         <li data-class="highlight-javascript" data-query="node.js" class="lang-btn">Node.js</li>
+         <li data-class="highlight-php" data-query="php" class="lang-btn">PHP</li>
+         <li data-class="highlight-ruby" data-query="ruby" class="lang-btn">Ruby</li>
+       </ul>
+     </div>
+   </div>
+  </div>
+</div>
+<div class="container body-container">
+  <div class="row">
+    <div class="col-md-3 sidebar">
+      {% include docs-sidebar.html %}
+
+      {% include sidebar-footer.html %}
+    </div>
+    <div class="col-md-9 docs-content bodycontent">
+      {{ content }}
+    </div>
+  </div>
+</div>

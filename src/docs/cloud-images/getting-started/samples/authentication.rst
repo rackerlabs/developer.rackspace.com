@@ -24,6 +24,9 @@
 
 .. code-block:: python
 
+  import pyrax
+  pyrax.set_credentials("{username}", "{apiKey}")
+
 .. code-block:: ruby
 
   # N/A

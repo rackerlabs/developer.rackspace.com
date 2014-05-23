@@ -6,7 +6,13 @@
 
 .. code-block:: php
 
+    $webhook = $policy->getWebhook('{webhookId}');
+
 .. code-block:: python
+
+    # After authenticating
+    au = pyrax.autoscale
+    webhook = au.get_webhook("{scalingGroupId}", "{policyId}", "{webhookId}")
 
 .. code-block:: ruby
 

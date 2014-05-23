@@ -6,7 +6,15 @@
 
 .. code-block:: php
 
+    /** @param $member OpenCloud\Image\Resource\Member */
+    $member = $image->getMember('{tenantId}');
+
 .. code-block:: python
+
+  # After authenticating, get a reference to the client
+  imgs = pyrax.images
+  # {projectId} is the account ID of the member.
+  member = imgs.get_image_member("{imageId}", "{projectId}")
 
 .. code-block:: ruby
 

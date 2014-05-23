@@ -1,0 +1,13 @@
+ul.piped-list {
+  .list-inline;
+
+  & > li:first-child:before {
+    content: none;
+  }
+
+  li:before {
+    color: #ccc;
+    content: "\\ ";
+    margin-right: 10px;
+  }
+}

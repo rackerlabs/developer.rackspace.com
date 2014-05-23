@@ -2,6 +2,9 @@
 
 .. code-block:: java
 
+  QueueApi queueApi = marconiApi.getQueueApiForZoneAndClient("{region}", "{clientId}");
+  List<Queue> queues = queueApi.list(true).concat().toList();
+
 .. code-block:: javascript
 
 .. code-block:: php
