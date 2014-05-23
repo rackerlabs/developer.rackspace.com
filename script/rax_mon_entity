@@ -1,0 +1,158 @@
+#!/usr/bin/python
+#
+# This is a module in development for Ansible.
+
+DOCUMENTATION = '''
+module: rax_mon_entity
+short_description: create / delete a Rackspace Cloud Monitoring entity
+description:
+- create / delete a Rackspace Cloud Monitoring entity, which represents a device to monitor.
+version_added: "1.6.2"
+options:
+  name:
+    description:
+    - Defines a name for this entity. Must be a non-empty string between 1 and
+      255 characters long.
+  agent_id:
+    description:
+    - Agent to which this entity is bound.
+    default: null
+  named_ip_addresses:
+    description:
+    - Hash of IP addresses that may be referenced by name by checks added to this
+      entity. Must be a colon-separated C(name:ip-address) string. May be specified
+      more than once. Names must be between 1 and 64 characters; IP addresses
+      must be valid IPv4 or IPv6 addresses.
+    default: none
+  metadata:
+    description:
+    - Hash of arbitrary C(name), C(value) pairs that are passed during the
+      alerting phase. May be specified more than once. Name and value must both
+      be between 1 and 255 characters long.
+'''
+
+EXAMPLES = '''
+- name: Create a monitoring entity
+  gather_facts: False
+  hosts: local
+  connection: local
+  tasks:
+  - name: Create a monitoring entity
+    rax_mon_entity:
+      credentials: ~/.rax_pub
+      name: my-entity
+      agent_id:
+      named_ip_addresses:
+        web_box: 192.168.0.10
+        db_box: 192.168.0.11
+      meta:
+        hurf: durf
+    register: the_entity
+'''
+
+try:
+    import pyrax
+    HAS_PYRAX = True
+except ImportError:
+    HAS_PYRAX = False
+
+def cloud_monitoring(module, name, agent_id, named_ip_addresses, meta):
+    if not name:
+        module.fail_json(msg='name is required for rax_mon_entity')
+
+    if len(name) < 1 or len(name) > 255:
+        module.fail_json(msg='name must be between 1 and 255 characters long')
+
+    # TODO validate named_ip_addresses and meta
+
+    changed = False
+
+    cm = pyrax.cloud_monitoring
+    if not cm:
+        module.fail_json(msg='Failed to instantiate client. This typically '
+                             'indicates an invalid region or an incorrectly '
+                             'capitalized region name.')
+
+    all = []
+    for entity in cm.list_entities():
+        if name == entity.name:
+            all.append(entity)
+
+    if len(all) > 1:
+        module.fail_json(msg='Multiple entities were matched by name. Try using'
+                             'the entity ID instead.')
+
+    entity = None
+
+    if existing:
+        entity = existing[0]
+
+    try:
+        if state == 'present':
+            if entity:
+                if named_ip_addresses && named_ip_addresses != only.named_ip_addresses:
+                    module.fail_json(msg='IP addresses can not be updated through pyrax.')
+
+                # Change an existing Entity, unless there's nothing to do.
+                different = agent_id && agent_id != only.agent_id
+                different = different || (meta && meta != only.meta)
+
+                if different:
+                    existing.update(agent_id, meta)
+                    changed = True
+            else:
+                # Create a new Entity.
+                entity = cm.create(name=name, agent=agent_id,
+                                   ip_addresses=named_ip_addresses,
+                                   metadata=meta)
+                changed = True
+        elif state == 'absent':
+            if entity:
+                # Delete the existing Entity.
+                entity.delete()
+                changed = True
+
+    except Exception, e:
+        module.fail_json(msg='%s' % e.message)
+
+    entity_dict = {
+        "id": entity.id,
+        "name": entity.name,
+        "agent_id": entity.agent,
+    }
+    module.exit_json(changed=changed, entity=entity_dict)
+
+def main():
+    argument_spec = rax_argument_spec()
+    argument_spec.update(
+        dict(
+            name=dict(),
+            agent_id=dict(),
+            named_ip_addresses=dict(type='dict', default={})
+            meta=dict(type='dict', default={})
+        )
+    )
+
+    module = AnsibleModule(
+        argument_spec=argument_spec,
+        required_together=rax_required_together()
+    )
+
+    if not HAS_PYRAX:
+        module.fail_json(msg='pyrax is required for this module')
+
+    name = module.params.get('name')
+    agent_id = module.params.get('agent_id')
+    named_ip_addresses = module.params.get('named_ip_addresses')
+    meta = module.params.get('meta')
+
+    setup_rax_module(module, pyrax)
+
+    cloud_monitoring(module, name, agent_id, named_ip_addresses, meta)
+
+# Import module snippets
+from ansible.module_utils.basic import *
+from ansible.module_utils.rax import *
+
+# Invoke the module.
+main()
