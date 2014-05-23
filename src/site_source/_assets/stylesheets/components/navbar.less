@@ -1,6 +1,6 @@
 @navbar-min-height: 42px;
 @navbar-padding-vertical-custom: 12px;
-.navbar.navbar-static-top {
+.navbar.navbar-fixed-top {
   margin-bottom: 0;
   min-height: @navbar-min-height;
   border: none;
@@ -44,6 +44,14 @@
       }
     }
   }
+}
+
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus,
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:hover,
+.navbar-inverse .navbar-nav > .open > a:focus{
+  background-color: #222;
 }
 
 .navbar-toggle {

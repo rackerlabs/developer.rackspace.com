@@ -11,11 +11,24 @@
   }
 
   .headline {
+
     display: block;
     padding: 42px 70px 40px;
     font-size: 4em;
     font-weight: 600;
-    letter-spacing: -4px;
     line-height: .9em;
+    letter-spacing: -4px;
+
+    @media (max-width: @screen-sm) {
+      font-size: 1.4em;
+      letter-spacing: -2px;
+      padding: 10px 20px 10px;
+    }
+
+    @media (max-width: @screen-md) {
+      font-size: 2em;
+      letter-spacing: -2px;
+      padding: 20px 40px 20px;
+    }
   }
 }
