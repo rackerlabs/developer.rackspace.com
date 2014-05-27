@@ -1,0 +1,154 @@
+#!/usr/bin/python
+#
+# This is a module in development for Ansible.
+
+DOCUMENTATION = '''
+module: rax_mon_check
+short_description: create / delete a Rackspace Cloud Monitoring check for an
+                   existing entity.
+description:
+- create / delete a Rackspace Cloud Monitoring check associated with an existing
+  entity.
+version_added: "1.6.2"
+options:
+  entity_id:
+    description:
+    - ID of the rax_mon_entity to target with this check.
+    required: true
+  label:
+    description:
+    - Defines a label for this check, between 1 and 64 characters long.
+    required: true
+  check_type:
+    description:
+    - The type of check to create.
+    choices:
+    - remote.dns
+    - remote.ftp-banner
+    - remote.http
+    - remote.imap-banner
+    - remote.mssql-banner
+    - remote.mysql-banner
+    - remote.ping
+    - remote.pop3-banner
+    - remote.postgresql-banner
+    - remote.smtp-banner
+    - remote.smtp
+    - remote.ssh
+    - remote.tcp
+    - remote.telnet-banner
+    required: true
+  monitoring_zones_poll:
+    description:
+    - Comma-separated list of the names of the monitoring zones the check should
+    - run from. Available monitoring zones include mzdfw, mzhkg, mziad, mzlon,
+    - mzord and mzsyd.
+    required: true
+  target_hostname:
+    description:
+    - One of `target_hostname` and `target_alias` is required. The hostname this
+    - check should target. Must be a valid IPv4, IPv6, or FQDN.
+    default: null
+  target_alias:
+    description:
+    - One of `target_alias` and `target_hostname` is required. Use the corresponding
+    - key in the entity's `ip_addresses` hash to resolve an IP address to target.
+    default: null
+  details:
+    description:
+    - Additional details specific to the check type. Must be a hash of strings
+    - between 1 and 255 characters long, or an array or object containing 0 to 256
+    - items.
+  disabled:
+    description:
+    - Keep the check created, but don't actually use it yet. Boolean.
+    default: False
+  metadata:
+    description:
+    - Hash of arbitrary key-value pairs to accompany this check if it fires.
+    - Keys and values must be strings between 1 and 255 characters long.
+    default: null
+  period:
+    description:
+    - Period in seconds for the check.
+    - Must be greater than the minimum period set on your account.
+    default: null
+  timeout:
+    description:
+    - Timeout in seconds for the check.
+    - Must be less than the period.
+    default: null
+'''
+
+EXAMPLES = '''
+- name: Create a monitoring check
+  gather_facts: False
+  hosts: local
+  connection: local
+  tasks:
+  - name: Associate a check with an existing entity.
+    rax_mon_check:
+      credentials: ~/.rax_pub
+      entity_id: "{{ the_entity.id }}"
+      label: ping-check
+      check_type: remote.ping
+      monitoring_zones_poll: mziad,mzord,mzdfw
+      details:
+        count: 10
+      meta:
+        hurf: durf
+    register: check
+'''
+
+try:
+    import pyrax
+    HAS_PYRAX = True
+except ImportError:
+    HAS_PYRAX = False
+
+def cloud_check(module, label, check_type, monitoring_zones_poll,
+                target_hostname, target_alias, details, disabled, metadata,
+                period, timeout):
+    pass
+
+def main():
+    argument_spec = rax_argument_spec()
+    argument_spec.update(
+        dict(
+            entity_id=dict(),
+            label=dict(),
+            check_type=dict(),
+            monitoring_zones_poll=dict(),
+            target_hostname=dict(),
+            target_alias=dict(),
+            details=dict(type='dict', default={}),
+            disabled=dict(type='boolean', default=False),
+            metadata=dict(type='dict', default={}),
+            period=dict(type='int'),
+            timeout=dict(type='int')
+        )
+    )
+
+    module = AnsibleModule(
+        argument_spec=argument_spec,
+        required_together=rax_required_together()
+    )
+
+    if not HAS_PYRAX:
+        module.fail_json(msg='pyrax is required for this module')
+
+    name = module.params.get('name')
+    agent_id = module.params.get('agent_id')
+    named_ip_addresses = module.params.get('named_ip_addresses')
+    meta = module.params.get('meta')
+
+    setup_rax_module(module, pyrax)
+
+    cloud_monitoring(module, name, agent_id, named_ip_addresses, meta)
+
+# Import module snippets
+from ansible.module_utils.basic import *
+from ansible.module_utils.rax import *
+
+# Invoke the module.
+main()
