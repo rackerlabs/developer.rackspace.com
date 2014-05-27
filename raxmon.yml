@@ -1,0 +1,26 @@
+# This is a temporary playbook to test out the monitoring bits.
+#
+# Don't merge while this is still here!
+---
+- hosts: all
+  connection: local
+  gather_facts: false
+  tasks:
+
+  - name: create a monitoring entity
+    rax_mon_entity:
+      credentials: ~/.rackspace_cloud_credentails
+      name: entilicious
+      named_ip_addresses:
+        thing: 200.0.0.1
+      metadata:
+        hurf: durf
+    register: ent
+
+  - name: add a check
+    rax_mon_check:
+      credentials: ~/.rackspace_cloud_credentials
+      entity_id: "{{ ent.id }}"
+      label: pinger
+      check_type: remote.ping
+      monitoring_zones_poll: mziad
