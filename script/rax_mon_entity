@@ -113,7 +113,7 @@ def cloud_monitoring(module, name, agent_id, named_ip_addresses, meta):
                 changed = True
 
     except Exception, e:
-        module.fail_json(msg='%s' % e.message)
+        module.fail_json(msg=e.message)
 
     entity_dict = {
         "id": entity.id,
