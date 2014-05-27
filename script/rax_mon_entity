@@ -56,14 +56,14 @@ try:
 except ImportError:
     HAS_PYRAX = False
 
-def cloud_monitoring(module, name, agent_id, named_ip_addresses, meta):
+def cloud_monitoring(module, name, agent_id, named_ip_addresses, metadata):
     if not name:
         module.fail_json(msg='name is required for rax_mon_entity')
 
     if len(name) < 1 or len(name) > 255:
         module.fail_json(msg='name must be between 1 and 255 characters long')
 
-    # TODO validate named_ip_addresses and meta
+    # TODO validate named_ip_addresses and metadata
 
     changed = False
 
@@ -90,21 +90,21 @@ def cloud_monitoring(module, name, agent_id, named_ip_addresses, meta):
     try:
         if state == 'present':
             if entity:
-                if named_ip_addresses && named_ip_addresses != only.named_ip_addresses:
+                if named_ip_addresses and named_ip_addresses != only.named_ip_addresses:
                     module.fail_json(msg='IP addresses can not be updated through pyrax.')
 
                 # Change an existing Entity, unless there's nothing to do.
-                different = agent_id && agent_id != only.agent_id
-                different = different || (meta && meta != only.meta)
+                different = agent_id and agent_id != only.agent_id
+                different = different or (metadata and metadata != only.metadata)
 
                 if different:
-                    existing.update(agent_id, meta)
+                    existing.update(agent_id, metadata)
                     changed = True
             else:
                 # Create a new Entity.
                 entity = cm.create(name=name, agent=agent_id,
                                    ip_addresses=named_ip_addresses,
-                                   metadata=meta)
+                                   metadata=metadata)
                 changed = True
         elif state == 'absent':
             if entity:
@@ -128,8 +128,8 @@ def main():
         dict(
             name=dict(),
             agent_id=dict(),
-            named_ip_addresses=dict(type='dict', default={})
-            meta=dict(type='dict', default={})
+            named_ip_addresses=dict(type='dict', default={}),
+            metadata=dict(type='dict', default={})
         )
     )
 
@@ -144,11 +144,11 @@ def main():
     name = module.params.get('name')
     agent_id = module.params.get('agent_id')
     named_ip_addresses = module.params.get('named_ip_addresses')
-    meta = module.params.get('meta')
+    metadata = module.params.get('metadata')
 
     setup_rax_module(module, pyrax)
 
-    cloud_monitoring(module, name, agent_id, named_ip_addresses, meta)
+    cloud_monitoring(module, name, agent_id, named_ip_addresses, metadata)
 
 # Import module snippets
 from ansible.module_utils.basic import *
