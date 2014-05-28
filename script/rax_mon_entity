@@ -56,7 +56,8 @@ try:
 except ImportError:
     HAS_PYRAX = False
 
-def cloud_monitoring(module, name, agent_id, named_ip_addresses, metadata):
+def cloud_monitoring(module, state, name, agent_id, named_ip_addresses,
+                     metadata):
     if not name:
         module.fail_json(msg='name is required for rax_mon_entity')
 
@@ -73,12 +74,12 @@ def cloud_monitoring(module, name, agent_id, named_ip_addresses, metadata):
                              'indicates an invalid region or an incorrectly '
                              'capitalized region name.')
 
-    all = []
+    existing = []
     for entity in cm.list_entities():
         if name == entity.name:
-            all.append(entity)
+            existing.append(entity)
 
-    if len(all) > 1:
+    if len(existing) > 1:
         module.fail_json(msg='Multiple entities were matched by name. Try using'
                              'the entity ID instead.')
 
@@ -87,33 +88,31 @@ def cloud_monitoring(module, name, agent_id, named_ip_addresses, metadata):
     if existing:
         entity = existing[0]
 
-    try:
-        if state == 'present':
-            if entity:
-                if named_ip_addresses and named_ip_addresses != only.named_ip_addresses:
-                    module.fail_json(msg='IP addresses can not be updated through pyrax.')
+    if state == 'present':
+        if entity:
+            if named_ip_addresses and named_ip_addresses != only.named_ip_addresses:
+                module.fail_json(msg='IP addresses can not be updated through pyrax.')
 
-                # Change an existing Entity, unless there's nothing to do.
-                different = agent_id and agent_id != only.agent_id
-                different = different or (metadata and metadata != only.metadata)
+            # Change an existing Entity, unless there's nothing to do.
+            different = agent_id and agent_id != only.agent_id
+            different = different or (metadata and metadata != only.metadata)
 
-                if different:
-                    existing.update(agent_id, metadata)
-                    changed = True
-            else:
-                # Create a new Entity.
-                entity = cm.create(name=name, agent=agent_id,
-                                   ip_addresses=named_ip_addresses,
-                                   metadata=metadata)
+            if different:
+                entity.update(agent_id, metadata)
                 changed = True
-        elif state == 'absent':
-            if entity:
-                # Delete the existing Entity.
-                entity.delete()
-                changed = True
-
-    except Exception, e:
-        module.fail_json(msg=e.message)
+        else:
+            # Create a new Entity.
+            entity = cm.create_entity(name=name, agent=agent_id,
+                                      ip_addresses=named_ip_addresses,
+                                      metadata=metadata)
+            changed = True
+    elif state == 'absent':
+        if entity:
+            # Delete the existing Entity.
+            entity.delete()
+            changed = True
+    else:
+        module.fail_json(msg='state must be present or absent')
 
     entity_dict = {
         "id": entity.id,
@@ -126,6 +125,7 @@ def main():
     argument_spec = rax_argument_spec()
     argument_spec.update(
         dict(
+            state=dict(default='present'),
             name=dict(),
             agent_id=dict(),
             named_ip_addresses=dict(type='dict', default={}),
@@ -141,6 +141,8 @@ def main():
     if not HAS_PYRAX:
         module.fail_json(msg='pyrax is required for this module')
 
+    state = module.params.get('state')
+
     name = module.params.get('name')
     agent_id = module.params.get('agent_id')
     named_ip_addresses = module.params.get('named_ip_addresses')
@@ -148,7 +150,7 @@ def main():
 
     setup_rax_module(module, pyrax)
 
-    cloud_monitoring(module, name, agent_id, named_ip_addresses, metadata)
+    cloud_monitoring(module, state, name, agent_id, named_ip_addresses, metadata)
 
 # Import module snippets
 from ansible.module_utils.basic import *
