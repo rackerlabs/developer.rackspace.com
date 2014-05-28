@@ -20,7 +20,7 @@
   - name: add a check
     rax_mon_check:
       credentials: ~/.rackspace_cloud_credentials
-      entity_id: "{{ ent.id }}"
+      entity_id: "{{ ent['entity']['id'] }}"
       label: pinger
       check_type: remote.ping
       monitoring_zones_poll: mziad
