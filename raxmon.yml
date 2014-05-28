@@ -9,7 +9,7 @@
 
   - name: create a monitoring entity
     rax_mon_entity:
-      credentials: ~/.rackspace_cloud_credentails
+      credentials: ~/.rackspace_cloud_credentials
       name: entilicious
       named_ip_addresses:
         thing: 200.0.0.1
