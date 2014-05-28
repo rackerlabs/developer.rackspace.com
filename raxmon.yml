@@ -24,3 +24,4 @@
       label: pinger
       check_type: remote.ping
       monitoring_zones_poll: mziad
+      target_hostname: 200.0.0.1

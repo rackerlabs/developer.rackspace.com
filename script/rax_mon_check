@@ -48,35 +48,44 @@ options:
     description:
     - One of `target_hostname` and `target_alias` is required. The hostname this
     - check should target. Must be a valid IPv4, IPv6, or FQDN.
+    required: false
     default: null
   target_alias:
     description:
     - One of `target_alias` and `target_hostname` is required. Use the corresponding
     - key in the entity's `ip_addresses` hash to resolve an IP address to target.
+    required: false
     default: null
   details:
     description:
     - Additional details specific to the check type. Must be a hash of strings
     - between 1 and 255 characters long, or an array or object containing 0 to 256
     - items.
+    required: false
+    default: nulls
   disabled:
     description:
-    - Keep the check created, but don't actually use it yet. Boolean.
-    default: False
+    - Keep the check created, but don't actually use it yet.
+    required: false
+    choices: [ "yes", "no" ]
+    default: "no"
   metadata:
     description:
     - Hash of arbitrary key-value pairs to accompany this check if it fires.
     - Keys and values must be strings between 1 and 255 characters long.
+    required: false
     default: null
   period:
     description:
     - Period in seconds for the check.
     - Must be greater than the minimum period set on your account.
+    required: false
     default: null
   timeout:
     description:
     - Timeout in seconds for the check.
     - Must be less than the period.
+    required: false
     default: null
 '''
 
@@ -89,7 +98,7 @@ EXAMPLES = '''
   - name: Associate a check with an existing entity.
     rax_mon_check:
       credentials: ~/.rax_pub
-      entity_id: "{{ the_entity.id }}"
+      entity_id: "{{ the_entity['entity']['id'] }}"
       label: ping-check
       check_type: remote.ping
       monitoring_zones_poll: mziad,mzord,mzdfw
@@ -106,9 +115,9 @@ try:
 except ImportError:
     HAS_PYRAX = False
 
-def cloud_check(module, entity_id, label, check_type, monitoring_zones_poll,
-                target_hostname, target_alias, details, disabled, metadata,
-                period, timeout):
+def cloud_check(module, state, entity_id, label, check_type,
+                monitoring_zones_poll, target_hostname, target_alias, details,
+                disabled, metadata, period, timeout):
 
     # Verify the presence of required attributes.
 
@@ -121,7 +130,7 @@ def cloud_check(module, entity_id, label, check_type, monitoring_zones_poll,
         if not value:
             module.fail_json(msg=('%s is required for rax_mon_check' % key))
 
-    if not target_hostname && not target_alias:
+    if not target_hostname and not target_alias:
         module.fail_json(msg='either target_hostname or target_alias are required')
 
     changed = False
@@ -155,13 +164,13 @@ def cloud_check(module, entity_id, label, check_type, monitoring_zones_poll,
 
                 # TODO make sure that all of these attributes actually match
                 # after being round-tripped through the UI.
-                different = label != check.label ||
-                    target_hostname != check.target_hostname ||
-                    target_alias != check.target_alias ||
-                    disabled != check.disabled ||
-                    metadata != check.metadata ||
-                    period != check.period ||
-                    timeout != check.timeout ||
+                different = label != check.label or \
+                    target_hostname != check.target_hostname or \
+                    target_alias != check.target_alias or \
+                    disabled != check.disabled or \
+                    metadata != check.metadata or \
+                    period != check.period or \
+                    timeout != check.timeout or \
                     monitoring_zones_poll != check.monitoring_zones_poll
 
                 if different:
@@ -185,7 +194,7 @@ def cloud_check(module, entity_id, label, check_type, monitoring_zones_poll,
                                         metadata=metadata,
                                         period=period,
                                         timeout=timeout)
-                 changed = True
+                changed = True
         elif state == 'absent':
             if check:
                 check.delete()
@@ -206,10 +215,11 @@ def main():
             target_hostname=dict(),
             target_alias=dict(),
             details=dict(type='dict', default={}),
-            disabled=dict(type='boolean', default=False),
+            disabled=dict(default='no'),
             metadata=dict(type='dict', default={}),
             period=dict(type='int'),
-            timeout=dict(type='int')
+            timeout=dict(type='int'),
+            state=dict(default='present')
         )
     )
 
@@ -221,14 +231,26 @@ def main():
     if not HAS_PYRAX:
         module.fail_json(msg='pyrax is required for this module')
 
-    name = module.params.get('name')
-    agent_id = module.params.get('agent_id')
-    named_ip_addresses = module.params.get('named_ip_addresses')
-    meta = module.params.get('meta')
+    entity_id = module.params.get('entity_id')
+    label = module.params.get('label')
+    check_type = module.params.get('check_type')
+    monitoring_zones_poll = module.params.get('monitoring_zones_poll')
+    target_hostname = module.params.get('target_hostname')
+    target_alias = module.params.get('target_alias')
+    details = module.params.get('details')
+    disabled = module.params.get('disabled')
+    metadata = module.params.get('metadata')
+    period = module.params.get('period')
+    timeout = module.params.get('timeout')
+
+    state = module.params.get('state')
 
     setup_rax_module(module, pyrax)
 
-    cloud_monitoring(module, name, agent_id, named_ip_addresses, meta)
+    cloud_check(module, state, entity_id, label, check_type,
+                monitoring_zones_poll, target_hostname, target_alias, details,
+                disabled, metadata, period, timeout)
+
 
 # Import module snippets
 from ansible.module_utils.basic import *
