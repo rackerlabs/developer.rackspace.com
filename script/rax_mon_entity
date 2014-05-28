@@ -90,12 +90,12 @@ def cloud_monitoring(module, state, name, agent_id, named_ip_addresses,
 
     if state == 'present':
         if entity:
-            if named_ip_addresses and named_ip_addresses != only.named_ip_addresses:
+            if named_ip_addresses and named_ip_addresses != entity.ip_addresses:
                 module.fail_json(msg='IP addresses can not be updated through pyrax.')
 
             # Change an existing Entity, unless there's nothing to do.
-            different = agent_id and agent_id != only.agent_id
-            different = different or (metadata and metadata != only.metadata)
+            different = agent_id and agent_id != entity.agent_id
+            different = different or (metadata and metadata != entity.metadata)
 
             if different:
                 entity.update(agent_id, metadata)
@@ -117,7 +117,7 @@ def cloud_monitoring(module, state, name, agent_id, named_ip_addresses,
     entity_dict = {
         "id": entity.id,
         "name": entity.name,
-        "agent_id": entity.agent,
+        "agent_id": entity.agent_id,
     }
     module.exit_json(changed=changed, entity=entity_dict)
 
