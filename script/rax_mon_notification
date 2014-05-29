@@ -138,7 +138,7 @@ def main():
 
     state = module.params.get('state')
 
-    label = module.params.get('name')
+    label = module.params.get('label')
     notification_type = module.params.get('notification_type')
     details = module.params.get('details')
 

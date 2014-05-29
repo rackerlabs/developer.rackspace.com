@@ -26,3 +26,12 @@
       monitoring_zones_poll: mziad
       target_alias: azurefire
       disabled: no
+
+  - name: create a notification
+    rax_mon_notification:
+      credentials: ~/.rackspace_cloud_credentials
+      label: callme
+      notification_type: email
+      details:
+        address: smashwilson@gmail.com
+      state: present
