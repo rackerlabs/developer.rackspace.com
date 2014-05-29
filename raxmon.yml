@@ -26,6 +26,7 @@
       monitoring_zones_poll: mziad
       target_alias: azurefire
       disabled: no
+    register: checkeroo
 
   - name: create a notification
     rax_mon_notification:
@@ -34,4 +35,13 @@
       notification_type: email
       details:
         address: smashwilson@gmail.com
+      state: present
+    register: callme
+
+  - name: create a notification plan
+    rax_mon_notification_plan:
+      credentials: ~/.rackspace_cloud_credentials
+      label: defcon1
+      critical_state:
+      - "{{ callme['notification']['id'] }}"
       state: present

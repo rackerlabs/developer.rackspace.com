@@ -1,0 +1,162 @@
+#!/usr/bin/python
+#
+# This is a module in development for Ansible.
+
+DOCUMENTATION = '''
+module: rax_mon_notification_plan
+short_description: create / delete a Rackspace Cloud Monitoring notification plan
+description:
+- create / delete a Rackspace Cloud Monitoring notification plan.
+version_added: "1.6.2"
+options:
+  state:
+    description:
+    - Create or destroy the notification plan with this label.
+    choices: ['present', 'absent']
+    default: present
+  label:
+    description:
+    - Defines a friendly name for this notification plan. String between 1 and
+      255 characters long.
+    required: true
+  critical_state:
+    description:
+    - Notification list to use when the state is CRITICAL. Must be an array of
+      valid notification ids.
+    required: false
+    default: null
+  warning_state:
+    description:
+    - Notification list to use when the state is WARNING. Must be an array of
+      valid notification ids.
+    required: false
+    default: null
+  ok_state:
+    description:
+    - Notification list to use when the state is OK. Must be an array of valid
+      notification ids.
+    required: false
+    default: null
+'''
+
+EXAMPLES = '''
+- name: Create a monitoring notification plan
+  gather_facts: False
+  hosts: local
+  connection: local
+  tasks:
+  - name: Create a monitoring notification plan
+    rax_mon_notification_plan:
+      credentials: ~/.rax_pub
+      label: defcon1
+      critical_state: [ "{{ everyone['notification']['id'] }}" ]
+      warning_state: [ "{{ opsfloor['notification']['id'] }}" ]
+    register: notification_plan
+'''
+
+try:
+    import pyrax
+    HAS_PYRAX = True
+except ImportError:
+    HAS_PYRAX = False
+
+def notification_plan(module, state, label, critical_state, warning_state, ok_state):
+
+    if not label:
+        module.fail_json(msg='label is required for rax_mon_notification_plan')
+
+    if len(label) < 1 or len(label) > 255:
+        module.fail_json(msg='label must be between 1 and 255 characters long')
+
+    changed = False
+    notification_plan = None
+
+    cm = pyrax.cloud_monitoring
+    if not cm:
+        module.fail_json(msg='Failed to instantiate client. This typically '
+                             'indicates an invalid region or an incorrectly '
+                             'capitalized region name.')
+
+    existing = []
+    for n in cm.list_notification_plans():
+        if n.label == label:
+            existing.append(n)
+
+    if len(existing) > 1:
+        module.fail_json(msg='Multiple notification plans were matched by label.')
+
+    if existing:
+        notification_plan = existing[0]
+
+    if state == 'present':
+        should_create = False
+
+        if notification_plan:
+            different = (critical_state and critical_state != notification_plan.critical_state) or \
+                (warning_state and warning_state != notification_plan.warning_state) or \
+                (ok_state and ok_state != notification_plan.ok_state)
+
+            if different:
+                notification_plan.delete()
+                should_create = True
+        else:
+            should_create = True
+
+        notification = cm.create_notification_plan(label=label,
+                                                   critical_state=critical_state,
+                                                   warning_state=warning_state,
+                                                   ok_state=ok_state)
+        changed = True
+    elif state == 'absent':
+        if notification_plan:
+            notification.delete()
+            changed = True
+    else:
+        module.fail_json(msg='state must be either "present" or "absent"')
+
+    notification_plan_dict = {
+        "id": notification_plan.id,
+        "critical_state": notification_plan.critical_state,
+        "warning_state": notification_plan.warning_state,
+        "ok_state": notification_plan.ok_state,
+        "metadata": notification_plan.metadata
+    }
+    module.exit_json(changed=changed, notification_plan=notification_plan_dict)
+
+def main():
+    argument_spec = rax_argument_spec()
+    argument_spec.update(
+        dict(
+            state=dict(default='present'),
+            label=dict(),
+            critical_state=dict(type='list'),
+            warning_state=dict(type='list'),
+            ok_state=dict(type='list')
+        )
+    )
+
+    module = AnsibleModule(
+        argument_spec=argument_spec,
+        required_together=rax_required_together()
+    )
+
+    if not HAS_PYRAX:
+        module.fail_json(msg='pyrax is required for this module')
+
+    state = module.params.get('state')
+
+    label = module.params.get('label')
+    critical_state = module.params.get('critical_state')
+    warning_state = module.params.get('warning_state')
+    ok_state = module.params.get('ok_state')
+
+    setup_rax_module(module, pyrax)
+
+    notification_plan(module, state, label, critical_state, warning_state, ok_state)
+
+# Import module snippets
+from ansible.module_utils.basic import *
+from ansible.module_utils.rax import *
+
+# Invoke the module.
+main()
