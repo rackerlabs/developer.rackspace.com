@@ -133,6 +133,22 @@ def cloud_check(module, state, entity_id, label, check_type,
     if not target_hostname and not target_alias:
         module.fail_json(msg='either target_hostname or target_alias are required')
 
+    # Coerce attributes.
+
+    if disabled:
+        if not disabled in ('yes', 'no'):
+            module.fail_json(msg='disabled must be "yes" or "no"')
+        disabled = disabled == 'yes'
+
+    if not isinstance(monitoring_zones_poll, list):
+        monitoring_zones_poll = [monitoring_zones_poll]
+
+    if period:
+        period = int(period)
+
+    if timeout:
+        timeout = int(timeout)
+
     changed = False
     check = None
 
@@ -142,67 +158,76 @@ def cloud_check(module, state, entity_id, label, check_type,
                              'indicates an invalid region or an incorrectly '
                              'capitalized region name.')
 
-    try:
-        entity = cm.get_entity(entity_id)
-        if not entity:
-            module.fail_json(msg='Failed to instantiate entity. "%s" may not be'
-                                 ' a valid entity id.' % entity_id)
+    entity = cm.get_entity(entity_id)
+    if not entity:
+        module.fail_json(msg='Failed to instantiate entity. "%s" may not be'
+                             ' a valid entity id.' % entity_id)
 
-        existing = entity.find_all_checks(entity, label=label)
-        if existing:
-            check = existing[0]
+    existing = [e for e in entity.list_checks() if e.label == label]
+    if existing:
+        check = existing[0]
 
-        if state == 'present':
-            if check:
-                if details != check.details:
-                    module.fail_json(msg='Check details cannot be updated at '
-                                         'this time.')
+    if state == 'present':
+        if check:
+            if details and details != check.details:
+                module.fail_json(msg='Check details cannot be updated at '
+                                     'this time.')
 
-                if check_type != check.check_type:
-                    module.fail_json(msg='Check type cannot be updated at '
-                                         'this time.')
+            # TODO make sure that all of these attributes actually match
+            # after being round-tripped through the UI.
+            different = label != check.label or \
+                (target_hostname and target_hostname != check.target_hostname) or \
+                (target_alias and target_alias != check.target_alias) or \
+                (disabled != check.disabled) or \
+                (metadata and metadata != check.metadata) or \
+                (period and period != check.period) or \
+                (timeout and timeout != check.timeout) or \
+                (monitoring_zones_poll != check.monitoring_zones_poll)
 
-                # TODO make sure that all of these attributes actually match
-                # after being round-tripped through the UI.
-                different = label != check.label or \
-                    target_hostname != check.target_hostname or \
-                    target_alias != check.target_alias or \
-                    disabled != check.disabled or \
-                    metadata != check.metadata or \
-                    period != check.period or \
-                    timeout != check.timeout or \
-                    monitoring_zones_poll != check.monitoring_zones_poll
-
-                if different:
-                    check.update(label=label,
-                                 disabled=disabled,
-                                 metadata=metadata,
-                                 monitoring_zones_poll=monitoring_zones_poll,
-                                 timeout=timeout,
-                                 period=period,
-                                 target_alias=target_alias,
-                                 target_hostname=target_hostname)
-                    changed = True
-            else:
-                check = cm.create_check(entity,
-                                        label=label,
-                                        check_type=check_type,
-                                        target_hostname=target_hostname,
-                                        target_alias=target_alias,
-                                        details=details,
-                                        disabled=disabled,
-                                        metadata=metadata,
-                                        period=period,
-                                        timeout=timeout)
-                changed = True
-        elif state == 'absent':
-            if check:
-                check.delete()
+            if different:
+                check.update(label=label,
+                             disabled=disabled,
+                             metadata=metadata,
+                             monitoring_zones_poll=monitoring_zones_poll,
+                             timeout=timeout,
+                             period=period,
+                             target_alias=target_alias,
+                             target_hostname=target_hostname)
                 changed = True
         else:
-            module.fail_json(msg='state must be either present or absent.')
-    except Exception, e:
-        module.fail_json(msg=e.message)
+            check = cm.create_check(entity,
+                                    label=label,
+                                    check_type=check_type,
+                                    target_hostname=target_hostname,
+                                    target_alias=target_alias,
+                                    monitoring_zones_poll=monitoring_zones_poll,
+                                    details=details,
+                                    disabled=disabled,
+                                    metadata=metadata,
+                                    period=period,
+                                    timeout=timeout)
+            changed = True
+    elif state == 'absent':
+        if check:
+            check.delete()
+            changed = True
+    else:
+        module.fail_json(msg='state must be either present or absent.')
+
+    check_dict = {
+        "id": check.id,
+        "label": check.label,
+        "type": check.type,
+        "target_hostname": check.target_hostname,
+        "target_alias": check.target_alias,
+        "monitoring_zones_poll": check.monitoring_zones_poll,
+        "details": check.details,
+        "disabled": check.disabled,
+        "metadata": check.metadata,
+        "period": check.period,
+        "timeout": check.timeout
+    }
+    module.exit_json(changed=changed, check=check_dict)
 
 def main():
     argument_spec = rax_argument_spec()

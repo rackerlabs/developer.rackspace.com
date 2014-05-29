@@ -12,7 +12,7 @@
       credentials: ~/.rackspace_cloud_credentials
       name: entilicious
       named_ip_addresses:
-        thing: 200.0.0.1
+        azurefire: 162.242.253.70
       metadata:
         hurf: durf
     register: ent
@@ -24,4 +24,5 @@
       label: pinger
       check_type: remote.ping
       monitoring_zones_poll: mziad
-      target_hostname: 200.0.0.1
+      target_alias: azurefire
+      disabled: no
