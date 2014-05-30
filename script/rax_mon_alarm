@@ -117,7 +117,7 @@ def alarm(module, state, label, entity_id, check_id, notification_plan_id, crite
                              'indicates an invalid region or an incorrectly '
                              'capitalized region name.')
 
-    existing = [a for a in entity.list_alarms() if a.label == label]
+    existing = [a for a in cm.list_alarms(entity_id) if a.label == label]
 
     if len(existing) > 1:
         module.fail_json(msg='There is more than one alarm with the label %s.' % label)
@@ -175,6 +175,7 @@ def main():
         dict(
             state=dict(default='present'),
             label=dict(),
+            entity_id=dict(),
             check_id=dict(),
             notification_plan_id=dict(),
             criteria=dict(),
