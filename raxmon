@@ -1,3 +1,3 @@
 #!/bin/bash
 
-ansible-playbook -i ./raxmon.inv -M script raxmon.yml -v
+ansible-playbook -i ./raxmon.inv -M script/modules raxmon.yml -v
