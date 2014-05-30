@@ -45,3 +45,13 @@
       critical_state:
       - "{{ callme['notification']['id'] }}"
       state: present
+    register: defcon1
+
+  - name: create an alarm
+    rax_mon_alarm:
+      credentials: ~/.rackspace_cloud_credentials
+      label: ohnooo
+      entity_id: "{{ ent['entity']['id'] }}"
+      check_id: "{{ checkeroo['check']['id'] }}"
+      notification_plan_id: "{{ defcon1['notification_plan']['id'] }}"
+      criteria: if (rate(metric['average']) > 10) { return new AlarmStatus(CRITICAL); } return new AlarmStatus(OK);
