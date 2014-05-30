@@ -1,0 +1,110 @@
+---
+- name: Create monitoring entities for both webservers
+  local_action:
+    rax_mon_entity:
+      credentials: ~/.rackspace_cloud_credentials
+      state: present
+      name: entity_{{ ansible_hostname }}
+      named_ip_addresses:
+        webserver: "{{ ansible_ip_address }}"
+    with_items: rax.success
+  register: entity
+
+- name: Create a check on port 80
+  local_action:
+    rax_mon_check:
+      credentials: ~/.rackspace_cloud_credentials
+      state: present
+      label: tcp_check_80
+      check_type: remote.tcp
+      details:
+        port: 80
+      monitoring_zones_poll: "{{ monitoring_zones }}"
+      target_alias: webserver
+  register: tcp_check_80
+
+- name: Create a check on index.html
+  local_action:
+    rax_mon_check:
+      credentials: ~/.rackspace_cloud_credentials
+      state: present
+      label: http_check_index
+      check_type: remote.http
+      details:
+        url: http://{{ ansible_hostname }}/
+        body: <h1>Welcome to the Rackspace Developer Center!</h1>
+      monitoring_zones_poll: "{{ monitoring_zones }}"
+      target_alias: webserver
+  register: http_check_index
+
+- name: Create a check on the blog index page
+  local_action:
+    rax_mon_check:
+      credentials: ~/.rackspace_cloud_credentials
+      state: present
+      label: http_check_blog
+      check_type: remote.http
+      details:
+        url: http://{{ ansible_hostname }}/blog/
+        body: <span class="highlight-blue">Devops</span>
+      monitoring_zones_poll: "{{ monitoring_zones }}"
+      target_alias: webserver
+  register: http_check_blog
+
+- name: Create a check on the SDK index page
+  local_action:
+    rax_mon_check:
+      credentials: ~/.rackspace_cloud_credentials
+      state: present
+      label: http_check_sdk
+      check_type: remote.http
+      details:
+        url: http://{{ ansible_hostname }}/sdks/
+        body: <span class="headline">SDKs & Tools</span>
+      monitoring_zones_poll: "{{ monitoring_zones }}"
+      target_alias: webserver
+  register: http_check_sdk
+
+- name: First-tier notification.
+  local_action:
+    rax_mon_notification:
+      credentials: ~/.rackspace_cloud_credentials
+      state: present
+      label: first_tier
+      notification_type: email
+      details:
+        address: ash.wilson@rackspace.com
+  register: first_tier
+
+- name: Second-tier notification.
+  local_action:
+    rax_mon_notification:
+      credentials: ~/.rackspace_cloud_credentials
+      state: present
+      label: second_tier
+      notification_type: email
+      details:
+        address: kyle.kelley@rackspace.com
+  register: second_tier
+
+- name: Create a notification plan.
+  local_action:
+    rax_mon_notification_plan:
+      credentials: ~/.rackspace_cloud_credentials
+      state: present
+      label: escalation_station
+      warning_state:
+      - "{{ first_tier['notification']['id'] }}"
+      critical_state:
+      - "{{ second_tier['notification']['id'] }}"
+  register: escalation_station
+
+- name: Trigger an alarm when port 80 doesn't respond.
+  local_action:
+    rax_mon_alarm:
+      credentials: ~/.rackspace_cloud_credentials
+      state: present
+      label: port_80_is_down
+      entity_id: "{{ entity['entity']['id'] }}"
+      check_id: "{{ tcp_check_80['check']['id'] }}"
+      notification_plan_id: "{{ escalation_station['notification_plan']['id'] }}"

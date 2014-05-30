@@ -1,0 +1,5 @@
+---
+monitoring_zones:
+- mzdfw
+- mziad
+- mzord
