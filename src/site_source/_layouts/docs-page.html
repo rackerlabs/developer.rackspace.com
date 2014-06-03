@@ -26,13 +26,18 @@ layout: default
 </div>
 <div class="container body-container">
   <div class="row">
-    <div class="col-md-3 sidebar">
+    <div class="col-md-3 sidebar visible-md visible-lg">
       {% include docs-sidebar.html %}
 
       {% include sidebar-footer.html %}
     </div>
     <div class="col-md-9 docs-content bodycontent">
       {{ content }}
+    </div>
+    <div class="col-md-3 sidebar visible-sm visible-xs">
+      {% include docs-sidebar.html %}
+
+      {% include sidebar-footer.html %}
     </div>
   </div>
 </div>
