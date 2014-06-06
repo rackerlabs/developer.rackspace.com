@@ -107,5 +107,3 @@
     ?temp_url_sig=5c4cc8886f36a9d0919d708ade98bf0cc71c9e91\
     &temp_url_expires=1374497657
 
-  # NOTE: {arbitraryKey}, {containerName}, and {objectName} are placeholders:
-  # Replace them with actual values and do not enclose them with {}.
