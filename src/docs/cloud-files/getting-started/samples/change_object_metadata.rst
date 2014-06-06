@@ -47,5 +47,3 @@
     -H "Content-Type: application/json" \
     -H "X-Object-Meta-Some-Key: some-value"
 
-  # NOTE: {containerName} and {objectName} are placeholders: Replace them
-  # with actual values and do not enclose them with {}.

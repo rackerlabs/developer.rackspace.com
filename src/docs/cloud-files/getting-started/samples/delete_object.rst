@@ -29,5 +29,3 @@
   curl -i -X DELETE $ENDPOINT/{containerName}/{objectName} \
     -H "X-Auth-Token: $TOKEN"
 
-  # NOTE: {containerName} and {objectName} are placeholders: Replace them
-  # with actual values and do not enclose them with {}.

@@ -4,25 +4,16 @@ Quickstart for Cloud Files
 ==========================
 Rackspace offers a flexible and scalable solution to object storage through its Cloud Files service. 
 
-The core storage system is designed to provide a secure, network-accessible way to store an unlimited number of files. 
-Files that exceed 5 GB in size are broken down into segments of 5 GB or less. 
-For example, if you need to store large files such as videos, HD movies, or
-backups, Cloud Files accomplishes this by enabling you to upload multiple file segments
-and a manifest file to map those segments together. 
-Large files are then downloaded as
-a single file. You can store as much as you want and pay only for storage space that you
-actually use.
+The core storage system is designed to provide a secure, network-accessible way to store an unlimited number of files. You can store as much as you want and pay only for storage space that you actually use.
 
-Cloud Files also provides a simple yet powerful way to publish and distribute content
-behind a content delivery network (CDN). As a Cloud Files user, you get access to this
-network automatically.
+Cloud Files also provides a simple yet powerful way to publish and distribute content behind a content delivery network (CDN). As a Cloud Files user, you get access to this network automatically.
 
 Concepts
 ========
 To use this service effectively, you should understand how these key ideas are used in this context:
 
 CDN (Content Delivery Network)
-    A network of high-availability servers delivering content to users. Cloud Files uses the Akamai CDN.
+    A highly available network for delivering content to users. Cloud Files uses the Akamai CDN.
 
 container
     A storage compartment that provides a way for you to organize your data.
