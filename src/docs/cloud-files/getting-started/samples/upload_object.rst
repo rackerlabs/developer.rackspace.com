@@ -65,6 +65,3 @@
     -H "X-Auth-Token: $TOKEN" \
     -H "Content-Type: image/jpeg" \
     -H "Content-Length: 0"
-
-  # NOTE: {containerName} and {objectName} are placeholders: Replace
-  # them with actual values and do not enclose them with {}.

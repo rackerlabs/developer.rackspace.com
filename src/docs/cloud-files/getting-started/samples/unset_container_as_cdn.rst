@@ -32,5 +32,3 @@
     -H "X-Auth-Token: $TOKEN" \
     -H "X-CDN-Enabled: False"
 
-  # NOTE: {containerName} is a placeholder: Replace it with
-  # an actual value and do not enclose it with {}.
