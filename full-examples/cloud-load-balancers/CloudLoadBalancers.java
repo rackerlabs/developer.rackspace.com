@@ -3,7 +3,10 @@ import static org.jclouds.rackspace.cloudloadbalancers.v1.domain.VirtualIP.Type.
 import static org.jclouds.rackspace.cloudloadbalancers.v1.domain.internal.BaseLoadBalancer.Algorithm.RANDOM;
 import static org.jclouds.rackspace.cloudloadbalancers.v1.domain.internal.BaseNode.Condition.DISABLED;
 import static org.jclouds.rackspace.cloudloadbalancers.v1.domain.internal.BaseNode.Condition.ENABLED;
+import static org.jclouds.rackspace.cloudloadbalancers.v1.predicates.LoadBalancerPredicates.awaitAvailable;
+import static org.jclouds.rackspace.cloudloadbalancers.v1.predicates.LoadBalancerPredicates.awaitDeleted;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeoutException;
@@ -30,7 +33,6 @@ import org.jclouds.rackspace.cloudloadbalancers.v1.features.ErrorPageApi;
 import org.jclouds.rackspace.cloudloadbalancers.v1.features.HealthMonitorApi;
 import org.jclouds.rackspace.cloudloadbalancers.v1.features.LoadBalancerApi;
 import org.jclouds.rackspace.cloudloadbalancers.v1.features.NodeApi;
-import org.jclouds.rackspace.cloudloadbalancers.v1.predicates.LoadBalancerPredicates;
 
 import com.google.common.base.Function;
 import com.google.common.collect.ImmutableList;
@@ -39,203 +41,201 @@ import com.google.common.collect.Sets;
 import com.google.common.io.Closeables;
 
 public class CloudLoadBalancers {
-   public static final String PROVIDER = System.getProperty("provider", "rackspace-cloudloadbalancers-us");
-   public static final String ZONE = System.getProperty("region", "IAD");
+    // The jclouds Provider for the Rackspace Cloud Block Storage US cloud service. It contains information
+    // about the cloud service API and specific instantiation values, such as the endpoint URL.
+    public static final String PROVIDER = System.getProperty("provider", "rackspace-cloudloadbalancers-us");
+    // jclouds refers to "regions" as "zones"
+    public static final String REGION = System.getProperty("region", "IAD");
+    // Authentication credentials
+    public static final String USERNAME = System.getProperty("username", "{username}");
+    public static final String API_KEY = System.getProperty("apikey", "{apiKey}");
 
-   public static final String LOAD_BALANCER_NAME = System.getProperty("loadBalancerName", "sample_load_balancer");
-   public static final String SERVER_NAME = System.getProperty("serverName", "sample_server");
-   public static final String GROUP_NAME = System.getProperty("groupName", "group");
+    public static final String LOAD_BALANCER_NAME = System.getProperty("loadBalancerName", "sample-load-balancer");
+    public static final String SERVER_NAME = System.getProperty("serverName", "sample-server");
+    public static final String GROUP_NAME = System.getProperty("groupName", "group");
 
-   public static final String USERNAME = System.getProperty("username", "{username}");
-   public static final String API_KEY = System.getProperty("apikey", "{apiKey}");
-
-   private static ComputeService computeService;
-   private static CloudLoadBalancersApi clbApi;
-   private static LoadBalancerApi lbApi;
-   private static HealthMonitorApi hmApi;
-
-   public static void main(String[] args) throws Exception {
-       computeService = ContextBuilder.newBuilder("rackspace-cloudservers-us")
+    public static void main(String[] args) throws Exception {
+        ComputeService computeService = ContextBuilder.newBuilder("rackspace-cloudservers-us")
             .credentials(USERNAME, API_KEY)
             .buildView(ComputeServiceContext.class).getComputeService();
-      
-       clbApi = ContextBuilder.newBuilder(PROVIDER)
-           .credentials(USERNAME, API_KEY)
-           .buildApi(CloudLoadBalancersApi.class);
-       lbApi = clbApi.getLoadBalancerApiForZone(ZONE);
 
-       // create the server and load balancer nodes
-       Set<? extends NodeMetadata> serverNode = createServer();
-       Set<AddNode> loadBalancerNodes = createNodes(serverNode);
+        CloudLoadBalancersApi clbApi = ContextBuilder.newBuilder(PROVIDER)
+            .credentials(USERNAME, API_KEY)
+            .buildApi(CloudLoadBalancersApi.class);
 
-       // create a load balancer
-       LoadBalancer loadBalancer = createLoadBalancer(loadBalancerNodes);
+        // create the server and load balancer nodes
+        Set<? extends NodeMetadata> serverNode = createServer(computeService);
+        Set<AddNode> loadBalancerNodes = createNodes(serverNode);
 
-       // create a health monitor
-       createHealthMonitor(loadBalancer);
-       HealthMonitor healthMonitor = getHealthMonitor(loadBalancer);
+        // create a load balancer
+        LoadBalancer loadBalancer = createLoadBalancer(clbApi, loadBalancerNodes);
 
-       // set load balancer features
-       setThrottling(loadBalancer);
-       blacklistIPs(loadBalancer);
-       enableContentCaching(loadBalancer);
-       setCustomErrorPage(loadBalancer);
+        // create a health monitor
+        createHealthMonitor(clbApi, loadBalancer);
+        HealthMonitor healthMonitor = getHealthMonitor(clbApi, loadBalancer);
 
-       // deleted the nodes, load balancer and server
-       deleteNodes(loadBalancer);
-       deleteLoadBalancer(loadBalancer);
-       deleteServer();
+        // set load balancer features
+        setThrottling(clbApi, loadBalancer);
+        blacklistIPs(clbApi, loadBalancer);
+        enableContentCaching(clbApi, loadBalancer);
+        setCustomErrorPage(clbApi, loadBalancer);
 
-       Closeables.close(computeService.getContext(), true);
-       Closeables.close(clbApi, true);
+        // deleted the nodes, load balancer and server
+        deleteNodes(clbApi, loadBalancer);
+        deleteLoadBalancer(clbApi, loadBalancer);
+        deleteServer(computeService);
+
+        deleteResources(computeService, clbApi);
    }
 
-   public static Set<? extends NodeMetadata> createServer() throws RunNodesException {
-       ZoneAndId zoneAndId = ZoneAndId.fromZoneAndId(ZONE, "performance1-1");
-       Template template = computeService.templateBuilder()
-           .locationId(ZONE)
-           .osDescriptionMatches(".*Ubuntu 12.04.*")
-           .hardwareId(zoneAndId.slashEncode())
-           .build();
+    private static Set<? extends NodeMetadata> createServer(ComputeService computeService) throws RunNodesException {
+        ZoneAndId zoneAndId = ZoneAndId.fromZoneAndId(REGION, "performance1-1");
+        Template template = computeService.templateBuilder()
+            .locationId(REGION)
+            .osDescriptionMatches(".*Ubuntu 12.04.*")
+            .hardwareId(zoneAndId.slashEncode())
+            .build();
 
-       // This method will continue to poll for the server status and won't return until this server is ACTIVE
-       Set<? extends NodeMetadata> serverNode = computeService.createNodesInGroup(GROUP_NAME, 1, template);
+        // This method will continue to poll for the server status and won't return until this server is ACTIVE
+        Set<? extends NodeMetadata> serverNode = computeService.createNodesInGroup(GROUP_NAME, 1, template);
 
-       return serverNode;
-   }
+        return serverNode;
+    }
 
+    private static LoadBalancer createLoadBalancer(CloudLoadBalancersApi clbApi, Set<AddNode> addNodes) throws TimeoutException {
+        CreateLoadBalancer createLB = CreateLoadBalancer.builder()
+            .name(LOAD_BALANCER_NAME)
+            .protocol("HTTP")
+            .port(80)
+            .algorithm(RANDOM)
+            .nodes(addNodes)
+            .virtualIPType(PUBLIC)
+            .build();
 
-   public static LoadBalancer createLoadBalancer(Set<AddNode> addNodes) throws TimeoutException {
-       CreateLoadBalancer createLB = CreateLoadBalancer.builder()
-           .name(LOAD_BALANCER_NAME)
-           .protocol("HTTP")
-           .port(80)
-           .algorithm(RANDOM)
-           .nodes(addNodes)
-           .virtualIPType(PUBLIC)
-           .build();
+        LoadBalancerApi lbApi = clbApi.getLoadBalancerApiForZone(REGION);
+        LoadBalancer loadBalancer = lbApi.create(createLB);
 
-       LoadBalancer loadBalancer = lbApi.create(createLB);
+        // Wait for the Load Balancer to become Active before moving on
+        awaitAvailable(lbApi).apply(loadBalancer);
+        return loadBalancer;
+    }
 
-       // Wait for the Load Balancer to become Active before moving on
-       if (!LoadBalancerPredicates.awaitAvailable(lbApi).apply(loadBalancer)) {
-           throw new TimeoutException("Timeout on creating load balancer: " + loadBalancer);
-       }
+    private static Set<AddNode> createNodes(Set<? extends NodeMetadata> serverNodes) {
+        Set<AddNode> addLBNodes = Sets.newHashSet();
 
-       return loadBalancer;
-   }
+        AddNode node1 = AddNode.builder()
+            .address("10.180.1.1")
+            .condition(DISABLED)
+            .port(80)
+            .weight(20)
+            .build();
 
-   public static Set<AddNode> createNodes(Set<? extends NodeMetadata> serverNodes) {
-       Set<AddNode> addLBNodes = Sets.newHashSet();
+        AddNode node2 = AddNode.builder()
+            .address("10.180.1.2")
+            .condition(ENABLED)
+            .port(80)
+            .weight(20)
+            .build();
 
-       AddNode node1 = AddNode.builder()
-           .address("10.180.1.1")
-           .condition(DISABLED)
-           .port(80)
-           .weight(20)
-           .build();
+        addLBNodes.add(node1);
+        addLBNodes.add(node2);
+        for (NodeMetadata node : serverNodes) {
+            String privateAddress = node.getPrivateAddresses().iterator().next();
 
-       AddNode node2 = AddNode.builder()
-           .address("10.180.1.2")
-           .condition(ENABLED)
-           .port(80)
-           .weight(20)
-           .build();
+            AddNode addNode = AddNode.builder()
+                .address(privateAddress)
+                .condition(ENABLED)
+                .port(80)
+                .weight(20)
+                .build();
 
-       addLBNodes.add(node1);
-       addLBNodes.add(node2);
-       for (NodeMetadata node : serverNodes) {
-           String privateAddress = node.getPrivateAddresses().iterator().next();
+            addLBNodes.add(addNode);
+        }
 
-           AddNode addNode = AddNode.builder()
-               .address(privateAddress)
-               .condition(ENABLED)
-               .port(80)
-               .weight(20)
-               .build();
+        return addLBNodes;
+    }
 
-           addLBNodes.add(addNode);
-       }
+    private static void createHealthMonitor(CloudLoadBalancersApi clbApi, LoadBalancer loadBalancer) {
+        HealthMonitor healthMonitor = HealthMonitor.builder()
+            .type(HealthMonitor.Type.CONNECT)
+            .delay(3599)
+            .timeout(30)
+            .attemptsBeforeDeactivation(2)
+            .build();
 
-       return addLBNodes;
-   }
+        clbApi.getHealthMonitorApiForZoneAndLoadBalancer(REGION, loadBalancer.getId())
+            .createOrUpdate(healthMonitor);
+    }
 
-   public static void createHealthMonitor(LoadBalancer loadBalancer) {
-       HealthMonitor healthMonitor = HealthMonitor.builder()
-           .type(HealthMonitor.Type.CONNECT)
-           .delay(3599)
-           .timeout(30)
-           .attemptsBeforeDeactivation(2)
-           .build();
+    private static HealthMonitor getHealthMonitor(CloudLoadBalancersApi clbApi, LoadBalancer loadBalancer) {
+        HealthMonitorApi hmApi = clbApi.getHealthMonitorApiForZoneAndLoadBalancer(REGION, loadBalancer.getId());
+        HealthMonitor monitor = hmApi.get();
 
-       clbApi.getHealthMonitorApiForZoneAndLoadBalancer(ZONE, loadBalancer.getId())
-             .createOrUpdate(healthMonitor);
-   }
+        return monitor;
+    }
 
-   public static HealthMonitor getHealthMonitor(LoadBalancer loadBalancer) {
-       hmApi = clbApi.getHealthMonitorApiForZoneAndLoadBalancer(ZONE, loadBalancer.getId());
-       HealthMonitor monitor = hmApi.get();
+    private static void setThrottling(CloudLoadBalancersApi clbApi, LoadBalancer loadBalancer) {
+        ConnectionThrottle throttle = ConnectionThrottle.builder()
+            .maxConnectionRate(10000)
+            .maxConnections(5000)
+            .minConnections(2)
+            .rateInterval(5)
+            .build();
 
-       return monitor;
-   }
+        ConnectionApi connectionApi = clbApi.getConnectionApiForZoneAndLoadBalancer(REGION, loadBalancer.getId());
+        connectionApi.createOrUpdateConnectionThrottle(throttle);
+    }
 
-   public static void setThrottling(LoadBalancer loadBalancer) {
-       ConnectionThrottle throttle = ConnectionThrottle.builder()
-           .maxConnectionRate(10000)
-           .maxConnections(5000)
-           .minConnections(2)
-           .rateInterval(5)
-           .build();
+    private static void blacklistIPs(CloudLoadBalancersApi clbApi, LoadBalancer loadBalancer) {
+        AccessRule rule1 = AccessRule.deny("206.160.165.0/24");
+        AccessRule rule2 = AccessRule.allow("206.160.165.0/2");
+        AccessRule blacklisted = AccessRule.deny("0.0.0.0/0");
 
-       ConnectionApi connectionApi = clbApi.getConnectionApiForZoneAndLoadBalancer(ZONE, loadBalancer.getId());
-       connectionApi.createOrUpdateConnectionThrottle(throttle);
-   }
+        List<AccessRule> accessList = ImmutableList.<AccessRule> of(rule1, rule2, blacklisted);
 
-   public static void blacklistIPs(LoadBalancer loadBalancer) {
-       AccessRule rule1 = AccessRule.deny("206.160.165.0/24");
-       AccessRule rule2 = AccessRule.allow("206.160.165.0/2");
-       AccessRule blacklisted = AccessRule.deny("0.0.0.0/0");
+        AccessRuleApi accessRuleApi = clbApi.getAccessRuleApiForZoneAndLoadBalancer(REGION, loadBalancer.getId());
+        accessRuleApi.create(accessList);
+    }
 
-       List<AccessRule> accessList = ImmutableList.<AccessRule> of(rule1, rule2, blacklisted);
+    private static void enableContentCaching(CloudLoadBalancersApi clbApi, LoadBalancer loadBalancer) {
+        ContentCachingApi contentCachingApi = clbApi.getContentCachingApiForZoneAndLoadBalancer(REGION, loadBalancer.getId());
+        contentCachingApi.enable();
+    }
 
-       AccessRuleApi accessRuleApi = clbApi.getAccessRuleApiForZoneAndLoadBalancer(ZONE, loadBalancer.getId());
-       accessRuleApi.create(accessList);
-   }
+    private static void setCustomErrorPage(CloudLoadBalancersApi clbApi, LoadBalancer loadBalancer) {
+        ErrorPageApi errorPageApi = clbApi.getErrorPageApiForZoneAndLoadBalancer(REGION, loadBalancer.getId());
 
-   public static void enableContentCaching(LoadBalancer loadBalancer) {
-       ContentCachingApi contentCachingApi = clbApi.getContentCachingApiForZoneAndLoadBalancer(ZONE, loadBalancer.getId());
-       contentCachingApi.enable();
-   }
+        String content = "<html><body>Something went wrong...</body></html>";
+        errorPageApi.create(content);
+    }
 
-   public static void setCustomErrorPage(LoadBalancer loadBalancer) {
-       ErrorPageApi errorPageApi = clbApi.getErrorPageApiForZoneAndLoadBalancer(ZONE, loadBalancer.getId());
+    private static void deleteNodes(CloudLoadBalancersApi clbApi, LoadBalancer loadBalancer) throws TimeoutException {
+        NodeApi nodeApi = clbApi.getNodeApiForZoneAndLoadBalancer(REGION, loadBalancer.getId());
+        Set<Node> nodes = nodeApi.list().concat().toSet();
 
-       String content = "<html><body>Something went wrong...</body></html>";
-       errorPageApi.create(content);
-   }
+        Iterable<Integer> nodeIds = Iterables.transform(nodes, new NodeToId());
+        nodeApi.remove(nodeIds);
+    }
 
-   public static void deleteNodes(LoadBalancer loadBalancer) throws TimeoutException {
-       NodeApi nodeApi = clbApi.getNodeApiForZoneAndLoadBalancer(ZONE, loadBalancer.getId());
-       Set<Node> nodes = nodeApi.list().concat().toSet();
+    private static void deleteLoadBalancer(CloudLoadBalancersApi clbApi, LoadBalancer loadBalancer) throws TimeoutException {
+        LoadBalancerApi lbApi = clbApi.getLoadBalancerApiForZone(REGION);
+        lbApi.delete(loadBalancer.getId());
+        awaitDeleted(lbApi).apply(loadBalancer);
+    }
 
-       Iterable<Integer> nodeIds = Iterables.transform(nodes, new NodeToId());
-       nodeApi.remove(nodeIds);
-   }
+    private static void deleteServer(ComputeService computeService) {
+        computeService.destroyNodesMatching(inGroup(GROUP_NAME));
+    }
 
-   public static void deleteLoadBalancer(LoadBalancer loadBalancer) throws TimeoutException {
-       lbApi.delete(loadBalancer.getId());
-       if (!LoadBalancerPredicates.awaitDeleted(lbApi).apply(loadBalancer)) {
-           throw new TimeoutException("Timeout on deleting load balancer: " + loadBalancer);
-       }
-   }
+    private static class NodeToId implements Function<Node, Integer> {
+        public Integer apply(Node node) {
+            return node.getId();
+        }
+    }
 
-   public static void deleteServer() {
-       computeService.destroyNodesMatching(inGroup(GROUP_NAME));
-   }
-
-   private static class NodeToId implements Function<Node, Integer> {
-       public Integer apply(Node node) {
-           return node.getId();
-       }
-   }
+    private static void deleteResources(ComputeService computeService, CloudLoadBalancersApi clbApi)
+          throws IOException {
+        Closeables.close(computeService.getContext(), true);
+        Closeables.close(clbApi, true);
+    }
 }
