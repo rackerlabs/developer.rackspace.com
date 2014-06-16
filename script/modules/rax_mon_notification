@@ -85,7 +85,7 @@ def notification(module, state, label, notification_type, details):
         if n.label == label:
             existing.append(n)
 
-    if len(existing) > 1:
+    if len(existing) > 1 and state == 'present':
         module.fail_json(msg='Multiple notifications were matched by label.')
 
     if existing:
@@ -103,8 +103,8 @@ def notification(module, state, label, notification_type, details):
                                                   label=label, details=details)
             changed = True
     elif state == 'absent':
-        if notification:
-            notification.delete()
+        for n in existing:
+            n.delete()
             changed = True
     else:
         module.fail_json(msg='state must be either "present" or "absent"')

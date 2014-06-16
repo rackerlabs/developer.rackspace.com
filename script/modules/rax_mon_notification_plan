@@ -103,14 +103,14 @@ def notification_plan(module, state, label, critical_state, warning_state, ok_st
             should_create = True
 
         if should_create:
-            notification = cm.create_notification_plan(label=label,
-                                                       critical_state=critical_state,
-                                                       warning_state=warning_state,
-                                                       ok_state=ok_state)
+            notification_plan = cm.create_notification_plan(label=label,
+                                                            critical_state=critical_state,
+                                                            warning_state=warning_state,
+                                                            ok_state=ok_state)
             changed = True
     elif state == 'absent':
-        if notification_plan:
-            notification.delete()
+        for np in existing:
+            np.delete()
             changed = True
     else:
         module.fail_json(msg='state must be either "present" or "absent"')
