@@ -82,8 +82,8 @@ def notification_plan(module, state, label, critical_state, warning_state, ok_st
         if n.label == label:
             existing.append(n)
 
-    if len(existing) > 1:
-        module.fail_json(msg='Multiple notification plans were matched by label.')
+    if len(existing) > 1 and state == 'present':
+        module.fail_json(msg='%s notification plans were matched by label.' % len(existing))
 
     if existing:
         notification_plan = existing[0]

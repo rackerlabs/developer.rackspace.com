@@ -171,7 +171,7 @@ def cloud_check(module, state, entity_id, label, check_type,
         if check:
             if details and details != check.details:
                 module.fail_json(msg='Check details cannot be updated at '
-                                     'this time.')
+                                     'this time. %s vs %s' % (details, check.details))
 
             # TODO make sure that all of these attributes actually match
             # after being round-tripped through the UI.
