@@ -6,8 +6,7 @@
     state: present
     name: entity_{{ ansible_hostname }}
     named_ip_addresses:
-      webserver: "{{ ansible_ip_address }}"
-  with_items: rax.success
+      webserver: "{{ ansible_default_ipv4['address'] }}"
   register: entity
 
 - name: Create a check on port 80
@@ -15,9 +14,11 @@
     module: rax_mon_check
     credentials: ~/.rackspace_cloud_credentials
     state: present
+    entity_id: "{{ entity['entity']['id'] }}"
     label: tcp_check_80
     check_type: remote.tcp
     details:
+      ssl: false
       port: 80
     monitoring_zones_poll: "{{ monitoring_zones }}"
     target_alias: webserver
@@ -28,11 +29,15 @@
     module: rax_mon_check
     credentials: ~/.rackspace_cloud_credentials
     state: present
+    entity_id: "{{ entity['entity']['id'] }}"
     label: http_check_index
     check_type: remote.http
     details:
-      url: http://{{ ansible_hostname }}/
+      url: http://{{ ansible_default_ipv4['address'] }}/
       body: <h1>Welcome to the Rackspace Developer Center!</h1>
+      include_body: false
+      method: GET
+      follow_redirects: true
     monitoring_zones_poll: "{{ monitoring_zones }}"
     target_alias: webserver
   register: http_check_index
@@ -42,11 +47,15 @@
     module: rax_mon_check
     credentials: ~/.rackspace_cloud_credentials
     state: present
+    entity_id: "{{ entity['entity']['id'] }}"
     label: http_check_blog
     check_type: remote.http
     details:
-      url: http://{{ ansible_hostname }}/blog/
+      url: http://{{ ansible_default_ipv4['address'] }}/blog/
       body: <span class="highlight-blue">Devops</span>
+      include_body: false
+      method: GET
+      follow_redirects: true
     monitoring_zones_poll: "{{ monitoring_zones }}"
     target_alias: webserver
   register: http_check_blog
@@ -56,11 +65,15 @@
     module: rax_mon_check
     credentials: ~/.rackspace_cloud_credentials
     state: present
+    entity_id: "{{ entity['entity']['id'] }}"
     label: http_check_sdk
     check_type: remote.http
     details:
-      url: http://{{ ansible_hostname }}/sdks/
+      url: http://{{ ansible_default_ipv4['address'] }}/sdks/
       body: <span class="headline">SDKs & Tools</span>
+      include_body: false
+      method: GET
+      follow_redirects: true
     monitoring_zones_poll: "{{ monitoring_zones }}"
     target_alias: webserver
   register: http_check_sdk
@@ -108,3 +121,4 @@
     entity_id: "{{ entity['entity']['id'] }}"
     check_id: "{{ tcp_check_80['check']['id'] }}"
     notification_plan_id: "{{ escalation_station['notification_plan']['id'] }}"
+    criteria: "if (rate(metric['average']) > 100) { return new AlarmStatus(WARNING); } return new AlarmStatus(OK);"
