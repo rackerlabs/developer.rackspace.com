@@ -164,18 +164,35 @@ def cloud_check(module, state, entity_id, label, check_type,
                              ' a valid entity id.' % entity_id)
 
     existing = [e for e in entity.list_checks() if e.label == label]
+
     if existing:
         check = existing[0]
 
     if state == 'present':
+        if len(existing) > 1:
+            module.fail_json(msg='%s existing checks have a label of %s.' %
+                                 (len(existing), label))
+
+        should_delete = False
+        should_create = False
+        should_update = False
+
         if check:
-            if details and details != check.details:
-                module.fail_json(msg='Check details cannot be updated at '
-                                     'this time. %s vs %s' % (details, check.details))
+            # Details may include keys set to default values that are not
+            # included in the initial creation.
+            #
+            # Only force a recreation of the check if one of the *specified*
+            # keys is missing or has a different value.
+            if details:
+                for (key, value) in details:
+                    if key not in check.details:
+                        should_delete = should_create = True
+                    elif value != check[key]:
+                        should_delete = should_create = True
 
             # TODO make sure that all of these attributes actually match
             # after being round-tripped through the UI.
-            different = label != check.label or \
+            should_update = label != check.label or \
                 (target_hostname and target_hostname != check.target_hostname) or \
                 (target_alias and target_alias != check.target_alias) or \
                 (disabled != check.disabled) or \
@@ -184,7 +201,7 @@ def cloud_check(module, state, entity_id, label, check_type,
                 (timeout and timeout != check.timeout) or \
                 (monitoring_zones_poll != check.monitoring_zones_poll)
 
-            if different:
+            if should_update and not should_delete:
                 check.update(label=label,
                              disabled=disabled,
                              metadata=metadata,
@@ -195,6 +212,13 @@ def cloud_check(module, state, entity_id, label, check_type,
                              target_hostname=target_hostname)
                 changed = True
         else:
+            # The check doesn't exist yet.
+            should_create = True
+
+        if should_delete:
+            check.delete()
+
+        if should_create:
             check = cm.create_check(entity,
                                     label=label,
                                     check_type=check_type,
@@ -214,20 +238,23 @@ def cloud_check(module, state, entity_id, label, check_type,
     else:
         module.fail_json(msg='state must be either present or absent.')
 
-    check_dict = {
-        "id": check.id,
-        "label": check.label,
-        "type": check.type,
-        "target_hostname": check.target_hostname,
-        "target_alias": check.target_alias,
-        "monitoring_zones_poll": check.monitoring_zones_poll,
-        "details": check.details,
-        "disabled": check.disabled,
-        "metadata": check.metadata,
-        "period": check.period,
-        "timeout": check.timeout
-    }
-    module.exit_json(changed=changed, check=check_dict)
+    if check:
+        check_dict = {
+            "id": check.id,
+            "label": check.label,
+            "type": check.type,
+            "target_hostname": check.target_hostname,
+            "target_alias": check.target_alias,
+            "monitoring_zones_poll": check.monitoring_zones_poll,
+            "details": check.details,
+            "disabled": check.disabled,
+            "metadata": check.metadata,
+            "period": check.period,
+            "timeout": check.timeout
+        }
+        module.exit_json(changed=changed, check=check_dict)
+    else:
+        module.exit_json(changed=changed)
 
 def main():
     argument_spec = rax_argument_spec()
