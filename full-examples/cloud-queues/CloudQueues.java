@@ -1,4 +1,3 @@
-
 import java.io.IOException;
 import java.util.List;
 import java.util.UUID;
@@ -33,15 +32,18 @@ public class CloudQueues {
         
         MarconiApi marconiApi = authenticate(USERNAME, API_KEY);
 
-        createQueue(marconiApi);
-        listQueues(marconiApi);
-        postMessage(marconiApi);
-        List<Message> messages = claimMessage(marconiApi);
-        releaseMessage(marconiApi, messages);
+        QueueApi queueApi = marconiApi.getQueueApiForZoneAndClient(REGION, CLIENT_ID);
+        createQueue(queueApi);
+        listQueues(queueApi);
 
-        deleteMessage(marconiApi, messages.get(0).getId());
-        deleteQueue(marconiApi);
-        deleteResources(marconiApi);
+        MessageApi messageApi = marconiApi.getMessageApiForZoneAndClientAndQueue(REGION, CLIENT_ID, QUEUE_NAME);
+        postMessage(messageApi);
+
+        ClaimApi claimApi = marconiApi.getClaimApiForZoneAndClientAndQueue(REGION, CLIENT_ID, QUEUE_NAME);
+        List<Message> messages = claimMessage(claimApi);
+        releaseMessage(claimApi, messages);
+
+        deleteResources(marconiApi, messages);
     }
 
     public static MarconiApi authenticate(String username, String apiKey) {
@@ -52,20 +54,17 @@ public class CloudQueues {
         return marconiApi;
     }
 
-    public static void createQueue(MarconiApi marconiApi) {
-        QueueApi queueApi = marconiApi.getQueueApiForZoneAndClient(REGION, CLIENT_ID);
+    public static void createQueue(QueueApi queueApi) {
         queueApi.create(QUEUE_NAME);
     }
 
-    public static List<Queue> listQueues(MarconiApi marconiApi) {
-        QueueApi queueApi = marconiApi.getQueueApiForZoneAndClient(REGION, CLIENT_ID);
+    public static List<Queue> listQueues(QueueApi queueApi) {
         List<Queue> queues = queueApi.list(true).concat().toList();
 
         return queues;
     }
 
-    public static MessagesCreated postMessage(MarconiApi marconiApi) {
-        MessageApi messageApi = marconiApi.getMessageApiForZoneAndClientAndQueue(REGION, CLIENT_ID, QUEUE_NAME);
+    public static MessagesCreated postMessage(MessageApi messageApi) {
         CreateMessage createMessage = CreateMessage.builder().ttl(900).body("{\"play\": \"hockey\"}").build();
         List<CreateMessage> createMessages = ImmutableList.of(createMessage);
 
@@ -74,31 +73,33 @@ public class CloudQueues {
         return messagesCreated;
     }
 
-    public static List<Message> claimMessage(MarconiApi marconiApi) {
-        ClaimApi claimApi = marconiApi.getClaimApiForZoneAndClientAndQueue(REGION, CLIENT_ID, QUEUE_NAME);
+    public static List<Message> claimMessage(ClaimApi claimApi) {
         List<Message> messages = claimApi.claim(900, 120, 4);
 
         return messages;
     }
 
-    public static void releaseMessage(MarconiApi marconiApi, List<Message> messages) {
-        ClaimApi claimApi = marconiApi.getClaimApiForZoneAndClientAndQueue(REGION, CLIENT_ID, QUEUE_NAME);
+    public static void releaseMessage(ClaimApi claimApi, List<Message> messages) {
         claimApi.release(messages.get(0).getClaimId().get());
     }
 
-    public static void deleteMessage(MarconiApi marconiApi, String messageId) {
-        MessageApi messageApi = marconiApi.getMessageApiForZoneAndClientAndQueue(REGION, CLIENT_ID, QUEUE_NAME);
+    public static void deleteMessage(MessageApi messageApi, String messageId) {
         List<String> messageIds = ImmutableList.of(messageId);
 
         messageApi.delete(messageIds);
     }
 
-    public static void deleteQueue(MarconiApi marconiApi) {
-        QueueApi queueApi = marconiApi.getQueueApiForZoneAndClient(REGION, CLIENT_ID);
+    public static void deleteQueue(QueueApi queueApi) {
         queueApi.delete(QUEUE_NAME);
     }
 
-    private static void deleteResources(MarconiApi marconiApi) throws IOException {
+    private static void deleteResources(MarconiApi marconiApi, List<Message> messages) throws IOException {
+        MessageApi messageApi = marconiApi.getMessageApiForZoneAndClientAndQueue(REGION, CLIENT_ID, QUEUE_NAME);
+        deleteMessage(messageApi, messages.get(0).getId());
+
+        QueueApi queueApi = marconiApi.getQueueApiForZoneAndClient(REGION, CLIENT_ID);
+        deleteQueue(queueApi);
+
         Closeables.close(marconiApi, true);
     }
 }

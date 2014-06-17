@@ -33,9 +33,9 @@ public class AutoScale {
     private static final String USERNAME = System.getProperty("username", "{username}");
     private static final String API_KEY = System.getProperty("apikey", "{apiKey}");
     // Ubuntu 12.04 LTS (Precise Pangolin) Server Image
-    private static final String SERVER_IMAGE = "ffa476b1-9b14-46bd-99a8-862d1d94eb7a";
+    private static final String SERVER_IMAGE_ID = "ffa476b1-9b14-46bd-99a8-862d1d94eb7a";
     // 512 MB Standard Instance
-    private static final String SERVER_FLAVOR = "2";
+    private static final String SERVER_FLAVOR_ID = "2";
 
     private static final String GROUP_NAME = "autoscale-group";
     private static final String WEBHOOK_NAME = "autoscale-webhook";
@@ -45,12 +45,11 @@ public class AutoScale {
         AutoscaleApi autoscaleApi = authenticate(USERNAME, API_KEY);
 
         GroupApi groupApi = autoscaleApi.getGroupApiForZone(REGION);
-
         Group group = createScalingGroup(groupApi);
 
         PolicyApi policyApi = autoscaleApi.getPolicyApiForZoneAndGroup(REGION, group.getId());
-
         String policyId = getPolicyId(policyApi);
+
         WebhookApi webhookApi = autoscaleApi.getWebhookApiForZoneAndGroupAndPolicy(REGION, group.getId(), policyId);
         String webhookId = createWebhook(webhookApi);
         executeWebhook(webhookApi, webhookId);
@@ -78,11 +77,11 @@ public class AutoScale {
         LaunchConfiguration launchConfiguration = LaunchConfiguration.builder()
             .loadBalancers(ImmutableList.of(LoadBalancer.builder().port(8080).id(9099).build()))
             .serverName(GROUP_NAME)
-            .serverImageRef(SERVER_IMAGE)
-            .serverFlavorRef(SERVER_FLAVOR)
+            .serverImageRef(SERVER_IMAGE_ID)
+            .serverFlavorRef(SERVER_FLAVOR_ID)
             .serverDiskConfig("AUTO")
             .serverMetadata(ImmutableMap.of("notes", "Server examples notes"))
-            .networks(ImmutableList.<String>of("internal", "public"))
+            .networks(ImmutableList.of("internal", "public"))
             .personalities(ImmutableList.of(
                   Personality.builder().path("filepath").contents("VGhpcyBpcyBhIHRlc3QgZmlsZS4=").build()))
                   .type(LaunchConfigurationType.LAUNCH_SERVER)
@@ -115,8 +114,8 @@ public class AutoScale {
         AutoscaleUtils.execute(webhookApi.get(webhookId));
     }
 
-    private static void deleteResources(AutoscaleApi autoscaleApi, Group group,
-            String policyId, String webhookId) throws IOException {
+    private static void deleteResources(AutoscaleApi autoscaleApi, Group group, String policyId, String webhookId)
+            throws IOException {
         autoscaleApi.getWebhookApiForZoneAndGroupAndPolicy(REGION, group.getId(), policyId).delete(webhookId);
         autoscaleApi.getPolicyApiForZoneAndGroup(REGION, group.getId()).delete(policyId);
         autoscaleApi.getGroupApiForZone(REGION).delete(group.getId());

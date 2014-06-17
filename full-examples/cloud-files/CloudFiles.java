@@ -10,8 +10,10 @@ import org.jclouds.io.Payloads;
 import org.jclouds.openstack.swift.v1.blobstore.RegionScopedBlobStoreContext;
 import org.jclouds.openstack.swift.v1.domain.SwiftObject;
 import org.jclouds.openstack.swift.v1.features.AccountApi;
+import org.jclouds.openstack.swift.v1.features.ContainerApi;
 import org.jclouds.openstack.swift.v1.features.ObjectApi;
 import org.jclouds.rackspace.cloudfiles.v1.CloudFilesApi;
+import org.jclouds.rackspace.cloudfiles.v1.features.CDNApi;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.common.io.ByteSource;
@@ -40,49 +42,45 @@ public class CloudFiles {
         BlobRequestSigner signer = builder.buildView(RegionScopedBlobStoreContext.class).signerInRegion(REGION);
         CloudFilesApi cloudFilesApi = blobStore.getContext().unwrapApi(CloudFilesApi.class);
 
-        createContainer(cloudFilesApi);
-        uploadObject(cloudFilesApi);
-
-        SwiftObject object = getObject(cloudFilesApi);
-        updateObjectMetadata(cloudFilesApi);
-
-        URI tempURL = getObjectTempUrl(cloudFilesApi, signer);
-
-        URI uri = enableCDN(cloudFilesApi);
-        disableCDN(cloudFilesApi);
-
-        deleteResources(cloudFilesApi);
-    }
-
-    public static void createContainer(CloudFilesApi cloudFilesApi) {
-        cloudFilesApi.getContainerApiForRegion(REGION).create(CONTAINER_NAME);
-    }
-
-    public static void deleteContainer(CloudFilesApi cloudFilesApi) {
-        cloudFilesApi.getContainerApiForRegion(REGION).deleteIfEmpty(CONTAINER_NAME);
-    }
-
-    public static void uploadObject(CloudFilesApi cloudFilesApi) {
-        Payload payload = Payloads.newByteSourcePayload(ByteSource.wrap("Hello Cloud Files!".getBytes()));
+        ContainerApi containerApi = cloudFilesApi.getContainerApiForRegion(REGION);
+        createContainer(containerApi);
 
         ObjectApi objectApi = cloudFilesApi.getObjectApiForRegionAndContainer(REGION, CONTAINER_NAME);
+        uploadObject(objectApi);
+        SwiftObject object = getObject(objectApi);
+        updateObjectMetadata(objectApi);
+
+        AccountApi accountApi = cloudFilesApi.getAccountApiForRegion(REGION);
+        URI tempURL = getObjectTempUrl(accountApi, signer);
+
+        CDNApi cdnApi = cloudFilesApi.getCDNApiForRegion(REGION);
+        URI uri = enableCDN(cdnApi);
+        disableCDN(cdnApi);
+
+        deleteResources(cloudFilesApi, containerApi, objectApi);
+    }
+
+    public static void createContainer(ContainerApi containerApi) {
+        containerApi.create(CONTAINER_NAME);
+    }
+
+    public static void uploadObject(ObjectApi objectApi) {
+        Payload payload = Payloads.newByteSourcePayload(ByteSource.wrap("Hello Cloud Files!".getBytes()));
+
         objectApi.put(OBJECT_NAME, payload);
     }
 
-    public static SwiftObject getObject(CloudFilesApi cloudFilesApi) {
-        ObjectApi objectApi = cloudFilesApi.getObjectApiForRegionAndContainer(REGION, CONTAINER_NAME);
+    public static SwiftObject getObject(ObjectApi objectApi) {
         SwiftObject object = objectApi.get(OBJECT_NAME);
 
         return object;
     }
 
-    public static void updateObjectMetadata(CloudFilesApi cloudFilesApi) {
-        ObjectApi objectApi = cloudFilesApi.getObjectApiForRegionAndContainer(REGION, CONTAINER_NAME);
+    public static void updateObjectMetadata(ObjectApi objectApi) {
         objectApi.updateMetadata(OBJECT_NAME, ImmutableMap.of("some-key", "another-value"));
     }
 
-    public static URI getObjectTempUrl(CloudFilesApi cloudFilesApi, BlobRequestSigner signer) {
-        AccountApi accountApi = cloudFilesApi.getAccountApiForRegion(REGION);
+    public static URI getObjectTempUrl(AccountApi accountApi, BlobRequestSigner signer) {
         accountApi.updateTemporaryUrlKey(TEMP_URL_KEY);
 
         HttpRequest request = signer.signGetBlob(CONTAINER_NAME, OBJECT_NAME);
@@ -91,24 +89,28 @@ public class CloudFiles {
         return tempUrl;
     }
 
-    public static void deleteObject(CloudFilesApi cloudFilesApi) {
-        ObjectApi objectApi = cloudFilesApi.getObjectApiForRegionAndContainer(REGION, CONTAINER_NAME);
-        objectApi.delete(OBJECT_NAME);
-    }
-
-    public static URI enableCDN(CloudFilesApi cloudFilesApi) {
-        URI cdnUri = cloudFilesApi.getCDNApiForRegion(REGION).enable(CONTAINER_NAME);
+    public static URI enableCDN(CDNApi cdnApi) {
+        URI cdnUri = cdnApi.enable(CONTAINER_NAME);
 
         return cdnUri;
     }
 
-    public static void disableCDN(CloudFilesApi cloudFilesApi) {
-        cloudFilesApi.getCDNApiForRegion(REGION).disable(CONTAINER_NAME);
+    public static void disableCDN(CDNApi cdnApi) {
+        cdnApi.disable(CONTAINER_NAME);
     }
 
-    private static void deleteResources(CloudFilesApi cloudFilesApi) throws IOException {
-        deleteObject(cloudFilesApi);
-        deleteContainer(cloudFilesApi);
+    public static void deleteObject(ObjectApi objectApi) {
+        objectApi.delete(OBJECT_NAME);
+    }
+
+    public static void deleteContainer(ContainerApi containerApi) {
+        containerApi.deleteIfEmpty(CONTAINER_NAME);
+    }
+
+    private static void deleteResources(CloudFilesApi cloudFilesApi, ContainerApi containerApi, ObjectApi objectApi)
+            throws IOException {
+        deleteObject(objectApi);
+        deleteContainer(containerApi);
         Closeables.close(cloudFilesApi, true);
     }
 }

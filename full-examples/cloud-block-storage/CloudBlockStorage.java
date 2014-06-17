@@ -36,17 +36,13 @@ public class CloudBlockStorage {
         CinderApi cinderApi = authenticate(USERNAME, API_KEY);
 
         VolumeApi volumeApi = cinderApi.getVolumeApiForZone(REGION);
-
         Volume volume = createVolume(volumeApi);
         Volume showVolume = showVolume(volumeApi, volume.getId());
-
         List<? extends Volume> volumes = listVolumes(volumeApi);
 
         SnapshotApi snapshotApi = cinderApi.getSnapshotApiForZone(REGION);
-
         Snapshot snapshot = createSnapshot(snapshotApi, volume);
         Snapshot showSnapshot = showSnapshot(snapshotApi, snapshot.getId());
-
         List<? extends Snapshot> snapshots = listSnapshots(snapshotApi);
 
         deleteSnapshot(cinderApi.getSnapshotApiForZone(REGION), snapshot);
