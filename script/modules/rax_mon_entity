@@ -79,47 +79,60 @@ def cloud_monitoring(module, state, name, agent_id, named_ip_addresses,
         if name == entity.name:
             existing.append(entity)
 
-    if len(existing) > 1:
-        module.fail_json(msg='Multiple entities were matched by name. Try using'
-                             'the entity ID instead.')
-
     entity = None
 
     if existing:
         entity = existing[0]
 
     if state == 'present':
+        should_update = False
+        should_delete = False
+        should_create = False
+
+        if len(existing) > 1:
+            module.fail_json(msg='%s existing entities have the label %s.' %
+                                 (len(existing), label))
+
         if entity:
             if named_ip_addresses and named_ip_addresses != entity.ip_addresses:
-                module.fail_json(msg='IP addresses can not be updated through pyrax.')
+                should_delete = should_create = True
 
             # Change an existing Entity, unless there's nothing to do.
-            different = agent_id and agent_id != entity.agent_id
-            different = different or (metadata and metadata != entity.metadata)
+            should_update = agent_id and agent_id != entity.agent_id or \
+                (metadata and metadata != entity.metadata)
 
-            if different:
+            if should_update and not should_delete:
                 entity.update(agent_id, metadata)
                 changed = True
+
+            if should_delete:
+                entity.delete()
         else:
+            should_create = True
+
+        if should_create:
             # Create a new Entity.
             entity = cm.create_entity(name=name, agent=agent_id,
                                       ip_addresses=named_ip_addresses,
                                       metadata=metadata)
             changed = True
     elif state == 'absent':
-        if entity:
-            # Delete the existing Entity.
-            entity.delete()
+        # Delete the existing Entities.
+        for e in existing:
+            e.delete()
             changed = True
     else:
         module.fail_json(msg='state must be present or absent')
 
-    entity_dict = {
-        "id": entity.id,
-        "name": entity.name,
-        "agent_id": entity.agent_id,
-    }
-    module.exit_json(changed=changed, entity=entity_dict)
+    if entity:
+        entity_dict = {
+            "id": entity.id,
+            "name": entity.name,
+            "agent_id": entity.agent_id,
+        }
+        module.exit_json(changed=changed, entity=entity_dict)
+    else:
+        module.exit_json(changed=changed)
 
 def main():
     argument_spec = rax_argument_spec()
