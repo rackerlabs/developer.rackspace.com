@@ -85,20 +85,33 @@ def notification(module, state, label, notification_type, details):
         if n.label == label:
             existing.append(n)
 
-    if len(existing) > 1 and state == 'present':
-        module.fail_json(msg='Multiple notifications were matched by label.')
-
     if existing:
         notification = existing[0]
 
     if state == 'present':
-        if notification:
-            different = (details != notification.details)
+        should_update = False
+        should_delete = False
+        should_create = False
 
-            if different:
+        if len(existing) > 1:
+            module.fail_json(msg='%s existing notifications are labelled %s.' %
+                                 (len(existing), label))
+
+        if notification:
+            should_delete = (notification_type != notification.type)
+
+            should_update = (details != notification.details)
+
+            if should_update and not should_delete:
                 notification.update(details=notification.details)
                 changed = True
+
+            if should_delete:
+                notification.delete()
         else:
+            should_create = True
+
+        if should_create:
             notification = cm.create_notification(notification_type,
                                                   label=label, details=details)
             changed = True
@@ -109,13 +122,16 @@ def notification(module, state, label, notification_type, details):
     else:
         module.fail_json(msg='state must be either "present" or "absent"')
 
-    notification_dict = {
-        "id": notification.id,
-        "type": notification.type,
-        "label": notification.label,
-        "details": notification.details
-    }
-    module.exit_json(changed=changed, notification=notification_dict)
+    if notification:
+        notification_dict = {
+            "id": notification.id,
+            "type": notification.type,
+            "label": notification.label,
+            "details": notification.details
+        }
+        module.exit_json(changed=changed, notification=notification_dict)
+    else:
+        module.exit_json(changed=changed)
 
 def main():
     argument_spec = rax_argument_spec()
