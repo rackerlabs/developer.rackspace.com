@@ -82,21 +82,23 @@ def notification_plan(module, state, label, critical_state, warning_state, ok_st
         if n.label == label:
             existing.append(n)
 
-    if len(existing) > 1 and state == 'present':
-        module.fail_json(msg='%s notification plans were matched by label.' % len(existing))
-
     if existing:
         notification_plan = existing[0]
 
     if state == 'present':
         should_create = False
+        should_delete = False
+
+        if len(existing) > 1:
+            module.fail_json(msg='%s notification plans are labelled %s.' %
+                                 (len(existing), label))
 
         if notification_plan:
-            different = (critical_state and critical_state != notification_plan.critical_state) or \
+            should_delete = (critical_state and critical_state != notification_plan.critical_state) or \
                 (warning_state and warning_state != notification_plan.warning_state) or \
                 (ok_state and ok_state != notification_plan.ok_state)
 
-            if different:
+            if should_delete:
                 notification_plan.delete()
                 should_create = True
         else:
@@ -115,14 +117,17 @@ def notification_plan(module, state, label, critical_state, warning_state, ok_st
     else:
         module.fail_json(msg='state must be either "present" or "absent"')
 
-    notification_plan_dict = {
-        "id": notification_plan.id,
-        "critical_state": notification_plan.critical_state,
-        "warning_state": notification_plan.warning_state,
-        "ok_state": notification_plan.ok_state,
-        "metadata": notification_plan.metadata
-    }
-    module.exit_json(changed=changed, notification_plan=notification_plan_dict)
+    if notification_plan:
+        notification_plan_dict = {
+            "id": notification_plan.id,
+            "critical_state": notification_plan.critical_state,
+            "warning_state": notification_plan.warning_state,
+            "ok_state": notification_plan.ok_state,
+            "metadata": notification_plan.metadata
+        }
+        module.exit_json(changed=changed, notification_plan=notification_plan_dict)
+    else:
+        module.exit_json(changed=changed)
 
 def main():
     argument_spec = rax_argument_spec()
