@@ -12,8 +12,7 @@
   tasks:
 
   - name: Create a monitoring entities for the load balancer
-    local_action:
-      module: rax_mon_entity
+    rax_mon_entity:
       credentials: ~/.rackspace_cloud_credentials
       state: present
       name: entity_{{ lb_hostname }}
@@ -22,8 +21,7 @@
     register: entity
 
   - name: Create a check on port 80
-    local_action:
-      module: rax_mon_check
+    rax_mon_check:
       credentials: ~/.rackspace_cloud_credentials
       state: present
       entity_id: "{{ entity['entity']['id'] }}"
@@ -37,8 +35,7 @@
     register: tcp_check_80
 
   - name: Create a check on index.html
-    local_action:
-      module: rax_mon_check
+    rax_mon_check:
       credentials: ~/.rackspace_cloud_credentials
       state: present
       entity_id: "{{ entity['entity']['id'] }}"
@@ -55,8 +52,7 @@
     register: http_check_index
 
   - name: Create a check on the blog index page
-    local_action:
-      module: rax_mon_check
+    rax_mon_check:
       credentials: ~/.rackspace_cloud_credentials
       state: present
       entity_id: "{{ entity['entity']['id'] }}"
@@ -73,8 +69,7 @@
     register: http_check_blog
 
   - name: Create a check on the SDK index page
-    local_action:
-      module: rax_mon_check
+    rax_mon_check:
       credentials: ~/.rackspace_cloud_credentials
       state: present
       entity_id: "{{ entity['entity']['id'] }}"
@@ -91,8 +86,7 @@
     register: http_check_sdk
 
   - name: First-tier notification.
-    local_action:
-      module: rax_mon_notification
+    rax_mon_notification:
       credentials: ~/.rackspace_cloud_credentials
       state: present
       label: first_tier
@@ -102,8 +96,7 @@
     register: first_tier
 
   - name: Second-tier notification.
-    local_action:
-      module: rax_mon_notification
+    rax_mon_notification:
       credentials: ~/.rackspace_cloud_credentials
       state: present
       label: second_tier
@@ -113,8 +106,7 @@
     register: second_tier
 
   - name: Create a notification plan.
-    local_action:
-      module: rax_mon_notification_plan
+    rax_mon_notification_plan:
       credentials: ~/.rackspace_cloud_credentials
       state: present
       label: escalation_station
@@ -125,8 +117,7 @@
     register: escalation_station
 
   - name: Trigger an alarm when port 80 doesn't respond.
-    local_action:
-      module: rax_mon_alarm
+    rax_mon_alarm:
       credentials: ~/.rackspace_cloud_credentials
       state: present
       label: port_80_is_down
@@ -140,8 +131,7 @@
         return new AlarmStatus(OK);
 
   - name: Trigger an alarm when a page has incorrect content.
-    local_action:
-      module: rax_mon_alarm
+    rax_mon_alarm:
       credentials: ~/.rackspace_cloud_credentials
       state: present
       label: index_is_down
