@@ -9,6 +9,8 @@
     - mzdfw
     - mziad
     - mzord
+    warning_email: ash.wilson@rackspace.com
+    critical_email: ash.wilson@rackspace.com
   tasks:
 
   - name: Create a monitoring entities for the load balancer
@@ -92,7 +94,7 @@
       label: first_tier
       notification_type: email
       details:
-        address: ash.wilson@rackspace.com
+        address: "{{ warning_email }}"
     register: first_tier
 
   - name: Second-tier notification.
@@ -102,7 +104,7 @@
       label: second_tier
       notification_type: email
       details:
-        address: kyle.kelley@rackspace.com
+        address: "{{ critical_email }}"
     register: second_tier
 
   - name: Create a notification plan.
