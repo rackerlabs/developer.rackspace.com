@@ -6,3 +6,5 @@
 - include: staging_web.yml server_name=staging-developer.rackspace.com
 
 - include: jenkins.yml
+
+- include: monitoring.yml
