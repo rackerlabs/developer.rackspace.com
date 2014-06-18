@@ -1,0 +1,162 @@
+---
+- name: Configure Cloud Monitoring
+  hosts: local
+  connection: local
+  gather_facts: false
+  vars:
+    lb_hostname: developer.rackspace.com
+    monitoring_zones:
+    - mzdfw
+    - mziad
+    - mzord
+  tasks:
+
+  - name: Create a monitoring entities for the load balancer
+    local_action:
+      module: rax_mon_entity
+      credentials: ~/.rackspace_cloud_credentials
+      state: present
+      name: entity_{{ lb_hostname }}
+      named_ip_addresses:
+        load_balancer: "{{ lb_hostname }}"
+    register: entity
+
+  - name: Create a check on port 80
+    local_action:
+      module: rax_mon_check
+      credentials: ~/.rackspace_cloud_credentials
+      state: present
+      entity_id: "{{ entity['entity']['id'] }}"
+      label: tcp_check_80
+      check_type: remote.tcp
+      details:
+        ssl: false
+        port: 80
+      monitoring_zones_poll: "{{ monitoring_zones }}"
+      target_alias: load_balancer
+    register: tcp_check_80
+
+  - name: Create a check on index.html
+    local_action:
+      module: rax_mon_check
+      credentials: ~/.rackspace_cloud_credentials
+      state: present
+      entity_id: "{{ entity['entity']['id'] }}"
+      label: http_check_index
+      check_type: remote.http
+      details:
+        url: http://{{ lb_hostname }}/
+        body: <h1>Welcome to the Rackspace Developer Center!</h1>
+        include_body: false
+        method: GET
+        follow_redirects: true
+      monitoring_zones_poll: "{{ monitoring_zones }}"
+      target_alias: load_balancer
+    register: http_check_index
+
+  - name: Create a check on the blog index page
+    local_action:
+      module: rax_mon_check
+      credentials: ~/.rackspace_cloud_credentials
+      state: present
+      entity_id: "{{ entity['entity']['id'] }}"
+      label: http_check_blog
+      check_type: remote.http
+      details:
+        url: http://{{ lb_hostname }}/blog/
+        body: <span class="highlight-blue">Devops</span>
+        include_body: true
+        method: GET
+        follow_redirects: true
+      monitoring_zones_poll: "{{ monitoring_zones }}"
+      target_alias: load_balancer
+    register: http_check_blog
+
+  - name: Create a check on the SDK index page
+    local_action:
+      module: rax_mon_check
+      credentials: ~/.rackspace_cloud_credentials
+      state: present
+      entity_id: "{{ entity['entity']['id'] }}"
+      label: http_check_sdk
+      check_type: remote.http
+      details:
+        url: http://{{ lb_hostname }}/sdks/
+        body: <span class="headline">SDKs & Tools</span>
+        include_body: false
+        method: GET
+        follow_redirects: true
+      monitoring_zones_poll: "{{ monitoring_zones }}"
+      target_alias: load_balancer
+    register: http_check_sdk
+
+  - name: First-tier notification.
+    local_action:
+      module: rax_mon_notification
+      credentials: ~/.rackspace_cloud_credentials
+      state: present
+      label: first_tier
+      notification_type: email
+      details:
+        address: ash.wilson@rackspace.com
+    register: first_tier
+
+  - name: Second-tier notification.
+    local_action:
+      module: rax_mon_notification
+      credentials: ~/.rackspace_cloud_credentials
+      state: present
+      label: second_tier
+      notification_type: email
+      details:
+        address: kyle.kelley@rackspace.com
+    register: second_tier
+
+  - name: Create a notification plan.
+    local_action:
+      module: rax_mon_notification_plan
+      credentials: ~/.rackspace_cloud_credentials
+      state: present
+      label: escalation_station
+      warning_state:
+      - "{{ first_tier['notification']['id'] }}"
+      critical_state:
+      - "{{ second_tier['notification']['id'] }}"
+    register: escalation_station
+
+  - name: Trigger an alarm when port 80 doesn't respond.
+    local_action:
+      module: rax_mon_alarm
+      credentials: ~/.rackspace_cloud_credentials
+      state: present
+      label: port_80_is_down
+      entity_id: "{{ entity['entity']['id'] }}"
+      check_id: "{{ tcp_check_80['check']['id'] }}"
+      notification_plan_id: "{{ escalation_station['notification_plan']['id'] }}"
+      criteria: >
+        if (metric['average'] > 100) {
+          return new AlarmStatus(WARNING);
+        }
+        return new AlarmStatus(OK);
+
+  - name: Trigger an alarm when a page has incorrect content.
+    local_action:
+      module: rax_mon_alarm
+      credentials: ~/.rackspace_cloud_credentials
+      state: present
+      label: index_is_down
+      entity_id: "{{ entity['entity']['id'] }}"
+      check_id: "{{ http_check_index['check']['id'] }}"
+      notification_plan_id: "{{ escalation_station['notification_plan']['id'] }}"
+      criteria: >
+        if (metric['code'] != "200") {
+          return new AlarmStatus(CRITICAL);
+        }
+        if (metric['duration'] > 500) {
+          return new AlarmStatus(WARNING);
+        }
+        return new AlarmStatus(OK);
+    with_items:
+    - "{{ http_check_index['check']['id'] }}"
+    - "{{ http_check_blog['check']['id'] }}"
+    - "{{ http_check_sdk['check']['id'] }}"
