@@ -35,20 +35,14 @@ public class CloudDatabases {
 
         TroveApi troveApi = authenticate(USERNAME, API_KEY);
 
-        FlavorApi flavorApi = troveApi.getFlavorApiForZone(REGION);
-        List<? extends Flavor> flavors = listFlavors(flavorApi);
-        Flavor flavor = getFlavor(flavorApi);
+        listFlavors(troveApi);
+        Flavor flavor = getFlavor(troveApi);
 
-        InstanceApi instanceApi = troveApi.getInstanceApiForZone(REGION);
-        Instance instance = createInstance(instanceApi, flavor);
+        Instance instance = createInstance(troveApi, flavor);
+        createDatabase(troveApi, instance);
+        createUser(troveApi, instance);
 
-        DatabaseApi databaseApi = troveApi.getDatabaseApiForZoneAndInstance(REGION, instance.getId());
-        createDatabase(databaseApi);
-
-        UserApi userApi = troveApi.getUserApiForZoneAndInstance(REGION, instance.getId());
-        createUser(databaseApi, instance);
-
-        String rootPassword = enableRootUser(instanceApi, instance);
+        String rootPassword = enableRootUser(troveApi, instance);
         checkRootStatus(troveApi, instance);
 
         deleteResources(troveApi, instance);
@@ -62,20 +56,22 @@ public class CloudDatabases {
         return troveApi;
     }
 
-    public static List<? extends Flavor> listFlavors(FlavorApi flavorApi) {
+    public static void listFlavors(TroveApi troveApi) {
+        FlavorApi flavorApi = troveApi.getFlavorApiForZone(REGION);
         FluentIterable<Flavor> flavors = flavorApi.list();
-
-        return flavors;
     }
 
-    public static Flavor getFlavor(FlavorApi flavorApi) {
+    public static Flavor getFlavor(TroveApi troveApi) {
+        // List your flavors and get the first.
+        FlavorApi flavorApi = troveApi.getFlavorApiForZone(REGION);
         Flavor flavor = Iterables.getFirst(flavorApi.list(), null);
 
         return flavor;
     }
 
-    public static Instance createInstance(InstanceApi troveApi, Flavor flavor)
-            throws TimeoutException {
+    public static Instance createInstance(TroveApi troveApi, Flavor flavor) throws TimeoutException {
+        InstanceApi instanceApi = troveApi.getInstanceApiForZone(REGION);
+
         TroveUtils utils = new TroveUtils(troveApi);
         Instance instance = utils.getWorkingInstance(REGION, INSTANCE_NAME, Integer.toString(flavor.getId()), 1);
 
@@ -85,30 +81,33 @@ public class CloudDatabases {
         return instance;
     }
 
-    public static String enableRootUser(InstanceApi instanceApi, Instance instance) {
+    public static String enableRootUser(TroveApi troveApi, Instance instance) {
+        InstanceApi instanceApi = troveApi.getInstanceApiForZone(REGION);
         String password = instanceApi.enableRoot(instance.getId());
 
         return password;
     }
 
-    public static void checkRootStatus(InstanceApi instanceApi, Instance instance) {
+    public static void checkRootStatus(TroveApi troveApi, Instance instance) {
+        InstanceApi instanceApi = troveApi.getInstanceApiForZone(REGION);
         instanceApi.isRooted(instance.getId());
     }
 
-    public static void createDatabase(DatabaseApi databaseApi) {
+    public static void createDatabase(TroveApi troveApi, Instance instance) {
+        DatabaseApi databaseApi = troveApi.getDatabaseApiForZoneAndInstance(REGION, instance.getId());
         databaseApi.create(DATABASE_NAME);
     }
 
-    public static void createUser(UserApi userApi, Instance instance) {
+    public static void createUser(TroveApi troveApi, Instance instance) {
+        UserApi userApi = troveApi.getUserApiForZoneAndInstance(REGION, instance.getId());
         userApi.create(DATABASE_USER_NAME, "password123", DATABASE_NAME);
     }
 
-    private static void deleteResources(TroveApi troveApi, Instance instance)
-            throws IOException {
-        troveApi.getUserApiForZoneAndInstance(REGION, instance.getId()).delete(DATABASE_USER_NAME);
-        troveApi.getDatabaseApiForZoneAndInstance(REGION, instance.getId()).delete(DATABASE_NAME);
-        troveApi.getInstanceApiForZone(REGION).delete(instance.getId());
+    public static void deleteResources(TroveApi troveApi, Instance instance) throws IOException {
+       troveApi.getUserApiForZoneAndInstance(REGION, instance.getId()).delete(DATABASE_USER_NAME);
+       troveApi.getDatabaseApiForZoneAndInstance(REGION, instance.getId()).delete(DATABASE_NAME);
+       troveApi.getInstanceApiForZone(REGION).delete(instance.getId());
 
-        Closeables.close(troveApi, true);
+       Closeables.close(troveApi, true);
     }
 }

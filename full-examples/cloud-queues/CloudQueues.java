@@ -83,22 +83,21 @@ public class CloudQueues {
         claimApi.release(messages.get(0).getClaimId().get());
     }
 
-    public static void deleteMessage(MessageApi messageApi, String messageId) {
+    public static void deleteMessage(MarconiApi marconiApi, String messageId) {
+        MessageApi messageApi = marconiApi.getMessageApiForZoneAndClientAndQueue(REGION, CLIENT_ID, QUEUE_NAME);
         List<String> messageIds = ImmutableList.of(messageId);
 
         messageApi.delete(messageIds);
     }
 
-    public static void deleteQueue(QueueApi queueApi) {
+    public static void deleteQueue(MarconiApi marconiApi) {
+        QueueApi queueApi = marconiApi.getQueueApiForZoneAndClient(REGION, CLIENT_ID);
         queueApi.delete(QUEUE_NAME);
     }
 
-    private static void deleteResources(MarconiApi marconiApi, List<Message> messages) throws IOException {
-        MessageApi messageApi = marconiApi.getMessageApiForZoneAndClientAndQueue(REGION, CLIENT_ID, QUEUE_NAME);
-        deleteMessage(messageApi, messages.get(0).getId());
-
-        QueueApi queueApi = marconiApi.getQueueApiForZoneAndClient(REGION, CLIENT_ID);
-        deleteQueue(queueApi);
+    public static void deleteResources(MarconiApi marconiApi, List<Message> messages) throws IOException {
+        deleteMessage(marconiApi, messages.get(0).getId());
+        deleteQueue(marconiApi);
 
         Closeables.close(marconiApi, true);
     }

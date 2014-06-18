@@ -107,10 +107,11 @@ public class CloudFiles {
         containerApi.deleteIfEmpty(CONTAINER_NAME);
     }
 
-    private static void deleteResources(CloudFilesApi cloudFilesApi, ContainerApi containerApi, ObjectApi objectApi)
+    public static void deleteResources(CloudFilesApi cloudFilesApi, ContainerApi containerApi, ObjectApi objectApi)
             throws IOException {
         deleteObject(objectApi);
         deleteContainer(containerApi);
+
         Closeables.close(cloudFilesApi, true);
     }
 }

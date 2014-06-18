@@ -70,9 +70,9 @@ public class CloudLoadBalancers {
         LoadBalancerApi lbApi = clbApi.getLoadBalancerApiForZone(REGION);
         LoadBalancer loadBalancer = createLoadBalancer(clbApi, lbApi, loadBalancerNodes);
 
-        HealthMonitorApi hmApi = clbApi.getHealthMonitorApiForZoneAndLoadBalancer(REGION, loadBalancer.getId());
-        createHealthMonitor(hmApi);
-        HealthMonitor healthMonitor = getHealthMonitor(hmApi);
+        HealthMonitorApi healthMonitorApi = clbApi.getHealthMonitorApiForZoneAndLoadBalancer(REGION, loadBalancer.getId());
+        createHealthMonitor(healthMonitorApi);
+        HealthMonitor healthMonitor = getHealthMonitor(healthMonitorApi);
 
         ConnectionApi connectionApi = clbApi.getConnectionApiForZoneAndLoadBalancer(REGION, loadBalancer.getId());
         setThrottling(connectionApi);
@@ -112,7 +112,9 @@ public class CloudLoadBalancers {
         ServerCreated serverCreated = serverApi.create("My new server", image.getId(), FLAVOR_ID);
 
         // Wait until the server is active
-        awaitActive(serverApi).apply(serverCreated.getId());
+        if (!awaitActive(serverApi).apply(serverCreated.getId())) {
+            throw new TimeoutException("Timeout on server: " + serverCreated);
+        }
 
         Server server = serverApi.get(serverCreated.getId());
 
@@ -132,7 +134,9 @@ public class CloudLoadBalancers {
         LoadBalancer loadBalancer = lbApi.create(createLB);
 
         // Wait for the Load Balancer to become active before moving on
-        awaitAvailable(lbApi).apply(loadBalancer);
+        if (!awaitAvailable(lbApi).apply(loadBalancer)) {
+            throw new TimeoutException("Timeout on loadBalancer: " + loadBalancer); 
+        }
 
         return loadBalancer;
     }
@@ -170,7 +174,7 @@ public class CloudLoadBalancers {
         return addLBNodes;
     }
 
-    public static void createHealthMonitor(HealthMonitorApi hmApi) {
+    public static void createHealthMonitor(HealthMonitorApi healthMonitorApi) {
         HealthMonitor healthMonitor = HealthMonitor.builder()
             .type(HealthMonitor.Type.CONNECT)
             .delay(3599)
@@ -178,11 +182,11 @@ public class CloudLoadBalancers {
             .attemptsBeforeDeactivation(2)
             .build();
 
-        hmApi.createOrUpdate(healthMonitor);
+        healthMonitorApi.createOrUpdate(healthMonitor);
     }
 
-    public static HealthMonitor getHealthMonitor(HealthMonitorApi hmApi) {
-        HealthMonitor monitor = hmApi.get();
+    public static HealthMonitor getHealthMonitor(HealthMonitorApi healthMonitorApi) {
+        HealthMonitor monitor = healthMonitorApi.get();
 
         return monitor;
     }
@@ -217,37 +221,41 @@ public class CloudLoadBalancers {
         errorPageApi.create(content);
     }
 
-    private static void deleteNodes(NodeApi nodeApi) throws TimeoutException {
+    public static void deleteNodes(CloudLoadBalancersApi clbApi, LoadBalancer loadBalancer) {
+        NodeApi nodeApi = clbApi.getNodeApiForZoneAndLoadBalancer(REGION, loadBalancer.getId());
+
         Set<Node> nodes = nodeApi.list().concat().toSet();
 
         Iterable<Integer> nodeIds = Iterables.transform(nodes, new NodeToId());
         nodeApi.remove(nodeIds);
     }
 
-    private static void deleteLoadBalancer(LoadBalancerApi lbApi, LoadBalancer loadBalancer) throws TimeoutException {
+    public static void deleteLoadBalancer(CloudLoadBalancersApi clbApi, LoadBalancer loadBalancer) throws TimeoutException {
+        LoadBalancerApi lbApi = clbApi.getLoadBalancerApiForZone(REGION);
         lbApi.delete(loadBalancer.getId());
-        awaitDeleted(lbApi).apply(loadBalancer);
+        
+        // Wait for the Load Balancer to be deleted
+        if (!awaitDeleted(lbApi).apply(loadBalancer)) {
+            throw new TimeoutException("Timeout on loadBalancer: " + loadBalancer); 
+        }
     }
 
-    private static void deleteServer(ServerApi serverApi, Server server) {
+    public static void deleteServer(NovaApi novaApi, Server server) {
+        ServerApi serverApi = novaApi.getServerApiForZone(REGION);
         serverApi.delete(server.getId());
     }
 
-    private static class NodeToId implements Function<Node, Integer> {
+    public static class NodeToId implements Function<Node, Integer> {
         public Integer apply(Node node) {
             return node.getId();
         }
     }
 
-    private static void deleteResources(NovaApi novaApi, CloudLoadBalancersApi clbApi, Server server, LoadBalancer loadBalancer)
+    public static void deleteResources(NovaApi novaApi, CloudLoadBalancersApi clbApi, Server server, LoadBalancer loadBalancer)
           throws IOException, TimeoutException {
-        NodeApi nodeApi = clbApi.getNodeApiForZoneAndLoadBalancer(REGION, loadBalancer.getId());
-        deleteNodes(nodeApi);
-
-        LoadBalancerApi lbApi = clbApi.getLoadBalancerApiForZone(REGION);
-        deleteLoadBalancer(lbApi, loadBalancer);
-
-        deleteServer(novaApi.getServerApiForZone(REGION), server);
+        deleteNodes(clbApi, loadBalancer);
+        deleteLoadBalancer(clbApi, loadBalancer);
+        deleteServer(novaApi, server);
 
         Closeables.close(novaApi, true);
         Closeables.close(clbApi, true);

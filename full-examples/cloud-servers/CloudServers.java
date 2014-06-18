@@ -41,19 +41,20 @@ public class CloudServers {
 
         NovaApi novaApi = authenticate(USERNAME, API_KEY);
 
-        List<? extends Image> images = listImages(novaApi);
-        Image image = getImage(novaApi, images);
+        ImageApi imageApi = novaApi.getImageApiForZone(REGION);
+        List<? extends Image> images = listImages(imageApi);
+        Image image = getImage(imageApi, images);
 
-        List<? extends Flavor> flavors = listFlavors(novaApi);
-        Flavor flavor = getFlavor(novaApi);
+        FlavorApi flavorApi = novaApi.getFlavorApiForZone(REGION);
+        List<? extends Flavor> flavors = listFlavors(flavorApi);
+        Flavor flavor = getFlavor(flavorApi, FLAVOR_ID);
 
-        KeyPair keyPair = createNewKeyPair(novaApi);
+        KeyPairApi keyPairApi = novaApi.getKeyPairExtensionForZone(REGION).get();
+        KeyPair keyPair = createNewKeyPair(keyPairApi);
         ServerCreated serverCreated = createServerWithKeypair(novaApi, image, flavor, keyPair);
         Server server = queryServerBuild(novaApi, serverCreated);
 
-        deleteServer(novaApi, server);
-        deleteKeyPair(novaApi, keyPair);
-        deleteResources(novaApi);
+        deleteResources(novaApi, keyPair, server);
     }
 
     public static NovaApi authenticate(String username, String apiKey) {
@@ -72,43 +73,36 @@ public class CloudServers {
         KeyPair keyPair = keyPairApi.createWithPublicKey("my-keypair", publicKey);
     }
 
-    public static List<? extends Image> listImages(NovaApi novaApi) {
-        ImageApi imageApi = novaApi.getImageApiForZone(REGION);
+    public static List<? extends Image> listImages(ImageApi imageApi) {
         ImmutableList<? extends Image> images = imageApi.listInDetail().concat().toList();
 
         return images;
     }
 
-    public static Image getImage(NovaApi novaApi, List<? extends Image> images) {
-
+    public static Image getImage(ImageApi imageApi, List<? extends Image> images) {
         Image ubuntu1404Image = Iterables.find(images, new Predicate<Image>() {
             public boolean apply(Image image) {
                 return image.getName().equals("Ubuntu 14.04 LTS (Trusty Tahr)");
             }
         });
-
-        ImageApi imageApi = novaApi.getImageApiForZone(REGION);
         Image image = imageApi.get(ubuntu1404Image.getId());
 
         return image;
     }
 
-    public static List<? extends Flavor> listFlavors(NovaApi novaApi) {
-        FlavorApi flavorApi = novaApi.getFlavorApiForZone(REGION);
+    public static List<? extends Flavor> listFlavors(FlavorApi flavorApi) {
         ImmutableList<? extends Flavor> flavors = flavorApi.listInDetail().concat().toList();
 
         return flavors;
     }
 
-    public static Flavor getFlavor(NovaApi novaApi) {
-        FlavorApi flavorApi = novaApi.getFlavorApiForZone(REGION);
-        Flavor flavor = flavorApi.get(FLAVOR_ID);
+    public static Flavor getFlavor(FlavorApi flavorApi, String flavorId) {
+        Flavor flavor = flavorApi.get(flavorId);
 
         return flavor;
     }
 
-    public static KeyPair createNewKeyPair(NovaApi novaApi) throws IOException {
-        KeyPairApi keyPairApi = novaApi.getKeyPairExtensionForZone(REGION).get();
+    public static KeyPair createNewKeyPair(KeyPairApi keyPairApi) throws IOException {
         KeyPair keyPair = keyPairApi.create("my-keypair");
 
         File keyPairFile = new File("my-keypair.pem");
@@ -117,8 +111,7 @@ public class CloudServers {
         return keyPair;
     }
 
-    public static ServerCreated createServerWithKeypair(NovaApi novaApi, Image image, Flavor flavor, KeyPair keyPair)
-            throws TimeoutException {
+    public static ServerCreated createServerWithKeypair(NovaApi novaApi, Image image, Flavor flavor, KeyPair keyPair){
         ServerApi serverApi = novaApi.getServerApiForZone(REGION);
         CreateServerOptions options = CreateServerOptions.Builder.keyPairName(keyPair.getName());
         ServerCreated serverCreated = serverApi.create("My new server", image.getId(), flavor.getId(), options);
@@ -129,8 +122,10 @@ public class CloudServers {
     public static Server queryServerBuild(NovaApi novaApi, ServerCreated serverCreated) throws TimeoutException {
         ServerApi serverApi = novaApi.getServerApiForZone(REGION);
 
-        // Wait until the server is active
-        awaitActive(serverApi).apply(serverCreated.getId());
+        // Wait until the Server is Active
+        if (!awaitActive(serverApi).apply(serverCreated.getId())) {
+            throw new TimeoutException("Timeout on server: " + serverCreated);
+        }
 
         Server server = serverApi.get(serverCreated.getId());
 
@@ -147,7 +142,10 @@ public class CloudServers {
         keyPairApi.delete(keyPair.getName());
     }
 
-    private static void deleteResources(NovaApi novaApi) throws IOException {
+    private static void deleteResources(NovaApi novaApi, KeyPair keyPair, Server server) throws IOException {
+       deleteKeyPair(novaApi, keyPair);
+       deleteServer(novaApi, server);
+
        Closeables.close(novaApi, true);
     }
 }

@@ -51,7 +51,7 @@ public class AutoScale {
         String policyId = getPolicyId(policyApi);
 
         WebhookApi webhookApi = autoscaleApi.getWebhookApiForZoneAndGroupAndPolicy(REGION, group.getId(), policyId);
-        String webhookId = createWebhook(webhookApi);
+        String webhookId = createWebhook(webhookApi, WEBHOOK_NAME);
         executeWebhook(webhookApi, webhookId);
 
         deleteResources(autoscaleApi, group, policyId, webhookId);
@@ -102,11 +102,13 @@ public class AutoScale {
 
     public static String getPolicyId(PolicyApi policyApi) {
         FluentIterable<ScalingPolicy> policies = policyApi.list();
+
         return policies.first().get().getId();
     }
 
-    public static String createWebhook(WebhookApi webhookApi) {
-        FluentIterable<Webhook> result = webhookApi.create(WEBHOOK_NAME, ImmutableMap.<String, Object>of());
+    public static String createWebhook(WebhookApi webhookApi, String webhookName) {
+        FluentIterable<Webhook> result = webhookApi.create(webhookName, ImmutableMap.<String, Object>of());
+
         return result.first().get().getId();
     }
 
@@ -114,11 +116,26 @@ public class AutoScale {
         AutoscaleUtils.execute(webhookApi.get(webhookId));
     }
 
-    private static void deleteResources(AutoscaleApi autoscaleApi, Group group, String policyId, String webhookId)
-            throws IOException {
-        autoscaleApi.getWebhookApiForZoneAndGroupAndPolicy(REGION, group.getId(), policyId).delete(webhookId);
-        autoscaleApi.getPolicyApiForZoneAndGroup(REGION, group.getId()).delete(policyId);
-        autoscaleApi.getGroupApiForZone(REGION).delete(group.getId());
+    public static void deleteWebhook(AutoscaleApi autoscaleApi, Group group, String policyId, String webhookId) {
+       WebhookApi webhookApi = autoscaleApi.getWebhookApiForZoneAndGroupAndPolicy(REGION, group.getId(), policyId);
+       webhookApi.delete(webhookId);
+    }
+
+    public static void deleteScalingPolicy(AutoscaleApi autoscaleApi, Group group, String policyId) {
+       PolicyApi policyApi = autoscaleApi.getPolicyApiForZoneAndGroup(REGION, group.getId());
+       policyApi.delete(policyId);
+    }
+
+    public static void deleteScalingGroup(AutoscaleApi autoscaleApi, Group group) {
+       GroupApi groupApi = autoscaleApi.getGroupApiForZone(REGION);
+       groupApi.delete(group.getId());
+    }
+
+    public static void deleteResources(AutoscaleApi autoscaleApi, Group group, String policyId, String webhookId)
+          throws IOException {
+        deleteWebhook(autoscaleApi, group, policyId, webhookId);
+        deleteScalingPolicy(autoscaleApi, group, policyId);
+        deleteScalingGroup(autoscaleApi, group);
 
         Closeables.close(autoscaleApi, true);
     }

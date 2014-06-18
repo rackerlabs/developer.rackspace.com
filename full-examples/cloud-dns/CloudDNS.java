@@ -54,7 +54,7 @@ public class CloudDNS {
         return cloudDNSApi;
     }
 
-    private static Set<Domain> createZone(CloudDNSApi cloudDNSApi, DomainApi domainApi)
+    public static Set<Domain> createZone(CloudDNSApi cloudDNSApi, DomainApi domainApi)
             throws TimeoutException {
         List<CreateDomain> createDomains = Lists.newArrayList();
         CreateDomain createDomain = CreateDomain.builder()
@@ -70,13 +70,13 @@ public class CloudDNS {
         return domains;
     }
 
-    private static Domain getZone(DomainApi domainApi, Set<Domain> domains) {
+    public static Domain getZone(DomainApi domainApi, Set<Domain> domains) {
         Domain domain = domainApi.get(domains.iterator().next().getId());
 
         return domain;
     }
 
-    private static void modifyZone(CloudDNSApi cloudDNSApi, DomainApi domainApi, Domain domain)
+    public static void modifyZone(CloudDNSApi cloudDNSApi, DomainApi domainApi, Domain domain)
             throws TimeoutException {
         UpdateDomain updateDomain = UpdateDomain.builder()
                 .email("changed@domain.com")
@@ -86,7 +86,7 @@ public class CloudDNS {
         awaitComplete(cloudDNSApi, domainApi.update(domain.getId(), updateDomain));
     }
 
-    private static Set<RecordDetail> createRecord(CloudDNSApi cloudDNSApi, RecordApi recordApi)
+    public static Set<RecordDetail> createRecord(CloudDNSApi cloudDNSApi, RecordApi recordApi)
             throws TimeoutException {
         Record createARecord = Record.builder()
                 .type("A")
@@ -102,13 +102,13 @@ public class CloudDNS {
         return records;
     }
 
-    private static RecordDetail getRecord(RecordApi recordApi, Set<RecordDetail> records) {
+    public static RecordDetail getRecord(RecordApi recordApi, Set<RecordDetail> records) {
         RecordDetail record = recordApi.get(records.iterator().next().getId());
 
         return record;
     }
 
-    private static void modifyRecord(CloudDNSApi cloudDNSApi, RecordApi recordApi, RecordDetail record)
+    public static void modifyRecord(CloudDNSApi cloudDNSApi, RecordApi recordApi, RecordDetail record)
             throws TimeoutException {
         Record updateRecord = Record.builder()
                 .data("192.168.1.2")
@@ -117,7 +117,7 @@ public class CloudDNS {
         awaitComplete(cloudDNSApi, recordApi.update(record.getId(), updateRecord));
     }
 
-    private static void deleteRecord(CloudDNSApi cloudDNSApi, Domain domain, RecordDetail record)
+    public static void deleteRecord(CloudDNSApi cloudDNSApi, Domain domain, RecordDetail record)
             throws TimeoutException {
         List<String> recordIds = ImmutableList.of(record.getId());
         RecordApi recordApi = cloudDNSApi.getRecordApiForDomain(domain.getId());
@@ -125,7 +125,7 @@ public class CloudDNS {
         awaitComplete(cloudDNSApi, recordApi.delete(recordIds));
     }
 
-    private static void deleteZone(CloudDNSApi cloudDNSApi, Domain domain)
+    public static void deleteZone(CloudDNSApi cloudDNSApi, Domain domain)
             throws TimeoutException {
         List<Integer> domainIds = ImmutableList.of(domain.getId());
         DomainApi domainApi = cloudDNSApi.getDomainApi();
@@ -133,10 +133,11 @@ public class CloudDNS {
         awaitComplete(cloudDNSApi, domainApi.delete(domainIds, true));
     }
 
-    private static void deleteResources(CloudDNSApi cloudDNSApi, Domain domain, RecordDetail record)
+    public static void deleteResources(CloudDNSApi cloudDNSApi, Domain domain, RecordDetail record)
             throws TimeoutException, IOException {
         deleteRecord(cloudDNSApi, domain, record);
         deleteZone(cloudDNSApi, domain);
+
         Closeables.close(cloudDNSApi, true);
     }
 }

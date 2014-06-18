@@ -45,9 +45,7 @@ public class CloudBlockStorage {
         Snapshot showSnapshot = showSnapshot(snapshotApi, snapshot.getId());
         List<? extends Snapshot> snapshots = listSnapshots(snapshotApi);
 
-        deleteSnapshot(cinderApi.getSnapshotApiForZone(REGION), snapshot);
-        deleteVolume(cinderApi.getVolumeApiForZone(REGION), volume);
-        deleteResources(cinderApi);
+        deleteResources(cinderApi, snapshot, volume);
     }
 
     public static CinderApi authenticate(String username, String apiKey) {
@@ -58,7 +56,7 @@ public class CloudBlockStorage {
         return cinderApi;
     }
 
-    private static Volume createVolume(VolumeApi volumeApi) throws TimeoutException {
+    public static Volume createVolume(VolumeApi volumeApi) throws TimeoutException {
         CreateVolumeOptions options = CreateVolumeOptions.Builder
             .name(VOLUME_NAME)
             .description("Volume Description")
@@ -72,19 +70,19 @@ public class CloudBlockStorage {
         return volume;
     }
 
-    private static Volume showVolume(VolumeApi volumeApi, String volumeId) {
+    public static Volume showVolume(VolumeApi volumeApi, String volumeId) {
         Volume volume = volumeApi.get(volumeId);
 
         return volume;
     }
 
-    private static List<? extends Volume> listVolumes(VolumeApi volumeApi) {
+    public static List<? extends Volume> listVolumes(VolumeApi volumeApi) {
         List<? extends Volume> volumes = volumeApi.listInDetail().toList();
 
         return volumes;
     }
 
-    private static Snapshot createSnapshot(SnapshotApi snapshotApi, Volume volume) throws TimeoutException {
+    public static Snapshot createSnapshot(SnapshotApi snapshotApi, Volume volume) throws TimeoutException {
         CreateSnapshotOptions options = CreateSnapshotOptions.Builder
             .name(SNAPSHOT_NAME)
             .description("Snapshot Description");
@@ -97,7 +95,7 @@ public class CloudBlockStorage {
         return snapshot;
     }
 
-    private static Snapshot showSnapshot(SnapshotApi snapshotApi, String snapshotId) {
+    public static Snapshot showSnapshot(SnapshotApi snapshotApi, String snapshotId) {
         Snapshot snapshot = snapshotApi.get(snapshotId);
 
         return snapshot;
@@ -123,7 +121,10 @@ public class CloudBlockStorage {
         awaitDeleted(volumeApi).apply(volume);
     }
 
-    private static void deleteResources(CinderApi cinderApi) throws IOException {
+    public static void deleteResources(CinderApi cinderApi, Snapshot snapshot, Volume volume) throws IOException {
+        deleteSnapshot(cinderApi.getSnapshotApiForZone(REGION), snapshot);
+        deleteVolume(cinderApi.getVolumeApiForZone(REGION), volume);
+
         Closeables.close(cinderApi, true);
     }
 }
