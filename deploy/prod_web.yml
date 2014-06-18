@@ -57,6 +57,12 @@
       with_items: rax.success
       when: rax.action == 'create'
 
+- name: Make sure SSH is up before proceeding
+  hosts: prod_webservers
+  remote_user: root
+  tasks:
+    - wait_for: port=22 delay=10
+
 - name: Configure web server(s)
   hosts: prod_webservers
   remote_user: root
