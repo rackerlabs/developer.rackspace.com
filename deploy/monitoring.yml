@@ -4,7 +4,7 @@
   connection: local
   gather_facts: false
   vars:
-    lb_hostname: developer.rackspace.com
+    lb_ip: "{{ clb_prod['balancer']['virtual_ips'][0]['address'] }}"
     monitoring_zones:
     - mzdfw
     - mziad
@@ -17,9 +17,9 @@
     rax_mon_entity:
       credentials: ~/.rackspace_cloud_credentials
       state: present
-      name: entity_{{ lb_hostname }}
+      name: entity_{{ lb_ip }}
       named_ip_addresses:
-        load_balancer: "{{ lb_hostname }}"
+        load_balancer: "{{ lb_ip }}"
     register: entity
 
   - name: Create a check on port 80
@@ -44,7 +44,7 @@
       label: http_check_index
       check_type: remote.http
       details:
-        url: http://{{ lb_hostname }}/
+        url: http://{{ lb_ip }}/
         body: <h1>Welcome to the Rackspace Developer Center!</h1>
         include_body: false
         method: GET
@@ -61,7 +61,7 @@
       label: http_check_blog
       check_type: remote.http
       details:
-        url: http://{{ lb_hostname }}/blog/
+        url: http://{{ lb_ip }}/blog/
         body: <span class="highlight-blue">Devops</span>
         include_body: true
         method: GET
@@ -78,7 +78,7 @@
       label: http_check_sdk
       check_type: remote.http
       details:
-        url: http://{{ lb_hostname }}/sdks/
+        url: http://{{ lb_ip }}/sdks/
         body: <span class="headline">SDKs & Tools</span>
         include_body: false
         method: GET
