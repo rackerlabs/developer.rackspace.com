@@ -16,7 +16,7 @@
         region: "{{ lookup('env', 'RAX_REGION') | upper }}"
         wait: yes
         state: present
-      register: clb
+      register: clb_prod
 
     - name: Provision 2 production web servers
       rax:
@@ -34,28 +34,28 @@
         group: prod_webservers
         wait: yes
         key_name: drg
-      register: rax
+      register: rax_prod
 
     - name: Add web servers to load balancer
       rax_clb_nodes:
         credentials: ~/.rackspace_cloud_credentials
-        load_balancer_id: "{{ clb.balancer.id }}"
+        load_balancer_id: "{{ clb_prod.balancer.id }}"
         address: "{{ item.rax_networks.private|first }}"
         port: 80
         condition: enabled
         type: primary
         wait: yes
         region: "{{ lookup('env', 'RAX_REGION') | upper }}"
-      with_items: rax.success
-      when: rax.action == 'create'
+      with_items: rax_prod.success
+      when: rax_prod.action == 'create'
 
     - name: Add web servers to prod_webservers host group
       add_host:
         hostname: "{{ item.name }}"
         ansible_ssh_host: "{{ item.rax_accessipv4 }}"
         groupname: prod_webservers
-      with_items: rax.success
-      when: rax.action == 'create'
+      with_items: rax_prod.success
+      when: rax_prod.action == 'create'
 
 - name: Configure web server(s)
   hosts: prod_webservers

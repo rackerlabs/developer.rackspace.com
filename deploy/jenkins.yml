@@ -28,15 +28,15 @@
         group: jenkins_masters
         wait: yes
         key_name: drg
-      register: rax
+      register: rax_jenkins
 
     - name: Add master server to jenkins_masters host group
       add_host:
         hostname: "{{ item.name }}"
         ansible_ssh_host: "{{ item.rax_accessipv4 }}"
         groupname: jenkins_masters
-      with_items: rax.success
-      when: rax.action == 'create'
+      with_items: rax_jenkins.success
+      when: rax_jenkins.action == 'create'
 
 # We gather facts about the production and staging web servers in the
 # same region (as the jenkins server(s)) so the 'build_site' Jenkins job

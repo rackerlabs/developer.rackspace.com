@@ -16,7 +16,7 @@
         region: "{{ lookup('env', 'RAX_REGION') | upper }}"
         wait: yes
         state: present
-      register: clb
+      register: clb_staging
 
     # This is a workaround for the rax_clb module not supporting access list
     # manipulation.
@@ -39,28 +39,28 @@
         group: staging_webservers
         wait: yes
         key_name: drg
-      register: rax
+      register: rax_staging
 
     - name: Add web servers to load balancer
       rax_clb_nodes:
         credentials: ~/.rackspace_cloud_credentials
-        load_balancer_id: "{{ clb.balancer.id }}"
+        load_balancer_id: "{{ clb_staging.balancer.id }}"
         address: "{{ item.rax_networks.private|first }}"
         port: 80
         condition: enabled
         type: primary
         wait: yes
         region: "{{ lookup('env', 'RAX_REGION') | upper }}"
-      with_items: rax.success
-      when: rax.action == 'create'
+      with_items: rax_staging.success
+      when: rax_staging.action == 'create'
 
     - name: Add web servers to staging webservers host group
       add_host:
         hostname: "{{ item.name }}"
         ansible_ssh_host: "{{ item.rax_accessipv4 }}"
         groupname: staging_webservers
-      with_items: rax.success
-      when: rax.action == 'create'
+      with_items: rax_staging.success
+      when: rax_staging.action == 'create'
 
 - name: Configure web server(s)
   hosts: staging_webservers
