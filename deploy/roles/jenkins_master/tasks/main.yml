@@ -76,6 +76,47 @@
   notify:
     - 'Restart Jenkins'
 
+- name: Build tools
+  apt: pkg={{ item }} state=installed
+  with_items:
+  - build-essential
+  - python-dev
+
+- name: pip
+  shell: curl --show-error --retry 5 https://bootstrap.pypa.io/get-pip.py | python
+         creates=/usr/local/bin/pip
+
+- name: ansibleception
+  pip: name=ansible state=present
+
+- name: Create the inventory directory
+  file: dest=/etc/ansible state=directory mode=0755
+
+- name: Create an inventory
+  template: src=etc/ansible/hosts.j2 dest=/etc/ansible/hosts mode=0644
+
+- name: Register SSH host signatures for each production webserver
+  command: ssh-keyscan -H {{ hostvars[item]['rax_networks']['private'][0] }}
+  register: ssh_signatures
+  with_items: groups['prod_webservers'] + groups['staging_webservers']
+
+- name: Trust the SSH signatures we just collected
+  lineinfile: "dest=/var/lib/jenkins/.ssh/known_hosts
+               line='{{ item.stdout | trim }}'
+               create=yes
+               state=present"
+  with_items: ssh_signatures.results
+
+- name: Get localhost's SSH signature
+  command: ssh-keyscan -H 127.0.0.1
+  register: localhost_signature
+
+- name: Trust localhost's SSH signature
+  lineinfile: "dest=/var/lib/jenkins/.ssh/known_hosts
+               line='{{ localhost_signature.stdout | trim }}'
+               create=yes
+               state=present"
+
 - name: Log the firewall
   ufw: logging=on
 
@@ -92,4 +133,3 @@
 
 - name: Drop everything else
   ufw: policy=reject state=enabled
-

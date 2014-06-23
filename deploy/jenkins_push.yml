@@ -1,0 +1,44 @@
+---
+- name: Build the site locally first.
+  hosts: local
+  connection: local
+  tasks:
+
+  - name: Run the build script to generate the site.
+    command: ../build_site.sh
+
+- name: Invoked from Jenkins to deploy the site to each webserver.
+  hosts: "{{ group }}"
+  remote_user: publisher
+  vars_files:
+  - paths.yml
+  tasks:
+
+  - name: Deploy the static HTML.
+    synchronize: src=../_site/ dest={{ docroot }}
+                 archive=yes checksum=yes
+
+  - name: Deploy the sponsorship-form backend.
+    synchronize: src=../src/sponsorship-form/ dest={{ backendroot }}
+                 archive=yes checksum=yes
+    notify:
+    - restart the sponsorship-form
+
+  - name: Install sponsorship form dependencies.
+    npm: path={{ backendroot }} production=yes
+    notify:
+    - restart the sponsorship-form
+
+  - name: Check the list of forever.js apps that are currently running.
+    command: forever list
+    register: forever_list
+    changed_when: false
+
+  - name: Start the backend service
+    command: chdir={{ backendroot }} forever start {{ backendroot }}/index.js
+    when: "forever_list.stdout.find('{{ backendroot }}') == -1"
+
+  handlers:
+
+  - name: restart the sponsorship-form
+    command: chdir={{ backendroot }} forever restart {{ backendroot }}/index.js

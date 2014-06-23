@@ -1,0 +1,16 @@
+[local]
+localhost ansible_connection=local
+
+[prod_webservers]
+{% for host in groups['prod_webservers'] %}
+{{ host }} ansible_ssh_host={{ hostvars[host]['rax_networks']['private'][0] }}
+{% endfor %}
+
+[staging_webservers]
+{% for host in groups['staging_webservers'] %}
+{{ host }} ansible_ssh_host={{ hostvars[host]['rax_networks']['private'][0] }}
+{% endfor %}
+
+[all:vars]
+ansible_ssh_user=publisher
+ansible_ssh_private_key_file=/var/lib/jenkins/publisher.id_rsa

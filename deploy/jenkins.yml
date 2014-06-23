@@ -61,6 +61,6 @@
   - startup_delay_s: 30
   roles:
     - ICTO.ansible-jenkins
-    - jenkins_masters
+    - jenkins_master
     - jekyll
     - sphinx

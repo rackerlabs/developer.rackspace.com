@@ -13,7 +13,7 @@
     </userRemoteConfigs>
     <branches>
       <hudson.plugins.git.BranchSpec>
-        <name>*/master</name>
+        <name>*/dev</name>
       </hudson.plugins.git.BranchSpec>
     </branches>
     <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
@@ -36,16 +36,9 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>./build_site.sh</command>
-    </hudson.tasks.Shell>
-    <hudson.tasks.Shell>
       <command># Publish to web servers in this region.
-cd _site
-{% for host in groups['prod_webservers'] %}
-{% if host != 'localhost' %}
-rsync -e &quot;ssh -i $JENKINS_HOME/publisher.id_rsa -o StrictHostKeyChecking=no&quot; -ac . publisher@{{ hostvars[host]['rax_networks']['private'][0] }}:/var/www/html/developer.rackspace.com/
-{% endif %}
-{% endfor %}
+# Publish to web servers in this region.
+ansible-playbook deploy/jenkins_push.yml --extra-vars "group=staging_webservers"
 </command>
     </hudson.tasks.Shell>
   </builders>

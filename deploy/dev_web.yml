@@ -4,6 +4,7 @@
   sudo: yes
   vars:
     docroot: /vagrant_data/_site
+    backendroot: /var/webapp/sponsorship-form
     sourceroot: /vagrant_data/
     server_name: localhost
   roles:

@@ -64,11 +64,11 @@
 
 - name: Configure web server(s)
   hosts: staging_webservers
+  remote_user: root
   vars_files:
-    - ip_access.yml
-  sudo: yes
-  vars:
-    docroot: /var/www/html/developer.rackspace.com
+  - ip_access.yml
+  - paths.yml
+  - secrets.yml
   roles:
     - webserver
     - lockboxweb
@@ -87,3 +87,6 @@
           gzip_types: text/plain text/css application/x-javascript text/xml application/xml application/xml+rss text/javascript
           gzip_vary: "on"
           gzip_proxied: any
+          location1:
+            name: /api
+            proxy_pass: http://127.0.0.1:8111
