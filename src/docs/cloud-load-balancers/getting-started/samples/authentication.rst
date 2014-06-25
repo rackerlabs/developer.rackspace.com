@@ -4,8 +4,8 @@
 
   // Authentication in jclouds is lazy and happens on the first call to the cloud.
   CloudLoadBalancersApi clbApi = ContextBuilder.newBuilder("rackspace-cloudloadbalancers-us")
-          .credentials("{username}", "{apiKey}")
-          .buildApi(CloudLoadBalancersApi.class);
+      .credentials("{username}", "{apiKey}")
+      .buildApi(CloudLoadBalancersApi.class);
 
 .. code-block:: javascript
 

@@ -3,7 +3,7 @@
 .. code-block:: java
 
   WebhookApi webhookApi = autoscaleApi.getWebhookApiForZoneAndGroupAndPolicy("{region}", "{groupId}", "{policyId}");
-  boolean result = webhookApi.delete("{webhookId}");
+  webhookApi.delete("{webhookId}");
 
 .. code-block:: javascript
 

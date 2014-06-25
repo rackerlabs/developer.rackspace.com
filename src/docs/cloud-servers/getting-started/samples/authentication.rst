@@ -2,12 +2,10 @@
 
 .. code-block:: java
 
-  // Authentication in jclouds is lazy.
-  // It only happens on the first call to the cloud.
-
+  // Authentication in jclouds is lazy and happens on the first call to the cloud.
   NovaApi novaApi = ContextBuilder.newBuilder("rackspace-cloudservers-us")
-          .credentials("{username}", "{apiKey}")
-          .buildApi(NovaApi.class);
+      .credentials("{username}", "{apiKey}")
+      .buildApi(NovaApi.class);
 
 .. code-block:: javascript
 

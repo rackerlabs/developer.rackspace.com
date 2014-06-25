@@ -2,9 +2,10 @@
 
 .. code-block:: java
 
+  // Authentication in jclouds is lazy and happens on the first call to the cloud.
   AutoscaleApi autoscaleApi = ContextBuilder.newBuilder("rackspace-autoscale-us")
-            .credentials("{username}", "{apiKey}")
-            .buildApi(AutoscaleApi.class);
+      .credentials("{username}", "{apiKey}")
+      .buildApi(AutoscaleApi.class);
 
 .. code-block:: javascript
 

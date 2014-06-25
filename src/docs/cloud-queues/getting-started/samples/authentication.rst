@@ -2,12 +2,10 @@
 
 .. code-block:: java
 
-  // Authentication in jclouds is lazy.
-  // It only happens on the first call to the cloud.
-
+  // Authentication in jclouds is lazy and happens on the first call to the cloud.
   MarconiApi marconiApi = ContextBuilder.newBuilder("rackspace-cloudqueues-us")
-          .credentials("{username}", "{apiKey}")
-          .buildApi(MarconiApi.class);
+      .credentials("{username}", "{apiKey}")
+      .buildApi(MarconiApi.class);
 
 .. code-block:: javascript
 

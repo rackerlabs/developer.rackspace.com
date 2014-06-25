@@ -7,8 +7,7 @@
 .. code-block:: java
 
   InstanceApi instanceApi = troveApi.getInstanceApiForZone("{region}");
-
-  boolean rootedStatus = instanceApi.isRooted("{instanceId}");
+  instanceApi.isRooted("{instanceId}");
 
 .. code-block:: javascript
 

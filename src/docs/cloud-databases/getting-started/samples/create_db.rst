@@ -9,8 +9,7 @@
 .. code-block:: java
 
   DatabaseApi databaseApi = troveApi.getDatabaseApiForZoneAndInstance("{region}", "{instanceId}");
-
-  boolean result = databaseApi.create("sample_db");
+  databaseApi.create("sample_db");
 
 .. code-block:: javascript
 

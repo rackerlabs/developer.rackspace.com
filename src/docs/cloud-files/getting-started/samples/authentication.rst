@@ -4,8 +4,8 @@
 
   // Authentication in jclouds is lazy and happens on the first call to the cloud.
   CloudFilesApi cloudFilesApi = ContextBuilder.newBuilder("rackspace-cloudfiles-us")
-          .credentials("{username}", "{apiKey}")
-          .buildApi(CloudFilesApi.class);
+      .credentials("{username}", "{apiKey}")
+      .buildApi(CloudFilesApi.class);
 
 .. code-block:: javascript
 

@@ -10,7 +10,8 @@
             .targetType(ScalingPolicyTargetType.INCREMENTAL)
             .target("1")
             .build();
-  boolean result = policyApi.update("{policyId}", scalingPolicy);
+
+  policyApi.update("{policyId}", scalingPolicy);
 
 .. code-block:: javascript
 

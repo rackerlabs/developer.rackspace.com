@@ -10,10 +10,10 @@
 
 .. code-block:: java
 
-  // The TroveApi will provide access to all database features, such as Instances or Users.
+  // Authentication in jclouds is lazy and happens on the first call to the cloud.
   TroveApi troveApi = ContextBuilder.newBuilder("rackspace-clouddatabases-us")
-          .credentials("{username}", "{apiKey}")
-          .buildApi(TroveApi.class);
+      .credentials("{username}", "{apiKey}")
+      .buildApi(TroveApi.class);
 
 .. code-block:: javascript
 

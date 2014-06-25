@@ -10,7 +10,8 @@
             .minEntities(5)
             .metadata(ImmutableMap.of("notes", "This is an autoscale group for examples"))
             .build();
-  boolean result = groupApi.updateGroupConfiguration("{groupId}", groupConfiguration);
+  
+  groupApi.updateGroupConfiguration("{groupId}", groupConfiguration);
 
 .. code-block:: javascript
 
