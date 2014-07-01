@@ -1,6 +1,5 @@
 .. code-block:: csharp
 
-  CloudFilesProvider cloudFilesProvider = new CloudFilesProvider(cloudIdentity);
   cloudFilesProvider.DeleteContainer("{container_name}");
 
 .. code-block:: java

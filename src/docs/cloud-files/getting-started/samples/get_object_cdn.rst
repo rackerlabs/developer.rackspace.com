@@ -1,6 +1,5 @@
 .. code-block:: csharp
 
-  CloudFilesProvider cloudFilesProvider = new CloudFilesProvider(cloudIdentity);
   ContainerCDN container = cloudFilesProvider.GetContainerCDNHeader(container: "{container_name}");
   string urlForHTTP = container.CDNUri;
   string urlForHTTPS = container.CDNSslUri;
