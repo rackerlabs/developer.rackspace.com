@@ -1,6 +1,5 @@
 .. code-block:: csharp
 
-  CloudLoadBalancerProvider cloudLoadBalancerProvider = new CloudLoadBalancerProvider(cloudIdentity, "{region}", null);
   IEnumerable<LoadBalancingProtocol> protocols = await cloudLoadBalancerProvider.ListProtocolsAsync(CancellationToken.None);
   LoadBalancingProtocol httpProtocol = protocols.First(i => i.Name.Equals("HTTP", StringComparison.OrdinalIgnoreCase));
   LoadBalancerConfiguration configuration = new LoadBalancerConfiguration(

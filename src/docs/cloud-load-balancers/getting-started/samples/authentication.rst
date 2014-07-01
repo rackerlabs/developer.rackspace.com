@@ -5,6 +5,7 @@
       APIKey = "{apikey}",
       Username = "{username}"
   };
+  CloudLoadBalancerProvider cloudLoadBalancerProvider = new CloudLoadBalancerProvider(cloudIdentity, "{region}", null);
 
 .. code-block:: java
 
