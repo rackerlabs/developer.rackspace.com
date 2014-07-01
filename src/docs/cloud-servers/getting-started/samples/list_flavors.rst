@@ -1,6 +1,5 @@
 .. code-block:: csharp
 
-  CloudServersProvider cloudServersProvider = new CloudServersProvider(cloudIdentity);
   IEnumerable<Flavor> flavorList = cloudServersProvider.ListFlavors();
 
 .. code-block:: java
