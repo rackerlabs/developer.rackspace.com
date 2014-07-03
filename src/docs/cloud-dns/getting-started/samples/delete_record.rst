@@ -1,5 +1,8 @@
 .. code-block:: csharp
 
+  DomainId domainId = new DomainId("{domain_id}");
+  await cloudDNSProvider.RemoveRecordsAsync(domainId, new[] { {records}[0].Id }, AsyncCompletionOption.RequestCompleted, CancellationToken.None, null);
+			
 .. code-block:: java
 
   RecordApi recordApi = cloudDNSApi.getRecordApiForDomain({domainId});

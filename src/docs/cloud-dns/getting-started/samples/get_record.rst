@@ -1,5 +1,8 @@
 .. code-block:: csharp
 
+  DomainId domainId = new DomainId("{domainId}");
+  Task<ReadOnlyCollection<DnsRecord>> recordsList = (await cloudDNSProvider.ListRecordsAsync(domainId, DnsRecordType.Mx, null, null, null, null, CancellationToken.None)).Item1.GetAllPagesAsync(CancellationToken.None, null);
+
 .. code-block:: java
 
   RecordApi recordApi = cloudDNSApi.getRecordApiForDomain({domainId}});

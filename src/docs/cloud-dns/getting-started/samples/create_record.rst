@@ -1,5 +1,19 @@
 .. code-block:: csharp
 
+  DomainId domainId = new DomainId("{domainId}");
+  DnsDomainRecordConfiguration[] recordConfigurations =
+          {
+              new DnsDomainRecordConfiguration(
+                  type: DnsRecordType.A,
+                  name: string.Format("www.{0}", {domainName}),
+                  data: "{data}",
+                  timeToLive: null,
+                  comment: "{comment}",
+                  priority: null)
+          };
+  DnsJob<DnsRecordsList> recordsResponse = await cloudDNSProvider.AddRecordsAsync(domainId, recordConfigurations, AsyncCompletionOption.RequestCompleted, CancellationToken.None, null);
+  DnsRecord[] records = recordsResponse.Response.Records.ToArray();
+  
 .. code-block:: java
 
   RecordApi recordApi = cloudDNSApi.getRecordApiForDomain({domainId});
