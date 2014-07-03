@@ -1,6 +1,5 @@
 .. code-block:: csharp
 
-  CloudFilesProvider cloudFilesProvider = new CloudFilesProvider(cloudIdentity);
   cloudFilesProvider.DisableCDNOnContainer("{container_name}");
 
 .. code-block:: java

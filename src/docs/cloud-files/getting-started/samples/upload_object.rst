@@ -1,6 +1,5 @@
 .. code-block:: csharp
 
-  CloudFilesProvider cloudFilesProvider = new CloudFilesProvider(cloudIdentity);
   FileStream fileStream = new FileStream("{path_to_file}", FileMode.Open, FileAccess.Read);
   int fileLength = (int)fileStream.Length;
   byte[] buffer = new byte[fileLength];
