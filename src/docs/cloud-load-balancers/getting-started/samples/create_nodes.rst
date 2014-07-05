@@ -1,6 +1,5 @@
 .. code-block:: csharp
 
-  CloudLoadBalancerProvider cloudLoadBalancerProvider = new CloudLoadBalancerProvider(cloudIdentity, "{region}", null);
   LoadBalancerId loadBalancerId = new LoadBalancerId("{load_balancer_id}");
   NodeConfiguration nodeConfiguration = new NodeConfiguration("{host_domain}", 80, NodeCondition.Enabled, NodeType.Primary, null);
   Node node = await cloudLoadBalancerProvider.AddNodeAsync(loadBalancerId, nodeConfiguration, AsyncCompletionOption.RequestCompleted, CancellationToken.None, null);

@@ -1,6 +1,5 @@
 .. code-block:: csharp
 
-  CloudLoadBalancerProvider cloudLoadBalancerProvider = new CloudLoadBalancerProvider(cloudIdentity, "{region}", null);
   int limit = 1;
   ReadOnlyCollection<LoadBalancer> loadBalancers = await (await cloudLoadBalancerProvider.ListLoadBalancersAsync(null, limit, CancellationToken.None)).GetAllPagesAsync(CancellationToken.None, null);
   LoadBalancerStatus loadBalancerStatus = loadBalancers[0].Status;
