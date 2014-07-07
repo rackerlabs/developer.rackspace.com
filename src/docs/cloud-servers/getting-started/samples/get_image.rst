@@ -1,6 +1,5 @@
 .. code-block:: csharp
 
-  CloudServersProvider cloudServersProvider = new CloudServersProvider(cloudIdentity);
   ServerImage serverImage = cloudServersProvider.GetImage("{image_id}");
 
 .. code-block:: java

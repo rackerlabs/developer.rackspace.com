@@ -5,6 +5,7 @@
       APIKey = "{apikey}",
       Username = "{username}"
   };
+  CloudServersProvider cloudServersProvider = new CloudServersProvider(cloudIdentity);
 			
 .. code-block:: java
 

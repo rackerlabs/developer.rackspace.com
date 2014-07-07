@@ -1,6 +1,5 @@
 .. code-block:: csharp
 
-  CloudServersProvider cloudServersProvider = new CloudServersProvider(cloudIdentity);
   cloudServersProvider.CreateServer("{server_name}", "{image_id}", "{flavor_id}");
 
 .. code-block:: java
