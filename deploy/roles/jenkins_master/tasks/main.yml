@@ -150,19 +150,3 @@
 
 - name: Drop everything else
   ufw: policy=reject state=enabled
-
-# Forward inbound connections on port 80 to port 8080
-- name: Get iptables NAT (port forwarding) rules
-  shell: iptables -L PREROUTING -t nat
-  register: iptablesrules
-  always_run: yes
-  sudo: true
-
-- name: Forward inbound port 80 to 8080
-  command: iptables -A PREROUTING -t nat -p tcp --dport 80 -j REDIRECT --to-port 8080 -m comment --comment "jenkins"
-  sudo: true
-  when: iptablesrules.stdout.find("jenkins") == -1
-
-- name: Make sure port forwarding rule is applied at restart
-  copy: src=etc/network/if-pre-up.d/setup_port_forwarding dest=/etc/network/if-pre-up.d/setup_port_forwarding mode=0744 owner=root group=root
-  sudo: true
