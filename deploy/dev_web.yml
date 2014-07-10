@@ -2,13 +2,13 @@
 - name: Configure web server(s)
   hosts: webservers
   sudo: yes
+  vars_files:
+  - vars.yml
+  - [ "secrets.yml", "secrets.nodeless.yml" ]
   vars:
     docroot: /vagrant_data/_site
     backendroot: /vagrant_data/src/sponsorship-form
     server_name: localhost
-  vars_files:
-  - vars.yml
-  - [ "secrets.yml", "secrets.nodeless.yml" ]
   roles:
     - role: webserver
       content_owner: vagrant
