@@ -33,7 +33,7 @@
       $('.sponsorship-result')
         .removeClass('hidden')
         .addClass('alert-danger')
-        .html('<strong>Oh, no!</strong> Your sponsorship request didn\'t go through. Can you try again? You can also contact us directly at SDK-support@rackspace.com.');
+        .html('<strong>Oh, no!</strong> Your sponsorship request didn\'t go through. Can you try again? You can also contact us directly at sponsorships@rackspace.com.');
 
       // Make sure the file input is highlighted
       $('input[name=prospectus]')

@@ -144,8 +144,8 @@
   with_items: ip_accesses
 
 # As well as on the web
-- name: Allow access to 8080 from specific hosts
-  ufw: rule=allow src={{ item }} port=8080 proto=tcp direction=in
+- name: Allow access to 80 from specific hosts
+  ufw: rule=allow src={{ item }} port=80 proto=tcp direction=in
   with_items: ip_accesses
 
 - name: Drop everything else
