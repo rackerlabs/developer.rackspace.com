@@ -140,7 +140,10 @@ server.post('/api/sponsorship', function(req, res, next) {
       from: config.fromAddress,
       to: data.contact_email,
       subject: 'Sponsorship Request: ' + data.event_name,
-      text: 'Dear ' + data.contact_name + ',\n\nCOPY TO GO HERE\n\nThanks!\nRackspace Developer Relations'
+      text: 'Hi!\n\nYou submitted a request through (http://developer.rackspace.com/)[developer.rackspace.com] for sponsorship of a community event or project. 
+      Thanks for reaching out to us. A Racker from the Developer Relations Group will contact you in the next few days. You can 
+      email us directly at <sponsorships@rackspace.com> if you have questions about the status of your request. If you have technical 
+      support questions, please send us an email at <SDK-support@rackspace.com>. We\'re happy to help.\n\nThanks!\nRackspace Developer Relations'
     };
 
     mailgun.messages().send(emailData, callback);
