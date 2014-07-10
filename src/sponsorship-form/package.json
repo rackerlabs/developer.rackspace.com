@@ -14,6 +14,7 @@
     "pkgcloud": "0.9.5",
     "underscore": "1.4.4",
     "mailgun-js": "0.4.15",
-    "winston": "0.7.3"
+    "winston": "0.7.3",
+    "marked": "0.3.2"
   }
 }
