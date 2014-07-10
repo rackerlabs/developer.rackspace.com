@@ -1,12 +1,6 @@
 ---
 # Paths that should be common across playbooks.
 
-# Destination directory for the static HTML.
-docroot: /var/www/html/developer.rackspace.com
-
-# Directory for the sponsorship-form backend.
-backendroot: /var/webapp/sponsorship-form
-
 # Rackspace region in which the CDN and sponsorship form upload containers should be created.
 common_region: IAD
 
