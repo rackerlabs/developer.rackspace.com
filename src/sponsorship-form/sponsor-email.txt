@@ -1,0 +1,6 @@
+Dear %%%NAME%%%,
+
+COPY TO GO HERE IN PLAIN TEXT
+
+Thanks!
+DRG
