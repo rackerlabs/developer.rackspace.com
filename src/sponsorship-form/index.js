@@ -2,10 +2,12 @@ var restify = require('restify'),
   async = require('async'),
   config = require('./config.json'),
   fs = require('fs'),
+  path = require('path'),
   logging = require('./logging'),
   Mailgun = require('mailgun-js'),
   pkgcloud = require('pkgcloud'),
   os = require('os'),
+  marked = require('marked'),
   _ = require('underscore');
 
 // create our API Server
@@ -29,6 +31,8 @@ client.on('log::*', logging.logFunction);
 
 // create our mailgun client
 var mailgun = new Mailgun({apiKey: config.mailgun.apiKey, domain: config.mailgun.domain});
+
+var markdownTemplate, plaintextTemplate;
 
 server.post('/api/sponsorship', function(req, res, next) {
 
@@ -67,9 +71,6 @@ server.post('/api/sponsorship', function(req, res, next) {
 
       // Update json data to reference that it failed to archive for the notification email
       data.failedToArchive = true;
-
-      // Remove the prospectus, if any
-      fs.unlink(req.files.prospectus.path);
     }
 
     log.info('success...');
@@ -119,6 +120,7 @@ server.post('/api/sponsorship', function(req, res, next) {
   }
 
   function sendNotificationEmail(callback) {
+    log.info('Sending notification to DRG staff');
     var emailData = {
       from: config.fromAddress,
       to: config.notificationAddress,
@@ -136,17 +138,52 @@ server.post('/api/sponsorship', function(req, res, next) {
   }
 
   function sendResponseEmail(callback) {
+    log.info('Sending response to requestor');
     var emailData = {
       from: config.fromAddress,
       to: data.contact_email,
       subject: 'Sponsorship Request: ' + data.event_name,
-      text: 'Dear ' + data.contact_name + ',\n\nCOPY TO GO HERE\n\nThanks!\nRackspace Developer Relations'
+      text: plaintextTemplate.replace('%%%NAME%%%', data.contact_name),
+      html: markdownTemplate.replace('%%%NAME%%%', data.contact_name)
     };
+
+    log.verbose('Sending Response Email', emailData);
 
     mailgun.messages().send(emailData, callback);
   }
 });
 
-server.listen(8111, function() {
-  log.info('Server listening at ' + server.url);
+function readMarkdown(next) {
+  fs.readFile(path.join(path.dirname(process.argv[1]), '/sponsor-email.md'), function (err, data) {
+    if (err) {
+      return next(err);
+    }
+
+    markdownTemplate = marked(data.toString());
+    next();
+  });
+}
+
+function readPlaintext(next) {
+  fs.readFile(path.join(path.dirname(process.argv[1]), '/sponsor-email.txt'), function (err, data) {
+    if (err) {
+      return next(err);
+    }
+
+    plaintextTemplate = data.toString();
+    next();
+  });
+}
+
+async.parallel([ readMarkdown, readPlaintext ], function(err) {
+  if (err) {
+    log.error(err);
+    process.exit(1);
+    return;
+  }
+
+  server.listen(8111, function () {
+    log.info('Server listening at ' + server.url);
+  });
 });
+
