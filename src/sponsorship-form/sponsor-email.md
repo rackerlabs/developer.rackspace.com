@@ -4,4 +4,4 @@ You submitted a request through [developer.rackspace.com](http://developer.racks
 
 Thanks!
 
-Developer Relations at Rackspace
+Developer Relations Group at Rackspace
