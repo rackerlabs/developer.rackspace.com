@@ -155,6 +155,17 @@ server.post('/api/sponsorship', function(req, res, next) {
   }
 });
 
+/**
+ * deliverEmail
+ *
+ * This is a low-durability in memory queue with a permanent retry and 2s backup
+ *
+ * We could modify this to decay at some rate until eclipsing a max attempts, but for now
+ * this should mitigate us from a transient failure while communicating with the mailgun api
+ * 
+ * @param object    task        the js object for mailgun-js
+ * @param callback
+ */
 function deliverEmail(task, callback) {
   log.info('Starting delivery for ' + task.to + ' [' + task.subject + ']');
 
