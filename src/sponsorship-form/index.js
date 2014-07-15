@@ -34,6 +34,8 @@ var mailgun = new Mailgun({apiKey: config.mailgun.apiKey, domain: config.mailgun
 
 var markdownTemplate, plaintextTemplate;
 
+var queue = async.queue(deliverEmail);
+
 server.post('/api/sponsorship', function(req, res, next) {
 
   // Define our standard form values that would need to be returned over the wire
@@ -134,7 +136,7 @@ server.post('/api/sponsorship', function(req, res, next) {
       emailData.attachment = new Mailgun.Attachment(file, req.files.prospectus.name);
     }
 
-    mailgun.messages().send(emailData, callback);
+    queue.push(emailData, callback);
   }
 
   function sendResponseEmail(callback) {
@@ -149,9 +151,32 @@ server.post('/api/sponsorship', function(req, res, next) {
 
     log.verbose('Sending Response Email', emailData);
 
-    mailgun.messages().send(emailData, callback);
+    queue.push(emailData, callback);
   }
 });
+
+function deliverEmail(task, callback) {
+  log.info('Starting delivery for ' + task.to + ' [' + task.subject + ']');
+
+  // Deliver our message
+  mailgun.messages().send(task, function (err) {
+
+    // if somehow we fail, backoff 2 seconds, and re-queue
+    if (err) {
+      log.error('unable to deliver message, retrying', task);
+
+      setTimeout(function () {
+        queue.push(task)
+      }, 2000);
+      callback(err);
+      return;
+    }
+
+    // success!
+    log.info('finished delivery for ' + task.to + ' [' + task.subject + ']');
+    callback();
+  });
+}
 
 function readMarkdown(next) {
   fs.readFile(path.join(path.dirname(process.argv[1]), '/sponsor-email.md'), function (err, data) {
