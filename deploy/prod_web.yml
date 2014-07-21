@@ -113,4 +113,7 @@
             rewrite: "^/blog/([^/]+)\\.html$ /blog/$1/ permanent"
           location4:
             name: /devtrial
-            rewrite: "^/devtrial /signup/ permanent"
+            rewrite: "^/devtrial /developer-plus/signup/ permanent"
+          location5:
+            name: /signup
+            rewrite: "^/signup /developer-plus/signup/ redirect"
