@@ -257,4 +257,4 @@ Being able to do all of these things using the Horizon Dashboard or the OpenStac
 
 This concludes the second of several posts in the [RPC Insights series](http://www.rackspace.com/blog/welcome-to-rpc-insights/).
 
-Join us on July 16, 2014 at 10:00 AM CDT for a live webinar on [Using Rackspace Private Cloud to Host Your Web Tier Applications](http://go.rackspace.com/rpc-to-host-your-web-tier-applications.html).
+Join us on July 30, 2014 at 10:00 AM CDT for a live webinar on [Using Rackspace Private Cloud to Host Your Web Tier Applications](http://go.rackspace.com/rpc-to-host-your-web-tier-applications.html).
