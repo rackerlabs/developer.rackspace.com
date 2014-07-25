@@ -23,15 +23,19 @@ Log into the OpenStack Controller Node
 Unless otherwise stated, the entirety of this post will assume you are logged into your OpenStack controller node and are running the commands from it.
 
 Start by logging into your OpenStack controller node:
+
 ```sh
 vagrant ssh controller1
 ```
+
 Log in as the root user and stay logged in as root throughout this post (the root password is __vagrant__):
+
 ```sh
 su -
 ```
 
 In root’s home directory is an __openrc__ file which contains the necessary credentials to use the OpenStack APIs. Source this file into your environment:
+
 ```sh
 source ~/openrc
 ```
@@ -44,8 +48,9 @@ A base Rackspace Private Cloud install does not include any OpenStack images and
 In this post you will be uploading the __CirrOS 0.3.2 x86_64 OpenStack cloud image__ into the Glance Repository.
 
 Upload the CirrOS OpenStack cloud image by running the following command:
+
 ```sh
-    glance image-create --name cirros-0.3.2-x86_64 --is-public true --container-format bare --disk-format qcow2 --copy-from http://download.cirros-cloud.net/0.3.2/cirros-0.3.2-x86_64-disk.img
+glance image-create --name cirros-0.3.2-x86_64 --is-public true --container-format bare --disk-format qcow2 --copy-from http://download.cirros-cloud.net/0.3.2/cirros-0.3.2-x86_64-disk.img
 ```
 
 You can monitor the upload progress by running `glance image-list`.
@@ -92,6 +97,7 @@ Then, from the OpenStack controller node, upload the SSH public key to the nova 
 ```sh
 nova keypair-add --pub_key workstation.pub workstation
 ```
+
 With this SSH public key in the nova keypair database, you can assign it to OpenStack Instances upon creation so you can log in via SSH.
 
 Create Neutron Networks
@@ -112,6 +118,7 @@ neutron net-create tenant-network-1 --shared
 
 neutron subnet-create tenant-network-1 --name tenant-subnet-1 10.240.0.0/24 --gateway 10.240.0.1 --allocation-pool start=10.240.0.100,end=10.240.0.150 --dns-nameservers list=true 8.8.8.8 8.8.4.4
 ```
+
 ### Create a Neutron Provider Network
 
 In order for you to communicate with your OpenStack Instance, which will be attached to the Neutron Tenant Network you just created, you will need to also create a Neutron Provider Network. The Neutron Tenant Network will connect to this Neutron Provider Network through a Neutron Router (another piece of software defined virtual networking).
@@ -119,11 +126,13 @@ In order for you to communicate with your OpenStack Instance, which will be atta
 In this post you will be attaching your OpenStack Instance to the Neutron Tenant Network you just created, but you could also attach your OpenStack Instance to this Neutron Provider Network if you do not want to deal with the software defined networking.
 
 To create a Neutron Provider Network, run the following commands:
+
 ```sh
 neutron net-create provider-network-1 --provider:physical_network=ph-eth3 --provider:network_type=flat --shared --router:external=True
 
 neutron subnet-create provider-network-1 192.168.244.0/24 --name provider-subnet-1 --gateway 192.168.244.10 --allocation-pool start=192.168.244.100,end=192.168.244.150 --dns-nameservers list=true 8.8.8.8 8.8.4.4
 ```
+
 Create a Neutron Router and Attach the Neutron Provider and Tenant Networks
 ---------------------------------------------------------------------------
 
@@ -138,6 +147,7 @@ To create a Neutron Router, run the following command:
 ```sh
 neutron router-create router1
 ```
+
 With the Neutron Router created, you can now attach many Neutron Tenant Networks and one Neutron Provider Network to it.
 
 To attach the Neutron Tenant Network __tenant-subnet-1__ that you created above, run the following command:
@@ -145,11 +155,13 @@ To attach the Neutron Tenant Network __tenant-subnet-1__ that you created above,
 ```sh
 neutron router-interface-add router1 tenant-subnet-1
 ```
+
 To attach the Neutron Provider Network __provider-network-1__ as the default gateway for the Neutron Router, run the following command:
 
 ```sh
 neutron router-gateway-set router1 provider-network-1
 ```
+
 Create Neutron Floating IP Addresses
 ------------------------------------
 
@@ -162,6 +174,7 @@ To create floating IP addresses from the __provider-network-1__ Neutron Provider
 ```sh
 neutron floatingip-create provider-network-1
 ```
+
 This command is a bit odd. If you need N number of floating IP addresses you run the command N number of times. 
 
 To see all of the allocated floating IP addresses, run `neutron floatingip-list`.
@@ -175,7 +188,11 @@ You are now ready to spin up your first OpenStack Instance.
 
 First, you will need to get the ID of Neutron Tenant Network, __tenant-network-1__, you created earlier by running `neutron net-list`, and copying the __id__.
 
-Second, create the OpenStack Instance by running `nova boot test1 --image cirros-0.3.2-x86_64 --flavor m1.supertiny --key-name workstation --nic net-id=ID_OF_TENANT_NETWORK_1`.
+Second, create the OpenStack Instance by running the following command:
+
+```sh
+nova boot test1 --image cirros-0.3.2-x86_64 --flavor m1.supertiny --key-name workstation --nic net-id=ID_OF_TENANT_NETWORK_1
+```
 
 Because you are using software virtualization, it may take a couple of minutes for the OpenStack Instance to be created. You can monitor the progress by running `nova console-log test1`.
 
@@ -193,6 +210,7 @@ Now you can assign the floating IP address to your OpenStack Instance by running
 ```sh
 neutron floatingip-associate ID_FLOATING_IP ID_NEUTRON_PORT
 ```
+
 After a couple of seconds, the floating IP address will be assigned.
 
 Communicate With Your OpenStack Instance
@@ -239,4 +257,4 @@ Being able to do all of these things using the Horizon Dashboard or the OpenStac
 
 This concludes the second of several posts in the [RPC Insights series](http://www.rackspace.com/blog/welcome-to-rpc-insights/).
 
-Join us on July 16, 2014 at 10:00 AM CDT for a live webinar on [Using Rackspace Private Cloud to Host Your Web Tier Applications](http://go.rackspace.com/rpc-to-host-your-web-tier-applications.html).
+Join us on July 30, 2014 at 10:00 AM CDT for a live webinar on [Using Rackspace Private Cloud to Host Your Web Tier Applications](http://go.rackspace.com/rpc-to-host-your-web-tier-applications.html).
