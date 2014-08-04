@@ -25,9 +25,9 @@ If there's a new language you want to add code samples for, insert it where it f
 
 If starting a new narrative/code section, be sure to add all the code block sections to each `.rst` you create, to help ``git`` merge them later. You can copy and paste the section above into each sample file.
 
-If your SDK does not support an API, insert the following under the code-block:
+If your SDK does not support an API, insert a comment noting that fact. For example:
 
-  // {sdk-name} doesn't support this API presently
+  // This is not supported through the .NET SDK at this time
 
 Language
 --------
@@ -70,41 +70,41 @@ Limit lines in sample files to 120 characters.
 Placeholders
 ------------
 
-When using a value the developer needs to insert by referencing some out-of-band information, use a ``{placeholder}``.
+When using a value the developer needs to insert by referencing some out-of-band information, use a ``{{placeholder}}``.
 
-Our convention is to name these in lowercase with camelCasing, regardless of the underlying language idioms. Consistency among samples is important for us to be able to automate later with a simple find-and-replace. Also, we *want* them to stand out, so it's obvious at a glance that a user needs to replace them with a real value.
+Our convention is to name these in lowercase with camelCasing, regardless of the underlying language idioms. Consistency among samples is important for us to be able to automate later with a simple replacement via [Mustache](http://mustache.github.io/). Also, we *want* them to stand out, so it's obvious at a glance that a user needs to replace them with a real value.
 
-Don't use ``{placeholders}`` for every parameter! A good rule of thumb is to use a ``{placeholder}`` if the developer is going to need to look something up elsewhere, like the web UI, to find a correct value. Authentication credentials, addresses, or UUIDs are good examples of appropriate ``{placeholder}`` usage. Otherwise, consider using a literal_ or a variable_ instead.
+Don't use ``{{placeholders}}`` for every parameter! A good rule of thumb is to use a ``{{placeholder}}`` if the developer is going to need to look something up elsewhere, like the web UI, to find a correct value. Authentication credentials, addresses, or UUIDs are good examples of appropriate ``{{placeholder}}`` usage. Otherwise, consider using a literal_ or a variable_ instead.
 
 Try to use consistent placeholder names throughout the guides. Here are some placeholders that should be consistent in the different language examples:
 
 Authentication - all services
 
- * ``{username}``
- * ``{apiKey}``
- * ``{region}``
+ * ``{{username}}``
+ * ``{{apiKey}}``
+ * ``{{region}}``
 
 Databases
 
- * ``{dbUsername}``
- * ``{dbPassword}``
- * ``{dbName}``
- * ``{instanceId}``
- * ``{instanceName}``
- * ``{flavorId}``
+ * ``{{dbUsername}``
+ * ``{{dbPassword}}``
+ * ``{{dbName}}``
+ * ``{{instanceId}}``
+ * ``{{instanceName}}``
+ * ``{{flavorId}}``
 
 .. _literal:
 
 Literals
 --------
 
-If an SDK call has parameters that could be hardcoded as sensible values, use a real, but obviously temporary, literal value instead of a ``{placeholder}``. For example, ``"my_server"`` as a server name, ``10`` as an alerting threshold, or ``{ "some-key" => "another-value" }`` as example metadata.
+If an SDK call has parameters that could be hardcoded as sensible values, use a real, but obviously temporary, literal value instead of a ``{{placeholder}}``. For example, ``"my_server"`` as a server name, ``10`` as an alerting threshold, or ``{ "some-key" => "another-value" }`` as example metadata.
 
 As much as possible, try to be consistent with the values chosen by other languages in that example. We don't want it to be too jarring when you're flipping between languages.
 
 Make sure that you clearly document what the literal values that you choose mean, especially if you don't have keyword parameters to clarify. Units are especially important. Also, be considerate, and don't use defaults that are going to rack someone up a high bill if they copy and paste without paying attention!
 
-Don't use literal values if there is a specific value that's needed for the call to succeed, like an API key or a valid server UUID! Use ``{placeholders}`` or variable references for those situations, instead.
+Don't use literal values if there is a specific value that's needed for the call to succeed, like an API key or a valid server UUID! Use ``{{placeholders}}`` or variable references for those situations, instead.
 
 .. _variable:
 
@@ -128,10 +128,10 @@ Language Specific Code Conventions
 
 * Comment all references to regions and zones with::
 
-    // jclouds refers to "regions" as "zones"  
+    // jclouds refers to "regions" as "zones"
     VolumeApi volumeApi = cinderApi.getVolumeApiForZone(REGION);
 
-  
+
 * Pass the appropriate API to all static methods::
 
     public static Volume showVolume(VolumeApi volumeApi, String volumeId) {
@@ -144,9 +144,9 @@ Language Specific Code Conventions
 
 * Always close the jclouds ``Context``::
 
-    Closeables.close("{exampleApi}", true);
+    Closeables.close("{{exampleApi}}", true);
 
 * Always match the Getting Started sample file names (snake case) to Java method names (lower CamelCase). For example::
 
     list_volumes.rst -> listVolumes(VolumeApi volumeApi);
-    
+
