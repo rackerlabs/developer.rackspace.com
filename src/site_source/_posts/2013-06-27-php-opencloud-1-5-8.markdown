@@ -10,7 +10,11 @@ categories:
 - SDK
 - php-opencloud
 ---
-Version 1.5.8 of [php-opencloud][1] is now available. In this release the PHP SDK now supports [OpenStack Heat][2] as well as [Rackspace Cloud Monitoring][3]. You can read the [release notes][4] for information related on what has changed. In this post, we will take a look at how to set up a Cloud Monitoring alarm using php-opencloud.<!-- more --> More documentation on configuring Cloud Monitoring is available in the php-opencloud [docs][5].
+Version 1.5.8 of [php-opencloud][1] is now available. In this release the PHP SDK now supports [OpenStack Heat][2] as well as [Rackspace Cloud Monitoring][3]. You can read the [release notes][4] for information related on what has changed. In this post, we will take a look at how to set up a Cloud Monitoring alarm using php-opencloud.
+
+<!-- more -->
+
+More documentation on configuring Cloud Monitoring is available in the php-opencloud [docs][5].
 
 ##Alarms
 

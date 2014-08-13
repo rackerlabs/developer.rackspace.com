@@ -18,7 +18,9 @@ jclouds 1.6.0 has been released! Since 1.5.0 I'm both proud and (antonymically) 
 * Cloud Load Balancers
 * Cloud DNS
 
-Here's how to [get started](http://docs.rackspace.com/sdks/guide/content/java.html) with Rackspace and jclouds 1.6.0. To get familiar with the new APIs check out the [examples](https://github.com/jclouds/jclouds-examples/tree/master/rackspace) for [Cloud Load Balancers](https://github.com/jclouds/jclouds-examples/tree/master/rackspace/src/main/java/org/jclouds/examples/rackspace/cloudloadbalancers) and [Cloud DNS](https://github.com/jclouds/jclouds-examples/tree/master/rackspace/src/main/java/org/jclouds/examples/rackspace/clouddns).<!-- more -->
+Here's how to [get started](http://docs.rackspace.com/sdks/guide/content/java.html) with Rackspace and jclouds 1.6.0. To get familiar with the new APIs check out the [examples](https://github.com/jclouds/jclouds-examples/tree/master/rackspace) for [Cloud Load Balancers](https://github.com/jclouds/jclouds-examples/tree/master/rackspace/src/main/java/org/jclouds/examples/rackspace/cloudloadbalancers) and [Cloud DNS](https://github.com/jclouds/jclouds-examples/tree/master/rackspace/src/main/java/org/jclouds/examples/rackspace/clouddns).
+
+<!-- more -->
 
 Rackspace has literally doubled-down on jclouds by adding another contributor, [Zack Shoylev](https://github.com/zack-shoylev/), to the open source project. Zack is currently arm pits deep in adding support for Cloud Databases.
 ##Denominate

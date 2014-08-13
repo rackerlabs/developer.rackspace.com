@@ -11,7 +11,9 @@ So there's this feature in our first generation  Cloud Servers called "backup sc
 have heard of it.  A lot of people liked it so much that they told us 
 they didn't want to move to the Rackspace Open Cloud until we built 
 something like it there.  So we did.  We're calling this feature 
-"Scheduled Images." <!-- more --> 
+"Scheduled Images."
+
+<!-- more -->
  
 First, let me explain what this feature does: it takes a daily snapshot of your server 
 without any intervention by you.   Whether the resulting image is a 

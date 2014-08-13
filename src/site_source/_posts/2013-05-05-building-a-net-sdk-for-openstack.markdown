@@ -11,7 +11,9 @@ categories:
 ---
 As developers on the [RackConnect](http://www.rackspace.com/cloud/hybrid/dedicated_cloud/rackconnect/) product, my team has a strong need for RackConnect to interact with OpenStack when we launched the next generation public cloud. RackConnect is written in .NET, and we began baking pieces of a rudimentary .NET software development kit (SDK) functionality into our software to help use the OpenStack services. 
 
-After doing some research, we realized that there was not a .NET SDK and that other developers could benefit from what we were creating. A huge part of our enterprise customers are Microsoft shops that write in .NET and it would be incredibly helpful for them to have a .NET SDK to interact with our cloud. This clear need led our team to write and open source the [Rackspace Cloud SDK for Microsoft .NET](http://openstacknetsdk.com/).<!-- more -->
+After doing some research, we realized that there was not a .NET SDK and that other developers could benefit from what we were creating. A huge part of our enterprise customers are Microsoft shops that write in .NET and it would be incredibly helpful for them to have a .NET SDK to interact with our cloud. This clear need led our team to write and open source the [Rackspace Cloud SDK for Microsoft .NET](http://openstacknetsdk.com/).
+
+<!-- more -->
 
 We built this SDK on top of a .NET 4.0 framework, so it can be used on 4.0 and 4.5. My team has it on the roadmap to make the SDK backwards compatible to support .NET 3.5. Our SDK can be used in any .NET project type that you might need to interact with your OpenStack services, whether it be an ASP.NET web application, console application or a Windows Forms application. If you have a .NET project in a .NET compiled language, this SDK will work for you. 
 

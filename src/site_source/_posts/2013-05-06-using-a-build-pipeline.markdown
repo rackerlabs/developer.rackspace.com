@@ -12,7 +12,9 @@ As [discussed previously](http://devops.rackspace.com/the-new-devops-blog.html),
 
 {% img center 2013-05-06-using-a-build/workflow.png 500 500 %}
 
-Previously, deploying the blog was a one-and-done job. A single Jenkins job that upon a push to GitHub, would install our Ruby gems, install the theme, generate the site, and push the site to Cloud Files. This worked well, for a while. Then Murphy got involved.<!-- more -->
+Previously, deploying the blog was a one-and-done job. A single Jenkins job that upon a push to GitHub, would install our Ruby gems, install the theme, generate the site, and push the site to Cloud Files. This worked well, for a while. Then Murphy got involved.
+
+<!-- more -->
 
 ##If anything can go wrong...
 

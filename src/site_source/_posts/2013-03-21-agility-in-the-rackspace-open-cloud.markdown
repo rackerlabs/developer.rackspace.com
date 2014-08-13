@@ -16,7 +16,9 @@ Being able to roll with the punches in a cloud environment is extremely importan
 * Consistent Workloads
 * Fast Growth
 
-Each workload makes you work a little differently, but using a traditional hosting model where you have the same number of compute workers all the time invariably creates waste.<!-- more -->
+Each workload makes you work a little differently, but using a traditional hosting model where you have the same number of compute workers all the time invariably creates waste.
+
+<!-- more -->
 
 Let's look at these cloud workloads:
 

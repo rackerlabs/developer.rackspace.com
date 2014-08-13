@@ -10,7 +10,9 @@ categories:
 - Big Data
 ---
 I truly believe that in the next five years, cloud will be the default way that IT resources like compute and storage will be consumed. As a provider of [public](http://www.rackspace.com/cloud/) and [private](http://www.rackspace.com/cloud/private/) clouds powered by OpenStack, we at Rackspace are committed to making OpenStack the preferred infrastructure layer for a lot of platforms and applications.
+
 <!-- more -->
+
 Along with cloud computing, big data has been a major trend in enterprise computing. And a recurring question from our customers is how well these interesting technologies like Apache Hadoop and Apache Cassandra work on top of OpenStack?
 
 Deploying and maintaining a decent sized Hadoop cluster can be a daunting task by itself. We chose the Hortonworks Data Platform (HDP) and wrote some Chef cookbooks and an OpenStack knife plugin to make the installation of Apache Hadoop easier and more cloud-like on OpenStack. Using the Rackspace [Private Cloud Software](http://www.rackspace.com/cloud/private/openstack_software/) and the Chef cookbooks, launching a Hadoop cluster is just as easy as booting a few virtual machines with proper Chef roles. This way, I can easily get a Hadoop cluster anytime I

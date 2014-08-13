@@ -12,7 +12,9 @@ categories:
 ---
 ObjectRocket, the industrial strength MongoDB database-as-a-service company that Rackspace acquired in February, is now available in our Chicago data center. This means that you can now use ObjectRocket as part of your Rackspace deployments. You can read about the new data center here and a recent performance benchmark study that we did [here](http://devops.rackspace.com/benchmarking-hosted-mongodb-services.html).
 
-Now that you can use a lightning fast (and automatically scalable and redundant) MongoDB-as-a-service right next to the rest of the app infrastructure, we thought it would be helpful to post a tutorial about how to connect MongoDB to your application running on the Rackspace Cloud using ObjectRocket.<!-- more -->
+Now that you can use a lightning fast (and automatically scalable and redundant) MongoDB-as-a-service right next to the rest of the app infrastructure, we thought it would be helpful to post a tutorial about how to connect MongoDB to your application running on the Rackspace Cloud using ObjectRocket.
+
+<!-- more -->
 
 ##Creating your first MongoDB application on ObjectRocket
 

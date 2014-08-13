@@ -11,7 +11,9 @@ categories:
 
 After a successful [Kickstarter](http://www.kickstarter.com/projects/johnonolan/ghost-just-a-blogging-platform) campaign with over 5,000 backers raising over $300,000, the team over at [Ghost](http://ghost.org) announced today the public availability of their much anticipated new blogging platform.
 
-I have personally been following this project from the beginning because of the principles Ghost was born out of: simple, elegent, open source design. The Node.js based blogging platform touts itself as "just a simple blogging platform", but everything about its design is focused on writing - nothing more, nothing less. Posts are written in [Markdown](http://daringfireball.net/markdown) with a split screen showing a live preview on the right. Adding an image? Just add the Markdown syntax for an image and suddenly a drag-and-drop image box appears in the preview screen ready for you to upload your image! The whole system makes writing blog posts fast and easy and lets you quickly get back to doing something other than yelling at the internet. <!-- more -->
+I have personally been following this project from the beginning because of the principles Ghost was born out of: simple, elegent, open source design. The Node.js based blogging platform touts itself as "just a simple blogging platform", but everything about its design is focused on writing - nothing more, nothing less. Posts are written in [Markdown](http://daringfireball.net/markdown) with a split screen showing a live preview on the right. Adding an image? Just add the Markdown syntax for an image and suddenly a drag-and-drop image box appears in the preview screen ready for you to upload your image! The whole system makes writing blog posts fast and easy and lets you quickly get back to doing something other than yelling at the internet.
+
+<!-- more -->
 
 # Great, I must have it!
 

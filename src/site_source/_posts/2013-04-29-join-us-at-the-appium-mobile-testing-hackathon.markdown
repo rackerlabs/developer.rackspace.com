@@ -10,7 +10,9 @@ categories:
 ---
 Here at Rackspace we are deeply committed to furthering the software development community. We love things like well-tested applications and vibrant open source projects.
 
-One of the ways we engage in promoting a strong development community is with Hackathons. For the uninitiated, a hackathon is an event where developers get together and work on a particular technical subject for a defined period of time — usually with plentiful pizza and beer to grease the wheels of innovation. The outcome might be some amazing new tool or feature, or it could just be a good time with other like-minded people learning about the possibilities.<!-- more -->
+One of the ways we engage in promoting a strong development community is with Hackathons. For the uninitiated, a hackathon is an event where developers get together and work on a particular technical subject for a defined period of time — usually with plentiful pizza and beer to grease the wheels of innovation. The outcome might be some amazing new tool or feature, or it could just be a good time with other like-minded people learning about the possibilities.
+
+<!-- more -->
 
 Next week we’re excited to host a hackathon with our friends at [Sauce Labs](https://saucelabs.com/) for their burgeoning mobile testing tool, Appium. Just like [Selenium](http://docs.seleniumhq.org/) has empowered developers to automate browser testing, Appium aims to implement the Webdriver protocol for native mobile applications. At Rackspace we’re particularly excited about the possibility of mobile testing with a familiar, open source DSL with a strong community already surrounding it.  You can find more information on the specifics of Appium on its site: [http://appium.io](http://appium.io/).
 

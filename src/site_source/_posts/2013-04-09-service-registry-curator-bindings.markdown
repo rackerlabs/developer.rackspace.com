@@ -12,7 +12,9 @@ categories:
 Have you ever set out to do something new, only to find yourself encumbered by a list of prerequisites that 
 must be figured out first?  For example, you would like to implement Awesome Feature X in your application.
 But before doing that you have to figure out how to use a new library.  Except the documentation for that 
-library is not very good, or the examples are out of date, or... the list goes on.<!-- more -->
+library is not very good, or the examples are out of date, or... the list goes on.
+
+<!-- more -->
 
 Well, you are not alone. I feel that way all the time.  Good APIs don’t just do their jobs well--they are 
 also easy to consume.  

@@ -8,7 +8,9 @@ published: true
 categories: 
 - Mailgun
 ---
-As many of you know, Rackspace acquired the transactional email provider Mailgun almost a year ago.  Mailgun has a super easy-to-use API for sending, receiving and tracking on your application emails (they also support SMTP is that's your thing).  We've blogged about Mailgun a bunch this year, and recently Mailgun was integrated into the Rackspace cloud control panel  making it that much easier to integrate Mailgun into your app (and get 50,000 free emails per month in the process).  The Mailgunners just released a new feature that we are really excited about: email validation for web forms. So today, we're reblogging their post announcing the new feature which is completely free for Rackspace and Mailgun customers.  Read on, and remember that you can enable your Mailgun account directly through the Cloud Control Panel!<!-- more -->
+As many of you know, Rackspace acquired the transactional email provider Mailgun almost a year ago.  Mailgun has a super easy-to-use API for sending, receiving and tracking on your application emails (they also support SMTP is that's your thing).  We've blogged about Mailgun a bunch this year, and recently Mailgun was integrated into the Rackspace cloud control panel  making it that much easier to integrate Mailgun into your app (and get 50,000 free emails per month in the process).  The Mailgunners just released a new feature that we are really excited about: email validation for web forms. So today, we're reblogging their post announcing the new feature which is completely free for Rackspace and Mailgun customers.  Read on, and remember that you can enable your Mailgun account directly through the Cloud Control Panel!
+
+<!-- more -->
 
 {% img center 2013-08-06-mailgun/cp.png %}
 

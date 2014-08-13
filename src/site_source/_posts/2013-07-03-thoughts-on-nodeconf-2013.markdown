@@ -11,7 +11,9 @@ categories:
 ---
 In a way, the bus ride 90 minutes north of San Francisco set the table for what the attendees had in store for the 4 days we’d spend in the hills of Marin County. There were introductions, stories swapped, jokes made, and sights to be seen. But the most significant part of the bus ride  was that most of the attendees were all experiencing it together.
 
-[NodeConf][1] was a markedly different Conference. For the first time in 2013, NodeConf Summer Camp and NodeConf proper were merged into a single event at the fantastic [Walker Creek Ranch][2] north of San Francisco in Marin County.<!-- more -->
+[NodeConf][1] was a markedly different Conference. For the first time in 2013, NodeConf Summer Camp and NodeConf proper were merged into a single event at the fantastic [Walker Creek Ranch][2] north of San Francisco in Marin County.
+
+<!-- more -->
 
 {% img center 2013-07-04-thoughts-on-nodeconf/summer_camp.jpg %}
 

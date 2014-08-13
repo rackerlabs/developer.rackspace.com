@@ -13,7 +13,9 @@ categories:
 {% img right 2013-05-24-gluecon/glue_logo.png %}
 [Gluecon 2013](http://www.gluecon.com/2013/) is off to a dazzling start in Broomfeild, Colo. at the beautiful [Omni Interlocken Resort](http://www.omnihotels.com/FindAHotel/DenverInterlocken.aspx). 
 
-Just a quick scan of the two-day conference [agenda](http://www.gluecon.com/2013/agenda/) made it apparent that this was going to be a hands-on conference where developers could speak their minds about APIs, tools, distributed systems and a bunch of other topics. There were more than 20 sessions chock full of great discussion. The developer vibe was strong and the standard developer “uniform” of jeans and t-shirts dominated the expo floor and sessions. <!-- more -->
+Just a quick scan of the two-day conference [agenda](http://www.gluecon.com/2013/agenda/) made it apparent that this was going to be a hands-on conference where developers could speak their minds about APIs, tools, distributed systems and a bunch of other topics. There were more than 20 sessions chock full of great discussion. The developer vibe was strong and the standard developer “uniform” of jeans and t-shirts dominated the expo floor and sessions.
+
+<!-- more -->
 
 Today while sitting at lunch I was engaged a conversation about paxos, OAuth scopes and eventually consistency in nosql data stores. This is going to be a great two days.
 

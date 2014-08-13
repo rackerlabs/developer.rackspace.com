@@ -11,7 +11,9 @@ categories:
 ---
 {% img right 2013-07-12-join-the-great-salt-sprint/saltstack_logo.jpg 250 %}
 
-[SaltStack][1] is hosting a global event on Saturday, July 27 called the "[Great Salt Sprint][2]" - a chance to get together with other Salt users and hack on Salt code. SaltStack is a systems and configuration management for fast and scalable deployment and automation of any cloud. The Salt open source project was launched in February of 2011. SaltStack was founded in August 2012 to support the Salt project and to deliver commercialized SaltStack Enterprise software. The Great Salt Sprint will focus on the several areas. <!-- more -->
+[SaltStack][1] is hosting a global event on Saturday, July 27 called the "[Great Salt Sprint][2]" - a chance to get together with other Salt users and hack on Salt code. SaltStack is a systems and configuration management for fast and scalable deployment and automation of any cloud. The Salt open source project was launched in February of 2011. SaltStack was founded in August 2012 to support the Salt project and to deliver commercialized SaltStack Enterprise software. The Great Salt Sprint will focus on the several areas.
+
+<!-- more -->
 
 * Development of [OpenStack][3] functionality from within Salt
 * Increased functionality related to monitoring

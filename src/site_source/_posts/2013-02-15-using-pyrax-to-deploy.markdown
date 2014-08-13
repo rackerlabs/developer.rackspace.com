@@ -12,7 +12,9 @@ categories:
 _This is a guest post written by Justin Phelps, a Rackspace Cloud support Racker. You can follow him on [LinkedIn](http://www.linkedin.com/in/linuturk), [@Linuturk](http://twitter.com/linuturk) on twitter, or find him on [Google+](https://plus.google.com/112828903529889228389/posts)_
 
 Initially, when Hart [migrated to Octopress from WordPress](http://devops.rackspace.com/the-new-devops-blog.html) he was using Swiftly to push new posts to Cloud Files. Swiftly, a tool written by Cloud Files developer [Gregory Holt](https://github.com/gholt), provides a Client class and a command line tool for common Swift functions. Since Rackspace Cloud Files is based on Swift, it made a great tool to sync our working Octopress directory to a CDN-enabled Cloud Files container.
+
 <!-- more -->
+
 ##Why Switch?
 
 Swiftly was and still is great, but it uses version 1.0 of the API. We wanted to move to v2.0, and we wanted to use the [Official Rackspace SDKs](http://developer.rackspace.com). I decided to use the Python SDK, [pyrax](https://github.com/rackspace/pyrax), to deploy using the v2.0 API.

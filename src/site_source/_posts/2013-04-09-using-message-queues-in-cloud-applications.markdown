@@ -10,7 +10,9 @@ categories:
 - Cloud Tools
 ---
 {% img right pillars/pillar.png 160 160 %}
-In Wayne Walls' [recent post on parallel computing](http://www.rackspace.com/blog/pillars-of-cloudiness-no-1-parallel-computing/), message queues are mentioned as a way to achieve parallel computing in an application. In this post, we will dive into the different message queues out there and how to implement a message queue in an application.<!-- more -->
+In Wayne Walls' [recent post on parallel computing](http://www.rackspace.com/blog/pillars-of-cloudiness-no-1-parallel-computing/), message queues are mentioned as a way to achieve parallel computing in an application. In this post, we will dive into the different message queues out there and how to implement a message queue in an application.
+
+<!-- more -->
 
 ##Which queue do I use?
 

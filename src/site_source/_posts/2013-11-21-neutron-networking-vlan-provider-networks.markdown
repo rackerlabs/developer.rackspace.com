@@ -14,7 +14,9 @@ categories:
 
 In this multi-part blog series I intend to dive into the various components of the OpenStack Neutron project, and to also provide working examples of networking configurations for clouds built with [Rackspace Private Cloud](http://www.rackspace.com/cloud/private/) powered by [OpenStack](http://www.openstack.org) on Ubuntu 12.04 LTS.
 
-In the previous installment, [Neutron Networking: Simple Flat Network](http://developer.rackspace.com/blog/neutron-networking-simple-flat-network.html), I demonstrated an easy method of providing connectivity to instances using an untagged flat network. In this third installment, I’ll describe how to build multiple provider networks using 802.1q vlan tagging.<!-- more -->
+In the previous installment, [Neutron Networking: Simple Flat Network](http://developer.rackspace.com/blog/neutron-networking-simple-flat-network.html), I demonstrated an easy method of providing connectivity to instances using an untagged flat network. In this third installment, I’ll describe how to build multiple provider networks using 802.1q vlan tagging.
+
+<!-- more -->
 
 ####Getting Started / VLAN vs Flat Design
 

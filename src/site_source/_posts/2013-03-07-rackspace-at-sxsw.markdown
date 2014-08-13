@@ -8,7 +8,9 @@ categories:
 - Events
 - SXSW
 ---
-Rackspace is bringing the Open Cloud Experience to the SXSW Interactive Festival! Come join us over the next few days and learn all about the Open Cloud. We’ll be headquartered at [Champions Sports Bar & Restaurant](http://www.championsaustin.com/) at the [Courtyard Marriott](http://goo.gl/maps/YiQT4), so be sure to stop in and see us.<!-- more -->
+Rackspace is bringing the Open Cloud Experience to the SXSW Interactive Festival! Come join us over the next few days and learn all about the Open Cloud. We’ll be headquartered at [Champions Sports Bar & Restaurant](http://www.championsaustin.com/) at the [Courtyard Marriott](http://goo.gl/maps/YiQT4), so be sure to stop in and see us.
+
+<!-- more -->
 
 Here’s a brief overview of where you can find us during SXSW. If you want to find us on Twitter, be sure to keep an eye on the hash-tag [#SXRackspace](https://twitter.com/search?q=%23SXRackspace&src=hash)!
 

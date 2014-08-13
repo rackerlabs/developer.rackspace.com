@@ -18,7 +18,9 @@ Rackspace is now sponsoring development to an existing multi-cloud provisioning 
 
 When we talk about an *official release*, in actuality we're saying it's our first [*supported*](http://www.rackspace.com/blog/rackspace-developer-support-fanatical-support-for-your-code/) release of `pkgcloud`. You can download and use `pkgcloud` against the Rackspace Cloud today, but we're not yet ready to call the current version official. 
 
-The `pkgcloud 0.7.2` release supports First Generation Cloud Servers, Cloud Files, and Cloud Databases.<!-- more --> 
+The `pkgcloud 0.7.2` release supports First Generation Cloud Servers, Cloud Files, and Cloud Databases.
+
+<!-- more -->
 
 In the next major release of pkgcloud, we plan to add the following new features:
 

@@ -9,7 +9,9 @@ categories:
 - OpenStack
 - Chef
 ---
-In today's Configuration Management landscape the general motto is "infrastructure as code" and as good [devopsians](http://www.youtube.com/watch?v=Md1MDHroXGU) we should be testing our code. This blog post takes a look at test-kitchen + OpenStack to make your life of testing chef cookbooks easier, faster and fun.<!-- more -->
+In today's Configuration Management landscape the general motto is "infrastructure as code" and as good [devopsians](http://www.youtube.com/watch?v=Md1MDHroXGU) we should be testing our code. This blog post takes a look at test-kitchen + OpenStack to make your life of testing chef cookbooks easier, faster and fun.
+
+<!-- more -->
 
 **Warning:** test-kitchen is still in beta.
 

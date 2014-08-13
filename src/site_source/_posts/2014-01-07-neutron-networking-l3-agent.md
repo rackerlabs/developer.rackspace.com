@@ -14,7 +14,9 @@ categories:
 
 In this multi-part blog series I intend to dive into the various components of the OpenStack Neutron project and provide working examples of networking configurations for clouds built with [Rackspace Private Cloud](http://www.rackspace.com/cloud/private/) powered by [OpenStack](http://www.openstack.org) on Ubuntu 12.04 LTS. 
 
-In the previous installment, [Neutron Networking: VLAN Provider Networks](http://developer.rackspace.com/blog/neutron-networking-vlan-provider-networks.html), I provided guidance on configuring networks in Neutron using VLAN tagging. In this fourth installment, I'll describe how to combine flat or VLAN provider networks with GRE-based tenant networks using the L3 agent and Neutron routers.<!-- more -->
+In the previous installment, [Neutron Networking: VLAN Provider Networks](http://developer.rackspace.com/blog/neutron-networking-vlan-provider-networks.html), I provided guidance on configuring networks in Neutron using VLAN tagging. In this fourth installment, I'll describe how to combine flat or VLAN provider networks with GRE-based tenant networks using the L3 agent and Neutron routers.
+
+<!-- more -->
 
 ####Getting Started / Prerequisites
 

@@ -9,7 +9,9 @@ categories:
 - General
 ---
 Rackspace will be at the [11th Annual Southern California Linux Expo](http://www.socallinuxexpo.org/scale11x/)! SCALE 11X takes place on Feb. 22-24, 2013, at the Hilton Los Angeles Airport hotel. As the first-of-the-year Linux/Open Source software expo in North America, SCALE 11X expects to host more than 100 exhibitors this year, along with presenting more than 70 speakers.
+
 <!-- more -->
+
 ##Schedule of Events
 
 **Saturday Feb 23**

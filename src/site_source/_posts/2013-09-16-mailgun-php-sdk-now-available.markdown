@@ -12,7 +12,11 @@ categories:
 ---
 At Rackspace we've been putting a lot of work into SDKs lately. Recently the team at Mailgun joined the SDK club and released an officially supported SDK for PHP.  They are also working on SDKs for additional languages like C#, Ruby and Python which will be coming soon.
 
-In addition to providing a way to interact with the Mailgun API, the PHP SDK has a few really cool utilities that make it way easier to do some common, but complex tasks.<!-- more -->  You can check out the full post about the SDK over on the [Mailgun blog][1], but here is one example of what you can do:
+In addition to providing a way to interact with the Mailgun API, the PHP SDK has a few really cool utilities that make it way easier to do some common, but complex tasks.
+
+<!-- more -->
+
+You can check out the full post about the SDK over on the [Mailgun blog][1], but here is one example of what you can do:
 
 ##Registering your users for a mailing list
 

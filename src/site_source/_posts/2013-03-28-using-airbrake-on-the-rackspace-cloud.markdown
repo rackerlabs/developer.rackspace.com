@@ -11,7 +11,9 @@ For a developer, the DevOps journey can be full of surprises. For example, serve
 
 Comprehensive manual testing has given way to automated testing, and practices such as test-driven design have enabled developers to push code without worrying about breaking the build. Even companies with complete test coverage push fixes daily. Bugs can be reported by customers or those reports can be automated using an error tracking tool such as Airbrake. 
 
-Airbrake is an application that collects, de-dupes and notifies developers of errors in an application. The Airbrake system captures every unique error and all of its occurrences based on detailed parameters, backtrace and environment.<!-- more -->  
+Airbrake is an application that collects, de-dupes and notifies developers of errors in an application. The Airbrake system captures every unique error and all of its occurrences based on detailed parameters, backtrace and environment.
+
+<!-- more -->
 
 {% img center 2013-03-28-using-airbrake/airbrake1.png %}
 

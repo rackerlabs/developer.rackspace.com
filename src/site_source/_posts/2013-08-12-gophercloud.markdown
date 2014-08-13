@@ -14,7 +14,9 @@ categories:
 
 [Go][1]. It’s more than the opposite of stop and unless you’ve been living under a rock you’ve probably heard about this exciting modern language created out of Google by Rob Pike and Ken Thompson, both important names in the Unix community.
 
-Go is a bit of a bridge between the performance of static-typed languages and the usability and ease of programming associated with dynamic languages. If you’re unfamiliar with what this means, it’s kind of like getting the good stuff from C and the good stuff from Python.<!-- more -->
+Go is a bit of a bridge between the performance of static-typed languages and the usability and ease of programming associated with dynamic languages. If you’re unfamiliar with what this means, it’s kind of like getting the good stuff from C and the good stuff from Python.
+
+<!-- more -->
 
 Go, as with Python, favors the "[There should be one-- and preferably only one --obvious way to do it.][2]" philosophy, which naturally leads to a well-factored standard library, testing, and code formatting tools. While Go follows in the footsteps of C/C++ syntactically, it implements some sugar which makes writing Go code almost as easy and compact as writing Python. This helps maintain code legibility without sacrificing the desirable properties of static typing. Everybody’s happy.
 

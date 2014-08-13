@@ -12,7 +12,9 @@ Early last year, a project code-named Checkmate was created by Rackers to make i
 
 Rackers across the company have a lot of experience running real-world applications in the cloud. We wanted to take this knowledge and not only crowd-source that information into best-practice "blueprints," but also expose that information publically, enabling customers to easily deploy a configuration built on these best practices. We knew that it would be a win-win: customers would have access this expertise without having search for it on the web, and Rackers would get to contribute their knowledge to a broader audience of customers.
 
-Checkmate now powers a new feature we are exposing for preview in the Cloud Control Panel today called Rackspace Deployment Services.<!-- more -->
+Checkmate now powers a new feature we are exposing for preview in the Cloud Control Panel today called Rackspace Deployment Services.
+
+<!-- more -->
 
 We're adding a "Create Deployment" button alongside Cloud Servers so customers can launch multi-server solutions. We're also adding a "Deployments" tab to the Cloud Control Panel so customers can view all of their deployments in real time.
 

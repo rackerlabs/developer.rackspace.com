@@ -11,7 +11,9 @@ categories:
 ---
 _Bret McGowen is a software developer at Rackspace, designing and building [RackConnect](http://www.rackspace.com/cloud/hybrid/dedicated_cloud/rackconnect/), which lets customers have the best of both traditional and cloud hosting._
 
-For most of my professional programming career I have worked with the .NET framework. However, a recent side project prompted me to learn the open source Ruby on Rails framework. As you might imagine, there are some major differences between Ruby and .NET, but there are [some compelling reasons](http://www.techrepublic.com/blog/10things/10-reasons-why-you-should-learn-ruby-on-rails/3060) to learn Ruby on Rails. Through my journey, I found some great resources for learning Ruby on Rails, and whether you are a seasoned developer or simply taking the first step into learning the framework, here are some of the ones that I found extremely helpful.<!-- more -->
+For most of my professional programming career I have worked with the .NET framework. However, a recent side project prompted me to learn the open source Ruby on Rails framework. As you might imagine, there are some major differences between Ruby and .NET, but there are [some compelling reasons](http://www.techrepublic.com/blog/10things/10-reasons-why-you-should-learn-ruby-on-rails/3060) to learn Ruby on Rails. Through my journey, I found some great resources for learning Ruby on Rails, and whether you are a seasoned developer or simply taking the first step into learning the framework, here are some of the ones that I found extremely helpful.
+
+<!-- more -->
 
 ##TryRuby.org
 

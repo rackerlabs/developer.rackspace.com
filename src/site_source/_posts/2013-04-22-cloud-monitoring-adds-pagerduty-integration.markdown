@@ -13,7 +13,9 @@ categories:
 now supports [PagerDuty](http://www.pagerduty.com)
 integration! With this new notification type, alarm notifications can
 automatically create new incidents and resolve them once Cloud Monitoring
-detects things are okay.<!-- more -->
+detects things are okay.
+
+<!-- more -->
 
 Because the [Cloud Control Panel](https://mycloud.rackspace.com/)
 doesn't support creating notifications and notification plans,

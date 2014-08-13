@@ -14,6 +14,7 @@ We've moved! The Rackspace DevOps Blog is now hosted on Rackspace [Cloud Files](
 * Cloud Databases
 
 Wayne and I loved this setup and were pleased with performance and security. WordPress on this infrastructure was secure for our purposes (it's a simple blog, not hosting medical data or taking credit cards) so we were happy. So why move?
+
 <!-- more -->
 
 ##We wanted something more scalable.

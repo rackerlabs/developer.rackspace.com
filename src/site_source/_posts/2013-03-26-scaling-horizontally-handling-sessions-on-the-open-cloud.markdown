@@ -15,7 +15,11 @@ Wayne Walls wrote a great article on the Rackspace Blog around [horizontal scali
 
 {% tweet https://twitter.com/DEVOPS_BORAT/status/274366602252804096 align='center' %}
 
-These groups of servers or roles or tiers are sometimes load balanced or exist as a pool of servers polling a message queue for work.<!-- more --> In this article, I will focus on the former - load balanced servers.
+These groups of servers or roles or tiers are sometimes load balanced or exist as a pool of servers polling a message queue for work.
+
+<!-- more -->
+
+In this article, I will focus on the former - load balanced servers.
 
 ##Traditional Session Handling
 

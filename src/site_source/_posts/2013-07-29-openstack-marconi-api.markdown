@@ -13,7 +13,11 @@ categories:
 
 Marconi is an open source message queue implementation that utilizes a RESTful HTTP interface to provide an asynchronous communications protocol, which is one of the main requirements in today’s scalable applications. Using a queue as a communication layer, the sender and receiver of the message do not need to simultaneously interact with the message queue. As a result, these can scale independently and be less prone to individual failures.
 
-Marconi supports publisher-subscriber and producer-consumer patterns. In this post, I will focus on producer-consumer patterns and, under the section "Python Way," I will give an example using the python requests library. <!-- more -->First, terminology and old friend curl samples.
+Marconi supports publisher-subscriber and producer-consumer patterns. In this post, I will focus on producer-consumer patterns and, under the section "Python Way," I will give an example using the python requests library.
+
+<!-- more -->
+
+First, terminology and old friend curl samples.
 
 ## Terminology
 

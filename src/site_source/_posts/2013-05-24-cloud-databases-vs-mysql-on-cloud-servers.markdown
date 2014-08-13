@@ -9,7 +9,9 @@ categories:
 - Cloud Servers
 - Cloud Databases
 ---
-If you need to run MySQL on the Rackspace Cloud, you have two fundamental choices: run MySQL on a Cloud Server, or run MySQL as a Cloud Database instance. This naturally raises a few questions: What are the features and benefits of each? Which performs better? Which will be more cost effective? As with every application, the answer is ”it depends;” however, the information below should help you make the right choice based on your needs.<!-- more -->
+If you need to run MySQL on the Rackspace Cloud, you have two fundamental choices: run MySQL on a Cloud Server, or run MySQL as a Cloud Database instance. This naturally raises a few questions: What are the features and benefits of each? Which performs better? Which will be more cost effective? As with every application, the answer is ”it depends;” however, the information below should help you make the right choice based on your needs.
+
+<!-- more -->
 
 Let’s begin with performance. The graph below compares the various Cloud Database instance sizes, from 512 MB to 16 GB. Results shown are the average of five test iterations:
 

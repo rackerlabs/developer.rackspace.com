@@ -18,7 +18,9 @@ Wayne Walls posted a [great article](http://www.rackspace.com/blog/pillars-of-cl
 
 As you can see, we have a typical web application that is indeed very modular. It has a few Varnish caching servers, a few web servers, a few application servers and a few database servers. Basically, we've taken what was once a monolithic application and split it into atomic components that are scalable and replaceable.
 
-In the cloud though, we don't have to stop there. The above is a "bare metal servers on a cloud" mentality. What you should strive for is a true modular application that not only is broken up into smaller pieces, but also consumes services.<!-- more -->
+In the cloud though, we don't have to stop there. The above is a "bare metal servers on a cloud" mentality. What you should strive for is a true modular application that not only is broken up into smaller pieces, but also consumes services.
+
+<!-- more -->
 
 {% img center 2013-04-04-modular/modular2.png 350 %}
 

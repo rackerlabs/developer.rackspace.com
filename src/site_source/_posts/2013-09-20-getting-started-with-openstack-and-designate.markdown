@@ -15,7 +15,9 @@ categories:
 **Note**: This guide has been merged into the official Designate documentation. You can see that document here:
 <https://designate.readthedocs.org/en/latest/getting-started.html>
 
-A few weeks ago my team at Rackspace began investigation into the DNS as a Service application of Openstack, [Designate][1]. I’d like to share the method that my team and I formulated for getting a development environment for Designate up and running quickly. This set-up doesn’t include an OpenStack installation so there is no integration with Keystone or Nova. It’s the simplest possible installation, a great way for anyone to get started in contributing to OpenStack. Credit to the folks working on Designate for the original document.<!-- more -->
+A few weeks ago my team at Rackspace began investigation into the DNS as a Service application of Openstack, [Designate][1]. I’d like to share the method that my team and I formulated for getting a development environment for Designate up and running quickly. This set-up doesn’t include an OpenStack installation so there is no integration with Keystone or Nova. It’s the simplest possible installation, a great way for anyone to get started in contributing to OpenStack. Credit to the folks working on Designate for the original document.
+
+<!-- more -->
 
 **Initial Setup**
 -----------------

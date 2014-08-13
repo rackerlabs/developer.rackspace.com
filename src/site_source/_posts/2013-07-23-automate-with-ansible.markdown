@@ -14,7 +14,9 @@ This is a guest post written by Michael DeHaan, CTO at [AnsibleWorks][1], a Rack
 
 When developers and systems administrators work to automate the rollout of application updates, a common problem is automating web and SaaS architectures that span more than a single machine and, more importantly, managing those systems in a way that preserves uptime. This is especially critical in high-traffic web sites and services.
 
-When looking at the automation modelling itself, it is insufficient to model the actions that happen on one machine at a time, or even all classes of machines at a time, because simultaneous updates can introduce outages.<!-- more -->
+When looking at the automation modelling itself, it is insufficient to model the actions that happen on one machine at a time, or even all classes of machines at a time, because simultaneous updates can introduce outages.
+
+<!-- more -->
 
 Performing updates on live infrastructure is one of those problems that historically results in your IT team locked in a conference room late at night or on a Saturday, again and again, and it’s not a fun place to be. Not only is an arduous process, but getting a step wrong means customers will experience problems (lost orders, dropped connections, etc.).
 

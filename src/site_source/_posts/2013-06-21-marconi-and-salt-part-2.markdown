@@ -12,7 +12,9 @@ categories:
 ---
 In the [first article][1] we configured salt-master and created a Cloud Server. In this article we will start building up the Marconi environment and while doing so shape what our salt configuration will look like. 
 
-We have two goals in mind. First, we have to be capable of creating several Marconi environments with little effort. As an example, we should have servers under dev, test and production environments managed under one configuration. Taking it a step further, we may have these in different locations. So having the ability to managing multiple environments is essential. Second, we will try to build generic configurations (SLS Formulas) that we can use for different projects. For example, we could have a generic firewall formula that will set proper iptables rules on Linux servers based on the role and environment they are in.<!-- more -->
+We have two goals in mind. First, we have to be capable of creating several Marconi environments with little effort. As an example, we should have servers under dev, test and production environments managed under one configuration. Taking it a step further, we may have these in different locations. So having the ability to managing multiple environments is essential. Second, we will try to build generic configurations (SLS Formulas) that we can use for different projects. For example, we could have a generic firewall formula that will set proper iptables rules on Linux servers based on the role and environment they are in.
+
+<!-- more -->
 
 ##Setup Environments
 

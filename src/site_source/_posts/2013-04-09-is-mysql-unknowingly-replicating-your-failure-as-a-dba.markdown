@@ -10,7 +10,9 @@ categories:
 - Cloud Monitoring
 - Managed Cloud 
 ---
-MySQL replication offers an opportunity to distribute your database to multiple nodes for additional performance or to off-load specific functionality from your production stack. When uptime is a requirement, table-locking can create unavailability and a long-running nightly backup can cause an unexpected outage. One benefit of replication is that it allows the backup to happen on the slave without interrupting your production environment. So what happens  when you rely on this configuration to safeguard your data without constantly ensuring that the replication process is working? I'll tell you what happens – you're the guy without a recent backup.<!-- more -->  
+MySQL replication offers an opportunity to distribute your database to multiple nodes for additional performance or to off-load specific functionality from your production stack. When uptime is a requirement, table-locking can create unavailability and a long-running nightly backup can cause an unexpected outage. One benefit of replication is that it allows the backup to happen on the slave without interrupting your production environment. So what happens  when you rely on this configuration to safeguard your data without constantly ensuring that the replication process is working? I'll tell you what happens – you're the guy without a recent backup.
+
+<!-- more -->
  
 Rackspace Managed Cloud customers rely on us to provide insight into their configuration. It is important that we have an accurate assessment of slave status and the ability to provide notifications if there are errors. With the Rackspace Cloud Monitoring Agent, we can provide notification to the customer if the slave is in error status or if the slave lags behind the master. 
  

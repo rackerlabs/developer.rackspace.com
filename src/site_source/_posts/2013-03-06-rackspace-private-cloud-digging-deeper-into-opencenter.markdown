@@ -8,7 +8,9 @@ categories:
 - Private Cloud
 - OpenStack
 ---
-Today we unveiled some key updates to [Rackspace Private Cloud](https://www.rackspace.com/cloud/private/), which improve the platform's capabilities. Here, we'll drill into some of the architecture and technology behind this latest update and focus on two key features: High Availability of OpenStack components including MySQL and RabbitMQ; and OpenCenter, the open source Rackspace Private Cloud management API and graphical user interface that includes a powerful command line to allow administrators to harness even more control over their environments.<!-- more -->
+Today we unveiled some key updates to [Rackspace Private Cloud](https://www.rackspace.com/cloud/private/), which improve the platform's capabilities. Here, we'll drill into some of the architecture and technology behind this latest update and focus on two key features: High Availability of OpenStack components including MySQL and RabbitMQ; and OpenCenter, the open source Rackspace Private Cloud management API and graphical user interface that includes a powerful command line to allow administrators to harness even more control over their environments.
+
+<!-- more -->
 
 Previous releases of [Rackspace Private Cloud Software](https://www.rackspace.com/cloud/private/openstack_software/) required a download of an ISO to be used for installs, and you were tied to a single operating system, namely Ubuntu. As part of this third software release, you can now choose to run on Ubuntu, RHEL and CentOS, meaning you are able to integrate this into your environment and your own package management deployment systems. This was a frequently requested feature, and we listened, ensuring you get full control of your Private Cloud within your data center.
 
