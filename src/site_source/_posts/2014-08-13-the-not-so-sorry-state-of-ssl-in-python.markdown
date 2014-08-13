@@ -22,7 +22,7 @@ including new features in Python's `ssl` module. This means that Python 3 users
 have had acccess to these improvements to TLS, but Python 2 users (still the
 majority of Python users) have been falling behind.
 
- <-- more -->
+ <!-- more -->
 
 Unfortunately, missing features in an SSL/TLS stack aren't like missing
 features in other modules. They can prevent interoperability with the wider
