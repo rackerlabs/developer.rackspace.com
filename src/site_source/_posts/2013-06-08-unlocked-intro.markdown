@@ -15,7 +15,9 @@ categories:
 
 This week, Rackspace embarks on a global journey across the globe called [Unlocked: The Hybrid Cloud](http://unlocked.io).  Unlocked is a free one-day cloud workshop sponsored and hosted by Rackspace that we’ll hold in several major cities across the globe to help you determine which cloud environment – public, private or hybrid cloud – is the best fit for your application.
 
-But don't expect to get blasted with Rackspace marketing the entire day.  In fact, you should expect the opposite.  We’re a world leader in cloud computing and over the years we have seen thousands of cloud applications and infrastructure designs, and we have spoken with hundreds of engineering teams. What we have gained from that is a solid understanding of what building in the open cloud looks like; from single-server WordPress installs to complex adaptive applications that span clusters of cloud servers and everything in between.<!-- more -->  
+But don't expect to get blasted with Rackspace marketing the entire day.  In fact, you should expect the opposite.  We’re a world leader in cloud computing and over the years we have seen thousands of cloud applications and infrastructure designs, and we have spoken with hundreds of engineering teams. What we have gained from that is a solid understanding of what building in the open cloud looks like; from single-server WordPress installs to complex adaptive applications that span clusters of cloud servers and everything in between.
+
+<!-- more -->
 
 ###Cloud Savvy & Unlocked###
 The idea of Unlocked grew out of an internal program we created called Cloud Savvy, which takes the lessons we’ve learned and applies design principles, cloud know-how and best practices to advance the level of cloud expertise inside our organization. The Cloud Savvy program arms us with in-depth cloud knowledge to better help our customers design their cloud applications the right way the first time. The feedback from the Cloud Savvy program has been off the charts - Rackers are more confident in their cloud IQs and our customers receive more Fanatical Support in the cloud than ever before.

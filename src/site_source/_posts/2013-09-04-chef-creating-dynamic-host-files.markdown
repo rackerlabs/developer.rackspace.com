@@ -11,7 +11,9 @@ categories:
 - Automation
 ---
 
-Maintaining hosts files on standard *nix system has been traditionally done by hand. This becomes a challenge as the number of systems grow and this is more true in the Cloud model where you might add/delete servers at a higher rate.   One solution would be to use DNS and use a local zone to store your host name to IP mapping.  If you are in the automation using Chef world, here is another example on how to automatically generate the host file entries.<!-- more -->
+Maintaining hosts files on standard *nix system has been traditionally done by hand. This becomes a challenge as the number of systems grow and this is more true in the Cloud model where you might add/delete servers at a higher rate.   One solution would be to use DNS and use a local zone to store your host name to IP mapping.  If you are in the automation using Chef world, here is another example on how to automatically generate the host file entries.
+
+<!-- more -->
 
 Start by creating a cookbook
 

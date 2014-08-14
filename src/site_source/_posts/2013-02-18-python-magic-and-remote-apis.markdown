@@ -20,7 +20,9 @@ context. Pretty indispensable to how I write software.
 Another thing I like about Python, which some may not, is the ability to do
 magic things. Not quite so magic as [xkcd](http://xkcd.com/353/) would like
 us to believe, but fun stuff indeed.
+
 <!-- more -->
+
 Recently one of the services at work grew a json API to bang against, and
 for fun I thought I'd whip up some python to play with it. My team had a few
 utility scripts that would bang on the old xmlrpc interface to get some

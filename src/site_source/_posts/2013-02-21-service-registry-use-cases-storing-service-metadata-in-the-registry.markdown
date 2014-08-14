@@ -12,7 +12,9 @@ _This is a guest post from Tomaz Muraus. Tomaz is a Racker and a project lead fo
 In November, we launched Service Registry into preview. You can read all about it in the blog post titled [Keep Track Of Your Services And Applications With The New Rackspace Service Registry](http://www.rackspace.com/blog/keep-track-of-your-services-and-applications-with-the-new-rackspace-service-registry/).
 
 That post describes some common use cases for Service Registry and contains information on how you can use it to make your application more highly available and responsive to changes. In this series of posts we take a deep look at some common use cases and illustrate them with code samples.
+
 <!-- more -->
+
 ##Storing Service Metadata in the Registry
 
 Today we look at a simple use case of storing service metadata in the Service Registry. This is one of the simplest use cases and allows you to get started with the product very easily.

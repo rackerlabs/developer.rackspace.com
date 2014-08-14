@@ -12,6 +12,7 @@ categories:
 The public internet can be a scary place for servers. Log files of servers attached to public addresses will show regular port scans and URL snooping. These log entries are the inescapable reminder that your hosts are always one misconfiguration away from disaster.
 
 With this guide you will learn how to create a bastion host and an isolated cloud network so you can reduce the number of servers that have to encounter these threats.
+
 <!-- more -->
 
 And the best thing? With a bit of SSH magic, logging into these hosts is completely transparent. SSH can take care of proxying connections through the bastion host.

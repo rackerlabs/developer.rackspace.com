@@ -8,7 +8,9 @@ published: true
 categories: 
 - ElasticSearch
 ---
-There is a clear benefit to being able to aggregate logs from various servers and services into one place and be able to search them for any sort of arbitrary event.  Traditional syslog can aggregate logs, but aggregating events from them sometimes involves grep and convoluted regular expressions.  Logging structured data to a database makes a lot of sense.  rsyslog and ElasticSearch can do that, but figuring out how to get it to work from the rsyslog documentation can be difficult.  Let's start from the beginning.<!-- more -->
+There is a clear benefit to being able to aggregate logs from various servers and services into one place and be able to search them for any sort of arbitrary event.  Traditional syslog can aggregate logs, but aggregating events from them sometimes involves grep and convoluted regular expressions.  Logging structured data to a database makes a lot of sense.  rsyslog and ElasticSearch can do that, but figuring out how to get it to work from the rsyslog documentation can be difficult.  Let's start from the beginning.
+
+<!-- more -->
 
 First, you need the newest stable rsyslog, 7.4.x.  The older 7.2 won't cut it.  You need the plug-ins mmnormalize and omelasticsearch, both of which are available from rsyslog's yum repositories for RHEL/CentOS.  mmnormalize requires some packages from EPEL so that will need to be added to the server as well.
 

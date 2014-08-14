@@ -21,7 +21,9 @@ somewhat distinct purposes:
 
 I've [previously written](http://www.rackspace.com/blog/work-for-pie-cloud-files/)
 a bit about how our web app deals with the first two cases, but in this article,
-I'll list of the tools that I personally use to work with Cloud Files.<!-- more -->
+I'll list of the tools that I personally use to work with Cloud Files.
+
+<!-- more -->
 
 The Control Panel
 -----------------

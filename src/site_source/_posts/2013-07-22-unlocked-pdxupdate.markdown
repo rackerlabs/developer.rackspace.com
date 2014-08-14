@@ -15,7 +15,9 @@ categories:
 ###London Unlocked Update
 Last week we wrapped the second stop of Unlocked: The Hybrid Cloud in beautiful London, and I want to give you quick recap on the event.
 In our best turnout so far, we had over 100 developers, engineers and business executives join us who were eager to learn about all things cloud. The London event was a little different than the first in NYC. Based on feedback from NYC attendees, we split the London Unlocked event into dual tracks: business and technical. We wanted to test the waters and see if there was an appetite for more focused tracks, so we decided to offer it up and see what the feedback was like. 
-It was a super successful event in all regards - minus the fire alarm that caused us to evacuate for approximately 30 minutes. I'm absolutely looking forward to returning to London for the next Unlocked event (date TBD). <!-- more -->
+It was a super successful event in all regards - minus the fire alarm that caused us to evacuate for approximately 30 minutes. I'm absolutely looking forward to returning to London for the next Unlocked event (date TBD).
+
+<!-- more -->
 
 If you couldn’t make it or were not in attendance, we have made all our slides publically available on [blog.unlocked.io](http://unlocked.io). Here, you'll find the general sessions slides, included the keynote delivered by Nigel Beighton, vice president of technology and product for Rackspace UK; the Business Track presented by Rackspace Open Cloud Architect Leo Packham and Rackspace Cloud Evangelist and DevOps Engineer Jason Smith; and the Technical Track presented Rackspace University Technical Trainer Alex Brandt and myself.
 

@@ -14,7 +14,9 @@ categories:
 - Performance
 ---
 
-We have had a number of customers request the need to be able to create their own Cloud Servers images rather than taking snapshots from our base installs.  To fulfill this need, we are announcing a new tool as a preview today called [boot.rackspace.com](http://boot.rackspace.com).  The tool enables you to utilize the various Linux distributions installers to install directly to the disk of your Cloud Server. <!-- more -->
+We have had a number of customers request the need to be able to create their own Cloud Servers images rather than taking snapshots from our base installs.  To fulfill this need, we are announcing a new tool as a preview today called [boot.rackspace.com](http://boot.rackspace.com).  The tool enables you to utilize the various Linux distributions installers to install directly to the disk of your Cloud Server.
+
+<!-- more -->
 
 # How It Works
 When you create a Rackspace Cloud Server from the boot.rackspace.com image, it will boot the Cloud Server with a small 1 MB [iPXE](http://www.ipxe.org) based ISO.  This in turn will set up the server's assigned networking within the virtual BIOS and netboot into a menu of operating system options hosted over HTTP on [boot.rackspace.com](http://boot.rackspace.com).

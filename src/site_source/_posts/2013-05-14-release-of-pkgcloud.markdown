@@ -12,7 +12,9 @@ categories:
 ---
 It’s been a few crazy weeks since I started at Rackspace, and while I’ve already been to San Antonio multiple times, as well as attending my first OpenStack Summit and meeting all of the awesome folks at the SF Rackspace office, I’ve spent the majority of my time getting up to speed on [pkgcloud](http://github.com/nodejitsu/pkgcloud).
 
-For the uninitiated, pkgcloud is a [multi-provider cloud provisioning library](http://blog.nodejitsu.com/introducing-pkgcloud) from [Nodejitsu](http://nodejitsu.com/) for [Node.js](http://nodejs.org/), with bindings for [Rackspace](http://docs.rackspace.com/), [Amazon](http://aws.amazon.com/developertools), [Azure](http://msdn.microsoft.com/en-us/library/windowsazure/ff800682.aspx), [Openstack](http://docs.openstack.org/api/api-specs.html), and [Joyent](http://apidocs.joyent.com/sdcapidoc/cloudapi/) compute clouds. The objective is to define a standard interface for cloud assets, such that you don’t have to spend a significant amount of energy learning multiple APIs; you just focus on the integration.<!-- more -->
+For the uninitiated, pkgcloud is a [multi-provider cloud provisioning library](http://blog.nodejitsu.com/introducing-pkgcloud) from [Nodejitsu](http://nodejitsu.com/) for [Node.js](http://nodejs.org/), with bindings for [Rackspace](http://docs.rackspace.com/), [Amazon](http://aws.amazon.com/developertools), [Azure](http://msdn.microsoft.com/en-us/library/windowsazure/ff800682.aspx), [Openstack](http://docs.openstack.org/api/api-specs.html), and [Joyent](http://apidocs.joyent.com/sdcapidoc/cloudapi/) compute clouds. The objective is to define a standard interface for cloud assets, such that you don’t have to spend a significant amount of energy learning multiple APIs; you just focus on the integration.
+
+<!-- more -->
 
 For example:
 

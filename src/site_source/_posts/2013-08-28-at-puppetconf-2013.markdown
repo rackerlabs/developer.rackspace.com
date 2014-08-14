@@ -11,7 +11,9 @@ categories:
 ---
 Keep Calm and Automate All The Things. If you caught up with Rackspace in San Francisco last week at PuppetConf 2013, then you saw our t-shirt swag emblazoned with this “Keep Calm” slogan. But it’s not just any old meme; it’s also the catchphrase that perfectly describes the overarching theme of the conference.
 
-PuppetConf is a two-day deep dive into all things Puppet. The annual conference brings together some of the best minds in IT for intense discussions on the latest trends in DevOps, cloud automation and continuous delivery. Last week’s event sold out, with more than 1,300 people attending on site and 4,000 others following through an online live-stream. <!-- more -->
+PuppetConf is a two-day deep dive into all things Puppet. The annual conference brings together some of the best minds in IT for intense discussions on the latest trends in DevOps, cloud automation and continuous delivery. Last week’s event sold out, with more than 1,300 people attending on site and 4,000 others following through an online live-stream.
+
+<!-- more -->
 
 Puppet itself is a great configuration management system, but it really shines when combined with other tools such as [Jenkins][1], [MCollective][2] and [Hubot][3], among others. At the conference, minds weren’t just focused on automation. Sharing is caring, and sharing was definitely at the forefront with topics such as writing [great][4] and [reusable][5] modules, [testing them][6], [publishing them][7], or just generally [contributing back to the community][8]. There was even a talk for those of you who are rebels like myself and think ["packaging"][9] is great.
 

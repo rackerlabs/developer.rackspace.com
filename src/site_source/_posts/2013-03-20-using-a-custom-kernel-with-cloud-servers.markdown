@@ -13,7 +13,9 @@ Here at Rackspace on the Cloud Monitoring team, we use Ubuntu 10.04 LTS. We rece
 
 Our original workaround was to build the new drivers against the 10.04 2.6 kernel, and load them at install time. At the end of the install, we would then manually install the new kernel, remove the 2.6 kernel, and then reboot. This worked, but it took an awful lot of time.
 
-Therefore we set out to build an Ubuntu 10.04 installer that runs on, and installs, a more recent kernel.<!-- more -->
+Therefore we set out to build an Ubuntu 10.04 installer that runs on, and installs, a more recent kernel.
+
+<!-- more -->
 
 We chose to use the linux-image-server-lts-backport-oneiric image, which currently installs the linux-image-3.0.0-30-server package (and sets up the grub config, etc).
  

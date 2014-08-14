@@ -26,7 +26,7 @@ categories:
  networks in kept separate and security features built into the security
  group functionality.
 
- <!-- more -->
+<!-- more -->
 
 Let us start by considering two simple networks created by two different
 OpenStack tenants. The first network as seen in the illustration below is a

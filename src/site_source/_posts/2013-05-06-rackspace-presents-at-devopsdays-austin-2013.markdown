@@ -8,7 +8,9 @@ published: true
 categories: 
 - Events
 ---
-Last week, Austin hosted [DevOpsDays](http://devopsdays.org/), an DevOps-focused event featuring innovative talks and great networking, with some great music and food thrown in the mix. The two-day event focused on sharing ideas to strengthen the DevOps movement by building a culture around highly agile and productive teams with integrated development and operations.<!-- more -->
+Last week, Austin hosted [DevOpsDays](http://devopsdays.org/), an DevOps-focused event featuring innovative talks and great networking, with some great music and food thrown in the mix. The two-day event focused on sharing ideas to strengthen the DevOps movement by building a culture around highly agile and productive teams with integrated development and operations.
+
+<!-- more -->
 
 Our Rackspace team presented some of its insights into DevOps during their talks. Rackspace Linux Engineer Nick Silkey emphasized the need to make infrastructure “[programmable, testable, [and] deployable](https://speakerdeck.com/filler/level-up-from-ops-to-engineers).” He discussed ways to structure foundations and applications to create a more fault-tolerant service, which can result in a turnkey software platform for developers.  
 

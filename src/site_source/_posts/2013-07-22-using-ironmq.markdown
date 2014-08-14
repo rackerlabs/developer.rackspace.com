@@ -15,7 +15,9 @@ It’s an [established pattern](http://highscalability.com/blog/2012/12/17/11-us
 
 At [Iron.io](http://iron.io), we’re building [IronMQ](http://iron.io/mq), a queuing solution we’ve developed specifically to meet the specific needs of today’s cloud architectures. In this post, we wanted to detail how to use queues in your applications and highlight a couple of unique capabilities that IronMQ provides (and which are not found in RabbitMQ and other non-native cloud queues).
 
-One of the things that queuing does really, really well is *getting work out of the way*. Queues are built to be fast ways to make data available for other processes. That means that you can do more with your data, without making your customer wait. When it comes to response times every second matters, so only critical processing should take place within the immediate response loop. Queues let you do processing on data and perform non-immediate tasks without adding to your response time.<!-- more -->
+One of the things that queuing does really, really well is *getting work out of the way*. Queues are built to be fast ways to make data available for other processes. That means that you can do more with your data, without making your customer wait. When it comes to response times every second matters, so only critical processing should take place within the immediate response loop. Queues let you do processing on data and perform non-immediate tasks without adding to your response time.
+
+<!-- more -->
 
 ## A Basic Queuing Example
 

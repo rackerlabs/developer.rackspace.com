@@ -13,7 +13,9 @@ Imagine the situation: you're a Racker, and a customer calls. Their servers are 
 It's an emergency situation, and you are wandering into a dark room with a lighter as a flashlight. In the cloud, with the possibility of hundreds (or thousands) of servers, that dark room becomes [Cowboys Stadium](http://stadium.dallascowboys.com/).  Where do you start?
 
 Hopefully the customer has good monitoring in place so you can pinpoint the failure to a single server or a group of servers. With [Papertrail](http://papertrailapp.com), it becomes easier to find issues present in your application, and more importantly, _take action_ on the issue in an automated way. Papertrail helps detect, resolve, and avoid infrastructure problems using log messages. You can aggregate and manage log messages from Cloud Servers, Managed Hosting, Hybrid Hosting, and other servers — both flat files and rsyslog.
+
 <!-- more -->
+
 ##Setting up Papertrail Manually
 Once you [sign up](https://cloudtools.rackspace.com/apps/315?90095866) for an account, Papertrail has pretty quick setup instructions:
 

@@ -13,7 +13,9 @@ categories:
 - Cloud Networks
 ---
 Rackspace has rolled out quite a few new products in the past 6 months - most notable among them are Cloud Block Storage and Cloud Networks. These technologies provide the power and flexibility that was previously non-existent in Rackspace Cloud. Administrators are now able to have private networks, attach and detach custom-sized storage volumes to their servers, and much more. In this post we'll talk about using Cloud Networks and Cloud Block Storage to build scalable, resilient application environments.
+
 <!-- more -->
+
 ## DRBD and GFS2 or GlusterFS On Rackspace Public Cloud using Cloud Block Storage and Cloud Networks
 
 If you are unfamiliar with Cloud Servers, Cloud Block Storage, or Cloud Networks, see the documentation provided below to become acquainted.

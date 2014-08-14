@@ -14,7 +14,9 @@ At Rackspace, we're working very hard to support the ever-growing platform of mo
 
 Possibly one of the hardest things about mobile testing is the infrastructure needed to support it. There are various vendors that provide some of this infrastructure, but there are few established best practices for how to build things in-house if you want to do more than run your tests on a local simulator. While we plan to rely on some of the work our friends at [Sauce Labs][1] have been cooking up, we also built a sizable chunk of testing infrastructure in-house.
 
-Because of the lack of shared knowledge, we spent a good deal of time figuring things out the hard way. We now want to share with you some of the nasty details that we have overcome in this battle.<!-- more -->
+Because of the lack of shared knowledge, we spent a good deal of time figuring things out the hard way. We now want to share with you some of the nasty details that we have overcome in this battle.
+
+<!-- more -->
 
 ##Encryption: That's The Key
 

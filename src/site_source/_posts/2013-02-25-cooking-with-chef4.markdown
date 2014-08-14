@@ -14,7 +14,9 @@ categories:
 _This is a guest post from Ryan Richard. Ryan is an OpenStack Engineer for [Rackspace Private Cloud](http://www.rackspace.com/cloud/private/) and is a Red Hat Certified Architect. He has been at Rackspace for almost 6 years and has been working on OpenStack for one year. His current role involves in designing, deploying and supporting OpenStack based private clouds inside and outside of Rackspace data centers. You can follow him on twitter: [@rackninja](http://twitter.com/rackninja)._
 
 Following Hart's previous blog posts, [Cooking With Chef](http://devops.rackspace.com/cooking-with-chef.html),  I am going to describe how Rackspace leverages Chef to deploy our [Private Cloud Software](http://www.rackspace.com/cloud/private/openstack_software/) called Alamo.
+
 <!-- more -->
+
 ## What does it all mean?
 
 Hart mentioned the major terms associated with Chef in Part 1. Here is how these relate to to our Private Cloud deployments:

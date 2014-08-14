@@ -11,7 +11,9 @@ categories:
 {% img right 2013-05-10-devopsreport/devopsreport.png 200 %}
 Those of us who have been aligned with DevOps for some time already know that the greater agility and closer collaboration it enables deliver real business value for our organizations.
 
-But until recently, our knowledge was based largely on our personal experience, and that of our friends and colleagues. So [Puppet Labs](http://puppetlabs.com/) and [IT Revolution Press](http://itrevolution.com/) partnered late last year to survey sysadmins, developers and other technology professionals in search of hard data that would tell us whether DevOps really does deliver solid results.<!-- more -->
+But until recently, our knowledge was based largely on our personal experience, and that of our friends and colleagues. So [Puppet Labs](http://puppetlabs.com/) and [IT Revolution Press](http://itrevolution.com/) partnered late last year to survey sysadmins, developers and other technology professionals in search of hard data that would tell us whether DevOps really does deliver solid results.
+
+<!-- more -->
 
 The data we gathered - summed up in [2013 State of DevOps Report](http://info.puppetlabs.com/2013-state-of-devops-report.html) - confirmed what we knew instinctively:  DevOps makes companies of any size more agile - and more productive. 
 

@@ -12,7 +12,9 @@ categories:
 {% img right 2013-01-09-cooking-with-chef/chef_logo.png "Chef Logo" %}
 
 Continuing the series on Chef that I started in [part one](http://devops.rackspace.com/cooking-with-chef.html), you should now have an account with Opscode and a working knife install. In this post, I will explain how cookbooks and roles work and we will deploy our first application with Chef.
+
 <!-- more -->
+
 ##Cookbooks?
 
 That's right, Emeril Lagasse, managing infrastructure with Chef means you are using cookbooks. Cookbooks are the way Chef users package, distribute, and share configuration details. A cookbook usually configures only one service. Let's look at the structure of a common cookbook like [Apache](https://github.com/opscode-cookbooks/apache2):

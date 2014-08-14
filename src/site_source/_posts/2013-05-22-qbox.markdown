@@ -12,7 +12,9 @@ categories:
 ---
 It’s no secret that Rackspace has taken an interest in innovative startups that can get their arms around emerging Big Data technologies, package them in a hosted environment and sell them as a service. The trend is good for customers who won’t have to build and scale out infrastructure. It’s good for stimulating open technologies. It’s good for our partners in the [Rackspace Startup Program][1]. And it’s good for Rackspace.
 
-One such prototypical effort has been under development by our friends at [Qbox.io][2], which just launched a search-as-a-service project around [Hosted ElasticSearch][2]. The project was built out by [StackSearch][3], a Fayetteville, Ark.-based startup, and a Startup Program member. Along with [Apache Solr][4], ElasticSearch is the bleeding edge of open-source search servers. [ElasticSearch][5], the open-source project, began four years ago, led by Shay Bannon, who now leads a [for-profit company][6] by the same name. The eco-system is growing rapidly, as evidenced by some astounding fundraising by the Amsterdam-based company.<!-- more -->
+One such prototypical effort has been under development by our friends at [Qbox.io][2], which just launched a search-as-a-service project around [Hosted ElasticSearch][2]. The project was built out by [StackSearch][3], a Fayetteville, Ark.-based startup, and a Startup Program member. Along with [Apache Solr][4], ElasticSearch is the bleeding edge of open-source search servers. [ElasticSearch][5], the open-source project, began four years ago, led by Shay Bannon, who now leads a [for-profit company][6] by the same name. The eco-system is growing rapidly, as evidenced by some astounding fundraising by the Amsterdam-based company.
+
+<!-- more -->
 
 Qbox builds upon that and provides managed indexes of ElasticSearch. Instead of installing, scaling, maintaining, patching, backing up and monitoring an ElasticSearch cluster, you can just get your endpoint and go, potentially shaving weeks of development time from your search app project. What [Cloudant][7] is to CouchDB or [ObjectRocket][8] is to Mongo, Qbox will be for ElasticSearch.
 

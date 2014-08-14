@@ -13,7 +13,9 @@ categories:
 When we started investigating the hosted MongoDB space, we quickly found that most of the companies involved were just hosting MongoDB on top of AWS instances. We were intrigued by the different approach taken by ObjectRocket.  Instead of using AWS primitives, they built their service on their own hardware in neighboring data centers, and utilized AWS DirectConnect to provide low latency connectivity.
 
 In order to validate that ObjectRocket’s architectural choices made a difference, Rackspace conducted tests comparing ObjectRocket with two providers that offer MongoDB on generic cloud environments. We chose to compare ObjectRocket’s performance to the hosted providers on AWS. Further, we chose a $150 price point per month for comparison’s sake. SoftLayer’s offering was not included in the comparison because their least expensive MongoDB option costs around $650.
+
 <!-- more -->
+
 As with any benchmark, sticks can be thrown, but we believe this represents a good baseline of the performance differences between the vendors.
 
 ## Setup

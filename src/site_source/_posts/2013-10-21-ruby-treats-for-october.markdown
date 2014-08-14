@@ -27,8 +27,8 @@ Highlights include:
 * Cloud Servers now retrieves **full details** for **flavor** and **image** calls.
 
 Auto scaling is our favorite new feature. To help you get started right away, we have created a [quick start guide](https://github.com/fog/fog/blob/master/lib/fog/rackspace/docs/auto_scale.md) and have included several [examples](https://github.com/fog/fog/tree/master/lib/fog/rackspace/examples/auto_scale).
-<!-- more -->
 
+<!-- more -->
 
 And if you still do not have access to this exciting new feature, you can request it [here](https://rackspace.qualtrics.com/SE/?SID=SV_6S7kmhVU8ClMEXr).
 

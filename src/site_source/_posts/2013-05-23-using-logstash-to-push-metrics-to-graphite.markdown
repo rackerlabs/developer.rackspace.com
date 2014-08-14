@@ -10,7 +10,9 @@ categories:
 - Logstash
 ---
 {% img right 2013-05-23-logstash/data-visualization-logo.png 200 %}
-One of the cool things we do on the [Cloud Databases](http://www.rackspace.com/cloud/databases/) operations side of the house is come up with statistics that can help us gain insight to hardware performance to identify issues with systems. We use some really cool tools, but one of the most versatile tools we work with is [logstash](http://www.logstash.net/). The goal of this article is to get you started pushing metrics with logstash that you may already collect to [Graphite](http://graphite.wikidot.com/). Along the way, I'll be showing you how to get started with logstash, test your configuration locally and then start pushing your first metrics to Graphite with some different examples along the way.<!-- more -->
+One of the cool things we do on the [Cloud Databases](http://www.rackspace.com/cloud/databases/) operations side of the house is come up with statistics that can help us gain insight to hardware performance to identify issues with systems. We use some really cool tools, but one of the most versatile tools we work with is [logstash](http://www.logstash.net/). The goal of this article is to get you started pushing metrics with logstash that you may already collect to [Graphite](http://graphite.wikidot.com/). Along the way, I'll be showing you how to get started with logstash, test your configuration locally and then start pushing your first metrics to Graphite with some different examples along the way.
+
+<!-- more -->
 
 * Openjdk or a form of modern java installed
 * Sysstat package installed

@@ -38,8 +38,6 @@ across cloud providers and public/private clouds. It's easy to
 use, and can be a great alternative or complement to your
 existing configuration management. 
 
-<!-- more -->
-
 # Using cloud-init
 
 The first piece we'll need to create to use cloud-init is the

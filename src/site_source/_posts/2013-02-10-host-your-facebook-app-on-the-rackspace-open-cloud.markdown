@@ -15,7 +15,9 @@ categories:
 We live our lives on the web. And [social media and networking has established itself a dominant force](http://blog.nielsen.com/nielsenwire/social/2012/), becoming the most visited sites on the web – and among the most popular social media sites, [Facebook has become the colossus](http://www.internetworldstats.com/facebook.htm), amassing more than an estimated 930 million users.
 
 One aspect that sets Facebook apart is the applications – games, quizzes, you name it. While they may have a brief shelf-life, they can achieve massive popularity in a very short period of time. At Rackspace, we can help you plan for this unpredictable demand by hosting your Facebook app on our open cloud platform.
+
 <!-- more -->
+
 First, Facebook requires the use of SSL encryption to secure applications running on its platform. You can achieve this by using a Rackspace Cloud Load Balancer with SSL termination.
 The network diagram below shows one possible configuration for hosting your Facebook app on the [Rackspace open cloud](http://www.rackspace.com/cloud/):
 

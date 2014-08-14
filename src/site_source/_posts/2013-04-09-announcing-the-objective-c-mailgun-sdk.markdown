@@ -8,7 +8,9 @@ published: true
 categories: 
 - Mailgun
 ---
-One of my favorite services here at Rackspace is [Mailgun](http://mailgun.com), a set of APIs that allow you to send email and manage mailing lists via a REST API. Coming back from a recent trip to San Antonio I decided that I would add an Objective-C interface to send email via Mailgun using my own iOS interface instead of using Apple's `MFMailComposeViewController`. This library is now [open sourced on Github](https://github.com/rackerlabs/objc-mailgun) and available via [Cocoapods](http://cocoapods.org).<!-- more -->
+One of my favorite services here at Rackspace is [Mailgun](http://mailgun.com), a set of APIs that allow you to send email and manage mailing lists via a REST API. Coming back from a recent trip to San Antonio I decided that I would add an Objective-C interface to send email via Mailgun using my own iOS interface instead of using Apple's `MFMailComposeViewController`. This library is now [open sourced on Github](https://github.com/rackerlabs/objc-mailgun) and available via [Cocoapods](http://cocoapods.org).
+
+<!-- more -->
 
 ##Installing
 

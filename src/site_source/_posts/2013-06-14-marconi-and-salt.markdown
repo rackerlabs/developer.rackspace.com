@@ -18,7 +18,9 @@ In this series, we will explore Salt and automate an OpenStack Marconi environme
 * Create an unlimited number of Linux servers of different types
 * Automatically adjust the environment when a component is changed
 * Create a MongoDB primary-secondary replica set with desired number of secondaries in minutes
-* Takes actions based on some metrics (like autoscale if average load is over five)<!-- more -->
+* Takes actions based on some metrics (like autoscale if average load is over five)
+
+<!-- more -->
 
 ##What is Marconi?
 As OpenStack matures, it needs to support bigger, more complex web applications. Such applications require a robust, web-scale message queuing service to support the distributed nature of large web applications. Marconi is a new OpenStack project designed to fill this need.

@@ -12,7 +12,9 @@ categories:
 ---
 Agile. Scrum. Extreme programming. RAD. Lean. These terms all represent a departure from the traditional Waterfall development process in favor of a more rapid, iterative approach to application development. For companies with large-scale web applications, there are significant benefits to the agile methodology, but it also presents significant challenges. 
 
-When every minute of downtime represents significant lost revenue and increased support costs, it stands to reason that application support should be just as agile as application development. Among other things, this means tearing down long-standing walls between teams, and getting all business units working together toward common goals.<!-- more -->
+When every minute of downtime represents significant lost revenue and increased support costs, it stands to reason that application support should be just as agile as application development. Among other things, this means tearing down long-standing walls between teams, and getting all business units working together toward common goals.
+
+<!-- more -->
 
 {% img center 2013-07-11-agile-application/reagan.png %}
 <p style="font-size: 70%; text-align: center">Image courtesy of the Reagan Library and Michael Evans</p>

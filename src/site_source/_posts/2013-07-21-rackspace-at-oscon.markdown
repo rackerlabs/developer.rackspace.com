@@ -15,7 +15,9 @@ categories:
 
 Portland is known for quite a few things, great food, street artists, and of course plenty of breweries. This week Portland will be home to [OSCON](http://oscon.com), a gathering of all things open source. Come to OSCON to learn about the latest open source technologies and how best to utilize them.
 
-[Rackspace](http://www.rackspace.com) has been an advocate of open source technology for many years. We worked with NASA three years ago to create an open source cloud, [OpenStack](http://openstack.org), which has taken the world by storm.  The impact that OpenStack has had on the world is massive. Some well known companies including Best Buy, Comcast and Bloomberg are all using OpenStack due to its open nature and the community around it. These companies spoke at the [OpenStack Summit](https://www.openstack.org/summit/portland-2013/session-videos/presentation/keynote-openstack-as-a-platform-ecosystem).<!-- more -->
+[Rackspace](http://www.rackspace.com) has been an advocate of open source technology for many years. We worked with NASA three years ago to create an open source cloud, [OpenStack](http://openstack.org), which has taken the world by storm.  The impact that OpenStack has had on the world is massive. Some well known companies including Best Buy, Comcast and Bloomberg are all using OpenStack due to its open nature and the community around it. These companies spoke at the [OpenStack Summit](https://www.openstack.org/summit/portland-2013/session-videos/presentation/keynote-openstack-as-a-platform-ecosystem).
+
+<!-- more -->
 
 Rackspace has been active in the open source community, just in the last few months we've open sourced many projects, including
 

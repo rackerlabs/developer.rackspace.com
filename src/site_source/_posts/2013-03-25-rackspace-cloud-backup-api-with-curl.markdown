@@ -12,7 +12,9 @@ Insurance can help to manage risks of relatively rare but expensive events that 
 If you swap the word "insurance" with "backup" in the paragraph above it still makes sense. With insurance, you would like to make the smallest investment but still be covered for any possible event. Cloud Backup does just that - no tapes, no rotation, no physical requirements. Just a few calls and with little effort you are covered.
  
 Rackspace has a powerful, easy-to-use service called [Cloud Backup](http://www.rackspace.com/cloud/backup/) which can back up [Cloud Servers](http://www.rackspace.com/cloud/servers/) at file level. It supports encryption, compression and de-duplication, which are important for data security at rest and cost control. For more information, take a look at [Cloud Backup:FAQs](http://www.rackspace.com/knowledge_center/product-faq/cloud-backup)
-<!-- more --> 
+
+<!-- more -->
+
 Here, I will go over a number of calls to configure a backup, run it manually and restore to a different location. 
  
 ## Terminology

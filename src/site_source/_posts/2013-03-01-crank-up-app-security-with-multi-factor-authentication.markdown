@@ -14,7 +14,11 @@ _Major Hayden is the Chief Security Architect and a Linux engineer who has exper
 
 The password is dying, but I’m afraid it’s not dying fast enough.
 
-The majority of us interact with web applications by logging on with a username and password. However, this single layer of protection leaves our applications, data and personal information at risk. <!-- more -->The single password is no longer an adequate form of security, and there are three main reasons that using single-factor authentication leaves you at risk:
+The majority of us interact with web applications by logging on with a username and password. However, this single layer of protection leaves our applications, data and personal information at risk.
+
+<!-- more -->
+
+The single password is no longer an adequate form of security, and there are three main reasons that using single-factor authentication leaves you at risk:
 
 1. The overwhelming population does not use a complex password. Many users still think that a password like “p@ssw0rd” or “abc123” is enough to properly secure an account.
 2. For users who do create complex passwords, they can be cracked by brute force using an increasing number of libraries dedicated to this purpose. Password hashes are also available for the most commonly used passwords, which allows for an attacker to determine weak passwords almost instantly.

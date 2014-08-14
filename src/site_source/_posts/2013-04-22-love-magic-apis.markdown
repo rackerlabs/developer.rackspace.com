@@ -12,7 +12,9 @@ I will confess, I am old enough to remember my GeoCities page. Don't hate. It wa
  
 But. 
  
-I am no longer a child, and when I grew, I put away childish things. I still, as an internal applications developer at Rackspace, do a lot of work that boils down to intricate GeoCities pages - except instead of my favorite sparkly animated butterfly gifs, the information I now seek to communicate is much more dry, and eminently more interesting to others (but if anyone wants to trade sparkly butterfly gifs, hit me up on Twitter). Most of what I build is still simply taking information that is one place and moving it to another where it is more visible to those interested in it.<!-- more -->  
+I am no longer a child, and when I grew, I put away childish things. I still, as an internal applications developer at Rackspace, do a lot of work that boils down to intricate GeoCities pages - except instead of my favorite sparkly animated butterfly gifs, the information I now seek to communicate is much more dry, and eminently more interesting to others (but if anyone wants to trade sparkly butterfly gifs, hit me up on Twitter). Most of what I build is still simply taking information that is one place and moving it to another where it is more visible to those interested in it.
+
+<!-- more -->
  
 The difference -- the MAGICAL difference -- between my old GeoCities page and the great web repositories of today is that, somehow, robots have become interested in my sparkly butterfly gifs! 
  

@@ -11,7 +11,9 @@ categories:
 ---
 Time series data can yield some of the most interesting and relevant information for developers, operators and businesses. But ever larger datasets coming from multiple sources are making it difficult for people to pull real, actionable intelligence from these time series streams.
 
-We've been working on a tool called <b>Blueflood</b> that makes managing massive-scale time series metrics much easier and are pleased to be open sourcing it for comment, collaboration and improvement. Please check out <http://blueflood.io> for documention, <https://github.com/rackerlabs/blueflood> for the source code and on Freenode IRC #blueflood for discussion.<!-- more -->
+We've been working on a tool called <b>Blueflood</b> that makes managing massive-scale time series metrics much easier and are pleased to be open sourcing it for comment, collaboration and improvement. Please check out <http://blueflood.io> for documention, <https://github.com/rackerlabs/blueflood> for the source code and on Freenode IRC #blueflood for discussion.
+
+<!-- more -->
 
 ### Background
 

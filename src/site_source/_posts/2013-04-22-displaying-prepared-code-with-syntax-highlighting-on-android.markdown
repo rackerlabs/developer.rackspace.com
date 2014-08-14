@@ -13,7 +13,10 @@ categories:
 
 I’m a fan of giving code snippets together with working demonstrations. I’m much more likely to trust code if I can see it and watch it work, as opposed to just reading it and hoping it still works. Has it been deprecated since it was written? Will it throw warnings? Did the author write this from memory, perhaps never even trying it? With a simple demonstration these questions disappear.
 
-When I was asked to explain some Android features to my colleagues, I planned to compose demo apps with prepared, read-only code snippets. But as you can imagine, just dumping Java code into a TextView was a mess. The formatting was all wrong and (at least for me personally) reading code without syntax highlighting is a pain. Fortunately, there is a way to fix this.<!-- more -->
+When I was asked to explain some Android features to my colleagues, I planned to compose demo apps with prepared, read-only code snippets. But as you can imagine, just dumping Java code into a TextView was a mess. The formatting was all wrong and (at least for me personally) reading code without syntax highlighting is a pain. Fortunately, there is a way to fix this.
+
+<!-- more -->
+
 ##Using Spanned formatting
 
 This formatting solution still uses [TextView](http://developer.android.com/reference/android/widget/TextView.html), but rather than provide it with plain text content we pass my snippet as a [Spanned](http://developer.android.com/reference/android/text/Spanned.html) object. For small strings or dynamically-generated strings, we might programmatically compose our formatting from a [SpannableString](http://developer.android.com/reference/android/text/SpannableString.html), as in the following example:

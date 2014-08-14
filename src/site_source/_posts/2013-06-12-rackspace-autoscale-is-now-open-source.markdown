@@ -14,7 +14,9 @@ Our Autoscale project -- codenamed "otter" -- is now open source.
 
 Autoscale takes the work out of capacity planning, allowing [Rackspace Cloud Monitoring][1] alerts or scheduled events to create and delete servers. Through the use of webhooks, Autoscale can be integrated into countless deployment scenarios.
 
-Why did we do this, you ask? Well, when [meeting with folks][2] in the OpenStack community at PyCon earlier this year, we were deeply encouraged to share our code. Then, a month later, [we were blown away][3] by the OpenStack Summit in Portland. The Heat design sessions were an incredible example of the power and speed with which open source communities can operate. We decided to open source Autoscale so we can better communicate with the OpenStack Heat project, provide a real-world example to inform future plans and help align all of our visions for how OpenStack [might implement autoscaling in the future][4].<!-- more -->
+Why did we do this, you ask? Well, when [meeting with folks][2] in the OpenStack community at PyCon earlier this year, we were deeply encouraged to share our code. Then, a month later, [we were blown away][3] by the OpenStack Summit in Portland. The Heat design sessions were an incredible example of the power and speed with which open source communities can operate. We decided to open source Autoscale so we can better communicate with the OpenStack Heat project, provide a real-world example to inform future plans and help align all of our visions for how OpenStack [might implement autoscaling in the future][4].
+
+<!-- more -->
 
 We invite you to [dive into our code][5], [check out our docs][6], and [ask questions][7].
 

@@ -11,7 +11,9 @@ categories:
 ---
 Web application performance is a moving target. During design and implementation, a lot of big and small decisions are made that affect application performance - for good and bad. You've heard it before. But since performance can be ruined many times throughout a project, good application performance simply can not be added as an extra feature at the end of a project.
 
-The modern solution to mitigate quality problems throughout the application development life cycle is called Continuous Integration, or just CI. The benefits of using CI are many, but for me, the most important factor for embracing CI is the ability to run automated tests frequently and to trace application performance, since such tests need to be added to the stack of automated tests already being generated. If you have load tests carried out throughout your project development, you can proactively trace how performance is affected.<!-- more -->
+The modern solution to mitigate quality problems throughout the application development life cycle is called Continuous Integration, or just CI. The benefits of using CI are many, but for me, the most important factor for embracing CI is the ability to run automated tests frequently and to trace application performance, since such tests need to be added to the stack of automated tests already being generated. If you have load tests carried out throughout your project development, you can proactively trace how performance is affected.
+
+<!-- more -->
 
 The key is being able to automate load testing. But how do we do that? Naturally, it depends on your environment. Assuming that you're building a web application and that your build environment is already in the cloud, it would be ideal to start using a cloud based load testing service such as [Load Impact][1] or Loader.io to automatically generate load and measure performance. In fact, libcurl will get you almost all the way.
 

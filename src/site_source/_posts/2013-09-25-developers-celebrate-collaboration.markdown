@@ -12,7 +12,9 @@ Developers and hackers are driving innovation and building great things. As Step
 
 Over the past several months, we’ve shown developers some love with the launch of [Rackspace Developer Support][2] and the [Rackspace Cloud Developer Discount][3], two offers that make it easier and more affordable for developers to build awesome things on the cloud. And we’re not stopping there.
 
-This weekend, we’re going to keep the momentum going when we head out to Sunnyvale as a sponsor of [Yahoo! Hack USA: Sunnyvale 2013][4].<!-- more -->
+This weekend, we’re going to keep the momentum going when we head out to Sunnyvale as a sponsor of [Yahoo! Hack USA: Sunnyvale 2013][4].
+
+<!-- more -->
 
 The two-day event (September 28 and September 29 at Yahoo! HQ) will celebrate collaboration, learning and innovation using the world’s top technologies. Developers from across the country will band together to build hacks, learn from experts and play interactive games.
 

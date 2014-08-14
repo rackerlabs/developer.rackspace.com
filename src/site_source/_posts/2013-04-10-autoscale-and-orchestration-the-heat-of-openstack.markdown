@@ -18,7 +18,9 @@ we needed in OpenStack and Heat hadn't been released yet, and there were no
 OpenStack experts on the Autoscaling team. As such, the engineers began
 developing a product that met Rackspace customer needs, integrated with the
 existing monitoring and load-balancing infrastructure, and made calls to
-OpenStack Nova APIs as part of the scaling up and down process.<!-- more -->
+OpenStack Nova APIs as part of the scaling up and down process.
+
+<!-- more -->
 
 At PyCon this year,
 <a href="https://github.com/emonty">Monty Taylor</a>,

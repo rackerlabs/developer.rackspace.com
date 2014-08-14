@@ -13,7 +13,9 @@ Continuous delivery — the ability to ship new and awesome features, updates an
 
 Getting to continuous delivery of quality code that actually works in production relies on continuous integration: a system for testing code incrementally and frequently.
 
-Continuous integration is both a toolchain and a discipline. It’s less about the specific tooling, though, and more about the practice of continually integrating changes so the system can catch errors and failures while they’re still small and manageable. Your continuous integration system is what gives your team enough confidence in its code to ship frequently.<!-- more -->
+Continuous integration is both a toolchain and a discipline. It’s less about the specific tooling, though, and more about the practice of continually integrating changes so the system can catch errors and failures while they’re still small and manageable. Your continuous integration system is what gives your team enough confidence in its code to ship frequently.
+
+<!-- more -->
 
 The continuous integration system is necessarily complex, spanning the development, test and staging environments. For the sysadmin, provisioning, configuring and maintaining these environments — and making sure they accurately reflect the production environment — can look like a Sisyphean task.
 

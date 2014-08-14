@@ -18,7 +18,9 @@ There was a few sessions on image management in OpenStack today, and this one in
 2. Should Glance continue to support multiple image formats, or should there be a common format, a la, AMI like Amazon.
 3. Glance's HTTP delivery of images takes a long time and adds to boot time.  What is a better alternative?
 
-One of the largest parts of the session was on number two.  The argument was a developer that wants to build and image and bake an app that will run directly on top of it wants to do it once.  They do not, and should not, have to redo this process for every image type.  Qcow2 was the image type that was getting a lot of community traction in the room as it's vendor neutral and supports parsing.<!-- more -->  
+One of the largest parts of the session was on number two.  The argument was a developer that wants to build and image and bake an app that will run directly on top of it wants to do it once.  They do not, and should not, have to redo this process for every image type.  Qcow2 was the image type that was getting a lot of community traction in the room as it's vendor neutral and supports parsing.
+
+<!-- more -->
 
 Another point that was brought up was the face that maybe image conversion should happen on the client side, and OpenStack shouldn't have to do any of that heavy lifting.  If that's the case, there would need to be a tool that users can easier convert images.  This isn't a terrible idea, as there is already plenty of tools that provide that functionality, and the community could rally around one and make the 'default' tool for image conversion.
 

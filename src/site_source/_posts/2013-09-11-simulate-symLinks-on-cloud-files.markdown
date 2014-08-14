@@ -12,7 +12,9 @@ categories:
 
 Rackspace cloud files which is based on [Openstack Swift](http://docs.openstack.org/developer/swift/) provides reliable & fast, object storage and you can read more about the product [here](http://www.rackspace.com/cloud/files/technology/)
 
-In Cloud Files, there is no inbuilt way to do aliases or multiple names to the same object. However, after some documentation trolling and speaking to some of our Cloud Files engineers, there is a way to achieve it, although it is not straightforward.<!-- more -->
+In Cloud Files, there is no inbuilt way to do aliases or multiple names to the same object. However, after some documentation trolling and speaking to some of our Cloud Files engineers, there is a way to achieve it, although it is not straightforward.
+
+<!-- more -->
 
 Cloud Files offers large file (over 5G) support by allowing multiple segments to be uploaded and then a manifest that links the segments. This is well explained is this [blog post](http://www.rackspace.com/blog/rackspace-cloud-files-now-supporting-extremely-large-file-sizes/)
 

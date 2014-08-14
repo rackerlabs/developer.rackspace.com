@@ -12,7 +12,9 @@ categories:
 
 I am part of a team (along with Bruce Stringer and Jason Swindle) working on an internal application called Graffiti, which provides an easy way for front-line Rackers to record interactions with customers and provide valuable data with each interaction. It also creates a much simpler way for leads to be passed from the front line to the IB sales team here in SMB cloud.
 
-We knew from the start that we wanted this to be an agile cloud application that utilizes all the things a cloud should be. We had some limitations which meant we had to home grow a few solutions. Since this is an internal application, we could not rely on third-party solutions for off loading workloads. We also had to be careful with our security practices, of course. We ended up going with a configuration that utilizes our internal nova solution for hosting in Cloud Servers. The downside to this is no automated backups, no load balancers and no Cloud Files; much to my dismay.<!-- more -->
+We knew from the start that we wanted this to be an agile cloud application that utilizes all the things a cloud should be. We had some limitations which meant we had to home grow a few solutions. Since this is an internal application, we could not rely on third-party solutions for off loading workloads. We also had to be careful with our security practices, of course. We ended up going with a configuration that utilizes our internal nova solution for hosting in Cloud Servers. The downside to this is no automated backups, no load balancers and no Cloud Files; much to my dismay.
+
+<!-- more -->
 
 The configuration we are building out consists of an Nginx load balancer, two web servers running Nginx and a master-master pair of PostgreSQL database servers using pgbouncer for replication. We also utilize a Redis server for some caching and as a sort of rate limiting feature for our API.
 

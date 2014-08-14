@@ -12,7 +12,9 @@ categories:
 {% img right 2013-08-15-hackathon-austin/ATX01.jpg 300 %}
 At the crack of 9 a.m., the breakfast tacos are here, but coffee is yet to arrive. A quiet group of Rackers have already shuffled in slowly. Out of the 12 or so makeshift tables, there isn’t one that’s empty.
 
-By 10 a.m., the aroma of coffee beans and the hum of coding fill the air and the group has grown. There is an undercurrent of energy and the room is warm with ideas and whiteboards.  Some came prepped for action and others came without knowing which project they would work on, but they all came to enjoy a day away from the regular tasks at hand. <!-- more -->
+By 10 a.m., the aroma of coffee beans and the hum of coding fill the air and the group has grown. There is an undercurrent of energy and the room is warm with ideas and whiteboards.  Some came prepped for action and others came without knowing which project they would work on, but they all came to enjoy a day away from the regular tasks at hand.
+
+<!-- more -->
 
 In the Rackspace Austin office, our hackathons have primarily focused on fostering culture, breaking down silos and encouraging creativity. Any project is considered. It does not have to be Rackspace-specific. The only "rule" is to demo your project at the end.
 

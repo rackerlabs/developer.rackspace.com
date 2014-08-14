@@ -8,7 +8,9 @@ published: true
 categories: 
 - OpenStack
 ---
-Day two of the OpenStack Summit was even better than the first. It kicked off with a welcome from Jonathan Bryce, Executive Director of the OpenStack Foundation, who set the tone for the day's events. We then heard from companies using OpenStack - Bloomberg, Best Buy, Comcast, and [HubSpot](http://www.rackspace.com/blog/how-hubspot-uses-the-open-hybrid-cloud/) all talked about using OpenStack and what OpenStack had done for their business. Jim O’Neill, HubSpot CIO, experienced network issues during his live demo - but still wanted to show off how HubSpot uses OpenStack.<!-- more -->
+Day two of the OpenStack Summit was even better than the first. It kicked off with a welcome from Jonathan Bryce, Executive Director of the OpenStack Foundation, who set the tone for the day's events. We then heard from companies using OpenStack - Bloomberg, Best Buy, Comcast, and [HubSpot](http://www.rackspace.com/blog/how-hubspot-uses-the-open-hybrid-cloud/) all talked about using OpenStack and what OpenStack had done for their business. Jim O’Neill, HubSpot CIO, experienced network issues during his live demo - but still wanted to show off how HubSpot uses OpenStack.
+
+<!-- more -->
 
 {% youtube Vie4G7dKdJE %}
 

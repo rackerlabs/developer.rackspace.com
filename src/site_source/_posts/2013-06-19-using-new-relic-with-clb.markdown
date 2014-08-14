@@ -12,7 +12,9 @@ categories:
 {% img right 2013-06-20-new-relic-clb/logo-new_relic.gif 200 %}
 New Relic just released its “[New Relic Platform][1]” product consisting of more than 50 plugins from various ISVs and cloud companies.  The first Rackspace plugin to be released is for our Cloud Load Balancer product, which allows you to see HTTP vs. HTTPS traffic, easily set alerts to your predefined thresholds, and periodically check the health of the nodes associated with your load balancer to ensure they are responding correctly.
 
-It’s pretty simple to try this yourself utilizing the README on GitHub, but I thought I’d walk through the basics and add few things to look out for.<!-- more -->:
+It’s pretty simple to try this yourself utilizing the README on GitHub, but I thought I’d walk through the basics and add few things to look out for.
+
+<!-- more -->
 
 ##Install prerequsites
 

@@ -17,7 +17,9 @@ Since becoming a Racker back in 2007, one of my all time favorite websites has b
 
 On top of the features listed above, the website itself is glorious. Looking at it recently, I began to think to myself, "If I were running a business like this, what could I use to squeeze every possible resource out of a server and offer it up for shared hosting?" Enter [Cloud Servers][2] and [Docker][3]. My strategy is simple: build a Cloud Server, install Docker, and then create as many containers as possible. I've decided to use WordPress containers since WordPress is extrememly popular.
 
-#####Running a hosting business based on how many containers you can squeeze on a server is definitely NOT RECOMMENDED and is more for fun while we play with Docker.<!-- more -->
+#####Running a hosting business based on how many containers you can squeeze on a server is definitely NOT RECOMMENDED and is more for fun while we play with Docker.
+
+<!-- more -->
 
 ##What is Docker?
 

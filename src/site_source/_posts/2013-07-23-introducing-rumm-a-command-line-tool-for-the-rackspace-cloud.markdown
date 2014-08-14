@@ -15,7 +15,9 @@ categories:
 
 When building a non-trivial application, you will need to manage assets in the cloud. Servers, files, containers, load balancers, databases - setting these up and maintaining them is a part of your day-to-day work. You can use the Rackspace control panel to spin up a server. Or you can use the Rackspace API, and write a quick script to do what you need. Each of these tools has its ups and its downs, depending on your point of view and how you like to work.
 
-As Ruby developers, we've become accustomed to doing a lot from the command line. In fact, there is so little that isn't done with a CLI (or editor), jumping over to the GUI of the control panel feels both jarring and limiting. So we decided to build [rumm](http://rackerlabs.github.io/rumm) - a command line tool for working with the Rackspace cloud.<!-- more -->
+As Ruby developers, we've become accustomed to doing a lot from the command line. In fact, there is so little that isn't done with a CLI (or editor), jumping over to the GUI of the control panel feels both jarring and limiting. So we decided to build [rumm](http://rackerlabs.github.io/rumm) - a command line tool for working with the Rackspace cloud.
+
+<!-- more -->
 
 Rumm is at its core pretty simple. It's a ruby gem that you can install like any other. You can log in, create servers, attach volumes, and generally do the things you expect to be done. The commands are straight forward and predictable, based on the typical CRUD actions we know and love as well as a few specialty commands
 

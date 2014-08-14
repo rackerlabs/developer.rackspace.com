@@ -9,7 +9,9 @@ categories:
 - Cloud Monitoring
 ---
 The team over at Mailgun just posted a [case study](http://blog.mailgun.net/post/37721101600/how-node-js-app-cloud-monitoring-uses-the-mailgun-api) about how the Rackspace Cloud Monitoring team successfully migrated their email alerts to the [Mailgun email automation platform](http://www.mailgun.com/). It's a really interesting read that is as much about how to plan for and deploy 3rd party tools in a production application as it is about using Mailgun to automate and monitor email alerts.
+
 <!-- more -->
+
 When it comes to Mailgun, the monitoring team implemented Mailgun in their node.js app to dynamically generate and deliver monitoring notifications. These notifications include details about the alert and need to be generated on the fly as soon as an alert is trigged. If you don't head over to the Mailgun blog to read the full post (you should!), here's how the team did it.
 
 During the test, we added code to look at the special [test] account during the Deliver Alert stage to start routing messages to Mailgun.  This process was simple because very little code was involved.

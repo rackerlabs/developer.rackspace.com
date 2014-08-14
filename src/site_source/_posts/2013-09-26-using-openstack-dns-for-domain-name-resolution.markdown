@@ -12,7 +12,11 @@ categories:
 ---
 *Last week, you saw a guide on [Getting Started with OpenStack and Designate][11] that covered the basic setup for getting a Domain Name Server up and running using Openstack DNS's solution, Designate. Today we'll dive into actually using Designate to resolve your domain names.*
  
-In my opinion the best way to learn about a project is to use the software yourself. In that spirit, I’m going to show you how to use Designate as a name server for your own domains and servers.<!-- more --> Here is a very basic picture of what we’ll be doing:
+In my opinion the best way to learn about a project is to use the software yourself. In that spirit, I’m going to show you how to use Designate as a name server for your own domains and servers.
+
+<!-- more -->
+
+Here is a very basic picture of what we’ll be doing:
  
 ![diagram][1]
  
