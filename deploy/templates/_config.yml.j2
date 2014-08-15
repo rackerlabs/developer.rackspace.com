@@ -34,8 +34,8 @@ assets:
 {% else %}
   js_compressor: ~
   css_compressor: ~
-{% end %}
+{% endif %}
   gzip: false
 {% if container_url is defined %}
   baseurl: {{ container_url }}
-{% end %}
+{% endif %}
