@@ -7,6 +7,7 @@
     backendroot: /vagrant_data/src/drc-backend
     server_name: localhost
     common_region: IAD
+    compress_assets: false
   vars_files:
   - [ "secrets.yml", "secrets.nodeless.yml" ]
   roles:

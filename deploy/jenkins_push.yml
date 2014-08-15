@@ -5,6 +5,8 @@
 - name: Build the site locally first.
   hosts: local
   connection: local
+  vars:
+    compress_assets: false
   tasks:
 
   - name: Generate the Jekyll configuration

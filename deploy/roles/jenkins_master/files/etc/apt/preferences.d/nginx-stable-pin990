@@ -1,0 +1,3 @@
+Package: nginx-*
+Pin: release o=LP-PPA-nginx-stable
+Pin-Priority: 990

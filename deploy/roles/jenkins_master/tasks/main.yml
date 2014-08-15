@@ -2,6 +2,11 @@
 - name: Flush any pending handlers
   meta: flush_handlers
 
+- name: Pin nginx to the version from the nginx PPA.
+  copy: src=etc/apt/preferences.d/nginx-stable-pin990
+        dest=/etc/apt/preferences.d/nginx-stable-pin990
+        owner=root group=root mode=0644
+
 - name: Disable password authentication for SSH
   copy: src=etc/ssh/sshd_config dest=/etc/ssh/sshd_config owner=root group=root mode=0644
   notify:
