@@ -4,7 +4,7 @@
 # {{ ansible_managed }}
 
 name: Rackspace Developer Portal
-url: http://developer.rackspace.com
+url: https://developer.rackspace.com
 
 markdown: redcarpet
 redcarpet:
@@ -18,7 +18,7 @@ recent_posts: 5
 excerpt_separator: "<!-- more -->"
 subscribe_rss: /atom.xml
 
-#Disqus config
+# Disqus config
 disqus_short_name: devopsrackspace
 disqus_show_comment_count: false
 
@@ -28,7 +28,14 @@ assets:
   - _assets/img
   - _assets/js
   - _assets/css
+{% if compress_assets %}
   js_compressor: uglifier
   css_compressor: yui
+{% else %}
+  js_compressor: ~
+  css_compressor: ~
+{% end %}
   gzip: false
+{% if container_url is defined %}
   baseurl: {{ container_url }}
+{% end %}
