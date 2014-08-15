@@ -18,10 +18,10 @@ if [ ! -f ${PROJECT_ROOT}/src/site_source/_config.yml ]; then
   echo "The preferred way to build the site for local development is with Vagrant. Consult the"
   echo "README for installation details."
   echo
-  echo "If you're an avid do-it-yourselfer and you insist on building locally, you can also grab"
-  echo "the dev version:"
+  echo "If you're an avid do-it-yourselfer and you insist on building locally, you can build"
+  echo "one from the template:"
   echo
-  echo " cp deploy/roles/dev/files/_config.yml ${PROJECT_ROOT}/src/site_source/"
+  echo " script/localconf"
   echo
   exit 1
 fi
