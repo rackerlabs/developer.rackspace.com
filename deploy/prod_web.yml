@@ -4,7 +4,7 @@
   connection: local
   vars_files:
   - vars.yml
-  - [ 'secrets.yml', 'secrets.prod.yml' ]
+  - [ 'secrets.yml', 'secrets.vault.yml' ]
   tasks:
 
     - name: Provision production web load balancer
@@ -82,8 +82,13 @@
   vars_files:
   - ip_access.yml
   - vars.yml
-  - [ 'secrets.yml', 'secrets.prod.yml' ]
+  - [ 'secrets.yml', 'secrets.vault.yml' ]
+  vars:
+    mailgun_domain: "{{ production_mailgun_domain }}"
+    sponsorship_notification_email: "{{ production_sponsorship_notification_email }}"
+    sponsorship_container: "{{ production_sponsorship_container }}"
   roles:
+    - prod
     - webserver
     - lockboxweb
     - role: bennojoy.nginx

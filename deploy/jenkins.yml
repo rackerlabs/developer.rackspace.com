@@ -55,7 +55,7 @@
   connection: local
   vars_files:
   - vars.yml
-  - [ 'secrets.yml', 'secrets.prod.yml' ]
+  - [ 'secrets.yml', 'secrets.vault.yml' ]
   gather_facts: False
   tasks:
 
@@ -86,7 +86,7 @@
   vars_files:
   - vars.yml
   - ip_access.yml
-  - [ 'secrets.yml', 'secrets.prod.yml' ]
+  - [ 'secrets.yml', 'secrets.vault.yml' ]
   sudo: yes
   vars:
     plugins:

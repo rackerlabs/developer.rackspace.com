@@ -34,7 +34,7 @@
     use_email: "{{ notification_email_address is defined }}"
   vars_files:
   - vars.yml
-  - [ 'secrets.yml', 'secrets.prod.yml' ]
+  - [ 'secrets.yml', 'secrets.vault.yml' ]
   tasks:
 
   - name: Use the monitored region as a label prefix.

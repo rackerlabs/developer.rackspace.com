@@ -7,7 +7,7 @@ import os
 import json
 
 pyrax.set_setting("identity_type", "rackspace")
-pyrax.set_setting("region", os.environ['RAX_REGION'])
+pyrax.set_setting("region", os.environ['RAX_REGION'].upper())
 pyrax.set_credential_file(os.path.expanduser("~/.rackspace_cloud_credentials"))
 
 cm = pyrax.cloud_monitoring

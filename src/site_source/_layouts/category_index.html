@@ -1,21 +1,29 @@
 ---
 layout: default
 ---
-<div class="bodyitem twocol-layout clearfix">
-  <div class="content">
-    <h1>{{ page.title }}</h1>
-    <ul class="blog-entries">
-      {% for post in site.categories[page.category] %}
-      <li class="entry">
-        <span class="byline"> {{ post.date | date_to_html_string }}</span>
-        <h2 class="title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
-        <div class="categories">Filed under {{ post.categories | category_links }}</div>
-      </li>
-      {% endfor %}
-    </ul>
-    </div>
-    {% include sidebar.html %}
 
+<div class="title-header">
+  <div class="inner">
+    <span class="headline">Developer Blog</span>
+  </div>
 </div>
+<div class="container body-container">
+  <div class="row">
+    <div class="col-md-9 col-md-push-3 blog-post bodycontent">
+      <ul class="blog-entries">
+        {% for post in site.categories[page.category] %}
+        <li class="entry">
+          <span class="byline"> {{ post.date | date_to_html_string }}</span>
+          <h2 class="title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
+          <div class="categories">Filed under {{ post.categories | category_links }}</div>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="col-md-3 col-md-pull-9 sidebar">
+      {% include blog-sidebar.html %}
 
-
+      {% include sidebar-footer.html %}
+    </div>
+  </div>
+</div>

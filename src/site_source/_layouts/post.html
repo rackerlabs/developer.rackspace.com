@@ -4,6 +4,18 @@ layout: blog-page
 
 <h1 class="title">{{ page.title }}</h1>
 <div class="byline">By {{ page.author }} - Posted on {{ page.date | date: "%b %-d %Y" }}</div>
+
+{% capture category %}{% if post %}{{ post.categories | category_links | size }}{% else %}{{ page.categories | category_links | size }}{% endif %}{% endcapture %}
+{% unless category == '0' %}
+<div class="categories">
+  {% if post %}
+    {{ post.categories | category_links }}
+  {% else %}
+    {{ page.categories | category_links }}
+  {% endif %}
+</div>
+{% endunless %}
+
 <p>{{ content }}</p>
   <section>
     <h1>Comments</h1>
@@ -30,4 +42,3 @@ layout: blog-page
   {% endif %}
 </div>
 {% endif %}
-

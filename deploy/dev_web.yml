@@ -2,13 +2,16 @@
 - name: Configure web server(s)
   hosts: webservers
   sudo: yes
+  vars_files:
+  - [ "secrets.yml", "secrets.minimal.yml" ]
   vars:
     docroot: /vagrant_data/_site
     backendroot: /vagrant_data/src/drc-backend
     server_name: localhost
     common_region: IAD
-  vars_files:
-  - [ "secrets.yml", "secrets.nodeless.yml" ]
+    mailgun_domain: "{{ dev_mailgun_domain }}"
+    sponsorship_notification_email: "{{ dev_sponsorship_notification_email }}"
+    sponsorship_container: "{{ dev_sponsorship_container }}"
   roles:
     - role: webserver
       content_owner: vagrant
