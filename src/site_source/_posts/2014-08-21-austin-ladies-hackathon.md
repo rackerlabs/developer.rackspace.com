@@ -1,15 +1,18 @@
 ---
 layout: post
 title: "Austin Ladies Hackathon"
-date: 2014-08-21 23:59
+date: 2014-08-21 15:45
 comments: true
 author: Anne Gentle
 published: true
 categories:
-    - public-cloud
+    - women-in-tech
     - mobile
-    - application
+    - pyladies
     - developer
+bio: |
+    Anne Gentle is the elected documentation technical lead for the OpenStack project at Rackspace. She advocates for cloud users and administrators by providing accurate technical information to increase OpenStack adoption as a cloud for the world. Anne serves on the OpenStack Technical Committee, providing guidance and direction for open cloud projects integrated under the OpenStack umbrella.
+    Twitter: @annegentle
 ---
 
 Austin Ladies Hackathon
