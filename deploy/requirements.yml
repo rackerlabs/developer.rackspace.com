@@ -1,0 +1,9 @@
+# Community Ansible roles used by this project
+
+- src: https://github.com/ycombinator/nginx.git
+  path: roles/
+  name: bennojoy.nginx
+
+- src: https://github.com/ycombinator/ansible-jenkins,development
+ 	path: roles/
+  name: ICTO.ansible-jenkins
