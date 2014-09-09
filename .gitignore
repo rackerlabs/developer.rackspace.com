@@ -24,3 +24,7 @@ html
 
 # Templated Jekyll configuration
 src/site_source/_config.yml
+
+# Roles from Ansible community
+deploy/roles/bennojoy.nginx/
+deploy/roles/ICTO.ansible-jenkins/
