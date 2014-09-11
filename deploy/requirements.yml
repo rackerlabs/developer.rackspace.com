@@ -1,4 +1,4 @@
-# Community Ansible roles used by this project
+# Ansible Galaxy roles used by this project
 
 - src: https://github.com/ycombinator/nginx.git
   name: bennojoy.nginx
