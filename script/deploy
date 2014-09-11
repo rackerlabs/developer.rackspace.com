@@ -68,7 +68,7 @@ ANSIBLE_ARGS=
 
 # Download Ansible Galaxy roles
 cd ${ROOT}/deploy
-ansible-galaxy install --role-file=requirements.yml --roles-path ./roles --force
+ansible-galaxy install --role-file=requirements.yml --roles-path=./roles --force
 
 if [ $? -ne 0 ]; then
   exit 2
