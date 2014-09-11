@@ -25,6 +25,6 @@ html
 # Templated Jekyll configuration
 src/site_source/_config.yml
 
-# Roles from Ansible community
+# Roles from Ansible Galaxy
 deploy/roles/bennojoy.nginx/
 deploy/roles/ICTO.ansible-jenkins/
