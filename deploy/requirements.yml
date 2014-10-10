@@ -1,0 +1,8 @@
+# Ansible Galaxy roles used by this project
+
+- src: https://github.com/ycombinator/nginx.git
+  name: bennojoy.nginx
+
+- src: https://github.com/ycombinator/ansible-jenkins
+  name: ICTO.ansible-jenkins
+  version: development

@@ -66,7 +66,13 @@ ANSIBLE_ARGS=
 
 [ -f deploy/secrets.yml ] || ANSIBLE_ARGS='--ask-vault-pass'
 
-# Kick it. Pass any additional arguments to Ansible.
-
+# Download Ansible Galaxy roles
 cd ${ROOT}/deploy
+ansible-galaxy install --role-file=requirements.yml --roles-path=./roles --force
+
+if [ $? -ne 0 ]; then
+  exit 2
+fi
+
+# Kick it. Pass any additional arguments to Ansible.
 ansible-playbook -i inventory/site -M ../script/modules site.yml $ANSIBLE_ARGS $*

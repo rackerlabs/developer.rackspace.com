@@ -12,9 +12,11 @@ Before you begin, you'll need to collect a number of private keys and passphrase
   git submodule update --init
   ```
 
-1. Download and install [Ansible](http://docs.ansible.com/intro_installation.html#installing-the-control-machine).
-   * On Mac OSX machines with [Homebrew](http://brew.sh/) installed, you can simply run: `$ brew install ansible`
+1. Download and install [Ansible 1.8 or higher](http://docs.ansible.com/intro_installation.html#latest-releases-via-pip).
 
+   ```bash
+   $ sudo pip install ansible
+   ```
 
 2. Install pyrax.
 
