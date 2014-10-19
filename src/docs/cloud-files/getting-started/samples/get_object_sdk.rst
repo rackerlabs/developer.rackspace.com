@@ -13,6 +13,11 @@
 
   SwiftObject object = objectApi.get("{objectName}");
 
+  // Write the object to a file
+  File file = File.createTempFile("{objectName}", ".txt");
+  FileOutputStream fileOutputStream = new FileOutputStream(file);
+  ByteStreams.copy(object.getPayload().openStream(), fileOutputStream);
+
 .. code-block:: javascript
 
   // We need to use the fs module to access the local disk.

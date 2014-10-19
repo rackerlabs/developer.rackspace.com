@@ -1,7 +1,9 @@
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URI;
 
+import com.google.common.io.ByteStreams;
 import com.google.common.io.Files;
 import org.jclouds.ContextBuilder;
 import org.jclouds.blobstore.BlobRequestSigner;
@@ -86,8 +88,15 @@ public class CloudFiles {
         objectApi.put("File" + OBJECT_NAME, filePayload);
     }
 
-    public static SwiftObject getObjectSDK(ObjectApi objectApi) {
+    public static SwiftObject getObjectSDK(ObjectApi objectApi) throws IOException {
         SwiftObject object = objectApi.get(OBJECT_NAME);
+
+        // Write the object to a file
+        File file = File.createTempFile(OBJECT_NAME, ".txt");
+        FileOutputStream fileOutputStream = new FileOutputStream(file);
+        ByteStreams.copy(object.getPayload().openStream(), fileOutputStream);
+
+        System.out.format("  File written to %s%n", file.getAbsolutePath());
 
         return object;
     }
