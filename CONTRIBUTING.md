@@ -16,6 +16,14 @@ Once you send in your contribution PR, the following steps will take place:
 
 4. Your contribution will be pushed to our production web site.
 
+### Adding new support for a programming language/SDK
+If you wish to add support for a programming language (for example, support for Go and Gophercloud was added in October, 2014), you will need to perform the following five steps.
+1. Add the .highlight-{language_id} (e.g. .highlight-go) class to the CSS file '/src/site_source/_assets/css/components/guides.less'
+2. Add the language id to the list of languages in the script '/script/completion'.
+3. Edit the page '/src/site_source/_layouts/docs-page.html' to include the language.
+4. Update example code in the '/src/docs/*.rst' files to include the new language.
+5. Edit the javascript '/src/site_source/_assets/js/pages/docs.js' to include the new language.
+
 ## Content guidelines
 
 If you are contributing to the Getting Started documentation in this repository, please review our [Documention Conventions](src/docs/CONTRIBUTING.rst).
