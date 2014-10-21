@@ -7,6 +7,10 @@
 		{webhook_id}, 
 		CancellationToken.None);
 
+.. code-block:: go
+
+  // Not currently supported by this SDK
+
 .. code-block:: java
 
   WebhookApi webhookApi =

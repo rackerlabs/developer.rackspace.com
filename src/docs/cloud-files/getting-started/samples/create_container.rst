@@ -3,6 +3,14 @@
   CloudFilesProvider cloudFilesProvider = new CloudFilesProvider(cloudIdentity);
   cloudFilesProvider.CreateContainer("{container_name}", region: "{region}");
 
+.. code-block:: go
+
+	// The Region is specified when creating the Service Client
+	serviceClient := openstack.NewStorageV1(providerClient, gophercloud.EndpointOpts{
+  	Region: "{region}",
+	})
+	_, err := Create(serviceClient, "{containerName}", nil).ExtractHeaders()
+
 .. code-block:: java
 
   ContainerApi containerApi = cloudFilesApi.getContainerApiForRegion("{region}");

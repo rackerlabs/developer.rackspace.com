@@ -2,6 +2,14 @@
 
   ServerImage serverImage = cloudServersProvider.GetImage("{image_id}");
 
+.. code-block:: go
+
+	// The Region is specified when creating the Service Client
+	serviceClient := openstack.NewComputeV2(providerClient, gophercloud.EndpointOpts{
+  	Region: "{region}",
+	})
+	image, err := images.Get(serviceClient, "{imageId}").Extract()
+
 .. code-block:: java
 
   ImageApi imageApi = novaApi.getImageApiForZone("{region}");

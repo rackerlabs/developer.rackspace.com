@@ -3,6 +3,10 @@
   Dictionary<string,string> container = 
         cloudFilesProvider.GetContainerHeader("{container_name}", "{region}");
           
+.. code-block:: go
+
+	_, err := Get(serviceClient, "{containerName}").ExtractMetadata()
+
 .. code-block:: java
 
   ContainerApi containerApi = cloudFilesApi.getContainerApiForRegion("{region}");

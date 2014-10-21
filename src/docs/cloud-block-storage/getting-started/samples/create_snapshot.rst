@@ -6,6 +6,11 @@
 	displayDescription: "{description}", 
 	region: "{region}");
 
+.. code-block:: go
+
+	options := &CreateOpts{Name: "snapshot-001"}
+	s, err := Create(serviceClient, options).Extract()
+
 .. code-block:: java
 
   VolumeApi volumeApi = cinderApi.getVolumeApiForZone("{region}");

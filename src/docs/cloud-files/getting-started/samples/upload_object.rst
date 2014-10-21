@@ -17,6 +17,11 @@
   // OR, much simpler...
   cloudFilesProvider.CreateObjectFromFile("{container_name}", "{path_to_file}", "{object_name}");
 
+.. code-block:: go
+
+	content, err := ioutil.ReadFile("{pathToFile}")
+	_, err := Create(serviceClient, "{containerName}", "{objectName}", content, nil).ExtractHeaders()
+
 .. code-block:: java
 
   ObjectApi objectApi =

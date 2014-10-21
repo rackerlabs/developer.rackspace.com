@@ -2,6 +2,14 @@
 
   IEnumerable<Flavor> flavorList = cloudServersProvider.ListFlavors();
 
+.. code-block:: go
+
+	flavors.List(serviceClient).EachPage(func (page pagination.Page) (bool, error) {
+  	flavors, _ := ExtractFlavors(page)
+  	// Use the page of []flavors.Flavors
+  	return true, nil
+	}
+
 .. code-block:: java
 
   FlavorApi flavorApi = novaApi.getFlavorApiForZone("{region}");

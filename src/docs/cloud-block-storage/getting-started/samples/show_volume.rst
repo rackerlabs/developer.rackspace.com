@@ -3,6 +3,11 @@
   Volume volume = 
 	new CloudBlockStorageProvider({cloudIdentity}).ShowVolume("{volumeId}", region: "{region}");
 
+.. code-block:: go
+
+	v, err := Get(serviceClient, "{volumeId}").Extract()
+
+
 .. code-block:: java
 
   VolumeApi volumeApi = cinderApi.getVolumeApiForZone("{region}");

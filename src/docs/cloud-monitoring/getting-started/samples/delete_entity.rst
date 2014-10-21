@@ -2,6 +2,10 @@
 
   await cloudMonitoringProvider.RemoveEntityAsync({entity_id}, CancellationToken.None);
 
+.. code-block:: go
+
+  // Not currently supported by this SDK
+
 .. code-block:: java
 
   // Not currently supported by this SDK

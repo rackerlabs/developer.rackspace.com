@@ -2,6 +2,14 @@
 
   IEnumerable<Volume> volumeList = cbsProvider.ListVolumes(region: "{region}");
 
+.. code-block:: go
+
+	volumes.List(serviceClient, &ListOpts{}.EachPage(func (page pagination.Page) (bool, error) {
+  	volumes, _ := ExtractVolumes(page)
+  	// Use the page of []volumes.Volumes
+  	return true, nil
+	}
+
 .. code-block:: java
 
   VolumeApi volumeApi = cinderApi.getVolumeApiForZone("{region}");

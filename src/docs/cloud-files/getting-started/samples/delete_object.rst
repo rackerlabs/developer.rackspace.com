@@ -3,6 +3,10 @@
   CloudFilesProvider cloudFilesProvider = new CloudFilesProvider(cloudIdentity);
   cloudFilesProvider.DeleteObject("{container_name}", "{object_name}");
 
+.. code-block:: go
+
+	_, err := Delete(serviceClient, "{containerName}", "{objectName}", nil).ExtractHeaders()
+
 .. code-block:: java
 
   ObjectApi objectApi =

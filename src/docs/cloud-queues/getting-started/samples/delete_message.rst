@@ -4,6 +4,10 @@
   MessageId messageId = new MessageId("message_id");
   await cloudQueuesProvider.DeleteMessageAsync(queueName, messageId, null, CancellationToken.None);
 
+.. code-block:: go
+
+  // Not currently supported by this SDK
+
 .. code-block:: java
 
   MessageApi messageApi =

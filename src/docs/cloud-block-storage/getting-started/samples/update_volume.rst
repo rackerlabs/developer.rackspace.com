@@ -2,6 +2,10 @@
 
   // Not currently supported by this SDK
 
+.. code-block:: go
+
+	r := Update(serviceClient, "{volumeId}", &UpdateOpts{Name: "new-name"}).Extract()
+
 .. code-block:: java
 
   // Not currently supported by this SDK

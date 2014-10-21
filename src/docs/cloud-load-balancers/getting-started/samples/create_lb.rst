@@ -17,6 +17,10 @@
 		AsyncCompletionOption.RequestCompleted, 
 		CancellationToken.None, null);
 
+.. code-block:: go
+
+  // Not currently supported by this SDK
+
 .. code-block:: java
 
   LoadBalancerApi lbApi = clbApi.getLoadBalancerApiForZone("{region}");

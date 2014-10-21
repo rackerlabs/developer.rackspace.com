@@ -3,6 +3,10 @@
   CloudFilesProvider cloudFilesProvider = new CloudFilesProvider(cloudIdentity);
   cloudFilesProvider.DeleteContainer("{container_name}");
 
+.. code-block:: go
+
+	_, err := Delete(serviceClient, "{containerName}").ExtractHeaders()```
+
 .. code-block:: java
 
   ContainerApi containerApi = cloudFilesApi.getContainerApiForRegion("{region}");

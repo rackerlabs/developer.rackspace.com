@@ -8,6 +8,25 @@
   CloudIdentityProvider cloudIdentityProvider = new CloudIdentityProvider(cloudIdentity);
   UserAccess userAccess = cloudIdentityProvider.Authenticate(cloudIdentity);
 
+.. code-block:: go
+
+	// Identity v2
+	/* AuthOptions fills out an identity.AuthOptions structure with the settings
+	 found on the various OpenStack OS_* environment variables.
+ 	 The following variables provide sources of truth:
+ 	 OS_AUTH_URL
+ 	 OS_USERNAME
+ 	 OS_PASSWORD
+ 	 OS_TENANT_ID
+ 	 OS_TENANT_NAME
+
+ 	 Of these, OS_USERNAME, OS_PASSWORD, and OS_AUTH_URL must
+ 	 have settings, or an error will result.
+ 	 OS_TENANT_ID and OS_TENANT_NAME are optional.
+	*/
+	ao, err := utils.AuthOptions()
+	providerClient, err := openstack.AuthenticatedClient(ao)
+
 .. code-block:: java
 
   // Authentication in jclouds is lazy and happens on the first call to the cloud.

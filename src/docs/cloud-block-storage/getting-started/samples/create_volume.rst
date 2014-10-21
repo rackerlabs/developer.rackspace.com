@@ -6,6 +6,11 @@
 	displayName: "{name}", 
 	region: "{region}");
 
+.. code-block:: go
+
+	options := &CreateOpts{Name: "vol-001", Size: 100}
+	n, err := Create(ServiceClient(), options).Extract()
+
 .. code-block:: java
 
   VolumeApi volumeApi = cinderApi.getVolumeApiForZone("{region}");

@@ -3,7 +3,11 @@
   Snapshot snapshot = 
 	new CloudBlockStorageProvider({cloudIdentity}).ShowSnapshot("{snapshotId}", "{region}");
 
-	.. code-block:: java
+.. code-block:: go
+
+	s, err := Get(serviceClient, "{snapshotId}").Extract()
+
+.. code-block:: java
 
   SnapshotApi snapshotApi = cinderApi.getSnapshotApiForZone("{region}");
 

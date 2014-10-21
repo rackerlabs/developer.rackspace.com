@@ -2,13 +2,22 @@
 
   // Not currently supported by this SDK
 
+.. code-block:: go
+
+	options := &UpdateMetadataOpts{
+  	Metadata: map[string]interface{}{
+	 	"key": "v1",
+  	},
+	}
+	r, err := UpdateMetadata(serviceClient, "{snapshotId}", options).ExtractMetadata()
+
 .. code-block:: java
 
   // Not currently supported by this SDK
 
 .. code-block:: javascript
 
-  // assuming we've already loaded the details of a snapshot into a
+	// assuming we've already loaded the details of a snapshot into a
   // local variable named snapshot
 
   snapshot.name = 'New Snapshot Name';

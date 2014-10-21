@@ -1,0 +1,75 @@
+---
+layout: sdk-page
+title: Go SDK
+---
+<div>
+  <h1>Getting Started with the Go SDK</h1>
+  <p>Rackspace's official OpenStack SDK for Go is <a href="http://gophercloud.io">Gophercloud</a>, an Apache-licensed open-source community project for using multiple cloud providers from a standardized API.</p>
+  <p>Currently, Gophercloud has support for multiple Rackspace services:</p>
+   <ul>
+    <li><a href="/docs/cloud-block-storage/getting-started/?lang=golang">Cloud Block Storage</a></li>
+    <li><a href="/docs/cloud-files/getting-started/?lang=golang">Cloud Files</a></li>
+    <li><a href="/docs/cloud-servers/getting-started/?lang=golang">Cloud Servers</a></li>
+   </ul>
+  <p>Support for additional services is on-going.</p>
+  <hr />
+  <h2>Requirements</h2>
+
+  <ol>
+    <li><a href="https://golang.org/dl/">The Go Programming Language</a></li>
+    <li><a href="http://www.git-scm.com">Git</a></li>
+  </ol>
+
+  <h2>Installation</h2>
+  <p><strong>Gophercloud</strong> is installed by executing the following command (after you have installed Go):
+  {% highlight go %}
+  go get github.com/rackspace/gophercloud
+  {% endhighlight %}
+  <h2>Using Gophercloud</h2>
+  <p>Once an Identity has been created, you specify the region when creating the Service provider. If no region is specified, any method call will fail.</p>
+  <p>In this example, we create an Identity provider that can be used to create any Service provider:</p>
+
+  {% highlight go %}
+
+// Identity V2
+/* AuthOptions fills out an identity.AuthOptions structure with the settings
+ found on the various OpenStack OS_* environment variables.
+ The following variables provide sources of truth:
+ OS_AUTH_URL
+ OS_USERNAME
+ OS_PASSWORD
+ OS_TENANT_ID
+ OS_TENANT_NAME
+ 
+ Of these, OS_USERNAME, OS_PASSWORD and OS_AUTH_URL must
+ have settings, or an error will result
+ OS_TENANT_ID and OS_TENANT_NAME are optional.
+*/
+import (
+	"github.com/rackspace/gophercloud"
+	"github.com/rackspace/gophercloud/openstack"
+	"github.com/rackspace/gophercloud/utils"
+)
+
+ao, err := utils.AuthOptions()
+providerClient, err := openstack.AuthenticatedClient(ao)
+
+{% endhighlight %}
+
+  <ul>
+    <li><a href="https://github.com/rackspace/gophercloud">Source code</a></li>
+    <li><a href="https://github.com/rackspace/gophercloud/wiki">Wiki</a></li>
+    <li><a href="http://gophercloud.io/docs.html">Getting Started Guide</a></li>
+    <li>IRC: #rackspace-dev on Freenode</li>
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+

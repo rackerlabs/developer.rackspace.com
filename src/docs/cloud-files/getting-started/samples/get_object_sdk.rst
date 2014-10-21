@@ -5,6 +5,11 @@
 	"{output_folder}", 
 	"{object_name}", 
 	"{output_filename}");
+
+.. code-block:: go
+
+	content, err := Download(serviceClient, "{containerName}", "{objectName}", nil).ExtractContent()
+	err := ioutil.WriteFile("{pathToFile}", []byte(content), 0644)
 			
 .. code-block:: java
 
