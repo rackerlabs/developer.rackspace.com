@@ -1,0 +1,106 @@
+.box {
+  width: 100%;
+
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+  }
+
+  .container {
+    padding: 80px 0;
+    text-align: center;
+
+    @media (max-width: @screen-md) {
+      width: auto;
+    }
+  }
+
+  h1 {
+    font-weight: 700;
+    font-size: 42px;
+    margin: 0 0 20px 0;
+  }
+
+  h2 {
+    font-weight: 600;
+    font-size: 28px;
+    margin: 0 0 80px 0;
+    color: @rackspace-dark-gray;
+  }
+
+  h3 {
+    font-weight: 600;
+    font-size: 24px;
+    margin: 0 0 20px 0;
+  }
+
+  p {
+    margin: 0;
+    font-size: 24px;
+    line-height: 28px;
+    font-weight: 300;
+
+    .emphasis {
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+  }
+
+  blockquote {
+    font-size: 34px;
+    font-weight: 300;
+    border: 0;
+    padding: 0;
+    margin-bottom: 20px;
+  }
+
+  .btn {
+    font-size: 18px;
+    line-height: 32px;
+    font-weight: 600;
+  }
+
+  .btn-sign-up {
+    width: 196px;
+  }
+
+  &.title {
+    background: @rackspace-blue;
+    color: @rackspace-white;
+
+    .btn {
+      width: 200px;
+      margin: 40px 0 0 0;
+    }
+  }
+
+  &.dark {
+    background-color: @rackspace-dark-gray;
+    color: @rackspace-white;
+  }
+
+  &.quote {
+    background-color: @rackspace-off-white;
+    color: @rackspace-dark-gray;
+
+    .container {
+      text-align: left;
+    }
+
+    .quotes {
+      font-weight: 400;
+    }
+
+    .author {
+      font-size: 21px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .author-title {
+      font-size: 16px;
+      font-weight: 400;
+      margin-bottom: 40px;
+    }
+  }
+}
+

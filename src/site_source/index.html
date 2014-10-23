@@ -3,82 +3,46 @@ layout: default
 title: Rackspace Developer Center
 ---
 
-<div class="hero homepage">
-  <div class="inner">
-    <h1 class="firstline">Introducing developer+</h1>
-    <span class="secondline">We want you to have a great experience at Rackspace. Our new developer+ program is designed to give you all the power you need and the features you want, at a price you'll like.</span>
-    <a href="/signup/" class="ctabtn">Learn More!</a>
+
+<div class="box title">
+  <div class="container">
+    <h1>Developers, explore our cloud</h1>
+
+    <p>Get $600 in <span class="emphasis">free credit</span>.</p>
+
+    <p>No minimums, rate limits, support fees, or contracts.</p>
+    <a href="/signup/" class="btn btn-default">Get started now <i class="fa fa-arrow-right"></i></a>
   </div>
 </div>
 
-<div class="container">
-  <div class="row triboxes">
-    <div class="box col-md-4 col-sm-4">
-      <div class="inner">
-        <img src="{% asset_path community-icon.svg %}" alt="Docs">
-        <span class="boxtitle">Documentation</span>
-
-        <p>Grow what you know. <br/>We provide the information
-        and work with you to improve our documentation.</p>
-        <a href="/docs/" class="ctabtn purple">Learn More</a>
-      </div>
-    </div>
-
-    <div class="box col-md-4 col-sm-4">
-      <div class="inner">
-        <img src="{% asset_path sdks-icon.svg %}" alt="SDKs and Tools">
-        <span class="boxtitle">SDKs &amp; Tools</span>
-
-        <p>Gain access to power tools and dev kits. <br/>We build tools for 
-        you and with you in an open, collaborative way.</p>
-        <a href="/sdks/" class="ctabtn green">View SDKs</a>
-      </div>
-    </div>
-
-    <div class="box col-md-4 col-sm-4">
-      <div class="inner">
-        <img src="{% asset_path conference-icon.svg %}" alt="Community and Events">
-        <span class="boxtitle">Community</span>
-
-        <p>Build a bridge and reach out. <br/>We work in communities for 
-        larger purposes than just our own.</p>
-        <a href="/community/" class="ctabtn yellow">Connect</a>
-      </div>
-    </div>
+<div class="box">
+  <div class="container">
+    <h2>Everything you need to build powerful, scalable apps.</h2>
   </div>
+</div>
 
-  <div class="row">
-    <div class="col-md-12">
-      <hr/>
-    </div>
+<div class="box dark">
+  <div class="container">
+    <h3>Developer-to-developer support</h3>
+    <p>Complex technical questions? Talk directly to the developers who build our SDKs and APIs.</p>
   </div>
+</div>
 
-<div class="row">
-    <div class="col-md-3 sidebar">
-      <ul>
-        <li><span class="sidebarheader">Developer Center</span></li>
-        <li><a href="/sdks/">SDKs &amp; Tools</a></li>
-        <li><a href="/community/#sponsorship">Conference Sponsorship</a></li>
-        <li><a href="/docs/">Documentation</a></li>
-      </ul>
+<div class="box quote">
+  <div class="container">
+    <blockquote>
+      <span class="quotes">“</span>We built developer+<sup>TM</sup> (a monthly infrastructure credit and
+      more) to give developers the core of almost any scalable
+      cloud application they want to build.<span class="quotes">”</span>
+    </blockquote>
+    <div class="author">Jesse Noller</div>
+    <div class="author-title">Former Python Software Foundation board member, Principle Engineer & Senior Manager for developer+</div>
+    <a href="#">Read the blog article <i class="fa fa-arrow-right"></i></a>
+  </div>
+</div>
 
-      {% include sidebar-footer.html %}
-    </div>
-
-    <div class="col-md-9 bodycontent">
-      <div class="blog-preview">
-        <h1>Developer Blog</h1>
-        {% for post in site.posts limit:3 %}
-        <div class="blog-tease">
-          <h2 class="blog-tease-title"><a href="{{ BASE_PATH }}{{ post.url }}">
-            {{ post.title }}</a></h2>
-          <div class="byline">By {{ post.author }} - Posted on {{ post.date | date: "%b %-d %Y" }}</div>
-          <p>{{post.excerpt}}</p>
-          <a href="{{ BASE_PATH }}{{ post.url }}" class="btn btn-primary">Read More</a>
-          <hr/>
-        </div>
-        {% endfor %}
-      </div>
-    </div>
+<div class="box">
+  <div class="container">
+    <a class="btn btn-primary btn-sign-up" href="#">Sign up for free <i class="fa fa-arrow-right"></i></a>
   </div>
 </div>
