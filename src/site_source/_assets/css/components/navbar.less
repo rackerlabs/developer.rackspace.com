@@ -1,5 +1,4 @@
 @navbar-min-height: 70px;
-@navbar-padding-vertical-custom: 20px;
 .navbar.navbar-static-top {
   margin-bottom: 0;
   min-height: @navbar-min-height;
@@ -9,7 +8,7 @@
   .navbar-header .navbar-brand {
     text-transform: uppercase;
     color: white;
-    line-height: 20px;
+    line-height: @grid-gutter-width / 2;
     font-size: 0.9em;
     font-weight: 600;
 
@@ -17,7 +16,7 @@
     background-size: 243px;
     width: 243px;
     padding: 0;
-    background-position-y: 15px;
+    background-position-y: 15px; // custom due to image dimensions
     height: @navbar-min-height;
   }
 
@@ -37,27 +36,37 @@
       font-weight: 600;
     }
   }
-}
 
-.btn-get-started {
-  font-weight: 600;
-  font-size: 12px;
-  line-height: 15px;
-  color: @rackspace-light-blue;
-  margin: @navbar-padding-vertical-custom 0;
+  ul > li > a#btn-get-started {
+    font-weight: 600;
+    font-size: 12px;
+    color: @rackspace-light-blue;
+    margin: (@grid-gutter-width / 2) 0;
 
-  .fa-arrow-right {
-    margin-left: 2px;
+    .fa-arrow-right {
+      margin-left: 2px;
+    }
+
+    &:hover {
+      background-color: darken(@rackspace-white, 5%);
+    }
   }
 }
 
+
+
 .navbar-nav {
+  > li > .dropdown-menu {
+    margin-top: -1 * (@grid-gutter-width / 2);
+  }
   // Uncollapse the nav
   @media (min-width: @grid-float-breakpoint) {
     > li {
       > a {
-        padding-top: @navbar-padding-vertical-custom;
-        padding-bottom: @navbar-padding-vertical-custom;
+        padding-top: 0;
+        padding-bottom: 0;
+        margin-top: @grid-gutter-width / 2;
+        margin-bottom: @grid-gutter-width / 2;
       }
     }
   }
@@ -68,7 +77,7 @@
 .navbar-inverse .navbar-nav > .open > a,
 .navbar-inverse .navbar-nav > .open > a:hover,
 .navbar-inverse .navbar-nav > .open > a:focus{
-  //background-color: #222;
+  background-color: @rackspace-dark-gray;
 }
 
 .navbar-toggle {
