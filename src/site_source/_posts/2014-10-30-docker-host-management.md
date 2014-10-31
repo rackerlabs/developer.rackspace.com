@@ -16,7 +16,6 @@ While Docker has been the talk of town for the last few months, it has always be
 
 <!-- more -->
 
-
 Today while at worldwide Docker Hackday, this proposal was [publicly announced](https://www.youtube.com/watch?v=lZGmvGw-mWc&feature=youtu.be). We are glad to announce that Rackspace will be supported very soon thanks to the [work](https://github.com/bfirsh/docker/pull/10) of Ash Wilson and Nels Nelson among others. 
 
 If included in Docker, this would be great news all around for users, developer and providers. So, we strongly encourage anyone interested check out the proposal (linked above) and provide any feedback and to help to make this feature happen.
