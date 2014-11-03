@@ -2,14 +2,20 @@
 
   // Not currently supported by this SDK
 
+.. code-block:: go
+
+  // Only Name and Description may be updated
+  opts := snapshots.UpdateOpts{Name: "new_name"}
+  s, err := snapshots.Update(client, "{snapshotId}", opts).Extract()
+
 .. code-block:: java
 
   // Not currently supported by this SDK
 
 .. code-block:: javascript
 
-  // assuming we've already loaded the details of a snapshot into a
-  // local variable named snapshot
+	// assuming we've already loaded the details of a snapshot into a
+	// local variable named snapshot
 
   snapshot.name = 'New Snapshot Name';
 

@@ -7,6 +7,18 @@
   };
   CloudFilesProvider cloudFilesProvider = new CloudFilesProvider(cloudIdentity);
 
+.. code-block:: go
+
+  ao := gophercloud.AuthOptions{
+    Username: "{username}",
+    APIKey: "{apiKey}",
+  }
+  provider, err := rackspace.AuthenticatedClient(ao)
+
+  client, err := rackspace.NewObjectStorageV1(provider, gophercloud.EndpointOpts{
+    Region: "{region}",
+  })
+
 .. code-block:: java
 
   // Authentication in jclouds is lazy and happens on the first call to the cloud.

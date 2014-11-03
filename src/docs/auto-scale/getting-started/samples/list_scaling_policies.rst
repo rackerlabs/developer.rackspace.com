@@ -3,6 +3,10 @@
   ReadOnlyCollectionPage<Policy> policies = 
 	await cloudAutoScaleProvider.ListPoliciesAsync({group_id}, null, null, CancellationToken.None);
 
+.. code-block:: go
+
+  // Not currently supported by this SDK
+
 .. code-block:: java
 
   PolicyApi policyApi = autoscaleApi.getPolicyApiForZoneAndGroup("{region}", "{scalingGroupId}");

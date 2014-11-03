@@ -4,6 +4,10 @@
   bool created = await cloudQueuesProvider.CreateQueueAsync(queueName, CancellationToken.None);
   await cloudQueuesProvider.DeleteQueueAsync(queueName, CancellationToken.None);
 
+.. code-block:: go
+
+  // Not currently supported by this SDK
+
 .. code-block:: java
 
   QueueApi queueApi = marconiApi.getQueueApiForZoneAndClient("{region}", "{clientId}");

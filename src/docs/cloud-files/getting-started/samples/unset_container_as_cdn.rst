@@ -3,6 +3,10 @@
   CloudFilesProvider cloudFilesProvider = new CloudFilesProvider(cloudIdentity);
   cloudFilesProvider.DisableCDNOnContainer("{container_name}");
 
+.. code-block:: go
+
+  // Not currently supported by this SDK
+
 .. code-block:: java
 
   CDNApi cdnApi = cloudFilesApi.getCDNApiForRegion("{region}");

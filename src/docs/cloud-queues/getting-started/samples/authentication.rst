@@ -14,6 +14,10 @@
 		false, 
 		null);
 
+.. code-block:: go
+
+	// Not currently supported by this SDK
+	
 .. code-block:: java
 
   // Authentication in jclouds is lazy and happens on the first call to the cloud.

@@ -8,6 +8,10 @@
    Message[] messages = { message };
    await cloudQueuesProvider.PostMessagesAsync(queueName, CancellationToken.None, messages);
 
+.. code-block:: go
+
+  // Not currently supported by this SDK
+
 .. code-block:: java
 
     MessageApi messageApi =

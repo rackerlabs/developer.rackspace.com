@@ -3,6 +3,10 @@
   ReadOnlyCollection<DatabaseFlavor> databaseFlavors = await cloudDatabaseProvider
     .ListFlavorsAsync(CancellationToken.None);
 
+.. code-block:: go
+
+  // Not currently supported by this SDK
+
 .. code-block:: java
 
   // List your flavors and get the first.

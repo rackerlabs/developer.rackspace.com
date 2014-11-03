@@ -2,6 +2,10 @@
 
   new CloudBlockStorageProvider({cloudIdentity}).DeleteVolume("{volumeId}", "{region}");
 
+.. code-block:: go
+
+  err := volumes.Delete(client, "{volumeId}").ExtractErr()
+
 .. code-block:: java
 
   VolumeApi volumeApi = cinderApi.getVolumeApiForZone("{region}");

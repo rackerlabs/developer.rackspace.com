@@ -4,6 +4,10 @@
   DatabaseFlavor databaseFlavor = await cloudDatabasesProvider.GetFlavorAsync(
     flavorId, CancellationToken.None);
 
+.. code-block:: go
+
+  // Not currently supported by this SDK
+
 .. code-block:: java
 
   FlavorApi flavorApi = troveApi.getFlavorApiForZone("{region}");

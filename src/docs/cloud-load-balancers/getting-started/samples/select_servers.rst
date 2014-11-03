@@ -3,6 +3,10 @@
   Server server1 = cloudServersProvider.GetDetails("{serverId1}");
   Server server2 = cloudServersProvider.GetDetails("{serverId2}");
 
+.. code-block:: go
+
+  // Not currently supported by this SDK
+
 .. code-block:: java
 
   NovaApi novaApi = ContextBuilder.newBuilder("rackspace-cloudservers-us")

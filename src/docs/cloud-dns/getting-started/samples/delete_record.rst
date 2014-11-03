@@ -13,6 +13,10 @@
 
   awaitComplete(cloudDNSApi, recordApi.delete({recordIds}));
 
+.. code-block:: go
+
+  // Not currently supported by this SDK
+
 .. code-block:: javascript
 
   rackspace.deleteRecord(myZone, myRec, function (err) {
