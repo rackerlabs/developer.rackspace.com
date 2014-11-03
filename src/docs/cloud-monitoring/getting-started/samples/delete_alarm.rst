@@ -2,6 +2,10 @@
 
   await cloudMonitoringProvider.RemoveAlarmAsync({entity_id}, {alarm_id}, CancellationToken.None);
 
+.. code-block:: go
+
+  // Not currently supported by this SDK
+
 .. code-block:: java
 
   // Not currently supported by this SDK

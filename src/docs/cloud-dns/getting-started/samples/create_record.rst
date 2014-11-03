@@ -19,6 +19,10 @@
 		CancellationToken.None, null);
   DnsRecord[] records = recordsResponse.Response.Records.ToArray();
   
+.. code-block:: go
+
+  // Not currently supported by this SDK
+
 .. code-block:: java
 
   RecordApi recordApi = cloudDNSApi.getRecordApiForDomain({domainId});

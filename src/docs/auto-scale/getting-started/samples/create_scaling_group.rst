@@ -29,6 +29,10 @@
   ScalingGroup scalingGroup 
 	= await cloudAutoScaleProvider.CreateGroupAsync(configuration, CancellationToken.None);
 
+.. code-block:: go
+
+  // Not currently supported by this SDK
+
 .. code-block:: java
 
   private static final String PUBLIC_NET = "00000000-0000-0000-0000-000000000000";

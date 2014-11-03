@@ -10,6 +10,10 @@
 	userConfiguration, 
 	CancellationToken.None);
 
+.. code-block:: go
+
+  // Not currently supported by this SDK
+
 .. code-block:: java
 
   // Create a user with username and password and give them access to one database.

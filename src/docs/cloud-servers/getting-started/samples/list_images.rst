@@ -2,6 +2,14 @@
 
   IEnumerable<SimpleServerImage> imageList = cloudServersProvider.ListImages();
 
+.. code-block:: go
+
+  images.List(serviceClient).EachPage(func (page pagination.Page) (bool, error) {
+    images, _ := ExtractImages(page)
+    // Use the page of []images.Image
+    return true, nil
+  }
+
 .. code-block:: java
 
   ImageApi imageApi = novaApi.getImageApiForZone("{region}");

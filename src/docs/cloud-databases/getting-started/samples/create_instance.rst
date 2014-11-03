@@ -17,6 +17,10 @@
     null
   );
 
+.. code-block:: go
+
+  // Not currently supported by this SDK
+
 .. code-block:: java
 
   TroveUtils utils = new TroveUtils(troveApi);

@@ -2,6 +2,10 @@
 
   new CloudBlockStorageProvider({cloudIdentity}).DeleteSnapshot("{snapshotId}", "{region}");
 
+.. code-block:: go
+
+  err := snapshots.Delete(client, "{snapshotId}").ExtractErr()
+
 .. code-block:: java
 
   SnapshotApi snapshotApi = cinderApi.getSnapshotApiForZone("{region}");

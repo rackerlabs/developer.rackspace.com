@@ -19,7 +19,7 @@ end
 
 # Pygments syntax names for languages with supported SDKs.
 #
-LANGUAGES = %w(csharp java javascript php python ruby sh)
+LANGUAGES = %w(csharp go java javascript php python ruby sh)
 
 # Counts to keep.
 #

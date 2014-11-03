@@ -2,6 +2,11 @@
 
   // Not currently supported by this SDK
 
+.. code-block:: go
+
+  opts := volumes.UpdateOpts{Name: "new_name"}
+  vol, err := volumes.Update{client, "{volumeId}", opts).Extract()
+
 .. code-block:: java
 
   // Not currently supported by this SDK

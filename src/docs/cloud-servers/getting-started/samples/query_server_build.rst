@@ -5,6 +5,10 @@
   ServerState[] serverStates = new ServerState[1] { ServerState.Unknown };
   cloudServersProvider.WaitForServerState("{server_id}", serverStates, errorStates);
 
+.. code-block:: go
+
+  // Not currently supported by this SDK
+
 .. code-block:: java
 
   ServerApi serverApi = novaApi.getServerApiForZone("{region}");

@@ -5,6 +5,10 @@
   Dictionary<string, string> header = 
 	cloudFilesProvider.EnableCDNOnContainer("{container_name}", timeToLive);
 
+.. code-block:: go
+
+  // Not currently supported by this SDK
+
 .. code-block:: java
 
   CDNApi cdnApi = cloudFilesApi.getCDNApiForRegion("{region}");

@@ -6,6 +6,12 @@
 	displayName: "{name}", 
 	region: "{region}");
 
+.. code-block:: go
+
+  import "github.com/rackspace/gophercloud/rackspace/blockstorage/v1/volumes"
+  opts := volumes.CreateOpts{Name: "{volumeName}", Size: 100}
+  vol, err := volumes.Create(client, opts).Extract()
+
 .. code-block:: java
 
   VolumeApi volumeApi = cinderApi.getVolumeApiForZone("{region}");

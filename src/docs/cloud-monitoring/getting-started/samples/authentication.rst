@@ -10,6 +10,10 @@
 	"{region}", 
 	null);
 
+.. code-block:: go
+
+	// Not currently supported by this SDK
+	
 .. code-block:: java
 
   // Not currently supported by this SDK

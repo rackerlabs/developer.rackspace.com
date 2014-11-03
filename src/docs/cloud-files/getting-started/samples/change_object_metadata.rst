@@ -5,6 +5,11 @@
   metadata.Add("{key}","{value}");
   cloudFilesProvider.UpdateObjectMetadata("{container_name}", "{object_name}", metadata, "{region}");
 
+.. code-block:: go
+
+  var metadata = map[string]string{"some-key": "some-data"}
+  _, err := objects.Update(serviceClient, "{containerName}", "{objectName}", objects.UpdateOpts{Metadata: metadata}).ExtractHeader()
+
 .. code-block:: java
 
   ObjectApi objectApi =

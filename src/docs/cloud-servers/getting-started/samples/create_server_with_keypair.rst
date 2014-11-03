@@ -2,6 +2,10 @@
 
   // This is not supported through the .NET SDK at this time
 
+.. code-block:: go
+
+  // Not currently supported by this SDK
+
 .. code-block:: java
 
   ServerApi serverApi = novaApi.getServerApiForZone("{region}");

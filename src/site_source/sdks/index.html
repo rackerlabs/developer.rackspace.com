@@ -5,7 +5,42 @@ title: SDKs &amp; Tools
 <div class="doc-index">
   <div class="row">
     <div class="col-md-12">
-      <p>Rackspace supports SDKs in <a href="/sdks/java/">Java</a>, <a href="/sdks/dot-net/">.NET</a>, <a href="/sdks/node-js/">Node.js</a>, <a href="/sdks/php/">PHP, <a href="/sdks/python/">Python</a>, and <a href="/sdks/ruby/">Ruby</a>.</p>
+      <p>Rackspace supports SDKs in <a href="/sdks/golang">Go</a>, <a href="/sdks/java/">Java</a>, <a href="/sdks/dot-net/">.NET</a>, <a href="/sdks/node-js/">Node.js</a>, <a href="/sdks/php/">PHP, <a href="/sdks/python/">Python</a>, and <a href="/sdks/ruby/">Ruby</a>.</p>
+
+      <div class="sdk-block">
+        <h1>Go
+          <a class="btn btn-primary btn-sm pull-right" href="/sdks/golang/">&raquo; Learn More</a>
+        </h1>
+
+        <ul class="piped-list">
+          <li><a href="/docs/cloud-servers/getting-started/?lang=golang">Getting Started</a></li>
+          <li><a href="http://gophercloud.io/docs.html">Documentation</a></li>
+          <li><a href="http://gophercloud.io/docs.html">Release Notes</a></li>
+          <li><a href="http://gophercloud.io/community.html">Community</a></li>
+        </ul>
+
+        <h3>Installing Gophercloud</h3>
+
+        <p>Run the following command (after installing Go):
+        {% highlight bash %}
+        go get github.com/rackspace/gophercloud
+        {% endhighlight %}
+        </p>
+
+        {% highlight go %}
+import (
+  "github.com/rackspace/gophercloud"
+  "github.com/rackspace/gophercloud/rackspace"
+)
+{% endhighlight %}
+
+        <h4>Requirements</h4>
+
+        <ol>
+          <li><a href="">Go</a></li>
+          <li><a href="http://www.git-scm.com">Git</a></li>
+        </ol>
+      </div>
 
       <div class="sdk-block">
         <h1>Java

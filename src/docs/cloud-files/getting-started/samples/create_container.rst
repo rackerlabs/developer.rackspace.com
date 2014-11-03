@@ -3,6 +3,10 @@
   CloudFilesProvider cloudFilesProvider = new CloudFilesProvider(cloudIdentity);
   cloudFilesProvider.CreateContainer("{container_name}", region: "{region}");
 
+.. code-block:: go
+
+  _, err := containers.Create(serviceClient, "{containerName}", nil)
+
 .. code-block:: java
 
   ContainerApi containerApi = cloudFilesApi.getContainerApiForRegion("{region}");

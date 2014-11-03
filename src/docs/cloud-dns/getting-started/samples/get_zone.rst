@@ -4,6 +4,10 @@
 	cloudDNSProvider.ListDomainsAsync("domain.com", null, null, CancellationToken.None);
   Tuple<ReadOnlyCollectionPage<DnsDomain>,int?> x = await domainsList;
 
+.. code-block:: go
+
+  // Not currently supported by this SDK
+
 .. code-block:: java
 
   DomainApi domainApi = cloudDNSApi.getDomainApi();
