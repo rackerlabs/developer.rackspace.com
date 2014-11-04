@@ -1,17 +1,17 @@
 ---
 layout: post
-title: "Configure Keystone to Utilize Apache2"
+title: "Configure Keystone to Utilize Apache 2"
 date: 2014-11-06 17:20
 comments: true
 author: Matt Dorn
 published: true
 categories:
-  - OpenStack
-  - openstack-keystone
-  - apache
-  - python
+ - OpenStack
+ - openstack-keystone
+ - apache
+ - python
 bio:
-  Matt Dorn is a Cloud Technology Instructor with Rackspace focused on helping IT teams around the world build private clouds with OpenStack. Twitter: @matthewdorn
+ Matt Dorn is a Cloud Technology Instructor with Rackspace focused on helping IT teams around the world build private clouds with OpenStack. You can find him on Twitter as @mattdorn
 ---
 
 Keystone has the ability to leverage Apache as its front end.  This configuration is becoming more popular with OpenStack deployments lately.  Here is a straight forward guide on how to setup Keystone to utilize Apache in your existing OpenStack deployment.
