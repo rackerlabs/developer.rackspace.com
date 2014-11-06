@@ -11,7 +11,7 @@ categories:
  - apache
  - python
 bio:
- Matt Dorn is a Cloud Technology Instructor with Rackspace focused on helping IT teams around the world build private clouds with OpenStack. You can find him on Twitter as @mattdorn
+ Matt Dorn is a Cloud Technology Instructor with Rackspace focused on helping IT teams around the world build private clouds with OpenStack. You can find his blog at http://www.madorn.com/
 ---
 
 Keystone has the ability to leverage Apache as its front end.  This configuration is becoming more popular with OpenStack deployments lately.  Here is a straight forward guide on how to setup Keystone to utilize Apache in your existing OpenStack deployment.
