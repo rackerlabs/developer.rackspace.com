@@ -1,20 +1,13 @@
 .. code-block:: csharp
 
+  // Option 1: Upload an object using a Stream
   CloudFilesProvider cloudFilesProvider = new CloudFilesProvider(cloudIdentity);
-  FileStream fileStream = new FileStream("{path_to_file}", FileMode.Open, FileAccess.Read);
-  int fileLength = (int)fileStream.Length;
-  byte[] buffer = new byte[fileLength];
-  int nbrOfBytes;
-  int bytesRead = 0;
-  while ((nbrOfBytes = fileStream.Read(buffer, bytesRead, fileLength - bytesRead)) > 0)
-      bytesRead += nbrOfBytes;
-  fileStream.Close();
-  using (fileStream)
+  using (FileStream fileStream = File.OpenRead("{path_to_file}"))
   {
       cloudFilesProvider.CreateObject("{container_name}", fileStream, "{object_name}");
   }
 
-  // OR, much simpler...
+  // Option 2: Upload a file directly using its filename
   cloudFilesProvider.CreateObjectFromFile("{container_name}", "{path_to_file}", "{object_name}");
 
 .. code-block:: go
