@@ -1,0 +1,123 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/* Hero */
+
+div.hero { 
+	background-color:#2288dd;
+	/* background-image:url(../images/background.jpg); */
+	color:#ffffff; 
+	display:block; 
+	padding:40px 20px 60px 20px; 
+	margin:0px;
+	text-align:center;
+	border-bottom:1px solid #fff;
+}
+
+p.hero_header { 
+	font-size:2em; 
+	font-weight:700;
+	padding:0px;
+	margin:0px;
+}
+
+.region { display:none; }
+.btn { display:none; } 
+
+header label { 
+	display:none;
+}
+
+h3 { font-size:1.2em; font-weight:600; }
+
+a.bigButtonTop { 
+	font-size:1em;
+	padding:15px;
+}
+
+a.bigButton { 
+	font-size:1em;
+	padding:15px;
+}
+
+.content { 
+	font-size:1em;
+}
+
+/* More features */
+
+div.features {
+	background-color:#fff;
+	padding:40px 20px 0px 20px;
+	text-align:left;
+}
+
+.feature_container { padding: 0px; display: block; float: none; }
+.feature_container .feature { float:none; background-position:left top; width:100%; }
+.feature_container .feature .text { padding:5px 30px; font-size:.8em; }
+
+.feature { background-repeat:no-repeat; }
+.featureContent { max-width:500px; margin:20px auto 40px auto; font-size:1.2em; }
+.feature.one { background-image: none }
+.feature.two { background-image: none }
+.feature.three { background-image: none }
+
+.clear-fix { clear:both; line-height:1px; }
+
+/* Open source libraries */
+
+.libraries_container { padding: 0px 0px 30px 0px; display: block; max-width:500px; text-align:center; margin: 0px auto; color:#333; }
+
+.libraries { background-repeat:no-repeat; background-position:center; float: left; padding:100px 0px 0px 0px; display:none; }
+.libraries.one { background-image: url(../images/java-logo.png); width: 16.6%; }
+.libraries.two { background-image: url(../images/ms-dot-net-logo.png); width: 16.6%; }
+.libraries.three { background-image: url(../images/node-js-logo.png); width: 16.6%; }
+.libraries.four { background-image: url(../images/php-logo.png); width: 16.6%; }
+.libraries.five { background-image: url(../images/python-logo.png); width: 16.6%; }
+.libraries.six { background-image: url(../images/ruby-logo.png); width: 16.6%; }
+
+
+/* Sign up */
+
+div.signup { 
+	background-color:#fff;
+	padding:10px;
+	border-bottom:1px solid #fff;
+}
+
+/* Footer */
+
+footer { 
+	text-align:center;
+	background-color:#000000;
+	display:block;
+	color:#eee;
+	font-size:.7em;
+	height:300px;
+}
+
+footer a { 
+	display:block;
+	color:#eee;
+	text-decoration:none;
+	padding: 10px;
+	border:none;
+}
+
+footer p.logo {
+	display:inline-block;
+	position:absolute;
+	bottom:20px;
+	left:20px;
+	background-repeat:no-repeat;
+	width:85px;
+	height:20px;
+	padding: 0px 30px 0px 0px;
+	background-image:url(../images/rackerpowered-logo.png);
+}
+
+div.footerContent { 
+	max-width:500px;
+	padding:20px 0px 0px 0px;
+}
+

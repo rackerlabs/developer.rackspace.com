@@ -1,0 +1,240 @@
+@charset "UTF-8";
+/* CSS Document */
+
+body{
+	font-family: 'Open Sans', sans-serif;
+	font-size:16px;
+	margin:0px;
+	padding:0px;
+	color:#333333;
+}
+
+
+.page {
+	margin:0px auto 0px auto;
+	position: relative;
+	background-color: #fff;
+}
+
+.content { 
+	max-width:525px;
+	margin:50px auto 20px auto;
+	font-size:1.2em;
+}
+
+/* Button */
+
+a.bigButtonTop { 
+	display:inline-block; 
+	position:absolute;
+	left:50%;
+	margin-top:30px;
+	margin-right:-50%;
+	-moz-transform:translateX(-50%);
+	-webkit-transform: translateX(-50%);
+	transform: translateX(-50%);
+	z-index:10;
+	background-color:#55bb33;
+	color:#ffffff;
+	padding:20px;
+	text-decoration:none;
+	font-weight:400;
+	font-size:1.3em;
+	border:2px solid #ffffff;
+	line-height:1.143em;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;	
+}
+
+a.bigButtonTop:hover { 
+	background-color:#66cc44;
+	border:1px solid #fff;
+}
+
+a.bigButton { 
+	display:inline-block; 
+	position:absolute;
+	left:50%;
+	margin-top:0px;
+	margin-right:-50%;
+	-moz-transform:translateX(-50%);
+	-webkit-transform: translateX(-50%);
+	transform: translateX(-50%);
+	z-index:10;
+	background-color:#55bb33;
+	color:#ffffff;
+	padding:20px;
+	text-decoration:none;
+	font-weight:400;
+	font-size:1.3em;
+	border:2px solid #ffffff;
+	line-height:1.143em;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;	
+}
+
+a.bigButton:hover { 
+	background-color:#66cc44;
+	border:1px solid #fff;
+}
+
+p.header { 
+	font-size:1.750em;
+	font-weight:700;
+	padding:0px;
+	
+}
+
+/* Explore our cloud */
+
+p.exploreHeader { 
+	font-size:1.750em;
+	font-weight:300;
+	
+}
+
+/* Sign up */
+
+div.signup { 
+	background-color:#fff;
+	padding:20px 0px;
+	border-bottom:1px solid #fff;
+}
+
+/* Questions */
+
+div.questions { 
+	background-color:#2288dd;
+	padding:40px 0px;
+	color:#fff;
+	text-align:center;
+}
+
+/* Nav*/
+
+.region { color:#FFF; font-size:.8em; padding:10px 0px 0px 0px; }
+
+.btn, .btn:link, .btn:visited {
+	background: none no-repeat right center #C40022;
+	cursor: pointer;
+	display: inline-block;
+	font-family: "Source Sans Pro", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 15px;
+	font-size: 0.9375rem;
+	font-weight: 600;
+	letter-spacing: 0.078em;
+	line-height: 100%;
+	padding: 1.33333em 4em;
+	text-align: center;
+	text-decoration: none !important;
+	vertical-align: top;
+	color: #FFFFFF;
+	text-shadow: none;
+	position: relative;
+}
+.btn:hover {
+	background: none no-repeat right center #DD2233;
+	color: #FFFFFF;
+	text-shadow: none;
+}
+.btn:active {
+	background: none no-repeat right center #DD2233;
+}
+.btn.spaceLeft {
+	margin: 0 0 0 1.5em;
+}
+.btn.spaceRight {
+	margin: 0 1.5em 0 0;
+}
+
+.btn a { text-decoration:none; }
+
+/* TEXT VERSION WITH DROPDOWN/CARAT...LIKE, IN THE SITE EYEBROW */
+.btn.text, .btn.text:link, .btn.text:visited {
+	background: none no-repeat right center transparent;
+	border: 0 none;
+	font-size: 13px;
+	font-size: 0.8125rem;
+	padding: 0.5em 1em 0.5em 1.8em;
+	z-index: 21;
+}
+.btn.text:hover {
+	background: none no-repeat right center #444444;
+	color: #FFFFFF;
+	text-shadow: none;
+}
+.btn.text:active {
+	background: none no-repeat right center #444444;
+}
+.btn.text:after {
+	border: 0 none ;
+	content: "\F107";
+	display: inline-block;
+	font-family: "FontAwesome";
+    font-size: 14px;
+	font-size: 0.875rem;
+    font-style: normal;
+    font-weight: normal;
+	left: 0px;
+	line-height: 1;
+	margin: 0 0.4em 0 0;
+	position: relative;
+	top: 0px;
+	width: auto;
+}
+.btn.text > ul.dropDown {
+    display: none;
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    z-index: 20;
+	background: none no-repeat right center transparent;
+	color: #FFFFFF;
+	text-shadow: none;
+	width:189px;
+	left: 0;
+	top: 26px;
+}
+.btn.text:hover > ul.dropDown {
+    display: block;
+}
+.btn.text > ul.dropDown > li {
+	background: none no-repeat right center #444444;
+	border-bottom: 1px solid #5D5D5D;
+	font-weight: 400;
+	letter-spacing: 0.01em;
+	list-style-type: none;
+    cursor: default;
+    float: left;
+    font-size: 14px;
+	font-size: 0.875rem;
+    margin: 0;
+    padding: 0.5em 1em;
+    position: relative;
+    text-align: left;
+	text-decoration: none !important;
+	text-transform: none;
+	vertical-align: top;
+	width: auto;
+	min-width: 100%;
+	color: #FFFFFF;
+}
+.btn.text > ul.dropDown > li:first-child {
+    padding: 0.7em 1em 0.5em;
+}
+.btn.text > ul.dropDown > li:hover {
+	background: none no-repeat right center #555555;
+}
+.btn.text > ul.dropDown > li > a, .btn.text > ul.dropDown > li > a:link, .btn.text > ul.dropDown > li > a:visited {
+	text-decoration: none !important;
+	color: #FFFFFF;
+}
+
+
+
+
+
