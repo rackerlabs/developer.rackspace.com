@@ -53,7 +53,7 @@ The following commands create a Python virtual environment and install the Heat 
 For those working on Windows, the commands are slightly different:
 
     $ virtualenv venv
-    $ venv\bin\activate
+    $ venv\Scripts\activate
     (venv) $ pip install python-heatclient
 
 Note that the above commands assume you have Python and `virtualenv` already installed on your system.
@@ -148,7 +148,7 @@ The template I presented in the previous section is extremely simple and not ver
         type: string
         label: Private network name or ID
         description: Network to attach instance to.
-        default: private
+        default: private-net
 
     resources:
       my_instance:
@@ -172,7 +172,7 @@ This new version of the template adds two new top-level sections:
 
 By using a `parameters` section, a template can be made generic. Each parameter is given a name and a type and, optionally, a description and a default value. The `get_param` function is then used to insert parameter values into resource properties. Looking at the other side, the `get_attr` function is used in the `outputs` section to extract desired attributes of the resources included in the stack.
 
-To try this new template, save it as file `heat_1b.yaml` and launch it as shwon before. Unless your system is identical to mine, you are probably going to get an error, because the parameter defaults that I defined will likely not match your OpenStack installation. However, since these settings are now parameters, you can specify appropriate values for your environment in the `stack-create` command without having to edit the template file. For example:
+To try this new template, save it as file `heat_1b.yaml` and launch it as shown before. Unless your system is identical to mine, you are probably going to get an error, because the parameter defaults that I defined will likely not match your OpenStack installation. However, since these settings are now parameters, you can specify appropriate values for your environment in the `stack-create` command without having to edit the template file. For example:
 
     $ heat stack-create second_stack -f heat_1b.yaml -P "key=my_key_name;image=Trusty"
 
@@ -180,7 +180,7 @@ In this example, the `key` parameter is set to `"my_key_name"` and the `image` p
 
 Once the stack is created, the `stack-show` command includes the attributes requested in the `outputs` section:
 
-    (venv) $ heat stack-show my_second_stack
+    (venv) $ heat stack-show second_stack
     +----------------------+-------------------------------------------------------+
     | Property             | Value                                                 |
     +----------------------+-------------------------------------------------------+
