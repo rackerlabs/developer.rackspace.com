@@ -6,20 +6,27 @@
   int minConnections = 2;
   TimeSpan rateInterval = TimeSpan.FromSeconds(5);
   ConnectionThrottles throttles = new ConnectionThrottles(
-	maxConnectionRate, 
-	maxConnections, 
-	minConnections, 
+	maxConnectionRate,
+	maxConnections,
+	minConnections,
 	rateInterval);
   await cloudLoadBalancerProvider.UpdateThrottlesAsync(
-	loadBalancerId, 
-	throttles, 
-	AsyncCompletionOption.RequestCompleted, 
-	CancellationToken.None, 
-	null);    
+	loadBalancerId,
+	throttles,
+	AsyncCompletionOption.RequestCompleted,
+	CancellationToken.None,
+	null);
 
 .. code-block:: go
 
-  // Not currently supported by this SDK
+  opts := throttle.CreateOpts{
+    MaxConnections:    200,
+    MaxConnectionRate: 100,
+    MinConnections:    0,
+    RateInterval:      10,
+  }
+
+  err := throttle.Create(client, "{loadBalancerId}", opts).ExtractErr()
 
 .. code-block:: java
 

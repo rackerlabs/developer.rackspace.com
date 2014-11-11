@@ -4,21 +4,27 @@
   int attemptsBeforeDeactivation = 3;
   TimeSpan timeout = TimeSpan.FromSeconds(30);
   TimeSpan delay = TimeSpan.FromSeconds(30);
-  HealthMonitor healthMonitor = 
+  HealthMonitor healthMonitor =
 	new ConnectionHealthMonitor(
-		attemptsBeforeDeactivation, 
-		timeout, 
+		attemptsBeforeDeactivation,
+		timeout,
 		delay);
   await cloudLoadBalancerProvider.SetHealthMonitorAsync(
-	loadBalancerId, 
-	healthMonitor, 
-	AsyncCompletionOption.RequestCompleted, 
-	CancellationToken.None, 
+	loadBalancerId,
+	healthMonitor,
+	AsyncCompletionOption.RequestCompleted,
+	CancellationToken.None,
 	null);
 
 .. code-block:: go
 
-  // Not currently supported by this SDK
+  opts := monitors.UpdateConnectMonitorOpts{
+    AttemptLimit: 3,
+    Delay:        10,
+    Timeout:      10,
+  }
+
+  err := monitors.Update(client, "{loadBalancerId}", opts).ExtractErr()
 
 .. code-block:: java
 
