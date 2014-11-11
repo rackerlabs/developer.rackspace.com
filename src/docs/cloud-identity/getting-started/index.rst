@@ -13,8 +13,16 @@ Based on the OpenStack Identity service (codenamed Keystone), Rackspace Cloud
 Identity also offers user manager and basic RBAC functionality for fine-grained
 access control.
 
+Setup
+=====
 
-## Tokens
+In order to interact with the Identity API, various SDKs require some form of
+client setup:
+
+.. include:: samples/setup.rst
+
+Tokens
+======
 
 As mentioned above, a token is the primary resource needed for authentication.
 To use other Rackspace services, you need to send a token in every API
@@ -24,7 +32,8 @@ first operation.
 A token is composed of a unique ID and an expiry date. Tokens are valid for 24
 hours and may not be used after their expiry date.
 
-### Authenticate
+Authenticate
+------------
 
 Rackspace allows you to authenticate with either your account password or your
 account API key. You can also, optionally, specify tenant details for the user
@@ -37,11 +46,8 @@ tenant only.
 
 .. include:: samples/create_token_password.rst
 
-### Revoke token
-
-.. include:: samples/delete_token.rst
-
-## Users
+Users
+=====
 
 A user is a representation of a person or system that is allowed authenticate
 and consume other Rackspace API services. Users have their own set of
@@ -49,7 +55,8 @@ credentials and can be assigned tokens. They can also be assigned to a tenant
 or region so that they inherit a set of access rights and privileges
 automatically, based on the tenant or region configuration.
 
-### Add user
+Add user
+--------
 
 Admins may add up to 100 users to an account. The following values are required:
 
@@ -67,13 +74,15 @@ the API will automatically generate one and return it in the response.
 
 .. include:: samples/create_user.rst
 
-### Update user
+Update user
+-----------
 
 To update a user, you need the user's unique ID.
 
 .. include:: samples/update_user.rst
 
-### List users
+List users
+----------
 
 If an admin executes this operation (i.e. a user with the `identity:user-admin`
 role), it will return _all_ users for the tenant. To refine this collection,
@@ -84,18 +93,21 @@ role), it will only return information about the user's own account.
 
 .. include:: samples/list_users.rst
 
-### Delete user
+Delete user
+-----------
 
 .. include:: samples/delete_users.rst
 
-### Reset API key
+Reset API key
+-------------
 
 It is recommended that you routinely reset API keys. This operation will return
 a new API key for the user, but will not revoke existing tokens.
 
 .. include:: samples/reset_api_key.rst
 
-## Roles
+Roles
+=====
 
 A role is a logical grouping of access rights that allow users to do things.
 There are two _types_ of role for the Rackspace Cloud Identity service: global
@@ -103,18 +115,17 @@ roles and product roles. Global roles define access and permissions across _all_
 Rackspace systems; product roles are more granular: they define access and
 permissions for one service only (e.g. Cloud Servers).
 
-### List all roles
+List all roles
+--------------
 
 .. include:: samples/list_all_roles.rst
 
-### List user's roles
-
-.. include:: samples/list_user_roles.rst
-
-### Add role to user
+Add role to user
+----------------
 
 .. include:: samples/add_role_to_user.rst
 
-### Delete role from user
+Delete role from user
+---------------------
 
 .. include:: samples/delete_role_from_user.rst
