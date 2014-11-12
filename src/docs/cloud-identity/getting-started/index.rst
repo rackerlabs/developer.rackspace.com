@@ -42,7 +42,11 @@ a group, project, or organization - that provides additional isolation. If a
 tenantId or tenantName are provided, the token generated will be scoped to that
 tenant only.
 
+To generate a token with your API key:
+
 .. include:: samples/create_token_api_key.rst
+
+To generate a token with your account password:
 
 .. include:: samples/create_token_password.rst
 
@@ -60,13 +64,13 @@ Add user
 
 Admins may add up to 100 users to an account. The following values are required:
 
-* `username` - the name to assign to the user. It must start with an
+* ``username`` - the name to assign to the user. It must start with an
 alphabetical char and have a length of at least 1 char. It may contain upper
-and lower case characters, and any of the following special chars: `. - @ _`.
+and lower case characters, and any of the following special chars: ``. - @ _``.
 
-- `email` - the email address
+- ``email`` - the email address
 
-- `enabled` - indicates whether the user can authenticate after their account is
+- ``enabled`` - indicates whether the user can authenticate after their account is
 created.
 
 You can also specify a password for the user to use. If no password is supplied,

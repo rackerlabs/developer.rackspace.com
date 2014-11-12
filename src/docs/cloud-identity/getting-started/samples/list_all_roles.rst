@@ -2,15 +2,15 @@
 
 .. code-block:: go
 
-  err := List(client).EachPage(func(page pagination.Page) (bool, error) {
-		roleList, err := osRoles.ExtractRoles(page)
+  err := roles.List(client).EachPage(func(page pagination.Page) (bool, error) {
+    roleList, err := osRoles.ExtractRoles(page)
 
     for _, role := range roleList {
 
     }
 
-		return true, nil
-	})
+    return true, nil
+  })
 
 .. code-block:: java
 

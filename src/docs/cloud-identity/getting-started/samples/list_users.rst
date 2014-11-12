@@ -2,6 +2,16 @@
 
 .. code-block:: go
 
+  err := users.List(client).EachPage(func(page pagination.Page) (bool, error) {
+    userList, err := users.ExtractUsers(page)
+
+    for _, user := range userList {
+
+    }
+
+    return true, nil
+  })
+
 .. code-block:: java
 
 .. code-block:: javascript
@@ -11,5 +21,3 @@
 .. code-block:: python
 
 .. code-block:: sh
-
-
