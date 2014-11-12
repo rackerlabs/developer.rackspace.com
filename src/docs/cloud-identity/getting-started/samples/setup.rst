@@ -39,3 +39,9 @@
 .. code-block:: python
 
 .. code-block:: sh
+
+  # For most API operations (ORD, IAD, DFW, SYD, HKG)
+  export BASE_URL=https://identity.api.rackspacecloud.com/v2.0/
+
+  # For LON API operations
+  export BASE_URL=https://lon.identity.api.rackspacecloud.com/v2.0/

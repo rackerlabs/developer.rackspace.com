@@ -27,3 +27,13 @@
 .. code-block:: python
 
 .. code-block:: sh
+
+  curl -s $BASE_URL"users" -X POST -d \
+  '{
+    "user": {
+      "username": "jqsmith",
+      "email": "john.smith@example.org",
+      "enabled": true
+      }
+   }' -H "Content-Type: application/json" \
+   -H "X-Auth-Token: $TOKEN" | python -m json.tool
