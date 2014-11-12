@@ -18,6 +18,8 @@
 
 .. code-block:: ruby
 
+  // Not currently supported
+
 .. code-block:: sh
 
   curl -s $BASE_URL"users/{userId}/OS-KSADM/credentials/RAX-KSKEY:apiKeyCredentials/RAX-AUTH/reset" \

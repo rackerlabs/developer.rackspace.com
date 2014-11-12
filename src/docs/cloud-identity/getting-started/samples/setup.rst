@@ -40,6 +40,12 @@
 
 .. code-block:: ruby
 
+  @client = Fog::Identity.new(
+    :provider => "Rackspace",
+    :rackspace_username => "{username}",
+    :rackspace_api_key => "{apiKey}"
+  )
+
 .. code-block:: sh
 
   # For most API operations (ORD, IAD, DFW, SYD, HKG)

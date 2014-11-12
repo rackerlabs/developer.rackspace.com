@@ -19,6 +19,15 @@
 
 .. code-block:: ruby
 
+  // Retrieve user by name
+  user = @client.users.get_by_name("{username}")
+
+  // ... or by ID
+  user = @client.users.get("{userId}")
+
+  user.username = "new_username"
+  user.save
+
 .. code-block:: sh
 
   curl -s $BASE_URL"users/{userId}" -X POST -H "X-Auth-Token: $TOKEN" \

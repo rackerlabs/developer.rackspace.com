@@ -32,6 +32,8 @@
 
 .. code-block:: ruby
 
+  @client.roles.all
+
 .. code-block:: sh
 
   curl -s $BASE_URL"OS-KSADM/roles" -X GET -H "X-Auth-Token: $TOKEN" \
