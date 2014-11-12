@@ -29,3 +29,18 @@
 .. code-block:: python
 
 .. code-block:: sh
+
+  # {username}, {password} below are placeholders, do not enclose '{}' when you
+  # replace them with actual credentials.
+
+  curl -s $BASE_URL"tokens" -X POST \
+     -d '{
+          "auth":{"passwordCredentials": {
+            "username":"{username}",
+            "password":"{password}"
+          }}
+        }' \
+     -H "Content-Type: application/json" | python -m json.tool
+
+  # From the resulting JSON, set this environment variable:
+  export TOKEN="{tokenId}"

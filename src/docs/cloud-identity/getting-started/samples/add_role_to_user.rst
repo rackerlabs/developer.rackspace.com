@@ -15,3 +15,6 @@
 .. code-block:: python
 
 .. code-block:: sh
+
+  curl -s $BASE_URL"users/{userId}/roles/OS-KSADM/{roleId}" \
+     -X PUT -H "X-Auth-Token: $TOKEN"

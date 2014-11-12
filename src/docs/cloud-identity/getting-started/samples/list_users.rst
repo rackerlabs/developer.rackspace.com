@@ -31,3 +31,5 @@
 .. code-block:: python
 
 .. code-block:: sh
+
+  curl -s $BASE_URL"users" -X GET -H "X-Auth-Token: $TOKEN" | python -m json.tool

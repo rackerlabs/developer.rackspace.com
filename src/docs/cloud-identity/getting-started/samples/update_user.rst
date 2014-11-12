@@ -18,3 +18,7 @@
 .. code-block:: python
 
 .. code-block:: sh
+
+  curl -s $BASE_URL"users/{userId}" -X POST -H "X-Auth-Token: $TOKEN" \
+    -d '{"user": {"username": "new_username"}}' \
+    -H "Content-Type: application/json" | python -m json.tool

@@ -15,3 +15,5 @@
 .. code-block:: python
 
 .. code-block:: sh
+
+  curl -s $BASE_URL"users/{userId}" -X DELETE -H "X-Auth-Token: $TOKEN"
