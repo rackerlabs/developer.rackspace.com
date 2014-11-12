@@ -11,6 +11,10 @@
 
 .. code-block:: php
 
+  $user->update(array(
+    'username' => 'new_username'
+  ));
+
 .. code-block:: python
 
 .. code-block:: sh

@@ -20,6 +20,14 @@
 
 .. code-block:: php
 
+  $roles = $service->getRoles();
+
+  foreach ($roles as $role) {
+    if ($role->getName() == 'identity:user-admin') {
+      echo $role->getId();
+    }
+  }
+
 .. code-block:: python
 
 .. code-block:: sh

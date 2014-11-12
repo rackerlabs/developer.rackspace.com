@@ -16,6 +16,14 @@
 
 .. code-block:: php
 
+  $user = $service->createUser(array(
+    'username' => 'newUser',
+    'email'    => 'foo@bar.com',
+    'enabled'  => true,
+  ));
+
+  echo $user->getPassword();
+
 .. code-block:: python
 
 .. code-block:: sh

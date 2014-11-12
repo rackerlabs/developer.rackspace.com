@@ -10,6 +10,10 @@
 
 .. code-block:: php
 
+  $user->resetApiKey();
+
+  echo $user->getApiKey();
+
 .. code-block:: python
 
 .. code-block:: sh

@@ -10,6 +10,8 @@
 
 .. code-block:: php
 
+  $user->addRole('{roleId}');
+
 .. code-block:: python
 
 .. code-block:: sh

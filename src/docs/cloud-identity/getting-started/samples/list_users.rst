@@ -20,6 +20,14 @@
 
 .. code-block:: php
 
+  $users = $service->getUsers();
+
+  foreach ($users as $user) {
+    if ($user->getUsername() == 'fooPerson') {
+      echo $user->getId();
+    }
+  }
+
 .. code-block:: python
 
 .. code-block:: sh

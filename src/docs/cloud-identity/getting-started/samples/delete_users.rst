@@ -10,6 +10,8 @@
 
 .. code-block:: php
 
+  $user->delete();
+
 .. code-block:: python
 
 .. code-block:: sh
