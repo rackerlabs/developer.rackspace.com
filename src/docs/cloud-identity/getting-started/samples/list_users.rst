@@ -6,7 +6,9 @@
     userList, err := users.ExtractUsers(page)
 
     for _, user := range userList {
-
+      if user.Username == "fooPerson" {
+        userID := user.ID
+      }
     }
 
     return true, nil

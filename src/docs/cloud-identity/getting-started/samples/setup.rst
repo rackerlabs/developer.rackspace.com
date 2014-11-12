@@ -4,10 +4,8 @@
 
   import (
     "github.com/rackspace/gophercloud"
-
     osUsers "github.com/rackspace/gophercloud/openstack/identity/v2/users"
     osRoles "github.com/rackspace/gophercloud/openstack/identity/v2/roles"
-
     "github.com/rackspace/gophercloud/rackspace"
     "github.com/rackspace/gophercloud/rackspace/identity/v2/roles"
     "github.com/rackspace/gophercloud/rackspace/identity/v2/tokens"
