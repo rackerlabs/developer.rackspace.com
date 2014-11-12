@@ -16,6 +16,8 @@
 
 .. code-block:: python
 
+.. code-block:: ruby
+
 .. code-block:: sh
 
   curl -s $BASE_URL"users/{userId}/OS-KSADM/credentials/RAX-KSKEY:apiKeyCredentials/RAX-AUTH/reset" \

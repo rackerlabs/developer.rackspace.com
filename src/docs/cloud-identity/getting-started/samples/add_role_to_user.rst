@@ -14,6 +14,8 @@
 
 .. code-block:: python
 
+.. code-block:: ruby
+
 .. code-block:: sh
 
   curl -s $BASE_URL"users/{userId}/roles/OS-KSADM/{roleId}" \

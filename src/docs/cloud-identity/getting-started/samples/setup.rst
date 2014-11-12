@@ -38,6 +38,8 @@
 
 .. code-block:: python
 
+.. code-block:: ruby
+
 .. code-block:: sh
 
   # For most API operations (ORD, IAD, DFW, SYD, HKG)

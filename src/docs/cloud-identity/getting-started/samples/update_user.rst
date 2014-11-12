@@ -17,6 +17,8 @@
 
 .. code-block:: python
 
+.. code-block:: ruby
+
 .. code-block:: sh
 
   curl -s $BASE_URL"users/{userId}" -X POST -H "X-Auth-Token: $TOKEN" \

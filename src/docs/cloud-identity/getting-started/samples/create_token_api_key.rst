@@ -20,6 +20,8 @@
 
 .. code-block:: python
 
+.. code-block:: ruby
+
 .. code-block:: sh
 
   # {username}, {apiKey} below are placeholders, do not enclose '{}' when you
