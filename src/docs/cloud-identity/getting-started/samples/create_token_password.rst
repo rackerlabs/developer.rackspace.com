@@ -15,6 +15,17 @@
 
 .. code-block:: php
 
+  // Password-based authentication is only available for OpenCloud\OpenStack
+  // clients
+
+  use OpenCloud\OpenStack;
+
+  $client = new OpenStack('http://my-openstack.com:35357/v2.0/', array(
+      'username'   => '{username}',
+      'password'   => '{password}',
+      'tenantName' => '{tenantName}'
+  ));
+
 .. code-block:: python
 
 .. code-block:: sh
