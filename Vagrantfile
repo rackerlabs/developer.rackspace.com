@@ -4,6 +4,14 @@
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
 
+MINIMUM_ANSIBLE_VERSION = '1.6.3'
+
+if /ansible (?<ansible_version>\d+\.\d+\.\d+)/ =~ `ansible --version`
+  fail "Ansible #{MINIMUM_ANSIBLE_VERSION} or later required; you're running #{ansible_version}" unless Gem::Version.new(ansible_version) > Gem::Version.new(MINIMUM_ANSIBLE_VERSION)
+else
+  fail 'Could not detect your ansible version, please check the output of `ansible --version`'
+end
+
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   ## Box config
