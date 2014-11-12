@@ -28,6 +28,12 @@
 
 .. code-block:: ruby
 
+  user = @client.users.create(
+    :username => "{username}",
+    :email => "{email}",
+    :enabled => true
+  )
+
 .. code-block:: sh
 
   curl -s $BASE_URL"users" -X POST -d \

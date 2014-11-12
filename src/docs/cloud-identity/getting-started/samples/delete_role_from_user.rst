@@ -16,6 +16,8 @@
 
 .. code-block:: ruby
 
+  // Not currently supported
+
 .. code-block:: sh
 
   curl -s $BASE_URL"users/{userId}/roles/OS-KSADM/{roleId}" \

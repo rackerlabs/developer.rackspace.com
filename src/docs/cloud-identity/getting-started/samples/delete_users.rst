@@ -16,6 +16,8 @@
 
 .. code-block:: ruby
 
+  user.destroy
+
 .. code-block:: sh
 
   curl -s $BASE_URL"users/{userId}" -X DELETE -H "X-Auth-Token: $TOKEN"

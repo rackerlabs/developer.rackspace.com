@@ -30,6 +30,8 @@
 
 .. code-block:: ruby
 
+  // Not currently supported.
+
 .. code-block:: sh
 
   # {username}, {password} below are placeholders, do not enclose '{}' when you

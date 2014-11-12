@@ -22,6 +22,9 @@
 
 .. code-block:: ruby
 
+  // Generating tokens from API keys is handled by default in the main
+  // Fog::Identity::Rackspace class.
+
 .. code-block:: sh
 
   # {username}, {apiKey} below are placeholders, do not enclose '{}' when you
