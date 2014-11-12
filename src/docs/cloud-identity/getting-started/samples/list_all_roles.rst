@@ -6,7 +6,9 @@
     roleList, err := osRoles.ExtractRoles(page)
 
     for _, role := range roleList {
-
+      if role.Name == "identity:user-admin" {
+        roleID := role.ID
+      }
     }
 
     return true, nil
