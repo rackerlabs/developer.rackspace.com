@@ -102,7 +102,7 @@ role), it will only return information about the user's own account.
 Delete user
 -----------
 
-.. include:: samples/delete_users.rst
+.. include:: samples/delete_user.rst
 
 Reset API key
 -------------
