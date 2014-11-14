@@ -6,9 +6,7 @@
     userList, err := users.ExtractUsers(page)
 
     for _, user := range userList {
-      if user.Username == "fooPerson" {
-        userID := user.ID
-      }
+      fmt.Printf("ID: %s, Name: %s", user.ID, user.Username)
     }
 
     return true, nil
@@ -23,9 +21,7 @@
   $users = $service->getUsers();
 
   foreach ($users as $user) {
-    if ($user->getUsername() == 'fooPerson') {
-      echo $user->getId();
-    }
+    printf("ID: %s, Name: %s", $user->getId(), $user->getName());
   }
 
 .. code-block:: python

@@ -2,7 +2,7 @@
 
 .. code-block:: go
 
-  opts := users.UpdateOpts{Username: "new_username"}
+  opts := users.UpdateOpts{Username: "{newUsername}"}
   user, err := users.Update(client, "{userId}", opts).Extract()
 
 .. code-block:: java
@@ -12,7 +12,7 @@
 .. code-block:: php
 
   $user->update(array(
-    'username' => 'new_username'
+    'username' => '{newUsername}'
   ));
 
 .. code-block:: python
@@ -25,11 +25,11 @@
   // ... or by ID
   user = @client.users.get("{userId}")
 
-  user.username = "new_username"
+  user.username = "{newUsername}"
   user.save
 
 .. code-block:: sh
 
   curl -s $BASE_URL"users/{userId}" -X POST -H "X-Auth-Token: $TOKEN" \
-    -d '{"user": {"username": "new_username"}}' \
+    -d '{"user": {"username": "{newUsername}" }}' \
     -H "Content-Type: application/json" | python -m json.tool

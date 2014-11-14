@@ -6,9 +6,7 @@
     roleList, err := osRoles.ExtractRoles(page)
 
     for _, role := range roleList {
-      if role.Name == "identity:user-admin" {
-        roleID := role.ID
-      }
+      fmt.Printf("ID: %s, Name: %s", role.ID, role.Name)
     }
 
     return true, nil
@@ -23,9 +21,7 @@
   $roles = $service->getRoles();
 
   foreach ($roles as $role) {
-    if ($role->getName() == 'identity:user-admin') {
-      echo $role->getId();
-    }
+    printf("ID: %s, Name: %s", $role->getId(), $role->getName());
   }
 
 .. code-block:: python
