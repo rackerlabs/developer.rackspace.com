@@ -13,12 +13,16 @@
 
 .. code-block:: javascript
 
+  // Not currently supported by this SDK
+
 .. code-block:: php
 
   // Generating tokens from API keys is handled by default in the main
   // OpenCloud\Rackspace client. See "Setup" section.
 
 .. code-block:: python
+
+  // Not currently supported by this SDK
 
 .. code-block:: ruby
 

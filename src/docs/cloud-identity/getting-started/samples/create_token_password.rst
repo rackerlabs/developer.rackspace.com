@@ -13,6 +13,8 @@
 
 .. code-block:: javascript
 
+  // Not currently supported by this SDK
+
 .. code-block:: php
 
   // Password-based authentication is only available for OpenCloud\OpenStack
@@ -28,9 +30,11 @@
 
 .. code-block:: python
 
+  // Not currently supported by this SDK
+
 .. code-block:: ruby
 
-  // Not currently supported.
+  // This operation is not currently supported.
 
 .. code-block:: sh
 
