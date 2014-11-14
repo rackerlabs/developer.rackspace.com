@@ -16,6 +16,8 @@
 
 .. code-block:: javascript
 
+  // Not currently supported by this SDK
+
 .. code-block:: php
 
   $roles = $service->getRoles();
@@ -25,6 +27,8 @@
   }
 
 .. code-block:: python
+
+  // Not currently supported by this SDK
 
 .. code-block:: ruby
 

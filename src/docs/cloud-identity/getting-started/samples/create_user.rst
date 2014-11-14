@@ -14,6 +14,8 @@
 
 .. code-block:: javascript
 
+  // Not currently supported by this SDK
+
 .. code-block:: php
 
   $user = $service->createUser(array(
@@ -25,6 +27,8 @@
   echo $user->getPassword();
 
 .. code-block:: python
+
+  // Not currently supported by this SDK
 
 .. code-block:: ruby
 

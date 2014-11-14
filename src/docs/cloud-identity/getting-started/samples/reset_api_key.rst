@@ -8,6 +8,8 @@
 
 .. code-block:: javascript
 
+  // Not currently supported by this SDK
+
 .. code-block:: php
 
   $user->resetApiKey();
@@ -15,6 +17,8 @@
   echo $user->getApiKey();
 
 .. code-block:: python
+
+  // Not currently supported by this SDK
 
 .. code-block:: ruby
 

@@ -23,6 +23,8 @@
 
 .. code-block:: javascript
 
+  // Not currently supported by this SDK
+
 .. code-block:: php
 
   require 'vendor/autoload.php';
@@ -37,6 +39,8 @@
   $service = $client->identityService();
 
 .. code-block:: python
+
+  // Not currently supported by this SDK
 
 .. code-block:: ruby
 

@@ -16,6 +16,8 @@
 
 .. code-block:: javascript
 
+  // Not currently supported by this SDK
+
 .. code-block:: php
 
   $users = $service->getUsers();
@@ -25,6 +27,8 @@
   }
 
 .. code-block:: python
+
+  // Not currently supported by this SDK
 
 .. code-block:: ruby
 
