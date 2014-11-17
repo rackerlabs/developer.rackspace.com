@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Deploying Rackspace Private Cloud v9.0 with Ansible"
-date: 2014-11-17 23:59
+date: 2014-11-17 23:58
 comments: true
 author: Walter Bentley
 published: true
