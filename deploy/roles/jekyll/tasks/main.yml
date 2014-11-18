@@ -1,4 +1,5 @@
 ---
+# container: build
 - name: Install python-apt for apt_repository.
   apt: name={{ item }} state=latest
   with_items:
@@ -6,10 +7,13 @@
   - python-pycurl
   sudo: yes
 
+# container: build
+# probably obviated by base image
 - name: Add the Brightbox PPA
   apt_repository: repo=ppa:brightbox/ruby-ng state=present
   sudo: yes
 
+# container: build
 - name: Install system packages necessary for Jekyll
   apt: name={{ item }} state=latest update_cache=yes
   with_items:
@@ -18,6 +22,7 @@
   - openjdk-7-jre
   sudo: yes
 
+# container: build
 - name: Install pinned packages
   apt: name={{ item }} state=present
   with_items:
@@ -25,10 +30,13 @@
   - ruby2.1-dev=2.1.3-1bbox1~precise1
   sudo: yes
 
+# container: build
+# probably obviated by base image
 - name: Install bundler
   gem: name=bundler state=latest user_install=no
   sudo: yes
 
+# - unnecessary -
 - name: Get bundler information from GitHub if it's missing.
   get_url: url=https://raw.githubusercontent.com/rackerlabs/developer.rackspace.com/master/{{ item }}
            dest={{ sourceroot }}/{{ item }}
@@ -36,5 +44,6 @@
   - Gemfile
   - Gemfile.lock
 
+# container: build
 - name: Install Jekyll and its dependencies
   command: bundle install --gemfile={{ sourceroot }}/Gemfile
