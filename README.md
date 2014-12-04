@@ -18,6 +18,18 @@ To do:
 - assets to CDN
 - feeds
 
+## Content Setup
+
+Please see [the contributing document](/src/site_source/CONTRIBUTING.md) for guidance on submitting blog posts.
+
+To preview local changes made to the site's static content, including the Getting Started guides or the blog, run:
+
+```
+script/preview
+```
+
+After the build completes, your browser will launch on the resulting site. Use **Ctrl-C** to terminate the process when you're done.
+
 ## Full Site Setup
 
 __Note__: You should use this setup if you work on the entire d.r.c. site, its infrastructure, etc.
@@ -68,7 +80,3 @@ __Note__: You should use this setup if you work on the entire d.r.c. site, its i
         ```bash
         sudo tail -F /var/log/upstart/watcher.log
         ```
-
-## Blog Contributor Setup
-
-Please see [here](/src/site_source/CONTRIBUTING.md).

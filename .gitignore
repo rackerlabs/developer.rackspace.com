@@ -24,3 +24,6 @@ html
 
 # Templated Jekyll configuration
 src/site_source/_config.yml
+
+# Currently active top-level Dockerfile
+/Dockerfile

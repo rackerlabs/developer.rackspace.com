@@ -19,7 +19,7 @@ module HighlightCode
     if defined?(PYGMENTS_CACHE_DIR)
       path = File.join(PYGMENTS_CACHE_DIR, "#{lang}-#{Digest::MD5.hexdigest(code)}.html")
       if File.exist?(path)
-        highlighted_code = File.read(path)
+        highlighted_code = File.read(path, :encoding => 'utf-8')
       else
         begin
           highlighted_code = Pygments.highlight(code, :lexer => lang, :formatter => 'html', :options => {:encoding => 'utf-8'})

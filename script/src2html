@@ -1,0 +1,18 @@
+#!/bin/bash
+
+ROOT=$(cd $(dirname $0)/.. && pwd)
+source ${ROOT}/script/common/yaks.sh
+set -e
+
+TARGET=${ROOT}/_site
+mkdir -p ${TARGET}
+
+docker run \
+  --interactive=true --tty=true --rm=true \
+  --volume=${ROOT}/src/docs:/home/publisher/src-sphinx:ro \
+  --volume=${ROOT}/src/site_source:/home/publisher/src-jekyll:ro \
+  --volume=${ROOT}/src/site_source/_devconfig.yml:/home/publisher/config/_devconfig.yml:ro \
+  --volume=${TARGET}:/home/publisher/_site \
+  --name=src2html \
+  devsite/src2html \
+  /home/publisher/scripts/build.sh
