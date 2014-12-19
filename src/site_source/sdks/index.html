@@ -59,12 +59,12 @@ import (
         <h3>Installing jclouds</h3>
 
         <p>Download this <a href="/sdks/java/pom.xml">pom.xml</a> file.</p>
-        <ol>
-          <li><code>mvn dependency:copy-dependencies "-DoutputDirectory=./lib"</code></li>
-        </ol>
+
+{% highlight sh %}
+mvn dependency:copy-dependencies "-DoutputDirectory=./lib"
+{% endhighlight %}
 
         <p><em>Tip</em>: To make jclouds a part of your existing project, simply copy the relevant dependencies into your own pom.xml file.</p>
-
 
         <h4>Requirements</h4>
 
