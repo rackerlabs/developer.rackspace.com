@@ -26,22 +26,43 @@ title: Java SDK
   </ol>
 
   <h2>Installation</h2>
-  <p>Download <a href="/sdks/java/pom.xml">this pom.xml file</a> or put the dependencies section in your project's pom.xml. Run the Maven command below in the same directory as your pom.xml file.</p>
 
-  {% highlight sh %}
-$ mvn dependency:copy-dependencies{% endhighlight %}
+  <p>Create a directory to try out jclouds</p>
+  <ol>
+    <li><code>mkdir jclouds</code></li>
+    <li><code>cd jclouds</code></li>
+  </ol>
+
+  <p>Download this <a href="/sdks/java/pom.xml">pom.xml</a> file.</p>
+  <ol>
+    <li><code>mvn dependency:copy-dependencies "-DoutputDirectory=./lib"</code></li>
+  </ol>
+
+  <p><em>Tip</em>: To make jclouds a part of your existing project, simply copy the relevant dependencies into your own pom.xml file.</p>
+
+  <p>You should now have a directory with the following structure:</p>
+  <ul>
+    <li><code>jclouds/</code></li>
+    <ul>
+      <li><code>pom.xml</code></li>
+      <li><code>lib/</code></li>
+        <ul>
+          <li><code>*.jar</code></li>
+        </ul>
+    </ul>
+  </ul>
 
   <h2>Using jclouds</h2>
 
-  <p>In this example, we build a NovaApi that can access Cloud Servers (which is based on the OpenStack Nova API) and then get the ServerApi for the <em>IAD</em> region. Then we get a List of Servers in that region.</p>
+  <p>Copy code from the Getting Started guides linked above into Java source files in the jclouds directory.</p>
 
-  {% highlight java %}
-NovaApi novaApi = ContextBuilder.newBuilder("rackspace-cloudservers-us")
-        .credentials("myUsername", "myApiKey")
-        .buildApi(NovaApi.class);
+  <p>Compile the code</p>
 
-ServerApi serverApi = novaApi.getServerApiForZone("IAD");
-List<? extends Server> servers = serverApi.listInDetail().concat().toList();{% endhighlight %}
+  <code>javac -classpath ".:lib/*" MyCloudExample.java</code>
 
-  <p>See the <a href="/docs/cloud-servers/getting-started/?lang=java">Getting Started for Cloud Servers</a> guide.</p>
+  <p></p>
+
+  <p>Run the code</p>
+
+  <code>java -classpath ".:lib/*" MyCloudExample</code>
 </div>
