@@ -93,8 +93,8 @@ public class CloudFiles {
 
         // Write the object to a file
         File file = File.createTempFile(OBJECT_NAME, ".txt");
-        FileOutputStream fileOutputStream = new FileOutputStream(file);
-        ByteStreams.copy(object.getPayload().openStream(), fileOutputStream);
+        BufferedOutputStream outputStream = new BufferedOutputStream(new FileOutputStream(file));
+        ByteStreams.copy(object.getPayload().openStream(), outputStream);
 
         System.out.format("  File written to %s%n", file.getAbsolutePath());
 

@@ -23,6 +23,9 @@
 
   // Write the object to a file
   File file = File.createTempFile("{objectName}", ".txt");
+  BufferedOutputStream outputStream = new BufferedOutputStream(new FileOutputStream(file));
+  ByteStreams.copy(object.getPayload().openStream(), outputStream);
+
   FileOutputStream fileOutputStream = new FileOutputStream(file);
   ByteStreams.copy(object.getPayload().openStream(), fileOutputStream);
 
