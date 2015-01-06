@@ -10,11 +10,11 @@ categories:
     - Ansible
 ---
 
-So after being asked to do what I considered to be a easy thing…soon realized that it was not :(.  Rather it was easy to do just not easy to automate doing it.  Figured other could benefit from my discoveries.  Before getting started please note these instructions are for RHEL, Fedora and CentOS.  Some minor modifications would be needed to accommodate Ubuntu but, overall still possible.
+So after being asked to do what I considered to be a easy thing, I soon realized that it was not :(. Rather it was easy to do, just not easy to automate doing it. Figured others could benefit from my discoveries. Before getting started, please note these instructions are for RHEL, Fedora and CentOS. Some minor modifications would be needed to accommodate Ubuntu, but the same concepts apply.
 
-Let’s get into some of the prep work that is required.  To install the agent you need the following: signing key, distro based package, your cloud API key and your cloud user name.  The signing key and distribution package lists can be found at: http://www.rackspace.com/knowledge_center/article/install-the-cloud-monitoring-agent.  
+Let’s get into some of the prep work that is required.  To install the agent, you need the following: signing key, distro based package, your cloud API key, and your cloud user name.  The signing key and distribution package lists can be found at: http://www.rackspace.com/knowledge_center/article/install-the-cloud-monitoring-agent.  
 
-For testing purposes I created an Ansible role, of which I have already pulled down the required components for RHEL versions 6/7 and CentOS version 6.  Next step would be to pull down the key and package, if you needed a different Linux version.  Store the key and package file in the ‘files' directory of the Ansible role.
+For testing purposes, I created an Ansible role, for which I had already pulled down the required components for RHEL versions 6/7 and CentOS version 6. If you needed a different Linux version, you need to pull down the key and package for your OS and version. Store the key and package file in the ‘files' directory of the Ansible role.
 
 You can now pass those additional parameters directly when executing the ansible playbook
 
@@ -25,7 +25,7 @@ You can now pass those additional parameters directly when executing the ansible
 
 or
 
-designate them in a file named ‘localhost’ saved into the ‘group_vars’ directory of the playbook
+you can designate them in a file named ‘localhost’, which should be in the ‘group_vars’ directory of the playbook.  Example text is below.
 
 	# Here are variables related to the play
 
@@ -34,11 +34,11 @@ designate them in a file named ‘localhost’ saved into the ‘group_vars’ d
 	raxkey: 1234567890
 	raxuser: testuser01
 
-Out of all of this…the next part is the part that is special and allows for the ability to fully automate this process.  The agent setup program is needed to register the server you want monitored with the Cloud Monitoring system.  Per current instructions you have to enter your Cloud user name and API key when prompted, after running the agent setup.  Then unfortunately prompted two more times to ask to create a new agent token and select Cloud Monitoring entities.  To avoid this whole part, I discovered you can pass multiple parameters when running the agent setup program.  This is the top secret part :).  The below command is what is used in the role.
+Out of all of this, the next part is special and allows us to fully automate this process.  The agent setup program is needed to register the server you want monitored with the Cloud Monitoring system.  Per current instructions, you have to enter your Cloud user name and API key when prompted, after running the agent setup.  Then, unfortunately, you get prompted two more times and are asked to create a new agent token and select Cloud Monitoring entities.  To avoid this whole part, I discovered you can pass multiple parameters when running the agent setup program.  This is the top secret part :).  Use the following command with your user name and key:
 
 	$ rackspace-monitoring-agent --setup --username {{ raxuser }} --apikey {{ raxkey }}
 
-By passing the additional parameters you are not prompted and the install completes including adding the new agent token, pre-selecting entities and all.  Ok, so now its time to give it a try.  Once completed each server should have the Rackspace Cloud Monitoring agent installed and running.  You can log into your Cloud Control Panel, under the server details you will note the Monitoring Agent details will show marked as ‘Installed’.
+By passing the additional parameters, you are not prompted, and the install completes, including adding the new agent token, pre-selecting entities and all.  Ok, so now its time to give it a try.  Once completed, each server should have the Rackspace Cloud Monitoring agent installed and running.  You can log into your Cloud Control Panel, and, under the server details, note that the Monitoring Agent details are marked as ‘Installed’.
 
 **Step 1: Clone the following repo from GitHub *(consider this a working example that you can later alter for your specific needs)*:**
 
@@ -50,11 +50,12 @@ By passing the additional parameters you are not prompted and the install comple
 	testserv-01
 	testserv-02
 
-**Step 3: Use the following command if you designated the parameters into the ‘localhost’ file:**
+**Step 3: Step 3: Apply parameters to play using one of the follwoing two methods:**
+If you designated the parameters into the ‘localhost’ file, use this command:
 
 	$ ansible-playbook -i hosts basecmon.yml
 
-OR If not, please execute this command instead:
+Otherwise, use this command instead:
 
 	$ ansible-playbook -i hosts basecmon.yml --extra-vars \
     “raxcmonrepo=<package file> raxcmonkey=<agent key file> \
