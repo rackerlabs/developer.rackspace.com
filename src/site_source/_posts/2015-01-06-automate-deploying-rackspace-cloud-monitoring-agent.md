@@ -6,7 +6,7 @@ comments: true
 author: Walter Bentley
 published: true
 categories:
-    - Rackspace Cloud Monitoring
+    - rackspace-cloud-monitoring
     - Ansible
 ---
 
