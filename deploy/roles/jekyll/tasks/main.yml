@@ -21,8 +21,8 @@
 - name: Install pinned packages
   apt: name={{ item }} state=present
   with_items:
-  - ruby2.1=2.1.3-1bbox1~precise1
-  - ruby2.1-dev=2.1.3-1bbox1~precise1
+  - ruby2.1=2.1.5-1bbox1~preicse1
+  - ruby2.1-dev=2.1.5-1bbox1~preicse1
   sudo: yes
 
 - name: Install bundler

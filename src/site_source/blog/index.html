@@ -5,8 +5,8 @@ title: Rackspace Developer Center
 
 {% for post in paginator.posts %}
 <div class="blog-tease">
-  <h2 class="blog-tease-title"><a href="{{ BASE_PATH }}{{ post.url }}">
-    {{ post.title }}</a></h2>
+  <h4 class="blog-tease-title"><a href="{{ BASE_PATH }}{{ post.url }}">
+    {{ post.title }}</a></h4>
   <div class="byline">By {{ post.author }} - Posted on {{ post.date | date: "%b %-d %Y" }}</div>
   <p>{{post.excerpt}}</p>
   <a href="{{ BASE_PATH }}{{ post.url }}" class="btn btn-primary">Read More</a>
@@ -31,16 +31,3 @@ title: Rackspace Developer Center
 
   {% endfor %}
   <li class="page"><a href="/blog/page{{ paginator.total_pages }}">Last &raquo;</a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-

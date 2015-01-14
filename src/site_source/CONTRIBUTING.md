@@ -5,7 +5,15 @@ First, thanks for your interest in contributing and helping us craft quality con
 
 #### Writing your blog entry
 
-1) Fork, then clone this repo
+1) Fork this repo, then clone your fork.
+
+2) Before you get ready to work, make sure you are up-to-date and merged with the right branch:
+
+        git remote add upstream git@github.com:rackerlabs/developer.rackspace.com.git
+        git checkout master
+        git fetch upstream
+        git checkout -b name-of-you-branch
+        git merge upstream/master
 
 2) Create a file inside `src/site_source/_posts/` with the following naming convention `YYYY-MM-DD-title-of-your-post.md` where `YYYY-MM-DD` is the date you want you entry to be published.
 
@@ -42,5 +50,4 @@ Once ready to submit your entry to be published, proceed as follows:
  - author(s) social media contact info
  - accept/decline to allow redaction, editing or structure changes by technical writer staff
  - desired date of publishing
- 
  

@@ -7,6 +7,7 @@
 //= require lib/bootstrap/collapse
 //= require lib/bootstrap/dropdown
 //= require lib/bootstrap/tooltip
+//= require lib/bootstrap/tab
 //= require core.js
 //= require pages/sponsorship.js
 //= require pages/docs.js
