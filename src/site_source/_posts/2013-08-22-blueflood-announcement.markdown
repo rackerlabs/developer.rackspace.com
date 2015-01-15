@@ -5,9 +5,10 @@ date: 2013-08-22 08:00:00
 comments: true
 author: James Burkhart
 published: true
-categories: 
+categories:
 - Blueflood
 - Cloud Monitoring
+- cassandra
 ---
 Time series data can yield some of the most interesting and relevant information for developers, operators and businesses. But ever larger datasets coming from multiple sources are making it difficult for people to pull real, actionable intelligence from these time series streams.
 
@@ -18,7 +19,7 @@ We've been working on a tool called <b>Blueflood</b> that makes managing massive
 The [Cloud Monitoring](http://www.rackspace.com/cloud/monitoring/) product team at Rackspace takes metrics very seriously. We're currently processing thousands of monitoring datapoints per second and hundreds of millions of values each day. Storing all of this timeseries data in an accessible way is a pretty steep engineering challenge. Existing solutions like RRDTool or Graphite were not designed with massive scale or multitenancy in mind, so we built our own time series data backend in Java on top of Cassandra.
 
 The first incarnation of Cloud Monitoring was only capable of performing alarming and notifications based on real-time changes in the stream of monitoring data. Persisting that data in order to support users querying for historical data was a natural progression. However, storing hundreds of millions of raw data points per day and keeping them for any significant time simply wasn't going to scale. We needed something to perform downsampling of that data to keep it at lower resolutions. Today, users of Cloud Monitoring can visualize historical data for any of their checks right in our control panel.
-  
+
 We ended up choosing Cassandra as the database backend as it is a natural fit for this problem. The access pattern is far more write-heavy than read-heavy. It supports custom TTLs for each write, enabling us to do things like support longer data retentions for specific customers. The fact that our team has a great deal of operational experience with Cassandra certainly influenced the decision, as did the first contributor to Blueflood development being an active Cassandra committer.
 
 ### What Blueflood Does
@@ -46,9 +47,9 @@ We built Blueflood to run at massive scale, and hundreds of millions of data poi
 ### The Future:
 We've got plenty of ideas for how to improve Blueflood, and there's a long road ahead of us. Some of the things we're planning to implement:
 
-* Pre-aggregated rollups. This would enable users to send us data points that have already been rolled up by metric aggregators, such as [StatsD](https://github.com/etsy/statsd/). 
+* Pre-aggregated rollups. This would enable users to send us data points that have already been rolled up by metric aggregators, such as [StatsD](https://github.com/etsy/statsd/).
 * Better query support. Currently any render-time aggregation functions must be applied on the front-end. We'd like to eventually achieve feature-parity with Graphite in terms of data transformations supported.
 * Metrics discovery. We'd like to get integration with [Elasticsearch](http://www.elasticsearch.org/), allowing users to perform queries. This will, at a minimum, allow glob-notation when querying for metric data.
- 
+
 ### Contributing:
 We're opensourcing Blueflood to build a community to support its development. We welcome pull requests. If you've got any questions or want to contribute, you can find us on IRC in the #blueflood channel on Freenode.
