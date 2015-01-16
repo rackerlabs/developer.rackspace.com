@@ -22,12 +22,17 @@
   SwiftObject object = objectApi.get("{objectName}");
 
   // Write the object to a file
+  InputStream inputStream = object.getPayload().openStream();
   File file = File.createTempFile("{objectName}", ".txt");
   BufferedOutputStream outputStream = new BufferedOutputStream(new FileOutputStream(file));
-  ByteStreams.copy(object.getPayload().openStream(), outputStream);
 
-  FileOutputStream fileOutputStream = new FileOutputStream(file);
-  ByteStreams.copy(object.getPayload().openStream(), fileOutputStream);
+  try {
+      ByteStreams.copy(inputStream, outputStream);
+  }
+  finally {
+      inputStream.close();
+      outputStream.close();
+  }
 
 .. code-block:: javascript
 
