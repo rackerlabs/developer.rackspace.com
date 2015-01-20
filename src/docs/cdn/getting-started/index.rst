@@ -90,6 +90,15 @@ You can retrieve a specific service's details using its ID:
 
 .. include:: samples/get_service.rst
 
+The service's details include a set of links. Look for links with their "rel"
+set to "access_url". There will be as many such links as there are domains for
+your web site. You can setup CNAMEs to the domains specified by the "href" values
+of these links, from each of your web site's domains.
+
+Once your DNS provider has propagated these CNAMEs across the Internet, visiting
+any of your web site's domains will ensure that your web site's content is being
+served from the CDN.
+
 Purge all service assets
 ------------------------
 You can purge all assets for your service:
