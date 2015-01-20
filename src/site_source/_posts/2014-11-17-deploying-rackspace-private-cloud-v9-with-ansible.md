@@ -48,7 +48,7 @@ Since all the OpenStack deployment and environment configuration playbooks are a
    * Infrastructure Node (Control Plane)
    * Logging Node
    * Compute Node
-   * Storage Node *(optional and only needed if your going to try out Cinder block storage)*
+   * Storage Node *(optional, and only needed if you're going to try out Cinder block storage)*
 
 Personally, I have found a few creative ways of doing this locally on my workstation.  For this article, we use the 100% Open Source approach by using **VirtualBox**, **Vagrant** and of course **Ansible**.  
 
@@ -73,7 +73,7 @@ Change directory to ‘vagrant-rpcv901’ and execute the 'vagrant up' command:
 	
     $ vagrant up
 
-This will provision the deployment, infrastructure, and logging node.  It also installs base required software and performs configuration needed to prepare the target host for RPC.  Feel free to adjust the Vagrant file to increase RAM available for a particular node and/or add vCPU capacity.  If you plan to deploy with Cinder also, please refer to the full installation guide for details on how to do that.
+This will provision the deployment, infrastructure, and logging node.  It also installs required base software and configuration needed to deploy RPC to target hosts.  Feel free to adjust the Vagrant file to increase RAM available for a particular node and/or add vCPU capacity.  If you plan to deploy with Cinder also, please refer to the full installation guide for details on how to do that.
 
 ####Step 2: Provision Deploy Environment
 
@@ -154,9 +154,3 @@ Connect to the Glance container on the Infrastructure node, remove the Glance lo
 
 
 If you still run into issues, let me know, and I will share another set of instructions on how to get past it.  We plan to fix this in future releases.
-
-#####Fixing broken PIP repos :
-On the deployment node, edit `/opt/ansible-lxc-rpc/rpc_deployment/inventory/group_vars/all.yml` and change the following values
-
-	rpc_repo_url: "http://rpc.cloudnull.io" 
-	rpc_release: "9.0.1"
