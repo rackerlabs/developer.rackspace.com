@@ -6,9 +6,6 @@ Rackspace CDN allows you to CDN enable your website.  It offers features
 such as pulling content from your website's origin servers, caching rules,
 access restrictions, and purging content from the CDN's edge servers.
 
-Please note that Rackspace CDN does not support video streaming or serving content
-over SSL/TLS at this time. 
-
 Concepts
 ========
 
@@ -152,3 +149,15 @@ Delete service
 To delete a service and purge all its assets in the process:
 
 .. include:: samples/delete_service.rst
+
+Differences from Cloud Files
+============================
+
+Users of Cloud Files can CDN-enable a container, thereby distributing the contents 
+of that container to the CDN's edge nodes. In comparison, users of Rackspace CDN
+specify the origins that host the content, and the CDN pulls it from these origins.
+Origins may refer to Dedicated Servers, Cloud Servers, Cloud Load Balancers, or
+even servers hosted outside of Rackspace. It is not yet possible to specify a
+Cloud Files container as an origin.
+
+Rackspace CDN does not yet support video streaming or serving content over SSL/TLS.
