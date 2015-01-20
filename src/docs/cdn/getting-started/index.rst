@@ -10,46 +10,72 @@ Concepts
 ========
 
 CDN
-    A content delivery network (CDN) is a system of multiple computers that contains copies of data stored at various network nodes. A CDN is designed to improve performance of publicly distributed assets. Assets can be anything from website content, to web application components, to media such as videos, ads, and interactive experiences.  CDNs decrease the load time of these assets by caching them on edge servers, also called points of presence (PoPs).  Edge servers are distributed around the globe, meaning requests only travel to a local location to grab assets, rather than to and from a data center based far from the end user.
+    A content delivery network (CDN) is a system of multiple computers that
+    contains copies of data stored at various network nodes. A CDN is designed
+    to improve performance of publicly distributed assets. Assets can be anything
+    from website content, to web application components, to media such as videos,
+    ads, and interactive experiences.  CDNs decrease the load time of these assets
+    by caching them on edge servers, also called points of presence (PoPs).  Edge
+    servers are distributed around the globe, meaning requests only travel to a
+    local location to grab assets, rather than to and from a data center based far
+    from the end user.
 
 Edge node
-    CDN providers have many points of presence (PoP) servers around the world. These servers are known as edge nodes. These edge nodes cache the content and serve it directly to customers, thus reducing transit time to a customers location.
+    CDN providers have many points of presence (PoP) servers around the world.
+    These servers are known as edge nodes. These edge nodes cache the content and
+    serve it directly to customers, thus reducing transit time to a customers
+    location.
 
 Edge server
     An edge server is the same as an edge node.
 
 Origin
-    An origin is an address (IP or domain) from which the CDN provider pulls content. A service can have multiple origins.
+    An origin is an address (IP or domain) from which the CDN provider pulls
+    content. A service can have multiple origins.
 
 Flavor
-    A flavor is a configuration option. A flavor enables you to choose from a generic setting that is powered by one or more CDN providers.
+    A flavor is a configuration option. A flavor enables you to choose from a
+    generic setting that is powered by one or more CDN providers.
 
 Service
-    A service represents your web application that has its content cached to the edge nodes.
+    A service represents your web application that has its content cached to the
+    edge nodes.
 
 Status
-    The status indicates the current state of the service. The time it takes for a service configuration to be distributed amongst a CDN provider cache can vary.
+    The status indicates the current state of the service. The time it takes for
+    a service configuration to be distributed amongst a CDN provider cache can
+    vary.
 
 Purge
-    Purging removes content from the edge servers - thus invalidating the content - so that it can be refreshed from your origin servers.
+    Purging removes content from the edge servers - thus invalidating the
+    content - so that it can be refreshed from your origin servers.
         
 Caching rule
-    A caching rule provides you with fine-grained control over the time-to-live (TTL) of an object. When the TTL expires for an object, the edge node pulls the object from the origin again.
+    A caching rule provides you with fine-grained control over the time-to-live
+    (TTL) of an object. When the TTL expires for an object, the edge node pulls
+    the object from the origin again.
 
 Restriction
-    A restriction enables you to define rules about who can or cannot access content from the cache. Examples of a restriction are allowing requests only from certain domains, geographies, or IP addresses.
+    A restriction enables you to define rules about who can or cannot access
+    content from the cache. Examples of a restriction are allowing requests only
+    from certain domains, geographies, or IP addresses.
 
 Authenticate to gain access to the service
 ==========================================
 
-To use this service you have to authenticate first. To do this, you will need your Rackspace username, and one of the following:
+To use this service you have to authenticate first. To do this, you will need your
+Rackspace username, and one of the following:
 
 * your Rackspace account password
 * your Rackspace API key
 
-Your username and password are the ones you use to login to the Cloud Control Panel at http://mycloud.rackspace.com/.
+Your username and password are the ones you use to login to the Cloud Control
+Panel at http://mycloud.rackspace.com/.
 
-To find your API key, first navigate to the Cloud Control Panel, then click on your username at the top right corner, and then finally click on Account Settings. You will be taken to a page that shows your settings. Under Login Details, you can show or reset your API key.
+To find your API key, first navigate to the Cloud Control Panel, then click on
+your username at the top right corner, and then finally click on Account Settings.
+You will be taken to a page that shows your settings. Under Login Details, you can
+show or reset your API key.
 
 Once you have these pieces of information, you can pass them into the SDK:
 
@@ -74,7 +100,8 @@ You can retrieve a specific flavor's details using its ID:
 
 Create service
 --------------
-Once you have chosen a flavor, you can create a service to CDN-enable your web site:
+Once you have chosen a flavor, you can create a service to CDN-enable your web
+site:
 
 .. include:: samples/create_service.rst
 
