@@ -6,6 +6,9 @@ Rackspace CDN allows you to CDN enable your website.  It offers features
 such as pulling content from your website's origin servers, caching rules,
 access restrictions, and purging content from the CDN's edge servers.
 
+Please note that Rackspace CDN does not support video streaming or serving content
+over SSL/TLS at this time. 
+
 Concepts
 ========
 
