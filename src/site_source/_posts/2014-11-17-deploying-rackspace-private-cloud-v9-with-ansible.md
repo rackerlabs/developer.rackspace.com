@@ -140,17 +140,3 @@ If you find that the playbooks continuously fail in different places, you should
 This issue is usually the result the developer attempting multiple failed deployments and possibly re-provisioning the environment. Never fear, you can fix this easily! On the local machine, remove the ‘known_hosts’ file located in the ‘~/.ssh’ directory. Do not worry, you will not miss this file :).
 
 	$ rm ~/.ssh/known_hosts
-
-#####Glance container not starting:
-This one has been giving me a hard time here lately.  This is based on an internal datacenter dependency required for internal deployments.  
-
-
-Connect to the Glance container on the Infrastructure node, remove the Glance logs, and start Glance services
-
-	$ lxc-ls --fancy
-	$ lxc-attach -n <glance container name from above> -e -- rm -rf /var/log/glance/*.log
-	$ service glance-registry start
-	$ service glance-api start
-
-
-If you still run into issues, let me know, and I will share another set of instructions on how to get past it.  We plan to fix this in future releases.
