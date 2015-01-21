@@ -58,4 +58,4 @@
     ]' \
     -H "X-Auth-Token: $TOKEN" \
     -H "Content-Type: application/json" \
-    $ENDPOINT/services/{service_id} | python -m json.tool
+    $ENDPOINT/services/{serviceId} | python -m json.tool

@@ -28,6 +28,6 @@
 
 .. code-block:: sh
 
-  $ curl -X DELETE $ENDPOINT/services/{service_id}/assets?url={relative_url_of_asset} \
+  $ curl -X DELETE $ENDPOINT/services/{serviceId}/assets?url={relativeUrlOfAsset} \
     -H "X-Auth-Token: $TOKEN" \
     -H "Accept: application/json" | python -m json.tool
