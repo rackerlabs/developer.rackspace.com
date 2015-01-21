@@ -16,7 +16,7 @@
 
 .. code-block:: php
 
-  // Not currently supported by this SDK
+  $service = $cdnService->getService('{serviceId}');
 
 .. code-block:: python
 

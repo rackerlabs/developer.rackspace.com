@@ -16,7 +16,20 @@
 
 .. code-block:: php
 
-  // Not currently supported by this SDK
+    $service = $cdnService->createService(array(
+        'name'     => 'example_site',
+        'domains'  => array(
+            array(
+                'domain' => 'www.example.com'
+            )
+        ),
+        'origins'  => array(
+            array(
+                'origin' => 'example.com'
+            )
+        ),
+        'flavorId' => '{flavorId}'
+    ));
 
 .. code-block:: python
 

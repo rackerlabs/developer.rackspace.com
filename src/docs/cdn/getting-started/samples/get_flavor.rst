@@ -16,7 +16,7 @@
 
 .. code-block:: php
 
-  // Not currently supported by this SDK
+  $flavor = $cdnService->getFlavor('{flavorId}');
 
 .. code-block:: python
 

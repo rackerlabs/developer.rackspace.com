@@ -16,7 +16,11 @@
 
 .. code-block:: php
 
-  // Not currently supported by this SDK
+  // Obtain a CDN service object from the client.
+  $cdnService = $client->cdnService();
+
+  // List flavors
+  $flavors = $cdnService->listFlavors();
 
 .. code-block:: python
 
