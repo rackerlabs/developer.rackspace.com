@@ -8,7 +8,9 @@
 
 .. code-block:: java
 
-  // Not currently supported by this SDK
+  FlavorApi flavorApi = poppyApi.getFlavorApi();
+
+  List<Flavor> flavors = flavorApi.list();
 
 .. code-block:: javascript
 
