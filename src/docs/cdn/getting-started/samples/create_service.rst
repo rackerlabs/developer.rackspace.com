@@ -12,7 +12,26 @@
 
 .. code-block:: javascript
 
-  // Not currently supported by this SDK
+  client.createService({
+    name: 'example_site',
+    domains: [
+      {
+        domain: 'www.example.com'
+      }
+    ],
+    origins: [
+      {
+        origin: 'example.com'
+      }
+    ],
+    flavorId: '{flavorId}'
+  }, function(err, service) {
+    if (err) {
+      // TODO handle as appropriate
+    }
+
+    // TODO use your newly created service here
+  });
 
 .. code-block:: php
 

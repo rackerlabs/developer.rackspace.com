@@ -12,7 +12,11 @@
 
 .. code-block:: javascript
 
-  // Not currently supported by this SDK
+  client.deleteServiceCachedAssets(service, '{relativeUrlOfAsset}', function(err) {
+    if (err) {
+      // TODO handle err as appropriate
+    }
+  });
 
 .. code-block:: php
 

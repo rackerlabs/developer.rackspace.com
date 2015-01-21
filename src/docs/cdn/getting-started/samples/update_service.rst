@@ -12,7 +12,21 @@
 
 .. code-block:: javascript
 
-  // Not currently supported by this SDK
+  service.origins = [
+    {
+      origin: '44.33.22.11',
+      port: 80,
+      ssl: false
+    }
+  ];
+
+  client.updateService(service, function(err, service) {
+    if (err) {
+      // TODO handle as appropriate
+    }
+
+    // TODO use your updated service here
+  });
 
 .. code-block:: php
 
