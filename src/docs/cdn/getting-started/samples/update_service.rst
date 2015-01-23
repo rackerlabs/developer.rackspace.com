@@ -16,7 +16,15 @@
 
 .. code-block:: php
 
-  // Not currently supported by this SDK
+    $service->update(array(
+        'origins' => array(
+            array(
+                'origin' => '44.33.22.11',
+                'port'   => 80,
+                'ssl'    => false
+            )
+        )
+    ));
 
 .. code-block:: python
 
@@ -50,4 +58,4 @@
     ]' \
     -H "X-Auth-Token: $TOKEN" \
     -H "Content-Type: application/json" \
-    $ENDPOINT/services/{service_id} | python -m json.tool
+    $ENDPOINT/services/{serviceId} | python -m json.tool

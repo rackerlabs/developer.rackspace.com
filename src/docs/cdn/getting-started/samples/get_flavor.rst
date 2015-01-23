@@ -16,7 +16,7 @@
 
 .. code-block:: php
 
-  // Not currently supported by this SDK
+  $flavor = $cdnService->getFlavor('{flavorId}');
 
 .. code-block:: python
 
@@ -28,6 +28,6 @@
 
 .. code-block:: sh
 
-  $ curl -X GET $ENDPOINT/flavors/{flavor_id} \
+  $ curl -X GET $ENDPOINT/flavors/{flavorId} \
     -H "X-Auth-Token: $TOKEN" \
     -H "Accept: application/json" | python -m json.tool

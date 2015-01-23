@@ -16,7 +16,7 @@
 
 .. code-block:: php
 
-  // Not currently supported by this SDK
+  $service = $cdnService->getService('{serviceId}');
 
 .. code-block:: python
 
@@ -28,6 +28,6 @@
 
 .. code-block:: sh
 
-  $ curl -X GET $ENDPOINT/services/{service_id} \
+  $ curl -X GET $ENDPOINT/services/{serviceId} \
     -H "X-Auth-Token: $TOKEN" \
     -H "Accept: application/json" | python -m json.tool

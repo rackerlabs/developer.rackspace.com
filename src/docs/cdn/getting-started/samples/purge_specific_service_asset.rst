@@ -16,7 +16,7 @@
 
 .. code-block:: php
 
-  // Not currently supported by this SDK
+  $service->purgeAssets('{relativeUrlOfAsset}');
 
 .. code-block:: python
 
@@ -28,6 +28,6 @@
 
 .. code-block:: sh
 
-  $ curl -X DELETE $ENDPOINT/services/{service_id}/assets?url={relative_url_of_asset} \
+  $ curl -X DELETE $ENDPOINT/services/{serviceId}/assets?url={relativeUrlOfAsset} \
     -H "X-Auth-Token: $TOKEN" \
     -H "Accept: application/json" | python -m json.tool

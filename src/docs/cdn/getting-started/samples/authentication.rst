@@ -16,7 +16,15 @@
 
 .. code-block:: php
 
-  // Not currently supported by this SDK
+  require 'vendor/autoload.php';
+
+  use OpenCloud\Rackspace;
+
+  // Instantiate a Rackspace client.
+  $client = new Rackspace(Rackspace::US_IDENTITY_ENDPOINT, array(
+      'username' => '{username}',
+      'apiKey'   => '{apiKey}'
+  ));
 
 .. code-block:: python
 
