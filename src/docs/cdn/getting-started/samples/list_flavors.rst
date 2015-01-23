@@ -12,7 +12,13 @@
 
 .. code-block:: javascript
 
-  // Not currently supported by this SDK
+  client.getFlavors(function(err, flavors) {
+    if (err) {
+      // TODO handle as appropriate
+    }
+
+    // TODO use your flavors array here
+  });
 
 .. code-block:: php
 

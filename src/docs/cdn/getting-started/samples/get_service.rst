@@ -12,7 +12,13 @@
 
 .. code-block:: javascript
 
-  // Not currently supported by this SDK
+  client.getService({serviceId}, function(err, service) {
+    if (err) {
+      // TODO handle as appropriate
+    }
+
+    // TODO use your service here
+  });
 
 .. code-block:: php
 

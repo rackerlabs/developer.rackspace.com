@@ -12,7 +12,13 @@
 
 .. code-block:: javascript
 
-  // Not currently supported by this SDK
+  pkgcloud = require('pkgcloud');
+
+  var rackspace = pkgcloud.cdn.createClient({
+    provider: 'rackspace',
+    username: '{username}',
+    apiKey: '{apiKey}'
+  });
 
 .. code-block:: php
 
