@@ -12,7 +12,7 @@
 
 .. code-block:: javascript
 
-  client.createService({
+  var service = {
     name: 'example_site',
     domains: [
       {
@@ -25,7 +25,9 @@
       }
     ],
     flavorId: '{flavorId}'
-  }, function(err, service) {
+  };
+
+  client.createService(service, function(err, service) {
     if (err) {
       // TODO handle as appropriate
     }
