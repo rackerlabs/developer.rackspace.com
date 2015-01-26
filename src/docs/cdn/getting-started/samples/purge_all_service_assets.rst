@@ -28,7 +28,7 @@
 
 .. code-block:: ruby
 
-  # Not currently supported by this SDK
+  @service.destroy_assets(url: "/")
 
 .. code-block:: sh
 

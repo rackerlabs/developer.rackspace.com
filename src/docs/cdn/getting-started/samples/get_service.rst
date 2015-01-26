@@ -30,7 +30,7 @@
 
 .. code-block:: ruby
 
-  # Not currently supported by this SDK
+  @service = @client.services.get({serviceId})
 
 .. code-block:: sh
 

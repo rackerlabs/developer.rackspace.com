@@ -28,7 +28,7 @@
 
 .. code-block:: ruby
 
-  # Not currently supported by this SDK
+  @service.destroy
 
 .. code-block:: sh
 
