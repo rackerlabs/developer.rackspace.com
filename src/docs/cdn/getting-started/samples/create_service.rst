@@ -58,7 +58,12 @@
 
 .. code-block:: ruby
 
-  # Not currently supported by this SDK
+  @service = @client.services.new
+  @service.name = "www.example.com"
+  @service.flavor_id = "cdn"
+  @service.add_domain "www.example.com"
+  @service.add_origin "example.com"
+  @service.save
 
 .. code-block:: sh
 

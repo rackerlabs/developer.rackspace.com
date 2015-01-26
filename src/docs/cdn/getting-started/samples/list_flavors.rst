@@ -34,7 +34,7 @@
 
 .. code-block:: ruby
 
-  # Not currently supported by this SDK
+  @client.flavors
 
 .. code-block:: sh
 

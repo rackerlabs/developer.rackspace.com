@@ -30,7 +30,7 @@
 
 .. code-block:: ruby
 
-  # Not currently supported by this SDK
+  @client.flavors.get({flavorId})
 
 .. code-block:: sh
 

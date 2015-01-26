@@ -38,7 +38,13 @@
 
 .. code-block:: ruby
 
-  # Not currently supported by this SDK
+  require 'fog'
+
+  @client = Fog::Compute.new(
+    :provider => 'rackspace',
+    :rackspace_username => '{username}',
+    :rackspace_api_key => '{apiKey}'
+  )
 
 .. code-block:: sh
 
