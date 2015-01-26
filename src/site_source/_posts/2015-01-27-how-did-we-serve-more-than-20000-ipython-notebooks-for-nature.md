@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "How did we serve > 20,000 IPython notebooks for Nature readers?"
-date: 2015-01-22
+date: 2015-01-27
 comments: true
 author: Kyle Kelley
 published: true
@@ -41,13 +41,15 @@ I was incredibly lucky to teach at and attend the incredible and crazy event tha
 
 You can tell this is a community with a lot of passion and aligned around a common format that has helped propel their research.
 
-The other crazy benefit about being in London was that I got to go to the Nature offices to talk about the architecture backing the demo and make plans for operations. Nature <!-- Include art editor here --> would put an iframe as part of the article in, expanding it into a lightbox for users when they click. For us, this just meant providing them one URL to rely on for content to get served to (as well as adjusting `CSP` or `X-Frame` restrictions).
+The other crazy benefit about being in London was that I got to go to the Nature offices to talk about the architecture backing the demo and make plans for operations. [Chris Ryan](https://github.com/chris-creditdesign), art editor at Nature, would put an iframe as part of the article in, expanding it into a lightbox for users when they click. For us, this just meant providing them one URL to rely on for content to get served to (as well as adjusting `CSP` or `X-Frame` restrictions).
 
 ## Kicking the Nature Notebooks into Operation
 
 On the day of launch, we watched as the notebooks started getting gobbled up and recycled.
 
-<!-- Talk about the last minute redirection swap -->
+After some smooth sailing, we watched as it ticked toward our 512 user mark. After reading comments on various social media sites, we decided to kick it up a notch and allow for 1000s of concurrent users while the demo had initially launched.
+
+This bit us in a couple ways. In order to scale across hosts we'd need to put the proxy and tmpnb in front of multiple docker hosts (note: this is pre-docker [swarm](https://github.com/docker/swarm)). Trying to swap largely untested bits out from underneath in production, while also dealing with the proxy issues did not sound ideal. Instead, [Min RK](https://github.com/minrk) quickly whipped up the tmpnb-redirector which uses the `/stats` endpoint to redirect users to new servers. This made rotating old nodes out easy as well.
 
 ## Closing up
 
