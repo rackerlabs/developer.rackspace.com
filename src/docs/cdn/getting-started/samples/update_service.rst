@@ -46,7 +46,8 @@
 
 .. code-block:: ruby
 
-  # Not currently supported by this SDK
+  @service.name = "my-domain-name.com"
+  @service.save
 
 .. code-block:: sh
 
