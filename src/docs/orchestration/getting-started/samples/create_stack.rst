@@ -20,7 +20,10 @@
 
 .. code-block:: ruby
 
-  # Not currently supported by this SDK
+  @stack = @client.stacks.new.save(
+    :stack_name => "a_redis_stack",
+    :template   => redis_hot_template
+  )
 
 .. code-block:: sh
 

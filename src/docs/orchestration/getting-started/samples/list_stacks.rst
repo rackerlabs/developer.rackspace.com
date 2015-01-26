@@ -20,7 +20,7 @@
 
 .. code-block:: ruby
 
-  # Not currently supported by this SDK
+  @client.stacks
 
 .. code-block:: sh
 
