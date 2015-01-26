@@ -27,6 +27,8 @@ To do this, we created a [temporary notebook service](https://tmpnb.org) in coll
 
 [tmpnb](https://github.com/jupyter/tmpnb) is a service that spawns new notebook servers, backed by Docker, for each user. Everyone gets their own sandbox to play in, assigned a unique path.
 
+![tmpnb architecture](https://cloud.githubusercontent.com/assets/836375/5909206/f0b156da-a573-11e4-8e3f-f65dfe9d23b8.png)
+
 When a user visits a tmpnb, they're actually hitting an [http proxy](https://github.com/jupyter/configurable-http-proxy) which routes initial traffic to tmpnb's orchestrator. From here a new user container is set up and a new route (e.g. `/user/fX104pghHEha/tree`) is assigned on the proxy.
 
 [![tmpnb-setup.gif](https://d23f6h5jpj26xu.cloudfront.net/z9gjan4yftabyq_small.gif)](http://img.svbtle.com/z9gjan4yftabyq.gif)
