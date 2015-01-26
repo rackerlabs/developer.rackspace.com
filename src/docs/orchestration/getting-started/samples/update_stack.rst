@@ -20,7 +20,8 @@
 
 .. code-block:: ruby
 
-  # Not currently supported by this SDK
+  @stack.stack_name = "New Stack Name"
+  @stack.save
 
 .. code-block:: sh
 
