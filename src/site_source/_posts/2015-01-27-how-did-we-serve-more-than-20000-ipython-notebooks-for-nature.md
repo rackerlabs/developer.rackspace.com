@@ -53,7 +53,11 @@ After some smooth sailing, we watched as it ticked toward our 512 user mark. Aft
 
 This bit us in a couple ways. In order to scale across hosts we'd need to put the proxy and tmpnb in front of multiple docker hosts (note: this is pre-docker [swarm](https://github.com/docker/swarm)). Trying to swap largely untested bits out from underneath in production, while also dealing with the proxy issues did not sound ideal. Instead, [Min RK](https://github.com/minrk) quickly whipped up the tmpnb-redirector which uses the `/stats` endpoint to redirect users to new servers. This made rotating old nodes out easy as well.
 
+![Redirect tmpnb nodes](https://cloud.githubusercontent.com/assets/836375/5913707/3b282e20-a5ae-11e4-9768-c22089b70497.png)
+
 ## Closing up
+
+In the end we ended up serving more than 20,000 notebook servers and counting. 
 
 We love IPython notebooks, the overall architecture that has been built out here, and hope to keep supporting Open Source projects do interesting things on the internet in a way that benefits community, technology, and the whole ecosystem.
 
