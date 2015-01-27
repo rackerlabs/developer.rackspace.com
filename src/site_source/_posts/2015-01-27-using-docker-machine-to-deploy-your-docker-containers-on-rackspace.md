@@ -11,14 +11,14 @@ categories:
 ---
 
 ## Background
-In December 2013 Docker anounnced [Docker Machine](http://blog.docker.com/2014/12/announcing-docker-machine-swarm-and-compose-for-orchestrating-distributed-apps/). This clever new software eliminates the need to create virtual machines and install Docker before starting Docker containers on them. It handles the provisioning and install process for you behind the scences. You can learn more about Docker Machines at its [GitHub project page](https://github.com/docker/machine).
+Docker anounnced [Docker Machine](http://blog.docker.com/2014/12/announcing-docker-machine-swarm-and-compose-for-orchestrating-distributed-apps/) in December 2013. This clever new software eliminates the need to create virtual machines and install Docker before starting Docker containers on them. It handles the provisioning and install process for you behind the scences. You can learn more about Docker Machines at its [GitHub project page](https://github.com/docker/machine).
 
 Let's take a quick look at how we can get some of this awesomeness!
 
 
 ### Install
 
-Docker Machine is currently still unreleased, which means you have to first download the machine binary from [https://github.com/docker/machine/releases](https://github.com/docker/machine/releases). There aren't any dependencies to install, so you can just rename it to docker-machine and place it into your path somewhere.
+Docker Machine has not yet been released, which means you have to download the machine binary from [https://github.com/docker/machine/releases](https://github.com/docker/machine/releases). There aren't any dependencies to install, so you can just rename it to docker-machine and place it into your path somewhere.
 
 
 ### Credentials
