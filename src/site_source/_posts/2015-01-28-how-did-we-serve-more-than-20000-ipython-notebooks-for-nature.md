@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "How did we serve > 20,000 IPython notebooks for Nature readers?"
-date: 2015-01-27
+title: "How did we serve more than 20,000 IPython notebooks for Nature readers?"
+date: 2015-01-28
 comments: true
 author: Kyle Kelley
 published: true
