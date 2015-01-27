@@ -60,5 +60,3 @@ This bit us in a couple ways. In order to scale across hosts we'd need to put th
 In the end we ended up serving more than 20,000 notebook servers and counting. 
 
 We love IPython notebooks, the overall architecture that has been built out here, and hope to keep supporting Open Source projects do interesting things on the internet in a way that benefits community, technology, and the whole ecosystem.
-
-We didn't expect to build a system that would let people create user environments they could use for teaching and tutorials.
