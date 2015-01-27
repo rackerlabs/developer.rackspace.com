@@ -15,6 +15,7 @@ Docker anounnced [Docker Machine](http://blog.docker.com/2014/12/announcing-dock
 
 Let's take a quick look at how we can get some of this awesomeness!
 
+<!-- more -->
 
 ### Install
 
