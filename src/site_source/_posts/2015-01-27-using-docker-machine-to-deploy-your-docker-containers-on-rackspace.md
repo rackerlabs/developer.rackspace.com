@@ -18,7 +18,7 @@ Let's take a quick look at how we can get some of this awesomeness!
 
 ### Install
 
-Docker Machine has not yet been released, which means you have to download the machine binary from [https://github.com/docker/machine/releases](https://github.com/docker/machine/releases). There aren't any dependencies to install, so you can just rename it to docker-machine and place it into your path somewhere.
+Docker Machine has not yet been released, which means you have to download the `docker-machine` binary from [https://github.com/docker/machine/releases](https://github.com/docker/machine/releases). There aren't any dependencies to install, so you can just rename it to `docker-machine` and place it into your path somewhere.
 
 
 ### Credentials
