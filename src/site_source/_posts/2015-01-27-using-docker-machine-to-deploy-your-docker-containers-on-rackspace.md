@@ -28,7 +28,7 @@ Unsurprisingly, you'll also need your API-key and Rackspace username. If you're 
 
 ### Create your first Docker Host
 
-We can now user docker-machine to create our Docker host:
+We can now user `docker-machine` to create our Docker host:
 
 
       docker-machine create --driver rackspace \
@@ -71,7 +71,7 @@ More information can be [found here](https://github.com/docker/machine#rackspace
 
 ### Lets actually put this to work
 
-Lastly, we simply use the `docker` command and extract the matching config via the docker-machine command:
+Lastly, we simply use the `docker` command and extract the matching config via the `docker-machine` command:
 
 
     docker `docker-machine config my-second-docker-machine-host` run --name my-redis-container -d redis
