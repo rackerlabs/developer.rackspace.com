@@ -4,7 +4,22 @@
 
 .. code-block:: go
 
-  // Not currently supported by this SDK
+  import (
+    "github.com/rackspace/gophercloud"
+    "github.com/rackspace/gophercloud/rackspace"
+    "github.com/rackspace/gophercloud/rackspace/compute/v2/base"
+    "github.com/rackspace/gophercloud/rackspace/compute/v2/services"
+    "github.com/rackspace/gophercloud/rackspace/compute/v2/serviceassets"
+    "github.com/rackspace/gophercloud/rackspace/compute/v2/flavors"
+  )
+
+  ao := gophercloud.AuthOptions{
+    Username: "{username}",
+    APIKey: "{apiKey}",
+  }
+  provider, err := rackspace.AuthenticatedClient(ao)
+
+  serviceClient, err := rackspace.NewCDNV1(provider, gophercloud.EndpointOpts{})
 
 .. code-block:: java
 

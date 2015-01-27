@@ -4,7 +4,7 @@
 
 .. code-block:: go
 
-  // Not currently supported by this SDK
+  flavor, err := flavors.Get(client, flavorId).Extract()
 
 .. code-block:: java
 

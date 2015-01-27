@@ -4,7 +4,17 @@
 
 .. code-block:: go
 
-  // Not currently supported by this SDK
+  updateOpts := osServices.UpdateOpts{
+    osServices.UpdateOpt{
+      Op:   osServices.Add,
+      Path: "/domains/-",
+      Value: map[string]interface{}{
+        "domain":   "newDomain.com",
+        "protocol": "http",
+      },
+    },
+  }
+  location, err := services.Update(client, serviceIdOrURL, updateOpts).Extract()
 
 .. code-block:: java
 

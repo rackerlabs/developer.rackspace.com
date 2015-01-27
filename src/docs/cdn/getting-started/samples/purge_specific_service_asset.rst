@@ -4,7 +4,10 @@
 
 .. code-block:: go
 
-  // Not currently supported by this SDK
+  deleteOpts := osServiceAssets.DeleteOpts{
+    URL: "{relativeUrlOfAsset}",
+  }
+  err := serviceassets.Delete(client, serviceIDOrURL, deleteOpts).ExtractErr()
 
 .. code-block:: java
 
