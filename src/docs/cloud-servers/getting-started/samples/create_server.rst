@@ -37,8 +37,8 @@
 
   $response = $server->create(array(
       'name'     => 'My new server',
-      'imageId'  => $imageId,
-      'flavorId' => $flavorId
+      'imageId'  => $image->getId(),
+      'flavorId' => $flavor->getId()
   ));
 
 .. code-block:: python
