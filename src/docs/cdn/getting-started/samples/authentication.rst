@@ -7,10 +7,14 @@
   import (
     "github.com/rackspace/gophercloud"
     "github.com/rackspace/gophercloud/rackspace"
-    "github.com/rackspace/gophercloud/rackspace/compute/v2/base"
-    "github.com/rackspace/gophercloud/rackspace/compute/v2/services"
-    "github.com/rackspace/gophercloud/rackspace/compute/v2/serviceassets"
-    "github.com/rackspace/gophercloud/rackspace/compute/v2/flavors"
+    "github.com/rackspace/gophercloud/rackspace/cdn/v1/base"
+    "github.com/rackspace/gophercloud/rackspace/cdn/v1/services"
+    "github.com/rackspace/gophercloud/rackspace/cdn/v1/serviceassets"
+    "github.com/rackspace/gophercloud/rackspace/cdn/v1/flavors"
+
+    osServices "github.com/rackspace/gophercloud/openstack/cdn/v1/services"
+    osServiceAssets "github.com/rackspace/gophercloud/openstack/cdn/v1/serviceassets"
+    osFlavors "github.com/rackspace/gophercloud/openstack/cdn/v1/flavors"
   )
 
   ao := gophercloud.AuthOptions{
