@@ -4,7 +4,13 @@
 
 .. code-block:: go
 
-  // Not currently supported by this SDK
+  err := services.List(client, nil).EachPage(func(page pagination.Page) (bool, error) {
+    serviceList, err := osServices.ExtractServices(page)
+    for _, service := range serviceList {
+            // ...
+    }
+    return true, nil
+  })
 
 .. code-block:: java
 

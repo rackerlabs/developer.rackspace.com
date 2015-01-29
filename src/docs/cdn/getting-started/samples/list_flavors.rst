@@ -4,7 +4,13 @@
 
 .. code-block:: go
 
-  // Not currently supported by this SDK
+  err := flavors.List(client).EachPage(func(page pagination.Page) (bool, error) {
+    flavorList, err := osFlavors.ExtractFlavors(page)
+    for _, flavor := range flavorList {
+            // ...
+    }
+    return true, nil
+  })
 
 .. code-block:: java
 

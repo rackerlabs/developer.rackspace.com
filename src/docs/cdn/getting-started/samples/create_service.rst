@@ -4,7 +4,21 @@
 
 .. code-block:: go
 
-  // Not currently supported by this SDK
+  createOpts := osServices.CreateOpts{
+    Name: "example_site",
+    Domains: []osServices.Domain{
+            osServices.Domain{
+                    Domain: "www.example.com",
+            },
+    },
+    Origins: []osServices.Origin{
+            osServices.Origin{
+                    Origin: "example.com",
+            },
+    },
+    FlavorID: "{flavorId}",
+  }
+  location, err := services.Create(client, createOpts).Extract()
 
 .. code-block:: java
 

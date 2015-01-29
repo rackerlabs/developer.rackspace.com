@@ -4,7 +4,7 @@
 
 .. code-block:: go
 
-  // Not currently supported by this SDK
+  service, err := services.Get(client, serviceIdOrURL).Extract()
 
 .. code-block:: java
 

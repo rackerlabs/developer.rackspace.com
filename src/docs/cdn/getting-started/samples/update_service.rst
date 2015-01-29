@@ -4,7 +4,16 @@
 
 .. code-block:: go
 
-  // Not currently supported by this SDK
+  updateOpts := osServices.UpdateOpts{
+    osServices.Append{
+      Value: osServices.Origin{
+        Origin: "44.33.22.11",
+        Port: 80,
+        SSL: false,
+      },
+    },
+  }
+  location, err := services.Update(client, serviceIdOrURL, updateOpts).Extract()
 
 .. code-block:: java
 
