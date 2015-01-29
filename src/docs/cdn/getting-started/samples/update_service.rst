@@ -5,12 +5,11 @@
 .. code-block:: go
 
   updateOpts := osServices.UpdateOpts{
-    osServices.UpdateOpt{
-      Op:   osServices.Add,
-      Path: "/domains/-",
-      Value: map[string]interface{}{
-        "domain":   "newDomain.com",
-        "protocol": "http",
+    osServices.Append{
+      Value: osServices.Origin{
+        Origin: "44.33.22.11",
+        Port: 80,
+        SSL: false,
       },
     },
   }
