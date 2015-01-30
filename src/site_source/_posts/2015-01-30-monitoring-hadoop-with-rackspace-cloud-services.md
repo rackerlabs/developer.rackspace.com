@@ -251,6 +251,9 @@ Cloud Monitoring API to do most of the work as well as the Cloud
 Metrics API to render monitoring data time series graphs when
 investigating nodes or metrics.
 
+{% img center 2015-01-30-monitoring-hadoop-with-rackspace-cloud-services/hadoop-cloud-intelligence-small.png "Cloud Intelligence for Hadoop" %}
+
+
 
 ## Adhoc and Analytical — Hive and Hadoop (Cloud Big Data) ##
 
