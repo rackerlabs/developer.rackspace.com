@@ -9,6 +9,7 @@ categories:
 - java
 - cloud databases
 - jclouds
+- mysql
 ---
 
 Imagine a MySQL database you need not install, configure, optimize, or update.
