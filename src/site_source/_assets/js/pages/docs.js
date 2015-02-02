@@ -11,7 +11,8 @@
     '/docs/auto-scale': [ 'go', 'java', '.net', 'php','python','ruby','shell' ],
     '/docs/cloud-images': [ 'go', 'java', '.net', 'php','python','ruby','shell' ],
     '/docs/cloud-queues': [ 'go', 'java', '.net', 'php','python','ruby','shell' ],
-    '/docs/cloud-monitoring': [ 'go', 'java', '.net', 'php','python','ruby','shell' ]
+    '/docs/cloud-monitoring': [ 'go', 'java', '.net', 'php','python','ruby','shell' ],
+    '/docs/cloud-identity': [ 'go', 'java', '.net', 'php','python','ruby','shell' ]
   };
 
   var cookieName = 'devsite-language';
