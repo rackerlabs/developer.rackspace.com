@@ -4,7 +4,11 @@
 
 .. code-block:: go
 
-  // Not currently supported by this SDK
+  createTempURLOpts := osObjects.CreateTempURLOpts{
+    Method: osObjects.GET,
+    TTL:    3600,
+  }
+  tempURL, err := objects.CreateTempURL(serviceClient, "{containerName}", "{objectName}", createTempURLOpts)
 
 .. code-block:: java
 
