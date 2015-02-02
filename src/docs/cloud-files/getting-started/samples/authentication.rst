@@ -12,6 +12,7 @@
   import (
     "github.com/rackspace/gophercloud"
     "github.com/rackspace/gophercloud/rackspace"
+    osObjects "github.com/rackspace/gophercloud/openstack/objectstorage/v1/objects"
     "github.com/rackspace/gophercloud/rackspace/objectstorage/v1/containers"
     "github.com/rackspace/gophercloud/rackspace/objectstorage/v1/objects"
     "github.com/rackspace/gophercloud/rackspace/objectstorage/v1/cdncontainers"
