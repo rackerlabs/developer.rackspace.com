@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "I <3 PyTennessee"
-date: 2015-02-10
+title: "I loved PyTennessee 2015"
+date: 2015-02-11
 comments: true
 author: Kyle Kelley
 published: true
@@ -18,17 +18,21 @@ categories:
 
 ## Opening Keynote
 
-Giving a talk at PyTennessee was wonderful. Everyone said Hi, Good Morning, and laughed at my jokes.
+Giving a talk at PyTennessee was wonderful. The audience responded with Hi, Good Morning, and laughed at my jokes.
 
-...
+Largely speaking, I came to speak on some of the ephemeral docker workflows I've been working on with [Jupyter](https://github.com/jupyter) and with the [cloudpipe project](https://github.com/cloudpipe). This included a bit on the [Nature demo](https://developer.rackspace.com/blog/how-did-we-serve-more-than-20000-ipython-notebooks-for-nature/), a bit on [tmpnb](https://github.com/jupyter/tmpnb), PiCloud, multyvac, and the future with cloudpipe.
 
-Showed the audience the JupyterHub that is currently run by Jess Hamrick for her Computational Models class.
+Since the audience was of varying background and skillset, I made sure to talk a little bit about putting up a Flask app with Docker. 
 
-They were astounded to see this in action. [Brian J. Geiger](https://twitter.com/thefoodgeek) from the Center for Open Science was eager to see this for their team and is making me think hard about how multi user notebook servers can be set up.
+Beyond that, I also showed the audience the JupyterHub that is currently run by Jess Hamrick for her Computational Models class.
 
-Apparently my timing was good, as Jess had some planned maintenance on the JupyterHub setup:
+People were astounded to see this in action. [Brian J. Geiger](https://twitter.com/thefoodgeek) from the Center for Open Science was eager to see this for their team and is making me think hard about how multi user notebook servers can be set up.
+
+Apparently my timing was good, as I snuck it in just before planned maintenance on the JupyterHub setup:
 
 ![Compmodels ChatOps](http://i.imgur.com/9BxijbL.png)
+
+The reception to the talk must have been pretty good, since so many people came up to talk to me about Docker, IPython, Jupyter, tmpnb, and JupyterHub. It was WONDERFUL!
 
 One tweet really hit my feels, since it really got at why I was *so* excited to talk about building services with Docker and Python:
 
@@ -36,10 +40,6 @@ One tweet really hit my feels, since it really got at why I was *so* excited to 
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 Containers are such a wonderful building block and Docker provides a great API to build **really interesting** systems.
-
-After the talk, so many people came up to talk to me about Docker, IPython, Jupyter, tmpnb, and JupyterHub. It was WONDERFUL!
-
-I also really messed up. Apparently if you ask a group of people if we can move out into the hall to continue talking, they disperse after they cross the doorway. All I can think of is that 
 
 ## The Glorious Food
 
@@ -77,10 +77,9 @@ To quell your inner hunger as foodie and programmer, [Adrienne Lowe](https://twi
 <blockquote class="twitter-tweet" lang="en"><p>. <a href="https://twitter.com/adriennefriend">@adriennefriend</a> is talking about cooking AND programming at <a href="https://twitter.com/PyTennessee">@PyTennessee</a> :-) <a href="http://t.co/wgCxcP7yl1">pic.twitter.com/wgCxcP7yl1</a></p>&mdash; Chris Armstrong (@radix) <a href="https://twitter.com/radix/status/564514572070309889">February 8, 2015</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-## The Ministry of Silly Walks
-
-## Closing Keynote with Lynn Root
+## Closing up
 
 <blockquote class="twitter-tweet" lang="en"><p>The awesome pano I took during my talk at the fantastic <a href="https://twitter.com/PyTennessee">@PyTennessee</a> <a href="https://twitter.com/hashtag/pytn?src=hash">#pytn</a> <a href="http://t.co/vllC5AG6go">pic.twitter.com/vllC5AG6go</a></p>&mdash; sudo bake me a cake (@roguelynn) <a href="https://twitter.com/roguelynn/status/564567652442861568">February 8, 2015</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
+I can't wait until PyTennessee 2016!
