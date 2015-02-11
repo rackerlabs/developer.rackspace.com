@@ -8,7 +8,14 @@
 
 .. code-block:: javascript
 
-  // Not currently supported by this SDK
+  client.getStacks(function (err, stacks) {
+    if (err) {
+      // TODO handle as appropriate
+      return;
+    }
+
+    // TODO use your stacks here
+  });
 
 .. code-block:: php
 

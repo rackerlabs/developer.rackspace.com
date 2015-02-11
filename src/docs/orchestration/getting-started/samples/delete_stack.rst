@@ -8,7 +8,12 @@
 
 .. code-block:: javascript
 
-  // Not currently supported by this SDK
+  client.deleteStack('a_redis_stack', function(err) {
+    if (err) {
+      // TODO handle as appropriate
+      return;
+    }
+  });
 
 .. code-block:: php
 
