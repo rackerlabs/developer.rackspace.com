@@ -32,6 +32,9 @@ Apparently my timing was good, as I snuck it in just before planned maintenance 
 
 ![Compmodels ChatOps](http://i.imgur.com/9BxijbL.png)
 
+<blockquote class="twitter-tweet" lang="en"><p>“It was only a year ago people were saying don’t use Docker in production. Should be enterprise ready now.” -<a href="https://twitter.com/rgbkrk">@rgbkrk</a> <a href="https://twitter.com/hashtag/pytn2015?src=hash">#pytn2015</a></p>&mdash; Mike Perez (@Thingee) <a href="https://twitter.com/Thingee/status/564089026312159232">February 7, 2015</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 The reception to the talk must have been pretty good, since so many people came up to talk to me about Docker, IPython, Jupyter, tmpnb, and JupyterHub. It was WONDERFUL!
 
 One tweet really hit my feels, since it really got at why I was *so* excited to talk about building services with Docker and Python:
