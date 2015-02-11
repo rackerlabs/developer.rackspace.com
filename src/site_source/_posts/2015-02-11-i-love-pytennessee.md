@@ -77,6 +77,34 @@ To quell your inner hunger as foodie and programmer, [Adrienne Lowe](https://twi
 <blockquote class="twitter-tweet" lang="en"><p>. <a href="https://twitter.com/adriennefriend">@adriennefriend</a> is talking about cooking AND programming at <a href="https://twitter.com/PyTennessee">@PyTennessee</a> :-) <a href="http://t.co/wgCxcP7yl1">pic.twitter.com/wgCxcP7yl1</a></p>&mdash; Chris Armstrong (@radix) <a href="https://twitter.com/radix/status/564514572070309889">February 8, 2015</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
+## Talks I attended
+
+### Cutting Off the Internet: Testing Applications that Use Requests
+
+[Ian Cordasco](https://twitter.com/sigmavirus24)'s ["Cutting Off the Internet: Testing Applications that Use Requests"](https://www.pytennessee.org/schedule/presentation/54/). Ian spoke on the many learning lessons he experienced in testing [github3.py](https://github.com/sigmavirus24/github3.py).
+
+<blockquote class="twitter-tweet" lang="en"><p>Ways to .....FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFail at testing with <a href="https://twitter.com/sigmavirus24">@sigmavirus24</a> <a href="https://twitter.com/hashtag/pytn?src=hash">#pytn</a> <a href="http://t.co/srDK17EsFV">pic.twitter.com/srDK17EsFV</a></p>&mdash; Kyle R Kelley (@rgbkrk) <a href="https://twitter.com/rgbkrk/status/564154607744856064">February 7, 2015</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+as well as [betamax](https://github.com/sigmavirus24/betamax), a VCR for Python requests (in the style of Ruby's VCR gem).
+
+### A Quick Sip from the Flask Microframework
+
+https://www.pytennessee.org/schedule/presentation/63/
+
+### [Why Your Next API Should Be Designed By A Linguist](https://www.pytennessee.org/schedule/presentation/82/)
+
+[Rebecca Standig](https://twitter.com/understandig) made people think hard about how they design APIs and why language matters.
+
+<blockquote class="twitter-tweet" lang="en"><p>&quot;Learning an API should be intuitive - not hard to figure out. Choose your words intentionally.&quot; <a href="https://twitter.com/understandig">@understandig</a> <a href="https://twitter.com/PyTennessee">@PyTennessee</a> <a href="https://twitter.com/hashtag/pytn2015?src=hash">#pytn2015</a></p>&mdash; Aubrey Howell (@SimplyAubs) <a href="https://twitter.com/SimplyAubs/status/564185914860371969">February 7, 2015</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+### [Docker in Action - fitter, happier, more productive](https://www.pytennessee.org/schedule/presentation/51/)
+
+Michael Herman gave the audience a wonderful introduction to Docker, services around Docker, and how to deploy a simple Flask App.
+
+
+
 ## Closing up
 
 <blockquote class="twitter-tweet" lang="en"><p>The awesome pano I took during my talk at the fantastic <a href="https://twitter.com/PyTennessee">@PyTennessee</a> <a href="https://twitter.com/hashtag/pytn?src=hash">#pytn</a> <a href="http://t.co/vllC5AG6go">pic.twitter.com/vllC5AG6go</a></p>&mdash; sudo bake me a cake (@roguelynn) <a href="https://twitter.com/roguelynn/status/564567652442861568">February 8, 2015</a></blockquote>
