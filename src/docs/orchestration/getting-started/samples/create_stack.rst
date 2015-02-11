@@ -8,7 +8,17 @@
 
 .. code-block:: javascript
 
-  // Not currently supported by this SDK
+  client.createStack({
+    name: 'a_redis_stack',
+    templateUrl: 'redis_hot_template'
+  }, function(err, stack) {
+    if (err) {
+      // TODO handle as appropriate
+      return;
+    }
+
+    // TODO use your stack here
+  });
 
 .. code-block:: php
 

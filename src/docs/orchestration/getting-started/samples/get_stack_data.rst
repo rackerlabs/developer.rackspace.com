@@ -8,7 +8,19 @@
 
 .. code-block:: javascript
 
-  // Not currently supported by this SDK
+  var stack = new pkgcloud.providers.openstack.orchestration.Stack(client, {
+    id: '{stackId}',
+    name: '{stackName}'
+  });
+
+  client.getStack(stack, function (err, stack) {
+    if (err) {
+      // TODO handle as appropriate
+      return;
+    }
+
+    // TODO use your stack here
+  });
 
 .. code-block:: php
 
