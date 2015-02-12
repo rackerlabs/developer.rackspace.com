@@ -2,6 +2,14 @@
 
   // Not currently supported by this SDK
 
+.. code-block:: go
+
+  createOpts := osStacks.CreateOpts{
+    Name: "a_redis_stack",
+    TemplateURL: "redis_hot_template",
+  }
+  aRedisStack, err =: stacks.Create(serviceClient, createOpts).Extract()
+
 .. code-block:: java
 
   // Not currently supported by this SDK
