@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Monitoring Hadoop with Rackspace Cloud services — managing partial failure"
-date: 2015-01-30 23:59
+date: 2015-02-17 10:00
 comments: true
 author: Dave Beckett
 published: true
@@ -48,13 +48,13 @@ We run [Hortonworks Data Platform (HDP) 1.3](http://hortonworks.com/hdp/)
 on a Cloud Big Data (CBD) cluster.  The *applications* in the cluster
 look like this:
 
-{% img center 2015-01-30-monitoring-hadoop-with-rackspace-cloud-services/hadoop-application-view.png "Rackspace Global Data Hadoop: Applications View" %}
+{% img center 2015-02-17-monitoring-hadoop-with-rackspace-cloud-services/hadoop-application-view.png "Rackspace Global Data Hadoop: Applications View" %}
 
 The infrastructure that implements these looks like a big pool of
 similar *Data Nodes* plus a set of special nodes that run application
 processes:
 
-{% img center 2015-01-30-monitoring-hadoop-with-rackspace-cloud-services/hadoop-systems-view.png "Rackspace Global Data Hadoop: Infrastructure View" %}
+{% img center 2015-02-17-monitoring-hadoop-with-rackspace-cloud-services/hadoop-systems-view.png "Rackspace Global Data Hadoop: Infrastructure View" %}
 
 Applications can be combined onto nodes but generally are separated
 for performance, operational stability and resilience and run in
@@ -239,7 +239,7 @@ The dashboard below shows one Grafana deployment monitoring some core
 Hadoop metrics such as the number of mappers, reducers, HDFS state
 and general CPU usage.
 
-{% img center 2015-01-30-monitoring-hadoop-with-rackspace-cloud-services/grafana-small.png "Rackspace Global Data Hadoop: Grafana Dashboard" %}
+{% img center 2015-02-17-monitoring-hadoop-with-rackspace-cloud-services/grafana-small.png "Rackspace Global Data Hadoop: Grafana Dashboard" %}
 
 ## Viewing and Configuring Monitoring — Cloud Intelligence ##
 
@@ -251,7 +251,7 @@ Cloud Monitoring API to do most of the work as well as the Cloud
 Metrics API to render monitoring data time series graphs when
 investigating nodes or metrics.
 
-{% img center 2015-01-30-monitoring-hadoop-with-rackspace-cloud-services/hadoop-cloud-intelligence-small.png "Cloud Intelligence for Hadoop" %}
+{% img center 2015-02-17-monitoring-hadoop-with-rackspace-cloud-services/hadoop-cloud-intelligence-small.png "Cloud Intelligence for Hadoop" %}
 
 
 
