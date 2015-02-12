@@ -2,6 +2,16 @@
 
   // Not currently supported by this SDK
 
+.. code-block:: go
+
+  err = stacks.List(serviceClient, nil).EachPage(func(page pagination.Page) (bool, error) {
+    stackList, err := osStacks.ExtractStacks(page)
+    if err != nil {
+      // handle error...
+    }
+    return true, nil
+  })
+
 .. code-block:: java
 
   // Not currently supported by this SDK

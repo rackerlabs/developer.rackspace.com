@@ -2,6 +2,25 @@
 
   // Not currently supported by this SDK
 
+.. code-block:: go
+
+  import (
+    "github.com/rackspace/gophercloud"
+    osStacks "github.com/rackspace/gophercloud/openstack/orchestration/v1/stacks"
+    "github.com/rackspace/gophercloud/pagination"
+    "github.com/rackspace/gophercloud/rackspace/orchestration/v1/stacks"
+  )
+
+  ao := gophercloud.AuthOptions{
+    Username: "{username}",
+    APIKey: "{apiKey}",
+  }
+  provider, err := rackspace.AuthenticatedClient(ao)
+
+  serviceClient, err := rackspace.NewOrchestrationV1(provider, gophercloud.EndpointOpts{
+    Region: "{region}",
+  })
+
 .. code-block:: java
 
   // Not currently supported by this SDK

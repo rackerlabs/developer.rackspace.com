@@ -2,6 +2,10 @@
 
   // Not currently supported by this SDK
 
+.. code-block:: go
+
+  stack, err := stacks.Get(serviceClient, {stackName}, {stackId}).Extract()
+
 .. code-block:: java
 
   // Not currently supported by this SDK
