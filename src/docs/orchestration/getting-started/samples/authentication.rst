@@ -49,8 +49,7 @@
 
   require 'fog'
 
-  @client = Fog::Compute.new(
-    :provider => 'rackspace',
+  @client = Fog::Rackspace::Orchestration.new(
     :rackspace_username => '{username}',
     :rackspace_api_key => '{apiKey}',
     :rackspace_region => '{region}'
