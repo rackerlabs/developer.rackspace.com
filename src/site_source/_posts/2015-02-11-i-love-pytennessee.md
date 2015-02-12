@@ -86,18 +86,16 @@ To quell your inner hunger as foodie and programmer, [Adrienne Lowe](https://twi
 
 ## Talks I attended
 
-### Cutting Off the Internet: Testing Applications that Use Requests
+### [Cutting Off the Internet: Testing Applications that Use Requests](https://www.pytennessee.org/schedule/presentation/54/)
 
-[Ian Cordasco](https://twitter.com/sigmavirus24)'s ["Cutting Off the Internet: Testing Applications that Use Requests"](https://www.pytennessee.org/schedule/presentation/54/). Ian spoke on the many learning lessons he experienced in testing [github3.py](https://github.com/sigmavirus24/github3.py).
+[Ian Cordasco](https://twitter.com/sigmavirus24) spoke on the many learning lessons he experienced in testing [github3.py](https://github.com/sigmavirus24/github3.py)
 
 <blockquote class="twitter-tweet" lang="en"><p>Ways to .....FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFail at testing with <a href="https://twitter.com/sigmavirus24">@sigmavirus24</a> <a href="https://twitter.com/hashtag/pytn?src=hash">#pytn</a> <a href="http://t.co/srDK17EsFV">pic.twitter.com/srDK17EsFV</a></p>&mdash; Kyle R Kelley (@rgbkrk) <a href="https://twitter.com/rgbkrk/status/564154607744856064">February 7, 2015</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-as well as [betamax](https://github.com/sigmavirus24/betamax), a VCR for Python requests (in the style of Ruby's VCR gem).
+...as well as [betamax](https://github.com/sigmavirus24/betamax), a VCR he wrote for Python requests (in the style of Ruby's VCR gem).
 
-### A Quick Sip from the Flask Microframework
-
-https://www.pytennessee.org/schedule/presentation/63/
+[Slides here](https://speakerdeck.com/sigmavirus24/cutting-off-the-internet-testing-applications-that-use-requests)
 
 ### [Why Your Next API Should Be Designed By A Linguist](https://www.pytennessee.org/schedule/presentation/82/)
 
@@ -110,7 +108,11 @@ https://www.pytennessee.org/schedule/presentation/63/
 
 Michael Herman gave the audience a wonderful introduction to Docker, services around Docker, and how to deploy a simple Flask App.
 
+### [Twitter Network Analysis with NetworkX](https://www.pytennessee.org/schedule/presentation/52/)
 
+This talk/tutorial stepped up their game by providing a handout.
+
+Complete with being in a classroom (at a law school no less), really made me feel like I was back in college. Awesome.
 
 ## Closing up
 
