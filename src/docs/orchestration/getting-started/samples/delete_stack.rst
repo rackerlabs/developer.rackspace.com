@@ -2,6 +2,10 @@
 
   // Not currently supported by this SDK
 
+.. code-block:: go
+
+  err := stacks.Delete(serviceClient, "a_redis_stack", aRedisStack.ID).ExtractErr()
+
 .. code-block:: java
 
   // Not currently supported by this SDK

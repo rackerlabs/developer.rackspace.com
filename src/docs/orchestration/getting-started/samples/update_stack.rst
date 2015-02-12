@@ -2,6 +2,13 @@
 
   // Not currently supported by this SDK
 
+.. code-block:: go
+
+  updateOpts := osStacks.UpdateOpts{
+    Timeout:  60,
+  }
+  err = stacks.Update(client, {stackName}, {stackId}, updateOpts).ExtractErr()
+
 .. code-block:: java
 
   // Not currently supported by this SDK
