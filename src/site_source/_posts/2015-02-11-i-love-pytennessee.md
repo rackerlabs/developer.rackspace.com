@@ -22,9 +22,13 @@ Giving a talk at PyTennessee was wonderful. The audience responded with Hi, Good
 
 Largely speaking, I came to speak on some of the ephemeral docker workflows I've been working on with [Jupyter](https://github.com/jupyter) and with the [cloudpipe project](https://github.com/cloudpipe). This included a bit on the [Nature demo](https://developer.rackspace.com/blog/how-did-we-serve-more-than-20000-ipython-notebooks-for-nature/), a bit on [tmpnb](https://github.com/jupyter/tmpnb), PiCloud, multyvac, and the future with cloudpipe.
 
-Since the audience was of varying background and skillset, I made sure to talk a little bit about putting up a Flask app with Docker. 
+Since the audience was of varying background and skillset, I made sure to talk a little bit about putting up a Flask app with Docker.
+
+After this, there was plenty of time for questions. The biggest question that got asked multiple ways was what the future was like for multi user notebook servers. People saw the utility of JupyterHub, tmpnb, colaboratory, and Google Drive integration each individually.
 
 Beyond that, I also showed the audience the JupyterHub that is currently run by Jess Hamrick for her Computational Models class.
+
+![JupyterHub landing page](http://i.imgur.com/9pYwboq.png)
 
 People were astounded to see this in action. [Brian J. Geiger](https://twitter.com/thefoodgeek) from the Center for Open Science was eager to see this for their team and is making me think hard about how multi user notebook servers can be set up.
 
