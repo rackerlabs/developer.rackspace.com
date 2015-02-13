@@ -22,7 +22,16 @@
 
 .. code-block:: java
 
-  // Not currently supported by this SDK
+  CreateServiceOptions options = CreateServiceOptions.builder()
+      .name("example_site")
+      .domains(ImmutableList.of(Domain.create("www.example.com")))
+      .origins(ImmutableList.of(Origin.create("example.com")))
+      .flavorId("{flavorId}")
+      .build();
+
+  ServiceApi serviceApi = poppyApi.getServiceApi();
+
+  URI location = serviceApi.create(options);
 
 .. code-block:: javascript
 

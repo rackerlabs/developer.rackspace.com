@@ -27,7 +27,9 @@
 
 .. code-block:: java
 
-  // Not currently supported by this SDK
+  PoppyApi poppyApi = ContextBuilder.newBuilder("rackspace-cdn-us")
+      .credentials("{username}", "{apiKey}")
+      .buildApi(PoppyApi.class);
 
 .. code-block:: javascript
 

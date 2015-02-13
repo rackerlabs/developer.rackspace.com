@@ -11,7 +11,9 @@
 
 .. code-block:: java
 
-  // Not currently supported by this SDK
+  ServiceApi serviceApi = poppyApi.getServiceApi();
+
+  serviceApi.deleteAsset("{relativeUrlOfAsset}");
 
 .. code-block:: javascript
 

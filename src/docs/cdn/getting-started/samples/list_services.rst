@@ -14,7 +14,9 @@
 
 .. code-block:: java
 
-  // Not currently supported by this SDK
+  ServiceApi serviceApi = poppyApi.getServiceApi();
+
+  List<Service> services = serviceApi.list();
 
 .. code-block:: javascript
 
