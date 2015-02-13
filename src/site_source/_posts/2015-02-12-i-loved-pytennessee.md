@@ -18,6 +18,8 @@ categories:
 
 ## Opening Keynote
 
+{% img 2015-02-12-i-loved-pytennessee/pytn_audience.jpg %}
+
 Giving a talk at PyTennessee was wonderful. The audience responded with Hi, Good Morning, and laughed at my jokes.
 
 Largely speaking, I came to speak on some of the ephemeral docker workflows I've been working on with [Jupyter](https://github.com/jupyter) and with the [cloudpipe project](https://github.com/cloudpipe). This included a bit on the [Nature demo](https://developer.rackspace.com/blog/how-did-we-serve-more-than-20000-ipython-notebooks-for-nature/), a bit on [tmpnb](https://github.com/jupyter/tmpnb), PiCloud, multyvac, and the future with cloudpipe.
