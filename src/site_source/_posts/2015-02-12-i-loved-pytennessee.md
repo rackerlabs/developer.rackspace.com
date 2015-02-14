@@ -42,18 +42,16 @@ Apparently my timing was good, as I snuck it in just before planned maintenance 
 
 People were astounded to see this in action. [Brian J. Geiger](https://twitter.com/thefoodgeek) from the Center for Open Science was eager to see this for their team and is making me think hard about how multi user notebook servers can be set up. [Carol Willing](https://twitter.com/WillingCarol) professed her love of tmpnb.org for making zero-to-lets-go with workshops be near 0 seconds.
 
-In addition to that, people asked if I could help them debug their Docker setups. I'm always game for some helping. It's fun!
+Additionally, several people came up to me to exclaim their excitement for [the cloudpipe project](https://github.com/cloudpipe) and bemoan the loss of PiCloud. There is definite excitement for an open source version to come online. It makes me hopeful CloudPipe can build a great community. All the current services propping up are making me wonder if PiCloud was just too early for its time. Another hypothesis is that charging margins for compute on top of cloud services is mighty difficult if you're not the hosting provider itself or running it on your own infrastructure.
 
+In addition to all that, people asked if I could help them debug their Docker setups. I'm always game for some helping. It's fun!
 
-<blockquote class="twitter-tweet" lang="en"><p>“It was only a year ago people were saying don’t use Docker in production. Should be enterprise ready now.” -<a href="https://twitter.com/rgbkrk">@rgbkrk</a> <a href="https://twitter.com/hashtag/pytn2015?src=hash">#pytn2015</a></p>&mdash; Mike Perez (@Thingee) <a href="https://twitter.com/Thingee/status/564089026312159232">February 7, 2015</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-One tweet really hit my feels, since it really got at why I was *so* excited to talk about building services with Docker and Python:
+There were some fun tweets during and afterward, but one tweet really summed it up:
 
 <blockquote class="twitter-tweet" lang="en"><p>Reading through tmpnb code after <a href="https://twitter.com/rgbkrk">@rgbkrk</a>&#39;s talk <a href="https://twitter.com/PyTennessee">@PyTennessee</a>. I&#39;m impressed how simple python+docker made creating such an amazing service!</p>&mdash; sciurus (@sciurus) <a href="https://twitter.com/sciurus/status/564100686888337411">February 7, 2015</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-Containers are such a wonderful building block and Docker provides a great API to build **really interesting** systems. As we see this space get built out further, we'll see all sorts of interesting applications come out.
+It really got at why I was *so* excited to talk about building services with Docker and Python. :) Containers are such a wonderful building block and Docker provides a great API to build **really interesting** systems. As we see this space get built out further, we'll see all sorts of interesting applications come out.
 
 ## The Glorious Food
 
