@@ -22,35 +22,38 @@ categories:
 
 {% img 2015-02-12-i-loved-pytennessee/pytn_audience.jpg %}
 
-Giving a talk at PyTennessee was wonderful. The audience responded with Hi, Good Morning, and laughed at my jokes.
+Giving a talk at PyTennessee was wonderful. The audience was warm, receptive, and laughed at my jokes (even the impromptu ones). Nashville in general was a really polite and courteous place to be. I'll definitely come back here.
 
-Largely speaking, I came to speak on some of the ephemeral docker workflows I've been working on with [Jupyter](https://github.com/jupyter) and with the [cloudpipe project](https://github.com/cloudpipe). This included a bit on the [Nature demo](https://developer.rackspace.com/blog/how-did-we-serve-more-than-20000-ipython-notebooks-for-nature/), a bit on [tmpnb](https://github.com/jupyter/tmpnb), PiCloud, multyvac, and the future with cloudpipe.
+Largely speaking, I talked about the ephemeral docker workflows I've been working on with [Jupyter](https://github.com/jupyter) and with the [cloudpipe project](https://github.com/cloudpipe). This included a bit on Docker, the [Nature demo](https://developer.rackspace.com/blog/how-did-we-serve-more-than-20000-ipython-notebooks-for-nature/), [tmpnb](https://github.com/jupyter/tmpnb), PiCloud, multyvac, and the future with cloudpipe. The [slides for my talk are available on speakerdeck](https://speakerdeck.com/rgbkrk/ephemeral-docker-workloads-with-jupyter-at-pytn).
 
-Since the audience was of varying background and skillset, I made sure to talk a little bit about putting up a Flask app with Docker.
+After my talk, there was plenty of time for questions. The questions posed at the beginning and throughout the conference were really illuminating. The recurring questions were all around multi user notebooks:
 
-After this, there was plenty of time for questions. The biggest question that got asked multiple ways was what the future was like for multi user notebook servers. People saw the utility of JupyterHub, tmpnb, colaboratory, and Google Drive integration each individually.
+* How will this work for educational purposes?
+* Can we see [Google Drive](https://github.com/jupyter/jupyter-drive) and [tmpnb](https://github.com/jupyter/tmpnb) get integrated?
+* When will we see a release of [JupyterHub](https://github.com/jupyter/jupyterhub) (the multi user notebook server)?
 
-Beyond that, I also showed the audience the JupyterHub that is currently run by Jess Hamrick for her Computational Models class.
+Since that was a big topic, I showed the audience the JupyterHub that is currently run by Jess Hamrick for her Computational Models class.
 
 {% img 2015-02-12-i-loved-pytennessee/jupyterhub_login.png  %}
-
-People were astounded to see this in action. [Brian J. Geiger](https://twitter.com/thefoodgeek) from the Center for Open Science was eager to see this for their team and is making me think hard about how multi user notebook servers can be set up.
 
 Apparently my timing was good, as I snuck it in just before planned maintenance on the JupyterHub setup:
 
 {% img 2015-02-12-i-loved-pytennessee/planned_maintenance.png %}
 
+People were astounded to see this in action. [Brian J. Geiger](https://twitter.com/thefoodgeek) from the Center for Open Science was eager to see this for their team and is making me think hard about how multi user notebook servers can be set up. [Carol Willing](https://twitter.com/WillingCarol) professed her love of tmpnb.org for making zero-to-lets-go with workshops be near 0 seconds.
+
+In addition to that, people asked if I could help them debug their Docker setups. I'm always game for some helping. It's fun!
+
+
 <blockquote class="twitter-tweet" lang="en"><p>“It was only a year ago people were saying don’t use Docker in production. Should be enterprise ready now.” -<a href="https://twitter.com/rgbkrk">@rgbkrk</a> <a href="https://twitter.com/hashtag/pytn2015?src=hash">#pytn2015</a></p>&mdash; Mike Perez (@Thingee) <a href="https://twitter.com/Thingee/status/564089026312159232">February 7, 2015</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-The reception to the talk must have been pretty good, since so many people came up to talk to me about Docker, IPython, Jupyter, tmpnb, and JupyterHub. It was WONDERFUL!
 
 One tweet really hit my feels, since it really got at why I was *so* excited to talk about building services with Docker and Python:
 
 <blockquote class="twitter-tweet" lang="en"><p>Reading through tmpnb code after <a href="https://twitter.com/rgbkrk">@rgbkrk</a>&#39;s talk <a href="https://twitter.com/PyTennessee">@PyTennessee</a>. I&#39;m impressed how simple python+docker made creating such an amazing service!</p>&mdash; sciurus (@sciurus) <a href="https://twitter.com/sciurus/status/564100686888337411">February 7, 2015</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-Containers are such a wonderful building block and Docker provides a great API to build **really interesting** systems.
+Containers are such a wonderful building block and Docker provides a great API to build **really interesting** systems. As we see this space get built out further, we'll see all sorts of interesting applications come out.
 
 ## The Glorious Food
 
