@@ -30,13 +30,13 @@ After this, there was plenty of time for questions. The biggest question that go
 
 Beyond that, I also showed the audience the JupyterHub that is currently run by Jess Hamrick for her Computational Models class.
 
-![JupyterHub landing page](http://i.imgur.com/9pYwboq.png)
+{% img 2015-02-12-i-loved-pytennessee/jupyterhub_login.png  %}
 
 People were astounded to see this in action. [Brian J. Geiger](https://twitter.com/thefoodgeek) from the Center for Open Science was eager to see this for their team and is making me think hard about how multi user notebook servers can be set up.
 
 Apparently my timing was good, as I snuck it in just before planned maintenance on the JupyterHub setup:
 
-![Compmodels ChatOps](http://i.imgur.com/9BxijbL.png)
+{% img 2015-02-12-i-loved-pytennessee/planned_maintenance.png %}
 
 <blockquote class="twitter-tweet" lang="en"><p>“It was only a year ago people were saying don’t use Docker in production. Should be enterprise ready now.” -<a href="https://twitter.com/rgbkrk">@rgbkrk</a> <a href="https://twitter.com/hashtag/pytn2015?src=hash">#pytn2015</a></p>&mdash; Mike Perez (@Thingee) <a href="https://twitter.com/Thingee/status/564089026312159232">February 7, 2015</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
