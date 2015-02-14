@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "I Loved PyTennessee 2015"
-date: 2015-02-12
+date: 2015-02-14
 comments: true
 author: Kyle Kelley
 published: true
@@ -14,13 +14,13 @@ categories:
 
 [Python Tennessee](https://www.pytennessee.org/) was a wonderfully put together conference with a great variety of speakers.
 
-{% img 2015-02-12-i-loved-pytennessee/deploy_in_the_back.png %}
+{% img 2015-02-14-i-loved-pytennessee/deploy_in_the_back.png %}
 
 <!-- more -->
 
 ## Opening Keynote
 
-{% img 2015-02-12-i-loved-pytennessee/pytn_audience.jpg %}
+{% img 2015-02-14-i-loved-pytennessee/pytn_audience.jpg %}
 
 Giving a talk at PyTennessee was wonderful. The audience was warm, receptive, and laughed at my jokes (even the impromptu ones). Nashville in general was a really polite and courteous place to be. I'll definitely come back here.
 
@@ -34,11 +34,11 @@ After my talk, there was plenty of time for questions. The questions posed at th
 
 Since that was a big topic, I showed the audience the JupyterHub that is currently run by Jess Hamrick for her Computational Models class.
 
-{% img 2015-02-12-i-loved-pytennessee/jupyterhub_login.png  %}
+{% img 2015-02-14-i-loved-pytennessee/jupyterhub_login.png  %}
 
 Apparently my timing was good, as I snuck it in just before planned maintenance on the JupyterHub setup:
 
-{% img 2015-02-12-i-loved-pytennessee/planned_maintenance.png %}
+{% img 2015-02-14-i-loved-pytennessee/planned_maintenance.png %}
 
 People were astounded to see this in action. [Brian J. Geiger](https://twitter.com/thefoodgeek) from the Center for Open Science was eager to see this for their team and is making me think hard about how multi user notebook servers can be set up. [Carol Willing](https://twitter.com/WillingCarol) professed her love of tmpnb.org for making zero-to-lets-go with workshops be near 0 seconds.
 
@@ -106,7 +106,7 @@ To quell your inner hunger as foodie and programmer, [Adrienne Lowe](https://twi
 
 [Rebecca Standig](https://twitter.com/understandig) made people think hard about how they design APIs and why language matters.
 
-{% img 2015-02-12-i-loved-pytennessee/why_linguists_for_apis.jpg %}
+{% img 2015-02-14-i-loved-pytennessee/why_linguists_for_apis.jpg %}
 
 <blockquote class="twitter-tweet" lang="en"><p>&quot;Learning an API should be intuitive - not hard to figure out. Choose your words intentionally.&quot; <a href="https://twitter.com/understandig">@understandig</a> <a href="https://twitter.com/PyTennessee">@PyTennessee</a> <a href="https://twitter.com/hashtag/pytn2015?src=hash">#pytn2015</a></p>&mdash; Aubrey Howell (@SimplyAubs) <a href="https://twitter.com/SimplyAubs/status/564185914860371969">February 7, 2015</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
@@ -117,11 +117,11 @@ Michael Herman gave the audience a wonderful introduction to Docker, services ar
 
 ### [Twitter Network Analysis with NetworkX](https://www.pytennessee.org/schedule/presentation/52/)
 
-{% img 2015-02-12-i-loved-pytennessee/networkx_students.jpg %}
+{% img 2015-02-14-i-loved-pytennessee/networkx_students.jpg %}
 
 This tutorial session stepped up their game by providing a handout.
 
-{% img 2015-02-12-i-loved-pytennessee/handout.jpg %}
+{% img 2015-02-14-i-loved-pytennessee/handout.jpg %}
 
 Sarah and Celia guided students through network analysis using NetworkX in the IPython notebook.
 
@@ -134,4 +134,4 @@ PyTennessee was incredible and as I always end up seeing, bigger than I expected
 
 I can't wait until PyTennessee 2016!
 
-{% img 2015-02-12-i-loved-pytennessee/offtopytn.png %}
+{% img 2015-02-14-i-loved-pytennessee/offtopytn.png %}
