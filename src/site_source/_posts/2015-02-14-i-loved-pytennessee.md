@@ -70,18 +70,12 @@ The PyTennessee organizers taunted everyone by Twitter by tweeting and retweetin
 <blockquote class="twitter-tweet" lang="en"><p>Lunch is just about over here at <a href="https://twitter.com/PyTennessee">@PyTennessee</a>. Hearing some great chatter about the sessions. <a href="http://t.co/LFc7HEROUf">pic.twitter.com/LFc7HEROUf</a></p>&mdash; sifted (@siftedco) <a href="https://twitter.com/siftedco/status/564134854124523520">February 7, 2015</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-<blockquote class="twitter-tweet" lang="en"><p>Great lunch from <a href="https://twitter.com/siftedco">@siftedco</a> for <a href="https://twitter.com/PyTennessee">@PyTennessee</a> <a href="https://twitter.com/hashtag/pytn2015?src=hash">#pytn2015</a> <a href="http://t.co/Odr27D31U6">pic.twitter.com/Odr27D31U6</a></p>&mdash; Douglas Starnes (@poweredbyaltnet) <a href="https://twitter.com/poweredbyaltnet/status/564129900559613952">February 7, 2015</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-
 <blockquote class="twitter-tweet" lang="en"><p>Burmese pork curry over basmati rice &amp; chopped salad with peanuts &amp; lime vinaigrette. Come get some <a href="https://twitter.com/PyTennessee">@PyTennessee</a> <a href="http://t.co/I2kEsqsbHJ">pic.twitter.com/I2kEsqsbHJ</a></p>&mdash; sifted (@siftedco) <a href="https://twitter.com/siftedco/status/564214595644973056">February 8, 2015</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 ### Day 2
 
 <blockquote class="twitter-tweet" lang="en"><p>Day 2 here at <a href="https://twitter.com/PyTennessee">@PyTennessee</a> <a href="http://t.co/bqfdRbxkub">pic.twitter.com/bqfdRbxkub</a></p>&mdash; sifted (@siftedco) <a href="https://twitter.com/siftedco/status/564429136672722944">February 8, 2015</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-<blockquote class="twitter-tweet" lang="en"><p><a href="https://twitter.com/PyTennessee">@PyTennessee</a> great lunch today! Honey Chicken was awesome! <a href="http://t.co/gXbboFglEC">pic.twitter.com/gXbboFglEC</a></p>&mdash; jayrodau (@jayrodau) <a href="https://twitter.com/jayrodau/status/564494507295916032">February 8, 2015</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 To quell your inner hunger as foodie and programmer, [Adrienne Lowe](https://twitter.com/adriennefriend) gave a [talk on pairing recipes with fine exercises from Learn Python the Hard Way](https://www.pytennessee.org/schedule/presentation/76/).
