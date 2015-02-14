@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "I loved PyTennessee 2015"
+title: "I Loved PyTennessee 2015"
 date: 2015-02-12
 comments: true
 author: Kyle Kelley
