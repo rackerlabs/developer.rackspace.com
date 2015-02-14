@@ -14,6 +14,8 @@ categories:
 
 [Python Tennessee](https://www.pytennessee.org/) was a wonderfully put together conference with a great variety of speakers.
 
+{% img 2015-02-12-i-loved-pytennessee/deploy_in_the_back.png %}
+
 <!-- more -->
 
 ## Opening Keynote
@@ -103,6 +105,8 @@ To quell your inner hunger as foodie and programmer, [Adrienne Lowe](https://twi
 
 [Rebecca Standig](https://twitter.com/understandig) made people think hard about how they design APIs and why language matters.
 
+{% img 2015-02-12-i-loved-pytennessee/why_linguists_for_apis.jpg %}
+
 <blockquote class="twitter-tweet" lang="en"><p>&quot;Learning an API should be intuitive - not hard to figure out. Choose your words intentionally.&quot; <a href="https://twitter.com/understandig">@understandig</a> <a href="https://twitter.com/PyTennessee">@PyTennessee</a> <a href="https://twitter.com/hashtag/pytn2015?src=hash">#pytn2015</a></p>&mdash; Aubrey Howell (@SimplyAubs) <a href="https://twitter.com/SimplyAubs/status/564185914860371969">February 7, 2015</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
@@ -112,13 +116,19 @@ Michael Herman gave the audience a wonderful introduction to Docker, services ar
 
 ### [Twitter Network Analysis with NetworkX](https://www.pytennessee.org/schedule/presentation/52/)
 
+{% img 2015-02-12-i-loved-pytennessee/networkx_students.jpg %}
+
 This talk/tutorial stepped up their game by providing a handout.
 
-Complete with being in a classroom (at a law school no less), really made me feel like I was back in college. Awesome.
+{% img 2015-02-12-i-loved-pytennessee/handout.jpg %}
 
 ## Closing up
+
+PyTennessee was incredible and as I always end up seeing, bigger than I expected for a regional conference. Hats off to the organizers for putting together such a great conference.
 
 <blockquote class="twitter-tweet" lang="en"><p>The awesome pano I took during my talk at the fantastic <a href="https://twitter.com/PyTennessee">@PyTennessee</a> <a href="https://twitter.com/hashtag/pytn?src=hash">#pytn</a> <a href="http://t.co/vllC5AG6go">pic.twitter.com/vllC5AG6go</a></p>&mdash; sudo bake me a cake (@roguelynn) <a href="https://twitter.com/roguelynn/status/564567652442861568">February 8, 2015</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 I can't wait until PyTennessee 2016!
+
+{% img 2015-02-12-i-loved-pytennessee/offtopytn.png %}
