@@ -119,9 +119,11 @@ Michael Herman gave the audience a wonderful introduction to Docker, services ar
 
 {% img 2015-02-12-i-loved-pytennessee/networkx_students.jpg %}
 
-This talk/tutorial stepped up their game by providing a handout.
+This tutorial session stepped up their game by providing a handout.
 
 {% img 2015-02-12-i-loved-pytennessee/handout.jpg %}
+
+Sarah and Celia guided students through network analysis using NetworkX in the IPython notebook.
 
 ## Closing up
 
