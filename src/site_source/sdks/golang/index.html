@@ -41,10 +41,10 @@ import (
   "github.com/rackspace/gophercloud/rackspace/objectstorage/v1/accounts"
 )
 
-provider, err := rackspace.AuthenticatedClient{gophercloud.AuthOptions{
+provider, err := rackspace.AuthenticatedClient(gophercloud.AuthOptions{
   Username: "{username}",
   APIKey:   "{apiKey}",
-}}
+})
 
 service, err := rackspace.NewObjectStorageV1(provider, gophercloud.EndpointOpts{
   Region: "{region}",
