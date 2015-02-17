@@ -11,7 +11,7 @@ categories:
     - Ansible 
 ---
 
-While this blog post may seen trivial on the surface, it does pack some very interesting information on how very flexible the Rackspace Cloud Files product can be.  While executing another customer project, the age old question of: “Where are we going to put the database backups?” was raised.  Back in the day this question only really had one solution.  In the current age of the cloud, you have a few options.  Since I like to live life on the edge…I raised my hand and said Cloud Files.
+While this blog post may seem trivial on the surface, it does pack some very interesting information on how very flexible the Rackspace Cloud Files product can be.  While executing another customer project, the age old question of: “Where are we going to put the database backups?” was raised.  Back in the day this question only really had one solution.  In the current age of the cloud, you have a few options.  Since I like to live life on the edge…I raised my hand and said Cloud Files.
 
 For those of you not familiar with Cloud Files, the easiest way to describe it is shared Object Storage.  In OpenStack lingo, you could also call it shared Swift.  Cloud Files is an API enabled Object storage capability found on the Rackspace Public cloud platform.  In this post, we will walk you thru how easy it is to store something as simple as database backups in Cloud Files using simple automation, fronted by Ansible of course (my orchestration drug of choice).  I promise this post will be short and sweet.
 
