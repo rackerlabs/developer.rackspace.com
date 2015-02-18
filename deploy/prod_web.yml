@@ -94,4 +94,4 @@
     - webserver
     - lockboxweb
     - editors
-    - "{{ nginx_role_config }}"
+    - bennojoy.nginx
