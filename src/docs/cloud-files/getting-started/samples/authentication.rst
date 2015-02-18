@@ -16,6 +16,7 @@
     "github.com/rackspace/gophercloud/rackspace/objectstorage/v1/containers"
     "github.com/rackspace/gophercloud/rackspace/objectstorage/v1/objects"
     "github.com/rackspace/gophercloud/rackspace/objectstorage/v1/cdncontainers"
+    "github.com/rackspace/gophercloud/rackspace/objectstorage/v1/cdnobjects"
   )
 
   ao := gophercloud.AuthOptions{
