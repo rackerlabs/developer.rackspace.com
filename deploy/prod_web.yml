@@ -32,7 +32,7 @@
         credentials: ~/.rackspace_cloud_credentials
         name: "{{ deployment_region }}_prod_webserver_%01d"
         flavor: general1-1
-        image: ubuntu-1204-lts-precise-pangolin
+        image: ubuntu-1204-lts-precise-pangolin-pv
         networks:
           - public
           - private
