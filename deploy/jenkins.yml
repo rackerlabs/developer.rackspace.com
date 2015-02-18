@@ -18,7 +18,7 @@
         credentials: ~/.rackspace_cloud_credentials
         name: "{{ deployment_region }}_jenkins_master_%01d"
         flavor: general1-4
-        image: ubuntu-1204-lts-precise-pangolin
+        image: ubuntu-1204-lts-precise-pangolin-pv
         networks:
           - public
           - private
