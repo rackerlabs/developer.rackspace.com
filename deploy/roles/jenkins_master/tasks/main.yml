@@ -24,6 +24,9 @@
   notify:
   - Restart Jenkins Service
 
+- name: Write the SSH key for publisher.
+  template: src=var/lib/jenkins/publisher_rsa dest=/var/lib/jenkins/publisher_rsa mode=0600
+
 - name: Generate an SSH key for root.
   sudo: yes
   command: ssh-keygen -b 2048 -f /root/.ssh/id_rsa -N ''
@@ -35,11 +38,11 @@
   command: ssh-keygen -y -f /root/.ssh/id_rsa
   register: root_ssh_pubkey
 
-- name: Setup correct permissions
+- name: Setup correct permissions on SSH keys.
   sudo: yes
   file: path={{ item }} mode=0600
   with_items:
-  - /var/lib/jenkins/publisher.id_rsa
+  - /var/lib/jenkins/publisher_rsa
   - /root/.ssh/id_rsa
 
 - name: Copy motd file
