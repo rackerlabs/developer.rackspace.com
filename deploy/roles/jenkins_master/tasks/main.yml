@@ -64,6 +64,7 @@
   with_items:
   - jobs/build_prod_site
   - jobs/build_staging_site
+  - users/drguser
   - users/drgadmin
 
 - name: Dynamically create 'build_prod_site' job config with production web server IP list
@@ -87,6 +88,14 @@
   template:
     src: var/lib/jenkins/users/drgadmin/config.xml.j2
     dest: /var/lib/jenkins/users/drgadmin/config.xml
+  notify:
+  - Restart Jenkins Service
+
+- name: Dynamically create the 'drguser' user
+  sudo: yes
+  template:
+    src: var/lib/jenkins/users/drguser/config.xml.j2
+    dest: /var/lib/jenkins/users/drguser/config.xml
   notify:
   - Restart Jenkins Service
 
