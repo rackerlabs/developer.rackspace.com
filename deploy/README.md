@@ -42,20 +42,15 @@ Before you begin, you'll need to collect a number of private keys and passphrase
   $ cd /path/to/developer.rackspace.com/deploy
   ```
 
-6. Make sure the `publisher.id_rsa` file is in the `roles/jenkins_masters/files/var/lib/jenkins/` directory. This is the private key used by Jenkins jobs to publish the generated web site to the various web servers serving developer.rackspace.com. Modify file permissions:
+6. Run the Ansible playbook to set up the production and staging environments and Jenkins within a region. Enter the vault password when prompted to do so.
 
   ```bash
-  $ chmod 600 roles/jenkins_masters/files/var/lib/jenkins/publisher.id_rsa
-  ```
-7. Run the Ansible playbook to set up the production and staging environments and Jenkins within a region. Enter the vault password when prompted to do so.
-
-  ```bash
-  $ RAX_REGION=DFW script/deploy
+  $ RAX_REGION=DFW script/deploy --extra-vars="mon_pagerduty=true"
   ```
 
-8. Each cloud server has nginx installed, configured and running.
+7. Each cloud server has nginx installed, configured and running.
 
-9. Each cloud server has a `publisher` user. The Jenkins jobs `build_prod_site` and `build_staging_site` use this key to publish content to the production and staging web sites respectively. Content is published over rsync + ssh.
+8. Each cloud server has a `publisher` user. The Jenkins jobs `build_prod_site` and `build_staging_site` use this key to publish content to the production and staging web sites respectively. Content is published over rsync + ssh.
 
 ## Folder Layout
 
