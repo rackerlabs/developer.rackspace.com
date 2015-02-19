@@ -48,7 +48,7 @@ In the interest of time, here's a brief non-normative description of the guide-w
 1. Find a guide that is not assigned to anyone and assign it to yourself.
 2. Fork and then clone the developers.rackspace.com repo (https://github.com/rackerlabs/developer.rackspace.com)
 3. git remote add upstream https://github.com/rackerlabs/developer.rackspace.com.git
-4. git pull upstream master
+4. git pull upstream dev
 5. Create a git branch named after the service you are going to write about.
 6. cd into docs/ 
 7. Create a directory of the service you are going to write about with the following nomenclature:
@@ -61,8 +61,7 @@ In the interest of time, here's a brief non-normative description of the guide-w
 11. in the samples directory create a new blank file for each code sample you cited in the guide (ideally one per API operation).
 12. run jekyll, then Sphinx (as explained above).
 13. If no errors, git commit[1], then git push origin branch-name
-14. Submit PR from your branch, to upstream master.
-
+14. Submit PR from your branch, to upstream dev.
 
 Note: Remember these are getting started guides, so we want to avoid deep delves or thorough treatment of the subjects. In essence, we want the equivalent of basic CRUD operations. All other use cases should be left to in-depth API/SDK docs.
 
