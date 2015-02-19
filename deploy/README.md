@@ -2,7 +2,7 @@
 
 Before you begin, you'll need to collect a number of private keys and passphrases. Ask @ycombinator for them.
 
- * `~/.ssh/drg_rsa`
+ * `~/.ssh/devex_rsa`
  * `publisher.id_rsa`
  * The `ansible-vault` password.
 
@@ -30,10 +30,10 @@ Before you begin, you'll need to collect a number of private keys and passphrase
   api_key = <REPLACE WITH YOUR RACKSPACE CLOUD API KEY>
   ```
 
-4. Make sure the `drg_rsa` file is in your `~/.ssh` directory. The corresponding public key needs to be uploaded as the `drg` public key in the "SSH Keys" section of your Rackspace Cloud Control Panel for the region(s) where you wish to setup production infrastructure. Modify file permissions:
+4. Make sure the `devex_rsa` file is in your `~/.ssh` directory. The corresponding public key needs to be uploaded as the `devex` public key in the "SSH Keys" section of your Rackspace Cloud Control Panel for the region(s) where you wish to setup production infrastructure. Modify file permissions:
 
   ```bash
-  $ chmod 600 ~/.ssh/drg_rsa
+  $ chmod 600 ~/.ssh/devex_rsa
   ```
 
 5. Change to this directory on your development machine.

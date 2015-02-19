@@ -9,4 +9,4 @@ localhost
 
 [all:vars]
 ansible_ssh_user=root
-ansible_ssh_private_key_file=~/.ssh/drg_rsa
+ansible_ssh_private_key_file=~/.ssh/devex_rsa
