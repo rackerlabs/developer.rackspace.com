@@ -55,7 +55,7 @@ fi
 
 ANSIBLE_ARGS=
 
-[ -f deploy/secrets.yml ] || ANSIBLE_ARGS='--ask-vault-pass'
+[ -f deploy/secrets-clear-text.yml ] || ANSIBLE_ARGS='--ask-vault-pass'
 
 # Kick it. Pass any additional arguments to Ansible.
 
