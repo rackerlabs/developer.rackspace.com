@@ -3,6 +3,7 @@
 - name: Check prerequisites and fail fast.
   hosts: local
   connection: local
+  gather_facts: no
   tasks:
 
   - name: Ensure that exactly one monitoring setup is active.

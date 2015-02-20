@@ -56,7 +56,7 @@
 .. code-block:: sh
 
   # Reminder: all {variableNames} are placeholders only. Must be replaced by actual and valid values
-  curl -X POST $ENDPOINT -d \
+  curl -X POST $ENDPOINT/servers -d \
     '{
       "server" : {
           "name" : "My new server",

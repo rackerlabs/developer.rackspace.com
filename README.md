@@ -1,34 +1,18 @@
 # developer.rackspace.com
 
-Third gen of the developer.rackspace.com Portal
-
-This repo represents a refactor of the developer.rackspace.com site.
-
-The dev site currently builds from rackerlabs/devsite but only accepts new blog posts as of March 1 2014.
-
-We are migrating to this repo by June-ish 2014. The areas now building are:
-- `/src/docs/`: Getting Started Guides, built using Sphinx
-- `/src/site_source`: Rest of the web site layout and content, built using Jekyll
-
-In progress:
-- /api/: maven, content maintained in rackerlabs/docs-api-reference
-- elastic search
-
-To do:
-- assets to CDN
-- feeds
-
 ## Content Setup
 
 Please see [the contributing document](/src/site_source/CONTRIBUTING.md) for guidance on submitting blog posts.
 
-To preview local changes made to the site's static content, including the Getting Started guides or the blog, run:
+To preview local changes made to the site's static content, including the Getting Started guides or the blog, run:†
 
 ```
 script/preview
 ```
 
 After the build completes, your browser will launch on the resulting site. Use **Ctrl-C** to terminate the process when you're done.
+
+† the command assumes you are running a modern version of OS X
 
 ## Full Site Setup
 
@@ -80,3 +64,11 @@ __Note__: You should use this setup if you work on the entire d.r.c. site, its i
         ```bash
         sudo tail -F /var/log/upstart/watcher.log
         ```
+
+## Branches
+
+Our repo has two main branches (`dev` and `master`) contributors should care about.
+
+`dev` branch should be used only for code (html, js, css, etc.) changes and infrastructure automation changes PRs.
+
+PRs against `master` should only be for docs, blog posts or other text content.
