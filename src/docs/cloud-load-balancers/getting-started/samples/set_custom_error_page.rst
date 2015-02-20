@@ -2,15 +2,16 @@
 
   LoadBalancerId loadBalancerId = new LoadBalancerId("{load_balancer_id}");
   await cloudLoadBalancerProvider.SetErrorPageAsync(
-	loadBalancerId, 
-	"{custom_error_page}", 
-	AsyncCompletionOption.RequestCompleted, 
-	CancellationToken.None, 
+	loadBalancerId,
+	"{custom_error_page}",
+	AsyncCompletionOption.RequestCompleted,
+	CancellationToken.None,
 	null);
 
 .. code-block:: go
 
-  // Not currently supported by this SDK
+  html := "<html>New error page</html>"
+  content, err := lbs.SetErrorPage(client, "{loadBalancerId}", html).Extract()
 
 .. code-block:: java
 

@@ -17,7 +17,7 @@
   roles:
     - role: webserver
       content_owner: vagrant
-    - "{{ nginx_role_config }}"
+    - bennojoy.nginx
     - jekyll
     - sphinx
     - editors

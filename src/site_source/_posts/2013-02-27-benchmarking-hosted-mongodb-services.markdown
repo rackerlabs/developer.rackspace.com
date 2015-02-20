@@ -8,6 +8,7 @@ published: true
 categories:
 - Cloud Databases
 - ObjectRocket
+- mongodb
 ---
 
 When we started investigating the hosted MongoDB space, we quickly found that most of the companies involved were just hosting MongoDB on top of AWS instances. We were intrigued by the different approach taken by ObjectRocket.  Instead of using AWS primitives, they built their service on their own hardware in neighboring data centers, and utilized AWS DirectConnect to provide low latency connectivity.

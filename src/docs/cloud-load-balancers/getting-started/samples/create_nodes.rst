@@ -1,24 +1,39 @@
 .. code-block:: csharp
 
   LoadBalancerId loadBalancerId = new LoadBalancerId("{load_balancer_id}");
-  NodeConfiguration nodeConfiguration = 
+  NodeConfiguration nodeConfiguration =
 	new NodeConfiguration(
-		"{host_domain}", 
-		80, 
-		NodeCondition.Enabled, 
-		NodeType.Primary, 
+		"{host_domain}",
+		80,
+		NodeCondition.Enabled,
+		NodeType.Primary,
 		null);
-  Node node = 
+  Node node =
 	await cloudLoadBalancerProvider.AddNodeAsync(
-		loadBalancerId, 
-		nodeConfiguration, 
-		AsyncCompletionOption.RequestCompleted, 
-		CancellationToken.None, 
+		loadBalancerId,
+		nodeConfiguration,
+		AsyncCompletionOption.RequestCompleted,
+		CancellationToken.None,
 		null);
 
 .. code-block:: go
 
-  // Not currently supported by this SDK
+  opts := nodes.CreateOpts{
+    nodes.CreateOpt{
+      Address:   "10.2.2.3",
+      Port:      80,
+      Condition: nodes.ENABLED,
+      Type:      nodes.PRIMARY,
+    },
+    nodes.CreateOpt{
+      Address:   "10.2.2.4",
+      Port:      81,
+      Condition: nodes.ENABLED,
+      Type:      nodes.SECONDARY,
+    },
+  }
+
+  nodeList := nodes.Create(client, "{loadBalancerId}", opts)
 
 .. code-block:: java
 

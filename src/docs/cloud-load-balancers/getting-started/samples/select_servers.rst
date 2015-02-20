@@ -5,7 +5,20 @@
 
 .. code-block:: go
 
-  // Not currently supported by this SDK
+  computeClient := rackspace.NewComputeV2(provider, gophercloud.EndpointOpts{
+    Region: "{region}",
+  })
+
+  pager := servers.List(computeClient, nil)
+  err := pager.EachPage(func(page pagination.Page) (bool, error) {
+    serverList, err := servers.ExtractServers(page)
+
+    for _, s := range serverList {
+       // To retrieve a server's IP address, call s.AccessIPv4
+    }
+
+    return true, nil
+  })
 
 .. code-block:: java
 
