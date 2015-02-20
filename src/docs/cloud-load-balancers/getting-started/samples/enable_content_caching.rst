@@ -2,15 +2,22 @@
 
   LoadBalancerId loadBalancerId = new LoadBalancerId("{load_balancer_id}");
   await cloudLoadBalancerProvider.SetContentCachingAsync(
-	loadBalancerId, 
-	true, 
-	AsyncCompletionOption.RequestCompleted, 
-	CancellationToken.None, 
+	loadBalancerId,
+	true,
+	AsyncCompletionOption.RequestCompleted,
+	CancellationToken.None,
 	null);
 
 .. code-block:: go
 
-  // Not currently supported by this SDK
+  // Check whether caching is set
+  isCached, err := lbs.IsContentCached(client, "{loadBalancerId}")
+
+  // Enable it
+  err := lbs.EnableCaching(client, "{loadBalancerId}").ExtractErr()
+
+  // Disable it
+  err := lbs.DisableCaching(client, "{loadBalancerId}").ExtractErr()
 
 .. code-block:: java
 

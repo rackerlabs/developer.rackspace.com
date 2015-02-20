@@ -6,7 +6,7 @@
 .. raw:: html
 
     <div class="doc-index">
-    
+
         <div class="row">
             <div class="col-md-12">
                 <h1>Explore our APIs</h1>
@@ -186,6 +186,34 @@
                     <li><a href="/docs/cloud-servers/getting-started/">Getting Started</a></li>
                     <li><a href="http://api.rackspace.com/api-ref.html">API Reference</a></li>
                     <li><a href="http://docs.rackspace.com/servers/api/v2/cs-devguide/content/ch_preface.html">Developer Guide</a></li>
+                </ul>
+            </div>
+        </div>
+
+      <div class="row">
+            <div class="col-md-12">
+                <h2>
+                  <img src="{% asset_path cloud-identity.png %}" alt="" class="product-image"/>
+                  Cloud Identity
+                </h2>
+                <p>Cloud Identity provides authentication and authorization functionality for other Rackspace Cloud services.</p>
+                <ul class="piped-list">
+                    <li><a href="http://api.rackspace.com/api-ref-backup.html">API Reference</a></li>
+                    <li><a href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content">Developer Guide</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-12">
+                <h2>
+                  <img src="{% asset_path icon-cdn.png %}" alt="" class="product-image"/>
+                  Rackspace CDN
+                </h2>
+                <p>Rackspace CDN Rackspace CDN gives you the power to accelerate content on any public resource at Rackspace. It provides a simple API and Control Panel experience for you to manage your CDN-enabled domains and the origins and assets associated with those domains.</p>
+                <ul class="piped-list">
+                    <li><a href="http://api.rackspace.com/api-ref-raxCDN.html">API Reference</a></li>
+                    <li><a href="http://docs.rackspace.com/cdn/api/v1.0/cdn-devguide/content/Overview.html">Developer Guide</a></li>
                 </ul>
             </div>
         </div>

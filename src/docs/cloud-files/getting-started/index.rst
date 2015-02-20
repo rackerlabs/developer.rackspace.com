@@ -109,6 +109,10 @@ To download objects directly into your local storage drive via SDK download:
 
 Get object via CDN URL
 ~~~~~~~~~~~~~~~~~~~~~~
+Pre-requisite: `CDN-enable the object's container`_.
+
+.. _CDN-enable the object's container: #cdn-enable-container
+
 To retrieve an object through a CDN URL, that, unlike a temporary URL, never expires and may be considered a publicly-accessible permalink:
 
 .. include:: samples/get_object_cdn.rst

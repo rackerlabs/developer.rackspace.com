@@ -9,7 +9,7 @@
 
 .. code-block:: go
 
-  // Not currently supported by this SDK
+  cdnURL, err := cdnobjects.CDNURL(cdnClient, "{containerName}", "{objectName}")
 
 .. code-block:: java
 
@@ -46,4 +46,3 @@
 
   curl -i -X HEAD $CDN_ENDPOINT/{containerName}/{objectName} /
       -H "X-Auth-Token: $TOKEN"
-

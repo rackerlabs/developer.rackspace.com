@@ -293,7 +293,7 @@ Below is the complete deployment template for this application. I invite you to 
 
 If you want to try this template, download it from the following link: [heat_2b.yaml](https://raw.githubusercontent.com/miguelgrinberg/heat-tutorial/master/heat_2b.yaml). Then launch it as follows:
 
-    (venv) $ heat flasky -f heat_2b.yaml -P "gmail_username=<your-gmail-user>;gmail_password=<your-gmail-pw>"
+    (venv) $ heat stack-create flasky -f heat_2b.yaml -P "gmail_username=<your-gmail-user>;gmail_password=<your-gmail-pw>"
 
 As before, you may need to add additional parameters to the `-P` part if you need to use a different key pair, image, etc. Note that the two parameters that I show above are required because I have not defined defaults for them.
 
@@ -450,7 +450,7 @@ The `outputs` section, which used to contain the private network IP address asso
 
 Ready to try this last template? Go ahead and download the new version of the template, including all the networking changes, from the following link: [heat_2c.yaml](https://raw.githubusercontent.com/miguelgrinberg/heat-tutorial/master/heat_2c.yaml). Then launch it with the following command:
 
-    (venv) $ heat flasky -f heat_2c.yaml -P "gmail_username=<your-gmail-user>;gmail_password=<your-gmail-pw>"
+    (venv) $ heat stack-create flasky -f heat_2c.yaml -P "gmail_username=<your-gmail-user>;gmail_password=<your-gmail-pw>"
 
 Note that you may also need to include the name of your external network, if it doesn't match the default I defined. If you let the template run for a couple of minutes, you should be able to obtain its floating IP address from the outputs. After you type this address into your browser, you should see Flasky's login page!
 

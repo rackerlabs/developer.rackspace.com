@@ -2,13 +2,30 @@
 
   // Not currently supported by this SDK
 
+.. code-block:: go
+
+  err = stacks.List(serviceClient, nil).EachPage(func(page pagination.Page) (bool, error) {
+    stackList, err := osStacks.ExtractStacks(page)
+    if err != nil {
+      // handle error...
+    }
+    return true, nil
+  })
+
 .. code-block:: java
 
   // Not currently supported by this SDK
 
 .. code-block:: javascript
 
-  // Not currently supported by this SDK
+  client.getStacks(function (err, stacks) {
+    if (err) {
+      // TODO handle as appropriate
+      return;
+    }
+
+    // TODO use your stacks here
+  });
 
 .. code-block:: php
 
@@ -20,7 +37,7 @@
 
 .. code-block:: ruby
 
-  # Not currently supported by this SDK
+  @client.stacks
 
 .. code-block:: sh
 

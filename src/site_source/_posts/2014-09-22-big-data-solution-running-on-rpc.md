@@ -9,6 +9,9 @@ categories:
     - RPC
     - openstack
     - private-cloud
+    - mongodb
+    - cassandra
+    - hadoop
 bio: |
  James Thorne is a Sales Engineer at Rackspace focused on working with OpenStack. He is a Texas State University alumnus and former Platform Consultant at Red Hat. James has been working with Linux professionally for the past four years and in his free time even longer. James blogs at thornelabs.net and can be followed on Twitter @jameswthorne.
 ---
@@ -100,7 +103,7 @@ There are too many big data tools to list and talk about, but I will briefly dis
 
 ### Analysis Tools
 
-As for big data analysis tools, there is of course Hadoop. Whenever big data is discussed, Hadoop is not far from being mentioned. But, what is Hadoop? 
+As for big data analysis tools, there is of course Hadoop. Whenever big data is discussed, Hadoop is not far from being mentioned. But, what is Hadoop?
 
 From [hadoop.apache.org](http://hadoop.apache.org):
 
@@ -108,11 +111,11 @@ From [hadoop.apache.org](http://hadoop.apache.org):
 
 Hadoop was designed with cloud environments and infrastructure in mind.
 
-Another useful tool is MapReduce, which is often also talked about when discussing Hadoop. 
+Another useful tool is MapReduce, which is often also talked about when discussing Hadoop.
 
 From [Wikipedia](http://en.wikipedia.org/wiki/MapReduce):
 
-> MapReduce is a programming model and an associated implementation for processing and generating large data sets with a parallel, distributed algorithm on a cluster. 
+> MapReduce is a programming model and an associated implementation for processing and generating large data sets with a parallel, distributed algorithm on a cluster.
 
 Hadoop gives you the ability to run MapReduce jobs across a cluster so you can process your raw data quicker.
 

@@ -3,15 +3,21 @@
   LoadBalancerId loadBalancerId = new LoadBalancerId("{load_balancer_id}");
   NetworkItem networkItem = new NetworkItem("206.160.165.0/24", AccessType.Deny);
   await cloudLoadBalancerProvider.CreateAccessListAsync(
-	loadBalancerId, 
-	networkItem, 
-	AsyncCompletionOption.RequestCompleted, 
-	CancellationToken.None, 
+	loadBalancerId,
+	networkItem,
+	AsyncCompletionOption.RequestCompleted,
+	CancellationToken.None,
 	null);
 
 .. code-block:: go
 
-  // Not currently supported by this SDK
+  list := acl.CreateOpts{
+    acl.CreateOpt{Address: "206.160.165.0/24", Type: acl.DENY},
+    acl.CreateOpt{Address: "206.160.166.0/24", Type: acl.ALLOW},
+    acl.CreateOpt{Address: "0.0.0.0/0", Type: acl.DENY},
+  }
+
+  err := acl.Create(client, "{loadBalancerId}", list).ExtractErr()
 
 .. code-block:: java
 
