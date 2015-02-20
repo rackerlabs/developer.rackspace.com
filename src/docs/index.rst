@@ -203,6 +203,20 @@
                 </ul>
             </div>
         </div>
+        
+        <div class="row">
+            <div class="col-md-12">
+                <h2>
+                  <img src="{% asset_path icon-cdn.png %}" alt="" class="product-image"/>
+                  Rackspace CDN
+                </h2>
+                <p>Rackspace CDN Rackspace CDN gives you the power to accelerate content on any public resource at Rackspace. It provides a simple API and Control Panel experience for you to manage your CDN-enabled domains and the origins and assets associated with those domains.</p>
+                <ul class="piped-list">
+                    <li><a href="http://api.rackspace.com/api-ref-raxCDN.html">API Reference</a></li>
+                    <li><a href="http://docs.rackspace.com/cdn/api/v1.0/cdn-devguide/content/Overview.html">Developer Guide</a></li>
+                </ul>
+            </div>
+        </div>
     </div>
 
 .. toctree::
