@@ -6,31 +6,33 @@ import pyrax
 import os
 
 pyrax.set_setting("identity_type", "rackspace")
-pyrax.set_setting("region", os.environ['RAX_REGION'].upper())
+# pyrax.set_setting("region", os.environ['RAX_REGION'].upper())
 pyrax.set_credential_file(os.path.expanduser("~/.rackspace_cloud_credentials"))
 
 cm = pyrax.cloud_monitoring
 
-print ">> ENTITIES ::"
-for e in cm.list_entities():
-    print e
+print ">> NOTIFICATIONS ::\n"
 
-print ">> CHECKS ::"
-for e in cm.list_entities():
-    print "- %s" % e.label
-    for c in e.list_checks():
-        print c
-
-print ">> NOTIFICATIONS ::"
 for n in cm.list_notifications():
-    print n
+    print "-- %s (details=%s,id=%s)\n" % (n.label, n.details, n.id)
 
-print ">> NOTIFICATION PLANS ::"
+print ">> NOTIFICATION PLANS ::\n"
+
 for np in cm.list_notification_plans():
-    print np
+    print "-- %s (id=%s)" % (np.label, np.id)
+    print
 
-print ">> ALARMS ::"
+print ">> ENTITIES ::\n"
+
 for e in cm.list_entities():
-    print "- %s" % e.label
+    print "-- %s (id=%s)\n" % (e.label, e.id)
+
+    for c in e.list_checks():
+        print "  CHECK %s : (type=%s,id=%s)\n" % (c.label, c.type, c.id)
+
     for a in e.list_alarms():
-        print a
+        print "  ALARM %s : (id=%s)" % (a.label, a.id)
+        print "    check=%s" % a.check_id
+        print "    notification_plan=%s" % a.notification_plan_id
+        print "    criteria:"
+        print ''.join("      %s\n" % line for line in a.criteria.split('\n'))
