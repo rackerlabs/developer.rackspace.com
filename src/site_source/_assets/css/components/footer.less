@@ -1,82 +1,52 @@
-#footer {
-  font-family: arial, verdana, sans-serif;
+.footer {
+  background: @rackspace-dark-gray;
+  p {
+    color: @rackspace-white;
+    text-align: center;
+    font-size: 16px;
+    line-height: 60px;
+    font-weight: 400;
+    margin: 0;
+  }
+}
+
+.basement {
+  background: @rackspace-black;
+  color: @rackspace-off-white;
   font-size: 12px;
-  color: #505050;
-  line-height: 16px;
-  background: #1A1A1A;
-  margin-top: 80px;
-}
+  font-weight: 300;
 
-#fatfooter-wrap {
-  margin: 30px auto;
-  font-size: 11px;
-}
+  img {
+    margin: 20px 0;
+    float: left;
+  }
 
-#fatfooter-wrap div {
-  position: relative;
-  color: #CCC;
-  margin-bottom: 15px;
-}
+  a {
+    color: @rackspace-off-white;
+  }
 
-#fatfooter-wrap div a, #fatfooter-wrap div a:hover {
-  color: #AAA;
-  text-decoration: none;
-}
+  .container {
+    height: 60px;
+  }
 
-#fatfooter-wrap div a:hover {
-  text-decoration: underline;
-}
+  ul {
+    float: left;
+    margin: 20px 0;
+    list-style-type: none;
 
-#fatfooter-wrap ul {
-  list-style-type: none;
-  border: 0;
-  line-height: 14px;
-  margin: 0;
-  padding: 0;
-}
+    & li:first-child {
+      border: none;
+    }
 
-#fatfooter-wrap li {
-  font-size: 12px;
-  text-transform: capitalize;
-  white-space: nowrap;
-  margin-bottom: 7px;
-}
+    & li {
+      padding: 0 10px;
+      border-left: @gutter;
+      float: left;
 
-#basement-wrap {
-  border-top: 1px solid #252525;
-  text-align: left;
-  font-size: 11px;
-  line-height: 19px;
-  color: #CCC;
-  background: #000;
-  padding: 25px 0;
-}
+      a {
 
-#basement-wrap .footerlink {
-  padding: 0 5px;
-}
+      }
+    }
+  }
 
-#basement-wrap .basement-wrap-snap {
-  position: absolute !important;
-  bottom: 0 !important;
-}
-
-#basement-wrap .basement-wrap-nosnap {
-  position: relative;
-  top: 0;
-}
-
-#basement-wrap a.basement {
-  color: #CCC !important;
-  text-decoration: none !important;
-}
-
-#basement-wrap a.basement:hover {
-  color: #CCC !important;
-  text-decoration: underline !important;
-}
-
-.footer-item-header {
-  font-size: 13px;
-  text-transform: uppercase;
 }

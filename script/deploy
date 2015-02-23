@@ -7,17 +7,14 @@ ROOT=`dirname $0`/..
 HAS_RAXREGION=false
 HAS_ANSIBLE=false
 HAS_PYRAX=false
-HAS_DRGPEM=false
-HAS_PUBLISHERKEY=false
+HAS_DEVEX=false
 
 [ -n "${RAX_REGION}" ] && HAS_RAXREGION=true
 (which ansible-playbook 2>&1 >/dev/null) && HAS_ANSIBLE=true
 python -c 'import pyrax' 2>/dev/null && HAS_PYRAX=true
-[ -f ${HOME}/.ssh/drg.pem ] && HAS_DRGPEM=true
-[ -f ${ROOT}/deploy/roles/jenkins_master/files/var/lib/jenkins/publisher.id_rsa ] && HAS_PUBLISHERKEY=true
+[ -f ${HOME}/.ssh/devex_rsa ] && HAS_DEVEX=true
 
-if ! $HAS_RAXREGION || ! $HAS_ANSIBLE || ! $HAS_PYRAX ||
-    ! $HAS_DRGPEM || ! $HAS_PUBLISHERKEY ; then
+if ! $HAS_RAXREGION || ! $HAS_ANSIBLE || ! $HAS_PYRAX || ! $HAS_DEVEX ; then
   echo "Uh oh! You're missing some things you'll need to get started."
   echo
 
@@ -45,15 +42,9 @@ if ! $HAS_RAXREGION || ! $HAS_ANSIBLE || ! $HAS_PYRAX ||
     echo
   fi
 
-  if ! $HAS_DRGPEM ; then
-    echo "* The drg.pem private key is missing."
+  if ! $HAS_DEVEX ; then
+    echo "* The devex_rsa private key is missing."
     echo "  Put it at ${HOME}/.ssh and chmod it 600."
-    echo
-  fi
-
-  if ! $HAS_PUBLISHERKEY ; then
-    echo "* The publisher.id_rsa private key is missing."
-    echo "  Download it and put it in deploy/roles/jenkins_masters/files/var/lib/jenkins/publisher.id_rsa."
     echo
   fi
 
@@ -64,7 +55,7 @@ fi
 
 ANSIBLE_ARGS=
 
-[ -f deploy/secrets.yml ] || ANSIBLE_ARGS='--ask-vault-pass'
+[ -f deploy/secrets-clear-text.yml ] || ANSIBLE_ARGS='--ask-vault-pass'
 
 # Kick it. Pass any additional arguments to Ansible.
 

@@ -9,7 +9,7 @@
         groups=www-data
 
 - name: Add SSH public key to authorized_keys for publisher user
-  authorized_key: user=publisher key="{{ lookup('file', 'id_rsa.pub') }}"
+  authorized_key: user=publisher key="{{ lookup('file', 'publisher_rsa.pub') }}"
                   state=present
 
 - name: Copy motd file

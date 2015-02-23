@@ -2,13 +2,31 @@
 
   // Not currently supported by this SDK
 
+.. code-block:: go
+
+  createOpts := osStacks.CreateOpts{
+    Name: "a_redis_stack",
+    TemplateURL: "redis_hot_template",
+  }
+  aRedisStack, err =: stacks.Create(serviceClient, createOpts).Extract()
+
 .. code-block:: java
 
   // Not currently supported by this SDK
 
 .. code-block:: javascript
 
-  // Not currently supported by this SDK
+  client.createStack({
+    name: 'a_redis_stack',
+    templateUrl: 'redis_hot_template'
+  }, function(err, stack) {
+    if (err) {
+      // TODO handle as appropriate
+      return;
+    }
+
+    // TODO use your stack here
+  });
 
 .. code-block:: php
 
@@ -20,7 +38,10 @@
 
 .. code-block:: ruby
 
-  # Not currently supported by this SDK
+  @stack = @client.stacks.new.save(
+    :stack_name => "a_redis_stack",
+    :template   => redis_hot_template
+  )
 
 .. code-block:: sh
 

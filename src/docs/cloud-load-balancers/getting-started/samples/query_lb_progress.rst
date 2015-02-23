@@ -1,10 +1,10 @@
 .. code-block:: csharp
 
   int limit = 1;
-  ReadOnlyCollection<LoadBalancer> loadBalancers = 
+  ReadOnlyCollection<LoadBalancer> loadBalancers =
 	await (await cloudLoadBalancerProvider.ListLoadBalancersAsync(
-		null, 
-		limit, 
+		null,
+		limit,
 		CancellationToken.None)).GetAllPagesAsync(CancellationToken.None, null);
   LoadBalancerStatus loadBalancerStatus = loadBalancers[0].Status;
   // Values include:
@@ -18,7 +18,20 @@
 
 .. code-block:: go
 
-  // Not currently supported by this SDK
+  gophercloud.WaitFor(60, func() (bool, error) {
+    lb, err := lbs.Get(client, id).Extract()
+    if err != nil {
+      return false, err
+    }
+
+    if lb.Status != lbs.ACTIVE {
+      // It has not yet reached ACTIVE
+      return false, nil
+    }
+
+    // It has reached ACTIVE
+    return true, nil
+  })
 
 .. code-block:: java
 

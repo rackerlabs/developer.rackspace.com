@@ -8,7 +8,7 @@
   hosts: local
   vars_files:
   - vars.yml
-  - [ 'secrets.yml', 'secrets.vault.yml' ]
+  - [ 'secrets-clear-text.yml', 'secrets.vault.yml' ]
   connection: local
   gather_facts: False
   tasks:
@@ -18,7 +18,7 @@
         credentials: ~/.rackspace_cloud_credentials
         name: "{{ deployment_region }}_jenkins_master_%01d"
         flavor: general1-4
-        image: ubuntu-1204-lts-precise-pangolin
+        image: ubuntu-1204-lts-precise-pangolin-pv
         networks:
           - public
           - private
@@ -56,7 +56,7 @@
   connection: local
   vars_files:
   - vars.yml
-  - [ 'secrets.yml', 'secrets.vault.yml' ]
+  - [ 'secrets-clear-text.yml', 'secrets.vault.yml' ]
   gather_facts: False
   tasks:
 
@@ -86,7 +86,7 @@
   hosts: jenkins_masters
   vars_files:
   - vars.yml
-  - [ 'secrets.yml', 'secrets.vault.yml' ]
+  - [ 'secrets-clear-text.yml', 'secrets.vault.yml' ]
   sudo: yes
   vars:
     plugins:

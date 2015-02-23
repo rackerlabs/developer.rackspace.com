@@ -1,8 +1,8 @@
 .. code-block:: csharp
 
-  IEnumerable<LoadBalancingProtocol> protocols = 
+  IEnumerable<LoadBalancingProtocol> protocols =
 	await cloudLoadBalancerProvider.ListProtocolsAsync(CancellationToken.None);
-  LoadBalancingProtocol httpProtocol = 
+  LoadBalancingProtocol httpProtocol =
 	protocols.First(i => i.Name.Equals("HTTP", StringComparison.OrdinalIgnoreCase));
   LoadBalancerConfiguration configuration = new LoadBalancerConfiguration(
       name: "{load_balancer_name}",
@@ -11,15 +11,27 @@
       virtualAddresses: new[] { new LoadBalancerVirtualAddress(
 		LoadBalancerVirtualAddressType.ServiceNet) },
       algorithm: LoadBalancingAlgorithm.RoundRobin);
-  LoadBalancer tempLoadBalancer = 
+  LoadBalancer tempLoadBalancer =
 	await cloudLoadBalancerProvider.CreateLoadBalancerAsync(
-		configuration, 
-		AsyncCompletionOption.RequestCompleted, 
+		configuration,
+		AsyncCompletionOption.RequestCompleted,
 		CancellationToken.None, null);
 
 .. code-block:: go
 
-  // Not currently supported by this SDK
+  opts := lbs.CreateOpts{
+    Name:     "My Load Balancer",
+    Port:     80,
+    Protocol: "HTTP",
+    VIPs: []vips.VIP{
+      vips.VIP{Type: vips.PUBLIC},
+    },
+    Nodes: []nodes.Node{
+      nodes.Node{Address: "10.1.1.1", Port: 80, Condition: nodes.ENABLED},
+    },
+  }
+
+  lb, err := lbs.Create(client, opts).Extract()
 
 .. code-block:: java
 

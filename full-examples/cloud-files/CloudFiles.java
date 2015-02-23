@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.io.IOException;
 import java.net.URI;
 
@@ -92,9 +93,17 @@ public class CloudFiles {
         SwiftObject object = objectApi.get(OBJECT_NAME);
 
         // Write the object to a file
+        InputStream inputStream = object.getPayload().openStream();
         File file = File.createTempFile(OBJECT_NAME, ".txt");
-        FileOutputStream fileOutputStream = new FileOutputStream(file);
-        ByteStreams.copy(object.getPayload().openStream(), fileOutputStream);
+        BufferedOutputStream outputStream = new BufferedOutputStream(new FileOutputStream(file));
+
+        try {
+            ByteStreams.copy(inputStream, outputStream);
+        }
+        finally {
+            inputStream.close();
+            outputStream.close();
+        }
 
         System.out.format("  File written to %s%n", file.getAbsolutePath());
 
