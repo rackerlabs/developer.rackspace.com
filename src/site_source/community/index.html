@@ -7,155 +7,62 @@ title: Rackspace Developer Center
     <span class="headline">Community &amp; Outreach</span>
   </div>
 </div>
-<div class="community container body-container">
-  <div class="row">
-    <div class="content col-md-9">
-      <p class="lead">
-        Rackspace is committed to supporting communities. We offer small grants for workshops, hackdays, meetups, and
-        conferences. We can also send Rackers to speak at your event and/or teach and mentor your group. Let us know
-        what kind of support you need, and a Racker will reach out to you.
-      </p>
+<div>
+  <div class="community container body-container">
+    <div class="row">
+      
 
-      <div class="sponsorship-result alert hidden"></div>
-      <div class="sponsorship-form">
-        <p>Please fill out and submit this form. We're already excited about your event!</p>
+      <div class="content col-md-9">
+        <p class="lead">
+        Rackspace is committed to supporting developers and technologists. Our developer advocates write code, document, and build tools to make the Rackspace Cloud Platform and OpenStack easy to use. We give talks, organize conferences, teach workshops, and field questions from people around the world. We also offer sponsorships for technical events and discounted hosting for OSS projects. Let us know what kind of support you need, and a Racker will reach out to you.
+        </p>
+      
 
-        <form name="sponsorship_request" method="post" enctype="multipart/form-data" action="/api/sponsorship">
-          <div class="row">
-            <div class="form-group col-md-8">
-              <label class="sr-only" for="event_name">Event name</label>
-              <input type="text" name="event_name" placeholder="Event name" required="true" class="form-control input-md"/>
-            </div>
-            <div class="form-group col-md-4">
-              <label class="sr-only" for="num_attendees">Expected # of attendees</label>
-              <input type="number" name="num_attendees" placeholder="Expected # of attendees"
-                     class="form-control input-md"/>
-            </div>
-          </div>
-          <div class="row">
-            <div class="form-group col-md-6">
-              <label class="sr-only" for="contact_name">Contact name</label>
-              <input type="text" name="contact_name" required="true" placeholder="Contact name"
-                     class="form-control input-md"/>
-            </div>
-            <div class="form-group col-md-6">
-              <label class="sr-only" for="contact_name">Contact email address</label>
-              <input type="email" name="contact_email" required="true" placeholder="Contact email address"
-                     class="form-control input-md"/>
-            </div>
-          </div>
-          <div class="row">
-            <div class="form-group col-md-4">
-              <label for="start_date">Start date</label>
-              <input type="date" name="start_date" class="form-control input-md"/>
-            </div>
-            <div class="form-group col-md-4">
-              <label for="end_date">End date</label>
-              <input type="date" name="end_date" class="form-control input-md"/>
-            </div>
-          </div>
 
-          <div class="row">
-            <div class="form-group col-md-8">
-              <div class="checkbox">
-                <label><input type="checkbox" name="is_online_only"/> This event takes place online only</label>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="form-group col-md-6">
-              <label class="sr-only" for="location">City, State/Province, Country</label>
-              <input type="text" name="location" placeholder="City, State/Province, Country" class="form-control input-md"/>
-            </div>
-            <div class="form-group col-md-6">
-              <label class="sr-only" for="venue">Venue</label>
-              <input type="text" name="venue" placeholder="Venue" class="form-control input-md"/>
-            </div>
-          </div>
-          <div class="row">
-            <div class="form-group col-md-12">
-              <label class="sr-only" for="event_url">Event URL</label>
-              <input type="url" name="event_url" placeholder="Event URL" class="form-control input-md"/>
-            </div>
-          </div>
-           <div class="row">
-            <div class="form-group col-md-12">
-              <label class="sr-only" for="code_of_conduct_url">Code of Conduct URL</label>
-              <input type="url" name="code_of_conduct_url" placeholder="Code of Conduct URL" class="form-control input-md"/>
-            </div>
-          </div>
-          <div class="row">
-            <div class="form-group col-md-8">
-              <label class="sr-only" for="event_twitter_handle">Event Twitter Handle</label>
-              <div class="input-group">
-                <span class="input-group-addon">@</span>
-                <input type="twitter_handle" name="event_twitter_handle" placeholder="Twitter Handle"
-                       class="form-control input-md"/>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="form-group col-md-12">
-              <label class="sr-only" for="type_of_sponsorship">Sponsorship Details</label>
-              <textarea class="form-control" name="type_of_sponsorship" placeholder="What type of sponsorship are you looking for?" rows="10"
-                        cols="40"></textarea>
-            </div>
-          </div>
-          <div class="row">
-            <div class="form-group col-md-8">
-              <label class="control-label" for="prospectus">Sponsorship prospectus</label>
-              <input type="file" class="form-control" name="prospectus"/>
-              <p class="help-block hidden">Please make sure you re-select your sponsorship prospectus!</p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="form-group col-md-12">
-              <div class="checkbox">
-                <label>Please check if there is a speaking or workshop opportunity for someone from Rackspace.
-                  <input type="checkbox" name="speaking_opportunity" value="yes"/>
-                </label>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="form-group col-md-6">
-              <div class="radio">
-                <label>
-                  <input type="radio" name="charitable_event" id="charitable_event" value="no" checked>
-                  No, my organization is not registered as a 501(c)(3) entity
-                </label></div>
-            </div>
-            <div class="form-group col-md-6">
-              <div class="radio">
-                <label>
-                  <input type="radio" name="charitable_event" id="charitable_event-2" value="yes">
-                  Yes, my organization is registered as a 501(c)(3) entity
-                </label></div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="form-group col-md-8">
-              <button type="submit" class="btn btn-primary">Submit Sponsorship Request</button>
-            </div>
-          </div>
-        </form>
+      
+      
+        <h2>Open Source Contributions</h2>
+        <p>Open source is part of the job description for many Rackers, and we make several types of code and community contributions, including:   
+
+          <ul>
+            <li>Building tools in-house and sharing them on <a href="https://github.com/rackerlabs" target="_blank">Github</a>.</li>
+            <li>Accepting pull requests and mentoring developers who want to contribute to our projects.</li>
+            <li>Fielding questions in email, irc, and on <a href="http://stackoverflow.com/questions/tagged/rackspace" target="_blank">Stack Overflow.</a></li>
+            <li>Documenting, documenting, and more documenting.</li>
+            <li>Designing and implementing new tools in the open.</li>
+            <li>Organizing meetups and conferences and maintaining an active presence in many technical communities.</li> 
+          </ul> 
+            
+          Our developers build and maintain SDKs and CLIs for the Rackspace Cloud Platform and OpenStack. We also work on open source projects outside of the Rackspace and OpenStack ecosystems, including PyPI, pip, virtualenv, IPython, Jupyter, Apache, Docker, and GitLab, among others.      
+        </p>
+
+      
+      
+      
+        <h2>Event Sponsorship Program</h2>
+        <p>Rackspace developers and developer advocates attend, sponsor, speak at, and facilitate hundreds of events around the world. This "fanatical support" in the field is central to Rackspace's mission: we want to meet developers where they are, in their communities, and show them the love and support they need to build amazing things on the Rackspace Cloud Platform. For more information about our Events Sponsorship Program, contact us at <a href="mailto:sponsorships@rackspace.com?Subject=Event%20Sponsorship" target="_top">sponsorships@rackspace.com</a>.</p>
+
+        <h2>OSS Hosting Program</h2>
+        <p>Rackspace provides generous discounts on hosting for more than 150 OSS projects and communities. We support a wide range of projects in the security, scientific computing, big data, open hardware, and Python communities, among others.</p>
+
       </div>
-    </div>
-    <div class="sidebar faq col-md-3">
-      <p class="sidebarheader">What type of events does Rackspace sponsor?</p>
-      <p>We sponsor large and small conferences, meetups, workshops, hackathons, and other kinds of tech community gatherings.</p>
+      
+      <div class="sidebar faq col-md-3">
+        <p class="sidebarheader">What type of events does Rackspace sponsor?</p>
+        <p>We sponsor large and small conferences, meetups, workshops, hackathons, and other kinds of tech community gatherings. We like to be hands-on with the communities we support, so we almost always attend the events we sponsor.</p> 
 
-      <p class="sidebarheader">What kind of sponsorships do you provide?</p>
+        <p class="sidebarheader">What kind of sponsorships do you provide?</p>
 
-      <p>We usually offer financial support, but we can also make stickers and t-shirts, send pizza and snacks, or offer event space. Let us know what you're looking for.</p>
+        <p>Usually we offer financial support through our Events Sponsorship Program, but we can also provide space for meetups and workshops in some of our offices. Let us know what you're looking for. We also offer discounted hosting for open source projects and open communities through our OSS Hosting Program.</p>
+        
+        <p class="sidebarheader">Where is the Developer Experience team based?</p>
+        <p>Our developer advocates, developers, and information developers are located in the metro areas of San Francisco, Seattle, Chicago, Detroit, DC, Austin, San Antonio, Columbus, Salt Lake City, New York, Philadelphia, and Pittsburgh. We also have developer advocates in London and Berlin.</p>
 
+        <p class="sidebarheader">Can I get a Racker to speak or teach at my event?</p>
 
-      <p class="sidebarheader">Can I get a Racker to speak or teach at my event?</p>
-
-      <p>Yes! We love to attend and participate in the events we sponsor. If a Racker is available and in the area, we'll send them to your event.</p>
-
-     
-    </div>
+        <p>Yes! We love to attend and participate in the events we sponsor. If a Racker is available and in the area, we'll send her to give a talk at your event.</p>
+      </div>
+    
+    </div>  
   </div>
 </div>
-
