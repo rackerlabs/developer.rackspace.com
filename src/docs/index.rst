@@ -20,10 +20,10 @@
                     <img src="{% asset_path cloud-servers.png %}" alt="" class="product-image"/>
                     Auto Scale
                 </h2>
-                <p>Rackspace Auto Scale is a service that lets you configure automated scaling of resources in response to an 
+                <p>Rackspace Auto Scale is a service that lets you configure automated scaling of resources in response to an
                 increase or decrease in overall workload based on user-defined policies.</p>
                 <ul class="piped-list">
-                    <li><a href="/docs/auto-scale/getting-started/">Getting Started</a></li>                
+                    <li><a href="/docs/auto-scale/getting-started/">Getting Started</a></li>
                     <li><a href="http://api.rackspace.com/api-ref-auto-scale.html">API Reference</a></li>
                     <li><a href="http://docs.rackspace.com/cas/api/v1.0/autoscale-devguide/content/Overview.html">Developer Guide</a></li>
                 </ul>
@@ -147,10 +147,10 @@
                     <img src="{% asset_path cloud-monitoring.png %}" alt="" class="product-image"/>
                     Cloud Monitoring
                 </h2>
-                <p>Cloud Monitoring helps you keep a keen eye on all of your resources. You can monitor activity on websites, 
+                <p>Cloud Monitoring helps you keep a keen eye on all of your resources. You can monitor activity on websites,
                 web servers, routers, load balancers, and more.</p>
                 <ul class="piped-list">
-                    <li><a href="/docs/cloud-monitoring/getting-started/">Getting Started</a></li>                
+                    <li><a href="/docs/cloud-monitoring/getting-started/">Getting Started</a></li>
                     <li><a href="http://api.rackspace.com/api-ref-monitoring.html">API Reference</a></li>
                     <li><a href="http://docs.rackspace.com/cm/api/v1.0/cm-devguide/content/overview.html">Developer Guide</a></li>
                 </ul>
@@ -163,7 +163,7 @@
                     <img src="{% asset_path cloud-queues.png %}" alt="" class="product-image"/>
                     Cloud Queues
                 </h2>
-                <p>Cloud Queues is an open source, scalable, and highly available message and notifications service, 
+                <p>Cloud Queues is an open source, scalable, and highly available message and notifications service,
                 based on the OpenStack Marconi project</p>
                 <ul class="piped-list">
                     <li><a href="/docs/cloud-queues/getting-started/">Getting Started</a></li>
@@ -190,16 +190,16 @@
             </div>
         </div>
 
-      <div class="row">
+        <div class="row">
             <div class="col-md-12">
                 <h2>
-                  <img src="{% asset_path cloud-identity.png %}" alt="" class="product-image"/>
-                  Cloud Identity
+                  <img src="{% asset_path icon-cdn.png %}" alt="" class="product-image"/>
+                  Rackspace CDN
                 </h2>
-                <p>Cloud Identity provides authentication and authorization functionality for other Rackspace Cloud services.</p>
+                <p>Rackspace CDN Rackspace CDN gives you the power to accelerate content on any public resource at Rackspace. It provides a simple API and Control Panel experience for you to manage your CDN-enabled domains and the origins and assets associated with those domains.</p>
                 <ul class="piped-list">
-                    <li><a href="http://api.rackspace.com/api-ref-backup.html">API Reference</a></li>
-                    <li><a href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content">Developer Guide</a></li>
+                    <li><a href="http://api.rackspace.com/api-ref-raxCDN.html">API Reference</a></li>
+                    <li><a href="http://docs.rackspace.com/cdn/api/v1.0/cdn-devguide/content/Overview.html">Developer Guide</a></li>
                 </ul>
             </div>
         </div>
