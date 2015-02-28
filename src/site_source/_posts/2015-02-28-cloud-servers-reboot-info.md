@@ -37,7 +37,7 @@ Next Generation Cloud Servers.
     $ ./cs-reboot-info <username> <api key>
     Regions with a Cloud Servers endpoint: ORD, DFW, SYD, IAD, HKG
     Found both First and Next Generation endpoints.
-    The following 1 Cloud Servers have an automated reboot scheduled:
+    The following 2 Cloud Servers have an automated reboot scheduled:
     | Type           | Server ID | Server Name   | Reboot Window (UTC)         | Reboot Window (Local)       |
     | -------------- | --------- | --------------| --------------------------- | --------------------------- |
     | Next Gen (IAD) | 4fe9909b  | My IAD Server | 03 Mar 12:00 - 03 Mar 14:00 | 03 Mar 06:00 - 03 Mar 08:00 |
