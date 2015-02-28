@@ -18,13 +18,14 @@ Generation Cloud Servers. The details of our announcement are available at
 [https://community.rackspace.com/general/f/53/t/4978]() and via
 [https://status.rackspace.com/]().
 
-We have scheduled reboot windows on a per-region basis beginning Monday
-March 2 and running through Saturday March 7. In order to discover when
-your affected servers will receive a reboot, your control panel will
-contain this information for whichever region is currently visible,
-or you can run our
+In order to complete the patching of our systems, we have scheduled
+reboot windows on a per-region basis beginning Monday March 2 and running
+through Saturday March 7. To discover the time ranges during which your
+affected servers will be rebooted, your control panel will contain
+this information for whichever region is currently visible.
+Alternatively, you can run our
 [`cs-reboot-info`](https://github.com/rackerlabs/cs-reboot-info) tool
-to discover the windows of servers across all regions at once.
+to discover the reboot windows of servers across all regions at once.
 Downloads are available for many platforms
 [here](https://github.com/rackerlabs/cs-reboot-info/#installation---binaries).
 
