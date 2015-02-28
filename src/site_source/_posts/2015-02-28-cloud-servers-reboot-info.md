@@ -26,7 +26,7 @@ the information for whichever region is currently visible.
 Alternatively, you can run our
 [`cs-reboot-info`](https://github.com/rackerlabs/cs-reboot-info) tool
 to discover the reboot windows of servers across all regions at once.
-Downloads are available for many platforms
+Downloads for many platforms are available
 [here](https://github.com/rackerlabs/cs-reboot-info/#installation---binaries).
 
 When given a username and API key, which can be found in the *Account Settngs*
