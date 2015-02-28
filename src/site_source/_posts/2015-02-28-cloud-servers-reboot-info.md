@@ -22,7 +22,7 @@ In order to complete the patching of our systems, we have scheduled
 reboot windows on a per-region basis beginning Monday March 2 and running
 through Saturday March 7. To discover the time ranges during which your
 affected servers will be rebooted, your control panel will contain
-this information for whichever region is currently visible.
+the information for whichever region is currently visible.
 Alternatively, you can run our
 [`cs-reboot-info`](https://github.com/rackerlabs/cs-reboot-info) tool
 to discover the reboot windows of servers across all regions at once.
