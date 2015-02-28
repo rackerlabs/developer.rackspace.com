@@ -16,13 +16,13 @@ Xen hypervisor that our Cloud Servers platform is built on top of, a reboot
 will be necessary in some instances on both our First Generation and Next
 Generation Cloud Servers. The details of our announcement are available at
 [https://community.rackspace.com/general/f/53/t/4978]() and via
-[https://status.rackspace.com/]().
+[https://status.rackspace.com/](https://status.rackspace.com/).
 
 In order to complete the patching of our systems, we have scheduled
 reboot windows on a per-region basis beginning Monday March 2 and running
 through Monday March 9. To discover the time ranges during which your
 affected servers will be rebooted, your
-[https://mycloud.rackspace.com/](Cloud Control Panel) will contain the
+[Cloud Control Panel](https://mycloud.rackspace.com/) will contain the
 information for whichever region is currently visible (Note: you can change
 this via the region selector on the left side of the control panel.
 Alternatively, you can run our
@@ -32,7 +32,7 @@ Binary downloads for many platforms are available
 [here](https://github.com/rackerlabs/cs-reboot-info/#installation---binaries).
 
 When given a username and API key, which can be found in the *Account Settngs*
-section of our [https://mycloud.rackspace.com/](control panel), the utility
+section of our [control panel](https://mycloud.rackspace.com/), the utility
 will list the reboot windows of affected servers in all regions across both
 First Generation and Next Generation Cloud Servers.
 
