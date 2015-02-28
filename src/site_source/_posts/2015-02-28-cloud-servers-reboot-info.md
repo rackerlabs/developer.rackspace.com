@@ -24,7 +24,7 @@ through Monday March 9. To discover the time ranges during which your
 affected servers will be rebooted, your
 [Cloud Control Panel](https://mycloud.rackspace.com/) will contain the
 information for whichever region is currently visible (Note: you can change
-this via the region selector on the left side of the control panel.
+this via the region selector on the left side of the control panel).
 Alternatively, you can run our
 [`cs-reboot-info`](https://github.com/rackerlabs/cs-reboot-info)
 tool to discover the reboot windows of servers across all regions at once.
