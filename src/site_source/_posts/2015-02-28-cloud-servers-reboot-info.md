@@ -15,7 +15,7 @@ In the wake of
 Xen hypervisor that our Cloud Servers platform is built on top of, a reboot
 will be necessary in some instances on both our First Generation and Next
 Generation Cloud Servers. The details of our announcement are available at
-[https://community.rackspace.com/general/f/53/t/4978]() and via
+[https://community.rackspace.com/general/f/53/t/4978](https://community.rackspace.com/general/f/53/t/4978) and via
 [https://status.rackspace.com/](https://status.rackspace.com/).
 
 In order to complete the patching of our systems, we have scheduled
