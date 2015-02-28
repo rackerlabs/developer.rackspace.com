@@ -53,6 +53,7 @@ the `--csv` option.
     Found both First and Next Generation endpoints.
     Writing output to cs-reboot-info-output.csv
 
-For more information, see https://github.com/rackerlabs/cs-reboot-info
+For more information, see
+[https://github.com/rackerlabs/cs-reboot-info](https://github.com/rackerlabs/cs-reboot-info)
 or contact
 [sdk-support@rackspace.com](mailto:sdk-support@rackspace.com?subject=cs-reboot-info).
