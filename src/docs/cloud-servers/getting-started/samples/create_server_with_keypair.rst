@@ -40,8 +40,8 @@
 
   $response = $server->create(array(
       'name'     => 'My server',
-      'imageId'  => $imageId,
-      'flavorId' => $flavorId
+      'imageId'  => $image->getId(),
+      'flavorId' => $flavor->getId(),
       'keypair'  => 'my-keypair'
   ));
 
