@@ -31,6 +31,8 @@ tool to discover the reboot windows of servers across all regions at once.
 Binary downloads for many platforms are available
 [here](https://github.com/rackerlabs/cs-reboot-info/#installation---binaries).
 
+<!-- more -->
+
 When given a username and API key, which can be found in the *Account Settngs*
 section of our [control panel](https://mycloud.rackspace.com/), the utility
 will list the reboot windows of affected servers in all regions across both
