@@ -15,6 +15,8 @@ While this blog post may seem trivial on the surface, it does pack some very int
 
 For those of you not familiar with Cloud Files, the easiest way to describe it is shared Object Storage.  In OpenStack lingo, you could also call it shared Swift.  Cloud Files is an API enabled Object storage capability found on the Rackspace Public cloud platform.  In this post, we will walk you thru how easy it is to store something as simple as database backups in Cloud Files using simple automation, fronted by Ansible of course (my orchestration drug of choice).  I promise this post will be short and sweet.
 
+<!-- more -->
+
 The module we will be using for this exercise is the following:
 
 	rax_files_objects - Upload, download, and delete objects in Rackspace Cloud Files

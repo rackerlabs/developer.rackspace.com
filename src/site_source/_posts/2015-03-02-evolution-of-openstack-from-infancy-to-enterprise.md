@@ -12,6 +12,8 @@ categories:
 
 Recently I had the pleasure of hosting a webinar covering the Evolution of OpenStack.  No matter how many times I review the history of OpenStack, I manage to learn something new.  Just the idea that multiple companies, with distinct unique ideas can come together to make what I consider to be a super platform is amazing.  Whether you think OpenStack is ready for prime time or not, it is hard to deny the power and disruptive nature it has in the current cloud market.  
 
+<!-- more -->
+
 #####OpenStack 101 – What is OpenStack
 The most simple definition I can provide as to what OpenStack is:  OpenStack is an open source cloud operating platform that can control large pools of compute, storage and networking recourses throughout a datacenter, all managed through a single interface controlled by either a CLI, API and/or dashboard.  The orchestration provided by OpenStack gives administrators control over all those resources while still empowering the cloud consumers to provision resources thru a self-service model.  The platform is built in a distributed and modular way.  This means the platform is built from multiple components, and you can chose which ones you need in reference to your personal use case.  A common analogy is that it is similar to Legos. One of the unique capabilities of OpenStack that stands out to me is the ability to leverage commodity hardware and not to have to rely on a particular make/model. With OpenStack, you don't have to keep all hardware the same.
 
