@@ -48,7 +48,7 @@ Since all the OpenStack deployment and environment configuration playbooks are a
    * Infrastructure Node (Control Plane)
    * Logging Node
    * Compute Node
-   * Storage Node *(optional and only needed if your going to try out Cinder block storage)*
+   * Storage Node *(optional, and only needed if you're going to try out Cinder block storage)*
 
 Personally, I have found a few creative ways of doing this locally on my workstation.  For this article, we use the 100% Open Source approach by using **VirtualBox**, **Vagrant** and of course **Ansible**.  
 
@@ -73,7 +73,7 @@ Change directory to ‘vagrant-rpcv901’ and execute the 'vagrant up' command:
 	
     $ vagrant up
 
-This will provision the deployment, infrastructure, and logging node.  It also installs base required software and performs configuration needed to prepare the target host for RPC.  Feel free to adjust the Vagrant file to increase RAM available for a particular node and/or add vCPU capacity.  If you plan to deploy with Cinder also, please refer to the full installation guide for details on how to do that.
+This will provision the deployment, infrastructure, and logging node.  It also installs required base software and configuration needed to deploy RPC to target hosts.  Feel free to adjust the Vagrant file to increase RAM available for a particular node and/or add vCPU capacity.  If you plan to deploy with Cinder also, please refer to the full installation guide for details on how to do that.
 
 ####Step 2: Provision Deploy Environment
 
@@ -140,23 +140,3 @@ If you find that the playbooks continuously fail in different places, you should
 This issue is usually the result the developer attempting multiple failed deployments and possibly re-provisioning the environment. Never fear, you can fix this easily! On the local machine, remove the ‘known_hosts’ file located in the ‘~/.ssh’ directory. Do not worry, you will not miss this file :).
 
 	$ rm ~/.ssh/known_hosts
-
-#####Glance container not starting:
-This one has been giving me a hard time here lately.  This is based on an internal datacenter dependency required for internal deployments.  
-
-
-Connect to the Glance container on the Infrastructure node, remove the Glance logs, and start Glance services
-
-	$ lxc-ls --fancy
-	$ lxc-attach -n <glance container name from above> -e -- rm -rf /var/log/glance/*.log
-	$ service glance-registry start
-	$ service glance-api start
-
-
-If you still run into issues, let me know, and I will share another set of instructions on how to get past it.  We plan to fix this in future releases.
-
-#####Fixing broken PIP repos :
-On the deployment node, edit `/opt/ansible-lxc-rpc/rpc_deployment/inventory/group_vars/all.yml` and change the following values
-
-	rpc_repo_url: "http://rpc.cloudnull.io" 
-	rpc_release: "9.0.1"

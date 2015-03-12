@@ -34,17 +34,6 @@ TARGET=${ROOT}/_site
 mkdir -p ${TARGET}
 rm -f ${TARGET}/index.html
 
-docker run \
-  --interactive=true --tty=true --detach=true \
-  --volume=${ROOT}/src/docs:/home/publisher/src-sphinx:ro \
-  --volume=${ROOT}/src/site_source:/home/publisher/src-jekyll:ro \
-  --volume=${ROOT}/src/site_source/_devconfig.yml:/home/publisher/config/_devconfig.yml:ro \
-  --volume=${TARGET}:/home/publisher/_site \
-  --publish=${HOSTPORT}:4000 \
-  --name=preview \
-  devsite/src2html \
-  /home/publisher/scripts/preview.sh
-
 if has open; then
   autoopen()
   {
@@ -68,7 +57,13 @@ if has open; then
   autoopen &
 fi
 
-docker attach preview
-echo "Shutting down."
-docker kill preview >/dev/null
-docker rm preview >/dev/null
+docker run \
+  --interactive=true --tty=true --rm=true \
+  --volume=${ROOT}/src/docs:/home/publisher/src-sphinx:ro \
+  --volume=${ROOT}/src/site_source:/home/publisher/src-jekyll:ro \
+  --volume=${ROOT}/src/site_source/_devconfig.yml:/home/publisher/config/_devconfig.yml:ro \
+  --volume=${TARGET}:/home/publisher/_site \
+  --publish=${HOSTPORT}:4000 \
+  --name=preview \
+  devsite/src2html \
+  /home/publisher/scripts/preview.sh

@@ -32,7 +32,7 @@
       ip_address: "{{ clb_staging['balancer']['virtual_ips'][0]['address'] }}"
   vars_files:
   - vars.yml
-  - [ 'secrets.yml', 'secrets.vault.yml' ]
+  - [ 'secrets-clear-text.yml', 'secrets.vault.yml' ]
   tasks:
 
   - name: Use the monitored region as a label prefix.

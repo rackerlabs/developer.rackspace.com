@@ -13,8 +13,27 @@
 
 .. code-block:: go
 
-	// Not currently supported by this SDK
-	
+  import (
+    "github.com/rackspace/gophercloud"
+    "github.com/rackspace/gophercloud/rackspace"
+    "github.com/rackspace/gophercloud/rackspace/compute/v1/servers"
+    "github.com/rackspace/gophercloud/rackspace/lb/v1/acl"
+    "github.com/rackspace/gophercloud/rackspace/lb/v1/lbs"
+    "github.com/rackspace/gophercloud/rackspace/lb/v1/monitors"
+    "github.com/rackspace/gophercloud/rackspace/lb/v1/nodes"
+    "github.com/rackspace/gophercloud/rackspace/lb/v1/throttle"
+    "github.com/rackspace/gophercloud/rackspace/lb/v1/vips"
+  )
+
+  provider, err := rackspace.AuthenticatedClient(gophercloud.AuthOptions{
+    Username: "{username}",
+    APIKey: "{apiKey}",
+  })
+
+  client, err := rackspace.NewLBV1(provider, gophercloud.EndpointOpts{
+    Region: "{region}",
+  })
+
 .. code-block:: java
 
   // Authentication in jclouds is lazy and happens on the first call to the cloud.

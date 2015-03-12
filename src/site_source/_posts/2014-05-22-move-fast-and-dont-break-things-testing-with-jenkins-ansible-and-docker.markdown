@@ -231,6 +231,7 @@ However, building the docker application on each one of our servers is time cons
 `docker pull :/`
 
 We can automate this through ansible by updating our Ansible hosts file:
+
 ```
 [docker-grid]
 
@@ -246,7 +247,9 @@ ansible_ssh_user=mister
 
 ansible_ssh_private_key_file=~/.ssh/testkey
 ```
+
 Next, we'll add the following ansible tasks:
+
 ```
 - name: Install dependencies for docker registry
   sudo: True
@@ -297,6 +300,7 @@ Next, we'll add the following ansible tasks:
 ```
 
 The docker-registry.conf is an upstart script (it could be an init script as well) that looks like this:
+
 ```
 description "Docker Registry start"
 

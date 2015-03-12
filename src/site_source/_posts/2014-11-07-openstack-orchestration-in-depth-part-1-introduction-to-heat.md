@@ -174,7 +174,7 @@ By using a `parameters` section, a template can be made generic. Each parameter 
 
 To try this new template, save it as file `heat_1b.yaml` and launch it as shown before. Unless your system is identical to mine, you are probably going to get an error, because the parameter defaults that I defined will likely not match your OpenStack installation. However, since these settings are now parameters, you can specify appropriate values for your environment in the `stack-create` command without having to edit the template file. For example:
 
-    $ heat stack-create second_stack -f heat_1b.yaml -P "key=my_key_name;image=Trusty"
+    (venv) $ heat stack-create second_stack -f heat_1b.yaml -P "key=my_key_name;image=Trusty"
 
 In this example, the `key` parameter is set to `"my_key_name"` and the `image` parameter is set to `"Trusty"`, so those values will be used for this instantiation of the stack. For any parameters not included in the `-P` option, the defaults are used, which applies to `flavor` and `private_network` in this example. Note that parameters that do not have a default value defined must be included in the `stack-create` command, so it is a good idea to define defaults whenever possible.
 

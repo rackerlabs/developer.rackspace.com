@@ -2,13 +2,40 @@
 
   // Not currently supported by this SDK
 
+.. code-block:: go
+
+  import (
+    "github.com/rackspace/gophercloud"
+    osStacks "github.com/rackspace/gophercloud/openstack/orchestration/v1/stacks"
+    "github.com/rackspace/gophercloud/pagination"
+    "github.com/rackspace/gophercloud/rackspace/orchestration/v1/stacks"
+  )
+
+  ao := gophercloud.AuthOptions{
+    Username: "{username}",
+    APIKey: "{apiKey}",
+  }
+  provider, err := rackspace.AuthenticatedClient(ao)
+
+  serviceClient, err := rackspace.NewOrchestrationV1(provider, gophercloud.EndpointOpts{
+    Region: "{region}",
+  })
+
 .. code-block:: java
 
   // Not currently supported by this SDK
 
 .. code-block:: javascript
 
-  // Not currently supported by this SDK
+  pkgcloud = require('pkgcloud');
+
+  // Each client is bound to a specific service and provider.
+  var client = pkgcloud.orchestration.createClient({
+    provider: 'rackspace',
+    username: '{username}',
+    apiKey: '{apiKey}',
+    region: '{region}'
+  });
 
 .. code-block:: php
 
@@ -20,7 +47,13 @@
 
 .. code-block:: ruby
 
-  # Not currently supported by this SDK
+  require 'fog'
+
+  @client = Fog::Rackspace::Orchestration.new(
+    :rackspace_username => '{username}',
+    :rackspace_api_key => '{apiKey}',
+    :rackspace_region => '{region}'
+  )
 
 .. code-block:: sh
 

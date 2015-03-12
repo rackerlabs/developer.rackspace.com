@@ -4,7 +4,18 @@
 
 .. code-block:: go
 
-  // Not currently supported by this SDK
+  // Set the temp URL secret key
+  accountOpts := accounts.UpdateOpts{
+    TempURLKey: "jnRB6#1sduo8YGUF&%7r7guf6f",
+  }
+  _, err := accounts.Update(serviceClient, accountOpts)
+
+  // Create the temp URL
+  createTempURLOpts := osObjects.CreateTempURLOpts{
+    Method: osObjects.GET,
+    TTL:    3600,
+  }
+  tempURL, err := objects.CreateTempURL(serviceClient, "example_container", "someobject", createTempURLOpts)
 
 .. code-block:: java
 

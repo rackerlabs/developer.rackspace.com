@@ -1,14 +1,14 @@
 .. code-block:: csharp
 
   LoadBalancerId loadBalancerId = new LoadBalancerId("{load_balancer_id}");
-  HealthMonitor healthMonitor = 
+  HealthMonitor healthMonitor =
 	await cloudLoadBalancerProvider.GetHealthMonitorAsync(
-		loadBalancerId, 
+		loadBalancerId,
 		CancellationToken.None);
 
 .. code-block:: go
 
-  // Not currently supported by this SDK
+  hm, err := monitors.Get(client, "{loadBalancerId}").Extract()
 
 .. code-block:: java
 
@@ -51,4 +51,3 @@
   curl -s -X GET $ENDPOINT/loadbalancers/{loadBalancerId}/healthmonitor \
     -H "X-Auth-Token: $TOKEN" \
     -H "Accept: application/json" | python -m json.tool
-

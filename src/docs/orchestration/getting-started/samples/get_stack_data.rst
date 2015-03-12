@@ -2,13 +2,29 @@
 
   // Not currently supported by this SDK
 
+.. code-block:: go
+
+  stack, err := stacks.Get(serviceClient, {stackName}, {stackId}).Extract()
+
 .. code-block:: java
 
   // Not currently supported by this SDK
 
 .. code-block:: javascript
 
-  // Not currently supported by this SDK
+  var stack = new pkgcloud.providers.openstack.orchestration.Stack(client, {
+    id: '{stackId}',
+    name: '{stackName}'
+  });
+
+  client.getStack(stack, function (err, stack) {
+    if (err) {
+      // TODO handle as appropriate
+      return;
+    }
+
+    // TODO use your stack here
+  });
 
 .. code-block:: php
 
@@ -20,7 +36,7 @@
 
 .. code-block:: ruby
 
-  # Not currently supported by this SDK
+  @client.stacks.get(@stack.name, @stack.id)
 
 .. code-block:: sh
 

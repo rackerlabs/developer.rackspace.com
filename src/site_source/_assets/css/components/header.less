@@ -1,30 +1,18 @@
-@navbar-min-height-flighted: 70px;
-@grid-gutter-width-flighted: 40px;
-
-// New colors for Oct 2014 redesign
-@rackspace-gray: #77818b;
-@rackspace-light-blue: #0dafcc;
-@rackspace-blue: #2288dd;
-@rackspace-orange: #ff8800;
-@rackspace-black: #000000;
-@rackspace-dark-gray: #333333;
-@rackspace-light-gray: #cccccc;
-@rackspace-off-white: #eeeeee;
-@rackspace-white: #ffffff;
-
-#flighted-navbar {
-  font-family: 'Open Sans'; // remove this if not flighted
+#header {
   font-size: 12px;
-
   margin-bottom: 0;
-  min-height: @navbar-min-height-flighted;
+  min-height: @navbar-min-height;
   border: none;
   border-bottom: 2px solid @rackspace-white;
 
-  .navbar-header .navbar-brand.flighted-navbar-brand {
+  .navbar-toggle {
+    margin-top: 20px;
+  }
+
+  .navbar-header .navbar-brand {
     text-transform: uppercase;
     color: white;
-    line-height: @grid-gutter-width-flighted / 2;
+    line-height: @new-grid-gutter-width / 2;
     font-size: 0.9em;
     font-weight: 600;
     width: 243px;
@@ -34,7 +22,7 @@
   }
 
   .navbar-header {
-    @media (max-width: @grid-float-breakpoint) {
+    @media (max-width: @screen-md-min) {
       margin-left: 0;
     }
   }
@@ -51,18 +39,17 @@
   }
 
   ul > li > a#btn-get-started {
-    border-radius: 0px;
+    border-radius: 5px;
     font-weight: 600;
     font-size: 12px;
-    color: @rackspace-light-blue;
-    margin: (@grid-gutter-width-flighted / 2) 0;
+    color: white;
+    background-color: @rackspace-light-blue;
+    border: 1px solid @rackspace-blue;
 
-    .fa-arrow-right {
-      margin-left: 2px;
-    }
+    margin: (@new-grid-gutter-width / 2) 0;
 
     &:hover {
-      background-color: darken(@rackspace-white, 5%);
+      background-color: darken(@rackspace-light-blue, 5%);
     }
   }
 
@@ -76,7 +63,7 @@
 
   .navbar-nav {
     > li > .dropdown-menu {
-      margin-top: -1 * (@grid-gutter-width-flighted / 2);
+      margin-top: -1 * (@new-grid-gutter-width / 2);
     }
     // Uncollapse the nav
     @media (min-width: @grid-float-breakpoint) {
@@ -84,8 +71,8 @@
         > a {
           padding-top: 0;
           padding-bottom: 0;
-          margin-top: @grid-gutter-width-flighted / 2;
-          margin-bottom: @grid-gutter-width-flighted / 2;
+          margin-top: @new-grid-gutter-width / 2;
+          margin-bottom: @new-grid-gutter-width / 2;
         }
       }
     }
