@@ -8,7 +8,9 @@
 
 .. code-block:: java
 
-  // Not currently supported by this SDK
+  ServiceApi serviceApi = poppyApi.getServiceApi();
+
+  serviceApi.delete("{serviceId}");
 
 .. code-block:: javascript
 

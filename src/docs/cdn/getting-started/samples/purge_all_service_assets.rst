@@ -11,7 +11,9 @@
 
 .. code-block:: java
 
-  // Not currently supported by this SDK
+  ServiceApi serviceApi = poppyApi.getServiceApi();
+
+  serviceApi.deleteAllAssets();
 
 .. code-block:: javascript
 
