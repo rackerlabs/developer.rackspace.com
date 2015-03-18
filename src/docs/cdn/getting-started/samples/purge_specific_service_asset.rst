@@ -27,7 +27,7 @@
 
 .. code-block:: python
 
-  # Not currently supported by this SDK
+  service.delete_assets(url="{relativeUrlOfAsset}")
 
 .. code-block:: ruby
 
