@@ -36,7 +36,7 @@
 
 .. code-block:: python
 
-  # Not currently supported by this SDK
+  flavors = cdn.list_flavors()
 
 .. code-block:: ruby
 
