@@ -26,7 +26,7 @@
 
 .. code-block:: python
 
-  # Not currently supported by this SDK
+  service = cdn.get_service({serviceId})
 
 .. code-block:: ruby
 
