@@ -27,7 +27,7 @@
 
 .. code-block:: python
 
-  # Not currently supported by this SDK
+  service.delete_assets(all=True)
 
 .. code-block:: ruby
 
