@@ -8,7 +8,7 @@
 
 .. code-block:: java
 
-  // Not currently supported by this SDK
+  Flavor flavor = flavorApi.get("{flavorId}");
 
 .. code-block:: javascript
 
