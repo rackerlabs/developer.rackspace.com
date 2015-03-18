@@ -22,7 +22,18 @@
 
 .. code-block:: java
 
-  // Not currently supported by this SDK
+  ServiceApi serviceApi = poppyApi.getServiceApi();
+  URI serviceURI = serviceApi.create(
+    CreateService.builder()
+      .name("example_site"),
+      .domains(
+        ImmutableList.of(
+          Domain.builder().domain("www.example.com").build()))
+      .origins(
+        ImmutableList.of(
+          Origin.builder().origin("example.com")))
+      .flavorId("{flavorId}")
+      .build());
 
 .. code-block:: javascript
 
