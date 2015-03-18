@@ -28,7 +28,7 @@
 
 .. code-block:: php
 
-  // Not currently supported by this SDK
+  $stack = $orchestrationService->getStack('{stackName}');
 
 .. code-block:: python
 
