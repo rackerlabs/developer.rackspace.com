@@ -21,7 +21,7 @@
 
 .. code-block:: php
 
-  // Not currently supported by this SDK
+  $stack->delete();
 
 .. code-block:: python
 
