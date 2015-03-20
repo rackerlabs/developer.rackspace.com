@@ -17,7 +17,7 @@
     APIKey: "{apiKey}",
   })
 
-  client, err := rackspace.NewIdentityV2(provider)
+  client := rackspace.NewIdentityV2(provider)
 
 .. code-block:: java
 
