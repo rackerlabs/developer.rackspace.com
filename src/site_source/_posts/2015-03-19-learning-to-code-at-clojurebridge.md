@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ClojureBridge
+title: Learning to Code at ClojureBridge
 date: 2015-03-19 14:00:00+00:00
 comments: true
 author: Everett Toews
