@@ -51,7 +51,7 @@
 
 .. code-block:: python
 
-  service.update([{"op":"replace", "path":"/name", "value":"newServiceName"}])
+  service.patch([{"op":"replace", "path":"/name", "value":"newServiceName"}])
 
 .. code-block:: ruby
 
