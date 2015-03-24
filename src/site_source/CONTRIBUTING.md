@@ -36,7 +36,7 @@ First, thanks for your interest in contributing and helping us craft quality con
 
 Make sure that the dates in the file name and front matter match.   
 
-4) Format your blog entry in formatted using [markdown](http://daringfireball.net/projects/markdown/basics). If you are not comfortable authoring in markdown, send a message to @rdodev for other options.
+4) Format your blog entry in formatted using [markdown](http://daringfireball.net/projects/markdown/basics). If you are not comfortable authoring in markdown, send a message to @rgbkrk for other options.
   
 #### Submitting your Blog entries
 
