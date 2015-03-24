@@ -25,8 +25,8 @@ Bridget Hillyer was joined by Nola Stowe and Katherine Fellows in teaching the w
 
 The Friday evening was an install fest to make sure all of the students had their Clojure environments setup properly. The following Saturday was spent learning the fundamentals of Clojure. By the end of workshop, I think everyone had a good grasp on it. At the end of the day we handed out some swag and most of the people headed to Pinballz Arcade in Austin for more fun.
 
-<a class="twitter-timeline" data-dnt="true" href="/everett_toews/timelines/577482122761502720" data-widget-id="578666847068770304">ClojureBridge Austin 2015</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+Checkout the Twitter timeline for [ClojureBridge Austin 2015](https://twitter.com/everett_toews/timelines/577482122761502720).
+
 
 ##The Programming Language
 
