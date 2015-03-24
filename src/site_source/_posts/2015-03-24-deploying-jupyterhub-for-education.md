@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Deploying JupyterHub for Education"
-date: 2015-03-25 23:59
+date: 2015-03-24 23:59
 comments: true
 author: Jessica Hamrick
 published: true
@@ -19,7 +19,7 @@ In the past, the problem sets were written in MATLAB. This year, however, we dec
 
 There were two options for using the notebook in the class. The first (and more traditional) method would be to require students to install the notebook themselves on their own computers. To run it, they would have to first start the IPython notebook server from the command line, which would then give them access to the notebook files through the browser. The second (and more experimental) method would be to launch a server running [JupyterHub](https://github.com/jupyter/jupyterhub), which is a platform for hosting notebooks on a server with multiple users. Importantly, JupyterHub requires no installation on the part of the user—they simply go to a website, login, and immediately have access to the IPython notebook:
 
-{% img 2015-03-25-deploying-jupyterhub-for-education/jupyterhub.gif %}
+{% img 2015-03-24-deploying-jupyterhub-for-education/jupyterhub.gif %}
 
 For a class of 220 students, ensuring that everybody would be able to install the correct version of the notebook—with the correct versions of the necessary packages like [NumPy](http://www.numpy.org/), [SciPy](http://www.scipy.org/scipylib/index.html), and [Matplotlib](http://matplotlib.org/)—would have been nearly impossible. On top of that, many students in this class have not used the command line before, and requiring that they use it to launch the notebook seemed both unfair to them, as well as a headache for us. In light of this, the second option of using JupyterHub seemed like the more attractive and feasible option.
 
@@ -79,7 +79,7 @@ Min added a few additional helper services, including an [activity logger](https
 
 Here is the full, glorious setup:
 
-{% img 2015-03-25-deploying-jupyterhub-for-education/setup.png %}
+{% img 2015-03-24-deploying-jupyterhub-for-education/setup.png %}
 
 ## Going live!
 
