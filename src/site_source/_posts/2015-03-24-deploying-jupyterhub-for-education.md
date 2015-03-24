@@ -17,6 +17,8 @@ As a PhD student at UC Berkeley, my duties involve some amount of teaching; so, 
 
 In the past, the problem sets were written in MATLAB. This year, however, we decided to make the switch to Python. In particular, we decided that the [IPython/Jupyter notebook](http://ipython.org/notebook.html) would be an ideal format for the assignments. The notebook is a cross-platform, browser-based application that seamlessly interleaves code, text, and images. With the notebook, it is possible for us to write instructions in the notebook, include a coding exercise after the instructions, and then ask for their interpretation of the results immediately after that. For an example of what the notebook looks like, you can check out [try.jupyter.org](http://try.jupyter.org) for a demo.
 
+<!-- more -->
+
 There were two options for using the notebook in the class. The first (and more traditional) method would be to require students to install the notebook themselves on their own computers. To run it, they would have to first start the IPython notebook server from the command line, which would then give them access to the notebook files through the browser. The second (and more experimental) method would be to launch a server running [JupyterHub](https://github.com/jupyter/jupyterhub), which is a platform for hosting notebooks on a server with multiple users. Importantly, JupyterHub requires no installation on the part of the user—they simply go to a website, login, and immediately have access to the IPython notebook:
 
 {% img 2015-03-24-deploying-jupyterhub-for-education/jupyterhub.gif %}
