@@ -102,18 +102,6 @@ To create a Security Group Rule:
 
 .. include:: samples/create_security_group_rule.rst
 
-Create Virtual Interface
----------------------------
-To create a Virtual Interface:
-
-.. include:: samples/create_virtual_interface.rst
-
-List Virtual Interfaces
---------------------------
-To list Virtual Interfaces:
-
-.. include:: samples/list_virtual_interfaces.rst
-
 More information
 ================
 This Quickstart is intentionally very brief, demonstrating only a few basic operations.
