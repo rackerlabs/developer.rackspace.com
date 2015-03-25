@@ -16,7 +16,11 @@
 
 .. code-block:: php
 
-  // Not currently supported by this SDK
+  $securityGroupRule = $networkingService->createSecurityGroupRule(array(
+      'direction'       => 'ingress',
+      'ethertype'       => 'IPv4',
+      'securityGroupId' => $securityGroup->getId()
+  ));
 
 .. code-block:: python
 
