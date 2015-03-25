@@ -16,7 +16,10 @@
 
 .. code-block:: php
 
-  // Not currently supported by this SDK
+  $port = $networkingService->createPort(array(
+      'name'      => 'MyNewPort',
+      'networkId' => $network->getId()
+  ));
 
 .. code-block:: python
 
