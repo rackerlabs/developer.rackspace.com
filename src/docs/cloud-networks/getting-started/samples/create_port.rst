@@ -8,7 +8,10 @@
 
 .. code-block:: java
 
-  // Not currently supported by this SDK
+  PortApi portApi = neutronApi.getPortApi("{region}");
+  Port port = portApi.create(Port.createBuilder(network.getId())
+      .name("MyNewPort")
+      .build());
 
 .. code-block:: javascript
 
