@@ -16,7 +16,7 @@
 
 .. code-block:: php
 
-  // Not currently supported by this SDK
+  $subnets = $networkingService->listSubnets();
 
 .. code-block:: python
 
