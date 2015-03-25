@@ -16,7 +16,11 @@
 
 .. code-block:: php
 
-  // Not currently supported by this SDK
+    $networkingService = $client->networkingService(null, '{region}');
+
+    $network = $networkingService->createNetwork(array(
+        'name' => 'MyNewNetwork'
+    ));
 
 .. code-block:: python
 
