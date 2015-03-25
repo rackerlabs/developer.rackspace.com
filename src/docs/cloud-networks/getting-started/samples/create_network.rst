@@ -16,11 +16,11 @@
 
 .. code-block:: php
 
-    $networkingService = $client->networkingService(null, '{region}');
+  $networkingService = $client->networkingService(null, '{region}');
 
-    $network = $networkingService->createNetwork(array(
-        'name' => 'MyNewNetwork'
-    ));
+  $network = $networkingService->createNetwork(array(
+      'name' => 'MyNewNetwork'
+  ));
 
 .. code-block:: python
 
