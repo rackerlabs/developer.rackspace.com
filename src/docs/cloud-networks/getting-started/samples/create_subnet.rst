@@ -16,7 +16,12 @@
 
 .. code-block:: php
 
-  // Not currently supported by this SDK
+  $subnet = $networkingService->createSubnet(array(
+      'name'      => 'MyNewSubnet',
+      'cidr'      => '192.168.101.1/24',
+      'networkId' => $network->getId(),
+      'ipVersion' => 4
+  ));
 
 .. code-block:: python
 
