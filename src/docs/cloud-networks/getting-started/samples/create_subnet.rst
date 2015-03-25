@@ -8,7 +8,12 @@
 
 .. code-block:: java
 
-  // Not currently supported by this SDK
+  SubnetApi subnetApi = neutronApi.getSubnetApi("{region}");
+
+  Subnet subnet = subnetApi.create(Subnet.createBuilder(network.getId(), "192.168.101.1/24")
+      .ipVersion(4)
+      .name("MyNewSubnet")
+      .build());
 
 .. code-block:: javascript
 
