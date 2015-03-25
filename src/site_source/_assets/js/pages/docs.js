@@ -2,17 +2,19 @@
   var app = window.devsite;
 
   var docsDict = {
-    '/docs/cloud-servers': [ 'go', 'java', '.net', 'node.js', 'php','python','ruby','shell' ],
-    '/docs/cloud-load-balancers': [ 'go', 'java', '.net', 'node.js', 'php','python','ruby','shell' ],
-    '/docs/cloud-files': [ 'go', 'java', '.net', 'node.js', 'php','python','ruby','shell' ],
-    '/docs/cloud-dns': [ 'go', 'java', '.net', 'node.js', 'php','python','ruby','shell' ],
-    '/docs/cloud-block-storage': [ 'go', 'java', '.net', 'node.js', 'php','python','ruby','shell' ],
-    '/docs/cloud-databases': [ 'go', 'java', '.net', 'node.js', 'php','python','ruby','shell' ],
-    '/docs/auto-scale': [ 'go', 'java', '.net', 'php','python','ruby','shell' ],
-    '/docs/cloud-images': [ 'go', 'java', '.net', 'php','python','ruby','shell' ],
-    '/docs/cloud-queues': [ 'go', 'java', '.net', 'php','python','ruby','shell' ],
-    '/docs/cloud-monitoring': [ 'go', 'java', '.net', 'php','python','ruby','shell' ],
-    '/docs/cloud-identity': [ 'go', 'java', '.net', 'php','python','ruby','shell' ]
+    '/docs/cloud-servers': [ 'go', 'java', '.net', 'node.js', 'php', 'python', 'ruby', 'shell' ],
+    '/docs/cloud-load-balancers': [ 'go', 'java', '.net', 'node.js', 'php', 'python', 'ruby', 'shell' ],
+    '/docs/cloud-files': [ 'go', 'java', '.net', 'node.js', 'php', 'python', 'ruby', 'shell' ],
+    '/docs/cloud-dns': [ 'go', 'java', '.net', 'node.js', 'php', 'python', 'ruby', 'shell' ],
+    '/docs/cloud-block-storage': [ 'go', 'java', '.net', 'node.js', 'php', 'python', 'ruby', 'shell' ],
+    '/docs/cloud-databases': [ 'go', 'java', '.net', 'node.js', 'php', 'python', 'ruby', 'shell' ],
+    '/docs/auto-scale': [ 'go', 'java', '.net', 'php', 'python', 'ruby', 'shell' ],
+    '/docs/cloud-images': [ 'go', 'java', '.net', 'php', 'python', 'ruby', 'shell' ],
+    '/docs/cloud-queues': [ 'go', 'java', '.net', 'php', 'python', 'ruby', 'shell' ],
+    '/docs/cloud-monitoring': [ 'go', 'java', '.net', 'php', 'python', 'ruby', 'shell' ],
+    '/docs/cloud-identity': [ 'go', 'java', '.net', 'php', 'python', 'ruby', 'shell' ],
+    '/docs/cloud-networks': [ 'go', 'java', '.net', 'php', 'python', 'ruby', 'shell' ],
+    '/docs/orchestration': [ 'go', 'java', '.net', 'php', 'python', 'ruby', 'shell' ]
   };
 
   var cookieName = 'devsite-language';
