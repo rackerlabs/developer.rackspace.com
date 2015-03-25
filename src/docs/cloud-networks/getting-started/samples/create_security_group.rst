@@ -16,7 +16,11 @@
 
 .. code-block:: php
 
-  // Not currently supported by this SDK
+  $securityGroup = $networkingService->createSecurityGroup(array(
+      'name' => 'MySecurityGroup',
+      'description' => 'MyRules',
+      'tenantId' => '{tenantID}'
+  ));
 
 .. code-block:: python
 
