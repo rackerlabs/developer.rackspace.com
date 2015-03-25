@@ -16,7 +16,7 @@
 
 .. code-block:: php
 
-  // Not currently supported by this SDK
+  $ports = $networkingService->listPorts();
 
 .. code-block:: python
 
