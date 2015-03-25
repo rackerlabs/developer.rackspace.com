@@ -8,7 +8,9 @@
 
 .. code-block:: java
 
-  // Not currently supported by this SDK
+  NetworkApi networkApi = neutronApi.getNetworkApi("{region}");
+
+  Network network = networkApi.create(Network.createBuilder("MyNewNetwork").build());
 
 .. code-block:: javascript
 
