@@ -20,7 +20,15 @@
 
 .. code-block:: javascript
 
-  // Not currently supported by this SDK
+  pkgcloud = require('pkgcloud');
+
+  // Each client is bound to a specific service and provider.
+  var client = pkgcloud.network.createClient({
+    provider: 'rackspace',
+    username: '{username}',
+    apiKey: '{apiKey}',
+    region: '{region}'
+  });
 
 .. code-block:: php
 

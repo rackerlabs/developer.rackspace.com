@@ -12,7 +12,16 @@
 
 .. code-block:: javascript
 
-  // Not currently supported by this SDK
+  client.createNetwork({
+    name: 'MyNewNetwork'
+  }, function(err, network) {
+    if (err) {
+      // TODO handle as appropriate
+      return;
+    }
+
+    // TODO use your network here
+  });
 
 .. code-block:: php
 

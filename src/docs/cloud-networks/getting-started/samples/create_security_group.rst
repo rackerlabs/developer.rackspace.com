@@ -12,7 +12,18 @@
 
 .. code-block:: javascript
 
-  // Not currently supported by this SDK
+  client.createSecurityGroup({
+    name: 'MyNewSecurityGroup',
+    description: 'MyRules',
+    tenantId: '{tenantID}'
+  }, function(err, securityGroup) {
+    if (err) {
+      // TODO handle as appropriate
+      return;
+    }
+
+    // TODO use your security group here
+  });
 
 .. code-block:: php
 

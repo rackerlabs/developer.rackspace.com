@@ -12,7 +12,14 @@
 
 .. code-block:: javascript
 
-  // Not currently supported by this SDK
+  client.getPorts(function(err, ports) {
+    if (err) {
+      // TODO handle as appropriate
+      return;
+    }
+
+    // TODO use your ports here
+  });
 
 .. code-block:: php
 

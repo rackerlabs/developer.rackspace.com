@@ -12,7 +12,19 @@
 
 .. code-block:: javascript
 
-  // Not currently supported by this SDK
+  client.createSubnet({
+    name: 'MyNewSubnet',
+    cidr: '192.168.101.1/24',
+    networkId: network.id,
+    ipVersion: 4
+  }, function(err, subnet) {
+    if (err) {
+      // TODO handle as appropriate
+      return;
+    }
+
+    // TODO use your subnet here
+  });
 
 .. code-block:: php
 

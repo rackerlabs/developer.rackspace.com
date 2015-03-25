@@ -12,7 +12,18 @@
 
 .. code-block:: javascript
 
-  // Not currently supported by this SDK
+  client.createSecurityGroupRule({
+    direction: 'ingress',
+    ethertype: 'IPv4',
+    securityGroupId: securityGroup.id
+  }, function(err, securityGroupRule) {
+    if (err) {
+      // TODO handle as appropriate
+      return;
+    }
+
+    // TODO use your security group rule here
+  });
 
 .. code-block:: php
 

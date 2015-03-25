@@ -12,7 +12,14 @@
 
 .. code-block:: javascript
 
-  // Not currently supported by this SDK
+  client.getSubnets(function(err, subnets) {
+    if (err) {
+      // TODO handle as appropriate
+      return;
+    }
+
+    // TODO use your subnets here
+  });
 
 .. code-block:: php
 

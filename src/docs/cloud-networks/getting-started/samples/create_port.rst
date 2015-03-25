@@ -12,7 +12,17 @@
 
 .. code-block:: javascript
 
-  // Not currently supported by this SDK
+  client.createPort({
+    name: 'MyNewPort',
+    networkId: network.id
+  }, function(err, port) {
+    if (err) {
+      // TODO handle as appropriate
+      return;
+    }
+
+    // TODO use your port here
+  });
 
 .. code-block:: php
 
