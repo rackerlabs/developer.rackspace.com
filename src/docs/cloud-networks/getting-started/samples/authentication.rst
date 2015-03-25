@@ -16,7 +16,10 @@
 
 .. code-block:: java
 
-  // Not currently supported by this SDK
+  // Authentication in jclouds is lazy and happens on the first call to the cloud.
+  NeutronApi neutronApi = ContextBuilder.newBuilder("rackspace-cloudnetworks-us")
+      .credentials("{username}", "{apiKey}")
+      .buildApi(NeutronApi.class);
 
 .. code-block:: javascript
 
