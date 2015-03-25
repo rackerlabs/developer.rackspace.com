@@ -16,7 +16,7 @@
 
 .. code-block:: php
 
-  // Not currently supported by this SDK
+  $networks = $networkingService->listNetworks();
 
 .. code-block:: python
 
