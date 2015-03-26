@@ -20,10 +20,10 @@
                     <img src="{% asset_path cloud-servers.png %}" alt="" class="product-image"/>
                     Auto Scale
                 </h2>
-                <p>Rackspace Auto Scale is a service that lets you configure automated scaling of resources in response to an 
+                <p>Rackspace Auto Scale is a service that lets you configure automated scaling of resources in response to an
                 increase or decrease in overall workload based on user-defined policies.</p>
                 <ul class="piped-list">
-                    <li><a href="/docs/auto-scale/getting-started/">Getting Started</a></li>                
+                    <li><a href="/docs/auto-scale/getting-started/">Getting Started</a></li>
                     <li><a href="http://api.rackspace.com/api-ref-auto-scale.html">API Reference</a></li>
                     <li><a href="http://docs.rackspace.com/cas/api/v1.0/autoscale-devguide/content/Overview.html">Developer Guide</a></li>
                 </ul>
@@ -112,6 +112,20 @@
         <div class="row">
             <div class="col-md-12">
                 <h2>
+                  <img src="{% asset_path cloud-identity.png %}" alt="" class="product-image"/>
+                  Cloud Identity
+                </h2>
+                <p>Cloud Identity provides authentication and authorization functionality for other Rackspace Cloud services.</p>
+                <ul class="piped-list">
+                    <li><a href="http://api.rackspace.com/api-ref-backup.html">API Reference</a></li>
+                    <li><a href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content">Developer Guide</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <h2>
                     <img src="{% asset_path cloud-images.png %}" alt="" class="product-image"/>
                     Cloud Images
                 </h2>
@@ -147,12 +161,27 @@
                     <img src="{% asset_path cloud-monitoring.png %}" alt="" class="product-image"/>
                     Cloud Monitoring
                 </h2>
-                <p>Cloud Monitoring helps you keep a keen eye on all of your resources. You can monitor activity on websites, 
+                <p>Cloud Monitoring helps you keep a keen eye on all of your resources. You can monitor activity on websites,
                 web servers, routers, load balancers, and more.</p>
                 <ul class="piped-list">
-                    <li><a href="/docs/cloud-monitoring/getting-started/">Getting Started</a></li>                
+                    <li><a href="/docs/cloud-monitoring/getting-started/">Getting Started</a></li>
                     <li><a href="http://api.rackspace.com/api-ref-monitoring.html">API Reference</a></li>
                     <li><a href="http://docs.rackspace.com/cm/api/v1.0/cm-devguide/content/overview.html">Developer Guide</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <h2>
+                    <img src="{% asset_path cloud-servers.png %}" alt="" class="product-image"/>
+                    Cloud Networking
+                </h2>
+                <p>Rackspace's Cloud Networking is used to provide on-demand, scalable, and technology-agnostic network abstraction. It supports the creation of networks, subnets, ports, security groups and port traffic rules.</p>
+                <ul class="piped-list">
+                    <li><a href="/docs/cloud-networks/getting-started/">Getting Started</a></li>
+                    <li><a href="http://api.rackspace.com/api-ref-networks.html">API Reference</a></li>
+                    <li><a href="http://docs.rackspace.com/networks/api/v2/cn-gettingstarted/content/ch_preface.html">Developer Guide</a></li>
                 </ul>
             </div>
         </div>
@@ -163,7 +192,7 @@
                     <img src="{% asset_path cloud-queues.png %}" alt="" class="product-image"/>
                     Cloud Queues
                 </h2>
-                <p>Cloud Queues is an open source, scalable, and highly available message and notifications service, 
+                <p>Cloud Queues is an open source, scalable, and highly available message and notifications service,
                 based on the OpenStack Marconi project</p>
                 <ul class="piped-list">
                     <li><a href="/docs/cloud-queues/getting-started/">Getting Started</a></li>
@@ -190,19 +219,21 @@
             </div>
         </div>
 
-      <div class="row">
-            <div class="col-md-12">
-                <h2>
-                  <img src="{% asset_path cloud-identity.png %}" alt="" class="product-image"/>
-                  Cloud Identity
-                </h2>
-                <p>Cloud Identity provides authentication and authorization functionality for other Rackspace Cloud services.</p>
-                <ul class="piped-list">
-                    <li><a href="http://api.rackspace.com/api-ref-backup.html">API Reference</a></li>
-                    <li><a href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content">Developer Guide</a></li>
-                </ul>
-            </div>
-        </div>
+         <div class="row">
+           <div class="col-md-12">
+               <h2>
+                   <img src="{% asset_path cloud-load-balancer.png %}" alt="" class="product-image"/>
+                   Orchestration
+               </h2>
+               <p>Rackspace's Orchestration service provides a template-based way to describe a cloud application. These templates enable you to create the following resource types: instances, floating IPs, volumes, security groups, users, and so on. Also, Orchestration provides some more advanced functionality, such as instance high availability, instance auto-scaling, and nested stacks.</p>
+               <ul class="piped-list">
+                   <li><a href="/docs/orchestration/getting-started/">Getting Started</a></li>
+                   <li><a href="http://api.rackspace.com/api-ref-orchestration.html">API Reference</a></li>
+                   <li><a href="http://docs.rackspace.com/orchestration/api/v1/orchestration-getting-started/content/Orch_Overview.html">Developer Guide</a></li>
+               </ul>
+           </div>
+     </div>
+
     </div>
 
 .. toctree::
