@@ -8,7 +8,12 @@
 
 .. code-block:: java
 
-  // Not currently supported by this SDK
+  SecurityGroupApi securityGroupApi = neutronApi.getSecurityGroupApi("{region}").get();
+  SecurityGroup securityGroup = securityGroupApi.create(SecurityGroup.createBuilder()
+      .name("MyNewSecurityGroup")
+      .description("MyRules")
+      .tenantId("{tenantID}")
+      .build());
 
 .. code-block:: javascript
 
