@@ -8,7 +8,7 @@
 
 .. code-block:: java
 
-  // Not currently supported by this SDK
+  List<Network> networks = networkApi.list().concat().toList();
 
 .. code-block:: javascript
 
