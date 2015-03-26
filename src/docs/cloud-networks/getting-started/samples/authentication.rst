@@ -12,7 +12,31 @@
 
 .. code-block:: go
 
-  // Not currently supported by this SDK
+  import (
+    "github.com/rackspace/gophercloud"
+    "github.com/rackspace/gophercloud/rackspace"
+    osNetworks "github.com/rackspace/gophercloud/openstack/networking/v2/networks"
+    "github.com/rackspace/gophercloud/rackspace/networking/v2/networks"
+    osSubnets "github.com/rackspace/gophercloud/openstack/networking/v2/subnets"
+    "github.com/rackspace/gophercloud/rackspace/networking/v2/subnets"
+    osPorts "github.com/rackspace/gophercloud/openstack/networking/v2/ports"
+    "github.com/rackspace/gophercloud/rackspace/networking/v2/ports"
+    osRules "github.com/rackspace/gophercloud/openstack/networking/v2/security/rules"
+    "github.com/rackspace/gophercloud/rackspace/networking/v2/security/rules"
+    osGroups "github.com/rackspace/gophercloud/openstack/networking/v2/security/groups"
+    "github.com/rackspace/gophercloud/rackspace/networking/v2/security/groups"
+  )
+
+  ao := gophercloud.AuthOptions{
+    Username: "{username}",
+    APIKey: "{apiKey}",
+  }
+
+  provider, err := rackspace.AuthenticatedClient(ao)
+
+  client, err := rackspace.NewNetworkV2(provider, gophercloud.EndpointOpts{
+    Region: "{region}",
+  })
 
 .. code-block:: java
 

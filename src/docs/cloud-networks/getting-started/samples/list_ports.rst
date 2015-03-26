@@ -4,7 +4,15 @@
 
 .. code-block:: go
 
-  // Not currently supported by this SDK
+  err := ports.List(client, osPorts.ListOpts{}).EachPage(func(page pagination.Page) (bool, error) {
+    portList, err := osPorts.ExtractPorts(page)
+
+    for _, port := range portList {
+    
+    }
+
+    return true, nil
+  })
 
 .. code-block:: java
 

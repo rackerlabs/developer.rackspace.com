@@ -4,7 +4,12 @@
 
 .. code-block:: go
 
-  // Not currently supported by this SDK
+  opts := osPorts.CreateOpts{
+    NetworkID: network.ID,
+    Name: "MyNewPort",
+  }
+  
+  port, err := ports.Create(client, opts).Extract()
 
 .. code-block:: java
 

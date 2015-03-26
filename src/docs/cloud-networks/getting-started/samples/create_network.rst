@@ -4,7 +4,11 @@
 
 .. code-block:: go
 
-  // Not currently supported by this SDK
+  opts := osNetworks.CreateOpts{
+    Name: "MyNewNetwork",
+  }
+
+  network, err := networks.Create(client, opts).Extract()
 
 .. code-block:: java
 

@@ -4,7 +4,12 @@
 
 .. code-block:: go
 
-  // Not currently supported by this SDK
+  opts := osGroups.CreateOpts{
+    Name: "MyNewSecurityGroup",
+    Description: "MyRules",
+  }
+
+  secgroup, err := groups.Create(client, opts).Extract()
 
 .. code-block:: java
 

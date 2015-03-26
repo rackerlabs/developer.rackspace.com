@@ -4,7 +4,15 @@
 
 .. code-block:: go
 
-  // Not currently supported by this SDK
+  err := networks.List(client, osNetworks.ListOpts{}).EachPage(func(page pagination.Page) (bool, error) {
+    networkList, err := osNetworks.ExtractNetworks(page)
+
+    for _, n := range networkList {
+
+    }
+
+    return true, nil
+  })
 
 .. code-block:: java
 

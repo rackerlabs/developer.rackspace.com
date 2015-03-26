@@ -4,7 +4,13 @@
 
 .. code-block:: go
 
-  // Not currently supported by this SDK
+  opts := osRules.CreateOpts{
+    Direction: osRules.DirEgress,
+    EtherType: osRules.Ether4,
+    SecGroupID: secgroup.ID,
+  }
+
+  secrule, err := rules.Create(client, opts).Extract()
 
 .. code-block:: java
 

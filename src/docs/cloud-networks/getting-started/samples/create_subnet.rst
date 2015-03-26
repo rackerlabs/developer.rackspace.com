@@ -4,7 +4,14 @@
 
 .. code-block:: go
 
-  // Not currently supported by this SDK
+  opts := osSubnets.CreateOpts{
+    Name: "MyNewSubnet",
+    CIDR: "192.168.101.1/24",
+    NetworkID: network.ID,
+    IPVersion: osSubnets.IPv4,
+  }
+
+  subnet, err := subnets.Create(client, opts).Extract()
 
 .. code-block:: java
 

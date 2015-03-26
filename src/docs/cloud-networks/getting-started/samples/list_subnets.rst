@@ -4,7 +4,15 @@
 
 .. code-block:: go
 
-  // Not currently supported by this SDK
+  err := subnets.List(client, osSubnets.ListOpts{}).EachPage(func(page pagination.Page) (bool, error) {
+    subnetList, err := osSubnets.ExtractSubnets(page)
+
+    for _, subnet := range subnetList {
+
+    }
+
+    return true, nil
+  })
 
 .. code-block:: java
 
