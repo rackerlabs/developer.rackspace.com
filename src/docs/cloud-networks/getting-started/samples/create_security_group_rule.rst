@@ -8,7 +8,9 @@
 
 .. code-block:: java
 
-  // Not currently supported by this SDK
+  Rule rule = securityGroupApi.create(Rule.createBuilder(RuleDirection.INGRESS, securityGroup.getId())
+      .ethertype(RuleEthertype.IPV4)
+      .build());
 
 .. code-block:: javascript
 
