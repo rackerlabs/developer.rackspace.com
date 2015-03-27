@@ -3,6 +3,7 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.IOException;
 import java.net.URI;
+import java.io.BufferedOutputStream;
 
 import com.google.common.io.ByteStreams;
 import com.google.common.io.Files;
