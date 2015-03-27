@@ -9,7 +9,7 @@
 			
 .. code-block:: java
 
-  RecordApi recordApi = cloudDNSApi.getRecordApiForDomain({domainId});
+  RecordApi recordApi = cloudDNSApi.getRecordApi({domainId});
 
   awaitComplete(cloudDNSApi, recordApi.delete({recordIds}));
 

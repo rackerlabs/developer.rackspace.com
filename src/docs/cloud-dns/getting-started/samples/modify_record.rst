@@ -23,7 +23,7 @@
 
 .. code-block:: java
 
-  RecordApi recordApi = cloudDNSApi.getRecordApiForDomain({domainId}});
+  RecordApi recordApi = cloudDNSApi.getRecordApi({domainId}});
 
   Record updateRecord = Record.builder()
           .data("192.168.1.2")

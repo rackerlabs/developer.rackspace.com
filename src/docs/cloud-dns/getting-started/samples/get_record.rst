@@ -17,7 +17,7 @@
 
 .. code-block:: java
 
-  RecordApi recordApi = cloudDNSApi.getRecordApiForDomain({domainId}});
+  RecordApi recordApi = cloudDNSApi.getRecordApi({domainId}});
 
   RecordDetail record = recordApi.get({recordId}});
 
