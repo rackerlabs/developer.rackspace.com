@@ -13,7 +13,7 @@
     '/docs/cloud-queues': [ 'go', 'java', '.net', 'php','python','ruby','shell' ],
     '/docs/cloud-monitoring': [ 'go', 'java', '.net', 'php','python','ruby','shell' ],
     '/docs/cloud-identity': [ 'go', 'java', '.net', 'php','python','ruby','shell' ],
-    '/docs/orchestration': [ 'go','node.js','ruby','shell' ]
+    '/docs/orchestration': [ 'go','node.js','php','ruby','shell' ]
   };
 
   var cookieName = 'devsite-language';
