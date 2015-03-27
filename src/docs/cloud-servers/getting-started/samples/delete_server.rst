@@ -8,7 +8,7 @@
 
 .. code-block:: java
 
-  ServerApi serverApi = novaApi.getServerApiForZone("{region}");
+  ServerApi serverApi = novaApi.getServerApi("{region}");
 
   serverApi.delete("{serverId}");
 

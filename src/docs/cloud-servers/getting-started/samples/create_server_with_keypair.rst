@@ -13,7 +13,7 @@
 
 .. code-block:: java
 
-  ServerApi serverApi = novaApi.getServerApiForZone("{region}");
+  ServerApi serverApi = novaApi.getServerApi("{region}");
 
   CreateServerOptions options = CreateServerOptions.Builder.keyPairName("my-keypair");
   ServerCreated serverCreated = serverApi.create("My server", "{imageId}", "{flavorId}", options);

@@ -22,7 +22,7 @@
 .. code-block:: java
 
   ContentCachingApi contentCachingApi =
-      clbApi.getContentCachingApiForZoneAndLoadBalancer("{region}", "{loadBalancerId}");
+      clbApi.getContentCachingApi("{region}", "{loadBalancerId}");
 
   contentCachingApi.enable();
 

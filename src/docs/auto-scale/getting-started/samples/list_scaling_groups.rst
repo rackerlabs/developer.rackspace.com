@@ -12,7 +12,7 @@
 
 .. code-block:: java
 
-  GroupApi groupApi = autoscaleApi.getGroupApiForZone("{region}");
+  GroupApi groupApi = autoscaleApi.getGroupApi("{region}");
 
   FluentIterable<Group> groups = groupApi.list();
 

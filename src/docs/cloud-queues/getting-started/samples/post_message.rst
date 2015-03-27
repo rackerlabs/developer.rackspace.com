@@ -15,7 +15,7 @@
 .. code-block:: java
 
     MessageApi messageApi =
-        marconiApi.getMessageApiForZoneAndClientAndQueue("{region}", "{clientId}", "{queueName}");
+        marconiApi.getMessageApi("{region}", "{clientId}", "{queueName}");
 
     CreateMessage createMessage = CreateMessage.builder()
             .ttl(900)

@@ -38,7 +38,7 @@
   private static final String PUBLIC_NET = "00000000-0000-0000-0000-000000000000";
   private static final String SERVICE_NET = "11111111-1111-1111-1111-111111111111";
 
-  GroupApi groupApi = autoscaleApi.getGroupApiForZone("{region}");
+  GroupApi groupApi = autoscaleApi.getGroupApi("{region}");
 
   GroupConfiguration groupConfig = GroupConfiguration.builder()
           .maxEntities(5)

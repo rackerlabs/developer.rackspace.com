@@ -13,7 +13,7 @@
 .. code-block:: java
 
   WebhookApi webhookApi =
-      autoscaleApi.getWebhookApiForZoneAndGroupAndPolicy("{region}", "{groupId}", "{policyId}");
+      autoscaleApi.getWebhookApi("{region}", "{groupId}", "{policyId}");
 
   webhookApi.delete("{webhookId}");
 

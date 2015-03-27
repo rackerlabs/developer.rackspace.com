@@ -42,18 +42,18 @@ public class CloudServers {
     public static void main(String[] args) throws Exception {
         NovaApi novaApi = authenticate(USERNAME, API_KEY);
 
-        ImageApi imageApi = novaApi.getImageApiForZone(REGION);
+        ImageApi imageApi = novaApi.getImageApi(REGION);
         List<? extends Image> images = listImages(imageApi);
         Image image = getImage(imageApi, images);
 
-        FlavorApi flavorApi = novaApi.getFlavorApiForZone(REGION);
+        FlavorApi flavorApi = novaApi.getFlavorApi(REGION);
         List<? extends Flavor> flavors = listFlavors(flavorApi);
         Flavor flavor = getFlavor(flavorApi, FLAVOR_ID);
 
-        KeyPairApi keyPairApi = novaApi.getKeyPairExtensionForZone(REGION).get();
+        KeyPairApi keyPairApi = novaApi.getKeyPairApi(REGION).get();
         KeyPair keyPair = createNewKeyPair(keyPairApi);
 
-        ServerApi serverApi = novaApi.getServerApiForZone(REGION);
+        ServerApi serverApi = novaApi.getServerApi(REGION);
         ServerCreated serverCreated = createServerWithKeypair(serverApi, image, flavor, keyPair);
         Server server = queryServerBuild(serverApi, serverCreated);
 
@@ -72,7 +72,7 @@ public class CloudServers {
         File keyPairFile = new File("{/home/my-user/.ssh/id_rsa.pub}");
         String publicKey = Files.toString(keyPairFile, UTF_8);
 
-        KeyPairApi keyPairApi = novaApi.getKeyPairExtensionForZone(REGION).get();
+        KeyPairApi keyPairApi = novaApi.getKeyPairApi(REGION).get();
         KeyPair keyPair = keyPairApi.createWithPublicKey("my-keypair", publicKey);
     }
 
@@ -133,12 +133,12 @@ public class CloudServers {
     }
 
     public static void deleteServer(NovaApi novaApi, Server server) {
-        ServerApi serverApi = novaApi.getServerApiForZone(REGION);
+        ServerApi serverApi = novaApi.getServerApi(REGION);
         serverApi.delete(server.getId());
     }
 
     public static void deleteKeyPair(NovaApi novaApi, KeyPair keyPair) {
-        KeyPairApi keyPairApi = novaApi.getKeyPairExtensionForZone(REGION).get();
+        KeyPairApi keyPairApi = novaApi.getKeyPairApi(REGION).get();
         keyPairApi.delete(keyPair.getName());
     }
 

@@ -11,7 +11,7 @@
 .. code-block:: java
 
   MessageApi messageApi =
-      marconiApi.getMessageApiForZoneAndClientAndQueue("{region}", "{clientId}", "{queueName}");
+      marconiApi.getMessageApi("{region}", "{clientId}", "{queueName}");
 
   List<String> messageIds = ImmutableList.of("{messageId}");
 

@@ -37,7 +37,7 @@
 
 .. code-block:: java
 
-  NodeApi nodeApi = clbApi.getNodeApiForZoneAndLoadBalancer("{region}", "{loadBalancerId}");
+  NodeApi nodeApi = clbApi.getNodeApi("{region}", "{loadBalancerId}");
 
   AddNode node1 = AddNode.builder()
       .address(server1.getAccessIPv4())

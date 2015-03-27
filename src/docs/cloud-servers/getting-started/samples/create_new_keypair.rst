@@ -10,7 +10,7 @@
 
 .. code-block:: java
 
-  KeyPairApi keyPairApi = novaApi.getKeyPairExtensionForZone("{region}").get();
+  KeyPairApi keyPairApi = novaApi.getKeyPairApi("{region}").get();
 
   KeyPair keyPair = keyPairApi.create("my-keypair");
 

@@ -10,7 +10,7 @@
 
 .. code-block:: java
 
-  FlavorApi flavorApi = troveApi.getFlavorApiForZone("{region}");
+  FlavorApi flavorApi = troveApi.getFlavorApi("{region}");
 
   Flavor flavor = flavorApi.get("{flavorId}");
 

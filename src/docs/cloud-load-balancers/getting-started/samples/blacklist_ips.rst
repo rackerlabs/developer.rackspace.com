@@ -22,7 +22,7 @@
 .. code-block:: java
 
   AccessRuleApi accessRuleApi =
-      clbApi.getAccessRuleApiForZoneAndLoadBalancer("{region}", "{loadBalancerId}");
+      clbApi.getAccessRuleApi("{region}", "{loadBalancerId}");
 
   AccessRule rule1 = AccessRule.deny("206.160.165.0/24");
   AccessRule rule2 = AccessRule.allow("206.160.165.0/2");

@@ -35,17 +35,17 @@ public class CloudDatabases {
 
         TroveApi troveApi = authenticate(USERNAME, API_KEY);
 
-        FlavorApi flavorApi = troveApi.getFlavorApiForZone(REGION);
+        FlavorApi flavorApi = troveApi.getFlavorApi(REGION);
         FluentIterable<Flavor> flavors = listFlavors(flavorApi);
         Flavor flavor = getFlavor(flavorApi);
 
-        InstanceApi instanceApi = troveApi.getInstanceApiForZone(REGION);
+        InstanceApi instanceApi = troveApi.getInstanceApi(REGION);
         Instance instance = createInstance(troveApi, instanceApi, flavor);
 
-        DatabaseApi databaseApi = troveApi.getDatabaseApiForZoneAndInstance(REGION, instance.getId());
+        DatabaseApi databaseApi = troveApi.getDatabaseApi(REGION, instance.getId());
         createDatabase(databaseApi, DATABASE_NAME);
 
-        UserApi userApi = troveApi.getUserApiForZoneAndInstance(REGION, instance.getId());
+        UserApi userApi = troveApi.getUserApi(REGION, instance.getId());
         createUser(userApi, DATABASE_USER_NAME, DATABASE_NAME);
 
         String rootPassword = enableRootUser(instanceApi, instance);

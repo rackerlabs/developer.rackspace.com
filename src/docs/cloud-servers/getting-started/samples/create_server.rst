@@ -12,7 +12,7 @@
 
 .. code-block:: java
 
-  ServerApi serverApi = novaApi.getServerApiForZone("{region}");
+  ServerApi serverApi = novaApi.getServerApi("{region}");
 
   ServerCreated serverCreated = serverApi.create("My new server", "{imageId}", "{flavorId}");
 

@@ -8,7 +8,7 @@
 
 .. code-block:: java
 
-  VolumeApi volumeApi = cinderApi.getVolumeApiForZone("{region}");
+  VolumeApi volumeApi = cinderApi.getVolumeApi("{region}");
 
   volumeApi.delete("{volumeId}");
 

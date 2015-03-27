@@ -50,26 +50,26 @@ public class CloudLoadBalancers {
 
         CloudLoadBalancersApi clbApi = authenticate(USERNAME, API_KEY);
 
-        LoadBalancerApi lbApi = clbApi.getLoadBalancerApiForZone(REGION);
+        LoadBalancerApi lbApi = clbApi.getLoadBalancerApi(REGION);
         LoadBalancer loadBalancer = createLoadBalancer(lbApi);
 
-        NodeApi nodeApi = clbApi.getNodeApiForZoneAndLoadBalancer(REGION, loadBalancer.getId());
+        NodeApi nodeApi = clbApi.getNodeApi(REGION, loadBalancer.getId());
         createNodes(nodeApi);
 
-        HealthMonitorApi healthMonitorApi = clbApi.getHealthMonitorApiForZoneAndLoadBalancer(REGION, loadBalancer.getId());
+        HealthMonitorApi healthMonitorApi = clbApi.getHealthMonitorApi(REGION, loadBalancer.getId());
         createHealthMonitor(healthMonitorApi);
         HealthMonitor healthMonitor = getHealthMonitor(healthMonitorApi);
 
-        ConnectionApi connectionApi = clbApi.getConnectionApiForZoneAndLoadBalancer(REGION, loadBalancer.getId());
+        ConnectionApi connectionApi = clbApi.getConnectionApi(REGION, loadBalancer.getId());
         setThrottling(connectionApi);
         
-        AccessRuleApi accessRuleApi = clbApi.getAccessRuleApiForZoneAndLoadBalancer(REGION, loadBalancer.getId());
+        AccessRuleApi accessRuleApi = clbApi.getAccessRuleApi(REGION, loadBalancer.getId());
         blacklistIPs(accessRuleApi);
 
-        ContentCachingApi contentCachingApi = clbApi.getContentCachingApiForZoneAndLoadBalancer(REGION, loadBalancer.getId());
+        ContentCachingApi contentCachingApi = clbApi.getContentCachingApi(REGION, loadBalancer.getId());
         enableContentCaching(contentCachingApi);
 
-        ErrorPageApi errorPageApi = clbApi.getErrorPageApiForZoneAndLoadBalancer(REGION, loadBalancer.getId());
+        ErrorPageApi errorPageApi = clbApi.getErrorPageApi(REGION, loadBalancer.getId());
         setCustomErrorPage(errorPageApi);
 
         deleteResources(clbApi, loadBalancer);
@@ -106,7 +106,7 @@ public class CloudLoadBalancers {
         NovaApi novaApi = ContextBuilder.newBuilder("rackspace-cloudservers-us")
                 .credentials(USERNAME, API_KEY)
                 .buildApi(NovaApi.class);
-        ServerApi serverApi = novaApi.getServerApiForZone(REGION);
+        ServerApi serverApi = novaApi.getServerApi(REGION);
 
         Server server1 = serverApi.get("{serverId}");
         Server server2 = serverApi.get("{serverId}");
@@ -184,7 +184,7 @@ public class CloudLoadBalancers {
     }
 
     public static void deleteNodes(CloudLoadBalancersApi clbApi, LoadBalancer loadBalancer) {
-        NodeApi nodeApi = clbApi.getNodeApiForZoneAndLoadBalancer(REGION, loadBalancer.getId());
+        NodeApi nodeApi = clbApi.getNodeApi(REGION, loadBalancer.getId());
 
         Set<Node> nodes = nodeApi.list().concat().toSet();
 
@@ -193,7 +193,7 @@ public class CloudLoadBalancers {
     }
 
     public static void deleteLoadBalancer(CloudLoadBalancersApi clbApi, LoadBalancer loadBalancer) throws TimeoutException {
-        LoadBalancerApi lbApi = clbApi.getLoadBalancerApiForZone(REGION);
+        LoadBalancerApi lbApi = clbApi.getLoadBalancerApi(REGION);
         lbApi.delete(loadBalancer.getId());
         
         // Wait for the Load Balancer to be deleted

@@ -9,7 +9,7 @@
 
 .. code-block:: java
 
-  PolicyApi policyApi = autoscaleApi.getPolicyApiForZoneAndGroup("{region}", "{scalingGroupId}");
+  PolicyApi policyApi = autoscaleApi.getPolicyApi("{region}", "{scalingGroupId}");
 
   Policy policy = policyApi.get("{policyId}");
 
