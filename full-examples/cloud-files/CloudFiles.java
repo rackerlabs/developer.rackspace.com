@@ -48,22 +48,22 @@ public class CloudFiles {
         ContextBuilder builder = ContextBuilder.newBuilder(PROVIDER)
             .credentials(USERNAME, API_KEY);
 
-        BlobStore blobStore = builder.buildView(RegionScopedBlobStoreContext.class).blobStoreInRegion(REGION);
-        BlobRequestSigner signer = builder.buildView(RegionScopedBlobStoreContext.class).signerInRegion(REGION);
+        BlobStore blobStore = builder.buildView(RegionScopedBlobStoreContext.class).getBlobStore(REGION);
+        BlobRequestSigner signer = builder.buildView(RegionScopedBlobStoreContext.class).getSigner(REGION);
         CloudFilesApi cloudFilesApi = blobStore.getContext().unwrapApi(CloudFilesApi.class);
 
-        ContainerApi containerApi = cloudFilesApi.getContainerApiForRegion(REGION);
+        ContainerApi containerApi = cloudFilesApi.getContainerApi(REGION);
         createContainer(containerApi);
 
-        ObjectApi objectApi = cloudFilesApi.getObjectApiForRegionAndContainer(REGION, CONTAINER_NAME);
+        ObjectApi objectApi = cloudFilesApi.getObjectApi(REGION, CONTAINER_NAME);
         uploadObject(objectApi);
         SwiftObject object1 = getObjectSDK(objectApi);
         updateObjectMetadata(objectApi);
 
-        AccountApi accountApi = cloudFilesApi.getAccountApiForRegion(REGION);
+        AccountApi accountApi = cloudFilesApi.getAccountApi(REGION);
         URI tempURL = getObjectTempUrl(accountApi, signer);
 
-        CDNApi cdnApi = cloudFilesApi.getCDNApiForRegion(REGION);
+        CDNApi cdnApi = cloudFilesApi.getCDNApi(REGION);
         URI uri = enableCDN(cdnApi);
         getObjectCDN(cdnApi);
         disableCDN(cdnApi);
