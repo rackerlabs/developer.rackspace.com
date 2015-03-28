@@ -31,27 +31,20 @@ public class CDN {
     public static void main(String[] args) throws Exception {
         PoppyApi cdnApi = authenticate(USERNAME, API_KEY);
 
-        // List flavors
         FlavorApi flavorApi = cdnApi.getFlavorApi();
         List<Flavor> flavors = listFlavors(flavorApi);
 
-        // Get flavor
         Flavor flavor = getFlavor(flavorApi, FLAVOR_ID);
 
-        // Create service
         ServiceApi serviceApi = cdnApi.getServiceApi();
         URI serviceURI = createService(serviceApi, flavor.getId());
 
-        // List services
         List<Service> services = listServices(serviceApi);
 
-        // Get service
         Service service = getService(serviceApi, services.get(0).getId());
 
-        // Update service
         serviceURI = updateService(serviceApi, service);
 
-        // Delete service
         deleteResources(cdnApi, service);
     }
 
