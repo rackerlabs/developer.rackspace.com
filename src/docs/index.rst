@@ -33,6 +33,21 @@
         <div class="row">
             <div class="col-md-12">
                 <h2>
+                    <img src="{% asset_path rackspace-cdn.png %}" alt="" class="product-image"/>
+                    Rackspace CDN
+               </h2>
+               <p>Rackspace CDN gives you the power to accelerate content on any public resource at Rackspace.</p>
+               <ul class="piped-list">
+                   <li><a href="/docs/cdn/getting-started/">Getting Started</a></li>
+                   <li><a href="http://api.rackspace.com/api-ref-raxCDN.html">API Reference</a></li>
+                   <li><a href="http://docs.rackspace.com/cdn/api/v1.0/cdn-devguide/content/Overview.html">Developer Guide</a></li>
+               </ul>
+           </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <h2>
                     <img src="{% asset_path cloud-backup.png %}" alt="" class="product-image"/>
                     Cloud Backup
                 </h2>
@@ -233,22 +248,6 @@
                </ul>
            </div>
      </div>
-
-        <div class="row">
-            <div class="col-md-12">
-                <h2>
-                    <img src="{% asset_path rackspace-cdn.png %}" alt="" class="product-image"/>
-                    Rackspace CDN
-               </h2>
-               <p>Rackspace CDN gives you the power to accelerate content on any public resource at Rackspace.</p>
-               <ul class="piped-list">
-                   <li><a href="/docs/cdn/getting-started/">Getting Started</a></li>
-                   <li><a href="http://api.rackspace.com/api-ref-raxCDN.html">API Reference</a></li>
-                   <li><a href="http://docs.rackspace.com/cdn/api/v1.0/cdn-devguide/content/Overview.html">Developer Guide</a></li>
-               </ul>
-           </div>
-     </div>
-    </div>
 
 .. toctree::
     :maxdepth: 2
