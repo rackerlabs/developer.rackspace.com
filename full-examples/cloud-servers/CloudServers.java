@@ -85,7 +85,7 @@ public class CloudServers {
     public static Image getImage(ImageApi imageApi, List<? extends Image> images) {
         Image ubuntu1404Image = Iterables.find(images, new Predicate<Image>() {
             public boolean apply(Image image) {
-                return image.getName().equals("Ubuntu 14.04 LTS (Trusty Tahr)");
+                return image.getName().startsWith("Ubuntu 14.04 LTS (Trusty Tahr)");
             }
         });
         Image image = imageApi.get(ubuntu1404Image.getId());
