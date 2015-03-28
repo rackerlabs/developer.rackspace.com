@@ -56,24 +56,24 @@ public class CloudLoadBalancers {
         NodeApi nodeApi = clbApi.getNodeApi(REGION, loadBalancer.getId());
         createNodes(nodeApi);
 
-        waitForLoadBalancerToBecomeActive(lbApi, loadBalancer);
+        awaitActive(lbApi, loadBalancer);
         HealthMonitorApi healthMonitorApi = clbApi.getHealthMonitorApi(REGION, loadBalancer.getId());
         createHealthMonitor(healthMonitorApi);
         HealthMonitor healthMonitor = getHealthMonitor(healthMonitorApi);
 
-        waitForLoadBalancerToBecomeActive(lbApi, loadBalancer);
+        awaitActive(lbApi, loadBalancer);
         ConnectionApi connectionApi = clbApi.getConnectionApi(REGION, loadBalancer.getId());
         setThrottling(connectionApi);
         
-        waitForLoadBalancerToBecomeActive(lbApi, loadBalancer);
+        awaitActive(lbApi, loadBalancer);
         AccessRuleApi accessRuleApi = clbApi.getAccessRuleApi(REGION, loadBalancer.getId());
         blacklistIPs(accessRuleApi);
 
-        waitForLoadBalancerToBecomeActive(lbApi, loadBalancer);
+        awaitActive(lbApi, loadBalancer);
         ContentCachingApi contentCachingApi = clbApi.getContentCachingApi(REGION, loadBalancer.getId());
         enableContentCaching(contentCachingApi);
 
-        waitForLoadBalancerToBecomeActive(lbApi, loadBalancer);
+        awaitActive(lbApi, loadBalancer);
         ErrorPageApi errorPageApi = clbApi.getErrorPageApi(REGION, loadBalancer.getId());
         setCustomErrorPage(errorPageApi);
 
@@ -215,16 +215,16 @@ public class CloudLoadBalancers {
 
     public static void deleteResources(CloudLoadBalancersApi clbApi, LoadBalancerApi lbApi, LoadBalancer loadBalancer)
           throws IOException, TimeoutException {
-        waitForLoadBalancerToBecomeActive(lbApi, loadBalancer);
+        awaitActive(lbApi, loadBalancer);
         deleteNodes(clbApi, loadBalancer);
 
-        waitForLoadBalancerToBecomeActive(lbApi, loadBalancer);
+        awaitActive(lbApi, loadBalancer);
         deleteLoadBalancer(clbApi, loadBalancer);
 
         Closeables.close(clbApi, true);
     }
 
-    public static void waitForLoadBalancerToBecomeActive(LoadBalancerApi lbApi, LoadBalancer loadBalancer)
+    public static void awaitActive(LoadBalancerApi lbApi, LoadBalancer loadBalancer)
         throws TimeoutException {
         if (!LoadBalancerPredicates.awaitAvailable(lbApi).apply(loadBalancer)) {
             throw new TimeoutException("Timeout on loadBalancer: " + loadBalancer);
