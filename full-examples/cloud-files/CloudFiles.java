@@ -90,7 +90,7 @@ public class CloudFiles {
     }
 
     public static SwiftObject getObjectSDK(ObjectApi objectApi) throws IOException {
-        SwiftObject object = objectApi.get(OBJECT_NAME);
+        SwiftObject object = objectApi.get("String" + OBJECT_NAME);
 
         // Write the object to a file
         InputStream inputStream = object.getPayload().openStream();
