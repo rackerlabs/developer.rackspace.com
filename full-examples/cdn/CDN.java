@@ -1,7 +1,7 @@
 import java.io.IOException;
 import java.net.URI;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Collections;
 
 import org.jclouds.ContextBuilder;
 import org.jclouds.openstack.poppy.v1.PoppyApi;
@@ -81,8 +81,8 @@ public class CDN {
                 .origins(
                     ImmutableList.of(
                         Origin.builder().origin("origin1.jclouds-example.com").build()))
-                .caching(new ArrayList<Caching>())
-                .restrictions(new ArrayList<Restriction>())
+                .caching(Collections.<Caching>emptyList())
+                .restrictions(Collections.<Restriction>emptyList())
                 .flavorId(flavorId)
                 .build());
     }
