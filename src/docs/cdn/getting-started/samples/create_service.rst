@@ -25,7 +25,7 @@
   ServiceApi serviceApi = poppyApi.getServiceApi();
   URI serviceURI = serviceApi.create(
     CreateService.builder()
-      .name("example_site"),
+      .name("example_site")
       .domains(
         ImmutableList.of(
           Domain.builder().domain("www.example.com").build()))
