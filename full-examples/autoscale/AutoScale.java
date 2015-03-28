@@ -29,7 +29,6 @@ public class AutoScale {
     // about the cloud service API and specific instantiation values, such as the endpoint URL.
     private static final String PROVIDER = System.getProperty("provider.autoscale", "rackspace-autoscale-us");
 
-    // jclouds refers to "regions" as "zones"
     private static final String REGION = System.getProperty("region", "IAD");
 
     // Authentication credentials

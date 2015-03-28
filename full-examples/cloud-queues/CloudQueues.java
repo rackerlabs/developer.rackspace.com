@@ -20,7 +20,6 @@ public class CloudQueues {
     // about the cloud service API and specific instantiation values, such as the endpoint URL.
     public static final String PROVIDER = System.getProperty("provider", "rackspace-cloudqueues-us");
 
-    // jclouds refers to "regions" as "zones"
     public static final String REGION = System.getProperty("region", "IAD");
 
     // Authentication credentials

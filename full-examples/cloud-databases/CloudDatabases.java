@@ -21,7 +21,6 @@ public class CloudDatabases {
     // The jclouds Provider for the Rackspace Cloud Databases US cloud service. It contains information
     // about the cloud service API and specific instantiation values, such as the endpoint URL.
     public static final String PROVIDER = System.getProperty("provider", "rackspace-clouddatabases-us");
-    // jclouds refers to "regions" as "zones"
     public static final String REGION = System.getProperty("region", "IAD");
     // Authentication credentials
     public static final String USERNAME = System.getProperty("username", "{username}");
