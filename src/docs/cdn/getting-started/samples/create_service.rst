@@ -31,7 +31,7 @@
           Domain.builder().domain("www.example.com").build()))
       .origins(
         ImmutableList.of(
-          Origin.builder().origin("example.com")))
+          Origin.builder().origin("example.com").build()))
       .flavorId("{flavorId}")
       .build());
 
