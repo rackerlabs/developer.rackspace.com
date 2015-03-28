@@ -32,6 +32,8 @@
       .origins(
         ImmutableList.of(
           Origin.builder().origin("example.com").build()))
+      .caching(new ArrayList<Caching>())
+      .restrictions(new ArrayList<Restriction>())
       .flavorId("{flavorId}")
       .build());
 
