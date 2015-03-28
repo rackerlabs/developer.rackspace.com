@@ -1,5 +1,7 @@
+import java.io.IOException;
 import java.net.URI;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.jclouds.ContextBuilder;
 import org.jclouds.openstack.poppy.v1.PoppyApi;
@@ -14,6 +16,7 @@ import org.jclouds.openstack.poppy.v1.domain.Caching;
 import org.jclouds.openstack.poppy.v1.domain.Restriction;
 
 import com.google.common.collect.ImmutableList;
+import com.google.common.io.Closeables;
 
 public class CDN {
     // The jclouds Provider for the Rackspace CDN US service. It contains information
@@ -30,14 +33,46 @@ public class CDN {
 
         // List flavors
         FlavorApi flavorApi = cdnApi.getFlavorApi();
-        ImmutableList<Flavor> flavors = flavorApi.list().toList();
+        List<Flavor> flavors = listFlavors(flavorApi);
 
         // Get flavor
-        Flavor flavor = flavorApi.get(FLAVOR_ID);
+        Flavor flavor = getFlavor(flavorApi, FLAVOR_ID);
 
         // Create service
         ServiceApi serviceApi = cdnApi.getServiceApi();
-        URI serviceURI = serviceApi.create(
+        URI serviceURI = createService(serviceApi, flavor.getId());
+
+        // List services
+        List<Service> services = listServices(serviceApi);
+
+        // Get service
+        Service service = getService(serviceApi, services.get(0).getId());
+
+        // Update service
+        serviceURI = updateService(serviceApi, service);
+
+        // Delete service
+        deleteResources(cdnApi, service);
+    }
+
+    public static PoppyApi authenticate(String username, String apiKey) {
+        PoppyApi cdnApi = ContextBuilder.newBuilder(PROVIDER)
+            .credentials(username, apiKey)
+            .buildApi(PoppyApi.class);
+
+        return cdnApi;
+    }
+
+    public static List<Flavor> listFlavors(FlavorApi flavorApi) {
+        return flavorApi.list().toList();
+    }
+
+    public static Flavor getFlavor(FlavorApi flavorApi, String flavorId) {
+        return flavorApi.get(flavorId);
+    }
+
+    public static URI createService(ServiceApi serviceApi, String flavorId) {
+        return serviceApi.create(
             CreateService.builder()
                 .name("jclouds_example_site")
                 .domains(
@@ -48,36 +83,37 @@ public class CDN {
                         Origin.builder().origin("origin1.jclouds-example.com").build()))
                 .caching(new ArrayList<Caching>())
                 .restrictions(new ArrayList<Restriction>())
-                .flavorId(flavor.getId())
+                .flavorId(flavorId)
                 .build());
+    }
 
-        // List services
-        ImmutableList<Service> services = cdnApi.getServiceApi().list().concat().toList();
+    public static List<Service> listServices(ServiceApi serviceApi) {
+        return serviceApi.list().concat().toList();
+    }
 
-        // Get service
-        Service service = serviceApi.get(services.get(0).getId());
+    public static Service getService(ServiceApi serviceApi, String serviceId) {
+        return serviceApi.get(serviceId);
+    }
 
+    public static URI updateService(ServiceApi serviceApi, Service service)
+        throws InterruptedException {
         // TODO: Replace this when we have an awaitDeployed predicate on
         // Service (see https://github.com/jclouds/jclouds-labs-openstack/pull/186).
         Thread.sleep(15000);
 
-        // Update service
-        serviceURI = serviceApi.update(
+        return serviceApi.update(
             service.getId(),
             service,
             service.toUpdatableService()
                 .name("updated service name")
                 .build());
-
-        // Delete service
-        serviceApi.delete(service.getId());
     }
 
-    public static PoppyApi authenticate(String username, String apiKey) {
-        PoppyApi cdnApi = ContextBuilder.newBuilder(PROVIDER)
-            .credentials(username, apiKey)
-            .buildApi(PoppyApi.class);
+    public static void deleteResources(PoppyApi cdnApi, Service service)
+        throws IOException {
+        ServiceApi serviceApi = cdnApi.getServiceApi();
+        serviceApi.delete(service.getId());
 
-        return cdnApi;
+        Closeables.close(cdnApi, true);
     }
 }
