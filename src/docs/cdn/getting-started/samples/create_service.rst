@@ -22,6 +22,8 @@
 
 .. code-block:: java
 
+  // TODO: Remove the .caching(...) and .restrictions(...) calls below
+  // when this bug is fixed: https://issues.apache.org/jira/browse/JCLOUDS-877
   ServiceApi serviceApi = poppyApi.getServiceApi();
   URI serviceURI = serviceApi.create(
     CreateService.builder()

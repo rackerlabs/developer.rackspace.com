@@ -72,6 +72,8 @@ public class CDN {
     }
 
     public static URI createService(ServiceApi serviceApi, String flavorId) {
+        // TODO: Remove the .caching(...) and .restrictions(...) calls below
+        // when this bug is fixed: https://issues.apache.org/jira/browse/JCLOUDS-877
         return serviceApi.create(
             CreateService.builder()
                 .name("jclouds_example_site")
