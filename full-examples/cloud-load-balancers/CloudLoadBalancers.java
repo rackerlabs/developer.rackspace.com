@@ -214,7 +214,7 @@ public class CloudLoadBalancers {
     }
 
     public static void deleteResources(CloudLoadBalancersApi clbApi, LoadBalancerApi lbApi, LoadBalancer loadBalancer)
-          throws IOException, TimeoutException, InterruptedException {
+          throws IOException, TimeoutException {
         waitForLoadBalancerToBecomeActive(lbApi, loadBalancer);
         deleteNodes(clbApi, loadBalancer);
 
