@@ -57,7 +57,8 @@ public class CDN {
         // Get service
         Service service = serviceApi.get(services.get(0).getId());
 
-        // TODO: Replace this when we have an awaitDeployed predicate on Service.
+        // TODO: Replace this when we have an awaitDeployed predicate on
+        // Service (see https://github.com/jclouds/jclouds-labs-openstack/pull/186).
         Thread.sleep(15000);
 
         // Update service
