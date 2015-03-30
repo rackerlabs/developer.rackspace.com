@@ -5,6 +5,11 @@
   border: none;
   border-bottom: 2px solid @rackspace-white;
 
+  &.navbar {
+    @media (max-width: @grid-float-breakpoint) {
+      position: relative;
+    }
+  }
   .navbar-toggle {
     margin-top: 20px;
   }
@@ -78,6 +83,7 @@
     }
   }
 }
+
 
 
 
