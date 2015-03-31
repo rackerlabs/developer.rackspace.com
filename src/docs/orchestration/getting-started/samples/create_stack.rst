@@ -30,7 +30,12 @@
 
 .. code-block:: php
 
-  // Not currently supported by this SDK
+  $orchestrationService = $client->orchestrationService(null, '{region}');
+
+  $stack = $orchestrationService->createStack(array(
+      'name'         => 'a_redis_stack',
+      'templateUrl'  => 'redis_hot_template',
+  ));
 
 .. code-block:: python
 

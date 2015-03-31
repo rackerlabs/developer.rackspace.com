@@ -28,7 +28,9 @@
 
 .. code-block:: php
 
-  // Not currently supported by this SDK
+  $stack->update(array(
+      'timeoutMins' => 60
+  ));
 
 .. code-block:: python
 
