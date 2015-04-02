@@ -13,7 +13,7 @@
 .. code-block:: java
 
   HealthMonitorApi healthMonitorApi =
-      clbApi.getHealthMonitorApiForZoneAndLoadBalancer("{region}", "{loadBalancerId}");
+      clbApi.getHealthMonitorApi("{region}", "{loadBalancerId}");
 
   HealthMonitor healthMonitor = healthMonitorApi.get();
 

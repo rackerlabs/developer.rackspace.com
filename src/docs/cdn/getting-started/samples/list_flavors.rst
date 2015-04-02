@@ -14,7 +14,7 @@
 
 .. code-block:: java
 
-  // Not currently supported by this SDK
+  FluentIterable<Flavor> flavors = poppyApi.getFlavorApi().list();
 
 .. code-block:: javascript
 

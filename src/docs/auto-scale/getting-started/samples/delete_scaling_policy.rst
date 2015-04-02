@@ -8,7 +8,7 @@
 
 .. code-block:: java
 
-  PolicyApi policyApi = autoscaleApi.getPolicyApiForZoneAndGroup("{region}", "{scalingGroupId}");
+  PolicyApi policyApi = autoscaleApi.getPolicyApi("{region}", "{scalingGroupId}");
 
   policyApi.delete("{policyId}");
 

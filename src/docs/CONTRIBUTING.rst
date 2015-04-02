@@ -129,7 +129,7 @@ Language Specific Code Conventions
 * Comment all references to regions and zones with::
 
     // jclouds refers to "regions" as "zones"  
-    VolumeApi volumeApi = cinderApi.getVolumeApiForZone(REGION);
+    VolumeApi volumeApi = cinderApi.getVolumeApi(REGION);
 
   
 * Pass the appropriate API to all static methods::

@@ -8,7 +8,7 @@
 
 .. code-block:: java
 
-  // Not currently supported by this SDK
+  serviceApi.delete("{serviceId}");
 
 .. code-block:: javascript
 
