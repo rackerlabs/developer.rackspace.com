@@ -62,8 +62,15 @@
 
 .. code-block:: sh
 
-  // Not currently supported by this SDK
-
-  $ curl -X GET $ENDPOINT/entities/{entityId}/checks \
+  curl -X "POST" "https://dfw.networks.api.rackspacecloud.com/v2.0/subnets" \
     -H "X-Auth-Token: $TOKEN" \
+    -H "Content-type: application/json" \
+    -d $'{
+      "subnet": {
+        "name": "MyNewSubnet",
+        "cidr": "192.168.101.1/24",
+        "network_id": "'$NETWORK_ID'",
+        "ip_version": "4"
+      }
+    }' \
     -H "Accept: application/json" | python -m json.tool

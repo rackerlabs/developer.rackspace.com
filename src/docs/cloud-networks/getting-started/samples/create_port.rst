@@ -8,7 +8,7 @@
     NetworkID: network.ID,
     Name: "MyNewPort",
   }
-  
+
   port, err := ports.Create(client, opts).Extract()
 
 .. code-block:: java
@@ -49,8 +49,10 @@
 
 .. code-block:: sh
 
-  // Not currently supported by this SDK
-
-  $ curl -X GET $ENDPOINT/entities/{entityId}/checks \
+  curl -X "POST" "https://dfw.networks.api.rackspacecloud.com/v2.0/ports" \
     -H "X-Auth-Token: $TOKEN" \
+    -H "Content-type: application/json" \
+    -d $'{"port": {"name": "NewPort"}, "network": "$NETWORK_ID"} ' \
     -H "Accept: application/json" | python -m json.tool
+
+

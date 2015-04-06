@@ -47,6 +47,10 @@
 
 .. code-block:: sh
 
-  $ curl -X GET $ENDPOINT/entities/{entityId}/checks \
+  curl -X "POST" "https://dfw.networks.api.rackspacecloud.com/v2.0/networks" \
     -H "X-Auth-Token: $TOKEN" \
+    -H "Content-type: application/json" \
+    -d $'{"network": {"name": "MyNewNetwork"} }' \
     -H "Accept: application/json" | python -m json.tool
+
+
