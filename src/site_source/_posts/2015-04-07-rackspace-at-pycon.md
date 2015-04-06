@@ -14,7 +14,7 @@ Python use at Rackspace is huge, from our work on OpenStack and many other
 related products, whether internal and external, so it made perfect sense
 for us to support the conference at the Diamond level.
 
-We'll have 14 sessions given by 11 speakers throughout the conference's tutorial and talk schedule,
+We'll have 13 sessions given by 10 speakers throughout the conference's tutorial and talk schedule,
 and our very own Van Lindberg, chairman of the Python Software Foundation,
 will deliver the chairman's address in a keynote slot on Sunday morning.
 
@@ -124,18 +124,6 @@ will correct that misconception.
 A brief and opinionated view of testing applications and libraries that use
 requests by a core-developer of requests. You will receive an overview of
 testing with responses, vcr, httpretty, mock, and betamax.
-
-### [Schemas for the Real World](https://us.pycon.org/2015/schedule/presentation/426/)
-
-* *Carina C. Zona*
-* *Saturday @ 3:15 PM (Talk, Room 710B)*
-
-Development challenges us to code for users’ personal world. Users give
-push-back to ill-fitted assumptions about their own name, gender,
-sexual orientation, important relationships, & other attributes that are
-individually meaningful. We'll explore how to develop software that brings
-real world into focus & that allows individuals to authentically reflect
-their personhood & physical world.
 
 ### [A Winning Strategy with The Weakest Link: how to use weak references to make your code more robust](https://us.pycon.org/2015/schedule/presentation/468/)
 
