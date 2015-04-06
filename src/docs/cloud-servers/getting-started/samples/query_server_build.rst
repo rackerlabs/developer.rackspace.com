@@ -11,7 +11,7 @@
 
 .. code-block:: java
 
-  ServerApi serverApi = novaApi.getServerApiForZone("{region}");
+  ServerApi serverApi = novaApi.getServerApi("{region}");
 
   ServerPredicates.awaitActive(serverApi).apply("{serverId}")
 

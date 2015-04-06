@@ -12,7 +12,7 @@
 
 .. code-block:: java
 
-  ImageApi imageApi = novaApi.getImageApiForZone("{region}");
+  ImageApi imageApi = novaApi.getImageApi("{region}");
 
   ImmutableList<? extends Image> images = imageApi.listInDetail().concat().toList();
 

@@ -9,7 +9,7 @@
 
 .. code-block:: java
 
-  VolumeApi volumeApi = cinderApi.getVolumeApiForZone("{region}");
+  VolumeApi volumeApi = cinderApi.getVolumeApi("{region}");
 
   Volume volume = volumeApi.get("{volumeId}");
 

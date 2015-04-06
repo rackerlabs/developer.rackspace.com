@@ -25,7 +25,7 @@
 
 .. code-block:: java
 
-  RecordApi recordApi = cloudDNSApi.getRecordApiForDomain({domainId});
+  RecordApi recordApi = cloudDNSApi.getRecordApi({domainId});
 
   Record createARecord = Record.builder()
           .type("A")

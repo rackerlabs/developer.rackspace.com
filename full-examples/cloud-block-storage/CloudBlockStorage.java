@@ -23,7 +23,6 @@ public class CloudBlockStorage {
     // about the cloud service API and specific instantiation values, such as the endpoint URL.
     public static final String PROVIDER = System.getProperty("provider", "rackspace-cloudblockstorage-us");
 
-    // jclouds refers to "regions" as "zones"
     public static final String REGION = System.getProperty("region", "IAD");
 
     // Authentication credentials
@@ -37,12 +36,12 @@ public class CloudBlockStorage {
 
         CinderApi cinderApi = authenticate(USERNAME, API_KEY);
 
-        VolumeApi volumeApi = cinderApi.getVolumeApiForZone(REGION);
+        VolumeApi volumeApi = cinderApi.getVolumeApi(REGION);
         Volume volume = createVolume(volumeApi);
         Volume showVolume = showVolume(volumeApi, volume.getId());
         List<? extends Volume> volumes = listVolumes(volumeApi);
 
-        SnapshotApi snapshotApi = cinderApi.getSnapshotApiForZone(REGION);
+        SnapshotApi snapshotApi = cinderApi.getSnapshotApi(REGION);
         Snapshot snapshot = createSnapshot(snapshotApi, volume);
         Snapshot showSnapshot = showSnapshot(snapshotApi, snapshot.getId());
         List<? extends Snapshot> snapshots = listSnapshots(snapshotApi);
@@ -133,8 +132,8 @@ public class CloudBlockStorage {
 
     public static void deleteResources(CinderApi cinderApi, Snapshot snapshot, Volume volume)
           throws IOException, TimeoutException {
-       deleteSnapshot(cinderApi.getSnapshotApiForZone(REGION), snapshot);
-       deleteVolume(cinderApi.getVolumeApiForZone(REGION), volume);
+       deleteSnapshot(cinderApi.getSnapshotApi(REGION), snapshot);
+       deleteVolume(cinderApi.getVolumeApi(REGION), volume);
 
        Closeables.close(cinderApi, true);
    }

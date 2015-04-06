@@ -20,7 +20,6 @@ public class CloudQueues {
     // about the cloud service API and specific instantiation values, such as the endpoint URL.
     public static final String PROVIDER = System.getProperty("provider", "rackspace-cloudqueues-us");
 
-    // jclouds refers to "regions" as "zones"
     public static final String REGION = System.getProperty("region", "IAD");
 
     // Authentication credentials
@@ -34,14 +33,14 @@ public class CloudQueues {
         
         MarconiApi marconiApi = authenticate(USERNAME, API_KEY);
 
-        QueueApi queueApi = marconiApi.getQueueApiForZoneAndClient(REGION, CLIENT_ID);
+        QueueApi queueApi = marconiApi.getQueueApi(REGION, CLIENT_ID);
         createQueue(queueApi);
         listQueues(queueApi);
 
-        MessageApi messageApi = marconiApi.getMessageApiForZoneAndClientAndQueue(REGION, CLIENT_ID, QUEUE_NAME);
+        MessageApi messageApi = marconiApi.getMessageApi(REGION, CLIENT_ID, QUEUE_NAME);
         postMessage(messageApi);
 
-        ClaimApi claimApi = marconiApi.getClaimApiForZoneAndClientAndQueue(REGION, CLIENT_ID, QUEUE_NAME);
+        ClaimApi claimApi = marconiApi.getClaimApi(REGION, CLIENT_ID, QUEUE_NAME);
         List<Message> messages = claimMessage(claimApi);
         releaseMessage(claimApi, messages);
 
@@ -89,14 +88,14 @@ public class CloudQueues {
     }
 
     public static void deleteMessage(MarconiApi marconiApi, String messageId) {
-        MessageApi messageApi = marconiApi.getMessageApiForZoneAndClientAndQueue(REGION, CLIENT_ID, QUEUE_NAME);
+        MessageApi messageApi = marconiApi.getMessageApi(REGION, CLIENT_ID, QUEUE_NAME);
         List<String> messageIds = ImmutableList.of(messageId);
 
         messageApi.delete(messageIds);
     }
 
     public static void deleteQueue(MarconiApi marconiApi) {
-        QueueApi queueApi = marconiApi.getQueueApiForZoneAndClient(REGION, CLIENT_ID);
+        QueueApi queueApi = marconiApi.getQueueApi(REGION, CLIENT_ID);
         queueApi.delete(QUEUE_NAME);
     }
 

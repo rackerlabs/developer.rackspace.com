@@ -35,7 +35,7 @@
 
 .. code-block:: java
 
-  LoadBalancerApi lbApi = clbApi.getLoadBalancerApiForZone("{region}");
+  LoadBalancerApi lbApi = clbApi.getLoadBalancerApi("{region}");
 
   CreateLoadBalancer createLB = CreateLoadBalancer.builder()
       .name("My Load Balancer")

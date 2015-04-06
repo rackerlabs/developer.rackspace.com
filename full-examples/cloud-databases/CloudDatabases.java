@@ -21,7 +21,6 @@ public class CloudDatabases {
     // The jclouds Provider for the Rackspace Cloud Databases US cloud service. It contains information
     // about the cloud service API and specific instantiation values, such as the endpoint URL.
     public static final String PROVIDER = System.getProperty("provider", "rackspace-clouddatabases-us");
-    // jclouds refers to "regions" as "zones"
     public static final String REGION = System.getProperty("region", "IAD");
     // Authentication credentials
     public static final String USERNAME = System.getProperty("username", "{username}");
@@ -35,17 +34,17 @@ public class CloudDatabases {
 
         TroveApi troveApi = authenticate(USERNAME, API_KEY);
 
-        FlavorApi flavorApi = troveApi.getFlavorApiForZone(REGION);
+        FlavorApi flavorApi = troveApi.getFlavorApi(REGION);
         FluentIterable<Flavor> flavors = listFlavors(flavorApi);
         Flavor flavor = getFlavor(flavorApi);
 
-        InstanceApi instanceApi = troveApi.getInstanceApiForZone(REGION);
+        InstanceApi instanceApi = troveApi.getInstanceApi(REGION);
         Instance instance = createInstance(troveApi, instanceApi, flavor);
 
-        DatabaseApi databaseApi = troveApi.getDatabaseApiForZoneAndInstance(REGION, instance.getId());
+        DatabaseApi databaseApi = troveApi.getDatabaseApi(REGION, instance.getId());
         createDatabase(databaseApi, DATABASE_NAME);
 
-        UserApi userApi = troveApi.getUserApiForZoneAndInstance(REGION, instance.getId());
+        UserApi userApi = troveApi.getUserApi(REGION, instance.getId());
         createUser(userApi, DATABASE_USER_NAME, DATABASE_NAME);
 
         String rootPassword = enableRootUser(instanceApi, instance);

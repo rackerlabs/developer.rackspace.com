@@ -16,7 +16,7 @@
 
 .. code-block:: java
 
-  PolicyApi policyApi = autoscaleApi.getPolicyApiForZoneAndGroup("{region}", "{scalingGroupId}");
+  PolicyApi policyApi = autoscaleApi.getPolicyApi("{region}", "{scalingGroupId}");
 
   CreateScalingPolicy scalingPolicy = CreateScalingPolicy.builder()
             .cooldown(3)

@@ -9,7 +9,7 @@
 
 .. code-block:: java
 
-  GroupApi groupApi = autoscaleApi.getGroupApiForZone("{region}");
+  GroupApi groupApi = autoscaleApi.getGroupApi("{region}");
 
   GroupState groupState = groupApi.getState("{scalingGroupId}");
 

@@ -11,7 +11,7 @@
 
 .. code-block:: java
 
-  InstanceApi instanceApi = troveApi.getInstanceApiForZone("{region}");
+  InstanceApi instanceApi = troveApi.getInstanceApi("{region}");
 
   String password = instanceApi.enableRoot("{instanceId}");
 

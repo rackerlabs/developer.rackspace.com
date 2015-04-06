@@ -14,7 +14,7 @@
 
 .. code-block:: java
 
-  SnapshotApi snapshotApi = cinderApi.getSnapshotApiForZone("{region}");
+  SnapshotApi snapshotApi = cinderApi.getSnapshotApi("{region}");
 
   List<Snapshot> snapshots = snapshotApi.listInDetail().toList();
 

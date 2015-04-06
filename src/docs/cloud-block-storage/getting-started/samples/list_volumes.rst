@@ -14,7 +14,7 @@
 
 .. code-block:: java
 
-  VolumeApi volumeApi = cinderApi.getVolumeApiForZone("{region}");
+  VolumeApi volumeApi = cinderApi.getVolumeApi("{region}");
 
   List<Volume> volumes = volumeApi.listInDetail().toList();
 

@@ -10,7 +10,7 @@
 
 .. code-block:: java
 
-  QueueApi queueApi = marconiApi.getQueueApiForZoneAndClient("{region}", "{clientId}");
+  QueueApi queueApi = marconiApi.getQueueApi("{region}", "{clientId}");
 
   queueApi.create("{queueName}");
 

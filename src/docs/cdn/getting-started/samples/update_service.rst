@@ -17,7 +17,12 @@
 
 .. code-block:: java
 
-  // Not currently supported by this SDK
+  URI serviceURI = serviceApi.update(
+    service.getId(),
+    service,
+    service.toUpdatableService()
+      .name("updated service name")
+      .build());
 
 .. code-block:: javascript
 
