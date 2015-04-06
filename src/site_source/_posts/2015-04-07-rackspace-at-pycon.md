@@ -11,7 +11,7 @@ categories:
 [PyCon 2015](https://us.pycon.org/2015/), the annual Python conference,
 kicks off this week in Montréal and Rackspace will be there in full force.
 Python use at Rackspace is huge, from our work on OpenStack and many other
-related products, whether internal and external, so it made perfect sense
+related products, whether internal and external, so it makes perfect sense
 for us to support the conference at the Diamond level.
 
 We'll have 13 sessions given by 10 speakers throughout the conference's tutorial and talk schedule,
