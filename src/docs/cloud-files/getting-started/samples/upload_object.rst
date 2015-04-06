@@ -22,7 +22,7 @@
     "{objectName}",
     reader,
     nil,
-  ).ExtractHeaders()
+  ).ExtractHeader()
 
 .. code-block:: java
 

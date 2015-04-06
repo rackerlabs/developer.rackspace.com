@@ -2,7 +2,7 @@
 
 .. code-block:: go
 
-  err := users.Delete(client, "{userId}").ExtractErr()
+  _, err := users.Delete(client, "{userId}").Extract()
 
 .. code-block:: java
 
