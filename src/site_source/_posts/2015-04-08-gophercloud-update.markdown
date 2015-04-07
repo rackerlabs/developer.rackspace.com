@@ -51,3 +51,10 @@ In late February 2015, Rackspace had to reboot some First Generation and Next Ge
 
 ## Next Up
 There are still several Rackspace services to implement and next up are Cloud Databases and Cloud Images. If you'd like to help with either of those services or any of the others, [contributions](https://github.com/rackspace/gophercloud/blob/master/CONTRIBUTING.md) are always welcome.
+
+## Get the New Features
+To pull down the current Gophercloud features, you have the following options:
+
+1. From the command-line, run `go get -u github.com/rackspace/gophercloud`. The `-u` flag will update the Gophercloud package if it already exists on your machine.
+
+2. If you're using [godep](https://github.com/tools/godep), from the command-line run `go get -u github.com/rackspace/gophercloud`. Then, run `godep update github.com/rackspace/gophercloud`. That will update your Godeps.json file with the Gophercloud `master` branch commit at `HEAD`.
