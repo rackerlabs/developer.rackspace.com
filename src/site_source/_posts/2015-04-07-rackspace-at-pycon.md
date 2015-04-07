@@ -14,7 +14,7 @@ Python use at Rackspace is huge, from our work on OpenStack and many other
 related products, whether internal and external, so it makes perfect sense
 for us to support the conference at the Diamond level.
 
-We'll have 13 sessions given by 10 speakers throughout the conference's tutorial and talk schedule,
+We'll have 14 sessions given by 10 speakers throughout the conference's tutorial and talk schedule,
 and our very own Van Lindberg, chairman of the Python Software Foundation,
 will deliver the chairman's address in a keynote slot on Sunday morning.
 
@@ -105,6 +105,13 @@ a contributor.
 * *Friday @ 1:40 PM (Talk, Room 517C)*
 
 A very brief introduction to the theory and practice of distributed systems.
+
+### [Is Your REST API RESTful?](https://us.pycon.org/2015/schedule/presentation/355/)
+
+* *Miguel Grinberg*
+* *Friday @ 4:15 PM (Talk, Room 517C)*
+
+Writing a fully complaint REST API is hard, so hard it is too common for APIs to violate one or more of the REST architectural principles. In this talk I will describe the six REST principles, and I will tell you what happens if you don't follow them.
 
 ### [The Ethical Consequences Of Our Collective Activities](https://us.pycon.org/2015/schedule/presentation/370/)
 
