@@ -24,6 +24,16 @@ A Getting-Started guide for Cloud Load Balancers [exists](https://developer.rack
 
 <!-- more -->
 
+## Automatic Re-authentication
+Gophercloud now supports automatic re-authentication. This will enable long-running jobs to continue as normal if the users token expires during code execution. To enable it, simply set the `gophercloud.AuthOptions` field `AllowReauth` to `true`:
+```go
+opts := gophercloud.AuthOptions{
+  Username: "myUserName",
+  APIKey: "myAPIKey",
+  AllowReauth: true,
+}
+```
+
 ## AllPages Method
 We've added a new method named `AllPages` that allows users to retrieve all the pages from a `List` call without iterating. For example, to retrieve all RackConnect Load Balancer Pools:
 ```go
