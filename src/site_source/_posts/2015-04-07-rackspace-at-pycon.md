@@ -106,6 +106,13 @@ a contributor.
 
 A very brief introduction to the theory and practice of distributed systems.
 
+### [Is Your REST API RESTful?](https://us.pycon.org/2015/schedule/presentation/355/)
+
+* *Miguel Grinberg*
+* *Friday @ 4:15 PM (Talk, Room 517C)*
+
+Writing a fully complaint REST API is hard, so hard it is too common for APIs to violate one or more of the REST architectural principles. In this talk I will describe the six REST principles, and I will tell you what happens if you don't follow them.
+
 ### [The Ethical Consequences Of Our Collective Activities](https://us.pycon.org/2015/schedule/presentation/370/)
 
 * *Glyph*
