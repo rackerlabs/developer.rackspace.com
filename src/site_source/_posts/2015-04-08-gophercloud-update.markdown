@@ -24,6 +24,18 @@ A Getting-Started guide for Cloud Load Balancers [exists](https://developer.rack
 
 <!-- more -->
 
+## AllPages Method
+We've added a new method named `AllPages` that allows users to retrieve all the pages from a `List` call without iterating. For example, to retrieve all RackConnect Load Balancer Pools:
+```go
+import "github.com/rackspace/gophercloud/rackspace/rackconnect/v3/lbpools"
+allPages, err := lbpools.List(client).AllPages()
+if err != nil {
+  // handle error...
+}
+allPools, err := lbpools.ExtractPools(allPages)
+```
+The `AllPages` method works with all the `List` operations in Gophercloud.
+
 ## cs-reboot-info
 In late February 2015, Rackspace had to reboot some First Generation and Next Generation Cloud Servers due to a Xen vulnerability. As a means for Rackspace customers to find out if and when their instances would be rebooted, we created a tool called [cs-reboot-info](https://github.com/rackerlabs/cs-reboot-info). Written in Go, cs-reboot-info utilizes Gophercloud for communicating with the Rackspace API. Because the tool needed to query the Rackspace API for both Next Generation and First Generation servers, we had to write a [one-off Cloud Servers v1 service](https://github.com/smashwilson/gophercomputev1) to retrieve First Generation Cloud Servers. Largely due to the simplicity of Go and Gophercloud, this tool was able to be completed and tested in a single day.
 
