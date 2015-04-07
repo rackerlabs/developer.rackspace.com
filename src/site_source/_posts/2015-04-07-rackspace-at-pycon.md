@@ -21,6 +21,8 @@ will deliver the chairman's address in a keynote slot on Sunday morning.
 Be sure to stop by the Rackspace booth in the expo hall, and check out
 the tutorials and talks that we're giving throughout the conference!
 
+<!-- more -->
+
 ### [Shiny, Let's Be Bad Guys: Exploiting and Mitigating the Top 10 Web App Vulnerabilities](https://us.pycon.org/2015/schedule/presentation/304/)
 
 * *David Stanek and Mike Pirnat*
