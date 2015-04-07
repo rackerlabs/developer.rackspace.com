@@ -14,7 +14,7 @@ Python use at Rackspace is huge, from our work on OpenStack and many other
 related products, whether internal and external, so it makes perfect sense
 for us to support the conference at the Diamond level.
 
-We'll have 13 sessions given by 10 speakers throughout the conference's tutorial and talk schedule,
+We'll have 14 sessions given by 10 speakers throughout the conference's tutorial and talk schedule,
 and our very own Van Lindberg, chairman of the Python Software Foundation,
 will deliver the chairman's address in a keynote slot on Sunday morning.
 
