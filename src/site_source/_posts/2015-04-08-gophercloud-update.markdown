@@ -25,7 +25,7 @@ A Getting-Started guide for Cloud Load Balancers [exists](https://developer.rack
 <!-- more -->
 
 ## Automatic Re-authentication
-Gophercloud now supports automatic re-authentication. This will enable long-running jobs to continue as normal if the users token expires during code execution. To enable it, simply set the `gophercloud.AuthOptions` field `AllowReauth` to `true`:
+Gophercloud now supports automatic re-authentication. This will enable long-running jobs to continue normally if the users token expires during code execution. To enable it, simply set the `gophercloud.AuthOptions` field `AllowReauth` to `true`:
 ```go
 opts := gophercloud.AuthOptions{
   Username: "myUserName",
