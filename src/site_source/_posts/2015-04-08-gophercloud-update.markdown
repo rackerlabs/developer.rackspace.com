@@ -8,6 +8,7 @@ published: true
 categories:
 - golang
 - gophercloud
+- openstack
 - sdk
 ---
 
