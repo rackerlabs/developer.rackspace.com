@@ -35,7 +35,7 @@ opts := gophercloud.AuthOptions{
 ```
 
 ## AllPages Method
-We've added a new method named `AllPages` that allows users to retrieve all the pages from a `List` call without iterating. For example, to retrieve all RackConnect Load Balancer Pools:
+We've added a new method named `AllPages` that allows users to retrieve all the pages from a `List` call without worrying about pagination. For example, to retrieve all RackConnect Load Balancer Pools:
 ```go
 import "github.com/rackspace/gophercloud/rackspace/rackconnect/v3/lbpools"
 allPages, err := lbpools.List(client).AllPages()
