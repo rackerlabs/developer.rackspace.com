@@ -55,8 +55,13 @@
 
 .. code-block:: sh
 
-  // Not currently supported by this SDK
-
-  $ curl -X GET $ENDPOINT/entities/{entityId}/checks \
+  curl -X "POST" "https://dfw.networks.api.rackspacecloud.com/v2.0/security-group-rules" \
     -H "X-Auth-Token: $TOKEN" \
-    -H "Accept: application/json" | python -m json.tool
+    -H "Content-type: application/json" \
+    -d $'{
+    "security_group_rule": {
+    "direction": "ingress",
+    "security_group_id": "$SECURITY_GROUP_ID"
+    }
+  }' \
+  -H "Accept: application/json" | python -m json.tool

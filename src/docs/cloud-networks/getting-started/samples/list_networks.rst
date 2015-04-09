@@ -43,8 +43,7 @@
 
 .. code-block:: sh
 
-  // Not currently supported by this SDK
-
-  $ curl -X GET $ENDPOINT/entities/{entityId}/checks \
+  curl -X "GET" "https://dfw.networks.api.rackspacecloud.com/v2.0/networks" \
     -H "X-Auth-Token: $TOKEN" \
+    -H "Content-type: application/json" \
     -H "Accept: application/json" | python -m json.tool
