@@ -61,7 +61,7 @@
 
 .. code-block:: sh
 
-  curl -X POST $ENDPOINT -d \
+  curl -X POST $ENDPOINT/servers -d \
     '{
       "server" : {
         "name" : "My server",

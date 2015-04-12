@@ -40,5 +40,5 @@
 .. code-block:: sh
 
   # from resulting json below see "status"
-  curl -X GET $ENDPOINT/{serverId} \
+  curl -X GET $ENDPOINT/servers/$SERVER_ID \
     -H "X-Auth-Token: $TOKEN" | python -m json.tool

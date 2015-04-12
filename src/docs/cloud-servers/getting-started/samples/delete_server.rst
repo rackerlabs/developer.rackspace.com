@@ -32,4 +32,4 @@
 
 .. code-block:: sh
 
-  curl -X DELETE $ENDPOINT/$SERVER_ID -H "X-Auth-Token: $TOKEN"
+  curl -X DELETE $ENDPOINT/servers/$SERVER_ID -H "X-Auth-Token: $TOKEN"
