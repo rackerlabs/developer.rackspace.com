@@ -60,8 +60,8 @@
     '{
       "server" : {
           "name" : "My new server",
-          "imageRef" : $IMAGE_ID,
-          "flavorRef" : $FLAVOR_ID
+          "imageRef": "'"$IMAGE_ID"'",
+          "flavorRef": '"$FLAVOR_ID"',
         }
       }' \
       -H "Content-Type: application/json" \

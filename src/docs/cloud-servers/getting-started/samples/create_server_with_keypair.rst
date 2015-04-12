@@ -65,8 +65,8 @@
     '{
       "server" : {
         "name" : "My server",
-        "imageRef" : ${IMAGE_ID},
-        "flavorRef" : ${FLAVOR_ID},
+        "imageRef": "'"$IMAGE_ID"'",
+        "flavorRef": '"$FLAVOR_ID"',
         "key_name" : "my-keypair"
       }
     }' \
