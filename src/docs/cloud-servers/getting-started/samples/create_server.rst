@@ -63,6 +63,8 @@
           "imageRef" : $IMAGE_ID,
           "flavorRef" : $FLAVOR_ID
         }
-      }' -H "X-Auth-Token: $TOKEN" | python -m json.tool
+      }' \
+      -H "Content-Type: application/json" \
+      -H "X-Auth-Token: $TOKEN" | python -m json.tool
 
   export SERVER_ID="{serverId}"

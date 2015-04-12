@@ -69,4 +69,6 @@
         "flavorRef" : ${FLAVOR_ID},
         "key_name" : "my-keypair"
       }
-    }' -H "X-Auth-Token: $TOKEN" | python -m json.tool
+    }' \
+    -H "Content-Type: application/json" \
+    -H "X-Auth-Token: $TOKEN" | python -m json.tool
