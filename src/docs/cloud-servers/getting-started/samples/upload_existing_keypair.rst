@@ -73,4 +73,5 @@
         "public_key":"ssh-rsa AAAAB3Nz ..."
       }
     }' \
+    -H "Content-Type: application/json" \
     -H "X-Auth-Token: $TOKEN" | python -m json.tool

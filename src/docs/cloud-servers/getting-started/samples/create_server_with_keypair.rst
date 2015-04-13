@@ -61,12 +61,14 @@
 
 .. code-block:: sh
 
-  curl -X POST $ENDPOINT -d \
+  curl -X POST $ENDPOINT/servers -d \
     '{
       "server" : {
         "name" : "My server",
-        "imageRef" : ${IMAGE_ID},
-        "flavorRef" : ${FLAVOR_ID},
+        "imageRef": "'"$IMAGE_ID"'",
+        "flavorRef": '"$FLAVOR_ID"',
         "key_name" : "my-keypair"
       }
-    }' -H "X-Auth-Token: $TOKEN" | python -m json.tool
+    }' \
+    -H "Content-Type: application/json" \
+    -H "X-Auth-Token: $TOKEN" | python -m json.tool

@@ -55,4 +55,5 @@
 
   curl -X POST $ENDPOINT/os-keypairs -d \
     '{"keypair":{"name":"{keyPairName}"} }' \
+    -H "Content-Type: application/json" \
     -H "X-Auth-Token: $TOKEN" | python -m json.tool
