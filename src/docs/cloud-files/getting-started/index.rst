@@ -20,7 +20,7 @@ container
 
 object
     The basic storage entity in Cloud Files.
-    An object represents a files and its optional metadata that you upload to the system.
+    An object represents a single file and its optional metadata that you upload to the system.
 
 Authenticate to gain access to the service
 ==========================================
