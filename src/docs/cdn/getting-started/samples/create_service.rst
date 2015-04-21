@@ -22,22 +22,22 @@
 
 .. code-block:: java
 
-  // TODO: Remove the .caching(...) and .restrictions(...) calls below
-  // when this bug is fixed: https://issues.apache.org/jira/browse/JCLOUDS-877
-  ServiceApi serviceApi = poppyApi.getServiceApi();
+  ServiceApi serviceApi = cdnApi.getServiceApi();
   URI serviceURI = serviceApi.create(
-    CreateService.builder()
-      .name("example_site")
-      .domains(
-        ImmutableList.of(
-          Domain.builder().domain("www.example.com").build()))
-      .origins(
-        ImmutableList.of(
-          Origin.builder().origin("example.com").build()))
-      .caching(Collections.<Caching>emptyList())
-      .restrictions(Collections.<Restriction>emptyList())
-      .flavorId("{flavorId}")
-      .build());
+                 org.jclouds.openstack.poppy.v1.domain.CreateService.builder()
+                       .name("jclouds_test_service")
+                       .domains(
+                             ImmutableList.of(
+                                   Domain.builder().domain("www.example.com").build()))
+                       .origins(ImmutableList.of(
+                             Origin.builder()
+                                   .origin("example.com")
+                                   .build()))
+                       .caching(ImmutableList.<Caching>of())
+                       .restrictions(ImmutableList.<Restriction>of())
+                       .flavorId("{flavorId}")
+                       .build()
+         );
 
 .. code-block:: javascript
 

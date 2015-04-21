@@ -11,7 +11,9 @@
 
 .. code-block:: java
 
-  // Not currently supported by this SDK
+  // Only supported in SNAPSHOT versions of this SDK
+  ServiceApi serviceApi = cdnApi.getServiceApi();
+  serviceApi.deleteAssets("{serviceId}"));
 
 .. code-block:: javascript
 

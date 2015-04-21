@@ -8,6 +8,7 @@
 
 .. code-block:: java
 
+  ServiceApi serviceApi = cdnApi.getServiceApi();
   serviceApi.delete("{serviceId}");
 
 .. code-block:: javascript

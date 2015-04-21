@@ -14,7 +14,8 @@
 
 .. code-block:: java
 
-  PagedIterable<Service> services = poppyApi.getServiceApi().list();
+  ServiceApi serviceApi = cdnApi.getServiceApi();
+  List<Service> serviceList = serviceApi.list().concat().toList();
 
 .. code-block:: javascript
 

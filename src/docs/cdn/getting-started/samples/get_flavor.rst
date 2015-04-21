@@ -8,6 +8,7 @@
 
 .. code-block:: java
 
+  FlavorApi flavorApi = cdnApi.getFlavorApi();
   Flavor flavor = flavorApi.get("{flavorId}");
 
 .. code-block:: javascript
