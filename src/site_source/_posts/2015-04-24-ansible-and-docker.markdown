@@ -44,7 +44,7 @@ That's a good starting point, but if you're shipping code often, your applicatio
 
 ### `pull=always` and `state=reloaded`
 
-These two options, added in the recent Ansible 1.9.0 release, allow you to use the Docker module to deploy containers in a more idempotent fashion. `pull=always` performs a `docker pull` on the server before anything else is done, even if the image is already present -- this lets you be certain that you're running the latest builds of all of your containers. Using `state=reloaded` instead of `state=started` invokes more powerful logic about your container's state: it asserts that, not only is a container with the same *name* (or matching image and command) running, but a container with the same *configuration*. If anything has been changed in the playbook -- a new version of the container's image, a different value for an environment variable, or a redeployed container that was linked to this one -- the existing container or containers will be stopped and new ones will be started with the new configuration. If everything is still the same, though, nothing will be done and the module will report `changed=false`, like a well-behaved Ansible citizen.
+These two options, added in the recent Ansible 1.9.0 release, allow you to use the Docker module to deploy containers in a more idempotent fashion. `pull=always` performs a `docker pull` on the server before anything else is done, even if the image is already present -- this lets you be certain that you're running the latest builds of all of your containers. Using `state=reloaded` instead of `state=started` invokes more powerful logic about your container's state: it asserts that, not only is a container with the same *name* (or matching image and command) running, but a container with the same *configuration*. If anything has been changed in the container's image or the settings in your playbook -- a new version of the container's image, a different value for an environment variable, or a redeployed container that was linked to this one -- the existing container or containers will be stopped and new ones will be started with the new configuration. If everything is still the same, though, nothing will be done and the module will report `changed=false`, like a well-behaved Ansible citizen.
 
 Using them together lets you keep a container up to date, keep its configuration up to date, and automatically propagate container restarts to any dependent containers. Handy!
 
@@ -52,7 +52,7 @@ Using them together lets you keep a container up to date, keep its configuration
 - name: My application
   docker:
     name: web
-    image: smashwilson/minimal-sinatra:latest
+    image: quay.io/smashwilson/minimal-sinatra:latest
     pull: always
     state: reloaded
     env:
@@ -62,9 +62,7 @@ Using them together lets you keep a container up to date, keep its configuration
     - "database:database"
 ```
 
-*Pro tip:* If you register the result of this task, you can use a `debug` task to inspect the `reload_reasons` variable and see *why* Docker decided to restart a specific container.
-
-I like to use these parameters on my own application containers, because they change often and because I can write code that can gracefully handle the occasional restart. It's probably not a good idea to use them on containers that provide infrastructure services, like your database, because you won't want those to restart unless you really need them to!
+I like to use these parameters on my own application containers, because they change often and because I can be sure I'm writing code that will gracefully handle the occasional restart. It's probably not a good idea to use them on containers that provide infrastructure services, like your database, because you won't want those to restart unless you really need them to!
 
 ### `restart_policy=always`
 
@@ -82,11 +80,11 @@ You can instruct the Docker daemon to restart your container any time its proces
     restart_policy: always
 ```
 
-Setting it to `on-failure` will allow the container to exit if it exits cleanly (with a 0 status). If you're concerned about flapping, the number of restarts before Docker will give up can also be controlled by setting `restart_policy_retry` to a nonzero count.
+Setting it to `on-failure` will allow the container to exit if its process exits cleanly (with a 0 status). If you're concerned about flapping, the number of restarts before Docker will give up can also be controlled by setting `restart_policy_retry` to a nonzero count.
 
 ## Using Ansible to build Docker images
 
-Most of the time, Dockerfiles are perfectly reasonable for creating Docker container images. For me, most of the benefit of using Ansible is that you can create playbooks that are *idempotent* - when you re-run your playbook, only the tasks that actually require changes have any effect. However, when you're creating a Docker container image, each step is performed from a consistent starting state (in theory, at least!). Also, because the Ansible build is performed as a single "step", delegating image creation to Ansible prevents you from being able to use the build cache purposefully. Managing the build cache well is important because it allows you to keep your image build times quick.
+Most of the time, Dockerfiles are perfectly reasonable for creating Docker container images. For me, most of the benefit of using Ansible is that you can create playbooks that are *idempotent* - when you re-run your playbook, only the tasks that actually require changes have any effect. However, when you're creating a Docker container image, each step is performed from a consistent starting state (in theory, at least!). Also, because the Ansible build is performed as a single "step", delegating image creation to Ansible prevents you from being able to use the build cache purposefully. Managing the build cache well is important because it allows you to keep your image build times short when you're iterating rapidly.
 
 Still, there are several reasons why using an Ansible playbook can be beneficial:
 
@@ -95,7 +93,7 @@ Still, there are several reasons why using an Ansible playbook can be beneficial
  * Ansible's [extensive module library](http://docs.ansible.com/modules_by_category.html) can help you simplify common administrative tasks.
  * You can use roles published on [Ansible Galaxy](https://galaxy.ansible.com/) to benefit from expertise from the community.
 
-To do so, all that you need to do is use one of [the official base images](https://github.com/ansible/ansible-docker-base) that ship with Ansible pre-installed, and execute `ansible-playbook` in a `RUN` step:
+To do so, all that you need to do is write a Dockerfile that's based on one of [the official base images](https://github.com/ansible/ansible-docker-base) that ship with Ansible pre-installed, and execute `ansible-playbook` in a `RUN` step:
 
 ```
 FROM ansible/ubuntu14.04-ansible:stable
