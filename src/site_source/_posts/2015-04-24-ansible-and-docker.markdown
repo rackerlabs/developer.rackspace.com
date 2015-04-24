@@ -68,7 +68,21 @@ I like to use these parameters on my own application containers, because they ch
 
 ### `restart_policy=always`
 
-Another important option you should consider using is `restart_policy`, which lets you use Docker as a process supervisor, like upstart, monit, or forever.js.
+Another important option you should consider using is `restart_policy`, which lets you use Docker as a process supervisor, like upstart, monit, or forever.js. This is important for production environments, because it protects you from seeing extended downtime when you have an uncaught exception somewhere.
+
+You can instruct the Docker daemon to restart your container any time its process terminates by adding the `restart_policy` parameter:
+
+```yaml
+- name: My application
+  docker:
+    name: web
+    image: smashwilson/minimal-sinatra:latest
+    pull: always
+    state: reloaded
+    restart_policy: always
+```
+
+Setting it to `on-failure` will allow the container to exit if it exits cleanly (with a 0 status). If you're concerned about flapping, the number of restarts before Docker will give up can also be controlled by setting `restart_policy_retry` to a nonzero count.
 
 ## Using Ansible to build Docker images
 
