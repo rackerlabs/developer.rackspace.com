@@ -10,9 +10,9 @@ categories:
 - docker
 ---
 
-At first glance, [Ansible](http://www.ansible.com/) and [Docker](https://www.docker.com/) seem to be redundant. Both offer solutions to the configuration management problem: reliably and repeatably managing complicated software deployments. While you certainly can use either on its own with great success, it turns out that using both together can result in a faster, cleaner deployment process.
+At first glance, [Ansible](http://www.ansible.com/) and [Docker](https://www.docker.com/) seem to be redundant. Both offer solutions to the configuration management problem through very different means, enabling you to reliably and repeatably manage complicated software deployments. While you certainly can use either on its own with great success, using both together can result in a fast, clean deployment process.
 
-There are two ways that you can use Ansible and Docker together. You can use Ansible to orchestrate the deployment and configuration of your Docker containers on the host, or you can use Ansible to construct your Docker container images based on Ansible playbooks, as a more powerful alternative to Dockerfiles.
+There are two ways that you can combine them, both useful for different reasons. You can use Ansible to orchestrate the deployment and configuration of your Docker containers on the host, or you can use Ansible to construct your Docker container images based on Ansible playbooks as a more powerful alternative to Dockerfiles.
 
 <!-- more -->
 
@@ -26,7 +26,7 @@ Most prominently, though, you can use Ansible to manage how and where each of yo
 
 Ansible includes a [Docker module](http://docs.ansible.com/docker_module.html) that you can use to manage the Docker containers that are active on each host. It supports an intimidating number of module parameters, but you only need to know a few to get started.
 
-The minimum information that you can specify is the name of an image. It's good practice to also be explicit about the desired state, even though there's a default value. I also prefer to name my containers whenever I can, so that the output of `docker ps` is as readable as possible, and to make it convenient to reference from other containers later.
+The minimum information that you can specify is the name of an image. It's good practice to also be explicit about the desired state, even though there's a default value. I also prefer to name my containers whenever I can, so that the output of `docker ps` is as readable as possible, and to make it convenient to reference from other containers and tools later.
 
 ```yaml
 - name: Database
@@ -42,7 +42,7 @@ That's a good starting point, but if you're shipping code often, your applicatio
 
 ### `pull=always` and `state=reloaded`
 
-These two options, added in the recent Ansible 1.9.0 release, allow you to use the Docker module to deploy containers in a more idempotent fashion. `pull=always` performs a `docker pull` on the server before anything else is done, even if the image is already present -- this lets you be certain that you're running the latest builds of all of your containers. Using `state=reloaded` instead of `state=started` invokes more powerful logic about your container's state: it asserts that, not only is a container with the same *name* (or matching image and command) running, but a container with the same *configuration*. If anything has been changed in the container's image or the settings in your playbook -- a new version of the container's image, a different value for an environment variable, or a redeployed container that was linked to this one -- the existing container or containers will be stopped and new ones will be started with the new configuration. If everything is still the same, though, nothing will be done and the module will report `changed=false`, like a well-behaved Ansible citizen.
+These two options, added in the recent Ansible 1.9.0 release, allow you to use the Docker module to deploy containers in a more idempotent fashion. `pull=always` performs a `docker pull` on the server before anything else is done, even if the image is already present -- this lets you be certain that you're running the latest builds of all of your containers. Using `state=reloaded` instead of `state=started` invokes more powerful logic about your container's state: it asserts that, not only is a container with the same *name* (or matching image and command) running, but a container with the same *configuration*. If anything has been changed in the container's image or the settings in your playbook -- a new build of the image, a different value for an environment variable, or a redeployed container that was linked to this one -- the existing container or containers will be stopped and new ones will be started with the new configuration. If everything is still the same, though, nothing will be done and the module will report `changed=false`, like any other well-behaved Ansible citizen.
 
 Using them together lets you keep a container up to date, keep its configuration up to date, and automatically propagate container restarts to any dependent containers. Handy!
 
@@ -72,7 +72,7 @@ You can instruct the Docker daemon to restart your container any time its proces
 - name: My application
   docker:
     name: web
-    image: smashwilson/minimal-sinatra:latest
+    image: quay.io/smashwilson/minimal-sinatra:latest
     pull: always
     state: reloaded
     restart_policy: always
@@ -91,7 +91,7 @@ Still, there are several reasons why using an Ansible playbook can be beneficial
  * Ansible's [extensive module library](http://docs.ansible.com/modules_by_category.html) can help you simplify common administrative tasks.
  * You can use roles published on [Ansible Galaxy](https://galaxy.ansible.com/) to benefit from expertise from the community.
 
-To do so, all that you need to do is write a Dockerfile that's based on one of [the official base images](https://github.com/ansible/ansible-docker-base) that ship with Ansible pre-installed, and execute `ansible-playbook` in a `RUN` step:
+To do so, all that you need to do is write a Dockerfile that's based on one of [the official base images](https://github.com/ansible/ansible-docker-base) that ship with Ansible pre-installed, and execute `ansible-playbook` with a `RUN` step:
 
 ```
 FROM ansible/ubuntu14.04-ansible:stable
@@ -109,5 +109,13 @@ EXPOSE 443
 ENTRYPOINT ["/usr/local/bin/myapp"]
 CMD ["--help"]
 ```
+
+## Onward
+
+We've been using Ansible and Docker together to ship projects like [Cloudpipe](https://github.com/cloudpipe/deploy) and [Deconst](https://github.com/deconst/deploy) and learning more about doing so every day. Both are great tools that let us manage deployments consistently, reliably, and rapidly, using a foundation of descriptive code that's version controlled.
+
+Happy shipping!
+
+----
 
 *Ash is a software developer on Rackspace's Developer Experience team. His interests include programming languages, continuous deployment, and plugging things into other things (we had to cover all the wall sockets). You can follow him [on Twitter](https://twitter.com/smashwilson) or watch him code [on GitHub](https://github.com/smashwilson).*
