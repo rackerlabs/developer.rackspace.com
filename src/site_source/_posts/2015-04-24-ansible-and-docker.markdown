@@ -54,6 +54,7 @@ Using them together lets you keep a container up to date, keep its configuration
     name: web
     image: smashwilson/minimal-sinatra:latest
     pull: always
+    state: reloaded
     env:
       SOMEVAR: value
       SHH_SECRET: "{{ "{{ from_the_vault" }} }}"
