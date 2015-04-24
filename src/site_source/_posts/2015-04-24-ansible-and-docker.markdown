@@ -4,8 +4,6 @@ title: Ansible and Docker
 date: 2015-04-24 10:00
 comments: true
 author: Ash Wilson
-bio: >
-  Ash is a software developer on Rackspace's Developer Experience team. His interests include programming languages, continuous deployment, and plugging things into other things (we had to cover all the wall sockets).
 published: true
 categories:
 - ansible
@@ -111,3 +109,5 @@ EXPOSE 443
 ENTRYPOINT ["/usr/local/bin/myapp"]
 CMD ["--help"]
 ```
+
+*Ash is a software developer on Rackspace's Developer Experience team. His interests include programming languages, continuous deployment, and plugging things into other things (we had to cover all the wall sockets). You can follow him [on Twitter](https://twitter.com/smashwilson) or watch him code [on GitHub](https://github.com/smashwilson).*
