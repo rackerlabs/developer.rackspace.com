@@ -12,9 +12,9 @@ categories:
 - docker
 ---
 
-At first glance, [Ansible](http://www.ansible.com/) and [Docker](https://www.docker.com/) seem to be redundant. Both offer solutions to the configuration management problem: reliably and repeatably managing complicated software deployments. While you can certainly use either on its own with great success, it turns out that using both together can result in a faster, cleaner deployment process.
+At first glance, [Ansible](http://www.ansible.com/) and [Docker](https://www.docker.com/) seem to be redundant. Both offer solutions to the configuration management problem: reliably and repeatably managing complicated software deployments. While you certainly can use either on its own with great success, it turns out that using both together can result in a faster, cleaner deployment process.
 
-There are two ways that you can use Ansible and Docker together. You can use Ansible to orchestrate the installation and configuration of your Docker containers, or you can use Ansible to construct your Docker container images based on Ansible playbooks, as a more powerful alternative to Dockerfiles.
+There are two ways that you can use Ansible and Docker together. You can use Ansible to orchestrate the deployment and configuration of your Docker containers on the host, or you can use Ansible to construct your Docker container images based on Ansible playbooks, as a more powerful alternative to Dockerfiles.
 
 <!-- more -->
 
@@ -67,7 +67,7 @@ I like to use these parameters on my own application containers, because they ch
 
 ### `restart_policy=always`
 
-Another important option you should consider using is `restart_policy`, which lets you use Docker as a process supervisor.
+Another important option you should consider using is `restart_policy`, which lets you use Docker as a process supervisor, like upstart, monit, or forever.js.
 
 ## Using Ansible to build Docker images
 
