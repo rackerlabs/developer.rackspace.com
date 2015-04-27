@@ -26,7 +26,7 @@
 
 .. code-block:: python
 
-  # Not currently supported by this SDK
+  flavor = cdn.get_flavor('{flavorId}')
 
 .. code-block:: ruby
 
