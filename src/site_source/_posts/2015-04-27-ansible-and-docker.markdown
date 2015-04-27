@@ -16,6 +16,11 @@ There are two ways that you can combine them, both useful for different reasons.
 
 <!-- more -->
 
+<img
+  src="{% asset_path 2015-04-27-ansible-and-docker/cow-on-container.jpg %}"
+  alt="I'm pretty sure Ansible's EULA requires you to use a picture of a cow somewhere"
+  title="I'm pretty sure Ansible's EULA requires you to use a picture of a cow somewhere">
+
 ## Deploying Docker containers with Ansible
 
 Docker containers provide a powerful way to deliver a consistent environment for your software, from your laptop to a cluster of production machines, but there are still ample responsibilities left for Ansible to take. Ansible can provision your [servers](http://docs.ansible.com/rax_module.html), your [networks](http://docs.ansible.com/rax_network_module.html), your [load balancers](http://docs.ansible.com/rax_clb_module.html), and [more](http://docs.ansible.com/list_of_cloud_modules.html#rackspace). If the server image you choose doesn't already have Docker installed, you'll need some way to do that. Sometimes, you'll also need to manage the Docker daemon's configuration or tweak [Linux kernel parameters](http://docs.docker.com/installation/ubuntulinux/#adjust-memory-and-swap-accounting).
@@ -79,6 +84,11 @@ You can instruct the Docker daemon to restart your container any time its proces
 ```
 
 Setting it to `on-failure` allows the container to exit if its process exits cleanly (with a 0 status). If you're concerned about flapping, the number of restarts before Docker will give up can also be controlled by setting `restart_policy_retry` to a nonzero count.
+
+<img
+  src="{% asset_path 2015-04-27-ansible-and-docker/cow-in-container.jpg %}"
+  alt="[muffled mooing noises]"
+  title="[muffled mooing noises]">
 
 ## Using Ansible to build Docker images
 
