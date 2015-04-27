@@ -8,6 +8,7 @@
 
 .. code-block:: java
 
+  ServiceApi serviceApi = cdnApi.getServiceApi();
   Service service = serviceApi.get("{serviceId}");
 
 .. code-block:: javascript

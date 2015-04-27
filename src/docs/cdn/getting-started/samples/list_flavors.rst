@@ -14,7 +14,8 @@
 
 .. code-block:: java
 
-  FluentIterable<Flavor> flavors = poppyApi.getFlavorApi().list();
+  FlavorApi flavorApi = cdnApi.getFlavorApi();
+  List<FlavorApi> flavorList = flavorApi.list().toList();
 
 .. code-block:: javascript
 

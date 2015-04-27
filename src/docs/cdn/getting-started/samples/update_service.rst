@@ -17,12 +17,10 @@
 
 .. code-block:: java
 
-  URI serviceURI = serviceApi.update(
-    service.getId(),
-    service,
-    service.toUpdatableService()
-      .name("updated service name")
-      .build());
+  ServiceApi serviceApi = cdnApi.getServiceApi();
+  Service serviceToUpdate = serviceApi.get("{serviceId}");
+  UpdateService updated = serviceToUpdate.toUpdatableService().name("updated_name").build();
+  serviceApi.update("{serviceId}", serviceToUpdate, updated);
 
 .. code-block:: javascript
 
