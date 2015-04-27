@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Ansible and Docker
-date: 2015-04-24 10:00
+date: 2015-04-27 10:00
 comments: true
 author: Ash Wilson
 published: true
