@@ -18,15 +18,15 @@ There are two ways that you can combine them, both useful for different reasons.
 
 ## Deploying Docker containers with Ansible
 
-Docker containers are a powerful way to deliver a consistent environment for your software, from your laptop the whole way to a cluster of production machines, but there are still ample responsibilities left for Ansible to take. Ansible can provision your [servers](http://docs.ansible.com/rax_module.html), your [networks](http://docs.ansible.com/rax_network_module.html), your [load balancers](http://docs.ansible.com/rax_clb_module.html), and [more](http://docs.ansible.com/list_of_cloud_modules.html#rackspace). If the server image you choose doesn't already have Docker installed, you'll need some way to do that. Sometimes, you'll also need to manage the Docker daemon's configuration, or tweak [Linux kernel parameters](http://docs.docker.com/installation/ubuntulinux/#adjust-memory-and-swap-accounting).
+Docker containers provide a powerful way to deliver a consistent environment for your software, from your laptop to a cluster of production machines, but there are still ample responsibilities left for Ansible to take. Ansible can provision your [servers](http://docs.ansible.com/rax_module.html), your [networks](http://docs.ansible.com/rax_network_module.html), your [load balancers](http://docs.ansible.com/rax_clb_module.html), and [more](http://docs.ansible.com/list_of_cloud_modules.html#rackspace). If the server image you choose doesn't already have Docker installed, you'll need some way to do that. Sometimes, you'll also need to manage the Docker daemon's configuration or tweak [Linux kernel parameters](http://docs.docker.com/installation/ubuntulinux/#adjust-memory-and-swap-accounting).
 
 Most prominently, though, you can use Ansible to manage how and where each of your containers run: image versions, environment variables, volumes and links.
 
 ### The Ansible Docker module
 
-Ansible includes a [Docker module](http://docs.ansible.com/docker_module.html) that you can use to manage the Docker containers that are active on each host. It supports an intimidating number of module parameters, but you only need to know a few to get started.
+Ansible includes a [Docker module](http://docs.ansible.com/docker_module.html) that you use to manage the Docker containers that are active on each host. It supports an intimidating number of module parameters, but you need to know only a few to get started.
 
-The minimum information that you can specify is the name of an image. It's good practice to also be explicit about the desired state, even though there's a default value. I also prefer to name my containers whenever I can, so that the output of `docker ps` is as readable as possible, and to make it convenient to reference from other containers and tools later.
+The minimum information that you can specify is the name of an image. It's good practice to also be explicit about the desired state, even though there's a default value. I also prefer to name my containers whenever I can, so that (1) the output of `docker ps` is as readable as possible and (2) the container is convenient to reference from other containers and tools later.
 
 ```yaml
 - name: Database
@@ -36,13 +36,13 @@ The minimum information that you can specify is the name of an image. It's good 
     state: started
 ```
 
-This task will pull the latest Postgres image from DockerHub if it isn't present, then launch a single container. It won't launch anything if any container called "database" is already running on the current host.
+This task will pull the latest Postgres image from DockerHub if it isn't present and then launch a single container. However, if any container called "database" is already running on the current host, it won't launch anything.
 
-That's a good starting point, but if you're shipping code often, your application images will be changing frequently, and this task will never see those updates! To deploy new versions of your software, you'll want to take advantage of the "pull" parameter and the "reloaded" state.
+That's a good starting point. However, if you're shipping code often, your application images will be changing frequently, and this task will never see those updates! To deploy new versions of your software, you'll want to take advantage of the "pull" parameter and the "reloaded" state.
 
 ### `pull=always` and `state=reloaded`
 
-These two options, added in the recent Ansible 1.9.0 release, allow you to use the Docker module to deploy containers in a more idempotent fashion. `pull=always` performs a `docker pull` on the server before anything else is done, even if the image is already present -- this lets you be certain that you're running the latest builds of all of your containers. Using `state=reloaded` instead of `state=started` invokes more powerful logic about your container's state: it asserts that, not only is a container with the same *name* (or matching image and command) running, but a container with the same *configuration*. If anything has been changed in the container's image or the settings in your playbook -- a new build of the image, a different value for an environment variable, or a redeployed container that was linked to this one -- the existing container or containers will be stopped and new ones will be started with the new configuration. If everything is still the same, though, nothing will be done and the module will report `changed=false`, like any other well-behaved Ansible citizen.
+These two options, added in the recent Ansible 1.9.0 release, allow you to use the Docker module to deploy containers in a more idempotent fashion. `pull=always` performs a `docker pull` on the server before anything else is done, even if the image is already present -- this lets you be certain that you're running the latest builds of all of your containers. Using `state=reloaded` instead of `state=started` invokes more powerful logic about your container's state: it asserts that, not only is a container with the same *name* (or matching image and command) running, but a container with the same *configuration*. If anything has been changed in the container's image or the settings in your playbook (for example, a new build of the image, a different value for an environment variable, or a redeployed container that was linked to this one) the existing container or containers will be stopped, and new containers will be started with the new configuration. If everything is still the same, though, nothing will be done, and the module will report `changed=false`, like any other well-behaved Ansible citizen.
 
 Using them together lets you keep a container up to date, keep its configuration up to date, and automatically propagate container restarts to any dependent containers. Handy!
 
@@ -78,20 +78,20 @@ You can instruct the Docker daemon to restart your container any time its proces
     restart_policy: always
 ```
 
-Setting it to `on-failure` will allow the container to exit if its process exits cleanly (with a 0 status). If you're concerned about flapping, the number of restarts before Docker will give up can also be controlled by setting `restart_policy_retry` to a nonzero count.
+Setting it to `on-failure` allows the container to exit if its process exits cleanly (with a 0 status). If you're concerned about flapping, the number of restarts before Docker will give up can also be controlled by setting `restart_policy_retry` to a nonzero count.
 
 ## Using Ansible to build Docker images
 
-Most of the time, Dockerfiles are perfectly reasonable for creating Docker container images. For me, most of the benefit of using Ansible is that you can create playbooks that are *idempotent* - when you re-run your playbook, only the tasks that actually require changes have any effect. However, when you're creating a Docker container image, each step is performed from a consistent starting state (in theory, at least!). Also, because the Ansible build is performed as a single "step", delegating image creation to Ansible prevents you from being able to use the build cache purposefully. Managing the build cache well is important because it allows you to keep your image build times short when you're iterating rapidly.
+Most of the time, Dockerfiles are perfectly reasonable for creating Docker container images. For me, most of the benefit of using Ansible is that you can create playbooks that are *idempotent*, which means that when you re-run your playbook, only the tasks that actually require changes have any effect. However, when you're creating a Docker container image, each step is performed from a consistent starting state (in theory, at least!). Also, because the Ansible build is performed as a single "step", delegating image creation to Ansible prevents you from being able to use the build cache purposefully. Managing the build cache is important, because it allows you to keep your image build times short when you're iterating rapidly.
 
 Still, there are several reasons why using an Ansible playbook can be beneficial:
 
  * If you have existing infrastructure that's already using a pure Ansible approach, it's a simple way to kickstart a migration into containers.
- * Ansible allows you to use Jinja2 templates to create files from templates, enabling you to use variables to reduce duplication and derive values from the environment.
- * Ansible's [extensive module library](http://docs.ansible.com/modules_by_category.html) can help you simplify common administrative tasks.
+ * Ansible allows you to use Jinja2 templates to create files from templates, enabling you to use variables to reduce duplication and to derive values from the environment.
+ * Ansible's [extensive module library](http://docs.ansible.com/modules_by_category.html) helps you to simplify common administrative tasks.
  * You can use roles published on [Ansible Galaxy](https://galaxy.ansible.com/) to benefit from expertise from the community.
 
-To do so, all that you need to do is write a Dockerfile that's based on one of [the official base images](https://github.com/ansible/ansible-docker-base) that ship with Ansible pre-installed, and execute `ansible-playbook` with a `RUN` step:
+To do so, all that you need to do is write a Dockerfile that's based on one of [the official base images](https://github.com/ansible/ansible-docker-base) that ship with Ansible pre-installed and execute `ansible-playbook` with a `RUN` step:
 
 ```
 FROM ansible/ubuntu14.04-ansible:stable
