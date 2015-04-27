@@ -27,7 +27,10 @@
 
 .. code-block:: java
 
-  // Not currently supported by this SDK
+  // Authentication in jclouds is lazy and happens on the first call to the cloud.
+  PoppyApi poppyApi = ContextBuilder.newBuilder("rackspace-cdn-us")
+      .credentials("{username}", "{apiKey}")
+      .buildApi(PoppyApi.class);
 
 .. code-block:: javascript
 

@@ -3,6 +3,7 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.IOException;
 import java.net.URI;
+import java.io.BufferedOutputStream;
 
 import com.google.common.io.ByteStreams;
 import com.google.common.io.Files;
@@ -31,7 +32,6 @@ public class CloudFiles {
     // about the cloud service API and specific instantiation values, such as the endpoint URL.
     public static final String PROVIDER = System.getProperty("provider", "rackspace-cloudfiles-us");
 
-    // jclouds refers to "regions" as "zones"
     public static final String REGION = System.getProperty("region", "IAD");
 
     // Authentication credentials
@@ -47,22 +47,22 @@ public class CloudFiles {
         ContextBuilder builder = ContextBuilder.newBuilder(PROVIDER)
             .credentials(USERNAME, API_KEY);
 
-        BlobStore blobStore = builder.buildView(RegionScopedBlobStoreContext.class).blobStoreInRegion(REGION);
-        BlobRequestSigner signer = builder.buildView(RegionScopedBlobStoreContext.class).signerInRegion(REGION);
+        BlobStore blobStore = builder.buildView(RegionScopedBlobStoreContext.class).getBlobStore(REGION);
+        BlobRequestSigner signer = builder.buildView(RegionScopedBlobStoreContext.class).getSigner(REGION);
         CloudFilesApi cloudFilesApi = blobStore.getContext().unwrapApi(CloudFilesApi.class);
 
-        ContainerApi containerApi = cloudFilesApi.getContainerApiForRegion(REGION);
+        ContainerApi containerApi = cloudFilesApi.getContainerApi(REGION);
         createContainer(containerApi);
 
-        ObjectApi objectApi = cloudFilesApi.getObjectApiForRegionAndContainer(REGION, CONTAINER_NAME);
+        ObjectApi objectApi = cloudFilesApi.getObjectApi(REGION, CONTAINER_NAME);
         uploadObject(objectApi);
         SwiftObject object1 = getObjectSDK(objectApi);
         updateObjectMetadata(objectApi);
 
-        AccountApi accountApi = cloudFilesApi.getAccountApiForRegion(REGION);
+        AccountApi accountApi = cloudFilesApi.getAccountApi(REGION);
         URI tempURL = getObjectTempUrl(accountApi, signer);
 
-        CDNApi cdnApi = cloudFilesApi.getCDNApiForRegion(REGION);
+        CDNApi cdnApi = cloudFilesApi.getCDNApi(REGION);
         URI uri = enableCDN(cdnApi);
         getObjectCDN(cdnApi);
         disableCDN(cdnApi);
@@ -90,7 +90,7 @@ public class CloudFiles {
     }
 
     public static SwiftObject getObjectSDK(ObjectApi objectApi) throws IOException {
-        SwiftObject object = objectApi.get(OBJECT_NAME);
+        SwiftObject object = objectApi.get("String" + OBJECT_NAME);
 
         // Write the object to a file
         InputStream inputStream = object.getPayload().openStream();

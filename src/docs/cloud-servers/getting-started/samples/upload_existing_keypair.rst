@@ -12,7 +12,7 @@
 
 .. code-block:: java
 
-  KeyPairApi keyPairApi = novaApi.getKeyPairExtensionForZone("{region}").get();
+  KeyPairApi keyPairApi = novaApi.getKeyPairApi("{region}").get();
 
   File keyPairFile = new File("{/home/my-user/.ssh/id_rsa.pub}");
   String publicKey = Files.toString(keyPairFile, UTF_8); // Using com.google.common.io.Files
@@ -73,4 +73,5 @@
         "public_key":"ssh-rsa AAAAB3Nz ..."
       }
     }' \
+    -H "Content-Type: application/json" \
     -H "X-Auth-Token: $TOKEN" | python -m json.tool

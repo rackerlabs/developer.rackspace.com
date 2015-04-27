@@ -17,7 +17,7 @@
 .. code-block:: java
 
   // Create a user with username and password and give them access to one database.
-  UserApi userApi = troveApi.getUserApiForZoneAndInstance("{region}", "{instanceId}");
+  UserApi userApi = troveApi.getUserApi("{region}", "{instanceId}");
 
   userApi.create("{dbUsername}", "{dbPassword}", "{dbName}");
 

@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <properties>
-    <jclouds.version>1.7.3</jclouds.version>
+    <jclouds.version>1.9.0</jclouds.version>
   </properties>
   <groupId>com.mycompany.app</groupId>
   <artifactId>my-app</artifactId>
@@ -55,6 +55,11 @@
       <artifactId>rackspace-clouddns-us</artifactId>
       <version>${jclouds.version}</version>
     </dependency>
+    <dependency>
+      <groupId>org.apache.jclouds.labs</groupId>
+      <artifactId>rackspace-cdn-us</artifactId>
+      <version>${jclouds.version}</version>
+    </dependency>
     <!-- Rackspace UK dependencies -->
     <dependency>
       <groupId>org.apache.jclouds.provider</groupId>
@@ -95,6 +100,11 @@
       <groupId>org.apache.jclouds.provider</groupId>
       <artifactId>rackspace-clouddns-uk</artifactId>
       <version>${jclouds.version}</version>
+   </dependency>
+   <dependency>
+     <groupId>org.apache.jclouds.labs</groupId>
+     <artifactId>rackspace-cdn-uk</artifactId>
+     <version>${jclouds.version}</version>
    </dependency>
   </dependencies>
 </project>

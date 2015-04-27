@@ -8,7 +8,7 @@
 
 .. code-block:: java
 
-  GroupApi groupApi = autoscaleApi.getGroupApiForZone("{region}");
+  GroupApi groupApi = autoscaleApi.getGroupApi("{region}");
 
   groupApi.delete("{groupId}");
 

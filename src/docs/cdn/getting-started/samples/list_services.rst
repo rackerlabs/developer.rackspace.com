@@ -14,7 +14,7 @@
 
 .. code-block:: java
 
-  // Not currently supported by this SDK
+  PagedIterable<Service> services = poppyApi.getServiceApi().list();
 
 .. code-block:: javascript
 

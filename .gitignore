@@ -27,3 +27,7 @@ src/site_source/_config.yml
 
 # Currently active top-level Dockerfile
 /Dockerfile
+
+# Compiled Java classes
+
+**/*.class

@@ -25,6 +25,7 @@ import org.jclouds.rackspace.cloudloadbalancers.v1.features.ErrorPageApi;
 import org.jclouds.rackspace.cloudloadbalancers.v1.features.HealthMonitorApi;
 import org.jclouds.rackspace.cloudloadbalancers.v1.features.LoadBalancerApi;
 import org.jclouds.rackspace.cloudloadbalancers.v1.features.NodeApi;
+import org.jclouds.rackspace.cloudloadbalancers.v1.predicates.LoadBalancerPredicates;
 
 import java.io.IOException;
 import java.util.List;
@@ -39,7 +40,6 @@ public class CloudLoadBalancers {
     // about the cloud service API and specific instantiation values, such as the endpoint URL.
     public static final String PROVIDER = System.getProperty("provider", "rackspace-cloudloadbalancers-us");
 
-    // jclouds refers to "regions" as "zones"
     public static final String REGION = System.getProperty("region", "IAD");
 
     // Authentication credentials
@@ -50,29 +50,34 @@ public class CloudLoadBalancers {
 
         CloudLoadBalancersApi clbApi = authenticate(USERNAME, API_KEY);
 
-        LoadBalancerApi lbApi = clbApi.getLoadBalancerApiForZone(REGION);
+        LoadBalancerApi lbApi = clbApi.getLoadBalancerApi(REGION);
         LoadBalancer loadBalancer = createLoadBalancer(lbApi);
 
-        NodeApi nodeApi = clbApi.getNodeApiForZoneAndLoadBalancer(REGION, loadBalancer.getId());
+        NodeApi nodeApi = clbApi.getNodeApi(REGION, loadBalancer.getId());
         createNodes(nodeApi);
 
-        HealthMonitorApi healthMonitorApi = clbApi.getHealthMonitorApiForZoneAndLoadBalancer(REGION, loadBalancer.getId());
+        awaitActive(lbApi, loadBalancer);
+        HealthMonitorApi healthMonitorApi = clbApi.getHealthMonitorApi(REGION, loadBalancer.getId());
         createHealthMonitor(healthMonitorApi);
         HealthMonitor healthMonitor = getHealthMonitor(healthMonitorApi);
 
-        ConnectionApi connectionApi = clbApi.getConnectionApiForZoneAndLoadBalancer(REGION, loadBalancer.getId());
+        awaitActive(lbApi, loadBalancer);
+        ConnectionApi connectionApi = clbApi.getConnectionApi(REGION, loadBalancer.getId());
         setThrottling(connectionApi);
         
-        AccessRuleApi accessRuleApi = clbApi.getAccessRuleApiForZoneAndLoadBalancer(REGION, loadBalancer.getId());
+        awaitActive(lbApi, loadBalancer);
+        AccessRuleApi accessRuleApi = clbApi.getAccessRuleApi(REGION, loadBalancer.getId());
         blacklistIPs(accessRuleApi);
 
-        ContentCachingApi contentCachingApi = clbApi.getContentCachingApiForZoneAndLoadBalancer(REGION, loadBalancer.getId());
+        awaitActive(lbApi, loadBalancer);
+        ContentCachingApi contentCachingApi = clbApi.getContentCachingApi(REGION, loadBalancer.getId());
         enableContentCaching(contentCachingApi);
 
-        ErrorPageApi errorPageApi = clbApi.getErrorPageApiForZoneAndLoadBalancer(REGION, loadBalancer.getId());
+        awaitActive(lbApi, loadBalancer);
+        ErrorPageApi errorPageApi = clbApi.getErrorPageApi(REGION, loadBalancer.getId());
         setCustomErrorPage(errorPageApi);
 
-        deleteResources(clbApi, loadBalancer);
+        deleteResources(clbApi, lbApi, loadBalancer);
     }
 
     public static CloudLoadBalancersApi authenticate(String username, String apiKey) {
@@ -106,7 +111,7 @@ public class CloudLoadBalancers {
         NovaApi novaApi = ContextBuilder.newBuilder("rackspace-cloudservers-us")
                 .credentials(USERNAME, API_KEY)
                 .buildApi(NovaApi.class);
-        ServerApi serverApi = novaApi.getServerApiForZone(REGION);
+        ServerApi serverApi = novaApi.getServerApi(REGION);
 
         Server server1 = serverApi.get("{serverId}");
         Server server2 = serverApi.get("{serverId}");
@@ -184,7 +189,7 @@ public class CloudLoadBalancers {
     }
 
     public static void deleteNodes(CloudLoadBalancersApi clbApi, LoadBalancer loadBalancer) {
-        NodeApi nodeApi = clbApi.getNodeApiForZoneAndLoadBalancer(REGION, loadBalancer.getId());
+        NodeApi nodeApi = clbApi.getNodeApi(REGION, loadBalancer.getId());
 
         Set<Node> nodes = nodeApi.list().concat().toSet();
 
@@ -193,7 +198,7 @@ public class CloudLoadBalancers {
     }
 
     public static void deleteLoadBalancer(CloudLoadBalancersApi clbApi, LoadBalancer loadBalancer) throws TimeoutException {
-        LoadBalancerApi lbApi = clbApi.getLoadBalancerApiForZone(REGION);
+        LoadBalancerApi lbApi = clbApi.getLoadBalancerApi(REGION);
         lbApi.delete(loadBalancer.getId());
         
         // Wait for the Load Balancer to be deleted
@@ -208,11 +213,21 @@ public class CloudLoadBalancers {
         }
     }
 
-    public static void deleteResources(CloudLoadBalancersApi clbApi, LoadBalancer loadBalancer)
+    public static void deleteResources(CloudLoadBalancersApi clbApi, LoadBalancerApi lbApi, LoadBalancer loadBalancer)
           throws IOException, TimeoutException {
+        awaitActive(lbApi, loadBalancer);
         deleteNodes(clbApi, loadBalancer);
+
+        awaitActive(lbApi, loadBalancer);
         deleteLoadBalancer(clbApi, loadBalancer);
 
         Closeables.close(clbApi, true);
+    }
+
+    public static void awaitActive(LoadBalancerApi lbApi, LoadBalancer loadBalancer)
+        throws TimeoutException {
+        if (!LoadBalancerPredicates.awaitAvailable(lbApi).apply(loadBalancer)) {
+            throw new TimeoutException("Timeout on loadBalancer: " + loadBalancer);
+        }
     }
 }

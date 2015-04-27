@@ -16,7 +16,7 @@
 .. code-block:: java
 
   WebhookApi webhookApi =
-    autoscaleApi.getWebhookApiForZoneAndGroupAndPolicy("{region}", "{groupId}", "{policyId}");
+    autoscaleApi.getWebhookApi("{region}", "{groupId}", "{policyId}");
 
   webhookApi.update("{webhookId}", "New name", ImmutableMap.<String, Object>of());
 

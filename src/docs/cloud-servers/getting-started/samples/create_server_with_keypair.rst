@@ -13,7 +13,7 @@
 
 .. code-block:: java
 
-  ServerApi serverApi = novaApi.getServerApiForZone("{region}");
+  ServerApi serverApi = novaApi.getServerApi("{region}");
 
   CreateServerOptions options = CreateServerOptions.Builder.keyPairName("my-keypair");
   ServerCreated serverCreated = serverApi.create("My server", "{imageId}", "{flavorId}", options);
@@ -61,12 +61,14 @@
 
 .. code-block:: sh
 
-  curl -X POST $ENDPOINT -d \
+  curl -X POST $ENDPOINT/servers -d \
     '{
       "server" : {
         "name" : "My server",
-        "imageRef" : ${IMAGE_ID},
-        "flavorRef" : ${FLAVOR_ID},
+        "imageRef": "'"$IMAGE_ID"'",
+        "flavorRef": '"$FLAVOR_ID"',
         "key_name" : "my-keypair"
       }
-    }' -H "X-Auth-Token: $TOKEN" | python -m json.tool
+    }' \
+    -H "Content-Type: application/json" \
+    -H "X-Auth-Token: $TOKEN" | python -m json.tool

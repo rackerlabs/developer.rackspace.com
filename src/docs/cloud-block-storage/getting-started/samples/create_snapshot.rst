@@ -13,8 +13,8 @@
 
 .. code-block:: java
 
-  VolumeApi volumeApi = cinderApi.getVolumeApiForZone("{region}");
-  SnapshotApi snapshotApi = cinderApi.getSnapshotApiForZone("{region}");
+  VolumeApi volumeApi = cinderApi.getVolumeApi("{region}");
+  SnapshotApi snapshotApi = cinderApi.getSnapshotApi("{region}");
 
   // Get the volume to snapshot
   Volume volume = volumeApi.get("{volumeId}")

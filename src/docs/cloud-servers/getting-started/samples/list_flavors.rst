@@ -12,7 +12,7 @@
 
 .. code-block:: java
 
-  FlavorApi flavorApi = novaApi.getFlavorApiForZone("{region}");
+  FlavorApi flavorApi = novaApi.getFlavorApi("{region}");
 
   ImmutableList<? extends Flavor> flavors = flavorApi.listInDetail().concat().toList();
 

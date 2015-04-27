@@ -17,7 +17,7 @@
 
 .. code-block:: java
 
-  GroupApi groupApi = autoscaleApi.getGroupApiForZone("{region}");
+  GroupApi groupApi = autoscaleApi.getGroupApi("{region}");
 
   GroupConfiguration groupConfiguration = GroupConfiguration.builder()
           .maxEntities(25)

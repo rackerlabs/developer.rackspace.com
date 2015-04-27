@@ -33,6 +33,21 @@
         <div class="row">
             <div class="col-md-12">
                 <h2>
+                    <img src="{% asset_path rackspace-cdn.png %}" alt="" class="product-image"/>
+                    Rackspace CDN
+               </h2>
+               <p>Rackspace CDN gives you the power to accelerate content on any public resource at Rackspace.</p>
+               <ul class="piped-list">
+                   <li><a href="/docs/cdn/getting-started/">Getting Started</a></li>
+                   <li><a href="http://api.rackspace.com/api-ref-raxCDN.html">API Reference</a></li>
+                   <li><a href="http://docs.rackspace.com/cdn/api/v1.0/cdn-devguide/content/Overview.html">Developer Guide</a></li>
+               </ul>
+           </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <h2>
                     <img src="{% asset_path cloud-backup.png %}" alt="" class="product-image"/>
                     Cloud Backup
                 </h2>
@@ -112,6 +127,20 @@
         <div class="row">
             <div class="col-md-12">
                 <h2>
+                  <img src="{% asset_path cloud-identity.png %}" alt="" class="product-image"/>
+                  Cloud Identity
+                </h2>
+                <p>Cloud Identity provides authentication and authorization functionality for other Rackspace Cloud services.</p>
+                <ul class="piped-list">
+                    <li><a href="http://api.rackspace.com/api-ref-backup.html">API Reference</a></li>
+                    <li><a href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content">Developer Guide</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <h2>
                     <img src="{% asset_path cloud-images.png %}" alt="" class="product-image"/>
                     Cloud Images
                 </h2>
@@ -160,6 +189,21 @@
         <div class="row">
             <div class="col-md-12">
                 <h2>
+                    <img src="{% asset_path cloud-servers.png %}" alt="" class="product-image"/>
+                    Cloud Networking
+                </h2>
+                <p>Rackspace's Cloud Networking is used to provide on-demand, scalable, and technology-agnostic network abstraction. It supports the creation of networks, subnets, ports, security groups and port traffic rules.</p>
+                <ul class="piped-list">
+                    <li><a href="/docs/cloud-networks/getting-started/">Getting Started</a></li>
+                    <li><a href="http://api.rackspace.com/api-ref-networks.html">API Reference</a></li>
+                    <li><a href="http://docs.rackspace.com/networks/api/v2/cn-gettingstarted/content/ch_preface.html">Developer Guide</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <h2>
                     <img src="{% asset_path cloud-queues.png %}" alt="" class="product-image"/>
                     Cloud Queues
                 </h2>
@@ -190,20 +234,20 @@
             </div>
         </div>
 
-      <div class="row">
-            <div class="col-md-12">
-                <h2>
-                  <img src="{% asset_path cloud-identity.png %}" alt="" class="product-image"/>
-                  Cloud Identity
-                </h2>
-                <p>Cloud Identity provides authentication and authorization functionality for other Rackspace Cloud services.</p>
-                <ul class="piped-list">
-                    <li><a href="http://api.rackspace.com/api-ref-backup.html">API Reference</a></li>
-                    <li><a href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content">Developer Guide</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
+         <div class="row">
+           <div class="col-md-12">
+               <h2>
+                   <img src="{% asset_path cloud-load-balancer.png %}" alt="" class="product-image"/>
+                   Orchestration
+               </h2>
+               <p>Rackspace's Orchestration service provides a template-based way to describe a cloud application. These templates enable you to create the following resource types: instances, floating IPs, volumes, security groups, users, and so on. Also, Orchestration provides some more advanced functionality, such as instance high availability, instance auto-scaling, and nested stacks.</p>
+               <ul class="piped-list">
+                   <li><a href="/docs/orchestration/getting-started/">Getting Started</a></li>
+                   <li><a href="http://api.rackspace.com/api-ref-orchestration.html">API Reference</a></li>
+                   <li><a href="http://docs.rackspace.com/orchestration/api/v1/orchestration-getting-started/content/Orch_Overview.html">Developer Guide</a></li>
+               </ul>
+           </div>
+     </div>
 
     <div class="row">
         <div class="col-md-12">

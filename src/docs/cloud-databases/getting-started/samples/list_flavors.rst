@@ -10,7 +10,7 @@
 .. code-block:: java
 
   // List your flavors and get the first.
-  FlavorApi flavorApi = troveApi.getFlavorApiForZone("{region}");
+  FlavorApi flavorApi = troveApi.getFlavorApi("{region}");
 
   FluentIterable<Flavor> flavors = flavorApi.list();
 

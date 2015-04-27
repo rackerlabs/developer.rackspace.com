@@ -8,7 +8,7 @@
 
 .. code-block:: java
 
-  // Not currently supported by this SDK
+  Service service = serviceApi.get("{serviceId}");
 
 .. code-block:: javascript
 

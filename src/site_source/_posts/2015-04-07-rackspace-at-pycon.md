@@ -14,14 +14,10 @@ Python use at Rackspace is huge, from our work on OpenStack and many other
 related products, whether internal and external, so it makes perfect sense
 for us to support the conference at the Diamond level.
 
-We'll have 14 sessions given by 10 speakers throughout the conference's tutorial and talk schedule,
-and our very own Van Lindberg, chairman of the Python Software Foundation,
-will deliver the chairman's address in a keynote slot on Sunday morning.
+We'll have 13 sessions given by 10 speakers throughout the conference's tutorial and talk schedule, and our very own Van Lindberg, chairman of the Python Software Foundation, will deliver the chairman's address in a keynote slot on Sunday morning.
 
 Be sure to stop by the Rackspace booth in the expo hall, and check out
 the tutorials and talks that we're giving throughout the conference!
-
-<!-- more -->
 
 ### [Shiny, Let's Be Bad Guys: Exploiting and Mitigating the Top 10 Web App Vulnerabilities](https://us.pycon.org/2015/schedule/presentation/304/)
 

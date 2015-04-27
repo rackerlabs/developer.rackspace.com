@@ -38,7 +38,7 @@ public class CloudDNS {
         Domain domain = getZone(domainApi, domains);
         modifyZone(cloudDNSApi, domainApi, domain);
 
-        RecordApi recordApi = cloudDNSApi.getRecordApiForDomain(domain.getId());
+        RecordApi recordApi = cloudDNSApi.getRecordApi(domain.getId());
         Set<RecordDetail> records = createRecord(cloudDNSApi, recordApi);
         RecordDetail record = getRecord(recordApi, records);
         modifyRecord(cloudDNSApi, recordApi, record);
@@ -120,7 +120,7 @@ public class CloudDNS {
     public static void deleteRecord(CloudDNSApi cloudDNSApi, Domain domain, RecordDetail record)
             throws TimeoutException {
         List<String> recordIds = ImmutableList.of(record.getId());
-        RecordApi recordApi = cloudDNSApi.getRecordApiForDomain(domain.getId());
+        RecordApi recordApi = cloudDNSApi.getRecordApi(domain.getId());
 
         awaitComplete(cloudDNSApi, recordApi.delete(recordIds));
     }

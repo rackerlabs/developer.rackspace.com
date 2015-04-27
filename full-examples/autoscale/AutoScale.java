@@ -29,7 +29,6 @@ public class AutoScale {
     // about the cloud service API and specific instantiation values, such as the endpoint URL.
     private static final String PROVIDER = System.getProperty("provider.autoscale", "rackspace-autoscale-us");
 
-    // jclouds refers to "regions" as "zones"
     private static final String REGION = System.getProperty("region", "IAD");
 
     // Authentication credentials
@@ -50,13 +49,13 @@ public class AutoScale {
     public static void main(String[] args) throws Exception {
         AutoscaleApi autoscaleApi = authenticate(USERNAME, API_KEY);
 
-        GroupApi groupApi = autoscaleApi.getGroupApiForZone(REGION);
+        GroupApi groupApi = autoscaleApi.getGroupApi(REGION);
         Group group = createScalingGroup(groupApi);
 
-        PolicyApi policyApi = autoscaleApi.getPolicyApiForZoneAndGroup(REGION, group.getId());
+        PolicyApi policyApi = autoscaleApi.getPolicyApi(REGION, group.getId());
         String policyId = getPolicyId(policyApi);
 
-        WebhookApi webhookApi = autoscaleApi.getWebhookApiForZoneAndGroupAndPolicy(REGION, group.getId(), policyId);
+        WebhookApi webhookApi = autoscaleApi.getWebhookApi(REGION, group.getId(), policyId);
         String webhookId = createWebhook(webhookApi, WEBHOOK_NAME);
         executeWebhook(webhookApi, webhookId);
 
@@ -126,17 +125,17 @@ public class AutoScale {
     }
 
     public static void deleteWebhook(AutoscaleApi autoscaleApi, Group group, String policyId, String webhookId) {
-        WebhookApi webhookApi = autoscaleApi.getWebhookApiForZoneAndGroupAndPolicy(REGION, group.getId(), policyId);
+        WebhookApi webhookApi = autoscaleApi.getWebhookApi(REGION, group.getId(), policyId);
         webhookApi.delete(webhookId);
     }
 
     public static void deleteScalingPolicy(AutoscaleApi autoscaleApi, Group group, String policyId) {
-        PolicyApi policyApi = autoscaleApi.getPolicyApiForZoneAndGroup(REGION, group.getId());
+        PolicyApi policyApi = autoscaleApi.getPolicyApi(REGION, group.getId());
         policyApi.delete(policyId);
     }
 
     public static void deleteScalingGroup(AutoscaleApi autoscaleApi, Group group) {
-        GroupApi groupApi = autoscaleApi.getGroupApiForZone(REGION);
+        GroupApi groupApi = autoscaleApi.getGroupApi(REGION);
         groupApi.delete(group.getId());
     }
 
