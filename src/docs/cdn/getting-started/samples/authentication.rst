@@ -55,8 +55,13 @@
   ));
 
 .. code-block:: python
+ 
+  import pyrax
 
-  # Not currently supported by this SDK
+  pyrax.set_setting("identity_type", "rackspace")
+  pyrax.set_credentials('{username}', '{apiKey}')
+  
+  cdn = pyrax.cloud_cdn
 
 .. code-block:: ruby
 

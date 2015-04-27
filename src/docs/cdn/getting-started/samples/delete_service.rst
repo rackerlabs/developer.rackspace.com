@@ -24,7 +24,7 @@
 
 .. code-block:: python
 
-  # Not currently supported by this SDK
+  service.delete()
 
 .. code-block:: ruby
 

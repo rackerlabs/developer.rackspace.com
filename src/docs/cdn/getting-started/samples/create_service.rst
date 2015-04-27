@@ -83,7 +83,9 @@
 
 .. code-block:: python
 
-  # Not currently supported by this SDK
+  service = cdn.create_service("example_site", "{flavorId}",
+                               [ { "domain": "www.example.com" } ],
+                               [ { "origin": "example.com" } ])
 
 .. code-block:: ruby
 

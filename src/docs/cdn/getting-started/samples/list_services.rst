@@ -32,7 +32,7 @@
 
 .. code-block:: python
 
-  # Not currently supported by this SDK
+  services = cdn.list_services()
 
 .. code-block:: ruby
 

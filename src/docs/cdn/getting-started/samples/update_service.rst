@@ -56,7 +56,7 @@
 
 .. code-block:: python
 
-  # Not currently supported by this SDK
+  service.patch([{"op":"replace", "path":"/name", "value":"newServiceName"}])
 
 .. code-block:: ruby
 
