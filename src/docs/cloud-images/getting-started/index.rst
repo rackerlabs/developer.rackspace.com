@@ -18,27 +18,7 @@ Image
 Image Member
     A user who has been granted access to an image, identified by Rackspace account number.
 
-Authenticate to gain access to the service
-==========================================
-
-To use this service, you must authenticate yourself as a subscriber to the service.
-Authenticate by presenting valid Rackspace customer credentials in a ``POST`` to a Rackspace authentication endpoint.
-
-You can use either of two sets of credentials:
-
-* your username and password
-* your username and API key
-
-Your username and password are the ones you use to login to the Cloud Control Panel at http://mycloud.rackspace.com/.
-You can obtain or create your API key if you are logged in to the Cloud Control Panel: click on your username, then Account Settings; then under Login Details, you can show or reset your API key.
-
-Your username and password are the ones you use to login to the Cloud Control Panel at http://mycloud.rackspace.com/.
-
-To find your API key, first navigate to the Cloud Control Panel, then click on your username at the top right corner, and then finally click on Account Settings. You will be taken to a page that shows your settings. Under Login Details, you can show or reset your API key.
-
-Once you have these pieces of information, you can pass them into the SDK:
-
-.. include:: samples/authentication.rst
+.. include:: ../../_common/authenticate.rst
 
 Image operations
 ================

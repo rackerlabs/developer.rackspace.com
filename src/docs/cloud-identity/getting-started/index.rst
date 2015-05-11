@@ -14,6 +14,8 @@ Based on the OpenStack Identity service (codenamed Keystone), Rackspace Cloud
 Identity also offers user management and basic RBAC functionality for
 fine-grained access control.
 
+.. include:: ../../_common/authenticate.rst
+
 Setup
 =====
 
