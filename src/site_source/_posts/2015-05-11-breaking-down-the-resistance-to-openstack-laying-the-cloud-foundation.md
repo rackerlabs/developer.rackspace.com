@@ -14,6 +14,8 @@ As the look and feel of the cloud evolves, matures, and hedges toward main strea
 
 Those of us who have ever had to stand in front of their Director/CTO/CIO and figurtively 'fight' for a particular technology/product completely understands that this task is not for the meek of heart.  I can remember very vividly holding index cards in my hands with bullet points, as I was attempting to lay out all the reasons why OpenStack should be the company's next major infrastructure shift.  Being prepared for this converstion is critical to the overall enterprises architecture, so you need to articulate clearly why OpenStack is the best choice.  You can never be too prepared.  There will always be questions that you as a technology advocate, will not even think of.  In my opinion, being prepared is key.  So let’s start on our technology layer cake.
 
+<!-- more -->
+
 ---
 #####Why the Cloud? Why OpenStack?
 The foundation of your cake has to be rock solid, or else it will all fall down.  Therefore, it is fundamental to find statistical evidence around the topic.  I would imagine, in this day and time, it is not hard to show the value the cloud can have on an IT organization.  Just in case some are still on the fence, here are some stats from a recent report by RightScale published on [Forbes.com](http://www.forbes.com/sites/benkepes/2015/03/04/new-stats-from-the-state-of-cloud-report).
