@@ -11,6 +11,8 @@ categories:
 
 Hello! This is the first post in a series that will bring you new and interesting links every week from the perspective of a Rackspace Security Engineer. I try to include links that are useful/interesting to a general audience, so you don't have to be an "uber 1337 h4x0r" to enjoy them. If you have any comments, or if you want to submit a link, feel free to leave a comment or catch me on [Twitter][twitter].
 
+<!-- more -->
+
 ## News / Opinions
 
 - [__Lawsuit filed against Lenovo for Superfish backdoor__][lenovo] - A lawsuit has been filed against Lenovo and Superfish Inc. for installing spyware, named Superfish, that worked using man-in-the-middle attacks on user traffic to inject advertisements, on millions of Lenovo PCs. This is on the back of [__more news of serious security failures at Lenovo__][lenovo2] that were revealed in detail last week, in which malware could be installed by using "coffee shop attacks", i.e. man-in-the-middling a public WiFi connection.
