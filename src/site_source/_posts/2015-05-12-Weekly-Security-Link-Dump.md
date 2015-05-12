@@ -9,7 +9,7 @@ categories:
     - Security
 ---
 
-Hello! This is the first post in a series that will bring you new, interesting links every week, from the perspective of a Rackspace Security Engineer. I try to include links that are useful/interesting to a general audience, so you don't have to be an "uber 1337 h4x0r" to enjoy them. If you have any comments, or if you want to submit a link, feel free to leave a comment or catch me on [Twitter][twitter].
+Hello! This is the first post in a series that will bring you new and interesting links every week from the perspective of a Rackspace Security Engineer. I try to include links that are useful/interesting to a general audience, so you don't have to be an "uber 1337 h4x0r" to enjoy them. If you have any comments, or if you want to submit a link, feel free to leave a comment or catch me on [Twitter][twitter].
 
 ## News / Opinions
 
@@ -50,7 +50,7 @@ Hello! This is the first post in a series that will bring you new, interesting l
 
 ## Tools
 
-- [__ccat__][ccat] - ccat, or "colorized cat" functions like the normal UNIX utility, cat, but will also syntax-highlight code. Handy for debugging, triaging issues, etc.
+- [__ccat__][ccat] - ccat, or "colorized cat" functions like the normal UNIX utility, cat, but it will also syntax-highlight code. Handy for debugging, triaging issues, etc.
 
 
 [twitter]: https://twitter.com/ccneill
