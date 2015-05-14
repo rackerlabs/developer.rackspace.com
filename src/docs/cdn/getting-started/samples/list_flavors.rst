@@ -1,7 +1,15 @@
 .. code-block:: csharp
 
-  // Not currently supported by this SDK
-
+  ListFlavorsApiCall t =
+    await contentDeliveryClient.PrepareListFlavorsAsync(CancellationToken.None);
+  using (t)
+  {
+      Tuple<HttpResponseMessage, ReadOnlyCollectionPage<Flavor>> response =
+        await t.SendAsync(CancellationToken.None);
+      ReadOnlyCollection<Flavor> allFlavors =
+        await response.Item2.GetAllPagesAsync(CancellationToken.None, null);
+  }
+  
 .. code-block:: go
 
   err := flavors.List(client).EachPage(func(page pagination.Page) (bool, error) {

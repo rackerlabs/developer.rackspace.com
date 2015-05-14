@@ -1,6 +1,7 @@
 .. code-block:: csharp
 
-  // Not currently supported by this SDK
+  CancellationToken cn = new CancellationToken();
+  await cdc.RemoveAssetAsync({serviceId}, cn, {urlOfAsset});
 
 .. code-block:: go
 

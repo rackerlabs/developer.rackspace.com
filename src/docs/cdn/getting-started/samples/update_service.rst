@@ -1,6 +1,18 @@
 .. code-block:: csharp
 
-  // Not currently supported by this SDK
+  // Get the existing service, and use it's values
+  // to set the updated version, except for the values
+  // you wish to change; in this example, the name.
+  
+  CancellationToken cn = new CancellationToken();
+  var task = contentDeliverClient.GetServiceAsync({serviceId}, cn);
+  task.Wait();
+  var result = task.Result;
+  ServiceData before = result;
+  ServiceData after =
+    new ServiceData("{updated_name}", before.FlavorId, before.Domains, before.Origins, before.CachingRules, before.Restrictions);
+  CancellationToken cn2 = new CancellationToken();
+  await contentDeliveryClient.UpdateServiceAsync({serviceId}, after, cn2);
 
 .. code-block:: go
 

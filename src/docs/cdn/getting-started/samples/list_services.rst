@@ -1,6 +1,8 @@
 .. code-block:: csharp
 
-  // Not currently supported by this SDK
+  CancellationToken cn = new CancellationToken();
+  ReadOnlyCollectionPage<Service> x =
+    await contentDeliveryClient.ListServicesAsync(cn);
 
 .. code-block:: go
 

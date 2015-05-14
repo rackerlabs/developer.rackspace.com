@@ -1,6 +1,17 @@
 .. code-block:: csharp
 
-  // Not currently supported by this SDK
+  using OpenStack.Net;
+  using OpenStack.Services.Identity.V2;
+  using Rackspace.Security.Authentication;
+
+  IIdentityService idservice =
+    new IdentityClient(new Uri("https://identity.api.rackspacecloud.com"));
+  PasswordCredentials pwdCred =
+    new PasswordCredentials("{username}", "{password}");
+  AuthenticationData authData = new AuthenticationData(pwdCred);
+  AuthenticationRequest request = new AuthenticationRequest(authData);
+  RackspaceAuthenticationService ras =
+    new RackspaceAuthenticationService(idservice, request);
 
 .. code-block:: go
 
@@ -55,12 +66,12 @@
   ));
 
 .. code-block:: python
- 
+
   import pyrax
 
   pyrax.set_setting("identity_type", "rackspace")
   pyrax.set_credentials('{username}', '{apiKey}')
-  
+
   cdn = pyrax.cloud_cdn
 
 .. code-block:: ruby
