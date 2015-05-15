@@ -20,6 +20,8 @@ Image Member
 
 .. include:: ../../_common/authenticate.rst
 
+.. include::  samples/authentication.rst
+
 Image operations
 ================
 

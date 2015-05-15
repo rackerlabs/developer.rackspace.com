@@ -16,6 +16,8 @@ fine-grained access control.
 
 .. include:: ../../_common/authenticate.rst
 
+.. include::  samples/authentication.rst
+
 Setup
 =====
 
