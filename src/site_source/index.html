@@ -115,10 +115,9 @@ title: Rackspace Developer Center
             <div class="col-md-6">
                 <h4>Developer Blog</h4>
                 <ul>
-                    <li><a href="#">Using Rackspace Private Cloud to Support Your Software Development Lifecycle</a>
-                    </li>
-                    <li><a href="#">Austin Ladies Hackathon</a></li>
-                    <li><a href="#">Using Heat to install a DEIS PAAS on Rackspace Cloud</a></li>
+                  {% for post in site.posts limit: 3 %}
+                    <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+                  {% endfor %}
                 </ul>
                 <p><a href="/blog/">Visit the Developer Blog <i class="fa fa-arrow-right"></i></a></p>
             </div>
