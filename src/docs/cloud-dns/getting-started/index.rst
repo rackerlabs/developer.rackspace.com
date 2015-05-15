@@ -16,6 +16,8 @@ zone
 
 .. include:: ../../_common/authenticate.rst
 
+.. include::  samples/authentication.rst
+
 Use the API
 ===========
 Some of the basic operations you can perform with this API are described below.

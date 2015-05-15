@@ -21,6 +21,8 @@ instance
 
 .. include:: ../../_common/authenticate.rst
 
+.. include::  samples/authentication.rst
+
 Use the API
 ===========
 
