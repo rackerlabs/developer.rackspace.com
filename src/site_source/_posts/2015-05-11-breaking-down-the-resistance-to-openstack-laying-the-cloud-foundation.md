@@ -10,9 +10,9 @@ categories:
     - openstack-for-enterprises 
 ---
 
-As the look and feel of the cloud evolves, matures, and hedges toward main stream adoption, the Solution Architects, Developers, and Infrastructre engineers of Enterprises face the challenge of determing what technologies to consume.  Should I go with something that requires vendor licensing? Or should I look to Open Source technologies, such as OpenStack?  Then if you do decide that OpenStack solves for your technology needs, how best could someone layout its pros and cons to their senior leadership.  
+As the look and feel of the cloud evolves, matures, and hedges toward main stream adoption, the Solution Architects, Developers, and Infrastructure engineers of Enterprises face the challenge to determine what technologies to consume.  Should I go with something that requires vendor licensing? Or should I look to Open Source technologies, such as OpenStack?  Then if you do decide that OpenStack solves for your technology needs, how best could someone layout its pros and cons to their senior leadership.  
 
-Those of us who have ever had to stand in front of their Director/CTO/CIO and figurtively 'fight' for a particular technology/product completely understands that this task is not for the meek of heart.  I can remember very vividly holding index cards in my hands with bullet points, as I was attempting to lay out all the reasons why OpenStack should be the company's next major infrastructure shift.  Being prepared for this converstion is critical to the overall enterprises architecture, so you need to articulate clearly why OpenStack is the best choice.  You can never be too prepared.  There will always be questions that you as a technology advocate, will not even think of.  In my opinion, being prepared is key.  So let’s start on our technology layer cake.
+Those of us who have ever had to stand in front of their Director/CTO/CIO and figuratively 'fight' for a particular technology/product completely understands that this task is not for the meek of heart.  I can remember very vividly holding index cards in my hands with bullet points, as I was attempting to lay out all the reasons why OpenStack should be the company's next major infrastructure shift.  Being prepared for this conversation is critical to the overall enterprises architecture, so you need to articulate clearly why OpenStack is the best choice.  You can never be too prepared.  There will always be questions that you as a technology advocate, will not even think of.  In my opinion, being prepared is key.  So let’s start on our technology layer cake.
 
 <!-- more -->
 
@@ -73,7 +73,7 @@ Being transparent, it is an Open Source technology that is community driven…an
 * Scale horizontally using commodity hardware to add additional compute resources
 * Add OpenStack control plane nodes to handle needed capacity
 * Availability Zones provide compute isolation
-* Multi-DCSupport viaRegions
+* Multi-DC Support via Regions
 * OpenStack meets High Availability requirements for its own infrastructure services
 * Multi-Tenancy Isolation provided by robust Role Based Access Control (RBAC)
 
@@ -85,7 +85,7 @@ These stats prove that OpenStack is very much an ‘active’ community platform
 
 ![OpenStack Community](http://www.hitchnyc.com/content/images/2015/05/Slide18.jpg)
 
-Another point that really grabbed my attention was the over all IT industry focus on OpenStack this and last year.  Here are some of the resent announcements that all have one deep rooted thing in common, OpenStack:
+Another point that really grabbed my attention was the over all IT industry focus on OpenStack this and last year.  Here are some of the recent announcements that all have one deep rooted thing in common, OpenStack:
 
 * EMC acquires Cloudscaling
 * HP buys Eucalyptus
@@ -112,7 +112,7 @@ Now that you have the questions, you can develop some answers.  To help you down
 
 ***Flexibility is Power - The flexibility around designing and deploying OpenStack is the power all Infrastructure admins want/need***
 
-***CommodityHardware - OpenStack likes all hardware equally; No more worrying about matching server specs***
+***Commodity Hardware - OpenStack likes all hardware equally; No more worrying about matching server specs***
 
 ***IT Moral Booster - Internal IT will have an opportunity to learn a new technology; increasing their value and increasing productivity***
 
