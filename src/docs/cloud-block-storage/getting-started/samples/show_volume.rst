@@ -35,7 +35,7 @@
 
   volume = @client.volumes.get('{volumeId}')
 
- .. code-block:: sh
+.. code-block:: sh
 
     $ curl -X GET $ENDPOINT/volumes/{volumeId}
       -H "X-Auth-Token: $TOKEN" \
