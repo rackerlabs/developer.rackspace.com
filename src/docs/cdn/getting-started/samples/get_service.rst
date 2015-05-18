@@ -1,6 +1,9 @@
 .. code-block:: csharp
 
-  // Not currently supported by this SDK
+  CancellationToken cn = new CancellationToken();
+  var task = contentDeliveryClient.GetServiceAsync({serviceId}, cn);
+  task.Wait();
+  var result = task.Result;
 
 .. code-block:: go
 

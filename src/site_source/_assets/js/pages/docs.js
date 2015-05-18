@@ -15,7 +15,7 @@
     '/docs/cloud-identity': [ 'go', 'java', '.net', 'php', 'python', 'ruby', 'shell' ],
     '/docs/cloud-networks': [ 'go', 'java', '.net', 'php', 'python', 'ruby', 'shell' ],
     '/docs/orchestration': [ 'go', 'java', '.net', 'php', 'python', 'ruby', 'shell' ],
-    '/docs/cdn': [ 'go', 'java', 'php', 'ruby', 'shell' ]
+    '/docs/cdn': [ 'go', 'java', '.net', 'php', 'ruby', 'shell' ]
   };
 
   var cookieName = 'devsite-language';

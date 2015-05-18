@@ -1,6 +1,65 @@
 .. code-block:: csharp
 
-  // Not currently supported by this SDK
+  using OpenStack.Services.ContentDelivery.V1;
+  using System.Collections.Immutable;
+
+  ContentDeliveryClient cdc = GetContentDeliveryClient();
+
+  ServiceProtocol serviceProtocol = ServiceProtocol.Http;
+  ServiceDomain sd = new ServiceDomain("www.example.com", serviceProtocol);
+  ImmutableArray<ServiceDomain>.Builder sdbuilder
+    = ImmutableArray.CreateBuilder<ServiceDomain>();
+  sdbuilder.Add(sd);
+  ImmutableArray<ServiceDomain> domains = sdbuilder.ToImmutable();
+
+  ServiceOriginRule sor =
+    new ServiceOriginRule("example.com", "www.example.com");
+  ImmutableArray<ServiceOriginRule>.Builder sorbuilder
+    = ImmutableArray.CreateBuilder<ServiceOriginRule>();
+  sorbuilder.Add(sor);
+  ImmutableArray<ServiceOriginRule> rules = sorbuilder.ToImmutable();
+
+  ServiceOrigin so = new ServiceOrigin("www.example.com", 80, false, rules);
+  ImmutableArray<ServiceOrigin>.Builder sobuilder
+    = ImmutableArray.CreateBuilder<ServiceOrigin>();
+  sobuilder.Add(so);
+  ImmutableArray<ServiceOrigin> origins = sobuilder.ToImmutable();
+
+  ServiceCacheRule scr = new ServiceCacheRule("default", "www.example.com");
+  ImmutableArray<ServiceCacheRule>.Builder scrbuilder
+    = ImmutableArray.CreateBuilder<ServiceCacheRule>();
+  scrbuilder.Add(scr);
+  ImmutableArray<ServiceCacheRule> scrules = scrbuilder.ToImmutable();
+
+  ImmutableArray<ServiceCache>.Builder scbuilder
+    = ImmutableArray.CreateBuilder<ServiceCache>();
+  ServiceCache sc =
+    new ServiceCache("default", new TimeSpan(0, 0, 3600), scrules);
+  scbuilder.Add(sc);
+  ImmutableArray<ServiceCache> caching = scbuilder.ToImmutable();
+  caching = new ImmutableArray<ServiceCache>();
+
+  ImmutableArray<ServiceRestrictionRule>.Builder srrbuilder
+    = ImmutableArray.CreateBuilder<ServiceRestrictionRule>();
+  ServiceRestrictionRule srr
+    = new ServiceRestrictionRule("example.com", "www.example.com");
+  srrbuilder.Add(srr);
+  ImmutableArray<ServiceRestrictionRule> srrules = srrbuilder.ToImmutable();
+  srrules = new ImmutableArray<ServiceRestrictionRule>();
+
+  ImmutableArray<ServiceRestriction>.Builder rbuilder
+    = ImmutableArray.CreateBuilder<ServiceRestriction>();
+  ServiceRestriction sr = new ServiceRestriction("website only", srrules);
+  rbuilder.Add(sr);
+  ImmutableArray<ServiceRestriction> restrictions =
+    rbuilder.ToImmutable();
+  restrictions = new ImmutableArray<ServiceRestriction>();
+
+  ServiceData serviceData =
+    new ServiceData(serviceName, flavorId, domains, origins, caching, restrictions);
+  CancellationToken cn = new CancellationToken();
+
+  ServiceId x = await cdc.AddServiceAsync(serviceData, cn);
 
 .. code-block:: go
 

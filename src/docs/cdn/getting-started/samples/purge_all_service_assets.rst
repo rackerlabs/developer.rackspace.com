@@ -1,6 +1,7 @@
 .. code-block:: csharp
 
-  // Not currently supported by this SDK
+  CancellationToken cn = new CancellationToken();
+  await contentDeliveryClient.RemoveAssetAsync({serviceId}, cn, deleteAll: true);
 
 .. code-block:: go
 

@@ -1,6 +1,8 @@
 .. code-block:: csharp
 
-  // Not currently supported by this SDK
+  ContentDeliveryClient cdc = GetContentDeliveryClient();
+  CancellationToken cn = new CancellationToken();
+  await cdc.RemoveServiceAsync({serviceId}, cn);
 
 .. code-block:: go
 

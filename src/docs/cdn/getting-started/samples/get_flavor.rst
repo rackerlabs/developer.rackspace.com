@@ -1,6 +1,7 @@
 .. code-block:: csharp
 
-  // Not currently supported by this SDK
+  CancellationToken cn = new CancellationToken();
+  Flavor flavor = await contentDeliverClient.GetFlavorAsync({flavorId}, cn);
 
 .. code-block:: go
 
