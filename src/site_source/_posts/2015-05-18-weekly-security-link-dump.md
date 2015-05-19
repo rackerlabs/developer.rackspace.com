@@ -27,13 +27,13 @@ Not a big update this week, but there are definitely some interesting links in h
 
 # Reference / Tutorials
 
-- [__A week with a Rails security strategy__][rails] - This article presents a nice framework for taking care of the security of your products on a weekly basis. It is geared towards Rails, but you can replace a lot of the Rails-specific pieces with the applicable tools for the language you're using. It includes simple processes like checking for outdated packages that might have security issues and checking out and updating TLS/SSL configurations, but also more holistic processes like thinking about the guts of your application's login system, for example.
+- [__A week with a Rails security strategy__][rails] - This article presents a nice framework for taking care of the security of your products on a weekly basis. It is geared towards Rails, but you can replace a lot of the Rails-specific pieces with the applicable tools for the language you're using. It includes simple processes like checking for outdated packages that might have security issues and checking out and updating TLS/SSL configurations, but it also contains more holistic processes like thinking about the guts of your application's login system, for example.
 
 - [__Secure yourself, part 1: air-gapped computer, GPG and smartcards__][secure_yourself] - Feeling particularly paranoid today? This guide will tell you how to set up an [air-gapped computer][air_gap], configure a [Yubikey][yubikey], and much more.
 
 # Random Link of the Week
 
-- [__Lily__][lily] - Ever wanted a drone to capture all your motions on HD video? Just throw this thing in the air and it will fly around tracking you and shooting video automatically. Personally, I'm not looking forward to the day we have thousands of these things flying around everywhere capturing everything we do, but at least they'll look cool.
+- [__Lily__][lily] - Ever wanted a drone to capture all your motions on HD video? Just throw this thing in the air, and it will fly around tracking you and shooting video automatically. Personally, I'm not looking forward to the day we have thousands of these things flying around everywhere capturing everything we do, but at least they'll look cool.
 
 
 [http2]: http://www.rfc-editor.org/rfc/rfc7540.txt
