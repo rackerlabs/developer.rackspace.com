@@ -13,6 +13,8 @@ This week we have information about the much-talked-about LogJam vulnerability i
 
 As always, you can find me on Twitter [@ccneill][twitter] if you have any thoughts on this post.
 
+<!-- more -->
+
 # News / Opinions
 
 - [__Privacy behaviors after Snowden__][snowden] - A study published in the ACM looks at how user behavior has changed since the relevations of former NSA contractor Edward Snowden, finding that none of the indicators that the author monitored changed significantly in the long-term. The one exception was increased interest in Snowden himself, but the author points out that this doesn't correlate to increased user interest in privacy. I'm not sure that the indicators that were monitored give a full picture since I would argue that parts of the dataset are more representative of users that are less inclined toward downloading or using third party solutions for privacy (users of MSIE, Bing). Still, this is probably the most comprehensive look at user behavior so far in the wake of what the author calls "PRISM day," when details of NSA snooping programs were revealed.
