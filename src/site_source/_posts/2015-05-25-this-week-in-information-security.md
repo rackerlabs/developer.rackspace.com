@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Weekly Security Link Dump (Week of May 25th)"
-date: 2015-05-27 23:59
+title: "This Week in Information Security (Week of May 25th)"
+date: 2015-05-28 23:59
 comments: true
 author: Charles Neill
 published: true
