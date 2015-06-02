@@ -140,21 +140,11 @@ module Jekyll
     def write_category_index(category)
       target_dir = GenerateCategories.category_dir(self.config['category_dir'], category)
       index      = CategoryIndex.new(self, self.source, target_dir, category)
-      if index.render?
-        index.render(self.layouts, site_payload)
-        index.write(self.dest)
-        # Record the fact that this pages has been added, otherwise Site::cleanup will remove it.
-        self.pages << index
-      end
+      self.pages << index if index.render?
 
       # Create an Atom-feed for each index.
       feed = CategoryFeed.new(self, self.source, target_dir, category)
-      if feed.render?
-        feed.render(self.layouts, site_payload)
-        feed.write(self.dest)
-        # Record the fact that this pages has been added, otherwise Site::cleanup will remove it.
-        self.pages << feed
-      end
+      self.pages << feed if feed.render?
     end
 
     # Loops through the list of category pages and processes each one.
