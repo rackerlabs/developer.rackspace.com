@@ -26,16 +26,16 @@ Glance is the image service project within OpenStack and is where all of your Op
 
 Rackspace Private Cloud 10 offers several options for Glance storage backends. One of those options is OpenStack Swift.
 
-When you use Swift as a Glance storage backend, not only will your OpenStack images replicate across the Swift infrastructure, so will any OpenStack Instance Snapshots you take. This offers a true backup solution for your OpenStack Instances because those OpenStack Instance Snapshots are stored on physically different servers than your running OpenStack Instances.
+When you use Swift as a Glance storage backend, not only will your OpenStack images replicate across the Swift infrastructure, so will any OpenStack Instance Snapshots you take. This offers a true backup solution for your OpenStack Instances, because those OpenStack Instance Snapshots are stored on physically different servers than your running OpenStack Instances.
 
 For further backup and disaster recovery purposes, you can setup Swift's container sync functionality to sync the container storing your OpenStack Instance Snapshots to Rackspace Cloud Files running in a different region.
 
 Cinder Volume Snapshot Backups
 ------------------------------
 
-Cinder is the block storage project within OpenStack and it allows you to create Cinder Volumes and present them as block devices to OpenStack Instances. Data stored in a Cinder Volume persists even if the OpenStack Instance it is attached to is destroyed. At that point, the Cinder Volume can be attached to another OpenStack Instance and its data accessed.
+Cinder is the block storage project within OpenStack, and it allows you to create Cinder Volumes and present them as block devices to OpenStack Instances. Data stored in a Cinder Volume persists even if the OpenStack Instance it is attached to is destroyed. At that point, the Cinder Volume can be attached to another OpenStack Instance and its data accessed.
 
-Similar to OpenStack Instance Snapshots, Cinder allows you to snapshot your Cinder Volumes. Dissimilar to OpenStack Instance Snapshots, those Cinder Volume Snapshots are stored on the particular Cinder node where the Cinder Volume resides. Because the Cinder Volume Snapshot is stored on the same node the original data is on, it cannot be considered a backup; it is a point-in-time copy. As mentioned earlier, to be a true backup, the Cinder Volume Snapshot must be stored on physically different servers.
+Similar to OpenStack Instance Snapshots, Cinder allows you to snapshot your Cinder Volumes. Dissimilar to OpenStack Instance Snapshots, those Cinder Volume Snapshots are stored on the particular Cinder node where the Cinder Volume resides. Because the Cinder Volume Snapshot is stored on the same node the original data is on, it cannot be considered a backup; instead, it is a point-in-time copy. As mentioned earlier, to be a true backup, the Cinder Volume Snapshot must be stored on physically different servers.
 
 Cinder has a service called __cinder-backup__ to upload Cinder Volume Snapshots to OpenStack Swift. I encourage you to read more about it in my previous post: [Backing Up Cinder Volumes to Swift](https://developer.rackspace.com/blog/backing-up-cinder-volumes-to-swift/).
 
@@ -69,6 +69,6 @@ OpenStack Swift and most other object storage services have an API in front of t
 In Closing
 ----------
 
-OpenStack Swift does one thing and it does it well: storing your data. Couple that with an API and you have a platform that is extremely extensible and easy to use in many different ways.
+OpenStack Swift does one thing, and it does it well: storing your data. Couple that with an API and you have a platform that is extremely extensible and easy to use in many different ways.
 
 As more and more features are added, such as Storage Policies and Erasure Coding, use cases of Swift will continue to increase and make Swift even more valuable to you and your organization.
