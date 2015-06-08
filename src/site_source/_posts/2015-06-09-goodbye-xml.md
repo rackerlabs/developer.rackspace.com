@@ -81,7 +81,7 @@ header.
 How easy a transition this will be depends upon what scripting language
 you are using. Some languages (Python, for example) handle JSON
 serialization/deserialization much more easily than others. If you need
-to do a major rewrite or your scripts, we strongly recommend considering
+to do a major rewrite of your scripts, we strongly recommend considering
 using an SDK instead of a "raw" language ... it will make upgrades much
 easier on you.
 
