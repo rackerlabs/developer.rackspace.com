@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "OpenStack Swift Use Cases in Rackspace Private Cloud"
-date: 2015-06-04 14:19
+date: 2015-06-09 14:19
 comments: true
 author: James Thorne
 published: true
