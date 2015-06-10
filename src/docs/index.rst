@@ -249,20 +249,6 @@
            </div>
      </div>
 
-    <div class="row">
-        <div class="col-md-12">
-            <h2>
-                <img src="{% asset_path cloud-servers.png %}" alt="" class="product-image"/>
-                Orchestration
-            </h2>
-            <p>Rackspace's Orchestration service provides a template-based way to describe a cloud application. These templates enable you to create the following resource types: instances, floating IPs, volumes, security groups, users, and so on. Also, Orchestration provides some more advanced functionality, such as instance high availability, instance auto-scaling, and nested stacks.</p>
-            <ul class="piped-list">
-                <li><a href="/docs/orchestration/getting-started/">Getting Started</a></li>
-                <li><a href="http://api.rackspace.com/api-ref-orchestration.html">API Reference</a></li>
-                <li><a href="http://docs.rackspace.com/cas/api/v1.0/orchestration-devguide/content/Overview.html">Developer Guide</a></li>
-            </ul>
-        </div>
-    </div>
   </div>
 
 
