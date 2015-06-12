@@ -7,4 +7,6 @@ There are two sections of the site, `/docs` and everything else:
 * `/docs` - [github.com/rackerlabs/docs-quickstart](https://github.com/rackerlabs/docs-quickstart)
 * `/`, `/blog`, `/sdks`, etc. - [github.com/rackerlabs/docs-developer-blog](https://github.com/rackerlabs/docs-developer-blog)
 
+Contribute in those repositories to reflect changes, submit blog posts, raise issues, demand ransom, eat cake, and encourage a vibrant community.
+
 If you want to see behind the covers to know the layout, check out the [control repository](https://github.com/rackerlabs/nexus-control).
