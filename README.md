@@ -2,7 +2,7 @@
 
 developer.rackspace.com is now split across several repositories, backed by the [deconst engine](https://github.com/deconst).
 
-Sections of the site are now broken up by topic:
+There are two sections of the site, `/docs` and everything else:
 
 * `/docs` - [github.com/rackerlabs/docs-quickstart](https://github.com/rackerlabs/docs-quickstart)
 * `/`, `/blog`, `/sdks`, etc. - [github.com/rackerlabs/docs-developer-blog](https://github.com/rackerlabs/docs-developer-blog)
