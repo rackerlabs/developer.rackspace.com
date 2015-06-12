@@ -1,9 +1,0 @@
----
-- name: Configure Elasticsearch server(s)
-  hosts: elasticsearch
-  vars:
-  - elasticsearch_version: 1.0.1
-  - elasticsearch_download_baseurl: https://download.elasticsearch.org/elasticsearch/elasticsearch/
-  - elasticsearch_package_filename: elasticsearch-{{elasticsearch_version}}.deb
-  roles:
-    - elasticsearch

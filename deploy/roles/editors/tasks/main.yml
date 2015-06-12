@@ -1,6 +1,0 @@
----
-- name: Install vim and emacs
-  apt: name={{ item }} state=latest update_cache=yes
-  with_items:
-  - vim-nox
-  - emacs23-nox

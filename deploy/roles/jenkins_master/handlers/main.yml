@@ -1,8 +1,0 @@
----
-- name: restart ssh server
-  sudo: yes
-  service: name=ssh state=restarted
-
-- name: Restart Jenkins Service
-  sudo: yes
-  service: name=jenkins state=restarted

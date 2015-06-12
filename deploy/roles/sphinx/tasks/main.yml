@@ -1,9 +1,0 @@
----
-- name: Install system packages necessary for installing Sphinx
-  apt: name={{ item }} state=latest update_cache=yes
-  with_items:
-  - gcc
-  - python-setuptools
-
-- name: Install Sphinx
-  easy_install: name=sphinx
