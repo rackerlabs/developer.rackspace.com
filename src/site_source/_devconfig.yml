@@ -1,8 +1,0 @@
-# For development, disable asset compression and gzip output.
-# This configuration file is used on top of the base configuration when you run script/preview.
-
-assets:
-  js_compressor: ~
-  css_compressor: ~
-  cache: true
-  gzip: false
