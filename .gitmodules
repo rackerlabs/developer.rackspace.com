@@ -1,7 +1,0 @@
-[submodule "deploy/roles/bennojoy.nginx"]
-	path = deploy/roles/bennojoy.nginx
-	url = https://github.com/ycombinator/nginx.git
-[submodule "deploy/roles/ICTO.ansible-jenkins"]
-	path = deploy/roles/ICTO.ansible-jenkins
-	url = https://github.com/ycombinator/ansible-jenkins
-	branch = development

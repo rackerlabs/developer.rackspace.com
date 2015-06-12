@@ -1,3 +1,0 @@
----
-- name: restart the drc-backend
-  command: chdir={{ backendroot }} forever restart {{ backendroot }}/index.js

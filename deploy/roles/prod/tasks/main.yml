@@ -1,3 +1,0 @@
----
-- name: Copy .bashrc
-  copy: src=root/.bashrc dest=/root/.bashrc owner=root group=root mode=0644
