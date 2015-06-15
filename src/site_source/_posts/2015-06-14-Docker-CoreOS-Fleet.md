@@ -10,22 +10,22 @@ categories:
   - docker
 ---
 
-In this post we will look at Docker, CoreOS & Fleet and demonstrate how one could use all of them in an application scenario.
+In this post, we will look at Docker, CoreOS & Fleet and demonstrate how one could use all of them in an application scenario.
 
  
- * Before you start you will need the following. A Rackspace cloud account. Get a free tier [Rackspace developer account](https://developer.rackspace.com/signup/)
+ * Before you start, you will need the following. A Rackspace cloud account. Get a free tier [Rackspace developer account](https://developer.rackspace.com/signup/)
  
- * If you don't have an account, you can still follow this and do it on your own servers but will need some customizations.
+ * If you don't have an account, you can still follow this and do it on your own servers, but the process will need some customizations.
 
  * If using Rackspace Cloud, ensure that you have novaclient installed. Refer to [Installing Nova](http://www.rackspace.com/knowledge_center/article/installing-python-novaclient-on-linux-and-mac-os) for more details.
 
- * Next clone this repo which is needed for the examples below.
+ * Next, clone this repo which is needed for the examples below.
 
   ```
   git clone https://github.com/srirajan/coreos-docker
   ```
 
- * Lets build a CoreOS cluster. To do that, first get a discovery URL for your cluster. CoreOS uses etcd, a service running on each machine, to handle messages between the cluster nodes. For a group of CoreOS machines to form a cluster, their etcd instances need to be connected. [See Cluster Discovery](https://coreos.com/docs/cluster-management/setup/cluster-discovery/) if you want to read more but how this works.
+ * Lets build a CoreOS cluster. To do that, first get a discovery URL for your cluster. CoreOS uses etcd, a service running on each machine, to handle messages between the cluster nodes. For a group of CoreOS machines to form a cluster, their etcd instances need to be connected. [See Cluster Discovery](https://coreos.com/docs/cluster-management/setup/cluster-discovery/) if you want to read more about how this works.
 
   ```
   curl -w "\n" https://discovery.etcd.io/new
@@ -52,7 +52,7 @@ In this post we will look at Docker, CoreOS & Fleet and demonstrate how one coul
   cloudinit=cloudinit.yaml
   ```
 
- * Boot 4 servers for our CoreOS cluster. Here we are passing the cloud init file via the config-drive option. This typically takes about 3-5 minutes to complete. The min number of nodes is 3 but having 4 helps maintain the cluster if you are upgrading or changing one of them.
+ * Boot 4 servers for our CoreOS cluster. Here we pass the cloud init file via the config-drive option. This typically takes about 3-5 minutes to complete. The min number of nodes is three, but having four helps maintain the cluster if you are upgrading or changing one of them.
 
   ```
   nova boot --flavor $flavor --image $image  --key-name $key \
@@ -70,9 +70,9 @@ In this post we will look at Docker, CoreOS & Fleet and demonstrate how one coul
   nova list
   ```
 
- * In the above steps, we should have created 4 CoreOs servers which are in a cluster. The discovery URL we passed in Cloudinit binds them to the cluster and starts the required services like etcd and fleet.
+ * In the above steps, we should have created four CoreOs servers, which are in a cluster. The discovery URL we passed in Cloudinit binds them to the cluster and starts the required services like etcd and fleet.
 
- * Now, lets play with CoreOS, etcd and Fleet. This should list all 4 machines in the cluster. Fleet is a distributed cluster management tool. It relies on etcd, which is a distributed key value store for operation. It also works with systemd files and behaves like a distributed systemd in a multi-node setup.
+ * Now, lets play with CoreOS, etcd, and Fleet. This should list all four machines in the cluster. Fleet, a distributed cluster management tool, relies on etcd, which is a distributed key value store for operation. It also works with systemd files and behaves like a distributed systemd in a multi-node setup.
 
   ```
   nova ssh core01 --network=public
@@ -89,14 +89,14 @@ In this post we will look at Docker, CoreOS & Fleet and demonstrate how one coul
   f35b7443... 10.181.202.100  -
   ```
 
- * Now inside one of the CoreOS node (e.g. core01), clone the git repo
+ * Now, inside one of the CoreOS node (e.g. core01), clone the git repo
 
   ```
   cd /home/core
   git clone https://github.com/srirajan/coreos-docker
   ```
 
- * Lad all the services. We wlll go into details of each service in following steps.
+ * Load all the services. We wlll go into details of each service in following steps.
 
   ```
   cd /home/core/coreos-docker/fleet-services
@@ -122,11 +122,11 @@ In this post we will look at Docker, CoreOS & Fleet and demonstrate how one coul
    * db - Standard mysql image from Docker registry. Sets the mysql root password. There is no Docker file for this.
    * dbhelper - Custom container that configures the db container. See [Docker file](https://github.com/srirajan/coreos-docker/blob/master/docker-images/dbhelper/Dockerfile)
    * mondb - There is no Docker image here. It just uses systemd to run etcd commands to set values in etcd
-   * web - Custom container that configures the web container. This configures Nginx, copies some PHP code and install supervisord. See [Docker file](https://github.com/srirajan/coreos-docker/blob/master/docker-images/web/Dockerfile)
+   * web - Custom container that configures the web container. This configures Nginx, copies some PHP code, and installs supervisord. See [Docker file](https://github.com/srirajan/coreos-docker/blob/master/docker-images/web/Dockerfile)
    * monweb - Similar to mondb but sets values for the web containers. Things like IP and port numbers are monitored and added to etcd.
 
 
- * Run the db service. This one is fairly simple service and runs a mysql container on one of the hosts. Note, that Fleet decides which host to run the container on and so it may be on any of the 4 nodes.
+ * Run the db service. This is a simple service that runs a mysql container on one of the hosts. Note that Fleet decides which host to run the container on, so it may be on any of the four nodes.
 
   ```
   fleetctl start db.service
@@ -135,7 +135,7 @@ In this post we will look at Docker, CoreOS & Fleet and demonstrate how one coul
 
  * Wait for this service to start before proceeding. This will typically take a few minutes as you are downloading the Docker image from the public registry.
 
- * dbhelper.service uses container linking to install the mysql world database and configure some users for our application. The systemd configuration tells fleet to run on the same host as the db.service. mondb.service is not a container but uses systemd to run a script that updates etcd with the information about the db service. In this case we are just pushing private IPs to etcd but this can be leveraged to do other things as well.
+ * dbhelper.service uses container linking to install the mysql world database and configure some users for our application. The systemd configuration tells fleet to run on the same host as the db.service. mondb.service is not a container but uses systemd to run a script that updates etcd with the information about the db service. In this case, we are just pushing private IPs to etcd, but this can be leveraged to do other things as well.
 
   ```
   fleetctl start dbhelper.service
@@ -167,7 +167,7 @@ In this post we will look at Docker, CoreOS & Fleet and demonstrate how one coul
   Nov 13 14:23:13 core04 docker[22272]: 4079
   ```
 
- * Now let's move on the web containers. Start the one container from the web service. In systemd a service with @ is generic service and you can append values to start as many of them. The first container will take a little bit of time as it is downloading the image but subsequent ones are quick.
+ * Now, let's move on the web containers. Start the one container from the web service. In systemd, a service with @ is generic service, and you can append values to start as many of them as you want. The first container will take a little bit of time, as it is downloading the image, but subsequent ones are quick.
 
   ```
   fleetctl start web@01.service 
@@ -234,15 +234,15 @@ In this post we will look at Docker, CoreOS & Fleet and demonstrate how one coul
   curl http://162.242.255.73:18010/world.php
   ```
 
-At this point, we have database container running and a bunch of web containers running on different hosts. The communication between them has been established as well and we have an working PHP app. An optional step which I have working but skipped in this post was to run a service that watches these containers and adds them to a load balancer.  This is fairly trivial to do but would be specific to the load balancer service you are using.
+At this point, we have a database container running and a bunch of web containers running on different hosts. The communication between them has been established, and we have an working PHP app. An optional step which I have working, but skipped in this post was to run a service that watches these containers and adds them to a load balancer.  This is fairly trivial to do but would be specific to the load balancer service you are using.
 
-This covers our exploration of Docker, CoreOS and Fleet.  There is more these tools can do to help with tighter integration but overall this combination is a good way to manage docker containers and run workloads on it.
+This covers our exploration of Docker, CoreOS and Fleet.  There is more these tools can do to help with tighter integration, but, overall, this combination is a good way to manage docker containers and run workloads on it.
 
 
 Some additional commands that help:
 
 
- * Build without cache. This burnt me the first time. Ubuntu removes old package versions from their repos and if a cached image has that version, apt-get install will try to pull that and fail. Needless to say --no-cache will take longer to build.
+ * Build without cache. This burnt me the first time. Ubuntu removes old package versions from their repos, and, if a cached image has that version, apt-get install will try to pull that and fail. Needless to say --no-cache will take longer to build.
 
   ```
   docker build --no-cache
