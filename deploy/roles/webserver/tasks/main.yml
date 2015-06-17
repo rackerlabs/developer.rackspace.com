@@ -1,39 +1,50 @@
 ---
+# host
 - name: Disable password authentication for SSH
   copy: src=etc/ssh/sshd_config dest=/etc/ssh/sshd_config owner=root group=root mode=0644
   notify:
   - restart ssh server
 
+# host
 - name: Create user for pushing static site
   user: name=publisher comment="Site Publisher" state=present
         groups=www-data
 
+# host
 - name: Add SSH public key to authorized_keys for publisher user
   authorized_key: user=publisher key="{{ lookup('file', 'publisher_rsa.pub') }}"
                   state=present
 
+# host
 - name: Copy motd file
   copy: src=etc/motd dest=/etc/motd owner=root group=root mode=0644
 
+# host
 - name: Make {{ content_owner }} user owner of docroot directory
   file: path={{ docroot }} owner={{ content_owner }} recurse=yes state=directory
 
+# - unnecessary -
 - name: Make {{ content_owner }} user owner of the backend directory
   file: path={{ backendroot }} owner={{ content_owner }} recurse=yes state=directory
 
+# host
 - name: Install the configuration file
   template: src=drc-backend.config.json.j2 dest={{ backendroot }}/config.json
             owner={{ content_owner }} group={{ content_owner }} mode=0600
 
+# - unnecessary -
 - name: Prequisites for apt_repository tasks
   apt: name=python-apt state=installed
 
+# - unnecessary -
 - name: Node.js PPA
   apt_repository: repo='ppa:chris-lea/node.js' state=present update_cache=yes
 
+# container: devsite/
 - name: Recent node.js
   apt: name=nodejs state=installed
   sudo: yes
 
+# - unnecessary -
 - name: Forever.js
   npm: name=forever global=yes state=latest
