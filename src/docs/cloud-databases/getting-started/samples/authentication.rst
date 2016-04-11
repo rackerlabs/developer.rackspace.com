@@ -25,8 +25,6 @@ import (
   "github.com/rackspace/gophercloud/rackspace/db/v1/flavors"
   "github.com/rackspace/gophercloud/rackspace/db/v1/instances"
   "github.com/rackspace/gophercloud/rackspace/db/v1/users"
-
-  osvolumes "github.com/rackspace/gophercloud/openstack/blockstorage/v1/volumes"
 )
 
 ao := gophercloud.AuthOptions{
