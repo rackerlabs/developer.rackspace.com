@@ -9,7 +9,7 @@
 
 .. code-block:: go
 
-  // Not currently supported by this SDK
+  err := instances.Restart(serviceClient, "{instanceId}").ExtractErr()
 
 .. code-block:: java
 

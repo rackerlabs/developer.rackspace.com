@@ -15,7 +15,11 @@
 
 .. code-block:: go
 
-  // Not currently supported by this SDK
+  createOpts := backups.CreateOpts{
+    Name: "backup_name",
+    InstanceID: "{instanceId}",
+  }
+  backup, err := backups.Create(serviceClient, createOpts).Extract()
 
 .. code-block:: java
 

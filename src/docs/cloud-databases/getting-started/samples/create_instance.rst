@@ -19,7 +19,12 @@
 
 .. code-block:: go
 
-  // Not currently supported by this SDK
+  createOpts := instances.CreateOpts{
+    FlavorRef: "{flavorRef}",
+    Size: 20,
+    Name: "sample_instance",
+  }
+  databaseInstance, err := instances.Create(serviceClient, createOpts).Extract()
 
 .. code-block:: java
 

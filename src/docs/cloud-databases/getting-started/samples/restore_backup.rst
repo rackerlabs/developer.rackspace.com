@@ -26,7 +26,13 @@
 
 .. code-block:: go
 
-  // Not currently supported by this SDK
+  createOpts := instances.CreateOpts{
+    FlavorRef: "{flavorRef}",
+    Size: 20,
+    Name: "Restored",
+    RestorePoint: "{backupId}",
+  }
+  databaseInstance, err := instances.Create(serviceClient, createOpts).Extract()
 
 .. code-block:: java
 

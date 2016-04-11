@@ -5,7 +5,16 @@
 
 .. code-block:: go
 
-  // Not currently supported by this SDK
+  err := flavors.List(serviceClient).EachPage(func(page pagination.Page) (bool, error) {
+    flavorList, err := flavors.ExtractFlavors(page)
+    if err != nil {
+      return false, err
+    }
+    for _, f := range flavorList {
+      // ...
+    }
+    return true, nil
+  })
 
 .. code-block:: java
 

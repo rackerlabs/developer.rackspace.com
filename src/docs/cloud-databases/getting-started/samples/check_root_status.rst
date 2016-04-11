@@ -7,7 +7,7 @@
 
 .. code-block:: go
 
-  // Not currently supported by this SDK
+  isRootEnabled, err := instances.IsRootEnabled(serviceClient, "{instanceId}")
 
 .. code-block:: java
 
