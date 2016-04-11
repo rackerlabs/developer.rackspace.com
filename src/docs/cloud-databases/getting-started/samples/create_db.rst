@@ -11,7 +11,12 @@
 
 .. code-block:: go
 
-  // Not currently supported by this SDK
+  createOpts := osDatabases.BatchCreateOpts{
+    {
+      Name: "sample_db",
+    },
+  }
+  err := databases.Create(serviceClient, "{instanceId}", createOpts).ExtractErr()
 
 .. code-block:: java
 

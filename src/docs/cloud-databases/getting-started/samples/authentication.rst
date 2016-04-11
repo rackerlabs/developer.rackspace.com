@@ -15,7 +15,27 @@
 
 .. code-block:: go
 
-	// Not currently supported by this SDK
+import (
+  "github.com/rackspace/gophercloud"
+  "github.com/rackspace/gophercloud/rackspace"
+  osDatabases "github.com/rackspace/gophercloud/openstack/db/v1/databases"
+  osUsers "github.com/rackspace/gophercloud/openstack/db/v1/users"
+  "github.com/rackspace/gophercloud/rackspace/db/v1/backups"
+  "github.com/rackspace/gophercloud/rackspace/db/v1/databases"
+  "github.com/rackspace/gophercloud/rackspace/db/v1/flavors"
+  "github.com/rackspace/gophercloud/rackspace/db/v1/instances"
+  "github.com/rackspace/gophercloud/rackspace/db/v1/users"
+)
+
+ao := gophercloud.AuthOptions{
+  Username: "{username}",
+  APIKey: "{apiKey}",
+}
+provider, err := rackspace.AuthenticatedClient(ao)
+
+serviceClient, err := rackspace.NewDBV1(provider, gophercloud.EndpointOpts{
+  Region: "{region}",
+})
 
 .. code-block:: java
 

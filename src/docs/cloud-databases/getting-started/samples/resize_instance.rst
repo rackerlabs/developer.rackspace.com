@@ -9,7 +9,7 @@
 
 .. code-block:: go
 
-  // Not currently supported by this SDK
+  err := instances.Resize(serviceClient, "{instanceId}", "{newFlavorId}").ExtractErr()
 
 .. code-block:: java
 

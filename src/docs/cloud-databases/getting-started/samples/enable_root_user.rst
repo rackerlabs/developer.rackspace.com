@@ -7,7 +7,7 @@
 
 .. code-block:: go
 
-  // Not currently supported by this SDK
+  user, err := instances.EnableRootUser(serviceClient, "{instanceId}").Extract()
 
 .. code-block:: java
 

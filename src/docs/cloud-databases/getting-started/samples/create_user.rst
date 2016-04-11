@@ -3,16 +3,26 @@
    DatabaseInstanceId databaseInstanceId = new DatabaseInstanceId("{database_instance_id}");
    DatabaseName databaseName = new DatabaseName("{databaseName}");
    UserName userName = new UserName("{username}");
-   UserConfiguration userConfiguration = 
+   UserConfiguration userConfiguration =
 	new UserConfiguration(userName, "{password}", new DatabaseName[] { databaseName });
    await cloudDatabasesProvider.CreateUserAsync(
-	databaseInstanceId, 
-	userConfiguration, 
+	databaseInstanceId,
+	userConfiguration,
 	CancellationToken.None);
 
 .. code-block:: go
 
-  // Not currently supported by this SDK
+  createOpts := osUsers.BatchCreateOpts{
+    {
+      Name: "{dbUsername}",
+      Password: "{dbPassword}",
+      Databases: osDatabases.BatchCreateOpts{
+        {Name: "{dbName1}"},
+        {Name: "{dbName2}"},
+      },
+    },
+  }
+  err := users.Create(serviceClient, "{instanceId}", createOpts).ExtractErr()
 
 .. code-block:: java
 
